@@ -12,7 +12,7 @@ include_directories(gtest/include)
 link_directories(gtest/lib)
 
 # Set source files for RELEASE target
-set(RELEASE_SOURCE_FILES main.cpp)
+set(RELEASE_SOURCE_FILES main.cpp Tram.cpp Tram.h Station.cpp Station.h)
 
 # Set source files for DEBUG target
 set(DEBUG_SOURCE_FILES tests.cpp)
@@ -21,7 +21,7 @@ set(DEBUG_SOURCE_FILES tests.cpp)
 add_executable(Metro ${RELEASE_SOURCE_FILES})
 
 # Create DEBUG target
-add_executable(Metro_debug ${DEBUG_SOURCE_FILES})
+add_executable(testing_tool ${DEBUG_SOURCE_FILES})
 
 # Link library
-target_link_libraries(Metro_debug gtest)
+target_link_libraries(testing_tool gtest)
