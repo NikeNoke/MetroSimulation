@@ -20,13 +20,13 @@ public:
     Station* getStation(std::string& name);
     Tram* getTram(std::string& name);
 
-    std::vector<Station>& getStations(); //returns a reference thus no const promise
-    std::vector<Tram>& getTrams();
+    std::vector<Station>* getStations(); //returns a reference thus no const promise
+    std::vector<Tram>* getTrams();
 
     bool moveTram(Tram& tram, std::string& nameStation);
 
 
-private:
+//private:
     std::vector<Station> stations;
     std::vector<Tram> trams;
 };

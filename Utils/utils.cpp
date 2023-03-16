@@ -1,5 +1,7 @@
 #include <iostream>
 #include "utils.h"
+#include <cstdlib>
+
 
 
 bool Utils::is_int(const std::string &s) {
@@ -97,6 +99,7 @@ void Utils::parseTram(MetroNet &metroNet, TiXmlElement *element) {
 
         } else if (innerElementName == "beginStation" && !beginStationFound) {
             tempTram.beginStation = innerText;
+            tempTram.huidigStation = innerText;
             beginStationFound = true;
         } else {
             broken = true;
@@ -121,26 +124,24 @@ void Utils::parseTram(MetroNet &metroNet, TiXmlElement *element) {
 
 void Utils::writeSpecs(std::ofstream &file, MetroNet &metroNet) {
 
-    std::vector<Station>& stations = metroNet.getStations();
-    std::vector<Tram>& trams = metroNet.getTrams();
 
     file << "Stations: \n";
 
 
-    for(long unsigned int i = 0; i < stations.size(); i++){
+    for(long unsigned int i = 0; i < metroNet.stations.size(); i++){
         file << "\tstation" << i << ":\n";
-        file << "\t\tNaam: " << stations[i].naam << "\n";
-        file << "\t\tVorige Station: " << stations[i].vorige << "\n";
-        file << "\t\tVolgende Station: " << stations[i].volgende << "\n";
+        file << "\t\tNaam: " << metroNet.stations[i].naam << "\n";
+        file << "\t\tVorige Station: " << metroNet.stations[i].vorige << "\n";
+        file << "\t\tVolgende Station: " << metroNet.stations[i].volgende << "\n";
     }
 
     file << "Trams: \n";
 
-    for(long unsigned int i = 0; i < trams.size(); i++){
+    for(long unsigned int i = 0; i < metroNet.trams.size(); i++){
         file << "\ttram" << i << ":\n";
-        file << "\t\tLijnNr: " << trams[i].lijnNr << "\n";
-        file << "\t\tSnelheid: " << trams[i].snelheid << "\n";
-        file << "\t\tBegin station: " << trams[i].beginStation << "\n";
+        file << "\t\tLijnNr: " << metroNet.trams[i].lijnNr << "\n";
+        file << "\t\tSnelheid: " << metroNet.trams[i].snelheid << "\n";
+        file << "\t\tBegin station: " << metroNet.trams[i].beginStation << "\n";
     }
 
 }
@@ -148,12 +149,10 @@ void Utils::writeSpecs(std::ofstream &file, MetroNet &metroNet) {
 
 bool Utils::validMetroNet(MetroNet &metroNet) {
 
-    std::vector<Station>& stations = metroNet.getStations();
-    std::vector<Tram>& trams = metroNet.getTrams();
 
-    for(long unsigned int i = 0; i < stations.size(); i++){
+    for(long unsigned int i = 0; i < metroNet.stations.size(); i++){
 
-        Station current = stations[i];
+        Station current = metroNet.stations[i];
 
         if(!metroNet.stationRegistered(current.vorige)){
             std::cerr << "De vorige station " << current.vorige << "van station " << current.naam << " is niet geregistreerd "
@@ -183,9 +182,9 @@ bool Utils::validMetroNet(MetroNet &metroNet) {
         }
 
         bool spoorHeeftTram = false;
-        for(long unsigned int j = 0; i< trams.size(); i++) {
+        for(long unsigned int j = 0; i< metroNet.trams.size(); i++) {
 
-            if(current.spoorNr == trams[j].lijnNr){
+            if(current.spoorNr == metroNet.trams[j].lijnNr){
                 spoorHeeftTram = true;
                 break;
             }
@@ -198,8 +197,8 @@ bool Utils::validMetroNet(MetroNet &metroNet) {
 
     }
 
-    for(long unsigned int i = 0; i< trams.size(); i++){
-        Tram current = trams[i];
+    for(long unsigned int i = 0; i< metroNet.trams.size(); i++){
+        Tram current = metroNet.trams[i];
 
         if(!metroNet.stationRegistered(current.beginStation)){
             std::cerr << "De begin station " << current.beginStation << "van tram met lijnNr " << current.lijnNr << " is niet geregistreerd "
@@ -232,15 +231,24 @@ std::string Utils::boolToText(bool b) {
 void Utils::simulateMetroNet(MetroNet &metroNet, int amountOfMove) {
 
 
-    std::vector<Tram>& trams = metroNet.getTrams();
+//    std::vector<Tram>* trams = metroNet.getTrams();
 
     for(int i = 0; i< amountOfMove; i++){
-
+        int index = Utils::getRandomInt(metroNet.trams.size()-1);
+        Station* current = metroNet.getStation(metroNet.trams[index].huidigStation);
+        if(Utils::getRandomInt(1)){
+            metroNet.moveTram(metroNet.trams[index], current->volgende);
+        }else{
+            metroNet.moveTram(metroNet.trams[index], current->vorige);
+        }
     }
 
 
 }
 
 int Utils::getRandomInt(int max){
-
+    int min = 0;
+    int output;
+    output = min + (std::rand() % static_cast<int>(max - min + 1));
+    return output;
 }

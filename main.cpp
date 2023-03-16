@@ -10,7 +10,7 @@
 
 int main() {
     TiXmlDocument doc;
-    if (!doc.LoadFile("metronet.xml")) {
+    if (!doc.LoadFile("../metronet.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
         return 1;
     }
@@ -41,12 +41,17 @@ int main() {
 
 
     //2.2
-    std::ofstream metroNetSpecs;
+//    std::ofstream metroNetSpecs;
 
-    metroNetSpecs.open("metroNetSpecs.txt");
+//    metroNetSpecs.open("metroNetSpecs.txt");
 
-    Utils::writeSpecs(metroNetSpecs, metroNet);
+//    Utils::writeSpecs(metroNetSpecs, metroNet);
 
-    metroNetSpecs.close();
+//    metroNetSpecs.close();
+
+    std::cout << "Hoeveel keer moeten we het simuleren: ";
+    int amount;
+    std::cin >> amount;
+    Utils::simulateMetroNet(metroNet, amount);
 
 }

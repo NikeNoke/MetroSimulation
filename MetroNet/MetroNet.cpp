@@ -1,7 +1,6 @@
 #include <iostream>
 #include "MetroNet.h"
 
-
 bool MetroNet::stationRegistered(std::string &name) const {
     for (long unsigned int i = 0; i < stations.size(); i++) {
         if (stations[i].naam == name)
@@ -42,13 +41,14 @@ Station *MetroNet::getStation(std::string &name) {
 //    return NULL;
 //}
 
-std::vector<Station> &MetroNet::getStations() {
-    return stations;
+std::vector<Station>* MetroNet::getStations() {
+    return &stations;
 }
 
-std::vector<Tram> &MetroNet::getTrams() {
-    return trams;
+std::vector<Tram> *MetroNet::getTrams() {
+    return &trams;
 }
+
 
 bool MetroNet::moveTram(Tram &tram, std::string &nameStation) {
 
@@ -60,15 +60,17 @@ bool MetroNet::moveTram(Tram &tram, std::string &nameStation) {
     }
 
     if (nameStation == current->vorige) {
-        std::cerr << "De tram " << tram.lijnNr << "reed van station " << tram.huidigStation << "naar station " << current->vorige << "\n";
+        std::cerr << "De tram " << tram.lijnNr << " reed van station " << tram.huidigStation << " naar station " << current->vorige << "\n";
         tram.huidigStation = current->vorige;
         return true;
     }
 
     else{
-        std::cerr << "De tram " << tram.lijnNr << "reed van station " << tram.huidigStation << "naar station " << current->volgende << "\n";
+        std::cerr << "De tram " << tram.lijnNr << " reed van station " << tram.huidigStation << " naar station " << current->volgende << "\n";
         tram.huidigStation = current->volgende;
         return true;
     }
 
 }
+
+
