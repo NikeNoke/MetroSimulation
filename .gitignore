@@ -1,1 +1,11 @@
 cmake-build-debug
+CMakeFiles
+Testing
+*.lnk
+*.o
+*.cmake
+Makefile
+Metro
+MetroSimulation.cbp
+testing_tool
+CMakeCache.txt

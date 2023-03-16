@@ -12,10 +12,15 @@ include_directories(gtest/include)
 link_directories(gtest/lib)
 
 # Set source files for RELEASE target
-set(RELEASE_SOURCE_FILES main.cpp Tram.cpp Tram.h Station.cpp Station.h)
+set(RELEASE_SOURCE_FILES main.cpp Tram/Tram.cpp Station/Station.cpp TinyXML/tinyxmlparser.cpp
+        TinyXML/tinyxmlerror.cpp TinyXML/tinyxml.cpp TinyXML/tinystr.cpp
+        MetroNet/MetroNet.cpp
+        ParseXML/ParseXML.cpp
+        Utils/utils.cpp
+        )
 
 # Set source files for DEBUG target
-set(DEBUG_SOURCE_FILES tests.cpp)
+set(DEBUG_SOURCE_FILES tests.cpp TinyXML/tinystr.cpp TinyXML/tinyxml.cpp TinyXML/tinyxmlerror.cpp TinyXML/tinyxmlparser.cpp Tram/Tram.h Station/Station.h main.cpp TestFiles/test1.cpp)
 
 # Create RELEASE target
 add_executable(Metro ${RELEASE_SOURCE_FILES})
