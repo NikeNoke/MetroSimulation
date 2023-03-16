@@ -9,7 +9,7 @@
 #include "../Tram/Tram.h"
 #include <fstream>
 #include <vector>
-
+#include <random>
 
 namespace Utils{
     //Source StackOverFlow
@@ -26,6 +26,8 @@ namespace Utils{
     std::string boolToText(bool b);
 
     void simulateMetroNet(MetroNet& metroNet, int amountOfMove);
+
+    int getRandomInt(int max);
 
 }
 

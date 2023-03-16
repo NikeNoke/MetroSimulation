@@ -227,14 +227,20 @@ std::string Utils::boolToText(bool b) {
         return "niet gevonden";
 }
 
+
+
 void Utils::simulateMetroNet(MetroNet &metroNet, int amountOfMove) {
 
 
-    std::
+    std::vector<Tram>& trams = metroNet.getTrams();
 
     for(int i = 0; i< amountOfMove; i++){
 
     }
 
+
+}
+
+int Utils::getRandomInt(int max){
 
 }
