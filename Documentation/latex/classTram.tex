@@ -1,0 +1,165 @@
+\hypertarget{classTram}{}\doxysection{Tram Class Reference}
+\label{classTram}\index{Tram@{Tram}}
+
+
+{\ttfamily \#include $<$Tram.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTram_aad83b2e7e79d57528691bf317ab0e1ef}{Tram}} ()
+\item 
+\mbox{\hyperlink{classTram_a76a05f638985edefb9d9b885737c02b8}{Tram}} (const std\+::string \&begin\+Station, int snelheid, int lijn\+Nr)
+\item 
+std\+::string \mbox{\hyperlink{classTram_ae4a7cf6313452140ed54d219d1f6afba}{get\+Begin\+Station}} () const
+\item 
+int \mbox{\hyperlink{classTram_aa8bcd980469801cb8524f170006f666c}{get\+Snelheid}} () const
+\item 
+int \mbox{\hyperlink{classTram_ad2404fa7837b41287feab05f6a1b52bf}{get\+Lijn\+Nr}} () const
+\item 
+std\+::string \mbox{\hyperlink{classTram_ae1d03c1fb6e0f5f97c57d35fe10fa8dd}{get\+Huidig\+Station}} () const
+\item 
+void \mbox{\hyperlink{classTram_a794aa9864d38b82f57726d3e5a0cfe2d}{set\+Begin\+Station}} (std\+::string bs)
+\item 
+void \mbox{\hyperlink{classTram_a2cabc354af57462ae361ead62a20aca6}{set\+Snelheid}} (int s)
+\item 
+void \mbox{\hyperlink{classTram_acfa9bb360bc614e2b591191f8c525ad8}{set\+Lijn\+Nr}} (int l)
+\item 
+void \mbox{\hyperlink{classTram_a808a9cd6ba36bcefb788d059544968c8}{set\+Huidig\+Station}} (std\+::string h)
+\item 
+bool \mbox{\hyperlink{classTram_ac69cbbacaed7e1b9e60e608d766d02ee}{properly\+Initialized}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasse \doxylink{classTram}{Tram}. Een tram object is een object dat in een \doxylink{classMetroNet}{Metro\+Net} zal zijn. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classTram_aad83b2e7e79d57528691bf317ab0e1ef}\label{classTram_aad83b2e7e79d57528691bf317ab0e1ef} 
+\index{Tram@{Tram}!Tram@{Tram}}
+\index{Tram@{Tram}!Tram@{Tram}}
+\doxysubsubsection{\texorpdfstring{Tram()}{Tram()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Tram\+::\+Tram (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Default constructor van een tram object. \begin{DoxyReturn}{Returns}
+Een tram object zonder attributen. 
+\end{DoxyReturn}
+\Hypertarget{classTram_a76a05f638985edefb9d9b885737c02b8}\label{classTram_a76a05f638985edefb9d9b885737c02b8} 
+\index{Tram@{Tram}!Tram@{Tram}}
+\index{Tram@{Tram}!Tram@{Tram}}
+\doxysubsubsection{\texorpdfstring{Tram()}{Tram()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Tram\+::\+Tram (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{begin\+Station,  }\item[{int}]{snelheid,  }\item[{int}]{lijn\+Nr }\end{DoxyParamCaption})}
+
+Constructor van een tram object. 
+\begin{DoxyParams}{Parameters}
+{\em begin\+Station} & De beginstation waarin de tram zich bevindt. \\
+\hline
+{\em lijn\+Nr} & Het nummer van de lijn, komt overeen met spoornummer van een station. \\
+\hline
+{\em snelheid} & De snelheid dat deze type tram kan halen. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Een tram object met attributen 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Type van trammen is nog niet geïmplementeerd. Snelheid is ook nutteloos op dit moment omdat we geen afstand hebben waarover we de snelheid kunnen gebruiken. Verdere aanpassingen nodig. 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classTram_ae4a7cf6313452140ed54d219d1f6afba}\label{classTram_ae4a7cf6313452140ed54d219d1f6afba} 
+\index{Tram@{Tram}!getBeginStation@{getBeginStation}}
+\index{getBeginStation@{getBeginStation}!Tram@{Tram}}
+\doxysubsubsection{\texorpdfstring{getBeginStation()}{getBeginStation()}}
+{\footnotesize\ttfamily std\+::string Tram\+::get\+Begin\+Station (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+De beginstation van een tram. 
+\end{DoxyReturn}
+\Hypertarget{classTram_ae1d03c1fb6e0f5f97c57d35fe10fa8dd}\label{classTram_ae1d03c1fb6e0f5f97c57d35fe10fa8dd} 
+\index{Tram@{Tram}!getHuidigStation@{getHuidigStation}}
+\index{getHuidigStation@{getHuidigStation}!Tram@{Tram}}
+\doxysubsubsection{\texorpdfstring{getHuidigStation()}{getHuidigStation()}}
+{\footnotesize\ttfamily std\+::string Tram\+::get\+Huidig\+Station (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+Huidig station waarin de tram zich bevindt. 
+\end{DoxyReturn}
+\Hypertarget{classTram_ad2404fa7837b41287feab05f6a1b52bf}\label{classTram_ad2404fa7837b41287feab05f6a1b52bf} 
+\index{Tram@{Tram}!getLijnNr@{getLijnNr}}
+\index{getLijnNr@{getLijnNr}!Tram@{Tram}}
+\doxysubsubsection{\texorpdfstring{getLijnNr()}{getLijnNr()}}
+{\footnotesize\ttfamily int Tram\+::get\+Lijn\+Nr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+Het lijnnummer van een tram. 
+\end{DoxyReturn}
+\Hypertarget{classTram_aa8bcd980469801cb8524f170006f666c}\label{classTram_aa8bcd980469801cb8524f170006f666c} 
+\index{Tram@{Tram}!getSnelheid@{getSnelheid}}
+\index{getSnelheid@{getSnelheid}!Tram@{Tram}}
+\doxysubsubsection{\texorpdfstring{getSnelheid()}{getSnelheid()}}
+{\footnotesize\ttfamily int Tram\+::get\+Snelheid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+De snelheid van een tram. 
+\end{DoxyReturn}
+\Hypertarget{classTram_ac69cbbacaed7e1b9e60e608d766d02ee}\label{classTram_ac69cbbacaed7e1b9e60e608d766d02ee} 
+\index{Tram@{Tram}!properlyInitialized@{properlyInitialized}}
+\index{properlyInitialized@{properlyInitialized}!Tram@{Tram}}
+\doxysubsubsection{\texorpdfstring{properlyInitialized()}{properlyInitialized()}}
+{\footnotesize\ttfamily bool Tram\+::properly\+Initialized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Controleerd ofdat de tram object correct geïnitialiseerd is. \begin{DoxyReturn}{Returns}
+true of false afhankelijk ofdat de tram object correct geïnitialiseerd is of niet. 
+\end{DoxyReturn}
+\Hypertarget{classTram_a794aa9864d38b82f57726d3e5a0cfe2d}\label{classTram_a794aa9864d38b82f57726d3e5a0cfe2d} 
+\index{Tram@{Tram}!setBeginStation@{setBeginStation}}
+\index{setBeginStation@{setBeginStation}!Tram@{Tram}}
+\doxysubsubsection{\texorpdfstring{setBeginStation()}{setBeginStation()}}
+{\footnotesize\ttfamily void Tram\+::set\+Begin\+Station (\begin{DoxyParamCaption}\item[{std\+::string}]{bs }\end{DoxyParamCaption})}
+
+Zet voor een tram object zijn beginstation. 
+\begin{DoxyParams}{Parameters}
+{\em bs} & De naam van het beginstation van een tram. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classTram_a808a9cd6ba36bcefb788d059544968c8}\label{classTram_a808a9cd6ba36bcefb788d059544968c8} 
+\index{Tram@{Tram}!setHuidigStation@{setHuidigStation}}
+\index{setHuidigStation@{setHuidigStation}!Tram@{Tram}}
+\doxysubsubsection{\texorpdfstring{setHuidigStation()}{setHuidigStation()}}
+{\footnotesize\ttfamily void Tram\+::set\+Huidig\+Station (\begin{DoxyParamCaption}\item[{std\+::string}]{h }\end{DoxyParamCaption})}
+
+Zet voor een tram het huidige station. 
+\begin{DoxyParams}{Parameters}
+{\em h} & Het huidig station van een tram. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classTram_acfa9bb360bc614e2b591191f8c525ad8}\label{classTram_acfa9bb360bc614e2b591191f8c525ad8} 
+\index{Tram@{Tram}!setLijnNr@{setLijnNr}}
+\index{setLijnNr@{setLijnNr}!Tram@{Tram}}
+\doxysubsubsection{\texorpdfstring{setLijnNr()}{setLijnNr()}}
+{\footnotesize\ttfamily void Tram\+::set\+Lijn\+Nr (\begin{DoxyParamCaption}\item[{int}]{l }\end{DoxyParamCaption})}
+
+Zet voor een tram object zijn lijnnummer. 
+\begin{DoxyParams}{Parameters}
+{\em l} & Lijnnummer van een tram. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classTram_a2cabc354af57462ae361ead62a20aca6}\label{classTram_a2cabc354af57462ae361ead62a20aca6} 
+\index{Tram@{Tram}!setSnelheid@{setSnelheid}}
+\index{setSnelheid@{setSnelheid}!Tram@{Tram}}
+\doxysubsubsection{\texorpdfstring{setSnelheid()}{setSnelheid()}}
+{\footnotesize\ttfamily void Tram\+::set\+Snelheid (\begin{DoxyParamCaption}\item[{int}]{s }\end{DoxyParamCaption})}
+
+Zet voor een tram object zijn snelheid 
+\begin{DoxyParams}{Parameters}
+{\em s} & Snelheid van een tram. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Tram.\+h\item 
+Tram.\+cpp\end{DoxyCompactItemize}

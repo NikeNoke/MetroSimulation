@@ -1,0 +1,171 @@
+\hypertarget{classMetroNet}{}\doxysection{Metro\+Net Class Reference}
+\label{classMetroNet}\index{MetroNet@{MetroNet}}
+
+
+{\ttfamily \#include $<$Metro\+Net.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMetroNet_ac412bda72e2e95d64ddce9f860acdf92}{Metro\+Net}} ()
+\item 
+\mbox{\hyperlink{classMetroNet_a8d775a6bd435b468b7da134b32184c65}{$\sim$\+Metro\+Net}} ()
+\item 
+bool \mbox{\hyperlink{classMetroNet_a08e11b88658e8972c6121c5eb8c03671}{station\+Registered}} (const std\+::string \&name) const
+\item 
+void \mbox{\hyperlink{classMetroNet_a3e18ff076868c8bbf770c1550733f987}{add\+Station}} (\mbox{\hyperlink{classStation}{Station}} $\ast$const station)
+\item 
+void \mbox{\hyperlink{classMetroNet_a1b5e6fada29587bb810cbebe20116f5c}{add\+Tram}} (\mbox{\hyperlink{classTram}{Tram}} $\ast$const tram)
+\item 
+\mbox{\hyperlink{classStation}{Station}} $\ast$ \mbox{\hyperlink{classMetroNet_ae08d94fa2c11c33976f98cb3da870eae}{get\+Station}} (const std\+::string \&name)
+\item 
+\mbox{\hyperlink{classTram}{Tram}} $\ast$ \mbox{\hyperlink{classMetroNet_a88a3d8b5533b86a0c4165f8b3bf48b10}{get\+Tram}} (const std\+::string \&name)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ \mbox{\hyperlink{classMetroNet_a46edb061e63b058c22593a1b9353a47d}{get\+Stations}} ()
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classTram}{Tram}} $\ast$ $>$ \mbox{\hyperlink{classMetroNet_a6da862e9539dc2ce0232aa4a52e592e0}{get\+Trams}} ()
+\item 
+bool \mbox{\hyperlink{classMetroNet_a8d881a522eb52ccfffa6e8cd5ff27415}{move\+Tram}} (\mbox{\hyperlink{classTram}{Tram}} $\ast$const tram, const std\+::string \&name\+Station)
+\item 
+bool \mbox{\hyperlink{classMetroNet_aeec3db5980e6074796f6a7bf6cc9ce21}{properly\+Initialized}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasse \doxylink{classMetroNet}{Metro\+Net}, een \doxylink{classMetroNet}{Metro\+Net} object waarin alle \doxylink{classTram}{Tram} en \doxylink{classStation}{Station} objecten zouden geplaatst worden en waarover gesimuleert zal worden. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classMetroNet_ac412bda72e2e95d64ddce9f860acdf92}\label{classMetroNet_ac412bda72e2e95d64ddce9f860acdf92} 
+\index{MetroNet@{MetroNet}!MetroNet@{MetroNet}}
+\index{MetroNet@{MetroNet}!MetroNet@{MetroNet}}
+\doxysubsubsection{\texorpdfstring{MetroNet()}{MetroNet()}}
+{\footnotesize\ttfamily Metro\+Net\+::\+Metro\+Net (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Constructor voor \doxylink{classMetroNet}{Metro\+Net}. \begin{DoxyReturn}{Returns}
+Een \doxylink{classMetroNet}{Metro\+Net} object. 
+\end{DoxyReturn}
+\Hypertarget{classMetroNet_a8d775a6bd435b468b7da134b32184c65}\label{classMetroNet_a8d775a6bd435b468b7da134b32184c65} 
+\index{MetroNet@{MetroNet}!````~MetroNet@{$\sim$MetroNet}}
+\index{````~MetroNet@{$\sim$MetroNet}!MetroNet@{MetroNet}}
+\doxysubsubsection{\texorpdfstring{$\sim$MetroNet()}{~MetroNet()}}
+{\footnotesize\ttfamily Metro\+Net\+::$\sim$\+Metro\+Net (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Destructor voor \doxylink{classMetroNet}{Metro\+Net}. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMetroNet_a3e18ff076868c8bbf770c1550733f987}\label{classMetroNet_a3e18ff076868c8bbf770c1550733f987} 
+\index{MetroNet@{MetroNet}!addStation@{addStation}}
+\index{addStation@{addStation}!MetroNet@{MetroNet}}
+\doxysubsubsection{\texorpdfstring{addStation()}{addStation()}}
+{\footnotesize\ttfamily void Metro\+Net\+::add\+Station (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$const}]{station }\end{DoxyParamCaption})}
+
+Voegt station toe bij \doxylink{classMetroNet}{Metro\+Net}. 
+\begin{DoxyParams}{Parameters}
+{\em station} & station dat toegevoegd wordt. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classMetroNet_a1b5e6fada29587bb810cbebe20116f5c}\label{classMetroNet_a1b5e6fada29587bb810cbebe20116f5c} 
+\index{MetroNet@{MetroNet}!addTram@{addTram}}
+\index{addTram@{addTram}!MetroNet@{MetroNet}}
+\doxysubsubsection{\texorpdfstring{addTram()}{addTram()}}
+{\footnotesize\ttfamily void Metro\+Net\+::add\+Tram (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTram}{Tram}} $\ast$const}]{tram }\end{DoxyParamCaption})}
+
+Voegt tram toe bij \doxylink{classMetroNet}{Metro\+Net}. 
+\begin{DoxyParams}{Parameters}
+{\em tram} & tram dat toegevoegd wordt. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classMetroNet_ae08d94fa2c11c33976f98cb3da870eae}\label{classMetroNet_ae08d94fa2c11c33976f98cb3da870eae} 
+\index{MetroNet@{MetroNet}!getStation@{getStation}}
+\index{getStation@{getStation}!MetroNet@{MetroNet}}
+\doxysubsubsection{\texorpdfstring{getStation()}{getStation()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classStation}{Station}} $\ast$ Metro\+Net\+::get\+Station (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+Getter dat het station returned met parameter name. 
+\begin{DoxyParams}{Parameters}
+{\em name} & Naam van het station dat gezocht wordt. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Geeft station terug dat als naam \char`\"{}name\char`\"{} heeft of als die niet bestaat geeft het NULL terug. 
+\end{DoxyReturn}
+\Hypertarget{classMetroNet_a46edb061e63b058c22593a1b9353a47d}\label{classMetroNet_a46edb061e63b058c22593a1b9353a47d} 
+\index{MetroNet@{MetroNet}!getStations@{getStations}}
+\index{getStations@{getStations}!MetroNet@{MetroNet}}
+\doxysubsubsection{\texorpdfstring{getStations()}{getStations()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ Metro\+Net\+::get\+Stations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+een vector met daarin alle stations. 
+\end{DoxyReturn}
+\Hypertarget{classMetroNet_a88a3d8b5533b86a0c4165f8b3bf48b10}\label{classMetroNet_a88a3d8b5533b86a0c4165f8b3bf48b10} 
+\index{MetroNet@{MetroNet}!getTram@{getTram}}
+\index{getTram@{getTram}!MetroNet@{MetroNet}}
+\doxysubsubsection{\texorpdfstring{getTram()}{getTram()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTram}{Tram}} $\ast$ Metro\+Net\+::get\+Tram (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+Getter dat de tram returned met parameter name. 
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Geeft tram terug dat als naam \char`\"{}name\char`\"{} heeft of als die niet bestaat geeft het NULL terug. 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Functie is nog niet geïmplementeerd. 
+\end{DoxyNote}
+\Hypertarget{classMetroNet_a6da862e9539dc2ce0232aa4a52e592e0}\label{classMetroNet_a6da862e9539dc2ce0232aa4a52e592e0} 
+\index{MetroNet@{MetroNet}!getTrams@{getTrams}}
+\index{getTrams@{getTrams}!MetroNet@{MetroNet}}
+\doxysubsubsection{\texorpdfstring{getTrams()}{getTrams()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classTram}{Tram}} $\ast$ $>$ Metro\+Net\+::get\+Trams (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\begin{DoxyReturn}{Returns}
+een vector met daarin alle trammen. 
+\end{DoxyReturn}
+\Hypertarget{classMetroNet_a8d881a522eb52ccfffa6e8cd5ff27415}\label{classMetroNet_a8d881a522eb52ccfffa6e8cd5ff27415} 
+\index{MetroNet@{MetroNet}!moveTram@{moveTram}}
+\index{moveTram@{moveTram}!MetroNet@{MetroNet}}
+\doxysubsubsection{\texorpdfstring{moveTram()}{moveTram()}}
+{\footnotesize\ttfamily bool Metro\+Net\+::move\+Tram (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTram}{Tram}} $\ast$const}]{tram,  }\item[{const std\+::string \&}]{name\+Station }\end{DoxyParamCaption})}
+
+Functie dat een tram verplaatst naar een station. 
+\begin{DoxyParams}{Parameters}
+{\em tram} & De tram die verplaatst zou worden. \\
+\hline
+{\em name\+Station} & De string die overeenkomt met de naam van een station en waarnaar de tram zal verplaatst worden. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true of false afhankelijk ofdat de move gaat of niet gaat. 
+\end{DoxyReturn}
+\Hypertarget{classMetroNet_aeec3db5980e6074796f6a7bf6cc9ce21}\label{classMetroNet_aeec3db5980e6074796f6a7bf6cc9ce21} 
+\index{MetroNet@{MetroNet}!properlyInitialized@{properlyInitialized}}
+\index{properlyInitialized@{properlyInitialized}!MetroNet@{MetroNet}}
+\doxysubsubsection{\texorpdfstring{properlyInitialized()}{properlyInitialized()}}
+{\footnotesize\ttfamily bool Metro\+Net\+::properly\+Initialized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Functie dat test ofdat \doxylink{classMetroNet}{Metro\+Net} correct geïnitialiseerd is. \begin{DoxyReturn}{Returns}
+true of false als het correct geïnitialiseerd is of als het niet correct geïnitialiseerd is. 
+\end{DoxyReturn}
+\Hypertarget{classMetroNet_a08e11b88658e8972c6121c5eb8c03671}\label{classMetroNet_a08e11b88658e8972c6121c5eb8c03671} 
+\index{MetroNet@{MetroNet}!stationRegistered@{stationRegistered}}
+\index{stationRegistered@{stationRegistered}!MetroNet@{MetroNet}}
+\doxysubsubsection{\texorpdfstring{stationRegistered()}{stationRegistered()}}
+{\footnotesize\ttfamily bool Metro\+Net\+::station\+Registered (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption}) const}
+
+Method station\+Registered die controleert dat station attribute \char`\"{}naam\char`\"{} correct ingelezen wordt. 
+\begin{DoxyParams}{Parameters}
+{\em name} & wordt gecontroleert. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true of false afhankelijk ofdat het station correct werd ingelezen. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Metro\+Net.\+h\item 
+Metro\+Net.\+cpp\end{DoxyCompactItemize}
