@@ -8,29 +8,49 @@
 #include "../Tram/Tram.h"
 #include<sstream>
 
-
+/**
+ * Deze klasse test ofdat het gegeven type van de attribute de juiste type is dat required is.
+ * **/
 class AttributeTypeCorrectness : public ::testing::Test {
 protected:
+    /**
+     * "Sets up the text fixture." Klasse overgeërft van gtest.h
+     * **/
     virtual void SetUp() {
 
     }
-
+    /**
+     * "Tears down the test fixture." Klasse overgeërft van gtest.h
+     * **/
     virtual void TearDown() {
 
     }
-
+    /**
+     * Controleert ofdat de gegeven string een integer is.
+     * @param s string waarop de functie toegepast wordt en controleert ofdat die een integer is.
+     * **/
     bool is_int(const std::string &s) {
         std::string::const_iterator it = s.begin();
         while (it != s.end() && std::isdigit(*it)) ++it;
         return !s.empty() && it == s.end();
     }
-
+    /**
+     * Controleert ofdat de gegeven string leeg is.
+     * @param word waarop wordt getest ofdat die lengte nul is of niet.
+     * **/
+    bool is_empty(const std::string &word){
+        if(word.size() ==0){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
 };
 
 TEST_F(AttributeTypeCorrectness, SampleTest1) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet1.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet1.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -113,7 +133,7 @@ TEST_F(AttributeTypeCorrectness, SampleTest1) {
 
 TEST_F(AttributeTypeCorrectness, SampleTest2) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet2.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet2.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -188,7 +208,7 @@ TEST_F(AttributeTypeCorrectness, SampleTest2) {
 
 TEST_F(AttributeTypeCorrectness, SampleTest3) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet3.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet3.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -263,7 +283,7 @@ TEST_F(AttributeTypeCorrectness, SampleTest3) {
 
 TEST_F(AttributeTypeCorrectness, SampleTest4) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet4.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet4.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -338,7 +358,7 @@ TEST_F(AttributeTypeCorrectness, SampleTest4) {
 
 TEST_F(AttributeTypeCorrectness, SampleTest5) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet5.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet5.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -413,7 +433,7 @@ TEST_F(AttributeTypeCorrectness, SampleTest5) {
 
 TEST_F(AttributeTypeCorrectness, SampleTest6) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet6.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet6.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -488,7 +508,7 @@ TEST_F(AttributeTypeCorrectness, SampleTest6) {
 
 TEST_F(AttributeTypeCorrectness, SampleTest7) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet7.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet7.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -563,7 +583,7 @@ TEST_F(AttributeTypeCorrectness, SampleTest7) {
 
 TEST_F(AttributeTypeCorrectness, SampleTest8) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet8.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet8.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -638,7 +658,7 @@ TEST_F(AttributeTypeCorrectness, SampleTest8) {
 
 TEST_F(AttributeTypeCorrectness, SampleTest9) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet9.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet9.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -713,7 +733,7 @@ TEST_F(AttributeTypeCorrectness, SampleTest9) {
 
 TEST_F(AttributeTypeCorrectness, SampleTest10) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet10.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet10.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -787,7 +807,7 @@ TEST_F(AttributeTypeCorrectness, SampleTest10) {
 }
 TEST_F(AttributeTypeCorrectness, SampleTest11) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet11.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet11.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -861,7 +881,7 @@ TEST_F(AttributeTypeCorrectness, SampleTest11) {
 }
 TEST_F(AttributeTypeCorrectness, SampleTest12) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet12.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet12.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -935,7 +955,7 @@ TEST_F(AttributeTypeCorrectness, SampleTest12) {
 }
 TEST_F(AttributeTypeCorrectness, SampleTest13) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet13.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet13.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -1009,7 +1029,7 @@ TEST_F(AttributeTypeCorrectness, SampleTest13) {
 }
 TEST_F(AttributeTypeCorrectness, SampleTest14) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet14.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet14.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -1083,7 +1103,7 @@ TEST_F(AttributeTypeCorrectness, SampleTest14) {
 }
 TEST_F(AttributeTypeCorrectness, SampleTest15) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet15.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet15.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -1157,7 +1177,7 @@ TEST_F(AttributeTypeCorrectness, SampleTest15) {
 }
 TEST_F(AttributeTypeCorrectness, SampleTest16) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet16.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet16.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -1231,7 +1251,7 @@ TEST_F(AttributeTypeCorrectness, SampleTest16) {
 }
 TEST_F(AttributeTypeCorrectness, SampleTest17) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet17.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet17.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -1305,7 +1325,7 @@ TEST_F(AttributeTypeCorrectness, SampleTest17) {
 }
 TEST_F(AttributeTypeCorrectness, SampleTest18) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet18.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet18.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -1379,7 +1399,7 @@ TEST_F(AttributeTypeCorrectness, SampleTest18) {
 }
 TEST_F(AttributeTypeCorrectness, SampleTest19) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet19.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet19.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -1453,7 +1473,7 @@ TEST_F(AttributeTypeCorrectness, SampleTest19) {
 }
 TEST_F(AttributeTypeCorrectness, SampleTest20) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet20.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet20.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -1476,7 +1496,7 @@ TEST_F(AttributeTypeCorrectness, SampleTest20) {
                  inner != NULL; inner = inner->NextSiblingElement()) {
                 std::string attribute = inner->Value();
                 if (attribute == "naam") {
-                    if (!is_int(inner->GetText())) {
+                    if (!is_int(inner->GetText()) && inner->GetText() != NULL) {
                         attributes.push_back(true);
                     }
                 } else if (attribute == "volgende") {
@@ -1527,7 +1547,7 @@ TEST_F(AttributeTypeCorrectness, SampleTest20) {
 }
 TEST_F(AttributeTypeCorrectness, SampleTest21) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet21.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet21.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -1601,7 +1621,7 @@ TEST_F(AttributeTypeCorrectness, SampleTest21) {
 }
 TEST_F(AttributeTypeCorrectness, SampleTest22) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet22.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet22.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -1675,7 +1695,7 @@ TEST_F(AttributeTypeCorrectness, SampleTest22) {
 }
 TEST_F(AttributeTypeCorrectness, SampleTest23) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet23.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet23.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -1749,7 +1769,7 @@ TEST_F(AttributeTypeCorrectness, SampleTest23) {
 }
 TEST_F(AttributeTypeCorrectness, SampleTest24) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet24.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet24.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();

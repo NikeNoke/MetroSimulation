@@ -7,13 +7,20 @@
 #include "../Station/Station.h"
 #include<sstream>
 
-
+/**
+ * Deze klasse test ofdat elk Station object een correcte hoeveelheid attributen heeft
+ * **/
 class ValidAmountAttributesStation : public ::testing::Test {
 protected:
+    /**
+     * Klasse overgeërft van gtest.h
+     * **/
     virtual void SetUp() {
 
     }
-
+    /**
+     * Klasse overgeërft van gtest.h
+     * **/
     virtual void TearDown() {
 
     }
@@ -23,7 +30,7 @@ protected:
 
 TEST_F(ValidAmountAttributesStation, SampleTest1) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet1.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet1.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -70,7 +77,7 @@ TEST_F(ValidAmountAttributesStation, SampleTest1) {
 
 TEST_F(ValidAmountAttributesStation, SampleTest2) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet2.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet2.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -117,7 +124,7 @@ TEST_F(ValidAmountAttributesStation, SampleTest2) {
 
 TEST_F(ValidAmountAttributesStation, SampleTest3) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet3.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet3.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -164,7 +171,7 @@ TEST_F(ValidAmountAttributesStation, SampleTest3) {
 
 TEST_F(ValidAmountAttributesStation, SampleTest4) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet4.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet4.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -211,7 +218,7 @@ TEST_F(ValidAmountAttributesStation, SampleTest4) {
 
 TEST_F(ValidAmountAttributesStation, SampleTest5) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet5.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet5.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -258,7 +265,7 @@ TEST_F(ValidAmountAttributesStation, SampleTest5) {
 
 TEST_F(ValidAmountAttributesStation, SampleTest6) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet6.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet6.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -305,7 +312,7 @@ TEST_F(ValidAmountAttributesStation, SampleTest6) {
 
 TEST_F(ValidAmountAttributesStation, SampleTest7) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet7.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet7.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -352,7 +359,7 @@ TEST_F(ValidAmountAttributesStation, SampleTest7) {
 
 TEST_F(ValidAmountAttributesStation, SampleTest8) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet8.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet8.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -399,7 +406,7 @@ TEST_F(ValidAmountAttributesStation, SampleTest8) {
 
 TEST_F(ValidAmountAttributesStation, SampleTest9) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet9.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet9.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -446,7 +453,7 @@ TEST_F(ValidAmountAttributesStation, SampleTest9) {
 
 TEST_F(ValidAmountAttributesStation, SampleTest10) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet10.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet10.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -493,7 +500,7 @@ TEST_F(ValidAmountAttributesStation, SampleTest10) {
 
 TEST_F(ValidAmountAttributesStation, SampleTest11) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet11.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet11.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -540,7 +547,7 @@ TEST_F(ValidAmountAttributesStation, SampleTest11) {
 
 TEST_F(ValidAmountAttributesStation, SampleTest12) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet12.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet12.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -587,7 +594,7 @@ TEST_F(ValidAmountAttributesStation, SampleTest12) {
 
 TEST_F(ValidAmountAttributesStation, SampleTest13) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet13.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet13.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -634,7 +641,7 @@ TEST_F(ValidAmountAttributesStation, SampleTest13) {
 
 TEST_F(ValidAmountAttributesStation, SampleTest14) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet14.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet14.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -681,7 +688,7 @@ TEST_F(ValidAmountAttributesStation, SampleTest14) {
 
 TEST_F(ValidAmountAttributesStation, SampleTest15) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet15.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet15.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -728,7 +735,7 @@ TEST_F(ValidAmountAttributesStation, SampleTest15) {
 
 TEST_F(ValidAmountAttributesStation, SampleTest16) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet16.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet16.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -775,7 +782,7 @@ TEST_F(ValidAmountAttributesStation, SampleTest16) {
 
 TEST_F(ValidAmountAttributesStation, SampleTest17) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet17.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet17.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -822,7 +829,7 @@ TEST_F(ValidAmountAttributesStation, SampleTest17) {
 
 TEST_F(ValidAmountAttributesStation, SampleTest18) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet18.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet18.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -869,7 +876,7 @@ TEST_F(ValidAmountAttributesStation, SampleTest18) {
 
 TEST_F(ValidAmountAttributesStation, SampleTest19) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet19.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet19.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -916,7 +923,7 @@ TEST_F(ValidAmountAttributesStation, SampleTest19) {
 
 TEST_F(ValidAmountAttributesStation, SampleTest20) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet20.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet20.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -963,7 +970,7 @@ TEST_F(ValidAmountAttributesStation, SampleTest20) {
 
 TEST_F(ValidAmountAttributesStation, SampleTest21) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet21.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet21.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -1010,7 +1017,7 @@ TEST_F(ValidAmountAttributesStation, SampleTest21) {
 
 TEST_F(ValidAmountAttributesStation, SampleTest22) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet22.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet22.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -1057,7 +1064,7 @@ TEST_F(ValidAmountAttributesStation, SampleTest22) {
 
 TEST_F(ValidAmountAttributesStation, SampleTest23) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet23.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet23.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
@@ -1104,7 +1111,7 @@ TEST_F(ValidAmountAttributesStation, SampleTest23) {
 
 TEST_F(ValidAmountAttributesStation, SampleTest24) {
     TiXmlDocument doc;
-    if (!doc.LoadFile("XMLexamples/metronet24.xml")) {
+    if (!doc.LoadFile("../XMLexamples/metronet24.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
