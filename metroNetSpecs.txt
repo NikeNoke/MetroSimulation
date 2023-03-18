@@ -11,9 +11,34 @@ Stations:
 		Naam: C
 		Vorige Station: B
 		Volgende Station: A
+	station3:
+		Naam: Turnhoutsebaan
+		Vorige Station: Sterckshof
+		Volgende Station: Atheneum
+	station4:
+		Naam: Atheneum
+		Vorige Station: Turnhoutsebaan
+		Volgende Station: JanS
+	station5:
+		Naam: JanS
+		Vorige Station: Atheneum
+		Volgende Station: Lakborslei
+	station6:
+		Naam: Lakborslei
+		Vorige Station: JanS
+		Volgende Station: Deurne
+	station7:
+		Naam: Deurne
+		Vorige Station: Deurne
+		Volgende Station: Sterckshof
 Trams: 
 	tram0:
 		LijnNr: 12
 		Snelheid: 60
 		Begin station: A
 		Huidig station: A
+	tram1:
+		LijnNr: 33
+		Snelheid: 90
+		Begin station: Atheneum
+		Huidig station: Atheneum
