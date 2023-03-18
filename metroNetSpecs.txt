@@ -16,3 +16,4 @@ Trams:
 		LijnNr: 12
 		Snelheid: 60
 		Begin station: A
+		Huidig station: A

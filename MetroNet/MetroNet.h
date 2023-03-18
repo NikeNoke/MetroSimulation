@@ -11,24 +11,26 @@
 class MetroNet{
 public:
 
-    bool stationRegistered(std::string& name) const;
+    ~MetroNet();
+
+    bool stationRegistered(const std::string& name) const;
     //bool tramRegistered(std::string& name) const;
 
-    void addStation(Station& station);
-    void addTram(Tram& tram);
+    void addStation(Station* const station);
+    void addTram(Tram* const tram);
 
-    Station* getStation(std::string& name);
-    Tram* getTram(std::string& name);
+    Station* getStation(const std::string& name);
+    Tram* getTram(const std::string& name);
 
-    std::vector<Station>* getStations(); //returns a reference thus no const promise
-    std::vector<Tram>* getTrams();
+    std::vector<Station*> getStations();
+    std::vector<Tram*> getTrams();
 
-    bool moveTram(Tram& tram, std::string& nameStation);
+    bool moveTram(Tram* const tram, const std::string& nameStation);
 
 
-//private:
-    std::vector<Station> stations;
-    std::vector<Tram> trams;
+private:
+    std::vector<Station*> stations;
+    std::vector<Tram*> trams;
 };
 
 

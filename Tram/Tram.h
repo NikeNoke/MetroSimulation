@@ -9,14 +9,32 @@
 
 class Tram {
 public:
-    std::string beginStation;
-    int snelheid;
-    int lijnNr;
-    std::string huidigStation;
 
     Tram();
 
     Tram(const std::string &beginStation, int snelheid, int lijnNr);
+
+    std::string getBeginStation() const;
+
+    int getSnelheid() const;
+
+    int getLijnNr() const;
+
+    std::string getHuidigStation() const;
+
+    void setBeginStation(std::string bs);
+
+    void setSnelheid(int s);
+
+    void setLijnNr(int l);
+
+    void setHuidigStation(std::string h);
+
+private:
+    std::string beginStation;
+    int snelheid;
+    int lijnNr;
+    std::string huidigStation;
 };
 
 

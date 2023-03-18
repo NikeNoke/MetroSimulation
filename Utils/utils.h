@@ -14,9 +14,9 @@ namespace Utils{
     //Source StackOverFlow
     bool is_int(const std::string &s);
 
-    void parseStation(MetroNet& metroNet, TiXmlElement* element);
+    bool parseStation(MetroNet& metroNet, TiXmlElement* element);
 
-    void parseTram(MetroNet& metroNet, TiXmlElement* element);
+    bool parseTram(MetroNet& metroNet, TiXmlElement* element);
 
     void writeSpecs(std::ofstream& file, MetroNet& metroNet);
 
