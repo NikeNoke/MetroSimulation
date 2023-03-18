@@ -1,0 +1,49 @@
+\hypertarget{MetroNet_8h_source}{}\doxysection{Metro\+Net.\+h}
+\label{MetroNet_8h_source}\index{MetroNet.h@{MetroNet.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ METRONET\_XXX}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ METRONET\_XXX}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}../Station/Station.h"{}}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}../Tram/Tram.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMetroNet}{MetroNet}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00020\ \ \ \ \ \mbox{\hyperlink{classMetroNet_ac412bda72e2e95d64ddce9f860acdf92}{MetroNet}}();}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{classMetroNet_a8d775a6bd435b468b7da134b32184c65}{\string~MetroNet}}();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMetroNet_a08e11b88658e8972c6121c5eb8c03671}{stationRegistered}}(\textcolor{keyword}{const}\ std::string\ \&name)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{comment}{//bool\ tramRegistered(std::string\&\ name)\ const;}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMetroNet_a3e18ff076868c8bbf770c1550733f987}{addStation}}(\mbox{\hyperlink{classStation}{Station}}\ *\textcolor{keyword}{const}\ station);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMetroNet_a1b5e6fada29587bb810cbebe20116f5c}{addTram}}(\mbox{\hyperlink{classTram}{Tram}}\ *\textcolor{keyword}{const}\ tram);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00053\ \ \ \ \ \mbox{\hyperlink{classStation}{Station}}\ *\mbox{\hyperlink{classMetroNet_ae08d94fa2c11c33976f98cb3da870eae}{getStation}}(\textcolor{keyword}{const}\ std::string\ \&name);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{classTram}{Tram}}\ *\mbox{\hyperlink{classMetroNet_a88a3d8b5533b86a0c4165f8b3bf48b10}{getTram}}(\textcolor{keyword}{const}\ std::string\ \&name);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00066\ \ \ \ \ std::vector<Station\ *>\ \mbox{\hyperlink{classMetroNet_a46edb061e63b058c22593a1b9353a47d}{getStations}}();}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00071\ \ \ \ \ std::vector<Tram\ *>\ \mbox{\hyperlink{classMetroNet_a6da862e9539dc2ce0232aa4a52e592e0}{getTrams}}();}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMetroNet_a8d881a522eb52ccfffa6e8cd5ff27415}{moveTram}}(\mbox{\hyperlink{classTram}{Tram}}\ *\textcolor{keyword}{const}\ tram,\ \textcolor{keyword}{const}\ std::string\ \&nameStation);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMetroNet_aeec3db5980e6074796f6a7bf6cc9ce21}{properlyInitialized}}();}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00089\ \ \ \ \ std::vector<Station\ *>\ stations;}
+\DoxyCodeLine{00090\ \ \ \ \ std::vector<Tram\ *>\ trams;}
+\DoxyCodeLine{00091\ \ \ \ \ \mbox{\hyperlink{classMetroNet}{MetroNet}}\ *\_initCheck;}
+\DoxyCodeLine{00092\ \};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//METRONET\_XXX}}
+
+\end{DoxyCode}

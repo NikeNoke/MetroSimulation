@@ -1,0 +1,50 @@
+\hypertarget{Tram_8h_source}{}\doxysection{Tram.\+h}
+\label{Tram_8h_source}\index{Tram.h@{Tram.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ Thomas\ on\ 02/03/2023.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ METROSIMULATION\_TRAM\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ METROSIMULATION\_TRAM\_H}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00012\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTram}{Tram}}\ \{}
+\DoxyCodeLine{00013\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00019\ \ \ \ \ \mbox{\hyperlink{classTram_aad83b2e7e79d57528691bf317ab0e1ef}{Tram}}();}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{classTram_aad83b2e7e79d57528691bf317ab0e1ef}{Tram}}(\textcolor{keyword}{const}\ std::string\ \&beginStation,\ \textcolor{keywordtype}{int}\ snelheid,\ \textcolor{keywordtype}{int}\ lijnNr);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00035\ \ \ \ \ std::string\ \mbox{\hyperlink{classTram_ae4a7cf6313452140ed54d219d1f6afba}{getBeginStation}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classTram_aa8bcd980469801cb8524f170006f666c}{getSnelheid}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classTram_ad2404fa7837b41287feab05f6a1b52bf}{getLijnNr}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00051\ \ \ \ \ std::string\ \mbox{\hyperlink{classTram_ae1d03c1fb6e0f5f97c57d35fe10fa8dd}{getHuidigStation}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTram_a794aa9864d38b82f57726d3e5a0cfe2d}{setBeginStation}}(std::string\ bs);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTram_a2cabc354af57462ae361ead62a20aca6}{setSnelheid}}(\textcolor{keywordtype}{int}\ s);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTram_acfa9bb360bc614e2b591191f8c525ad8}{setLijnNr}}(\textcolor{keywordtype}{int}\ l);}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classTram_a808a9cd6ba36bcefb788d059544968c8}{setHuidigStation}}(std::string\ h);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTram_ac69cbbacaed7e1b9e60e608d766d02ee}{properlyInitialized}}();}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00084\ \ \ \ \ std::string\ beginStation;}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{int}\ snelheid;}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keywordtype}{int}\ lijnNr;}
+\DoxyCodeLine{00087\ \ \ \ \ std::string\ huidigStation;}
+\DoxyCodeLine{00088\ \ \ \ \ \mbox{\hyperlink{classTram}{Tram}}*\ \_initCheck;}
+\DoxyCodeLine{00089\ \};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//METROSIMULATION\_TRAM\_H}}
+
+\end{DoxyCode}
