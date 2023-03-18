@@ -12,8 +12,9 @@ bool Utils::is_int(const std::string &s) {
 }
 
 bool Utils::parseStation(MetroNet &metroNet, TiXmlElement *element) {
+    REQUIRE(metroNet.properlyInitialized(), "The metroNet is not properly initialized");
     Station *tempStation = new Station;
-
+    REQUIRE(tempStation->properlyInitialized(), "The new potential station is not properly initialized");
     bool broken = false;
     bool nameFound = false;
     bool volgendeFound = false;
@@ -74,7 +75,9 @@ bool Utils::parseStation(MetroNet &metroNet, TiXmlElement *element) {
 
 
 bool Utils::parseTram(MetroNet &metroNet, TiXmlElement *element) {
+    REQUIRE(metroNet.properlyInitialized(), "The metroNet is not properly initialized");
     Tram *tempTram = new Tram;
+    REQUIRE(tempTram->properlyInitialized(), "The new potential tram is not properly initialized");
     bool broken = false;
 
     bool lijnNrFound = false;
@@ -139,6 +142,7 @@ bool Utils::parseTram(MetroNet &metroNet, TiXmlElement *element) {
 
 void Utils::writeSpecs(std::ofstream &file, MetroNet &metroNet) {
 
+    REQUIRE(metroNet.properlyInitialized(), "The metroNet is not properly initialized");
 
     file << "Stations: \n";
 
@@ -167,11 +171,13 @@ void Utils::writeSpecs(std::ofstream &file, MetroNet &metroNet) {
 
 bool Utils::validMetroNet(MetroNet &metroNet) {
 
+    REQUIRE(metroNet.properlyInitialized(), "The metroNet is not properly initialized");
+
     std::vector<Station *> tempStations = metroNet.getStations();
     std::vector<Tram *> tempTrams = metroNet.getTrams();
 
     for (long unsigned int i = 0; i < tempStations.size(); i++) {
-
+        REQUIRE(tempStations[i]->properlyInitialized(), "A station of the metroNet is not properly initialized");
         if (!metroNet.stationRegistered(tempStations[i]->getVorige())) {
             std::cerr << "De vorige station " << tempStations[i]->getVorige() << "van station "
                       << tempStations[i]->getName()
@@ -207,7 +213,7 @@ bool Utils::validMetroNet(MetroNet &metroNet) {
 
         bool spoorHeeftTram = false;
         for (long unsigned int j = 0; i < tempTrams.size(); i++) {
-
+            REQUIRE(tempTrams[j]->properlyInitialized(), "A tram of the metroNet is not properly initialized");
             if (tempStations[i]->getSpoorNr() == tempTrams[j]->getLijnNr()) {
                 spoorHeeftTram = true;
                 break;
@@ -222,7 +228,7 @@ bool Utils::validMetroNet(MetroNet &metroNet) {
     }
 
     for (long unsigned int i = 0; i < tempTrams.size(); i++) {
-
+        REQUIRE(tempTrams[i]->properlyInitialized(), "A tram of the metroNet is not properly initialized");
         if (!metroNet.stationRegistered(tempTrams[i]->getBeginStation())) {
             std::cerr << "De begin station " << tempTrams[i]->getBeginStation() << "van tram met lijnNr "
                       << tempTrams[i]->getLijnNr() << " is niet geregistreerd " << "in de metroNet\n";
@@ -253,12 +259,15 @@ std::string Utils::boolToText(bool b) {
 
 void Utils::simulateMetroNet(MetroNet &metroNet, int amountOfMove) {
 
+    REQUIRE(metroNet.properlyInitialized(), "The metroNet is not properly initialized");
 
     std::vector<Tram*> tempTrams = metroNet.getTrams();
 
     for (int i = 0; i < amountOfMove; i++) {
         int index = Utils::getRandomInt(tempTrams.size() - 1);
         Station *current = metroNet.getStation(tempTrams[index]->getHuidigStation());
+        REQUIRE(current->properlyInitialized(), "The station to move the tram is not properly initialized");
+        REQUIRE(tempTrams[index]->properlyInitialized(), "The tram to move is not properly initialized");
         if (Utils::getRandomInt(1)) {
             metroNet.moveTram(tempTrams[index], current->getVolgende());
         } else {
@@ -267,7 +276,7 @@ void Utils::simulateMetroNet(MetroNet &metroNet, int amountOfMove) {
     }
 
 }
-
+//Source Stackoverflow
 int Utils::getRandomInt(int max) {
     int min = 0;
     int output;

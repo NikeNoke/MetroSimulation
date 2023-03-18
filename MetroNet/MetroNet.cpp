@@ -1,7 +1,10 @@
 #include <iostream>
 #include "MetroNet.h"
+#include "../Utils/utils.h"
+#include "../DesignByContract.h"
 
 bool MetroNet::stationRegistered(const std::string &name) const {
+    REQUIRE(!(Utils::is_int(name)), "The parameter name is a number");
     for (long unsigned int i = 0; i < stations.size(); i++) {
         if (stations[i]->getName() == name)
             return true;
@@ -18,14 +21,17 @@ bool MetroNet::stationRegistered(const std::string &name) const {
 //}
 
 void MetroNet::addStation(Station *const station) {
+    REQUIRE(station->properlyInitialized(), "The parameter station is not properly initialized");
     stations.push_back(station);
 }
 
 void MetroNet::addTram(Tram *const tram) {
+    REQUIRE(tram->properlyInitialized(), "The parameter tram is not properly initialized");
     trams.push_back(tram);
 }
 
 Station *MetroNet::getStation(const std::string &name) {
+    REQUIRE(!(Utils::is_int(name)), "The parameter name is a number");
     for (long unsigned int i = 0; i < stations.size(); i++) {
         if (stations[i]->getName() == name)
             return stations[i];
@@ -52,6 +58,8 @@ std::vector<Tram *> MetroNet::getTrams() {
 
 bool MetroNet::moveTram(Tram *const tram, const std::string &nameStation) {
 
+    REQUIRE(tram->properlyInitialized(), "The parameter tram is not properly initialized");
+    REQUIRE(!(Utils::is_int(nameStation)), "The parameter nameStation is a number");
     Station *current = getStation(tram->getHuidigStation());
 
     if (nameStation != current->getVorige() && nameStation != current->getVolgende()) {
@@ -79,6 +87,14 @@ MetroNet::~MetroNet() {
     for (unsigned long int i = 0; i < trams.size(); i++) {
         delete trams[i];
     }
+}
+
+MetroNet::MetroNet() {
+    _initCheck = this;
+}
+
+bool MetroNet::properlyInitialized() {
+    return _initCheck == this;
 }
 
 

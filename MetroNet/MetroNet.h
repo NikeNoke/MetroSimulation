@@ -11,6 +11,8 @@
 class MetroNet{
 public:
 
+    MetroNet();
+
     ~MetroNet();
 
     bool stationRegistered(const std::string& name) const;
@@ -27,10 +29,12 @@ public:
 
     bool moveTram(Tram* const tram, const std::string& nameStation);
 
+    bool properlyInitialized();
 
 private:
     std::vector<Station*> stations;
     std::vector<Tram*> trams;
+    MetroNet* _initCheck;
 };
 
 

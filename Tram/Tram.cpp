@@ -3,11 +3,18 @@
 //
 
 #include "Tram.h"
+#include "../DesignByContract.h"
+#include "../Utils/utils.h"
 
-Tram::Tram() {}
+Tram::Tram() {
+    _initCheck = this;
+}
 
 Tram::Tram(const std::string &beginStation, int snelheid, int lijnNr) : beginStation(beginStation), snelheid(snelheid),
-                                                                        lijnNr(lijnNr), huidigStation(beginStation) {}
+                                                                        lijnNr(lijnNr), huidigStation(beginStation) {
+    REQUIRE(!(Utils::is_int(beginStation)), "The parameter beginStation is a number");
+    _initCheck = this;
+}
 
 std::string Tram::getBeginStation() const {
     return beginStation;
@@ -26,6 +33,7 @@ std::string Tram::getHuidigStation() const {
 }
 
 void Tram::setBeginStation(std::string bs) {
+    REQUIRE(!(Utils::is_int(bs)), "The parameter beginStation is a number");
     beginStation = bs;
 }
 
@@ -38,5 +46,10 @@ void Tram::setLijnNr(int l) {
 }
 
 void Tram::setHuidigStation(std::string h) {
+    REQUIRE(!(Utils::is_int(h)), "The parameter huidigStation is a number");
     huidigStation = h;
+}
+
+bool Tram::properlyInitialized() {
+    return _initCheck == this;
 }

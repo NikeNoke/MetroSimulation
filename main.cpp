@@ -10,7 +10,7 @@
 
 int main() {
     TiXmlDocument doc;
-//    REQUIRE(doc, doc.properlyInitialized);
+
     if (!doc.LoadFile("XMLexamples/metronet1.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
         return 1;

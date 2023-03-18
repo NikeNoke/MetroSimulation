@@ -30,11 +30,14 @@ public:
 
     void setHuidigStation(std::string h);
 
+    bool properlyInitialized();
+
 private:
     std::string beginStation;
     int snelheid;
     int lijnNr;
     std::string huidigStation;
+    Tram* _initCheck;
 };
 
 

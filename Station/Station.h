@@ -30,12 +30,15 @@ public:
 
     void setSpoorNr(int s);
 
+    bool properlyInitialized();
+
 private:
 
     std::string naam;
     std::string volgende;
     std::string vorige;
     int spoorNr;
+    Station* _initCheck;
 };
 
 
