@@ -27,5 +27,5 @@ We maken in ons project gebruik van volgende libraries:
 unit-tests te kunnen uitvoeren.
 - [TinyXML](https://en.wikipedia.org/wiki/TinyXML) om XML files te parsen en in te lezen.
 - [Doxygen](https://www.doxygen.nl/) om documentatie te genereren.
-- [DesignByContract.h](DesignByContract.h) een document gegeven door de prof.
+- [DesignByContract.h](DesignByContract.h) een file gegeven door de prof.
 
