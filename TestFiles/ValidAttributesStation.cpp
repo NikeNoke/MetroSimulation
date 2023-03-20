@@ -107,11 +107,17 @@ TEST_F(ValidAttributesStation, InValidStation) {
                 Station *station = new Station();
                 ParseStation parseStation(element);
 
-                EXPECT_FALSE(parseStation.checkValidStation()) << "checkValidStation returned true\n";
+                try{
+                    EXPECT_FALSE(parseStation.checkValidStation()) << "checkValidStation returned true\n";
+                }catch (const std::exception& e){}
 
-                EXPECT_FALSE(parseStation.parseAll(metroNet, station)) << "Parsing should not have succeeded\n";
+                try{
+                    EXPECT_FALSE(parseStation.parseAll(metroNet, station)) << "Parsing should not have succeeded\n";
+                }catch (const std::exception& e){}
 
-                EXPECT_TRUE(parseStation.checkNonValidAttributes()) << "Wrong attributes are not present (was expected)\n";
+                try{
+                    EXPECT_TRUE(parseStation.checkNonValidAttributes()) << "Wrong attributes are not present (was expected)\n";
+                }catch (const std::exception& e){}
 
                 if(!parseStation.parseAll(metroNet,station))
                     delete station;

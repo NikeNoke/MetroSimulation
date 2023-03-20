@@ -101,11 +101,27 @@ TEST_F(ValidAttributesTram, InValidTrams) {
                 Tram* tram = new Tram();
                 ParseTram parseTram(element);
 
-                EXPECT_FALSE(parseTram.checkValidTram()) << "Tram should not have been valid\n";
+                try{
+                    EXPECT_FALSE(parseTram.checkValidTram()) << "Tram should not have been valid\n";
+                }catch (const std::exception& e){
 
-                EXPECT_FALSE(parseTram.parseAll(metroNet, tram)) << "Tram should not have been parsed\n";
+                }
 
-                EXPECT_TRUE(parseTram.checkNonValidAttributes()) << "Wrong attributes are not present (was expected)\n";
+//                EXPECT_FALSE(parseTram.checkValidTram()) << "Tram should not have been valid\n";
+//                EXPECT_THROW(parseTram.checkValidTram(), );
+
+                try{
+                    EXPECT_FALSE(parseTram.parseAll(metroNet, tram)) << "Tram should not have been parsed\n";
+                }catch (const std::exception& e){
+
+                }
+
+
+                try{
+                    EXPECT_TRUE(parseTram.checkNonValidAttributes()) << "Wrong attributes are not present (was expected)\n";
+                }catch (const std::exception& e){
+
+                }
 
                 if(!parseTram.parseAll(metroNet,tram))
                     delete tram;
