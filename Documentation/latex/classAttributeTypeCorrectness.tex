@@ -16,6 +16,10 @@ virtual void \mbox{\hyperlink{classAttributeTypeCorrectness_add81fc248a1fc183c04
 bool \mbox{\hyperlink{classAttributeTypeCorrectness_abfef9dbc38c7efe3c4fa220fc4fa35aa}{is\+\_\+int}} (const std\+::string \&s)
 \item 
 bool \mbox{\hyperlink{classAttributeTypeCorrectness_a959989e024b10e14659babaa933890ca}{is\+\_\+empty}} (const std\+::string \&word)
+\item 
+void \mbox{\hyperlink{classAttributeTypeCorrectness_a8fb5b1c78b6fb9f968226380b11f3fdf}{Function\+Field\+Equal}} (const char $\ast$Filename)
+\item 
+void \mbox{\hyperlink{classAttributeTypeCorrectness_a6aeabf5aa999dea577983ab39beb6f24}{Function\+Field\+Not\+Equal}} (const char $\ast$Filename)
 \end{DoxyCompactItemize}
 \begin{DoxyCompactItemize}
 \item 
@@ -60,9 +64,34 @@ static void {\bfseries Record\+Property} (const std\+::string \&key, int value)
 
 
 \doxysubsection{Detailed Description}
-Deze klasse test ofdat het gegeven type van de attribute de juiste type is dat required is. 
+Deze klasse test ofdat het gegeven type van de attribute de juiste type is dat required is. \begin{DoxyNote}{Note}
+unknown file\+: Failure C++ exception with description \char`\"{}basic\+\_\+string\+::\+\_\+\+M\+\_\+construct null not valid\char`\"{} thrown in the test body (metronet20.\+xml). 
+\end{DoxyNote}
+
 
 \doxysubsection{Member Function Documentation}
+\Hypertarget{classAttributeTypeCorrectness_a8fb5b1c78b6fb9f968226380b11f3fdf}\label{classAttributeTypeCorrectness_a8fb5b1c78b6fb9f968226380b11f3fdf} 
+\index{AttributeTypeCorrectness@{AttributeTypeCorrectness}!FunctionFieldEqual@{FunctionFieldEqual}}
+\index{FunctionFieldEqual@{FunctionFieldEqual}!AttributeTypeCorrectness@{AttributeTypeCorrectness}}
+\doxysubsubsection{\texorpdfstring{FunctionFieldEqual()}{FunctionFieldEqual()}}
+{\footnotesize\ttfamily void Attribute\+Type\+Correctness\+::\+Function\+Field\+Equal (\begin{DoxyParamCaption}\item[{const char $\ast$}]{Filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+Function body voor de tests. Test ofdat de attributes types overeenkomen met wat verwacht wordt. 
+\begin{DoxyParams}{Parameters}
+{\em Filename} & Naam van de file dat getest wordt. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classAttributeTypeCorrectness_a6aeabf5aa999dea577983ab39beb6f24}\label{classAttributeTypeCorrectness_a6aeabf5aa999dea577983ab39beb6f24} 
+\index{AttributeTypeCorrectness@{AttributeTypeCorrectness}!FunctionFieldNotEqual@{FunctionFieldNotEqual}}
+\index{FunctionFieldNotEqual@{FunctionFieldNotEqual}!AttributeTypeCorrectness@{AttributeTypeCorrectness}}
+\doxysubsubsection{\texorpdfstring{FunctionFieldNotEqual()}{FunctionFieldNotEqual()}}
+{\footnotesize\ttfamily void Attribute\+Type\+Correctness\+::\+Function\+Field\+Not\+Equal (\begin{DoxyParamCaption}\item[{const char $\ast$}]{Filename }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+Function body voor de tests. Test ofdat de attributes types NIET overeenkomen met wat verwacht wordt. 
+\begin{DoxyParams}{Parameters}
+{\em Filename} & Naam van de file dat getest wordt. \\
+\hline
+\end{DoxyParams}
 \Hypertarget{classAttributeTypeCorrectness_a959989e024b10e14659babaa933890ca}\label{classAttributeTypeCorrectness_a959989e024b10e14659babaa933890ca} 
 \index{AttributeTypeCorrectness@{AttributeTypeCorrectness}!is\_empty@{is\_empty}}
 \index{is\_empty@{is\_empty}!AttributeTypeCorrectness@{AttributeTypeCorrectness}}
