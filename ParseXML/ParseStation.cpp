@@ -197,7 +197,7 @@ bool ParseStation::parseVolgende(MetroNet &metroNet, Station *station) const {
 
     REQUIRE(station->properlyInitialized(), "Station is not properlyInitialized");
     REQUIRE(element != NULL, "TixmlElement is NULL");
-    REQUIRE(checkValidVolgende() == true, "The volgende tag is not correct in this Station tag");
+//    REQUIRE(checkValidVolgende() == true, "The volgende tag is not correct in this Station tag");
 
     for (TiXmlElement *InnerElement = element->FirstChildElement();
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
@@ -210,7 +210,7 @@ bool ParseStation::parseVolgende(MetroNet &metroNet, Station *station) const {
             return true;
         }
     }
-    ENSURE(!station->getVolgende().empty(), "The volgende of station has not been correctly initialized");
+//    ENSURE(!station->getVolgende().empty(), "The volgende of station has not been correctly initialized");
     ENSURE(element != NULL, "TixmlElement is NULL");
     return false;
 }

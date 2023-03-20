@@ -88,10 +88,25 @@ namespace Utils{
      * **/
     int getRandomInt(int max);
 
+    /**
+     * Functie dat controleerd ofdat een directory bestaat of niet.
+     * @param dirname Naam van de directory.
+     * @return true of false
+     */
     bool directoryExists(const std::string dirname);
 
+    /**
+     * Functie dat controleerd ofdat een file bestaat.
+     * @param filename Naam van de file.
+     * @return true of false
+     */
     bool fileExists(const std::string filename);
 
+    /**
+     * Functie dat controleerd ofdat een file leeg is.
+     * @param filename Naam van de file.
+     * @return true of false
+     */
     bool fileIsEmpty(const std::string filename);
 
 }
