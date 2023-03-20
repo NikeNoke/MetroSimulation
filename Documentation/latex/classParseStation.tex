@@ -1,0 +1,210 @@
+\hypertarget{classParseStation}{}\doxysection{Parse\+Station Class Reference}
+\label{classParseStation}\index{ParseStation@{ParseStation}}
+
+
+{\ttfamily \#include $<$Parse\+Station.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classParseStation_ad2d5761a1d4f7c7648930999b030b8ec}{Parse\+Station}} (\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$element)
+\item 
+void \mbox{\hyperlink{classParseStation_af3d3fdac6b0891c57399eeaa95623dcc}{set\+Element}} (\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$el)
+\begin{DoxyCompactList}\small\item\em Set Element Zet de element van \doxylink{classParseStation}{Parse\+Station}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classParseStation_a8823c44ca85e44de27986365d167fbb8}{parse\+All}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net, \mbox{\hyperlink{classStation}{Station}} $\ast$station) const
+\item 
+bool \mbox{\hyperlink{classParseStation_a0c638d47db8e6e3e63dab6f693aba3c6}{parse\+Naam}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net, \mbox{\hyperlink{classStation}{Station}} $\ast$station) const
+\item 
+bool \mbox{\hyperlink{classParseStation_aec9bc7149cb0da3749965daec61fe45d}{parse\+Vorige}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net, \mbox{\hyperlink{classStation}{Station}} $\ast$station) const
+\item 
+bool \mbox{\hyperlink{classParseStation_acd9feab97bd2b56a62cfbada1d62d988}{parse\+Volgende}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net, \mbox{\hyperlink{classStation}{Station}} $\ast$station) const
+\item 
+bool \mbox{\hyperlink{classParseStation_afb03eab0638683cf6bfdb9728eeae848}{parse\+Spoor\+Nr}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net, \mbox{\hyperlink{classStation}{Station}} $\ast$station) const
+\item 
+bool \mbox{\hyperlink{classParseStation_a1f2654c28b7b61245a17d6deb09ff35e}{check\+Valid\+Station}} () const
+\item 
+bool \mbox{\hyperlink{classParseStation_afbb60f05c99b31b0e561a4f16906ed84}{check\+Valid\+Naam}} () const
+\item 
+bool \mbox{\hyperlink{classParseStation_aa58b49a8e1826f4bdb4df3d95082d3b3}{check\+Valid\+Vorige}} () const
+\item 
+bool \mbox{\hyperlink{classParseStation_ac238edc3616fb8a59e7324ce43a5cac6}{check\+Valid\+Volgende}} () const
+\item 
+bool \mbox{\hyperlink{classParseStation_a715acb337bc012223f663c2505d60e21}{check\+Valid\+Spoor\+Nr}} () const
+\item 
+bool \mbox{\hyperlink{classParseStation_a128d45041af61f9ce898284c6a2d0387}{check\+Non\+Valid\+Attributes}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasse om een \doxylink{classStation}{Station} object te parsen. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classParseStation_ad2d5761a1d4f7c7648930999b030b8ec}\label{classParseStation_ad2d5761a1d4f7c7648930999b030b8ec} 
+\index{ParseStation@{ParseStation}!ParseStation@{ParseStation}}
+\index{ParseStation@{ParseStation}!ParseStation@{ParseStation}}
+\doxysubsubsection{\texorpdfstring{ParseStation()}{ParseStation()}}
+{\footnotesize\ttfamily Parse\+Station\+::\+Parse\+Station (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$}]{element }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+Constructor voor \doxylink{classParseStation}{Parse\+Station}. 
+\begin{DoxyParams}{Parameters}
+{\em element} & Een Ti\+Xml\+Emlement dat geparsed zal worden. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classParseStation_a128d45041af61f9ce898284c6a2d0387}\label{classParseStation_a128d45041af61f9ce898284c6a2d0387} 
+\index{ParseStation@{ParseStation}!checkNonValidAttributes@{checkNonValidAttributes}}
+\index{checkNonValidAttributes@{checkNonValidAttributes}!ParseStation@{ParseStation}}
+\doxysubsubsection{\texorpdfstring{checkNonValidAttributes()}{checkNonValidAttributes()}}
+{\footnotesize\ttfamily bool Parse\+Station\+::check\+Non\+Valid\+Attributes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Checked ofdat er onverwachte attributes zijn. \begin{DoxyReturn}{Returns}
+true of false 
+\end{DoxyReturn}
+\Hypertarget{classParseStation_afbb60f05c99b31b0e561a4f16906ed84}\label{classParseStation_afbb60f05c99b31b0e561a4f16906ed84} 
+\index{ParseStation@{ParseStation}!checkValidNaam@{checkValidNaam}}
+\index{checkValidNaam@{checkValidNaam}!ParseStation@{ParseStation}}
+\doxysubsubsection{\texorpdfstring{checkValidNaam()}{checkValidNaam()}}
+{\footnotesize\ttfamily bool Parse\+Station\+::check\+Valid\+Naam (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Methode dat gecalled wordt door check\+Valid\+Station of te controleren ofdat naam valid is. \begin{DoxyReturn}{Returns}
+true of false 
+\end{DoxyReturn}
+\Hypertarget{classParseStation_a715acb337bc012223f663c2505d60e21}\label{classParseStation_a715acb337bc012223f663c2505d60e21} 
+\index{ParseStation@{ParseStation}!checkValidSpoorNr@{checkValidSpoorNr}}
+\index{checkValidSpoorNr@{checkValidSpoorNr}!ParseStation@{ParseStation}}
+\doxysubsubsection{\texorpdfstring{checkValidSpoorNr()}{checkValidSpoorNr()}}
+{\footnotesize\ttfamily bool Parse\+Station\+::check\+Valid\+Spoor\+Nr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Methode dat gecalled wordt door check\+Valid\+Station of te controleren ofdat spoor\+Nr valid is. \begin{DoxyReturn}{Returns}
+true of false 
+\end{DoxyReturn}
+\Hypertarget{classParseStation_a1f2654c28b7b61245a17d6deb09ff35e}\label{classParseStation_a1f2654c28b7b61245a17d6deb09ff35e} 
+\index{ParseStation@{ParseStation}!checkValidStation@{checkValidStation}}
+\index{checkValidStation@{checkValidStation}!ParseStation@{ParseStation}}
+\doxysubsubsection{\texorpdfstring{checkValidStation()}{checkValidStation()}}
+{\footnotesize\ttfamily bool Parse\+Station\+::check\+Valid\+Station (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Checked ofdat het \doxylink{classStation}{Station} object correct is. \begin{DoxyReturn}{Returns}
+true of false 
+\end{DoxyReturn}
+\Hypertarget{classParseStation_ac238edc3616fb8a59e7324ce43a5cac6}\label{classParseStation_ac238edc3616fb8a59e7324ce43a5cac6} 
+\index{ParseStation@{ParseStation}!checkValidVolgende@{checkValidVolgende}}
+\index{checkValidVolgende@{checkValidVolgende}!ParseStation@{ParseStation}}
+\doxysubsubsection{\texorpdfstring{checkValidVolgende()}{checkValidVolgende()}}
+{\footnotesize\ttfamily bool Parse\+Station\+::check\+Valid\+Volgende (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Methode dat gecalled wordt door check\+Valid\+Station of te controleren ofdat Volgende valid is. \begin{DoxyReturn}{Returns}
+true of false 
+\end{DoxyReturn}
+\Hypertarget{classParseStation_aa58b49a8e1826f4bdb4df3d95082d3b3}\label{classParseStation_aa58b49a8e1826f4bdb4df3d95082d3b3} 
+\index{ParseStation@{ParseStation}!checkValidVorige@{checkValidVorige}}
+\index{checkValidVorige@{checkValidVorige}!ParseStation@{ParseStation}}
+\doxysubsubsection{\texorpdfstring{checkValidVorige()}{checkValidVorige()}}
+{\footnotesize\ttfamily bool Parse\+Station\+::check\+Valid\+Vorige (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Methode dat gecalled wordt door check\+Valid\+Station of te controleren ofdat Vorige valid is. \begin{DoxyReturn}{Returns}
+true of false 
+\end{DoxyReturn}
+\Hypertarget{classParseStation_a8823c44ca85e44de27986365d167fbb8}\label{classParseStation_a8823c44ca85e44de27986365d167fbb8} 
+\index{ParseStation@{ParseStation}!parseAll@{parseAll}}
+\index{parseAll@{parseAll}!ParseStation@{ParseStation}}
+\doxysubsubsection{\texorpdfstring{parseAll()}{parseAll()}}
+{\footnotesize\ttfamily bool Parse\+Station\+::parse\+All (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{station }\end{DoxyParamCaption}) const}
+
+Parsed het \doxylink{classStation}{Station} object van een \doxylink{classMetroNet}{Metro\+Net} object. 
+\begin{DoxyParams}{Parameters}
+{\em metro\+Net} & Naam van het \doxylink{classMetroNet}{Metro\+Net}. \\
+\hline
+{\em station} & Naam van het \doxylink{classStation}{Station}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true of false afhankelijk ofdat het \doxylink{classStation}{Station} object geparsed kon worden. 
+\end{DoxyReturn}
+\Hypertarget{classParseStation_a0c638d47db8e6e3e63dab6f693aba3c6}\label{classParseStation_a0c638d47db8e6e3e63dab6f693aba3c6} 
+\index{ParseStation@{ParseStation}!parseNaam@{parseNaam}}
+\index{parseNaam@{parseNaam}!ParseStation@{ParseStation}}
+\doxysubsubsection{\texorpdfstring{parseNaam()}{parseNaam()}}
+{\footnotesize\ttfamily bool Parse\+Station\+::parse\+Naam (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{station }\end{DoxyParamCaption}) const}
+
+Methode dat gecalled wordt door parse\+All om te checken ofdat naam geparsed kan worden 
+\begin{DoxyParams}{Parameters}
+{\em metro\+Net} & Naam van het \doxylink{classMetroNet}{Metro\+Net}. \\
+\hline
+{\em station} & Naam van het \doxylink{classStation}{Station}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true of false 
+\end{DoxyReturn}
+\Hypertarget{classParseStation_afb03eab0638683cf6bfdb9728eeae848}\label{classParseStation_afb03eab0638683cf6bfdb9728eeae848} 
+\index{ParseStation@{ParseStation}!parseSpoorNr@{parseSpoorNr}}
+\index{parseSpoorNr@{parseSpoorNr}!ParseStation@{ParseStation}}
+\doxysubsubsection{\texorpdfstring{parseSpoorNr()}{parseSpoorNr()}}
+{\footnotesize\ttfamily bool Parse\+Station\+::parse\+Spoor\+Nr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{station }\end{DoxyParamCaption}) const}
+
+Methode dat gecalled wordt door parse\+All om te checken ofdat spoor\+Nr geparsed kan worden 
+\begin{DoxyParams}{Parameters}
+{\em metro\+Net} & Naam van het \doxylink{classMetroNet}{Metro\+Net}. \\
+\hline
+{\em station} & Naam van het \doxylink{classStation}{Station}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true of false 
+\end{DoxyReturn}
+\Hypertarget{classParseStation_acd9feab97bd2b56a62cfbada1d62d988}\label{classParseStation_acd9feab97bd2b56a62cfbada1d62d988} 
+\index{ParseStation@{ParseStation}!parseVolgende@{parseVolgende}}
+\index{parseVolgende@{parseVolgende}!ParseStation@{ParseStation}}
+\doxysubsubsection{\texorpdfstring{parseVolgende()}{parseVolgende()}}
+{\footnotesize\ttfamily bool Parse\+Station\+::parse\+Volgende (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{station }\end{DoxyParamCaption}) const}
+
+Methode dat gecalled wordt door parse\+All om te checken ofdat Volgende geparsed kan worden 
+\begin{DoxyParams}{Parameters}
+{\em metro\+Net} & Naam van het \doxylink{classMetroNet}{Metro\+Net}. \\
+\hline
+{\em station} & Naam van het \doxylink{classStation}{Station}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true of false 
+\end{DoxyReturn}
+\Hypertarget{classParseStation_aec9bc7149cb0da3749965daec61fe45d}\label{classParseStation_aec9bc7149cb0da3749965daec61fe45d} 
+\index{ParseStation@{ParseStation}!parseVorige@{parseVorige}}
+\index{parseVorige@{parseVorige}!ParseStation@{ParseStation}}
+\doxysubsubsection{\texorpdfstring{parseVorige()}{parseVorige()}}
+{\footnotesize\ttfamily bool Parse\+Station\+::parse\+Vorige (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{station }\end{DoxyParamCaption}) const}
+
+Methode dat gecalled wordt door parse\+All om te checken ofdat Vorige geparsed kan worden 
+\begin{DoxyParams}{Parameters}
+{\em metro\+Net} & Naam van het \doxylink{classMetroNet}{Metro\+Net}. \\
+\hline
+{\em station} & Naam van het \doxylink{classStation}{Station}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true of false 
+\end{DoxyReturn}
+\Hypertarget{classParseStation_af3d3fdac6b0891c57399eeaa95623dcc}\label{classParseStation_af3d3fdac6b0891c57399eeaa95623dcc} 
+\index{ParseStation@{ParseStation}!setElement@{setElement}}
+\index{setElement@{setElement}!ParseStation@{ParseStation}}
+\doxysubsubsection{\texorpdfstring{setElement()}{setElement()}}
+{\footnotesize\ttfamily void Parse\+Station\+::set\+Element (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$}]{el }\end{DoxyParamCaption})}
+
+
+
+Set Element Zet de element van \doxylink{classParseStation}{Parse\+Station}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em el} & Element dat gezet zal worden. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Parse\+Station.\+h\item 
+Parse\+Station.\+cpp\end{DoxyCompactItemize}
