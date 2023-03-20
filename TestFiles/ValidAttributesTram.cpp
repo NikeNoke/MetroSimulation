@@ -77,6 +77,7 @@ TEST_F(ValidAttributesTram, ValidTrams) {
     }
 }
 
+//Death test
 TEST_F(ValidAttributesTram, InValidTrams) {
     ASSERT_TRUE(Utils::directoryExists("TestInputXML")) << "Directory to test does not exist\n";
 
@@ -101,27 +102,15 @@ TEST_F(ValidAttributesTram, InValidTrams) {
                 Tram* tram = new Tram();
                 ParseTram parseTram(element);
 
-                try{
-                    EXPECT_FALSE(parseTram.checkValidTram()) << "Tram should not have been valid\n";
-                }catch (const std::exception& e){
-
-                }
+                EXPECT_FALSE(parseTram.checkValidTram()) << "Tram should not have been valid\n";
 
 //                EXPECT_FALSE(parseTram.checkValidTram()) << "Tram should not have been valid\n";
 //                EXPECT_THROW(parseTram.checkValidTram(), );
 
-                try{
-                    EXPECT_FALSE(parseTram.parseAll(metroNet, tram)) << "Tram should not have been parsed\n";
-                }catch (const std::exception& e){
-
-                }
+                EXPECT_DEATH(parseTram.parseAll(metroNet, tram), "The Station tag is not correct");
 
 
-                try{
-                    EXPECT_TRUE(parseTram.checkNonValidAttributes()) << "Wrong attributes are not present (was expected)\n";
-                }catch (const std::exception& e){
-
-                }
+//                EXPECT_TRUE(parseTram.checkNonValidAttributes()) << "Wrong attributes are not present (was expected)\n";
 
                 if(!parseTram.parseAll(metroNet,tram))
                     delete tram;
@@ -131,5 +120,43 @@ TEST_F(ValidAttributesTram, InValidTrams) {
 
         fileCounter = fileCounter + 1;
         fileName = "TestInputXML/InValidTram/metroNet" + SSTR(fileCounter) + ".xml";
+    }
+}
+
+
+TEST_F(ValidAttributesTram, InValidTramAttributes) {
+    ASSERT_TRUE(Utils::directoryExists("TestInputXML")) << "Directory to test does not exist\n";
+
+    std::ofstream myfile;
+    int fileCounter = 0;
+    std::string fileName = "TestInputXML/InValidTramAttributes/metroNet" + SSTR(fileCounter) + ".xml";
+
+    while (Utils::fileExists(fileName)) {
+        TiXmlDocument doc;
+        ASSERT_TRUE(doc.LoadFile(fileName.c_str())) << "The file cannot be opened\n";
+
+        TiXmlElement *root = doc.FirstChildElement();
+        ASSERT_TRUE(root != NULL) << "The root cannot be NULL\n";
+
+        MetroNet metroNet;
+
+        for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
+
+            std::string current = element->Value();
+            if (current == "TRAM") {
+
+                Tram* tram = new Tram();
+                ParseTram parseTram(element);
+
+                EXPECT_TRUE(parseTram.checkNonValidAttributes()) << "Wrong attributes are not present (was expected)\n";
+
+                if(!parseTram.parseAll(metroNet,tram))
+                    delete tram;
+            }
+        }
+        doc.Clear();
+
+        fileCounter = fileCounter + 1;
+        fileName = "TestInputXML/InValidTramAttributes/metroNet" + SSTR(fileCounter) + ".xml";
     }
 }

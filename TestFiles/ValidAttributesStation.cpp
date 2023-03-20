@@ -20,6 +20,7 @@
  * Deze klasse test ofdat elk Station object een correcte hoeveelheid attributen heeft
  * **/
 class ValidAttributesStation : public ::testing::Test {
+
 protected:
     /**
      * Klasse overgeërft van gtest.h
@@ -34,6 +35,8 @@ protected:
 
     }
 };
+
+
 
 //HappyDay
 TEST_F(ValidAttributesStation, ValidStations) {
@@ -82,6 +85,8 @@ TEST_F(ValidAttributesStation, ValidStations) {
         fileName = "TestInputXML/ValidStation/metroNet" + SSTR(fileCounter) + ".xml";
     }
 }
+
+//Death Test
 TEST_F(ValidAttributesStation, InValidStation) {
 
     ASSERT_TRUE(Utils::directoryExists("TestInputXML")) << "Directory to test does not exist\n";
@@ -107,20 +112,24 @@ TEST_F(ValidAttributesStation, InValidStation) {
                 Station *station = new Station();
                 ParseStation parseStation(element);
 
-                try{
-                    EXPECT_FALSE(parseStation.checkValidStation()) << "checkValidStation returned true\n";
-                }catch (const std::exception& e){}
+                EXPECT_FALSE(parseStation.checkValidStation()) << "checkValidStation returned true\n";
 
-                try{
-                    EXPECT_FALSE(parseStation.parseAll(metroNet, station)) << "Parsing should not have succeeded\n";
-                }catch (const std::exception& e){}
+                EXPECT_DEATH(parseStation.parseAll(metroNet, station), "The Station tag is not correct");
 
-                try{
-                    EXPECT_TRUE(parseStation.checkNonValidAttributes()) << "Wrong attributes are not present (was expected)\n";
-                }catch (const std::exception& e){}
+//                EXPECT_EXIT(assert(false), ::testing::KilledBySignal(SIGABRT), "");
 
-                if(!parseStation.parseAll(metroNet,station))
-                    delete station;
+//                EXPECT_EXIT(parseStation.parseAll(metroNet, station), ::testing::KilledBySignal(6), "The Station tag is not correct");
+
+//                EXPECT_FATAL_FAI
+
+//                EXPECT_TRUE(parseStation.checkNonValidAttributes()) << "Wrong attributes are not present (was expected)\n";
+
+//                if(!parseStation.parseAll(metroNet,station))
+//                    delete station;
+                if(!station->getName().empty()){
+                    if(!metroNet.stationRegistered(station->getName()))
+                        delete station;
+                }
             }
         }
         doc.Clear();
@@ -130,3 +139,37 @@ TEST_F(ValidAttributesStation, InValidStation) {
     };
 }
 
+TEST_F(ValidAttributesStation, InValidStationAttributes) {
+
+    ASSERT_TRUE(Utils::directoryExists("TestInputXML")) << "Directory to test does not exist\n";
+
+    std::ofstream myfile;
+    int fileCounter = 0;
+    std::string fileName = "TestInputXML/InValidStationAttributes/metroNet" + SSTR(fileCounter) + ".xml";
+
+    while (Utils::fileExists(fileName)) {
+        TiXmlDocument doc;
+        ASSERT_TRUE(doc.LoadFile(fileName.c_str())) << "The file cannot be opened\n";
+
+        TiXmlElement *root = doc.FirstChildElement();
+        ASSERT_TRUE(root != NULL) << "The root cannot be NULL\n";
+
+        MetroNet metroNet;
+
+        for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
+
+            std::string current = element->Value();
+            if (current == "STATION") {
+
+                ParseStation parseStation(element);
+
+                EXPECT_TRUE(parseStation.checkNonValidAttributes()) << "Wrong attributes are not present (was expected)\n";
+
+            }
+        }
+        doc.Clear();
+
+        fileCounter = fileCounter + 1;
+        fileName = "TestInputXML/InValidStationAttributes/metroNet" + SSTR(fileCounter) + ".xml";
+    };
+}

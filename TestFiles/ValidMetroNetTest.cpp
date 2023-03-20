@@ -98,6 +98,7 @@ TEST_F(ValidMetroNet, ValidMetroNet){
 
 }
 
+//Death Test
 TEST_F(ValidMetroNet, InValidMetroNet){
     ASSERT_TRUE(Utils::directoryExists("TestInputXML")) << "Directory to test does not exist\n";
 

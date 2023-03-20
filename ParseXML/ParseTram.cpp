@@ -97,7 +97,7 @@ bool ParseTram::checkValidTram() const {
 
     REQUIRE(element != NULL, "TixmlElement is NULL");
 
-    return checkValidLijnNr() && checkValidSnelheid() && checkValidBeginStation();
+    return checkValidLijnNr() && checkValidSnelheid() && checkValidBeginStation() && !checkNonValidAttributes();
 }
 
 bool ParseTram::parseSnelheid(MetroNet &metroNet, Tram* tram) const {

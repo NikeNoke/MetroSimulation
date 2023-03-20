@@ -94,7 +94,7 @@ bool ParseStation::checkValidStation() const {
 
     REQUIRE(element != NULL, "TixmlElement is NULL");
 
-    return checkValidNaam() && checkValidVorige() && checkValidSpoorNr() && checkValidVolgende();
+    return checkValidNaam() && checkValidVorige() && checkValidSpoorNr() && checkValidVolgende() && !checkNonValidAttributes();
 }
 
 bool ParseStation::checkValidVolgende() const {
