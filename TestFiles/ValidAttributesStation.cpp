@@ -43,8 +43,8 @@ TEST_F(ValidAttributesStation, ValidStations) {
     ASSERT_TRUE(Utils::directoryExists("TestInputXML")) << "Directory to test does not exist\n";
 
     std::ofstream myfile;
-    int fileCounter = 0;
-    std::string fileName = "TestInputXML/ValidStation/metroNet" + SSTR(fileCounter) + ".xml";
+    int fileCounter = 1;
+    std::string fileName = "TestInputXML/ValidStation/ValidStation" + SSTR(fileCounter) + ".xml";
 
     while (Utils::fileExists(fileName)) {
         TiXmlDocument doc;
@@ -82,8 +82,8 @@ TEST_F(ValidAttributesStation, ValidStations) {
         doc.Clear();
 
         fileCounter = fileCounter + 1;
-        fileName = "TestInputXML/ValidStation/metroNet" + SSTR(fileCounter) + ".xml";
-    }
+        fileName = "TestInputXML/ValidStation/ValidStation" + SSTR(fileCounter) + ".xml";
+    };
 }
 
 //Death Test
@@ -92,8 +92,8 @@ TEST_F(ValidAttributesStation, InValidStation) {
     ASSERT_TRUE(Utils::directoryExists("TestInputXML")) << "Directory to test does not exist\n";
 
     std::ofstream myfile;
-    int fileCounter = 0;
-    std::string fileName = "TestInputXML/InValidStation/metroNet" + SSTR(fileCounter) + ".xml";
+    int fileCounter = 1;
+    std::string fileName = "TestInputXML/InValidStation/InValidStation" + SSTR(fileCounter) + ".xml";
 
     while (Utils::fileExists(fileName)) {
         TiXmlDocument doc;
@@ -135,7 +135,7 @@ TEST_F(ValidAttributesStation, InValidStation) {
         doc.Clear();
 
         fileCounter = fileCounter + 1;
-        fileName = "TestInputXML/InValidStation/metroNet" + SSTR(fileCounter) + ".xml";
+        fileName = "TestInputXML/InValidStation/InValidStation" + SSTR(fileCounter) + ".xml";
     };
 }
 
