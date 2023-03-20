@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METRONET>
+    <STATION>
+        <naam>A</naam>
+        <vorige>C</vorige>
+        <spoorNr>12</spoorNr>
+        <volgende>D</volgende>
+        <volgende>D</volgende>
+    </STATION>
+</METRONET>

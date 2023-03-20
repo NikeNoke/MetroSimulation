@@ -41,6 +41,7 @@ TEST_F(ValidAttributesTram, ValidTrams) {
 
     while (Utils::fileExists(fileName)) {
         TiXmlDocument doc;
+        std::cout << fileName << "\n";
         ASSERT_TRUE(doc.LoadFile(fileName.c_str())) << "The file cannot be opened\n";
 
         TiXmlElement *root = doc.FirstChildElement();
@@ -66,8 +67,8 @@ TEST_F(ValidAttributesTram, ValidTrams) {
 
                 EXPECT_FALSE(parseTram.checkNonValidAttributes()) << "There are wrong atrributes present\n";
 
-                if(!parseTram.parseAll(metroNet,tram))
-                    delete tram;
+//                if(!parseTram.parseAll(metroNet,tram))
+//                    delete tram;
             }
         }
         doc.Clear();
@@ -88,7 +89,7 @@ TEST_F(ValidAttributesTram, InValidTrams) {
     while (Utils::fileExists(fileName)) {
         TiXmlDocument doc;
         ASSERT_TRUE(doc.LoadFile(fileName.c_str())) << "The file cannot be opened\n";
-
+        std::cout << fileName << "\n";
         TiXmlElement *root = doc.FirstChildElement();
         ASSERT_TRUE(root != NULL) << "The root cannot be NULL\n";
 
@@ -107,13 +108,13 @@ TEST_F(ValidAttributesTram, InValidTrams) {
 //                EXPECT_FALSE(parseTram.checkValidTram()) << "Tram should not have been valid\n";
 //                EXPECT_THROW(parseTram.checkValidTram(), );
 
-                EXPECT_DEATH(parseTram.parseAll(metroNet, tram), "The Station tag is not correct");
+                EXPECT_DEATH(parseTram.parseAll(metroNet, tram), "The Tram tag is not correct");
 
 
 //                EXPECT_TRUE(parseTram.checkNonValidAttributes()) << "Wrong attributes are not present (was expected)\n";
 
-                if(!parseTram.parseAll(metroNet,tram))
-                    delete tram;
+//                if(!parseTram.parseAll(metroNet,tram))
+                delete tram;
             }
         }
         doc.Clear();
@@ -133,6 +134,7 @@ TEST_F(ValidAttributesTram, InValidTramAttributes) {
 
     while (Utils::fileExists(fileName)) {
         TiXmlDocument doc;
+        std::cout << fileName << "\n";
         ASSERT_TRUE(doc.LoadFile(fileName.c_str())) << "The file cannot be opened\n";
 
         TiXmlElement *root = doc.FirstChildElement();
@@ -145,13 +147,11 @@ TEST_F(ValidAttributesTram, InValidTramAttributes) {
             std::string current = element->Value();
             if (current == "TRAM") {
 
-                Tram* tram = new Tram();
                 ParseTram parseTram(element);
 
                 EXPECT_TRUE(parseTram.checkNonValidAttributes()) << "Wrong attributes are not present (was expected)\n";
 
-                if(!parseTram.parseAll(metroNet,tram))
-                    delete tram;
+//                if(!parseTram.parseAll(metroNet,tram))
             }
         }
         doc.Clear();

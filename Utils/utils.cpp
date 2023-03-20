@@ -199,6 +199,11 @@ bool Utils::validMetroNet(MetroNet &metroNet) {
         Station *vorige = metroNet.getStation(tempStations[i]->getVorige());
         Station *volgende = metroNet.getStation(tempStations[i]->getVolgende());
 
+        if(vorige->getVolgende() != tempStations[i]->getName())
+            return false;
+        if(volgende->getVorige() != tempStations[i]->getName())
+            return false;
+
         if (tempStations[i]->getSpoorNr() != vorige->getSpoorNr()) {
             std::cerr << "De spoorNr van station " << tempStations[i]->getName()
                       << " komt niet overeen met de spoorNr van zijn vorige "
@@ -214,7 +219,7 @@ bool Utils::validMetroNet(MetroNet &metroNet) {
         }
 
         bool spoorHeeftTram = false;
-        for (long unsigned int j = 0; i < tempTrams.size(); i++) {
+        for (long unsigned int j = 0; j < tempTrams.size(); j++) {
             REQUIRE(tempTrams[j]->properlyInitialized(), "A tram of the metroNet is not properly initialized");
             if (tempStations[i]->getSpoorNr() == tempTrams[j]->getLijnNr()) {
                 spoorHeeftTram = true;
@@ -333,6 +338,11 @@ bool Utils::validMetroNetSilent(MetroNet &metroNet) {
         Station *vorige = metroNet.getStation(tempStations[i]->getVorige());
         Station *volgende = metroNet.getStation(tempStations[i]->getVolgende());
 
+        if(vorige->getVolgende() != tempStations[i]->getName())
+            return false;
+        if(volgende->getVorige() != tempStations[i]->getName())
+            return false;
+
         if (tempStations[i]->getSpoorNr() != vorige->getSpoorNr()) {
             return false;
         }
@@ -342,7 +352,7 @@ bool Utils::validMetroNetSilent(MetroNet &metroNet) {
         }
 
         bool spoorHeeftTram = false;
-        for (long unsigned int j = 0; i < tempTrams.size(); i++) {
+        for (long unsigned int j = 0; j < tempTrams.size(); j++) {
             REQUIRE(tempTrams[j]->properlyInitialized(), "A tram of the metroNet is not properly initialized");
             if (tempStations[i]->getSpoorNr() == tempTrams[j]->getLijnNr()) {
                 spoorHeeftTram = true;

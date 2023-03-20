@@ -75,8 +75,8 @@ TEST_F(ValidAttributesStation, ValidStations) {
 
                 EXPECT_FALSE(parseStation.checkNonValidAttributes()) << "There are wrong atrributes present\n";
 
-                if(!parseStation.parseAll(metroNet,station))
-                    delete station;
+//                if(!parseStation.parseAll(metroNet,station))
+//                    delete station;
             }
         }
         doc.Clear();
