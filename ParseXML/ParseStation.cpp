@@ -6,24 +6,26 @@
 #include "../Utils/utils.h"
 
 ParseStation::ParseStation(TiXmlElement *element)
-    : fElement(element)
+    : element(element)
 {
     REQUIRE(element != NULL, "TixmlElement is NULL");
-    ENSURE(this->fElement == element, "TixmlElement is not the element of the parser");
+    ENSURE(this->element == element, "TixmlElement is not the element of the parser");
 }
 
 void ParseStation::setElement(TiXmlElement *el) {
     REQUIRE(el != NULL, "TixmlElement is NULL");
-    fElement = el;
-    ENSURE(this->fElement == el, "TixmlElement is not the element of the parser");
+    element = el;
+    ENSURE(this->element == element, "TixmlElement is not the element of the parser");
 }
 
 bool ParseStation::parseAll(MetroNet &metroNet, Station* station) const {
 
     REQUIRE(station->properlyInitialized(), "Station is not properlyInitialized");
-    REQUIRE(fElement != NULL, "TixmlElement is NULL");
-    REQUIRE(checkValidStation() == true, "The Station tag is not correct");
-
+    REQUIRE(element != NULL, "TixmlElement is NULL");
+    REQUIRE(checkValidNaam() == true, "The name tag is not correct in this Station tag");
+    REQUIRE(checkValidVorige() == true, "The vorige tag is not correct in this Station tag");
+    REQUIRE(checkValidSpoorNr() == true, "The spoorNr tag is not correct in this Station tag");
+    REQUIRE(checkValidVolgende() == true, "The volgende tag is not correct in this Station tag");
 
     if(!parseNaam(metroNet, station) || !parseSpoorNr(metroNet, station) || !parseVolgende(metroNet, station) || !parseVorige(metroNet, station))
         return false;
@@ -32,100 +34,88 @@ bool ParseStation::parseAll(MetroNet &metroNet, Station* station) const {
     ENSURE(!station->getVorige().empty(), "The vorige of station has not been correctly initialized");
     ENSURE(!station->getVolgende().empty(), "The volgende of station has not been correctly initialized");
     ENSURE(station->getSpoorNr() != -1, "The spoorNr of station has not been correctly initialized");
-    ENSURE(fElement != NULL, "TixmlElement is NULL");
+    ENSURE(element != NULL, "TixmlElement is NULL");
 
     return true;
 }
 
 bool ParseStation::checkValidNaam() const {
 
-    REQUIRE(fElement != NULL, "TixmlElement is NULL");
+    REQUIRE(element != NULL, "TixmlElement is NULL");
 
     int amountOfNamen = 0;
 
-    for (TiXmlElement *InnerElement = fElement->FirstChildElement();
+    for (TiXmlElement *InnerElement = element->FirstChildElement();
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
 
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "naam"){
-            if(!Utils::is_int(innerText))
-                amountOfNamen++;
-            else
-                return false;
-        }
+        if(innerElementName == "naam")
+            amountOfNamen++;
     }
 
-    ENSURE(fElement != NULL, "TixmlElement has become NULL");
+    ENSURE(element != NULL, "TixmlElement has become NULL");
 
     return amountOfNamen == 1;
 }
 
 bool ParseStation::checkValidVorige() const {
 
-    REQUIRE(fElement != NULL, "TixmlElement is NULL");
+    REQUIRE(element != NULL, "TixmlElement is NULL");
 
     int amountOfVorige = 0;
 
-    for (TiXmlElement *InnerElement = fElement->FirstChildElement();
+    for (TiXmlElement *InnerElement = element->FirstChildElement();
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
 
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "vorige"){
-            if(!Utils::is_int(innerText))
-                amountOfVorige++;
-            else
-                return false;
-        }
+        if(innerElementName == "vorige")
+            amountOfVorige++;
     }
 
-    ENSURE(fElement != NULL, "TixmlElement has become NULL");
+    ENSURE(element != NULL, "TixmlElement has become NULL");
 
     return amountOfVorige == 1;
 }
 
 bool ParseStation::checkValidStation() const {
 
-    REQUIRE(fElement != NULL, "TixmlElement is NULL");
+    REQUIRE(element != NULL, "TixmlElement is NULL");
 
-    return checkValidNaam() && checkValidVorige() && checkValidSpoorNr() && checkValidVolgende() && !checkNonValidAttributes();
+    return checkValidNaam() && checkValidVorige() && checkValidSpoorNr() && checkValidVolgende();
 }
 
 bool ParseStation::checkValidVolgende() const {
 
-    REQUIRE(fElement != NULL, "TixmlElement is NULL");
+    REQUIRE(element != NULL, "TixmlElement is NULL");
 
     int amountOfVolgende = 0;
 
-    for (TiXmlElement *InnerElement = fElement->FirstChildElement();
+    for (TiXmlElement *InnerElement = element->FirstChildElement();
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
 
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "volgende"){
-            if(!Utils::is_int(innerText))
-                amountOfVolgende++;
-            else
-                return false;
-        }
+        if(innerElementName == "volgende")
+            amountOfVolgende++;
     }
 
-    ENSURE(fElement != NULL, "TixmlElement has become NULL");
+    ENSURE(element != NULL, "TixmlElement has become NULL");
 
     return amountOfVolgende == 1;
 }
 
 bool ParseStation::checkValidSpoorNr() const {
 
-    REQUIRE(fElement != NULL, "TixmlElement is NULL");
+    REQUIRE(element != NULL, "TixmlElement is NULL");
 
     int amountOfSpoorNr = 0;
 
-    for (TiXmlElement *InnerElement = fElement->FirstChildElement();
+    for (TiXmlElement *InnerElement = element->FirstChildElement();
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
 
         std::string innerElementName = InnerElement->Value();
@@ -134,12 +124,10 @@ bool ParseStation::checkValidSpoorNr() const {
         if(innerElementName == "spoorNr"){
             if(Utils::is_int(innerText))
                 amountOfSpoorNr++;
-            else
-                return false;
         }
     }
 
-    ENSURE(fElement != NULL, "TixmlElement has become NULL");
+    ENSURE(element != NULL, "TixmlElement has become NULL");
 
     return amountOfSpoorNr == 1;
 }
@@ -147,11 +135,11 @@ bool ParseStation::checkValidSpoorNr() const {
 bool ParseStation::parseNaam(MetroNet &metroNet, Station* station) const {
 
     REQUIRE(station->properlyInitialized(), "Station is not properlyInitialized");
-    REQUIRE(fElement != NULL, "TixmlElement is NULL");
+    REQUIRE(element != NULL, "TixmlElement is NULL");
     REQUIRE(checkValidNaam() == true, "The name tag is not correct in this Station tag");
 
 
-    for (TiXmlElement *InnerElement = fElement->FirstChildElement();
+    for (TiXmlElement *InnerElement = element->FirstChildElement();
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
 
         std::string innerElementName = InnerElement->Value();
@@ -163,18 +151,18 @@ bool ParseStation::parseNaam(MetroNet &metroNet, Station* station) const {
         }
     }
     ENSURE(!station->getName().empty(), "The naam of station has not been correctly initialized");
-    ENSURE(fElement != NULL, "TixmlElement is NULL");
+    ENSURE(element != NULL, "TixmlElement is NULL");
     return false;
 }
 
 bool ParseStation::parseVorige(MetroNet &metroNet, Station *station) const {
 
     REQUIRE(station->properlyInitialized(), "Station is not properlyInitialized");
-    REQUIRE(fElement != NULL, "TixmlElement is NULL");
+    REQUIRE(element != NULL, "TixmlElement is NULL");
     REQUIRE(checkValidVorige() == true, "The vorige tag is not correct in this Station tag");
 
 
-    for (TiXmlElement *InnerElement = fElement->FirstChildElement();
+    for (TiXmlElement *InnerElement = element->FirstChildElement();
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
 
         std::string innerElementName = InnerElement->Value();
@@ -186,17 +174,17 @@ bool ParseStation::parseVorige(MetroNet &metroNet, Station *station) const {
         }
     }
     ENSURE(!station->getVorige().empty(), "The vorige of station has not been correctly initialized");
-    ENSURE(fElement != NULL, "TixmlElement is NULL");
+    ENSURE(element != NULL, "TixmlElement is NULL");
     return false;
 }
 
 bool ParseStation::parseVolgende(MetroNet &metroNet, Station *station) const {
 
     REQUIRE(station->properlyInitialized(), "Station is not properlyInitialized");
-    REQUIRE(fElement != NULL, "TixmlElement is NULL");
-//    REQUIRE(checkValidVolgende() == true, "The volgende tag is not correct in this Station tag");
+    REQUIRE(element != NULL, "TixmlElement is NULL");
+    REQUIRE(checkValidVolgende() == true, "The volgende tag is not correct in this Station tag");
 
-    for (TiXmlElement *InnerElement = fElement->FirstChildElement();
+    for (TiXmlElement *InnerElement = element->FirstChildElement();
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
 
         std::string innerElementName = InnerElement->Value();
@@ -207,19 +195,19 @@ bool ParseStation::parseVolgende(MetroNet &metroNet, Station *station) const {
             return true;
         }
     }
-//    ENSURE(!station->getVolgende().empty(), "The volgende of station has not been correctly initialized");
-    ENSURE(fElement != NULL, "TixmlElement is NULL");
+    ENSURE(!station->getVolgende().empty(), "The volgende of station has not been correctly initialized");
+    ENSURE(element != NULL, "TixmlElement is NULL");
     return false;
 }
 
 bool ParseStation::parseSpoorNr(MetroNet &metroNet, Station *station) const {
 
     REQUIRE(station->properlyInitialized(), "Station is not properlyInitialized");
-    REQUIRE(fElement != NULL, "TixmlElement is NULL");
+    REQUIRE(element != NULL, "TixmlElement is NULL");
     REQUIRE(checkValidSpoorNr() == true, "The spoorNr tag is not correct in this Station tag");
 
 
-    for (TiXmlElement *InnerElement = fElement->FirstChildElement();
+    for (TiXmlElement *InnerElement = element->FirstChildElement();
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
 
         std::string innerElementName = InnerElement->Value();
@@ -233,34 +221,7 @@ bool ParseStation::parseSpoorNr(MetroNet &metroNet, Station *station) const {
         }
     }
     ENSURE(station->getSpoorNr() != -1, "The spoorNr of station has not been correctly initialized");
-    ENSURE(fElement != NULL, "TixmlElement is NULL");
-    return false;
-}
-
-bool ParseStation::checkNonValidAttributes() const {
-
-    REQUIRE(fElement != NULL, "TixmlElement is NULL");
-
-
-    for (TiXmlElement *InnerElement = fElement->FirstChildElement();
-         InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
-
-        std::string innerElementName = InnerElement->Value();
-        std::string innerText = InnerElement->GetText();
-
-        if(innerElementName == "spoorNr")
-            continue;
-        if(innerElementName == "volgende")
-            continue;
-        if(innerElementName == "vorige")
-            continue;
-        if(innerElementName == "naam")
-            continue;
-        return true;
-    }
-
-    ENSURE(fElement != NULL, "TixmlElement has become NULL");
-
+    ENSURE(element != NULL, "TixmlElement is NULL");
     return false;
 }
 
