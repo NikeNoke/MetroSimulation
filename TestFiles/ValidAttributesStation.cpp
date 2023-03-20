@@ -41,7 +41,7 @@ TEST_F(ValidAttributesStation, ValidStations) {
 
     std::ofstream myfile;
     int fileCounter = 0;
-    std::string fileName = "TestInputXML/ValidStation" + SSTR(fileCounter) + ".xml";
+    std::string fileName = "TestInputXML/ValidStation/metroNet" + SSTR(fileCounter) + ".xml";
 
     while (Utils::fileExists(fileName)) {
         TiXmlDocument doc;
@@ -79,7 +79,7 @@ TEST_F(ValidAttributesStation, ValidStations) {
         doc.Clear();
 
         fileCounter = fileCounter + 1;
-        fileName = "TestInputXML/ValidStation" + SSTR(fileCounter) + ".xml";
+        fileName = "TestInputXML/ValidStation/metroNet" + SSTR(fileCounter) + ".xml";
     }
 }
 TEST_F(ValidAttributesStation, InValidStation) {
@@ -88,7 +88,7 @@ TEST_F(ValidAttributesStation, InValidStation) {
 
     std::ofstream myfile;
     int fileCounter = 0;
-    std::string fileName = "TestInputXML/InValidStation" + SSTR(fileCounter) + ".xml";
+    std::string fileName = "TestInputXML/InValidStation/metroNet" + SSTR(fileCounter) + ".xml";
 
     while (Utils::fileExists(fileName)) {
         TiXmlDocument doc;
@@ -120,7 +120,7 @@ TEST_F(ValidAttributesStation, InValidStation) {
         doc.Clear();
 
         fileCounter = fileCounter + 1;
-        fileName = "TestInputXML/InValidStation" + SSTR(fileCounter) + ".xml";
+        fileName = "TestInputXML/InValidStation/metroNet" + SSTR(fileCounter) + ".xml";
     };
 }
 

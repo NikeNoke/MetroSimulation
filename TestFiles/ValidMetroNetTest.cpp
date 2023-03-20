@@ -33,7 +33,7 @@ TEST_F(ValidMetroNet, ValidMetroNet){
 
     std::ofstream myfile;
     int fileCounter = 0;
-    std::string fileName = "TestInputXML/ValidMetroNet" + SSTR(fileCounter) + ".xml";
+    std::string fileName = "TestInputXML/ValidMetroNet/metroNet" + SSTR(fileCounter) + ".xml";
 
     while (Utils::fileExists(fileName)) {
         TiXmlDocument doc;
@@ -93,7 +93,7 @@ TEST_F(ValidMetroNet, ValidMetroNet){
         EXPECT_TRUE(Utils::validMetroNetSilent(metroNet)) << "The metroNet is not Valid\n";
 
         fileCounter = fileCounter + 1;
-        fileName = "TestInputXML/ValidMetroNet" + SSTR(fileCounter) + ".xml";
+        fileName = "TestInputXML/ValidMetroNet/metroNet" + SSTR(fileCounter) + ".xml";
     }
 
 }
@@ -103,7 +103,7 @@ TEST_F(ValidMetroNet, InValidMetroNet){
 
     std::ofstream myfile;
     int fileCounter = 0;
-    std::string fileName = "TestInputXML/ValidMetroNet" + SSTR(fileCounter) + ".xml";
+    std::string fileName = "TestInputXML/InValidMetroNet/metroNet" + SSTR(fileCounter) + ".xml";
 
     while (Utils::fileExists(fileName)) {
         TiXmlDocument doc;
@@ -154,6 +154,6 @@ TEST_F(ValidMetroNet, InValidMetroNet){
         EXPECT_FALSE(Utils::validMetroNetSilent(metroNet)) << "The MetroNet was Valid, expected nonValid\n";
 
         fileCounter = fileCounter + 1;
-        fileName = "TestInputXML/ValidMetroNet" + SSTR(fileCounter) + ".xml";
+        fileName = "TestInputXML/InValidMetroNet/metroNet" + SSTR(fileCounter) + ".xml";
     }
 }
