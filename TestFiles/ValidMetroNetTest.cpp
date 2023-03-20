@@ -64,8 +64,9 @@ TEST_F(ValidMetroNet, ValidMetroNet){
 
                 EXPECT_FALSE(parseStation.checkNonValidAttributes()) << "There are wrong atrributes present\n";
 
-                if(!parseStation.parseAll(metroNet,station))
-                    delete station;
+                metroNet.addStation(station);
+//                if(!parseStation.parseAll(metroNet,station))
+//                    delete station;
             }else if(current == "TRAM"){
 
                 Tram* tram = new Tram();
@@ -81,8 +82,9 @@ TEST_F(ValidMetroNet, ValidMetroNet){
 
                 EXPECT_FALSE(parseTram.checkNonValidAttributes()) << "There are wrong atrributes present\n";
 
-                if(!parseTram.parseAll(metroNet,tram))
-                    delete tram;
+                metroNet.addTram(tram);
+//                if(!parseTram.parseAll(metroNet,tram))
+//                    delete tram;
 
             }else{
                 EXPECT_TRUE(false) << "MetroNet has a non valid attribute besides TRAM and STATION\n";
@@ -98,7 +100,7 @@ TEST_F(ValidMetroNet, ValidMetroNet){
 
 }
 
-//Death Test
+//Assumption --> correct form of stations and trams, but the metroNet itself is wrong
 TEST_F(ValidMetroNet, InValidMetroNet){
     ASSERT_TRUE(Utils::directoryExists("TestInputXML")) << "Directory to test does not exist\n";
 
