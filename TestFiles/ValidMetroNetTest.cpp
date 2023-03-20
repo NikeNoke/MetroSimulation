@@ -42,7 +42,6 @@ TEST_F(ValidMetroNet, ValidMetroNet){
 
         TiXmlElement *root = doc.FirstChildElement();
         ASSERT_TRUE(root != NULL) << "The root cannot be NULL\n";
-        std::cout << fileName << "\n";
         MetroNet metroNet;
 
         for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
