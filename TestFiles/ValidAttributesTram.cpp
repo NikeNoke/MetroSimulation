@@ -41,7 +41,6 @@ TEST_F(ValidAttributesTram, ValidTrams) {
 
     while (Utils::fileExists(fileName)) {
         TiXmlDocument doc;
-        std::cout << fileName << "\n";
         ASSERT_TRUE(doc.LoadFile(fileName.c_str())) << "The file cannot be opened\n";
 
         TiXmlElement *root = doc.FirstChildElement();
@@ -89,7 +88,6 @@ TEST_F(ValidAttributesTram, InValidTrams) {
     while (Utils::fileExists(fileName)) {
         TiXmlDocument doc;
         ASSERT_TRUE(doc.LoadFile(fileName.c_str())) << "The file cannot be opened\n";
-        std::cout << fileName << "\n";
         TiXmlElement *root = doc.FirstChildElement();
         ASSERT_TRUE(root != NULL) << "The root cannot be NULL\n";
 
@@ -134,7 +132,6 @@ TEST_F(ValidAttributesTram, InValidTramAttributes) {
 
     while (Utils::fileExists(fileName)) {
         TiXmlDocument doc;
-        std::cout << fileName << "\n";
         ASSERT_TRUE(doc.LoadFile(fileName.c_str())) << "The file cannot be opened\n";
 
         TiXmlElement *root = doc.FirstChildElement();
