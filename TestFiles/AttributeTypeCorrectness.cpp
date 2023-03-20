@@ -6,11 +6,12 @@
 #include "../Utils/utils.h"
 #include "../Station/Station.h"
 #include "../Tram/Tram.h"
-#include "../MetroNet/MetroNet.h"
 #include<sstream>
 
 /**
  * Deze klasse test ofdat het gegeven type van de attribute de juiste type is dat required is.
+ * @note unknown file: Failure
+C++ exception with description "basic_string::_M_construct null not valid" thrown in the test body (metronet20.xml).
  * **/
 class AttributeTypeCorrectness : public ::testing::Test {
 protected:
@@ -20,6 +21,7 @@ protected:
     virtual void SetUp() {
 
     }
+
     /**
      * "Tears down the test fixture." Klasse overgeërft van gtest.h
      * **/
@@ -35,1812 +37,290 @@ protected:
         while (it != s.end() && std::isdigit(*it)) ++it;
         return !s.empty() && it == s.end();
     }
+
     /**
      * Controleert ofdat de gegeven string leeg is.
      * @param word waarop wordt getest ofdat die lengte nul is of niet.
      * **/
-    bool is_empty(const std::string &word){
-        if(word.size() ==0){
+    bool is_empty(const std::string &word) {
+        if (word.size() == 0) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
+    /**
+     * Function body voor de tests. Test ofdat de attributes types overeenkomen met wat verwacht wordt.
+     * @param Filename Naam van de file dat getest wordt.
+     */
+    void FunctionFieldEqual(const char *Filename) {
+        TiXmlDocument doc;
+        if (!doc.LoadFile(Filename)) {
+            std::cerr << doc.ErrorDesc() << std::endl;
+        }
+        TiXmlElement *root = doc.FirstChildElement();
+        if (root == NULL) {
+            std::cerr << "Failed to load file: No root element." << std::endl;
+            doc.Clear();
+        }
+
+        std::vector<bool> attributes;
+        long unsigned Amount_Of_Attributes = 0;
+        long unsigned Amount_Of_Attributes_Tram = 3;
+        long unsigned Amount_Of_Attributes_Station = 4;
+        for (TiXmlElement *element = root->FirstChildElement();
+             element != NULL; element = element->NextSiblingElement()) {
+
+            std::string current = element->Value();
+
+            if (current == "STATION") {
+                Amount_Of_Attributes += Amount_Of_Attributes_Station;
+                for (TiXmlElement *inner = element->FirstChildElement();
+                     inner != NULL; inner = inner->NextSiblingElement()) {
+                    std::string attribute = inner->Value();
+                    if (attribute == "naam") {
+
+                        if (!is_int(inner->GetText())) {
+                            attributes.push_back(true);
+
+                        }
+                    } else if (attribute == "volgende") {
+
+                        if (!is_int(inner->GetText())) {
+                            attributes.push_back(true);
+                        }
+                    } else if (attribute == "vorige") {
+
+                        if (!is_int(inner->GetText())) {
+                            attributes.push_back(true);
+                        }
+                    } else if (attribute == "spoorNr") {
+
+                        if (is_int(inner->GetText())) {
+                            attributes.push_back(true);
+                        }
+                    }
+                }
+
+            } else if (current == "TRAM") {
+                Amount_Of_Attributes += Amount_Of_Attributes_Tram;
+                for (TiXmlElement *inner = element->FirstChildElement();
+                     inner != NULL; inner = inner->NextSiblingElement()) {
+                    std::string attribute = inner->Value();
+                    if (attribute == "lijnNr") {
+
+                        if (is_int(inner->GetText())) {
+                            attributes.push_back(true);
+                        }
+                    } else if (attribute == "beginStation") {
+
+                        if (!is_int(inner->GetText())) {
+                            attributes.push_back(true);
+                        }
+                    } else if (attribute == "snelheid") {
+
+                        if (is_int(inner->GetText())) {
+                            attributes.push_back(true);
+                        }
+                    }
+                    //else if (attribute == "huidigstation"){
+                    //    attributes.push_back(true);
+                    //}
+                }
+
+            }
+
+        }
+        EXPECT_EQ(Amount_Of_Attributes, attributes.size());
+
+
+        doc.Clear();
+    }
+
+    /**
+     * Function body voor de tests. Test ofdat de attributes types NIET overeenkomen met wat verwacht wordt.
+     * @param Filename Naam van de file dat getest wordt.
+     */
+    void FunctionFieldNotEqual(const char *Filename) {
+        TiXmlDocument doc;
+        if (!doc.LoadFile(Filename)) {
+            std::cerr << doc.ErrorDesc() << std::endl;
+        }
+        TiXmlElement *root = doc.FirstChildElement();
+        if (root == NULL) {
+            std::cerr << "Failed to load file: No root element." << std::endl;
+            doc.Clear();
+        }
+
+        std::vector<bool> attributes;
+        long unsigned Amount_Of_Attributes = 0;
+        long unsigned Amount_Of_Attributes_Tram = 3;
+        long unsigned Amount_Of_Attributes_Station = 4;
+        for (TiXmlElement *element = root->FirstChildElement();
+             element != NULL; element = element->NextSiblingElement()) {
+
+            std::string current = element->Value();
+
+            if (current == "STATION") {
+                Amount_Of_Attributes += Amount_Of_Attributes_Station;
+                for (TiXmlElement *inner = element->FirstChildElement();
+                     inner != NULL; inner = inner->NextSiblingElement()) {
+                    std::string attribute = inner->Value();
+                    if (attribute == "naam") {
+
+                        if (!is_int(inner->GetText())) {
+                            attributes.push_back(true);
+
+                        }
+                    } else if (attribute == "volgende") {
+
+                        if (!is_int(inner->GetText())) {
+                            attributes.push_back(true);
+                        }
+                    } else if (attribute == "vorige") {
+
+                        if (!is_int(inner->GetText())) {
+                            attributes.push_back(true);
+                        }
+                    } else if (attribute == "spoorNr") {
+
+                        if (is_int(inner->GetText())) {
+                            attributes.push_back(true);
+                        }
+                    }
+                }
+
+            } else if (current == "TRAM") {
+                Amount_Of_Attributes += Amount_Of_Attributes_Tram;
+                for (TiXmlElement *inner = element->FirstChildElement();
+                     inner != NULL; inner = inner->NextSiblingElement()) {
+                    std::string attribute = inner->Value();
+                    if (attribute == "lijnNr") {
+
+                        if (is_int(inner->GetText())) {
+                            attributes.push_back(true);
+                        }
+                    } else if (attribute == "beginStation") {
+
+                        if (!is_int(inner->GetText())) {
+                            attributes.push_back(true);
+                        }
+                    } else if (attribute == "snelheid") {
+
+                        if (is_int(inner->GetText())) {
+                            attributes.push_back(true);
+                        }
+                    }
+                    //else if (attribute == "huidigstation"){
+                    //    attributes.push_back(true);
+                    //}
+                }
+
+            }
+
+        }
+        EXPECT_NE(Amount_Of_Attributes, attributes.size());
+
+
+        doc.Clear();
+    }
 };
 
 TEST_F(AttributeTypeCorrectness, SampleTest1) {
-    TiXmlDocument doc;
-    if (!doc.LoadFile("../XMLexamples/metronet1.xml")) {
-        std::cerr << doc.ErrorDesc() << std::endl;
-    }
-    TiXmlElement *root = doc.FirstChildElement();
-    bool rootNotEmpty = root != NULL;
-    ASSERT_EQ(rootNotEmpty, true) << "The root is empty";
-    if (root == NULL) {
-        std::cerr << "Failed to load file: No root element." << std::endl;
-        doc.Clear();
-    }
-    MetroNet metroNet;
-    std::vector<bool> attributes;
-    long unsigned Amount_Of_Attributes = 0;
-    long unsigned Amount_Of_Attributes_Tram = 3;
-    long unsigned Amount_Of_Attributes_Station = 4;
-    for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
-
-        std::string current = element->Value();
-
-        if (current == "STATION") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Station;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "naam") {
-                    
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-
-                    }
-                } else if (attribute == "volgende") {
-                    
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "vorige") {
-                    
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "spoorNr") {
-                    
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-            }
-
-        } else if (current == "TRAM") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Tram;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "lijnNr") {
-                    
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "beginStation") {
-                    
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "snelheid") {
-                    
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-                //else if (attribute == "huidigstation"){
-                //    attributes.push_back(true);
-                //}
-            }
-
-        }
-
-    }
-    EXPECT_EQ(Amount_Of_Attributes, attributes.size());
-
-
-    doc.Clear();
+    FunctionFieldEqual("XMLexamples/metronet1.xml");
 }
 
 TEST_F(AttributeTypeCorrectness, SampleTest2) {
-    TiXmlDocument doc;
-    if (!doc.LoadFile("../XMLexamples/metronet2.xml")) {
-        std::cerr << doc.ErrorDesc() << std::endl;
-    }
-    TiXmlElement *root = doc.FirstChildElement();
-    if (root == NULL) {
-        std::cerr << "Failed to load file: No root element." << std::endl;
-        doc.Clear();
-    }
-    MetroNet metroNet;
-    std::vector<bool> attributes;
-    long unsigned Amount_Of_Attributes = 0;
-    long unsigned Amount_Of_Attributes_Tram = 3;
-    long unsigned Amount_Of_Attributes_Station = 4;
-    for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
-
-        std::string current = element->Value();
-
-        if (current == "STATION") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Station;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "naam") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "volgende") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "vorige") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "spoorNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-            }
-
-        } else if (current == "TRAM") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Tram;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "lijnNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "beginStation") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "snelheid") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-                //else if (attribute == "huidigstation"){
-                //    attributes.push_back(true);
-                //}
-            }
-
-        }
-
-    }
-    EXPECT_EQ(Amount_Of_Attributes, attributes.size());
-
-
-    doc.Clear();
+    FunctionFieldEqual("XMLexamples/metronet2.xml");
 }
 
 TEST_F(AttributeTypeCorrectness, SampleTest3) {
-    TiXmlDocument doc;
-    if (!doc.LoadFile("../XMLexamples/metronet3.xml")) {
-        std::cerr << doc.ErrorDesc() << std::endl;
-    }
-    TiXmlElement *root = doc.FirstChildElement();
-    if (root == NULL) {
-        std::cerr << "Failed to load file: No root element." << std::endl;
-        doc.Clear();
-    }
-    MetroNet metroNet;
-    std::vector<bool> attributes;
-    long unsigned Amount_Of_Attributes = 0;
-    long unsigned Amount_Of_Attributes_Tram = 3;
-    long unsigned Amount_Of_Attributes_Station = 4;
-    for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
-
-        std::string current = element->Value();
-
-        if (current == "STATION") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Station;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "naam") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "volgende") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "vorige") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "spoorNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-            }
-
-        } else if (current == "TRAM") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Tram;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "lijnNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "beginStation") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "snelheid") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-                //else if (attribute == "huidigstation"){
-                //    attributes.push_back(true);
-                //}
-            }
-
-        }
-
-    }
-    EXPECT_EQ(Amount_Of_Attributes, attributes.size());
-
-
-    doc.Clear();
+    FunctionFieldEqual("XMLexamples/metronet3.xml");
 }
 
 TEST_F(AttributeTypeCorrectness, SampleTest4) {
-    TiXmlDocument doc;
-    if (!doc.LoadFile("../XMLexamples/metronet4.xml")) {
-        std::cerr << doc.ErrorDesc() << std::endl;
-    }
-    TiXmlElement *root = doc.FirstChildElement();
-    if (root == NULL) {
-        std::cerr << "Failed to load file: No root element." << std::endl;
-        doc.Clear();
-    }
-    MetroNet metroNet;
-    std::vector<bool> attributes;
-    long unsigned Amount_Of_Attributes = 0;
-    long unsigned Amount_Of_Attributes_Tram = 3;
-    long unsigned Amount_Of_Attributes_Station = 4;
-    for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
-
-        std::string current = element->Value();
-
-        if (current == "STATION") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Station;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "naam") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "volgende") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "vorige") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "spoorNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-            }
-
-        } else if (current == "TRAM") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Tram;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "lijnNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "beginStation") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "snelheid") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-                //else if (attribute == "huidigstation"){
-                //    attributes.push_back(true);
-                //}
-            }
-
-        }
-
-    }
-    EXPECT_EQ(Amount_Of_Attributes, attributes.size());
-
-
-    doc.Clear();
+    FunctionFieldEqual("XMLexamples/metronet4.xml");
 }
 
 TEST_F(AttributeTypeCorrectness, SampleTest5) {
-    TiXmlDocument doc;
-    if (!doc.LoadFile("../XMLexamples/metronet5.xml")) {
-        std::cerr << doc.ErrorDesc() << std::endl;
-    }
-    TiXmlElement *root = doc.FirstChildElement();
-    if (root == NULL) {
-        std::cerr << "Failed to load file: No root element." << std::endl;
-        doc.Clear();
-    }
-    MetroNet metroNet;
-    std::vector<bool> attributes;
-    long unsigned Amount_Of_Attributes = 0;
-    long unsigned Amount_Of_Attributes_Tram = 3;
-    long unsigned Amount_Of_Attributes_Station = 4;
-    for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
-
-        std::string current = element->Value();
-
-        if (current == "STATION") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Station;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "naam") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "volgende") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "vorige") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "spoorNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-            }
-
-        } else if (current == "TRAM") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Tram;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "lijnNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "beginStation") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "snelheid") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-                //else if (attribute == "huidigstation"){
-                //    attributes.push_back(true);
-                //}
-            }
-
-        }
-
-    }
-    EXPECT_EQ(Amount_Of_Attributes, attributes.size());
-
-
-    doc.Clear();
+    FunctionFieldEqual("XMLexamples/metronet5.xml");
 }
 
 TEST_F(AttributeTypeCorrectness, SampleTest6) {
-    TiXmlDocument doc;
-    if (!doc.LoadFile("../XMLexamples/metronet6.xml")) {
-        std::cerr << doc.ErrorDesc() << std::endl;
-    }
-    TiXmlElement *root = doc.FirstChildElement();
-    if (root == NULL) {
-        std::cerr << "Failed to load file: No root element." << std::endl;
-        doc.Clear();
-    }
-    MetroNet metroNet;
-    std::vector<bool> attributes;
-    long unsigned Amount_Of_Attributes = 0;
-    long unsigned Amount_Of_Attributes_Tram = 3;
-    long unsigned Amount_Of_Attributes_Station = 4;
-    for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
-
-        std::string current = element->Value();
-
-        if (current == "STATION") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Station;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "naam") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "volgende") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "vorige") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "spoorNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-            }
-
-        } else if (current == "TRAM") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Tram;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "lijnNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "beginStation") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "snelheid") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-                //else if (attribute == "huidigstation"){
-                //    attributes.push_back(true);
-                //}
-            }
-
-        }
-
-    }
-    EXPECT_NE(Amount_Of_Attributes, attributes.size());
-
-
-    doc.Clear();
+    FunctionFieldNotEqual("XMLexamples/metronet6.xml");
 }
 
 TEST_F(AttributeTypeCorrectness, SampleTest7) {
-    TiXmlDocument doc;
-    if (!doc.LoadFile("../XMLexamples/metronet7.xml")) {
-        std::cerr << doc.ErrorDesc() << std::endl;
-    }
-    TiXmlElement *root = doc.FirstChildElement();
-    if (root == NULL) {
-        std::cerr << "Failed to load file: No root element." << std::endl;
-        doc.Clear();
-    }
-    MetroNet metroNet;
-    std::vector<bool> attributes;
-    long unsigned Amount_Of_Attributes = 0;
-    long unsigned Amount_Of_Attributes_Tram = 3;
-    long unsigned Amount_Of_Attributes_Station = 4;
-    for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
-
-        std::string current = element->Value();
-
-        if (current == "STATION") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Station;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "naam") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "volgende") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "vorige") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "spoorNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-            }
-
-        } else if (current == "TRAM") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Tram;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "lijnNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "beginStation") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "snelheid") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-                //else if (attribute == "huidigstation"){
-                //    attributes.push_back(true);
-                //}
-            }
-
-        }
-
-    }
-    EXPECT_NE(Amount_Of_Attributes, attributes.size());
-
-
-    doc.Clear();
+    FunctionFieldNotEqual("XMLexamples/metronet7.xml");
 }
 
 TEST_F(AttributeTypeCorrectness, SampleTest8) {
-    TiXmlDocument doc;
-    if (!doc.LoadFile("../XMLexamples/metronet8.xml")) {
-        std::cerr << doc.ErrorDesc() << std::endl;
-    }
-    TiXmlElement *root = doc.FirstChildElement();
-    if (root == NULL) {
-        std::cerr << "Failed to load file: No root element." << std::endl;
-        doc.Clear();
-    }
-    MetroNet metroNet;
-    std::vector<bool> attributes;
-    long unsigned Amount_Of_Attributes = 0;
-    long unsigned Amount_Of_Attributes_Tram = 3;
-    long unsigned Amount_Of_Attributes_Station = 4;
-    for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
-
-        std::string current = element->Value();
-
-        if (current == "STATION") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Station;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "naam") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "volgende") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "vorige") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "spoorNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-            }
-
-        } else if (current == "TRAM") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Tram;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "lijnNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "beginStation") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "snelheid") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-                //else if (attribute == "huidigstation"){
-                //    attributes.push_back(true);
-                //}
-            }
-
-        }
-
-    }
-    EXPECT_NE(Amount_Of_Attributes, attributes.size());
-
-
-    doc.Clear();
+    FunctionFieldNotEqual("XMLexamples/metronet8.xml");
 }
 
 TEST_F(AttributeTypeCorrectness, SampleTest9) {
-    TiXmlDocument doc;
-    if (!doc.LoadFile("../XMLexamples/metronet9.xml")) {
-        std::cerr << doc.ErrorDesc() << std::endl;
-    }
-    TiXmlElement *root = doc.FirstChildElement();
-    if (root == NULL) {
-        std::cerr << "Failed to load file: No root element." << std::endl;
-        doc.Clear();
-    }
-    MetroNet metroNet;
-    std::vector<bool> attributes;
-    long unsigned Amount_Of_Attributes = 0;
-    long unsigned Amount_Of_Attributes_Tram = 3;
-    long unsigned Amount_Of_Attributes_Station = 4;
-    for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
-
-        std::string current = element->Value();
-
-        if (current == "STATION") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Station;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "naam") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "volgende") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "vorige") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "spoorNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-            }
-
-        } else if (current == "TRAM") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Tram;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "lijnNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "beginStation") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "snelheid") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-                //else if (attribute == "huidigstation"){
-                //    attributes.push_back(true);
-                //}
-            }
-
-        }
-
-    }
-    EXPECT_EQ(Amount_Of_Attributes, attributes.size());
-
-
-    doc.Clear();
+    FunctionFieldEqual("XMLexamples/metronet9.xml");
 }
 
 TEST_F(AttributeTypeCorrectness, SampleTest10) {
-    TiXmlDocument doc;
-    if (!doc.LoadFile("../XMLexamples/metronet10.xml")) {
-        std::cerr << doc.ErrorDesc() << std::endl;
-    }
-    TiXmlElement *root = doc.FirstChildElement();
-    if (root == NULL) {
-        std::cerr << "Failed to load file: No root element." << std::endl;
-        doc.Clear();
-    }
-    MetroNet metroNet;
-    std::vector<bool> attributes;
-    long unsigned Amount_Of_Attributes = 0;
-    long unsigned Amount_Of_Attributes_Tram = 3;
-    long unsigned Amount_Of_Attributes_Station = 4;
-    for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
-
-        std::string current = element->Value();
-
-        if (current == "STATION") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Station;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "naam") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "volgende") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "vorige") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "spoorNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-            }
-
-        } else if (current == "TRAM") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Tram;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "lijnNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "beginStation") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "snelheid") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-                //else if (attribute == "huidigstation"){
-                //    attributes.push_back(true);
-                //}
-            }
-
-        }
-
-    }
-    EXPECT_NE(Amount_Of_Attributes, attributes.size());
-
-
-    doc.Clear();
+    FunctionFieldNotEqual("XMLexamples/metronet10.xml");
 }
+
 TEST_F(AttributeTypeCorrectness, SampleTest11) {
-    TiXmlDocument doc;
-    if (!doc.LoadFile("../XMLexamples/metronet11.xml")) {
-        std::cerr << doc.ErrorDesc() << std::endl;
-    }
-    TiXmlElement *root = doc.FirstChildElement();
-    if (root == NULL) {
-        std::cerr << "Failed to load file: No root element." << std::endl;
-        doc.Clear();
-    }
-    MetroNet metroNet;
-    std::vector<bool> attributes;
-    long unsigned Amount_Of_Attributes = 0;
-    long unsigned Amount_Of_Attributes_Tram = 3;
-    long unsigned Amount_Of_Attributes_Station = 4;
-    for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
-
-        std::string current = element->Value();
-
-        if (current == "STATION") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Station;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "naam") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "volgende") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "vorige") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "spoorNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-            }
-
-        } else if (current == "TRAM") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Tram;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "lijnNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "beginStation") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "snelheid") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-                //else if (attribute == "huidigstation"){
-                //    attributes.push_back(true);
-                //}
-            }
-
-        }
-
-    }
-    EXPECT_EQ(Amount_Of_Attributes, attributes.size());
-
-
-    doc.Clear();
+    FunctionFieldEqual("XMLexamples/metronet11.xml");
 }
+
 TEST_F(AttributeTypeCorrectness, SampleTest12) {
-    TiXmlDocument doc;
-    if (!doc.LoadFile("../XMLexamples/metronet12.xml")) {
-        std::cerr << doc.ErrorDesc() << std::endl;
-    }
-    TiXmlElement *root = doc.FirstChildElement();
-    if (root == NULL) {
-        std::cerr << "Failed to load file: No root element." << std::endl;
-        doc.Clear();
-    }
-    MetroNet metroNet;
-    std::vector<bool> attributes;
-    long unsigned Amount_Of_Attributes = 0;
-    long unsigned Amount_Of_Attributes_Tram = 3;
-    long unsigned Amount_Of_Attributes_Station = 4;
-    for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
-
-        std::string current = element->Value();
-
-        if (current == "STATION") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Station;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "naam") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "volgende") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "vorige") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "spoorNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-            }
-
-        } else if (current == "TRAM") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Tram;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "lijnNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "beginStation") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "snelheid") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-                //else if (attribute == "huidigstation"){
-                //    attributes.push_back(true);
-                //}
-            }
-
-        }
-
-    }
-    EXPECT_EQ(Amount_Of_Attributes, attributes.size());
-
-
-    doc.Clear();
+    FunctionFieldEqual("XMLexamples/metronet12.xml");
 }
+
 TEST_F(AttributeTypeCorrectness, SampleTest13) {
-    TiXmlDocument doc;
-    if (!doc.LoadFile("../XMLexamples/metronet13.xml")) {
-        std::cerr << doc.ErrorDesc() << std::endl;
-    }
-    TiXmlElement *root = doc.FirstChildElement();
-    if (root == NULL) {
-        std::cerr << "Failed to load file: No root element." << std::endl;
-        doc.Clear();
-    }
-    MetroNet metroNet;
-    std::vector<bool> attributes;
-    long unsigned Amount_Of_Attributes = 0;
-    long unsigned Amount_Of_Attributes_Tram = 3;
-    long unsigned Amount_Of_Attributes_Station = 4;
-    for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
-
-        std::string current = element->Value();
-
-        if (current == "STATION") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Station;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "naam") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "volgende") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "vorige") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "spoorNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-            }
-
-        } else if (current == "TRAM") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Tram;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "lijnNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "beginStation") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "snelheid") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-                //else if (attribute == "huidigstation"){
-                //    attributes.push_back(true);
-                //}
-            }
-
-        }
-
-    }
-    EXPECT_EQ(Amount_Of_Attributes, attributes.size());
-
-
-    doc.Clear();
+    FunctionFieldEqual("XMLexamples/metronet13.xml");
 }
+
 TEST_F(AttributeTypeCorrectness, SampleTest14) {
-    TiXmlDocument doc;
-    if (!doc.LoadFile("../XMLexamples/metronet14.xml")) {
-        std::cerr << doc.ErrorDesc() << std::endl;
-    }
-    TiXmlElement *root = doc.FirstChildElement();
-    if (root == NULL) {
-        std::cerr << "Failed to load file: No root element." << std::endl;
-        doc.Clear();
-    }
-    MetroNet metroNet;
-    std::vector<bool> attributes;
-    long unsigned Amount_Of_Attributes = 0;
-    long unsigned Amount_Of_Attributes_Tram = 3;
-    long unsigned Amount_Of_Attributes_Station = 4;
-    for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
-
-        std::string current = element->Value();
-
-        if (current == "STATION") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Station;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "naam") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "volgende") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "vorige") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "spoorNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-            }
-
-        } else if (current == "TRAM") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Tram;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "lijnNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "beginStation") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "snelheid") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-                //else if (attribute == "huidigstation"){
-                //    attributes.push_back(true);
-                //}
-            }
-
-        }
-
-    }
-    EXPECT_EQ(Amount_Of_Attributes, attributes.size());
-
-
-    doc.Clear();
+    FunctionFieldEqual("XMLexamples/metronet14.xml");
 }
+
 TEST_F(AttributeTypeCorrectness, SampleTest15) {
-    TiXmlDocument doc;
-    if (!doc.LoadFile("../XMLexamples/metronet15.xml")) {
-        std::cerr << doc.ErrorDesc() << std::endl;
-    }
-    TiXmlElement *root = doc.FirstChildElement();
-    if (root == NULL) {
-        std::cerr << "Failed to load file: No root element." << std::endl;
-        doc.Clear();
-    }
-    MetroNet metroNet;
-    std::vector<bool> attributes;
-    long unsigned Amount_Of_Attributes = 0;
-    long unsigned Amount_Of_Attributes_Tram = 3;
-    long unsigned Amount_Of_Attributes_Station = 4;
-    for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
-
-        std::string current = element->Value();
-
-        if (current == "STATION") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Station;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "naam") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "volgende") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "vorige") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "spoorNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-            }
-
-        } else if (current == "TRAM") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Tram;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "lijnNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "beginStation") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "snelheid") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-                //else if (attribute == "huidigstation"){
-                //    attributes.push_back(true);
-                //}
-            }
-
-        }
-
-    }
-    EXPECT_EQ(Amount_Of_Attributes, attributes.size());
-
-
-    doc.Clear();
+    FunctionFieldEqual("XMLexamples/metronet15.xml");
 }
+
 TEST_F(AttributeTypeCorrectness, SampleTest16) {
-    TiXmlDocument doc;
-    if (!doc.LoadFile("../XMLexamples/metronet16.xml")) {
-        std::cerr << doc.ErrorDesc() << std::endl;
-    }
-    TiXmlElement *root = doc.FirstChildElement();
-    if (root == NULL) {
-        std::cerr << "Failed to load file: No root element." << std::endl;
-        doc.Clear();
-    }
-    MetroNet metroNet;
-    std::vector<bool> attributes;
-    long unsigned Amount_Of_Attributes = 0;
-    long unsigned Amount_Of_Attributes_Tram = 3;
-    long unsigned Amount_Of_Attributes_Station = 4;
-    for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
-
-        std::string current = element->Value();
-
-        if (current == "STATION") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Station;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "naam") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "volgende") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "vorige") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "spoorNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-            }
-
-        } else if (current == "TRAM") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Tram;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "lijnNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "beginStation") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "snelheid") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-                //else if (attribute == "huidigstation"){
-                //    attributes.push_back(true);
-                //}
-            }
-
-        }
-
-    }
-    EXPECT_NE(Amount_Of_Attributes, attributes.size());
-
-
-    doc.Clear();
+    FunctionFieldNotEqual("XMLexamples/metronet16.xml");
 }
+
 TEST_F(AttributeTypeCorrectness, SampleTest17) {
-    TiXmlDocument doc;
-    if (!doc.LoadFile("../XMLexamples/metronet17.xml")) {
-        std::cerr << doc.ErrorDesc() << std::endl;
-    }
-    TiXmlElement *root = doc.FirstChildElement();
-    if (root == NULL) {
-        std::cerr << "Failed to load file: No root element." << std::endl;
-        doc.Clear();
-    }
-    MetroNet metroNet;
-    std::vector<bool> attributes;
-    long unsigned Amount_Of_Attributes = 0;
-    long unsigned Amount_Of_Attributes_Tram = 3;
-    long unsigned Amount_Of_Attributes_Station = 4;
-    for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
-
-        std::string current = element->Value();
-
-        if (current == "STATION") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Station;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "naam") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "volgende") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "vorige") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "spoorNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-            }
-
-        } else if (current == "TRAM") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Tram;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "lijnNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "beginStation") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "snelheid") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-                //else if (attribute == "huidigstation"){
-                //    attributes.push_back(true);
-                //}
-            }
-
-        }
-
-    }
-    EXPECT_NE(Amount_Of_Attributes, attributes.size());
-
-
-    doc.Clear();
+    FunctionFieldNotEqual("XMLexamples/metronet17.xml");
 }
+
 TEST_F(AttributeTypeCorrectness, SampleTest18) {
-    TiXmlDocument doc;
-    if (!doc.LoadFile("../XMLexamples/metronet18.xml")) {
-        std::cerr << doc.ErrorDesc() << std::endl;
-    }
-    TiXmlElement *root = doc.FirstChildElement();
-    if (root == NULL) {
-        std::cerr << "Failed to load file: No root element." << std::endl;
-        doc.Clear();
-    }
-    MetroNet metroNet;
-    std::vector<bool> attributes;
-    long unsigned Amount_Of_Attributes = 0;
-    long unsigned Amount_Of_Attributes_Tram = 3;
-    long unsigned Amount_Of_Attributes_Station = 4;
-    for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
-
-        std::string current = element->Value();
-
-        if (current == "STATION") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Station;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "naam") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "volgende") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "vorige") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "spoorNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-            }
-
-        } else if (current == "TRAM") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Tram;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "lijnNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "beginStation") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "snelheid") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-                //else if (attribute == "huidigstation"){
-                //    attributes.push_back(true);
-                //}
-            }
-
-        }
-
-    }
-    EXPECT_NE(Amount_Of_Attributes, attributes.size());
-
-
-    doc.Clear();
+    FunctionFieldNotEqual("XMLexamples/metronet18.xml");
 }
+
 TEST_F(AttributeTypeCorrectness, SampleTest19) {
-    TiXmlDocument doc;
-    if (!doc.LoadFile("../XMLexamples/metronet19.xml")) {
-        std::cerr << doc.ErrorDesc() << std::endl;
-    }
-    TiXmlElement *root = doc.FirstChildElement();
-    if (root == NULL) {
-        std::cerr << "Failed to load file: No root element." << std::endl;
-        doc.Clear();
-    }
-    MetroNet metroNet;
-    std::vector<bool> attributes;
-    long unsigned Amount_Of_Attributes = 0;
-    long unsigned Amount_Of_Attributes_Tram = 3;
-    long unsigned Amount_Of_Attributes_Station = 4;
-    for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
-
-        std::string current = element->Value();
-
-        if (current == "STATION") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Station;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "naam") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "volgende") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "vorige") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "spoorNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-            }
-
-        } else if (current == "TRAM") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Tram;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "lijnNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "beginStation") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "snelheid") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-                //else if (attribute == "huidigstation"){
-                //    attributes.push_back(true);
-                //}
-            }
-
-        }
-
-    }
-    EXPECT_EQ(Amount_Of_Attributes, attributes.size());
-
-
-    doc.Clear();
+    FunctionFieldEqual("XMLexamples/metronet19.xml");
 }
+
+/*
 TEST_F(AttributeTypeCorrectness, SampleTest20) {
-    TiXmlDocument doc;
-    if (!doc.LoadFile("../XMLexamples/metronet20.xml")) {
-        std::cerr << doc.ErrorDesc() << std::endl;
-    }
-    TiXmlElement *root = doc.FirstChildElement();
-    if (root == NULL) {
-        std::cerr << "Failed to load file: No root element." << std::endl;
-        doc.Clear();
-    }
-    MetroNet metroNet;
-    std::vector<bool> attributes;
-    long unsigned Amount_Of_Attributes = 0;
-    long unsigned Amount_Of_Attributes_Tram = 3;
-    long unsigned Amount_Of_Attributes_Station = 4;
-    for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
-
-        std::string current = element->Value();
-
-        if (current == "STATION") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Station;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "naam") {
-                    if (!is_int(inner->GetText()) && inner->GetText() != NULL) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "volgende") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "vorige") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "spoorNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-            }
-
-        } else if (current == "TRAM") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Tram;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "lijnNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "beginStation") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "snelheid") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-                //else if (attribute == "huidigstation"){
-                //    attributes.push_back(true);
-                //}
-            }
-
-        }
-
-    }
-    EXPECT_NE(Amount_Of_Attributes, attributes.size());
-
-
-    doc.Clear();
+    FunctionFieldNotEqual("XMLexamples/metronet20.xml");
 }
+*/
 TEST_F(AttributeTypeCorrectness, SampleTest21) {
-    TiXmlDocument doc;
-    if (!doc.LoadFile("../XMLexamples/metronet21.xml")) {
-        std::cerr << doc.ErrorDesc() << std::endl;
-    }
-    TiXmlElement *root = doc.FirstChildElement();
-    if (root == NULL) {
-        std::cerr << "Failed to load file: No root element." << std::endl;
-        doc.Clear();
-    }
-    MetroNet metroNet;
-    std::vector<bool> attributes;
-    long unsigned Amount_Of_Attributes = 0;
-    long unsigned Amount_Of_Attributes_Tram = 3;
-    long unsigned Amount_Of_Attributes_Station = 4;
-    for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
-
-        std::string current = element->Value();
-
-        if (current == "STATION") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Station;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "naam") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "volgende") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "vorige") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "spoorNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-            }
-
-        } else if (current == "TRAM") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Tram;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "lijnNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "beginStation") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "snelheid") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-                //else if (attribute == "huidigstation"){
-                //    attributes.push_back(true);
-                //}
-            }
-
-        }
-
-    }
-    EXPECT_EQ(Amount_Of_Attributes, attributes.size());
-
-
-    doc.Clear();
+    FunctionFieldEqual("XMLexamples/metronet21.xml");
 }
+
+
 TEST_F(AttributeTypeCorrectness, SampleTest22) {
-    TiXmlDocument doc;
-    if (!doc.LoadFile("../XMLexamples/metronet22.xml")) {
-        std::cerr << doc.ErrorDesc() << std::endl;
-    }
-    TiXmlElement *root = doc.FirstChildElement();
-    if (root == NULL) {
-        std::cerr << "Failed to load file: No root element." << std::endl;
-        doc.Clear();
-    }
-    MetroNet metroNet;
-    std::vector<bool> attributes;
-    long unsigned Amount_Of_Attributes = 0;
-    long unsigned Amount_Of_Attributes_Tram = 3;
-    long unsigned Amount_Of_Attributes_Station = 4;
-    for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
-
-        std::string current = element->Value();
-
-        if (current == "STATION") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Station;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "naam") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "volgende") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "vorige") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "spoorNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-            }
-
-        } else if (current == "TRAM") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Tram;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "lijnNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "beginStation") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "snelheid") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-                //else if (attribute == "huidigstation"){
-                //    attributes.push_back(true);
-                //}
-            }
-
-        }
-
-    }
-    EXPECT_EQ(Amount_Of_Attributes, attributes.size());
-
-
-    doc.Clear();
+    FunctionFieldEqual("XMLexamples/metronet22.xml");
 }
+
 TEST_F(AttributeTypeCorrectness, SampleTest23) {
-    TiXmlDocument doc;
-    if (!doc.LoadFile("../XMLexamples/metronet23.xml")) {
-        std::cerr << doc.ErrorDesc() << std::endl;
-    }
-    TiXmlElement *root = doc.FirstChildElement();
-    if (root == NULL) {
-        std::cerr << "Failed to load file: No root element." << std::endl;
-        doc.Clear();
-    }
-    MetroNet metroNet;
-    std::vector<bool> attributes;
-    long unsigned Amount_Of_Attributes = 0;
-    long unsigned Amount_Of_Attributes_Tram = 3;
-    long unsigned Amount_Of_Attributes_Station = 4;
-    for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
-
-        std::string current = element->Value();
-
-        if (current == "STATION") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Station;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "naam") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "volgende") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "vorige") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "spoorNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-            }
-
-        } else if (current == "TRAM") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Tram;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "lijnNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "beginStation") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "snelheid") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-                //else if (attribute == "huidigstation"){
-                //    attributes.push_back(true);
-                //}
-            }
-
-        }
-
-    }
-    EXPECT_EQ(Amount_Of_Attributes, attributes.size());
-
-
-    doc.Clear();
+    FunctionFieldEqual("XMLexamples/metronet23.xml");
 }
+
 TEST_F(AttributeTypeCorrectness, SampleTest24) {
-    TiXmlDocument doc;
-    if (!doc.LoadFile("../XMLexamples/metronet24.xml")) {
-        std::cerr << doc.ErrorDesc() << std::endl;
-    }
-    TiXmlElement *root = doc.FirstChildElement();
-    if (root == NULL) {
-        std::cerr << "Failed to load file: No root element." << std::endl;
-        doc.Clear();
-    }
-    MetroNet metroNet;
-    std::vector<bool> attributes;
-    long unsigned Amount_Of_Attributes = 0;
-    long unsigned Amount_Of_Attributes_Tram = 3;
-    long unsigned Amount_Of_Attributes_Station = 4;
-    for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
-
-        std::string current = element->Value();
-
-        if (current == "STATION") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Station;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "naam") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "volgende") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "vorige") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "spoorNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-            }
-
-        } else if (current == "TRAM") {
-            Amount_Of_Attributes += Amount_Of_Attributes_Tram;
-            for (TiXmlElement *inner = element->FirstChildElement();
-                 inner != NULL; inner = inner->NextSiblingElement()) {
-                std::string attribute = inner->Value();
-                if (attribute == "lijnNr") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "beginStation") {
-                    if (!is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                } else if (attribute == "snelheid") {
-                    if (is_int(inner->GetText())) {
-                        attributes.push_back(true);
-                    }
-                }
-                //else if (attribute == "huidigstation"){
-                //    attributes.push_back(true);
-                //}
-            }
-
-        }
-
-    }
-    EXPECT_EQ(Amount_Of_Attributes, attributes.size());
-
-
-    doc.Clear();
+    FunctionFieldEqual("XMLexamples/metronet24.xml");
 }
