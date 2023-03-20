@@ -6,6 +6,8 @@
 #include "vector"
 #include "./MetroNet/MetroNet.h"
 #include "Utils/utils.h"
+#include "ParseXML/ParseStation.h"
+#include "ParseXML/ParseTram.h"
 #include <fstream>
 
 int main() {
@@ -27,11 +29,23 @@ int main() {
         std::string current = element->Value();
         if (current == "STATION") {
 
-            Utils::parseStation(metroNet, element);
+            Station* station = new Station();
+            ParseStation parseStation(element);
+            if(!parseStation.parseAll(metroNet, station))
+                delete station;
+            else
+                metroNet.addStation(station);
+//            Utils::parseStation(metroNet, element);
 
         } else if (current == "TRAM") {
 
-            Utils::parseTram(metroNet, element);
+            Tram* tram = new Tram();
+            ParseTram parseTram(element);
+            if(!parseTram.parseAll(metroNet, tram))
+                delete tram;
+            else
+                metroNet.addTram(tram);
+//            Utils::parseTram(metroNet, element);
 
         } else{
             std::cerr << "Deze element is ongekend!\n";

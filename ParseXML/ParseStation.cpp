@@ -22,10 +22,11 @@ bool ParseStation::parseAll(MetroNet &metroNet, Station* station) const {
 
     REQUIRE(station->properlyInitialized(), "Station is not properlyInitialized");
     REQUIRE(element != NULL, "TixmlElement is NULL");
-    REQUIRE(checkValidNaam() == true, "The name tag is not correct in this Station tag");
-    REQUIRE(checkValidVorige() == true, "The vorige tag is not correct in this Station tag");
-    REQUIRE(checkValidSpoorNr() == true, "The spoorNr tag is not correct in this Station tag");
-    REQUIRE(checkValidVolgende() == true, "The volgende tag is not correct in this Station tag");
+    REQUIRE(checkValidStation() == true, "The Station tag is not correct");
+//    REQUIRE(checkValidNaam() == true, "The name tag is not correct in this Station tag");
+//    REQUIRE(checkValidVorige() == true, "The vorige tag is not correct in this Station tag");
+//    REQUIRE(checkValidSpoorNr() == true, "The spoorNr tag is not correct in this Station tag");
+//    REQUIRE(checkValidVolgende() == true, "The volgende tag is not correct in this Station tag");
 
     if(!parseNaam(metroNet, station) || !parseSpoorNr(metroNet, station) || !parseVolgende(metroNet, station) || !parseVorige(metroNet, station))
         return false;
@@ -124,6 +125,8 @@ bool ParseStation::checkValidSpoorNr() const {
         if(innerElementName == "spoorNr"){
             if(Utils::is_int(innerText))
                 amountOfSpoorNr++;
+            else
+                return false;
         }
     }
 
