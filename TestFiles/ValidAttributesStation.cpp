@@ -105,10 +105,10 @@ TEST_F(ValidAttributesStation, InValidStation) {
 
                 EXPECT_DEATH(parseStation.parseAll(metroNet, station), "The Station tag is not correct");
 
-                if(!station->getName().empty()){
-                    if(!metroNet.stationRegistered(station->getName()))
+//                if(!station->getName().empty()){
+//                    if(!metroNet.stationRegistered(station->getName()))
                         delete station;
-                }
+//                }
             }
         }
         doc.Clear();
