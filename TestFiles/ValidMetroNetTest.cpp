@@ -28,6 +28,7 @@ protected:
     }
 };
 
+//Preconditie: Stations and Trams are correct!
 TEST_F(ValidMetroNet, ValidMetroNet){
     ASSERT_TRUE(Utils::directoryExists("TestInputXML")) << "Directory to test does not exist\n";
 
@@ -41,7 +42,7 @@ TEST_F(ValidMetroNet, ValidMetroNet){
 
         TiXmlElement *root = doc.FirstChildElement();
         ASSERT_TRUE(root != NULL) << "The root cannot be NULL\n";
-
+        std::cout << fileName << "\n";
         MetroNet metroNet;
 
         for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
@@ -52,17 +53,11 @@ TEST_F(ValidMetroNet, ValidMetroNet){
                 Station *station = new Station();
                 ParseStation parseStation(element);
 
-                EXPECT_TRUE(parseStation.checkValidSpoorNr()) << "SpoorNr is not Valid\n";
-                EXPECT_TRUE(parseStation.checkValidVolgende()) << "Volgende is not Valid\n";
-                EXPECT_TRUE(parseStation.checkValidVorige()) << "Vorige is not Valid\n";
-                EXPECT_TRUE(parseStation.checkValidNaam()) << "Naam is not Valid\n";
+                ASSERT_TRUE(parseStation.checkValidStation()) << "Precondition of valid station is not fulfilled\n";
 
-                EXPECT_TRUE(parseStation.parseVorige(metroNet, station)) << "Vorige has not been correctly parsed\n";
-                EXPECT_TRUE(parseStation.parseVolgende(metroNet, station)) << "Volgende has not been correctly parsed\n";
-                EXPECT_TRUE(parseStation.parseSpoorNr(metroNet, station)) << "SpoorNr has not been correctly parsed\n";
-                EXPECT_TRUE(parseStation.parseNaam(metroNet, station)) << "Naam has not been correctly parsed\n";
+                ASSERT_TRUE(parseStation.parseAll(metroNet, station)) << "Precondition of valid station is not fulfilled, thus not parsed\n";
 
-                EXPECT_FALSE(parseStation.checkNonValidAttributes()) << "There are wrong atrributes present\n";
+                ASSERT_FALSE(parseStation.checkNonValidAttributes()) << "Precondition of valid station is not fulfilled\n";
 
                 metroNet.addStation(station);
 //                if(!parseStation.parseAll(metroNet,station))
@@ -72,15 +67,11 @@ TEST_F(ValidMetroNet, ValidMetroNet){
                 Tram* tram = new Tram();
                 ParseTram parseTram(element);
 
-                EXPECT_TRUE(parseTram.checkValidLijnNr()) << "LijnNr is not Valid\n";
-                EXPECT_TRUE(parseTram.checkValidBeginStation()) << "Begin Station is not Valid\n";
-                EXPECT_TRUE(parseTram.checkValidSnelheid()) << "Snelheid is not Valid\n";
+                ASSERT_TRUE(parseTram.checkValidTram()) << "Precondition of valid tram is not fulfilled\n";
 
-                EXPECT_TRUE(parseTram.parseSnelheid(metroNet, tram)) << "Snelheid has not been correctly parsed\n";
-                EXPECT_TRUE(parseTram.parseLijnNr(metroNet, tram)) << "LijnNr has not been correctly parsed\n";
-                EXPECT_TRUE(parseTram.parseBeginStation(metroNet, tram)) << "Begin Station has not been correctly parsed\n";
+                ASSERT_TRUE(parseTram.parseAll(metroNet, tram)) << "Precondition of valid tram is not fulfilled\n";
 
-                EXPECT_FALSE(parseTram.checkNonValidAttributes()) << "There are wrong atrributes present\n";
+                ASSERT_FALSE(parseTram.checkNonValidAttributes()) << "Precondition of valid tram is not fulfilled\n";
 
                 metroNet.addTram(tram);
 //                if(!parseTram.parseAll(metroNet,tram))
@@ -100,7 +91,7 @@ TEST_F(ValidMetroNet, ValidMetroNet){
 
 }
 
-//Assumption --> correct form of stations and trams, but the metroNet itself is wrong
+//Preconditie: Stations and Trams are correct!
 TEST_F(ValidMetroNet, InValidMetroNet){
     ASSERT_TRUE(Utils::directoryExists("TestInputXML")) << "Directory to test does not exist\n";
 
@@ -125,28 +116,26 @@ TEST_F(ValidMetroNet, InValidMetroNet){
                 Station *station = new Station();
                 ParseStation parseStation(element);
 
-                EXPECT_FALSE(parseStation.checkValidStation()) << "checkValidStation returned true\n";
+                ASSERT_TRUE(parseStation.checkValidStation()) << "Precondition of valid station is not fulfilled\n";
 
-                EXPECT_FALSE(parseStation.parseAll(metroNet, station)) << "Parsing should not have succeeded\n";
+                ASSERT_TRUE(parseStation.parseAll(metroNet, station)) << "Precondition of valid station is not fulfilled, thus not parsed\n";
 
-                EXPECT_TRUE(parseStation.checkNonValidAttributes()) << "Wrong attributes are not present (was expected)\n";
+                ASSERT_FALSE(parseStation.checkNonValidAttributes()) << "Precondition of valid station is not fulfilled\n";
 
-                if(!parseStation.parseAll(metroNet,station))
-                    delete station;
+                metroNet.addStation(station);
 
             }else if(current == "TRAM"){
 
                 Tram* tram = new Tram();
                 ParseTram parseTram(element);
 
-                EXPECT_FALSE(parseTram.checkValidTram()) << "Tram should not have been valid\n";
+                ASSERT_TRUE(parseTram.checkValidTram()) << "Precondition of valid tram is not fulfilled\n";
 
-                EXPECT_FALSE(parseTram.parseAll(metroNet, tram)) << "Tram should not have been parsed\n";
+                ASSERT_TRUE(parseTram.parseAll(metroNet, tram)) << "Precondition of valid tram is not fulfilled\n";
 
-                EXPECT_TRUE(parseTram.checkNonValidAttributes()) << "Wrong attributes are not present (was expected)\n";
+                ASSERT_FALSE(parseTram.checkNonValidAttributes()) << "Precondition of valid tram is not fulfilled\n";
 
-                if(!parseTram.parseAll(metroNet,tram))
-                    delete tram;
+                metroNet.addTram(tram);
 
             }else{
                 EXPECT_TRUE(false) << "MetroNet has a non valid attribute besides TRAM and STATION\n";

@@ -2,6 +2,7 @@
 // Created by byamba on 20/03/23.
 //
 
+#include <iostream>
 #include "ParseTram.h"
 #include "../Utils/utils.h"
 
@@ -175,10 +176,10 @@ bool ParseTram::parseLijnNr(MetroNet &metroNet, Tram *tram) const {
 }
 
 bool ParseTram::parseAll(MetroNet &metroNet, Tram *tram) const {
-
+//    std::cout << "Parse all is called\n";
     REQUIRE(tram->properlyInitialized(), "Station is not properlyInitialized");
     REQUIRE(element != NULL, "TixmlElement is NULL");
-    REQUIRE(checkValidTram() == true, "The Station tag is not correct");
+    REQUIRE(checkValidTram() == true, "The Tram tag is not correct");
 //    REQUIRE(checkValidNaam() == true, "The name tag is not correct in this Station tag");
 //    REQUIRE(checkValidVorige() == true, "The vorige tag is not correct in this Station tag");
 //    REQUIRE(checkValidSpoorNr() == true, "The spoorNr tag is not correct in this Station tag");

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<METRONET>
+    <TRAM>
+        <lijnNr>12</lijnNr>
+        <snelheid>60</snelheid>
+        <beginStation>1</beginStation>
+    </TRAM>
+</METRONET>
