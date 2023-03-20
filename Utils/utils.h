@@ -81,6 +81,12 @@ namespace Utils{
      * **/
     int getRandomInt(int max);
 
+    bool directoryExists(const std::string dirname);
+
+    bool fileExists(const std::string filename);
+
+    bool fileIsEmpty(const std::string filename);
+
 }
 
 #endif //METROSIMULATION_UTILS_H

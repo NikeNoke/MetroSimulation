@@ -63,6 +63,7 @@ protected:
         if (root == NULL) {
             std::cerr << "Failed to load file: No root element." << std::endl;
             doc.Clear();
+            return;
         }
 
         std::vector<bool> attributes;
@@ -228,99 +229,99 @@ protected:
 };
 
 TEST_F(AttributeTypeCorrectness, SampleTest1) {
-    FunctionFieldEqual("XMLexamples/metronet1.xml");
+    FunctionFieldEqual("TestInputXML/metronet1.xml");
 }
 
 TEST_F(AttributeTypeCorrectness, SampleTest2) {
-    FunctionFieldEqual("XMLexamples/metronet2.xml");
+    FunctionFieldEqual("TestInputXML/metronet2.xml");
 }
 
 TEST_F(AttributeTypeCorrectness, SampleTest3) {
-    FunctionFieldEqual("XMLexamples/metronet3.xml");
+    FunctionFieldEqual("TestInputXML/metronet3.xml");
 }
 
 TEST_F(AttributeTypeCorrectness, SampleTest4) {
-    FunctionFieldEqual("XMLexamples/metronet4.xml");
+    FunctionFieldEqual("TestInputXML/metronet4.xml");
 }
 
 TEST_F(AttributeTypeCorrectness, SampleTest5) {
-    FunctionFieldEqual("XMLexamples/metronet5.xml");
+    FunctionFieldEqual("TestInputXML/metronet5.xml");
 }
 
 TEST_F(AttributeTypeCorrectness, SampleTest6) {
-    FunctionFieldNotEqual("XMLexamples/metronet6.xml");
+    FunctionFieldNotEqual("TestInputXML/metronet6.xml");
 }
 
 TEST_F(AttributeTypeCorrectness, SampleTest7) {
-    FunctionFieldNotEqual("XMLexamples/metronet7.xml");
+    FunctionFieldNotEqual("TestInputXML/metronet7.xml");
 }
 
 TEST_F(AttributeTypeCorrectness, SampleTest8) {
-    FunctionFieldNotEqual("XMLexamples/metronet8.xml");
+    FunctionFieldNotEqual("TestInputXML/metronet8.xml");
 }
 
 TEST_F(AttributeTypeCorrectness, SampleTest9) {
-    FunctionFieldEqual("XMLexamples/metronet9.xml");
+    FunctionFieldEqual("TestInputXML/metronet9.xml");
 }
 
 TEST_F(AttributeTypeCorrectness, SampleTest10) {
-    FunctionFieldNotEqual("XMLexamples/metronet10.xml");
+    FunctionFieldNotEqual("TestInputXML/metronet10.xml");
 }
 
 TEST_F(AttributeTypeCorrectness, SampleTest11) {
-    FunctionFieldEqual("XMLexamples/metronet11.xml");
+    FunctionFieldEqual("TestInputXML/metronet11.xml");
 }
 
 TEST_F(AttributeTypeCorrectness, SampleTest12) {
-    FunctionFieldEqual("XMLexamples/metronet12.xml");
+    FunctionFieldEqual("TestInputXML/metronet12.xml");
 }
 
 TEST_F(AttributeTypeCorrectness, SampleTest13) {
-    FunctionFieldEqual("XMLexamples/metronet13.xml");
+    FunctionFieldEqual("TestInputXML/metronet13.xml");
 }
 
 TEST_F(AttributeTypeCorrectness, SampleTest14) {
-    FunctionFieldEqual("XMLexamples/metronet14.xml");
+    FunctionFieldEqual("TestInputXML/metronet14.xml");
 }
 
 TEST_F(AttributeTypeCorrectness, SampleTest15) {
-    FunctionFieldEqual("XMLexamples/metronet15.xml");
+    FunctionFieldEqual("TestInputXML/metronet15.xml");
 }
 
 TEST_F(AttributeTypeCorrectness, SampleTest16) {
-    FunctionFieldNotEqual("XMLexamples/metronet16.xml");
+    FunctionFieldNotEqual("TestInputXML/metronet16.xml");
 }
 
 TEST_F(AttributeTypeCorrectness, SampleTest17) {
-    FunctionFieldNotEqual("XMLexamples/metronet17.xml");
+    FunctionFieldNotEqual("TestInputXML/metronet17.xml");
 }
 
 TEST_F(AttributeTypeCorrectness, SampleTest18) {
-    FunctionFieldNotEqual("XMLexamples/metronet18.xml");
+    FunctionFieldNotEqual("TestInputXML/metronet18.xml");
 }
 
 TEST_F(AttributeTypeCorrectness, SampleTest19) {
-    FunctionFieldEqual("XMLexamples/metronet19.xml");
+    FunctionFieldEqual("TestInputXML/metronet19.xml");
 }
 
 /*
 TEST_F(AttributeTypeCorrectness, SampleTest20) {
-    FunctionFieldNotEqual("XMLexamples/metronet20.xml");
+    FunctionFieldNotEqual("TestInputXML/metronet20.xml");
 }
 */
 TEST_F(AttributeTypeCorrectness, SampleTest21) {
-    FunctionFieldEqual("XMLexamples/metronet21.xml");
+    FunctionFieldEqual("TestInputXML/metronet21.xml");
 }
 
 
 TEST_F(AttributeTypeCorrectness, SampleTest22) {
-    FunctionFieldEqual("XMLexamples/metronet22.xml");
+    FunctionFieldEqual("TestInputXML/metronet22.xml");
 }
 
 TEST_F(AttributeTypeCorrectness, SampleTest23) {
-    FunctionFieldEqual("XMLexamples/metronet23.xml");
+    FunctionFieldEqual("TestInputXML/metronet23.xml");
 }
 
 TEST_F(AttributeTypeCorrectness, SampleTest24) {
-    FunctionFieldEqual("XMLexamples/metronet24.xml");
+    FunctionFieldEqual("TestInputXML/metronet24.xml");
 }

@@ -52,8 +52,12 @@ bool ParseStation::checkValidNaam() const {
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "naam")
-            amountOfNamen++;
+        if(innerElementName == "naam"){
+            if(!Utils::is_int(innerText))
+                amountOfNamen++;
+            else
+                return false;
+        }
     }
 
     ENSURE(element != NULL, "TixmlElement has become NULL");
@@ -73,8 +77,12 @@ bool ParseStation::checkValidVorige() const {
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "vorige")
-            amountOfVorige++;
+        if(innerElementName == "vorige"){
+            if(!Utils::is_int(innerText))
+                amountOfVorige++;
+            else
+                return false;
+        }
     }
 
     ENSURE(element != NULL, "TixmlElement has become NULL");
@@ -101,8 +109,12 @@ bool ParseStation::checkValidVolgende() const {
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "volgende")
-            amountOfVolgende++;
+        if(innerElementName == "volgende"){
+            if(!Utils::is_int(innerText))
+                amountOfVolgende++;
+            else
+                return false;
+        }
     }
 
     ENSURE(element != NULL, "TixmlElement has become NULL");
@@ -225,6 +237,33 @@ bool ParseStation::parseSpoorNr(MetroNet &metroNet, Station *station) const {
     }
     ENSURE(station->getSpoorNr() != -1, "The spoorNr of station has not been correctly initialized");
     ENSURE(element != NULL, "TixmlElement is NULL");
+    return false;
+}
+
+bool ParseStation::checkNonValidAttributes() const {
+
+    REQUIRE(element != NULL, "TixmlElement is NULL");
+
+
+    for (TiXmlElement *InnerElement = element->FirstChildElement();
+         InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
+
+        std::string innerElementName = InnerElement->Value();
+        std::string innerText = InnerElement->GetText();
+
+        if(innerElementName == "spoorNr")
+            continue;
+        if(innerElementName == "volgende")
+            continue;
+        if(innerElementName == "vorige")
+            continue;
+        if(innerElementName == "naam")
+            continue;
+        return true;
+    }
+
+    ENSURE(element != NULL, "TixmlElement has become NULL");
+
     return false;
 }
 

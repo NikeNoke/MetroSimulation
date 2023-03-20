@@ -30,8 +30,12 @@ bool ParseTram::checkValidBeginStation() const {
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "beginStation")
-            amountOfBeginStation++;
+        if(innerElementName == "beginStation"){
+            if(!Utils::is_int(innerText))
+                amountOfBeginStation++;
+            else
+                return false;
+        }
     }
 
     ENSURE(element != NULL, "TixmlElement has become NULL");

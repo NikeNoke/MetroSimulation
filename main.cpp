@@ -13,7 +13,7 @@
 int main() {
     TiXmlDocument doc;
 
-    if (!doc.LoadFile("XMLexamples/metronet1.xml")) {
+    if (!doc.LoadFile("TestInputXML/metronet1.xml")) {
         std::cerr << doc.ErrorDesc() << std::endl;
         return 1;
     }
@@ -54,6 +54,10 @@ int main() {
     //TODO maybe verification of viability of metroNet???
     doc.Clear();
 
+    if(!Utils::validMetroNet(metroNet)){
+        std::cerr << "The MetroNet is not Valid\n";
+        return 1;
+    }
 
     //2.2
     std::ofstream metroNetSpecs;

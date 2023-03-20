@@ -20,9 +20,28 @@ protected:
     virtual void TearDown() {
 
     }
-    static int amountOfTests;
 };
 
-TEST_F(ValidMetroNet, hmm){
+TEST_F(ValidMetroNet, HappyDay){
+
+}
+
+TEST_F(ValidMetroNet, IncorrectStation){
+
+}
+
+TEST_F(ValidMetroNet, IncorrectTram){
+
+}
+
+TEST_F(ValidMetroNet, DoubleStation){
+
+}
+
+TEST_F(ValidMetroNet, WrongStationSpoorNr){
+
+}
+
+TEST_F(ValidMetroNet, WrongTramStation){
 
 }

@@ -38,6 +38,12 @@ public:
 
     bool checkValidSpoorNr() const;
 
+    /**
+     * true if there exists a non valid attribute in the TixmlElement
+     * @return
+     */
+    bool checkNonValidAttributes() const;
+
 
 private:
     TiXmlElement *element;

@@ -10,7 +10,7 @@
 /**
  * Deze klasse test ofdat elk Tram object een correcte hoeveelheid attributen heeft
  * **/
-class ValidAmountAttributesTram : public ::testing::Test {
+class ValidAttributesTram : public ::testing::Test {
 protected:
     /**
      * "Sets up the text fixture." Klasse overgeërft van gtest.h
@@ -131,98 +131,98 @@ protected:
     }
 };
 
-TEST_F(ValidAmountAttributesTram, SampleTest1) {
-    FunctionFieldEqual("XMLexamples/metronet1.xml");
+TEST_F(ValidAttributesTram, HappyDay) {
+    FunctionFieldEqual("TestInputXML/metronet1.xml");
 }
 
-TEST_F(ValidAmountAttributesTram, SampleTest2) {
-    FunctionFieldEqual("XMLexamples/metronet2.xml");
+TEST_F(ValidAttributesTram, IncorrectBeginStation) {
+    FunctionFieldEqual("TestInputXML/metronet2.xml");
 }
 
-TEST_F(ValidAmountAttributesTram, SampleTest3) {
-    FunctionFieldEqual("XMLexamples/metronet3.xml");
+TEST_F(ValidAttributesTram, IncorrectLijnNr) {
+    FunctionFieldEqual("TestInputXML/metronet3.xml");
 }
 
-TEST_F(ValidAmountAttributesTram, SampleTest4) {
-    FunctionFieldEqual("XMLexamples/metronet4.xml");
+TEST_F(ValidAttributesTram, IncorrectSnelheid) {
+    FunctionFieldEqual("TestInputXML/metronet4.xml");
 }
 
-TEST_F(ValidAmountAttributesTram, SampleTest5) {
-    FunctionFieldEqual("XMLexamples/metronet5.xml");
+TEST_F(ValidAttributesTram, TooMuchAttributes) {
+    FunctionFieldEqual("TestInputXML/metronet5.xml");
 }
 
-TEST_F(ValidAmountAttributesTram, SampleTest6) {
-    FunctionFieldEqual("XMLexamples/metronet6.xml");
+TEST_F(ValidAttributesTram, TooFewAttributes) {
+    FunctionFieldEqual("TestInputXML/metronet6.xml");
 }
 
-TEST_F(ValidAmountAttributesTram, SampleTest7) {
-    FunctionFieldNotEqual("XMLexamples/metronet7.xml");
+TEST_F(ValidAttributesTram, SampleTest7) {
+    FunctionFieldNotEqual("TestInputXML/metronet7.xml");
 }
 
-TEST_F(ValidAmountAttributesTram, SampleTest8) {
-    FunctionFieldNotEqual("XMLexamples/metronet8.xml");
+TEST_F(ValidAttributesTram, SampleTest8) {
+    FunctionFieldNotEqual("TestInputXML/metronet8.xml");
 }
 
-TEST_F(ValidAmountAttributesTram, SampleTest9) {
-    FunctionFieldEqual("XMLexamples/metronet9.xml");
+TEST_F(ValidAttributesTram, SampleTest9) {
+    FunctionFieldEqual("TestInputXML/metronet9.xml");
 }
 
-TEST_F(ValidAmountAttributesTram, SampleTest10) {
-    FunctionFieldEqual("XMLexamples/metronet10.xml");
+TEST_F(ValidAttributesTram, SampleTest10) {
+    FunctionFieldEqual("TestInputXML/metronet10.xml");
 }
 
-TEST_F(ValidAmountAttributesTram, SampleTest11) {
-    FunctionFieldEqual("XMLexamples/metronet11.xml");
+TEST_F(ValidAttributesTram, SampleTest11) {
+    FunctionFieldEqual("TestInputXML/metronet11.xml");
 }
 
-TEST_F(ValidAmountAttributesTram, SampleTest12) {
-    FunctionFieldEqual("XMLexamples/metronet12.xml");
+TEST_F(ValidAttributesTram, SampleTest12) {
+    FunctionFieldEqual("TestInputXML/metronet12.xml");
 }
 
-TEST_F(ValidAmountAttributesTram, SampleTest13) {
-    FunctionFieldEqual("XMLexamples/metronet13.xml");
+TEST_F(ValidAttributesTram, SampleTest13) {
+    FunctionFieldEqual("TestInputXML/metronet13.xml");
 }
 
-TEST_F(ValidAmountAttributesTram, SampleTest14) {
-    FunctionFieldEqual("XMLexamples/metronet14.xml");
+TEST_F(ValidAttributesTram, SampleTest14) {
+    FunctionFieldEqual("TestInputXML/metronet14.xml");
 }
 
-TEST_F(ValidAmountAttributesTram, SampleTest15) {
-    FunctionFieldEqual("XMLexamples/metronet15.xml");
+TEST_F(ValidAttributesTram, SampleTest15) {
+    FunctionFieldEqual("TestInputXML/metronet15.xml");
 }
 
-TEST_F(ValidAmountAttributesTram, SampleTest16) {
-    FunctionFieldNotEqual("XMLexamples/metronet16.xml");
+TEST_F(ValidAttributesTram, SampleTest16) {
+    FunctionFieldNotEqual("TestInputXML/metronet16.xml");
 }
 
-TEST_F(ValidAmountAttributesTram, SampleTest17) {
-    FunctionFieldNotEqual("XMLexamples/metronet17.xml");
+TEST_F(ValidAttributesTram, SampleTest17) {
+    FunctionFieldNotEqual("TestInputXML/metronet17.xml");
 }
 
-TEST_F(ValidAmountAttributesTram, SampleTest18) {
-    FunctionFieldEqual("XMLexamples/metronet18.xml");
+TEST_F(ValidAttributesTram, SampleTest18) {
+    FunctionFieldEqual("TestInputXML/metronet18.xml");
 }
 
-TEST_F(ValidAmountAttributesTram, SampleTest19) {
-    FunctionFieldEqual("XMLexamples/metronet19.xml");
+TEST_F(ValidAttributesTram, SampleTest19) {
+    FunctionFieldEqual("TestInputXML/metronet19.xml");
 }
 
-TEST_F(ValidAmountAttributesTram, SampleTest20) {
-    FunctionFieldEqual("XMLexamples/metronet20.xml");
+TEST_F(ValidAttributesTram, SampleTest20) {
+    FunctionFieldEqual("TestInputXML/metronet20.xml");
 }
 
-TEST_F(ValidAmountAttributesTram, SampleTest21) {
-    FunctionFieldEqual("XMLexamples/metronet21.xml");
+TEST_F(ValidAttributesTram, SampleTest21) {
+    FunctionFieldEqual("TestInputXML/metronet21.xml");
 }
 
-TEST_F(ValidAmountAttributesTram, SampleTest22) {
-    FunctionFieldEqual("XMLexamples/metronet22.xml");
+TEST_F(ValidAttributesTram, SampleTest22) {
+    FunctionFieldEqual("TestInputXML/metronet22.xml");
 }
 
-TEST_F(ValidAmountAttributesTram, SampleTest23) {
-    FunctionFieldEqual("XMLexamples/metronet23.xml");
+TEST_F(ValidAttributesTram, SampleTest23) {
+    FunctionFieldEqual("TestInputXML/metronet23.xml");
 }
 
-TEST_F(ValidAmountAttributesTram, SampleTest24) {
-    FunctionFieldEqual("XMLexamples/metronet24.xml");
+TEST_F(ValidAttributesTram, SampleTest24) {
+    FunctionFieldEqual("TestInputXML/metronet24.xml");
 }
