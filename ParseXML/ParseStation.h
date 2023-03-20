@@ -8,21 +8,40 @@
 #include "../Station/Station.h"
 #include "../MetroNet/MetroNet.h"
 #include "../TinyXML/tinyxml.h"
+#include <string>
 
 class ParseStation {
 
 public:
 
-    bool parseNaam(TiXmlElement *element) const;
+    explicit ParseStation(TiXmlElement *element);
 
-    bool parseVorige(TiXmlElement *element) const;
+    void setElement(TiXmlElement *el);
 
-    bool parseVolgende(TiXmlElement *element) const;
+    bool parseAll(MetroNet &metroNet, Station* station) const;
 
-    bool parseSpoorNr(TiXmlElement *element) const;
+    bool parseNaam(MetroNet &metroNet, Station* station) const;
+
+    bool parseVorige(MetroNet &metroNet, Station* station) const;
+
+    bool parseVolgende(MetroNet &metroNet, Station* station) const;
+
+    bool parseSpoorNr(MetroNet &metroNet, Station* station) const;
+
+    bool checkValidStation() const;
+
+    bool checkValidNaam() const;
+
+    bool checkValidVorige() const;
+
+    bool checkValidVolgende() const;
+
+    bool checkValidSpoorNr() const;
 
 
 private:
+    TiXmlElement *element;
+    std::string  naam;
 
 };
 
