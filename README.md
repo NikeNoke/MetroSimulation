@@ -11,7 +11,7 @@ In versie 1.0 implementeren we de volgende usecases:
 - Het inlezen van Tram objecten en Station objecten.
 - Een simpele uitvoer, we krijgen een file een we schrijven de correspondeerende
 objecten en hun attributen uit naar een file.
-- Het rijden van Trams over Stations in een Metronet.
+- Het rijden van Tram(s) over Station(s) in een MetroNet.
 
 ### Gebruikte werktuigen in dit project
 Dit project werd geprogrammeerd in [C++98](https://en.wikipedia.org/wiki/C%2B%2B).

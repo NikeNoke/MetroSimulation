@@ -9,7 +9,7 @@ Metronet8: Ontbrekend attribuut beginStation bij tram.
 Metronet9: Ontbrekend end tag "</METRONET>" //throw file error.
 Metronet10: Ontbrekend attribuut vorigeStation bij station.
 Metronet11: Correcte metronet met twee tramlijnen.
-Metronet12: Correcte metronet met trie tramlijnen.
+Metronet12: Correcte metronet met drie tramlijnen.
 Metronet13: Metronet met drie lijnen waarbij de tram een foute lijnNr heeft en dus foute beginStation heeft.
 Metronet14: Er bestaan 3 tramlijnen maar er zijn maar twee trammen.
 Metronet15: Startstation van een Tramlijn is geen geldige station op zijn spoor maar wel een bestaand station.

@@ -13,11 +13,19 @@ void \mbox{\hyperlink{namespaceUtils_a0c8bb62588ca988e26e4fde64485037e}{write\+S
 \item 
 bool \mbox{\hyperlink{namespaceUtils_ad11847528f09e17aa92ae59e41d16427}{valid\+Metro\+Net}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net)
 \item 
+bool \mbox{\hyperlink{namespaceUtils_a4607b8e89d3717373c83e3c0a9852f78}{valid\+Metro\+Net\+Silent}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net)
+\item 
 std\+::string \mbox{\hyperlink{namespaceUtils_a5eacbdb48517d85b0e130baa175fe65a}{bool\+To\+Text}} (bool b)
 \item 
 void \mbox{\hyperlink{namespaceUtils_a0401fc9bc835070caaba946b302551cf}{simulate\+Metro\+Net}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net, int amount\+Of\+Move)
 \item 
 int \mbox{\hyperlink{namespaceUtils_aefb37faa1cbd7079dfa0381d8a04391c}{get\+Random\+Int}} (int max)
+\item 
+bool \mbox{\hyperlink{namespaceUtils_a423538e4aeff794291e090917492aade}{directory\+Exists}} (const std\+::string dirname)
+\item 
+bool \mbox{\hyperlink{namespaceUtils_a18ea06d70f342842dda2d03e16644562}{file\+Exists}} (const std\+::string filename)
+\item 
+bool \mbox{\hyperlink{namespaceUtils_ad607d6f40c4c3db44400ad16eeaab984}{file\+Is\+Empty}} (const std\+::string filename)
 \end{DoxyCompactItemize}
 
 
@@ -38,6 +46,48 @@ Simpele functie dat ons toelaat om i.\+p.\+v een bool terug te geven een custom 
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Custom message, in dit geval \char`\"{}gevonden\char`\"{} als b true is en \char`\"{}niet gevonden\char`\"{} als b false is. 
+\end{DoxyReturn}
+\Hypertarget{namespaceUtils_a423538e4aeff794291e090917492aade}\label{namespaceUtils_a423538e4aeff794291e090917492aade} 
+\index{Utils@{Utils}!directoryExists@{directoryExists}}
+\index{directoryExists@{directoryExists}!Utils@{Utils}}
+\doxysubsubsection{\texorpdfstring{directoryExists()}{directoryExists()}}
+{\footnotesize\ttfamily bool Utils\+::directory\+Exists (\begin{DoxyParamCaption}\item[{const std\+::string}]{dirname }\end{DoxyParamCaption})}
+
+Functie dat controleerd ofdat een directory bestaat of niet. 
+\begin{DoxyParams}{Parameters}
+{\em dirname} & Naam van de directory. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true of false
+\end{DoxyReturn}
+Auxiliary functions for file manipulation. \Hypertarget{namespaceUtils_a18ea06d70f342842dda2d03e16644562}\label{namespaceUtils_a18ea06d70f342842dda2d03e16644562} 
+\index{Utils@{Utils}!fileExists@{fileExists}}
+\index{fileExists@{fileExists}!Utils@{Utils}}
+\doxysubsubsection{\texorpdfstring{fileExists()}{fileExists()}}
+{\footnotesize\ttfamily bool Utils\+::file\+Exists (\begin{DoxyParamCaption}\item[{const std\+::string}]{filename }\end{DoxyParamCaption})}
+
+Functie dat controleerd ofdat een file bestaat. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & Naam van de file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true of false 
+\end{DoxyReturn}
+\Hypertarget{namespaceUtils_ad607d6f40c4c3db44400ad16eeaab984}\label{namespaceUtils_ad607d6f40c4c3db44400ad16eeaab984} 
+\index{Utils@{Utils}!fileIsEmpty@{fileIsEmpty}}
+\index{fileIsEmpty@{fileIsEmpty}!Utils@{Utils}}
+\doxysubsubsection{\texorpdfstring{fileIsEmpty()}{fileIsEmpty()}}
+{\footnotesize\ttfamily bool Utils\+::file\+Is\+Empty (\begin{DoxyParamCaption}\item[{const std\+::string}]{filename }\end{DoxyParamCaption})}
+
+Functie dat controleerd ofdat een file leeg is. 
+\begin{DoxyParams}{Parameters}
+{\em filename} & Naam van de file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true of false 
 \end{DoxyReturn}
 \Hypertarget{namespaceUtils_aefb37faa1cbd7079dfa0381d8a04391c}\label{namespaceUtils_aefb37faa1cbd7079dfa0381d8a04391c} 
 \index{Utils@{Utils}!getRandomInt@{getRandomInt}}
@@ -116,7 +166,7 @@ Functie dat ons toelaat om een metronet te laten simuleren voor een bepaald aant
 \hline
 \end{DoxyParams}
 \begin{DoxyNote}{Note}
-Deze functie moeten we aanpassen zodat het i.\+p.\+v. werkt met een hoeveelheid moves, dat het werkt met gebruik van een tijdstip. Hierbij moeten we echter zorgen dat we meerdere attributes hebben die toelaten om een realistische simulatie te doen lopen over een metronet. Hierbij moeten we \doxylink{classTram}{Tram} en \doxylink{classStation}{Station} zodanig aanpassen zodat trammen over een bepaalde afstand rijden in een bepaalde tijd met een bepaalde snelheid. 
+Deze functie moeten we aanpassen zodat het i.\+p.\+v. werkt met een hoeveelheid moves, dat het werkt met gebruik van een tijdstip. Hierbij moeten we echter zorgen dat we meerdere attributes hebben die toelaten om een realistische simulatie te doen lopen over een \doxylink{classMetroNet}{Metro\+Net}. Hierbij moeten we \doxylink{classTram}{Tram} en \doxylink{classStation}{Station} zodanig aanpassen zodat trammen over een bepaalde afstand rijden in een bepaalde tijd met een bepaalde snelheid. 
 \end{DoxyNote}
 \Hypertarget{namespaceUtils_ad11847528f09e17aa92ae59e41d16427}\label{namespaceUtils_ad11847528f09e17aa92ae59e41d16427} 
 \index{Utils@{Utils}!validMetroNet@{validMetroNet}}
@@ -124,7 +174,21 @@ Deze functie moeten we aanpassen zodat het i.\+p.\+v. werkt met een hoeveelheid 
 \doxysubsubsection{\texorpdfstring{validMetroNet()}{validMetroNet()}}
 {\footnotesize\ttfamily bool Utils\+::valid\+Metro\+Net (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net }\end{DoxyParamCaption})}
 
-Functie dat zal nazien ofdat een metronet correct geïnitialiseerd is. 
+Functie dat zal nazien ofdat een metronet correct geïnitialiseerd is en wordt geprint op console. 
+\begin{DoxyParams}{Parameters}
+{\em metro\+Net} & Het metronet dat gecontroleerd wordt. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true of false afhankelijk ofdat het metronet correct geïnitialiseerd is of niet. 
+\end{DoxyReturn}
+\Hypertarget{namespaceUtils_a4607b8e89d3717373c83e3c0a9852f78}\label{namespaceUtils_a4607b8e89d3717373c83e3c0a9852f78} 
+\index{Utils@{Utils}!validMetroNetSilent@{validMetroNetSilent}}
+\index{validMetroNetSilent@{validMetroNetSilent}!Utils@{Utils}}
+\doxysubsubsection{\texorpdfstring{validMetroNetSilent()}{validMetroNetSilent()}}
+{\footnotesize\ttfamily bool Utils\+::valid\+Metro\+Net\+Silent (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net }\end{DoxyParamCaption})}
+
+Functie dat zal nazien ofdat een metronet correct geïnitialiseerd is en wordt NIET geprint op console. 
 \begin{DoxyParams}{Parameters}
 {\em metro\+Net} & Het metronet dat gecontroleerd wordt. \\
 \hline
@@ -138,7 +202,7 @@ true of false afhankelijk ofdat het metronet correct geïnitialiseerd is of niet
 \doxysubsubsection{\texorpdfstring{writeSpecs()}{writeSpecs()}}
 {\footnotesize\ttfamily void Utils\+::write\+Specs (\begin{DoxyParamCaption}\item[{std\+::ofstream \&}]{file,  }\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net }\end{DoxyParamCaption})}
 
-Fuctie dat een file zal creëren van een metronet 
+Fuctie dat een file zal creëren van een \doxylink{classMetroNet}{Metro\+Net} object. 
 \begin{DoxyParams}{Parameters}
 {\em file} & De file naarwaar het metronet zal weggeschreven worden. \\
 \hline

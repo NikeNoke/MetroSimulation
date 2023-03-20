@@ -87,12 +87,20 @@ Functions</h2></td></tr>
 <tr class="separator:a0c8bb62588ca988e26e4fde64485037e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad11847528f09e17aa92ae59e41d16427"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.html#ad11847528f09e17aa92ae59e41d16427">validMetroNet</a> (<a class="el" href="classMetroNet.html">MetroNet</a> &amp;metroNet)</td></tr>
 <tr class="separator:ad11847528f09e17aa92ae59e41d16427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4607b8e89d3717373c83e3c0a9852f78"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.html#a4607b8e89d3717373c83e3c0a9852f78">validMetroNetSilent</a> (<a class="el" href="classMetroNet.html">MetroNet</a> &amp;metroNet)</td></tr>
+<tr class="separator:a4607b8e89d3717373c83e3c0a9852f78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5eacbdb48517d85b0e130baa175fe65a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.html#a5eacbdb48517d85b0e130baa175fe65a">boolToText</a> (bool b)</td></tr>
 <tr class="separator:a5eacbdb48517d85b0e130baa175fe65a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0401fc9bc835070caaba946b302551cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.html#a0401fc9bc835070caaba946b302551cf">simulateMetroNet</a> (<a class="el" href="classMetroNet.html">MetroNet</a> &amp;metroNet, int amountOfMove)</td></tr>
 <tr class="separator:a0401fc9bc835070caaba946b302551cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefb37faa1cbd7079dfa0381d8a04391c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.html#aefb37faa1cbd7079dfa0381d8a04391c">getRandomInt</a> (int max)</td></tr>
 <tr class="separator:aefb37faa1cbd7079dfa0381d8a04391c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a423538e4aeff794291e090917492aade"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.html#a423538e4aeff794291e090917492aade">directoryExists</a> (const std::string dirname)</td></tr>
+<tr class="separator:a423538e4aeff794291e090917492aade"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18ea06d70f342842dda2d03e16644562"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.html#a18ea06d70f342842dda2d03e16644562">fileExists</a> (const std::string filename)</td></tr>
+<tr class="separator:a18ea06d70f342842dda2d03e16644562"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad607d6f40c4c3db44400ad16eeaab984"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.html#ad607d6f40c4c3db44400ad16eeaab984">fileIsEmpty</a> (const std::string filename)</td></tr>
+<tr class="separator:ad607d6f40c4c3db44400ad16eeaab984"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Functies and utilities dat gebruikt worden doorheen ons project om code duplication waar mogelijk is te vermijden. Deze lijst is nog niet compleet en zou hoogstwaarschijnlijk uigebreid worden in de toekomst. </p>
@@ -119,6 +127,82 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Custom message, in dit geval "gevonden" als b true is en "niet gevonden" als b false is. </dd></dl>
+
+</div>
+</div>
+<a id="a423538e4aeff794291e090917492aade" name="a423538e4aeff794291e090917492aade"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a423538e4aeff794291e090917492aade">&#9670;&#160;</a></span>directoryExists()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Utils::directoryExists </td>
+          <td>(</td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>dirname</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Functie dat controleerd ofdat een directory bestaat of niet. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dirname</td><td>Naam van de directory. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true of false</dd></dl>
+<p>Auxiliary functions for file manipulation. </p>
+
+</div>
+</div>
+<a id="a18ea06d70f342842dda2d03e16644562" name="a18ea06d70f342842dda2d03e16644562"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18ea06d70f342842dda2d03e16644562">&#9670;&#160;</a></span>fileExists()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Utils::fileExists </td>
+          <td>(</td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Functie dat controleerd ofdat een file bestaat. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Naam van de file. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true of false </dd></dl>
+
+</div>
+</div>
+<a id="ad607d6f40c4c3db44400ad16eeaab984" name="ad607d6f40c4c3db44400ad16eeaab984"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad607d6f40c4c3db44400ad16eeaab984">&#9670;&#160;</a></span>fileIsEmpty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Utils::fileIsEmpty </td>
+          <td>(</td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Functie dat controleerd ofdat een file leeg is. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>Naam van de file. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true of false </dd></dl>
 
 </div>
 </div>
@@ -277,7 +361,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>Deze functie moeten we aanpassen zodat het i.p.v. werkt met een hoeveelheid moves, dat het werkt met gebruik van een tijdstip. Hierbij moeten we echter zorgen dat we meerdere attributes hebben die toelaten om een realistische simulatie te doen lopen over een metronet. Hierbij moeten we <a class="el" href="classTram.html">Tram</a> en <a class="el" href="classStation.html">Station</a> zodanig aanpassen zodat trammen over een bepaalde afstand rijden in een bepaalde tijd met een bepaalde snelheid. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Deze functie moeten we aanpassen zodat het i.p.v. werkt met een hoeveelheid moves, dat het werkt met gebruik van een tijdstip. Hierbij moeten we echter zorgen dat we meerdere attributes hebben die toelaten om een realistische simulatie te doen lopen over een <a class="el" href="classMetroNet.html">MetroNet</a>. Hierbij moeten we <a class="el" href="classTram.html">Tram</a> en <a class="el" href="classStation.html">Station</a> zodanig aanpassen zodat trammen over een bepaalde afstand rijden in een bepaalde tijd met een bepaalde snelheid. </dd></dl>
 
 </div>
 </div>
@@ -296,7 +380,32 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Functie dat zal nazien ofdat een metronet correct geïnitialiseerd is. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Functie dat zal nazien ofdat een metronet correct geïnitialiseerd is en wordt geprint op console. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">metroNet</td><td>Het metronet dat gecontroleerd wordt. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true of false afhankelijk ofdat het metronet correct geïnitialiseerd is of niet. </dd></dl>
+
+</div>
+</div>
+<a id="a4607b8e89d3717373c83e3c0a9852f78" name="a4607b8e89d3717373c83e3c0a9852f78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4607b8e89d3717373c83e3c0a9852f78">&#9670;&#160;</a></span>validMetroNetSilent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Utils::validMetroNetSilent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classMetroNet.html">MetroNet</a> &amp;&#160;</td>
+          <td class="paramname"><em>metroNet</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Functie dat zal nazien ofdat een metronet correct geïnitialiseerd is en wordt NIET geprint op console. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">metroNet</td><td>Het metronet dat gecontroleerd wordt. </td></tr>
   </table>
@@ -331,7 +440,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Fuctie dat een file zal creëren van een metronet </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Fuctie dat een file zal creëren van een <a class="el" href="classMetroNet.html">MetroNet</a> object. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">file</td><td>De file naarwaar het metronet zal weggeschreven worden. </td></tr>
     <tr><td class="paramname">metroNet</td><td>Het metronet dat zal weggeschreven worden. </td></tr>
