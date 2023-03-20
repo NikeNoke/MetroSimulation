@@ -22,7 +22,7 @@ set(RELEASE_SOURCE_FILES main.cpp Tram/Tram.cpp Station/Station.cpp TinyXML/tiny
 # Set source files for DEBUG target
 set(DEBUG_SOURCE_FILES tests.cpp TinyXML/tinystr.cpp TinyXML/tinyxml.cpp TinyXML/tinyxmlerror.cpp TinyXML/tinyxmlparser.cpp
         Tram/Tram.cpp Station/Station.cpp TestFiles/ValidAttributesTram.cpp TestFiles/ValidAttributesStation.cpp
-        TestFiles/AttributeTypeCorrectness.cpp MetroNet/MetroNet.cpp Utils/utils.cpp
+        MetroNet/MetroNet.cpp Utils/utils.cpp
         TestFiles/ValidMetroNetTest.cpp ParseXML/ParseStation.cpp ParseXML/ParseTram.cpp)
 
 # Create RELEASE target

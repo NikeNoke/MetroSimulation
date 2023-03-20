@@ -50,11 +50,18 @@ namespace Utils{
     void writeSpecs(std::ofstream& file, MetroNet& metroNet);
 
     /**
-     * Functie dat zal nazien ofdat een metronet correct geïnitialiseerd is.
+     * Functie dat zal nazien ofdat een metronet correct geïnitialiseerd is en wordt geprint op console.
      * @param metroNet Het metronet dat gecontroleerd wordt.
      * @return true of false afhankelijk ofdat het metronet correct geïnitialiseerd is of niet.
      * **/
     bool validMetroNet(MetroNet& metroNet);
+
+    /**
+    * Functie dat zal nazien ofdat een metronet correct geïnitialiseerd is en wordt NIET geprint op console.
+     * @param metroNet Het metronet dat gecontroleerd wordt.
+    * @return true of false afhankelijk ofdat het metronet correct geïnitialiseerd is of niet.
+     * **/
+    bool validMetroNetSilent(MetroNet& metroNet);
 
     /**
      * Simpele functie dat ons toelaat om i.p.v een bool terug te geven een custom message terug te geven.

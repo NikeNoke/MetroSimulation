@@ -5,7 +5,12 @@
 #include "../TinyXML/tinyxml.h"
 #include "../Utils/utils.h"
 #include "../Tram/Tram.h"
+#include "../ParseXML/ParseTram.h"
 #include<sstream>
+
+//https://stackoverflow.com/questions/5590381/easiest-way-to-convert-int-to-string-in-c
+#define SSTR( x ) static_cast< std::ostringstream & >( \
+        ( std::ostringstream() << std::dec << x ) ).str()
 
 /**
  * Deze klasse test ofdat elk Tram object een correcte hoeveelheid attributen heeft
@@ -25,204 +30,90 @@ protected:
     virtual void TearDown() {
 
     }
-
-    /**
-     * Function body voor de tests. Test ofdat de hoeveelheid attributes overeenkomen met wat verwacht wordt.
-     * @param Filename Naam van de file dat getest wordt.
-     */
-    static void FunctionFieldEqual(const char *FileName) {
-        TiXmlDocument doc;
-        if (!doc.LoadFile(FileName)) {
-            std::cerr << doc.ErrorDesc() << std::endl;
-        }
-        TiXmlElement *root = doc.FirstChildElement();
-        if (root == NULL) {
-            std::cerr << "Failed to load file: No root element." << std::endl;
-            doc.Clear();
-        }
-
-        std::vector<bool> attributes;
-        long unsigned Amount_Of_Attributes = 0;
-        long unsigned Amount_Of_Attributes_Tram = 3;
-        for (TiXmlElement *element = root->FirstChildElement();
-             element != NULL; element = element->NextSiblingElement()) {
-
-            std::string current = element->Value();
-
-            if (current == "TRAM") {
-                Amount_Of_Attributes += Amount_Of_Attributes_Tram;
-                for (TiXmlElement *inner = element->FirstChildElement();
-                     inner != NULL; inner = inner->NextSiblingElement()) {
-                    std::string attribute = inner->Value();
-                    if (attribute == "lijnNr") {
-                        attributes.push_back(true);
-
-                    } else if (attribute == "beginStation") {
-                        attributes.push_back(true);
-
-                    } else if (attribute == "snelheid") {
-                        attributes.push_back(true);
-
-                    }
-                    //else if (attribute == "huidigstation"){
-                    //    attributes.push_back(true);
-                    //}
-                }
-
-            }
-
-        }
-        EXPECT_EQ(Amount_Of_Attributes, attributes.size());
-
-
-        doc.Clear();
-    }
-
-    /**
-     * Function body voor de tests. Test ofdat de hoeveelheid attributes NIET overeenkomen met wat verwacht wordt.
-     * @param Filename Naam van de file dat getest wordt.
-     */
-    static void FunctionFieldNotEqual(const char *FileName) {
-        TiXmlDocument doc;
-        if (!doc.LoadFile(FileName)) {
-            std::cerr << doc.ErrorDesc() << std::endl;
-        }
-        TiXmlElement *root = doc.FirstChildElement();
-        if (root == NULL) {
-            std::cerr << "Failed to load file: No root element." << std::endl;
-            doc.Clear();
-        }
-
-        std::vector<bool> attributes;
-        long unsigned Amount_Of_Attributes = 0;
-        long unsigned Amount_Of_Attributes_Tram = 3;
-        for (TiXmlElement *element = root->FirstChildElement();
-             element != NULL; element = element->NextSiblingElement()) {
-
-            std::string current = element->Value();
-
-            if (current == "TRAM") {
-                Amount_Of_Attributes += Amount_Of_Attributes_Tram;
-                for (TiXmlElement *inner = element->FirstChildElement();
-                     inner != NULL; inner = inner->NextSiblingElement()) {
-                    std::string attribute = inner->Value();
-                    if (attribute == "lijnNr") {
-                        attributes.push_back(true);
-
-                    } else if (attribute == "beginStation") {
-                        attributes.push_back(true);
-
-                    } else if (attribute == "snelheid") {
-                        attributes.push_back(true);
-
-                    }
-                    //else if (attribute == "huidigstation"){
-                    //    attributes.push_back(true);
-                    //}
-                }
-
-            }
-
-        }
-        EXPECT_NE(Amount_Of_Attributes, attributes.size());
-
-
-        doc.Clear();
-    }
 };
 
-TEST_F(ValidAttributesTram, HappyDay) {
-    FunctionFieldEqual("TestInputXML/metronet1.xml");
+TEST_F(ValidAttributesTram, ValidTrams) {
+    ASSERT_TRUE(Utils::directoryExists("TestInputXML")) << "Directory to test does not exist\n";
+
+    std::ofstream myfile;
+    int fileCounter = 0;
+    std::string fileName = "TestInputXML/ValidTram" + SSTR(fileCounter) + ".xml";
+
+    while (Utils::fileExists(fileName)) {
+        TiXmlDocument doc;
+        ASSERT_TRUE(doc.LoadFile(fileName.c_str())) << "The file cannot be opened\n";
+
+        TiXmlElement *root = doc.FirstChildElement();
+        ASSERT_TRUE(root != NULL) << "The root cannot be NULL\n";
+
+        MetroNet metroNet;
+
+        for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
+
+            std::string current = element->Value();
+            if (current == "TRAM") {
+
+                Tram* tram = new Tram();
+                ParseTram parseTram(element);
+
+                EXPECT_TRUE(parseTram.checkValidLijnNr()) << "LijnNr is not Valid\n";
+                EXPECT_TRUE(parseTram.checkValidBeginStation()) << "Begin Station is not Valid\n";
+                EXPECT_TRUE(parseTram.checkValidSnelheid()) << "Snelheid is not Valid\n";
+
+                EXPECT_TRUE(parseTram.parseSnelheid(metroNet, tram)) << "Snelheid has not been correctly parsed\n";
+                EXPECT_TRUE(parseTram.parseLijnNr(metroNet, tram)) << "LijnNr has not been correctly parsed\n";
+                EXPECT_TRUE(parseTram.parseBeginStation(metroNet, tram)) << "Begin Station has not been correctly parsed\n";
+
+                EXPECT_FALSE(parseTram.checkNonValidAttributes()) << "There are wrong atrributes present\n";
+
+                if(!parseTram.parseAll(metroNet,tram))
+                    delete tram;
+            }
+        }
+        doc.Clear();
+
+        fileCounter = fileCounter + 1;
+        fileName = "TestInputXML/ValidTram" + SSTR(fileCounter) + ".xml";
+    }
 }
 
-TEST_F(ValidAttributesTram, IncorrectBeginStation) {
-    FunctionFieldEqual("TestInputXML/metronet2.xml");
-}
+TEST_F(ValidAttributesTram, InValidTrams) {
+    ASSERT_TRUE(Utils::directoryExists("TestInputXML")) << "Directory to test does not exist\n";
 
-TEST_F(ValidAttributesTram, IncorrectLijnNr) {
-    FunctionFieldEqual("TestInputXML/metronet3.xml");
-}
+    std::ofstream myfile;
+    int fileCounter = 0;
+    std::string fileName = "TestInputXML/ValidTram" + SSTR(fileCounter) + ".xml";
 
-TEST_F(ValidAttributesTram, IncorrectSnelheid) {
-    FunctionFieldEqual("TestInputXML/metronet4.xml");
-}
+    while (Utils::fileExists(fileName)) {
+        TiXmlDocument doc;
+        ASSERT_TRUE(doc.LoadFile(fileName.c_str())) << "The file cannot be opened\n";
 
-TEST_F(ValidAttributesTram, TooMuchAttributes) {
-    FunctionFieldEqual("TestInputXML/metronet5.xml");
-}
+        TiXmlElement *root = doc.FirstChildElement();
+        ASSERT_TRUE(root != NULL) << "The root cannot be NULL\n";
 
-TEST_F(ValidAttributesTram, TooFewAttributes) {
-    FunctionFieldEqual("TestInputXML/metronet6.xml");
-}
+        MetroNet metroNet;
 
-TEST_F(ValidAttributesTram, SampleTest7) {
-    FunctionFieldNotEqual("TestInputXML/metronet7.xml");
-}
+        for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
 
-TEST_F(ValidAttributesTram, SampleTest8) {
-    FunctionFieldNotEqual("TestInputXML/metronet8.xml");
-}
+            std::string current = element->Value();
+            if (current == "TRAM") {
 
-TEST_F(ValidAttributesTram, SampleTest9) {
-    FunctionFieldEqual("TestInputXML/metronet9.xml");
-}
+                Tram* tram = new Tram();
+                ParseTram parseTram(element);
 
-TEST_F(ValidAttributesTram, SampleTest10) {
-    FunctionFieldEqual("TestInputXML/metronet10.xml");
-}
+                EXPECT_FALSE(parseTram.checkValidTram()) << "Tram should not have been valid\n";
 
-TEST_F(ValidAttributesTram, SampleTest11) {
-    FunctionFieldEqual("TestInputXML/metronet11.xml");
-}
+                EXPECT_FALSE(parseTram.parseAll(metroNet, tram)) << "Tram should not have been parsed\n";
 
-TEST_F(ValidAttributesTram, SampleTest12) {
-    FunctionFieldEqual("TestInputXML/metronet12.xml");
-}
+                EXPECT_TRUE(parseTram.checkNonValidAttributes()) << "Wrong attributes are not present (was expected)\n";
 
-TEST_F(ValidAttributesTram, SampleTest13) {
-    FunctionFieldEqual("TestInputXML/metronet13.xml");
-}
+                if(!parseTram.parseAll(metroNet,tram))
+                    delete tram;
+            }
+        }
+        doc.Clear();
 
-TEST_F(ValidAttributesTram, SampleTest14) {
-    FunctionFieldEqual("TestInputXML/metronet14.xml");
-}
-
-TEST_F(ValidAttributesTram, SampleTest15) {
-    FunctionFieldEqual("TestInputXML/metronet15.xml");
-}
-
-TEST_F(ValidAttributesTram, SampleTest16) {
-    FunctionFieldNotEqual("TestInputXML/metronet16.xml");
-}
-
-TEST_F(ValidAttributesTram, SampleTest17) {
-    FunctionFieldNotEqual("TestInputXML/metronet17.xml");
-}
-
-TEST_F(ValidAttributesTram, SampleTest18) {
-    FunctionFieldEqual("TestInputXML/metronet18.xml");
-}
-
-TEST_F(ValidAttributesTram, SampleTest19) {
-    FunctionFieldEqual("TestInputXML/metronet19.xml");
-}
-
-TEST_F(ValidAttributesTram, SampleTest20) {
-    FunctionFieldEqual("TestInputXML/metronet20.xml");
-}
-
-TEST_F(ValidAttributesTram, SampleTest21) {
-    FunctionFieldEqual("TestInputXML/metronet21.xml");
-}
-
-TEST_F(ValidAttributesTram, SampleTest22) {
-    FunctionFieldEqual("TestInputXML/metronet22.xml");
-}
-
-TEST_F(ValidAttributesTram, SampleTest23) {
-    FunctionFieldEqual("TestInputXML/metronet23.xml");
-}
-
-TEST_F(ValidAttributesTram, SampleTest24) {
-    FunctionFieldEqual("TestInputXML/metronet24.xml");
+        fileCounter = fileCounter + 1;
+        fileName = "TestInputXML/ValidTram" + SSTR(fileCounter) + ".xml";
+    }
 }

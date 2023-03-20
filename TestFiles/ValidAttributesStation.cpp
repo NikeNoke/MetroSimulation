@@ -80,7 +80,7 @@ TEST_F(ValidAttributesStation, ValidStations) {
 
         fileCounter = fileCounter + 1;
         fileName = "TestInputXML/ValidStation" + SSTR(fileCounter) + ".xml";
-    };
+    }
 }
 TEST_F(ValidAttributesStation, InValidStation) {
 

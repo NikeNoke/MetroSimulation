@@ -312,3 +312,62 @@ bool Utils::fileIsEmpty(const std::string filename) {
     if (stat(filename.c_str(), &st) != 0) return true; // File does not exist; thus it is empty
     return st.st_size == 0;
 }
+
+bool Utils::validMetroNetSilent(MetroNet &metroNet) {
+
+    REQUIRE(metroNet.properlyInitialized(), "The metroNet is not properly initialized");
+
+    std::vector<Station *> tempStations = metroNet.getStations();
+    std::vector<Tram *> tempTrams = metroNet.getTrams();
+
+    for (long unsigned int i = 0; i < tempStations.size(); i++) {
+        REQUIRE(tempStations[i]->properlyInitialized(), "A station of the metroNet is not properly initialized");
+        if (!metroNet.stationRegistered(tempStations[i]->getVorige())) {
+            return false;
+        }
+
+        if (!metroNet.stationRegistered(tempStations[i]->getVolgende())) {
+            return false;
+        }
+
+        Station *vorige = metroNet.getStation(tempStations[i]->getVorige());
+        Station *volgende = metroNet.getStation(tempStations[i]->getVolgende());
+
+        if (tempStations[i]->getSpoorNr() != vorige->getSpoorNr()) {
+            return false;
+        }
+
+        if (tempStations[i]->getSpoorNr() != volgende->getSpoorNr()) {
+            return false;
+        }
+
+        bool spoorHeeftTram = false;
+        for (long unsigned int j = 0; i < tempTrams.size(); i++) {
+            REQUIRE(tempTrams[j]->properlyInitialized(), "A tram of the metroNet is not properly initialized");
+            if (tempStations[i]->getSpoorNr() == tempTrams[j]->getLijnNr()) {
+                spoorHeeftTram = true;
+                break;
+            }
+        }
+
+        if (!spoorHeeftTram) {
+            return false;
+        }
+
+    }
+
+    for (long unsigned int i = 0; i < tempTrams.size(); i++) {
+        REQUIRE(tempTrams[i]->properlyInitialized(), "A tram of the metroNet is not properly initialized");
+        if (!metroNet.stationRegistered(tempTrams[i]->getBeginStation())) {
+            return false;
+        }
+        Station *beginStation = metroNet.getStation(tempTrams[i]->getBeginStation());
+
+        if (beginStation->getSpoorNr() != tempTrams[i]->getLijnNr()) {
+            return false;
+        }
+
+    }
+
+    return true;
+}

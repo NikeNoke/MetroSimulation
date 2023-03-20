@@ -196,3 +196,28 @@ bool ParseTram::parseAll(MetroNet &metroNet, Tram *tram) const {
     return true;
 }
 
+bool ParseTram::checkNonValidAttributes() const {
+
+    REQUIRE(element != NULL, "TixmlElement is NULL");
+
+
+    for (TiXmlElement *InnerElement = element->FirstChildElement();
+         InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
+
+        std::string innerElementName = InnerElement->Value();
+        std::string innerText = InnerElement->GetText();
+
+        if(innerElementName == "beginStation")
+            continue;
+        if(innerElementName == "lijnNr")
+            continue;
+        if(innerElementName == "snelheid")
+            continue;
+        return true;
+    }
+
+    ENSURE(element != NULL, "TixmlElement has become NULL");
+
+    return false;
+}
+
