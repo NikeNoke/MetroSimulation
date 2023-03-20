@@ -1,15 +1,11 @@
 #include <iostream>
-#include <fstream>
-#include <sys/stat.h>
 #include <gtest/gtest.h>
 #include "../TinyXML/tinyxml.h"
 #include "../Utils/utils.h"
-#include "../Tram/Tram.h"
 #include "../ParseXML/ParseTram.h"
-#include<sstream>
 
 //https://stackoverflow.com/questions/5590381/easiest-way-to-convert-int-to-string-in-c
-#define SSTR( x ) static_cast< std::ostringstream & >( \
+#define SSTR(x) static_cast< std::ostringstream & >( \
         ( std::ostringstream() << std::dec << x ) ).str()
 
 /**
@@ -30,30 +26,34 @@ protected:
     virtual void TearDown() {
 
     }
+
+    void checkFile(TiXmlDocument &doc, TiXmlElement *&root, const std::string &fileName) {
+        ASSERT_TRUE(doc.LoadFile(fileName.c_str())) << "The file cannot be opened\n";
+        root = doc.FirstChildElement();
+        ASSERT_TRUE(root != NULL) << "The root cannot be NULL\n";
+    }
 };
 
 TEST_F(ValidAttributesTram, ValidTrams) {
     ASSERT_TRUE(Utils::directoryExists("TestInputXML")) << "Directory to test does not exist\n";
 
-    std::ofstream myfile;
     int fileCounter = 0;
     std::string fileName = "TestInputXML/ValidTram/metroNet" + SSTR(fileCounter) + ".xml";
 
     while (Utils::fileExists(fileName)) {
         TiXmlDocument doc;
-        ASSERT_TRUE(doc.LoadFile(fileName.c_str())) << "The file cannot be opened\n";
-
-        TiXmlElement *root = doc.FirstChildElement();
-        ASSERT_TRUE(root != NULL) << "The root cannot be NULL\n";
+        TiXmlElement *root = NULL;
+        checkFile(doc, root, fileName);
 
         MetroNet metroNet;
 
-        for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
+        for (TiXmlElement *element = root->FirstChildElement();
+             element != NULL; element = element->NextSiblingElement()) {
 
             std::string current = element->Value();
             if (current == "TRAM") {
 
-                Tram* tram = new Tram();
+                Tram *tram = new Tram();
                 ParseTram parseTram(element);
 
                 EXPECT_TRUE(parseTram.checkValidLijnNr()) << "LijnNr is not Valid\n";
@@ -62,12 +62,11 @@ TEST_F(ValidAttributesTram, ValidTrams) {
 
                 EXPECT_TRUE(parseTram.parseSnelheid(metroNet, tram)) << "Snelheid has not been correctly parsed\n";
                 EXPECT_TRUE(parseTram.parseLijnNr(metroNet, tram)) << "LijnNr has not been correctly parsed\n";
-                EXPECT_TRUE(parseTram.parseBeginStation(metroNet, tram)) << "Begin Station has not been correctly parsed\n";
+                EXPECT_TRUE(parseTram.parseBeginStation(metroNet, tram))
+                                    << "Begin Station has not been correctly parsed\n";
 
                 EXPECT_FALSE(parseTram.checkNonValidAttributes()) << "There are wrong atrributes present\n";
 
-//                if(!parseTram.parseAll(metroNet,tram))
-//                    delete tram;
             }
         }
         doc.Clear();
@@ -81,37 +80,29 @@ TEST_F(ValidAttributesTram, ValidTrams) {
 TEST_F(ValidAttributesTram, InValidTrams) {
     ASSERT_TRUE(Utils::directoryExists("TestInputXML")) << "Directory to test does not exist\n";
 
-    std::ofstream myfile;
     int fileCounter = 0;
     std::string fileName = "TestInputXML/InValidTram/metroNet" + SSTR(fileCounter) + ".xml";
 
     while (Utils::fileExists(fileName)) {
         TiXmlDocument doc;
-        ASSERT_TRUE(doc.LoadFile(fileName.c_str())) << "The file cannot be opened\n";
-        TiXmlElement *root = doc.FirstChildElement();
-        ASSERT_TRUE(root != NULL) << "The root cannot be NULL\n";
+        TiXmlElement *root = NULL;
+        checkFile(doc, root, fileName);
 
         MetroNet metroNet;
 
-        for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
+        for (TiXmlElement *element = root->FirstChildElement();
+             element != NULL; element = element->NextSiblingElement()) {
 
             std::string current = element->Value();
             if (current == "TRAM") {
 
-                Tram* tram = new Tram();
+                Tram *tram = new Tram();
                 ParseTram parseTram(element);
 
                 EXPECT_FALSE(parseTram.checkValidTram()) << "Tram should not have been valid\n";
 
-//                EXPECT_FALSE(parseTram.checkValidTram()) << "Tram should not have been valid\n";
-//                EXPECT_THROW(parseTram.checkValidTram(), );
-
                 EXPECT_DEATH(parseTram.parseAll(metroNet, tram), "The Tram tag is not correct");
 
-
-//                EXPECT_TRUE(parseTram.checkNonValidAttributes()) << "Wrong attributes are not present (was expected)\n";
-
-//                if(!parseTram.parseAll(metroNet,tram))
                 delete tram;
             }
         }
@@ -126,20 +117,18 @@ TEST_F(ValidAttributesTram, InValidTrams) {
 TEST_F(ValidAttributesTram, InValidTramAttributes) {
     ASSERT_TRUE(Utils::directoryExists("TestInputXML")) << "Directory to test does not exist\n";
 
-    std::ofstream myfile;
     int fileCounter = 0;
     std::string fileName = "TestInputXML/InValidTramAttributes/metroNet" + SSTR(fileCounter) + ".xml";
 
     while (Utils::fileExists(fileName)) {
         TiXmlDocument doc;
-        ASSERT_TRUE(doc.LoadFile(fileName.c_str())) << "The file cannot be opened\n";
-
-        TiXmlElement *root = doc.FirstChildElement();
-        ASSERT_TRUE(root != NULL) << "The root cannot be NULL\n";
+        TiXmlElement *root = NULL;
+        checkFile(doc, root, fileName);
 
         MetroNet metroNet;
 
-        for (TiXmlElement *element = root->FirstChildElement(); element != NULL; element = element->NextSiblingElement()) {
+        for (TiXmlElement *element = root->FirstChildElement();
+             element != NULL; element = element->NextSiblingElement()) {
 
             std::string current = element->Value();
             if (current == "TRAM") {
@@ -148,7 +137,6 @@ TEST_F(ValidAttributesTram, InValidTramAttributes) {
 
                 EXPECT_TRUE(parseTram.checkNonValidAttributes()) << "Wrong attributes are not present (was expected)\n";
 
-//                if(!parseTram.parseAll(metroNet,tram))
             }
         }
         doc.Clear();

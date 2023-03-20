@@ -381,3 +381,9 @@ bool Utils::validMetroNetSilent(MetroNet &metroNet) {
 
     return true;
 }
+
+void Utils::checkFile(TiXmlDocument &doc, TiXmlElement *&root, const std::string &fileName) {
+    ASSERT_TRUE(doc.LoadFile(fileName.c_str())) << "The file cannot be opened\n";
+    root = doc.FirstChildElement();
+    ASSERT_TRUE(root != NULL) << "The root cannot be NULL\n";
+}

@@ -109,7 +109,6 @@ public:
 
 private:
     TiXmlElement *element;
-    std::string  naam;
 
 };
 
