@@ -43,7 +43,7 @@ namespace Utils{
     bool parseTram(MetroNet& metroNet, TiXmlElement* element);
 
     /**
-     * Fuctie dat een file zal creëren van een metronet
+     * Fuctie dat een file zal creëren van een MetroNet object.
      * @param file De file naarwaar het metronet zal weggeschreven worden.
      * @param metroNet Het metronet dat zal weggeschreven worden.
      * **/
@@ -76,7 +76,7 @@ namespace Utils{
      * @param amountOfMove De hoevelheid stappen dat we gaan simuleren.
      * @note Deze functie moeten we aanpassen zodat het i.p.v. werkt met een hoeveelheid moves, dat het werkt met gebruik
      * van een tijdstip. Hierbij moeten we echter zorgen dat we meerdere attributes hebben die toelaten om een
-     * realistische simulatie te doen lopen over een metronet. Hierbij moeten we Tram en Station zodanig aanpassen
+     * realistische simulatie te doen lopen over een MetroNet. Hierbij moeten we Tram en Station zodanig aanpassen
      * zodat trammen over een bepaalde afstand rijden in een bepaalde tijd met een bepaalde snelheid.
      * **/
     void simulateMetroNet(MetroNet& metroNet, int amountOfMove);
