@@ -51,7 +51,7 @@
     <STATION>
         <naam>Deurne</naam>
         <volgende>Sterckshof</volgende>
-        <vorige>Deurne</vorige>
+        <vorige>Lakborslei</vorige>
         <spoorNr>33</spoorNr>
     </STATION>
     <STATION>
@@ -62,8 +62,8 @@
     </STATION>
     <STATION>
         <naam>Zwanebeek</naam>
-        <volgende>NationaleBank</volgende>
-        <vorige>Wijnegem</vorige>
+        <volgende>Wijnegem</volgende>
+        <vorige>NationaleBank</vorige>
         <spoorNr>10</spoorNr>
     </STATION>
     <STATION>
