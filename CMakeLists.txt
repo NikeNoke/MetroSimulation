@@ -17,10 +17,13 @@ set(RELEASE_SOURCE_FILES main.cpp Tram/Tram.cpp Station/Station.cpp TinyXML/tiny
         MetroNet/MetroNet.cpp
         ParseXML/ParseXML.cpp
         Utils/utils.cpp
-        )
+        ParseXML/ParseStation.cpp ParseXML/ParseStation.h ParseXML/ParseTram.cpp ParseXML/ParseTram.h)
 
 # Set source files for DEBUG target
-set(DEBUG_SOURCE_FILES tests.cpp TinyXML/tinystr.cpp TinyXML/tinyxml.cpp TinyXML/tinyxmlerror.cpp TinyXML/tinyxmlparser.cpp Tram/Tram.h Station/Station.h TestFiles/ValidAmountAttributesTram.cpp TestFiles/ValidAmountAttributesStation.cpp TestFiles/AttributeTypeCorrectness.cpp)
+set(DEBUG_SOURCE_FILES tests.cpp TinyXML/tinystr.cpp TinyXML/tinyxml.cpp TinyXML/tinyxmlerror.cpp TinyXML/tinyxmlparser.cpp
+        Tram/Tram.cpp Station/Station.cpp TestFiles/ValidAmountAttributesTram.cpp TestFiles/ValidAmountAttributesStation.cpp
+        TestFiles/AttributeTypeCorrectness.cpp MetroNet/MetroNet.cpp Utils/utils.cpp
+        TestFiles/ValidMetroNetTest.cpp)
 
 # Create RELEASE target
 add_executable(Metro ${RELEASE_SOURCE_FILES})

@@ -5,6 +5,7 @@
 #include "../TinyXML/tinyxml.h"
 #include "../Utils/utils.h"
 #include "../Station/Station.h"
+#include "../MetroNet/MetroNet.h"
 #include<sstream>
 
 

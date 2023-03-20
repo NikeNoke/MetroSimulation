@@ -5,6 +5,7 @@
 #include "../TinyXML/tinyxml.h"
 #include "../Utils/utils.h"
 #include "../Tram/Tram.h"
+#include "../MetroNet/MetroNet.h"
 #include<sstream>
 
 
@@ -27,10 +28,13 @@ TEST_F(ValidAmountAttributesTram, SampleTest1) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
+    bool rootNotEmpty = false;
     if (root == NULL) {
         std::cerr << "Failed to load file: No root element." << std::endl;
         doc.Clear();
+        EXPECT_EQ(rootNotEmpty, true);
     }
+    rootNotEmpty = true;
     MetroNet metroNet;
     std::vector<bool> attributes;
     long unsigned Amount_Of_Attributes = 0;

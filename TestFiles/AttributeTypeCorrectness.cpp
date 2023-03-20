@@ -6,6 +6,7 @@
 #include "../Utils/utils.h"
 #include "../Station/Station.h"
 #include "../Tram/Tram.h"
+#include "../MetroNet/MetroNet.h"
 #include<sstream>
 
 
@@ -34,6 +35,8 @@ TEST_F(AttributeTypeCorrectness, SampleTest1) {
         std::cerr << doc.ErrorDesc() << std::endl;
     }
     TiXmlElement *root = doc.FirstChildElement();
+    bool rootNotEmpty = root != NULL;
+    ASSERT_EQ(rootNotEmpty, true) << "The root is empty";
     if (root == NULL) {
         std::cerr << "Failed to load file: No root element." << std::endl;
         doc.Clear();
