@@ -27,7 +27,7 @@ namespace Utils{
     bool is_int(const std::string &s);
 
     /**
-     * Functie dat in een XML file een element station zal parsen.
+     * Functie dat in een XML file een fElement station zal parsen.
      * @param metroNet Het metronet waarin het station zal gepushed worden.
      * @param element Het station dat geparst wordt.
      * @return true of false afhankelijk ofdat het station geparst en gepushed kon worden of niet.
@@ -35,7 +35,7 @@ namespace Utils{
     bool parseStation(MetroNet& metroNet, TiXmlElement* element);
 
     /**
-     * Functie dat in een XML file een element tram zal parsen.
+     * Functie dat in een XML file een fElement tram zal parsen.
      * @param metroNet Het metronet waarin het station zal gepushed worden.
      * @param element De tram dat geparst wordt.
      * @return true of false afhankelijk ofdat de tram geparst en gepushed kon worden of niet.
@@ -77,7 +77,7 @@ namespace Utils{
      * @note Deze functie moeten we aanpassen zodat het i.p.v. werkt met een hoeveelheid moves, dat het werkt met gebruik
      * van een tijdstip. Hierbij moeten we echter zorgen dat we meerdere attributes hebben die toelaten om een
      * realistische simulatie te doen lopen over een MetroNet. Hierbij moeten we Tram en Station zodanig aanpassen
-     * zodat trammen over een bepaalde afstand rijden in een bepaalde tijd met een bepaalde snelheid.
+     * zodat trammen over een bepaalde afstand rijden in een bepaalde tijd met een bepaalde fSnelheid.
      * **/
     void simulateMetroNet(MetroNet& metroNet, int amountOfMove);
 

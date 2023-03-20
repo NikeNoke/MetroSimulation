@@ -152,7 +152,7 @@ $(function() {
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">//   void ::testing::internal::UniversalPrint(const T&amp; value, ostream*);</span></div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="comment">//</span></div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="comment">//   // Prints the fields of a tuple tersely to a string vector, one</span></div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">//   // element for each field. Tuple support must be enabled in</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="comment">//   // fElement for each field. Tuple support must be enabled in</span></div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="comment">//   // gtest-port.h.</span></div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="comment">//   std::vector&lt;string&gt; UniversalTersePrintTupleFieldsToStrings(</span></div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span><span class="comment">//       const Tuple&amp; value);</span></div>
@@ -857,7 +857,7 @@ $(function() {
 <div class="line"><a id="l00779" name="l00779"></a><span class="lineno">  779</span>  }</div>
 <div class="line"><a id="l00780" name="l00780"></a><span class="lineno">  780</span> </div>
 <div class="line"><a id="l00781" name="l00781"></a><span class="lineno">  781</span>  <span class="comment">// Tersely prints the first N fields of a tuple to a string vector,</span></div>
-<div class="line"><a id="l00782" name="l00782"></a><span class="lineno">  782</span>  <span class="comment">// one element for each field.</span></div>
+<div class="line"><a id="l00782" name="l00782"></a><span class="lineno">  782</span>  <span class="comment">// one fElement for each field.</span></div>
 <div class="line"><a id="l00783" name="l00783"></a><span class="lineno">  783</span>  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Tuple&gt;</div>
 <div class="line"><a id="l00784" name="l00784"></a><span class="lineno">  784</span>  <span class="keyword">static</span> <span class="keywordtype">void</span> TersePrintPrefixToStrings(<span class="keyword">const</span> Tuple&amp; t, Strings* strings) {</div>
 <div class="line"><a id="l00785" name="l00785"></a><span class="lineno">  785</span>    TuplePrefixPrinter&lt;N - 1&gt;::TersePrintPrefixToStrings(t, strings);</div>
@@ -908,7 +908,7 @@ $(function() {
 <div class="line"><a id="l00830" name="l00830"></a><span class="lineno">  830</span>}</div>
 <div class="line"><a id="l00831" name="l00831"></a><span class="lineno">  831</span> </div>
 <div class="line"><a id="l00832" name="l00832"></a><span class="lineno">  832</span><span class="comment">// Prints the fields of a tuple tersely to a string vector, one</span></div>
-<div class="line"><a id="l00833" name="l00833"></a><span class="lineno">  833</span><span class="comment">// element for each field.  See the comment before</span></div>
+<div class="line"><a id="l00833" name="l00833"></a><span class="lineno">  833</span><span class="comment">// fElement for each field.  See the comment before</span></div>
 <div class="line"><a id="l00834" name="l00834"></a><span class="lineno">  834</span><span class="comment">// UniversalTersePrint() for how we define &quot;tersely&quot;.</span></div>
 <div class="line"><a id="l00835" name="l00835"></a><span class="lineno">  835</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Tuple&gt;</div>
 <div class="line"><a id="l00836" name="l00836"></a><span class="lineno">  836</span>Strings UniversalTersePrintTupleFieldsToStrings(<span class="keyword">const</span> Tuple&amp; value) {</div>

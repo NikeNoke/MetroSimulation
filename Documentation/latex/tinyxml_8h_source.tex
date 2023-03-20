@@ -118,8 +118,8 @@
 \DoxyCodeLine{00134\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTiXmlVisitor_a07baecb52dd7d8716ae2a48ad0956ee0}{VisitEnter}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTiXmlDocument}{TiXmlDocument}}\&\ \textcolor{comment}{/*doc*/}\ )\ \ \ \ \ \ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
 \DoxyCodeLine{00136\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTiXmlVisitor_aa0ade4f27087447e93974e975c3246ad}{VisitExit}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTiXmlDocument}{TiXmlDocument}}\&\ \textcolor{comment}{/*doc*/}\ )\ \ \ \ \ \ \ \ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
 \DoxyCodeLine{00137\ }
-\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTiXmlVisitor_af6c6178ffa517bbdba95d70490875fff}{VisitEnter}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTiXmlElement}{TiXmlElement}}\&\ \textcolor{comment}{/*element*/},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTiXmlAttribute}{TiXmlAttribute}}*\ \textcolor{comment}{/*firstAttribute*/}\ )\ \ \ \ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
-\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTiXmlVisitor_aec2b1f8116226d52f3a1b95dafd3a32c}{VisitExit}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTiXmlElement}{TiXmlElement}}\&\ \textcolor{comment}{/*element*/}\ )\ \ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
+\DoxyCodeLine{00139\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTiXmlVisitor_af6c6178ffa517bbdba95d70490875fff}{VisitEnter}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTiXmlElement}{TiXmlElement}}\&\ \textcolor{comment}{/*fElement*/},\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTiXmlAttribute}{TiXmlAttribute}}*\ \textcolor{comment}{/*firstAttribute*/}\ )\ \ \ \ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
+\DoxyCodeLine{00141\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTiXmlVisitor_aec2b1f8116226d52f3a1b95dafd3a32c}{VisitExit}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTiXmlElement}{TiXmlElement}}\&\ \textcolor{comment}{/*fElement*/}\ )\ \ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
 \DoxyCodeLine{00142\ }
 \DoxyCodeLine{00144\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTiXmlVisitor_afad71c71ce6473fb9b4b64cd92de4a19}{Visit}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTiXmlDeclaration}{TiXmlDeclaration}}\&\ \textcolor{comment}{/*declaration*/}\ )\ \ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
 \DoxyCodeLine{00146\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTiXmlVisitor_a399b8ebca5cd14664974a32d2ce029e5}{Visit}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTiXmlText}{TiXmlText}}\&\ \textcolor{comment}{/*text*/}\ )\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};\ \}}
@@ -673,7 +673,7 @@
 \DoxyCodeLine{00924\ }
 \DoxyCodeLine{00925\ }
 \DoxyCodeLine{00926\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{00927\ \ \ \ \ \textcolor{comment}{//*ME:\ \ Because\ of\ hidden/disabled\ copy-\/construktor\ in\ TiXmlAttribute\ (sentinel-\/element),}}
+\DoxyCodeLine{00927\ \ \ \ \ \textcolor{comment}{//*ME:\ \ Because\ of\ hidden/disabled\ copy-\/construktor\ in\ TiXmlAttribute\ (sentinel-\/fElement),}}
 \DoxyCodeLine{00928\ \ \ \ \ \textcolor{comment}{//*ME:\ \ this\ class\ must\ be\ also\ use\ a\ hidden/disabled\ copy-\/constructor\ !!!}}
 \DoxyCodeLine{00929\ \ \ \ \ \mbox{\hyperlink{classTiXmlAttributeSet}{TiXmlAttributeSet}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTiXmlAttributeSet}{TiXmlAttributeSet}}\&\ );\ \ \ \ \textcolor{comment}{//\ not\ allowed}}
 \DoxyCodeLine{00930\ \ \ \ \ \textcolor{keywordtype}{void}\ operator=(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTiXmlAttributeSet}{TiXmlAttributeSet}}\&\ );\ \ \ \ \textcolor{comment}{//\ not\ allowed\ (as\ TiXmlAttribute)}}
@@ -803,7 +803,7 @@
 \DoxyCodeLine{01147\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{void}\ StreamIn(\ std::istream\ *\ in,\ TIXML\_STRING\ *\ tag\ );}
 \DoxyCodeLine{01148\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
 \DoxyCodeLine{01149\ \ \ \ \ \textcolor{comment}{/*\ \ [internal\ use]}}
-\DoxyCodeLine{01150\ \textcolor{comment}{\ \ \ \ \ \ \ \ Reads\ the\ "{}value"{}\ of\ the\ element\ -\/-\/\ another\ element,\ or\ text.}}
+\DoxyCodeLine{01150\ \textcolor{comment}{\ \ \ \ \ \ \ \ Reads\ the\ "{}value"{}\ of\ the\ fElement\ -\/-\/\ another\ fElement,\ or\ text.}}
 \DoxyCodeLine{01151\ \textcolor{comment}{\ \ \ \ \ \ \ \ This\ should\ terminate\ with\ the\ current\ end\ tag.}}
 \DoxyCodeLine{01152\ \textcolor{comment}{\ \ \ \ */}}
 \DoxyCodeLine{01153\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ ReadValue(\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ in,\ \mbox{\hyperlink{classTiXmlParsingData}{TiXmlParsingData}}*\ prevData,\ TiXmlEncoding\ encoding\ );}
@@ -899,7 +899,7 @@
 \DoxyCodeLine{01265\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
 \DoxyCodeLine{01266\ }
 \DoxyCodeLine{01267\ \textcolor{keyword}{private}:}
-\DoxyCodeLine{01268\ \ \ \ \ \textcolor{keywordtype}{bool}\ cdata;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ true\ if\ this\ should\ be\ input\ and\ output\ as\ a\ CDATA\ style\ text\ element}}
+\DoxyCodeLine{01268\ \ \ \ \ \textcolor{keywordtype}{bool}\ cdata;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ true\ if\ this\ should\ be\ input\ and\ output\ as\ a\ CDATA\ style\ text\ fElement}}
 \DoxyCodeLine{01269\ \};}
 \DoxyCodeLine{01270\ }
 \DoxyCodeLine{01271\ }
@@ -1131,8 +1131,8 @@
 \DoxyCodeLine{01743\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTiXmlPrinter_a2ec73087db26ff4d2c4316c56f861db7}{VisitEnter}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTiXmlDocument}{TiXmlDocument}}\&\ doc\ );}
 \DoxyCodeLine{01744\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTiXmlPrinter_a0a636046fa589b6d7f3e5bd025b3f33e}{VisitExit}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTiXmlDocument}{TiXmlDocument}}\&\ doc\ );}
 \DoxyCodeLine{01745\ }
-\DoxyCodeLine{01746\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTiXmlPrinter_a2ec73087db26ff4d2c4316c56f861db7}{VisitEnter}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTiXmlElement}{TiXmlElement}}\&\ element,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTiXmlAttribute}{TiXmlAttribute}}*\ firstAttribute\ );}
-\DoxyCodeLine{01747\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTiXmlPrinter_a0a636046fa589b6d7f3e5bd025b3f33e}{VisitExit}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTiXmlElement}{TiXmlElement}}\&\ element\ );}
+\DoxyCodeLine{01746\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTiXmlPrinter_a2ec73087db26ff4d2c4316c56f861db7}{VisitEnter}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTiXmlElement}{TiXmlElement}}\&\ fElement,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTiXmlAttribute}{TiXmlAttribute}}*\ firstAttribute\ );}
+\DoxyCodeLine{01747\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTiXmlPrinter_a0a636046fa589b6d7f3e5bd025b3f33e}{VisitExit}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTiXmlElement}{TiXmlElement}}\&\ fElement\ );}
 \DoxyCodeLine{01748\ }
 \DoxyCodeLine{01749\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTiXmlPrinter_adaf7eec4dc43ad071ff52b60361574f5}{Visit}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTiXmlDeclaration}{TiXmlDeclaration}}\&\ declaration\ );}
 \DoxyCodeLine{01750\ \ \ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTiXmlPrinter_adaf7eec4dc43ad071ff52b60361574f5}{Visit}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classTiXmlText}{TiXmlText}}\&\ text\ );}

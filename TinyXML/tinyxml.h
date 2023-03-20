@@ -135,10 +135,10 @@ public:
 	/// Visit a document.
 	virtual bool VisitExit( const TiXmlDocument& /*doc*/ )			{ return true; }
 
-	/// Visit an element.
-	virtual bool VisitEnter( const TiXmlElement& /*element*/, const TiXmlAttribute* /*firstAttribute*/ )	{ return true; }
-	/// Visit an element.
-	virtual bool VisitExit( const TiXmlElement& /*element*/ )		{ return true; }
+	/// Visit an fElement.
+	virtual bool VisitEnter( const TiXmlElement& /*fElement*/, const TiXmlAttribute* /*firstAttribute*/ )	{ return true; }
+	/// Visit an fElement.
+	virtual bool VisitExit( const TiXmlElement& /*fElement*/ )		{ return true; }
 
 	/// Visit a declaration
 	virtual bool Visit( const TiXmlDeclaration& /*declaration*/ )	{ return true; }
@@ -443,11 +443,11 @@ public:
 		    
 		    But reading is not as well defined. (As it always is.) If you create
 		    a TiXmlElement (for example) and read that from an input stream,
-		    the text needs to define an element or junk will result. This is
+		    the text needs to define an fElement or junk will result. This is
 		    true of all input streams, but it's worth keeping in mind.
 
-		    A TiXmlDocument will read nodes until it reads a root element, and
-			all the children of that root element.
+		    A TiXmlDocument will read nodes until it reads a root fElement, and
+			all the children of that root fElement.
 	    */	
 	    friend std::ostream& operator<< (std::ostream& out, const TiXmlNode& base);
 
@@ -476,7 +476,7 @@ public:
 		TiXmlNode.
 		@verbatim
 		Document:	filename of the xml file
-		Element:	name of the element
+		Element:	name of the fElement
 		Comment:	the comment text
 		Unknown:	the tag contents
 		Text:		the text string
@@ -499,7 +499,7 @@ public:
 	/** Changes the value of the node. Defined as:
 		@verbatim
 		Document:	filename of the xml file
-		Element:	name of the element
+		Element:	name of the fElement
 		Comment:	the comment text
 		Unknown:	the tag contents
 		Text:		the text string
@@ -639,7 +639,7 @@ public:
 
 	/** Convenience function to get through elements.
 		Calls NextSibling and ToElement. Will skip all non-Element
-		nodes. Returns 0 if there is not another element.
+		nodes. Returns 0 if there is not another fElement.
 	*/
 	const TiXmlElement* NextSiblingElement() const;
 	TiXmlElement* NextSiblingElement() {
@@ -648,7 +648,7 @@ public:
 
 	/** Convenience function to get through elements.
 		Calls NextSibling and ToElement. Will skip all non-Element
-		nodes. Returns 0 if there is not another element.
+		nodes. Returns 0 if there is not another fElement.
 	*/
 	const TiXmlElement* NextSiblingElement( const char * ) const;
 	TiXmlElement* NextSiblingElement( const char *_next ) {
@@ -924,7 +924,7 @@ public:
 
 
 private:
-	//*ME:	Because of hidden/disabled copy-construktor in TiXmlAttribute (sentinel-element),
+	//*ME:	Because of hidden/disabled copy-construktor in TiXmlAttribute (sentinel-fElement),
 	//*ME:	this class must be also use a hidden/disabled copy-constructor !!!
 	TiXmlAttributeSet( const TiXmlAttributeSet& );	// not allowed
 	void operator=( const TiXmlAttributeSet& );	// not allowed (as TiXmlAttribute)
@@ -933,14 +933,14 @@ private:
 };
 
 
-/** The element is a container class. It has a value, the element name,
+/** The fElement is a container class. It has a value, the fElement name,
 	and can contain other elements, text, comments, and unknowns.
 	Elements also contain an arbitrary number of attributes.
 */
 class TiXmlElement : public TiXmlNode
 {
 public:
-	/// Construct an element.
+	/// Construct an fElement.
 	TiXmlElement (const char * in_value);
 
 	#ifdef TIXML_USE_STL
@@ -1081,12 +1081,12 @@ public:
 	void RemoveAttribute( const std::string& name )	{	RemoveAttribute (name.c_str ());	}	///< STL std::string form.
 	#endif
 
-	const TiXmlAttribute* FirstAttribute() const	{ return attributeSet.First(); }		///< Access the first attribute in this element.
+	const TiXmlAttribute* FirstAttribute() const	{ return attributeSet.First(); }		///< Access the first attribute in this fElement.
 	TiXmlAttribute* FirstAttribute() 				{ return attributeSet.First(); }
-	const TiXmlAttribute* LastAttribute()	const 	{ return attributeSet.Last(); }		///< Access the last attribute in this element.
+	const TiXmlAttribute* LastAttribute()	const 	{ return attributeSet.Last(); }		///< Access the last attribute in this fElement.
 	TiXmlAttribute* LastAttribute()					{ return attributeSet.Last(); }
 
-	/** Convenience function for easy access to the text inside an element. Although easy
+	/** Convenience function for easy access to the text inside an fElement. Although easy
 		and concise, GetText() is limited compared to getting the TiXmlText child
 		and accessing it directly.
 	
@@ -1101,14 +1101,14 @@ public:
 
 		'str' will be a pointer to "This is text". 
 		
-		Note that this function can be misleading. If the element foo was created from
+		Note that this function can be misleading. If the fElement foo was created from
 		this XML:
 		@verbatim
 		<foo><b>This is text</b></foo> 
 		@endverbatim
 
 		then the value of str would be null. The first child node isn't a text node, it is
-		another element. From this XML:
+		another fElement. From this XML:
 		@verbatim
 		<foo>This is <b>text</b></foo> 
 		@endverbatim
@@ -1120,7 +1120,7 @@ public:
 	*/
 	const char* GetText() const;
 
-	/// Creates a new Element and returns it - the returned element is a copy.
+	/// Creates a new Element and returns it - the returned fElement is a copy.
 	virtual TiXmlNode* Clone() const;
 	// Print the Element to a FILE stream.
 	virtual void Print( FILE* cfile, int depth ) const;
@@ -1147,7 +1147,7 @@ protected:
 	virtual void StreamIn( std::istream * in, TIXML_STRING * tag );
 	#endif
 	/*	[internal use]
-		Reads the "value" of the element -- another element, or text.
+		Reads the "value" of the fElement -- another fElement, or text.
 		This should terminate with the current end tag.
 	*/
 	const char* ReadValue( const char* in, TiXmlParsingData* prevData, TiXmlEncoding encoding );
@@ -1213,9 +1213,9 @@ class TiXmlText : public TiXmlNode
 {
 	friend class TiXmlElement;
 public:
-	/** Constructor for text element. By default, it is treated as 
+	/** Constructor for text fElement. By default, it is treated as
 		normal, encoded text. If you want it be output as a CDATA text
-		element, set the parameter _cdata to 'true'
+		fElement, set the parameter _cdata to 'true'
 	*/
 	TiXmlText (const char * initValue ) : TiXmlNode (TiXmlNode::TINYXML_TEXT)
 	{
@@ -1265,7 +1265,7 @@ protected :
 	#endif
 
 private:
-	bool cdata;			// true if this should be input and output as a CDATA style text element
+	bool cdata;			// true if this should be input and output as a CDATA style text fElement
 };
 
 
@@ -1445,7 +1445,7 @@ public:
 	*/
 	virtual const char* Parse( const char* p, TiXmlParsingData* data = 0, TiXmlEncoding encoding = TIXML_DEFAULT_ENCODING );
 
-	/** Get the root element -- the only top level element -- of the document.
+	/** Get the root fElement -- the only top level fElement -- of the document.
 		In well formed XML, there should only be one. TinyXml is tolerant of
 		multiple elements at the document level.
 	*/
@@ -1570,17 +1570,17 @@ private:
 	<Document>
 	@endverbatim
 
-	Assuming you want the value of "attributeB" in the 2nd "Child" element, it's very 
+	Assuming you want the value of "attributeB" in the 2nd "Child" fElement, it's very
 	easy to write a *lot* of code that looks like:
 
 	@verbatim
 	TiXmlElement* root = document.FirstChildElement( "Document" );
 	if ( root )
 	{
-		TiXmlElement* element = root->FirstChildElement( "Element" );
-		if ( element )
+		TiXmlElement* fElement = root->FirstChildElement( "Element" );
+		if ( fElement )
 		{
-			TiXmlElement* child = element->FirstChildElement( "Child" );
+			TiXmlElement* child = fElement->FirstChildElement( "Child" );
 			if ( child )
 			{
 				TiXmlElement* child2 = child->NextSiblingElement( "Child" );
@@ -1623,7 +1623,7 @@ private:
 	@endverbatim
 
 	It seems reasonable, but it is in fact two embedded while loops. The Child method is 
-	a linear walk to find the element, so this code would iterate much more than it needs 
+	a linear walk to find the fElement, so this code would iterate much more than it needs
 	to. Instead, prefer:
 
 	@verbatim
@@ -1648,9 +1648,9 @@ public:
 	TiXmlHandle FirstChild() const;
 	/// Return a handle to the first child node with the given name.
 	TiXmlHandle FirstChild( const char * value ) const;
-	/// Return a handle to the first child element.
+	/// Return a handle to the first child fElement.
 	TiXmlHandle FirstChildElement() const;
-	/// Return a handle to the first child element with the given name.
+	/// Return a handle to the first child fElement with the given name.
 	TiXmlHandle FirstChildElement( const char * value ) const;
 
 	/** Return a handle to the "index" child with the given name. 
@@ -1661,13 +1661,13 @@ public:
 		The first child is 0, the second 1, etc.
 	*/
 	TiXmlHandle Child( int index ) const;
-	/** Return a handle to the "index" child element with the given name. 
-		The first child element is 0, the second 1, etc. Note that only TiXmlElements
+	/** Return a handle to the "index" child fElement with the given name.
+		The first child fElement is 0, the second 1, etc. Note that only TiXmlElements
 		are indexed: other types are not counted.
 	*/
 	TiXmlHandle ChildElement( const char* value, int index ) const;
-	/** Return a handle to the "index" child element. 
-		The first child element is 0, the second 1, etc. Note that only TiXmlElements
+	/** Return a handle to the "index" child fElement.
+		The first child fElement is 0, the second 1, etc. Note that only TiXmlElements
 		are indexed: other types are not counted.
 	*/
 	TiXmlHandle ChildElement( int index ) const;

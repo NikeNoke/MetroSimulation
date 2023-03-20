@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <METRONET>
     <STATION>
-        <naam>A</naam>
-        <volgende>B</volgende>
-        <vorige>C</vorige>
-        <spoorNr>12</spoorNr>
+        <fNaam>A</fNaam>
+        <fVolgende>B</fVolgende>
+        <fVorige>C</fVorige>
+        <fSpoorNr>12</fSpoorNr>
     </STATION>
     <STATION>
-        <naam>B</naam>
-        <volgende>C</volgende>
-        <vorige>A</vorige>
-        <spoorNr>13</spoorNr>
+        <fNaam>B</fNaam>
+        <fVolgende>C</fVolgende>
+        <fVorige>A</fVorige>
+        <fSpoorNr>13</fSpoorNr>
     </STATION>
     <STATION>
-        <naam>C</naam>
-        <volgende>A</volgende>
-        <vorige>B</vorige>
-        <spoorNr>12</spoorNr>
+        <fNaam>C</fNaam>
+        <fVolgende>A</fVolgende>
+        <fVorige>B</fVorige>
+        <fSpoorNr>12</fSpoorNr>
     </STATION>
     <TRAM>
-        <lijnNr>12</lijnNr>
-        <snelheid>60</snelheid>
-        <beginStation>A</beginStation>
+        <fLijnNr>12</fLijnNr>
+        <fSnelheid>60</fSnelheid>
+        <fBeginStation>A</fBeginStation>
     </TRAM>
 </METRONET>

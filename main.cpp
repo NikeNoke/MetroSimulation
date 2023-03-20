@@ -19,7 +19,7 @@ int main() {
     }
     TiXmlElement *root = doc.FirstChildElement();
     if (root == NULL) {
-        std::cerr << "Failed to load file: No root element." << std::endl;
+        std::cerr << "Failed to load file: No root fElement." << std::endl;
         doc.Clear();
         return 1;
     }
@@ -35,7 +35,7 @@ int main() {
                 delete station;
             else
                 metroNet.addStation(station);
-//            Utils::parseStation(metroNet, element);
+//            Utils::parseStation(metroNet, fElement);
 
         } else if (current == "TRAM") {
 
@@ -45,10 +45,10 @@ int main() {
                 delete tram;
             else
                 metroNet.addTram(tram);
-//            Utils::parseTram(metroNet, element);
+//            Utils::parseTram(metroNet, fElement);
 
         } else{
-            std::cerr << "Deze element is ongekend!\n";
+            std::cerr << "Deze fElement is ongekend!\n";
         }
     }
     //TODO maybe verification of viability of metroNet???

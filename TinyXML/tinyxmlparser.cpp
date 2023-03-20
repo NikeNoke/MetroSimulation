@@ -681,7 +681,7 @@ void TiXmlDocument::StreamIn( std::istream * in, TIXML_STRING * tag )
 				delete node;
 				node = 0;
 
-				// If this is the root element, we're done. Parsing will be
+				// If this is the root fElement, we're done. Parsing will be
 				// done by the >> operator.
 				if ( isElement )
 				{
@@ -903,7 +903,7 @@ TiXmlNode* TiXmlNode::Identify( const char* p, TiXmlEncoding encoding )
 void TiXmlElement::StreamIn (std::istream * in, TIXML_STRING * tag)
 {
 	// We're called with some amount of pre-parsing. That is, some of "this"
-	// element is in "tag". Go ahead and stream to the closing ">"
+	// fElement is in "tag". Go ahead and stream to the closing ">"
 	while( in->good() )
 	{
 		int c = in->get();
@@ -1188,7 +1188,7 @@ const char* TiXmlElement::ReadValue( const char* p, TiXmlParsingData* data, TiXm
 	{
 		if ( *p != '<' )
 		{
-			// Take what we have, make a text element.
+			// Take what we have, make a text fElement.
 			TiXmlText* textNode = new TiXmlText( "" );
 
 			if ( !textNode )
@@ -1215,7 +1215,7 @@ const char* TiXmlElement::ReadValue( const char* p, TiXmlParsingData* data, TiXm
 		else 
 		{
 			// We hit a '<'
-			// Have we hit a new element or an end tag? This could also be
+			// Have we hit a new fElement or an end tag? This could also be
 			// a TiXmlText in the "CDATA" style.
 			if ( StringEqual( p, "</", false, encoding ) )
 			{

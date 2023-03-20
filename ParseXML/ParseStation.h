@@ -25,7 +25,7 @@ public:
 
     /**
      * @brief Set Element
-     * Zet de element van ParseStation.
+     * Zet de fElement van ParseStation.
      * @param el Element dat gezet zal worden.
      */
     void setElement(TiXmlElement *el);
@@ -39,7 +39,7 @@ public:
     bool parseAll(MetroNet &metroNet, Station* station) const;
 
     /**
-     * Methode dat gecalled wordt door parseAll om te checken ofdat naam geparsed kan worden
+     * Methode dat gecalled wordt door parseAll om te checken ofdat fNaam geparsed kan worden
      * @param metroNet Naam van het MetroNet.
      * @param station Naam van het Station.
      * @return true of false
@@ -63,7 +63,7 @@ public:
     bool parseVolgende(MetroNet &metroNet, Station* station) const;
 
     /**
-     * Methode dat gecalled wordt door parseAll om te checken ofdat spoorNr geparsed kan worden
+     * Methode dat gecalled wordt door parseAll om te checken ofdat fSpoorNr geparsed kan worden
      * @param metroNet Naam van het MetroNet.
      * @param station Naam van het Station.
      * @return true of false
@@ -77,7 +77,7 @@ public:
     bool checkValidStation() const;
 
     /**
-     * Methode dat gecalled wordt door checkValidStation of te controleren ofdat naam valid is.
+     * Methode dat gecalled wordt door checkValidStation of te controleren ofdat fNaam valid is.
      * @return true of false
      */
     bool checkValidNaam() const;
@@ -95,7 +95,7 @@ public:
     bool checkValidVolgende() const;
 
     /**
-     * Methode dat gecalled wordt door checkValidStation of te controleren ofdat spoorNr valid is.
+     * Methode dat gecalled wordt door checkValidStation of te controleren ofdat fSpoorNr valid is.
      * @return true of false
      */
     bool checkValidSpoorNr() const;
@@ -108,7 +108,7 @@ public:
 
 
 private:
-    TiXmlElement *element;
+    TiXmlElement *fElement;
 
 };
 

@@ -87,7 +87,7 @@ Getter dat het station returned met parameter name.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Geeft station terug dat als naam \char`\"{}name\char`\"{} heeft of als die niet bestaat geeft het NULL terug. 
+Geeft station terug dat als fNaam \char`\"{}name\char`\"{} heeft of als die niet bestaat geeft het NULL terug.
 \end{DoxyReturn}
 \Hypertarget{classMetroNet_a46edb061e63b058c22593a1b9353a47d}\label{classMetroNet_a46edb061e63b058c22593a1b9353a47d} 
 \index{MetroNet@{MetroNet}!getStations@{getStations}}
@@ -96,7 +96,7 @@ Geeft station terug dat als naam \char`\"{}name\char`\"{} heeft of als die niet 
 {\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ Metro\+Net\+::get\+Stations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 \begin{DoxyReturn}{Returns}
-een vector met daarin alle stations. 
+een vector met daarin alle fStations.
 \end{DoxyReturn}
 \Hypertarget{classMetroNet_a88a3d8b5533b86a0c4165f8b3bf48b10}\label{classMetroNet_a88a3d8b5533b86a0c4165f8b3bf48b10} 
 \index{MetroNet@{MetroNet}!getTram@{getTram}}
@@ -110,7 +110,7 @@ Getter dat de tram returned met parameter name.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-Geeft tram terug dat als naam \char`\"{}name\char`\"{} heeft of als die niet bestaat geeft het NULL terug. 
+Geeft tram terug dat als fNaam \char`\"{}name\char`\"{} heeft of als die niet bestaat geeft het NULL terug.
 \end{DoxyReturn}
 \begin{DoxyNote}{Note}
 Functie is nog niet geïmplementeerd. 
@@ -134,7 +134,7 @@ Functie dat een tram verplaatst naar een station.
 \begin{DoxyParams}{Parameters}
 {\em tram} & De tram die verplaatst zou worden. \\
 \hline
-{\em name\+Station} & De string die overeenkomt met de naam van een station en waarnaar de tram zal verplaatst worden. \\
+{\em name\+Station} & De string die overeenkomt met de fNaam van een station en waarnaar de tram zal verplaatst worden. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -155,7 +155,7 @@ true of false als het correct geïnitialiseerd is of als het niet correct geïni
 \doxysubsubsection{\texorpdfstring{stationRegistered()}{stationRegistered()}}
 {\footnotesize\ttfamily bool Metro\+Net\+::station\+Registered (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption}) const}
 
-Method station\+Registered die controleert dat station attribute \char`\"{}naam\char`\"{} correct ingelezen wordt. 
+Method station\+Registered die controleert dat station attribute \char`\"{}fNaam\char`\"{} correct ingelezen wordt.
 \begin{DoxyParams}{Parameters}
 {\em name} & wordt gecontroleert. \\
 \hline

@@ -454,13 +454,13 @@ NOTE\+: the node to be added is passed by pointer, and will be henceforth owned 
 \doxysubsubsection{\texorpdfstring{NextSiblingElement()}{NextSiblingElement()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily const \mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$ Ti\+Xml\+Node\+::\+Next\+Sibling\+Element (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Convenience function to get through elements. Calls Next\+Sibling and To\+Element. Will skip all non-\/\+Element nodes. Returns 0 if there is not another element. \Hypertarget{classTiXmlNode_a22def4746238abaee042f99b47ef3c94}\label{classTiXmlNode_a22def4746238abaee042f99b47ef3c94} 
+Convenience function to get through elements. Calls Next\+Sibling and To\+Element. Will skip all non-\/\+Element nodes. Returns 0 if there is not another fElement. \Hypertarget{classTiXmlNode_a22def4746238abaee042f99b47ef3c94}\label{classTiXmlNode_a22def4746238abaee042f99b47ef3c94}
 \index{TiXmlNode@{TiXmlNode}!NextSiblingElement@{NextSiblingElement}}
 \index{NextSiblingElement@{NextSiblingElement}!TiXmlNode@{TiXmlNode}}
 \doxysubsubsection{\texorpdfstring{NextSiblingElement()}{NextSiblingElement()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily const \mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$ Ti\+Xml\+Node\+::\+Next\+Sibling\+Element (\begin{DoxyParamCaption}\item[{const char $\ast$}]{\+\_\+value }\end{DoxyParamCaption}) const}
 
-Convenience function to get through elements. Calls Next\+Sibling and To\+Element. Will skip all non-\/\+Element nodes. Returns 0 if there is not another element. \Hypertarget{classTiXmlNode_a543208c2c801c84a213529541e904b9f}\label{classTiXmlNode_a543208c2c801c84a213529541e904b9f} 
+Convenience function to get through elements. Calls Next\+Sibling and To\+Element. Will skip all non-\/\+Element nodes. Returns 0 if there is not another fElement. \Hypertarget{classTiXmlNode_a543208c2c801c84a213529541e904b9f}\label{classTiXmlNode_a543208c2c801c84a213529541e904b9f}
 \index{TiXmlNode@{TiXmlNode}!ReplaceChild@{ReplaceChild}}
 \index{ReplaceChild@{ReplaceChild}!TiXmlNode@{TiXmlNode}}
 \doxysubsubsection{\texorpdfstring{ReplaceChild()}{ReplaceChild()}}
@@ -473,7 +473,7 @@ Replace a child of this node. Returns a pointer to the new object or NULL if an 
 {\footnotesize\ttfamily void Ti\+Xml\+Node\+::\+Set\+Value (\begin{DoxyParamCaption}\item[{const char $\ast$}]{\+\_\+value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 Changes the value of the node. Defined as\+: \begin{DoxyVerb}Document:   filename of the xml file
-Element:    name of the element
+Element:    name of the fElement
 Comment:    the comment text
 Unknown:    the tag contents
 Text:       the text string
@@ -659,7 +659,7 @@ Query the type (as an enumerated value, above) of this node. The possible types 
 {\footnotesize\ttfamily const char $\ast$ Ti\+Xml\+Node\+::\+Value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
 
 The meaning of \textquotesingle{}value\textquotesingle{} changes for the specific type of \doxylink{classTiXmlNode}{Ti\+Xml\+Node}. \begin{DoxyVerb}Document:   filename of the xml file
-Element:    name of the element
+Element:    name of the fElement
 Comment:    the comment text
 Unknown:    the tag contents
 Text:       the text string

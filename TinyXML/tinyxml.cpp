@@ -815,9 +815,9 @@ void TiXmlElement::Print( FILE* cfile, int depth ) const
 	}
 
 	// There are 3 different formatting approaches:
-	// 1) An element without children is printed as a <foo /> node
-	// 2) An element with only a text child is printed as <foo> text </foo>
-	// 3) An element with children is printed on multiple lines.
+	// 1) An fElement without children is printed as a <foo /> node
+	// 2) An fElement with only a text child is printed as <foo> text </foo>
+	// 3) An fElement with children is printed on multiple lines.
 	TiXmlNode* node;
 	if ( !firstChild )
 	{

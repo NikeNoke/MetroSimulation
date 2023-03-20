@@ -7,10 +7,10 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classParseStation_ad2d5761a1d4f7c7648930999b030b8ec}{Parse\+Station}} (\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$element)
+\mbox{\hyperlink{classParseStation_ad2d5761a1d4f7c7648930999b030b8ec}{Parse\+Station}} (\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$fElement)
 \item 
 void \mbox{\hyperlink{classParseStation_af3d3fdac6b0891c57399eeaa95623dcc}{set\+Element}} (\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$el)
-\begin{DoxyCompactList}\small\item\em Set Element Zet de element van \doxylink{classParseStation}{Parse\+Station}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Set Element Zet de fElement van \doxylink{classParseStation}{Parse\+Station}. \end{DoxyCompactList}\item
 bool \mbox{\hyperlink{classParseStation_a8823c44ca85e44de27986365d167fbb8}{parse\+All}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net, \mbox{\hyperlink{classStation}{Station}} $\ast$station) const
 \item 
 bool \mbox{\hyperlink{classParseStation_a0c638d47db8e6e3e63dab6f693aba3c6}{parse\+Naam}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net, \mbox{\hyperlink{classStation}{Station}} $\ast$station) const
@@ -43,11 +43,11 @@ Klasse om een \doxylink{classStation}{Station} object te parsen.
 \index{ParseStation@{ParseStation}!ParseStation@{ParseStation}}
 \index{ParseStation@{ParseStation}!ParseStation@{ParseStation}}
 \doxysubsubsection{\texorpdfstring{ParseStation()}{ParseStation()}}
-{\footnotesize\ttfamily Parse\+Station\+::\+Parse\+Station (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$}]{element }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+{\footnotesize\ttfamily Parse\+Station\+::\+Parse\+Station (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$}]{fElement }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
 Constructor voor \doxylink{classParseStation}{Parse\+Station}. 
 \begin{DoxyParams}{Parameters}
-{\em element} & Een Ti\+Xml\+Emlement dat geparsed zal worden. \\
+{\em fElement} & Een Ti\+Xml\+Emlement dat geparsed zal worden. \\
 \hline
 \end{DoxyParams}
 
@@ -68,7 +68,7 @@ true of false
 \doxysubsubsection{\texorpdfstring{checkValidNaam()}{checkValidNaam()}}
 {\footnotesize\ttfamily bool Parse\+Station\+::check\+Valid\+Naam (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Methode dat gecalled wordt door check\+Valid\+Station of te controleren ofdat naam valid is. \begin{DoxyReturn}{Returns}
+Methode dat gecalled wordt door check\+Valid\+Station of te controleren ofdat fNaam valid is. \begin{DoxyReturn}{Returns}
 true of false 
 \end{DoxyReturn}
 \Hypertarget{classParseStation_a715acb337bc012223f663c2505d60e21}\label{classParseStation_a715acb337bc012223f663c2505d60e21} 
@@ -129,7 +129,7 @@ true of false afhankelijk ofdat het \doxylink{classStation}{Station} object gepa
 \doxysubsubsection{\texorpdfstring{parseNaam()}{parseNaam()}}
 {\footnotesize\ttfamily bool Parse\+Station\+::parse\+Naam (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net,  }\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{station }\end{DoxyParamCaption}) const}
 
-Methode dat gecalled wordt door parse\+All om te checken ofdat naam geparsed kan worden 
+Methode dat gecalled wordt door parse\+All om te checken ofdat fNaam geparsed kan worden
 \begin{DoxyParams}{Parameters}
 {\em metro\+Net} & Naam van het \doxylink{classMetroNet}{Metro\+Net}. \\
 \hline
@@ -195,7 +195,7 @@ true of false
 
 
 
-Set Element Zet de element van \doxylink{classParseStation}{Parse\+Station}. 
+Set Element Zet de fElement van \doxylink{classParseStation}{Parse\+Station}.
 
 
 \begin{DoxyParams}{Parameters}

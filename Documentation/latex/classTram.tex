@@ -9,7 +9,7 @@
 \item 
 \mbox{\hyperlink{classTram_aad83b2e7e79d57528691bf317ab0e1ef}{Tram}} ()
 \item 
-\mbox{\hyperlink{classTram_a76a05f638985edefb9d9b885737c02b8}{Tram}} (const std\+::string \&begin\+Station, int snelheid, int lijn\+Nr)
+\mbox{\hyperlink{classTram_a76a05f638985edefb9d9b885737c02b8}{Tram}} (const std\+::string \&begin\+Station, int fSnelheid, int lijn\+Nr)
 \item 
 std\+::string \mbox{\hyperlink{classTram_ae4a7cf6313452140ed54d219d1f6afba}{get\+Begin\+Station}} () const
 \item 
@@ -48,7 +48,7 @@ Een tram object zonder attributen.
 \index{Tram@{Tram}!Tram@{Tram}}
 \index{Tram@{Tram}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{Tram()}{Tram()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily Tram\+::\+Tram (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{begin\+Station,  }\item[{int}]{snelheid,  }\item[{int}]{lijn\+Nr }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Tram\+::\+Tram (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{begin\+Station,  }\item[{int}]{fSnelheid,  }\item[{int}]{lijn\+Nr }\end{DoxyParamCaption})}
 
 Constructor van een tram object. 
 \begin{DoxyParams}{Parameters}
@@ -56,14 +56,14 @@ Constructor van een tram object.
 \hline
 {\em lijn\+Nr} & Het nummer van de lijn, komt overeen met spoornummer van een station. \\
 \hline
-{\em snelheid} & De snelheid dat deze type tram kan halen. \\
+{\em fSnelheid} & De fSnelheid dat deze type tram kan halen. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 Een tram object met attributen 
 \end{DoxyReturn}
 \begin{DoxyNote}{Note}
-Type van trammen is nog niet geïmplementeerd. Snelheid is ook nutteloos op dit moment omdat we geen afstand hebben waarover we de snelheid kunnen gebruiken. Verdere aanpassingen nodig. 
+Type van trammen is nog niet geïmplementeerd. Snelheid is ook nutteloos op dit moment omdat we geen afstand hebben waarover we de fSnelheid kunnen gebruiken. Verdere aanpassingen nodig.
 \end{DoxyNote}
 
 
@@ -102,7 +102,7 @@ Het lijnnummer van een tram.
 {\footnotesize\ttfamily int Tram\+::get\+Snelheid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 \begin{DoxyReturn}{Returns}
-De snelheid van een tram. 
+De fSnelheid van een tram.
 \end{DoxyReturn}
 \Hypertarget{classTram_ac69cbbacaed7e1b9e60e608d766d02ee}\label{classTram_ac69cbbacaed7e1b9e60e608d766d02ee} 
 \index{Tram@{Tram}!properlyInitialized@{properlyInitialized}}
@@ -121,7 +121,7 @@ true of false afhankelijk ofdat de tram object correct geïnitialiseerd is of ni
 
 Zet voor een tram object zijn beginstation. 
 \begin{DoxyParams}{Parameters}
-{\em bs} & De naam van het beginstation van een tram. \\
+{\em bs} & De fNaam van het beginstation van een tram. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{classTram_a808a9cd6ba36bcefb788d059544968c8}\label{classTram_a808a9cd6ba36bcefb788d059544968c8} 
@@ -152,7 +152,7 @@ Zet voor een tram object zijn lijnnummer.
 \doxysubsubsection{\texorpdfstring{setSnelheid()}{setSnelheid()}}
 {\footnotesize\ttfamily void Tram\+::set\+Snelheid (\begin{DoxyParamCaption}\item[{int}]{s }\end{DoxyParamCaption})}
 
-Zet voor een tram object zijn snelheid 
+Zet voor een tram object zijn fSnelheid
 \begin{DoxyParams}{Parameters}
 {\em s} & Snelheid van een tram. \\
 \hline

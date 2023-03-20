@@ -82,7 +82,7 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a73d335726aad1d844d81cda6d9fd74e6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStation.html#a73d335726aad1d844d81cda6d9fd74e6">Station</a> ()</td></tr>
 <tr class="separator:a73d335726aad1d844d81cda6d9fd74e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58e12b8ad22bf39d734e0130b9033921"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStation.html#a58e12b8ad22bf39d734e0130b9033921">Station</a> (const std::string &amp;naam, const std::string &amp;volgende, const std::string &amp;vorige, int spoorNr)</td></tr>
+<tr class="memitem:a58e12b8ad22bf39d734e0130b9033921"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStation.html#a58e12b8ad22bf39d734e0130b9033921">Station</a> (const std::string &amp;fNaam, const std::string &amp;fVolgende, const std::string &amp;fVorige, int fSpoorNr)</td></tr>
 <tr class="separator:a58e12b8ad22bf39d734e0130b9033921"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6dbbf88c819bc9fbb9354ff5a1c5d592"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classStation.html#a6dbbf88c819bc9fbb9354ff5a1c5d592">getName</a> () const</td></tr>
 <tr class="separator:a6dbbf88c819bc9fbb9354ff5a1c5d592"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -104,7 +104,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aab182a50a2992afe0df4412f7de4b73d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Klasse <a class="el" href="classStation.html">Station</a>. Een station is een object waarover <a class="el" href="classTram.html">Tram</a> objecten zouden rijden. <a class="el" href="classStation.html">Station</a> objecten vormen een spoornummer, beter gezegd, een lijn in het <a class="el" href="classMetroNet.html">MetroNet</a>. Stations zijn met elkaar verbonden, elk station heeft een volgende station en vorige station. </p>
+<div class="textblock"><p>Klasse <a class="el" href="classStation.html">Station</a>. Een station is een object waarover <a class="el" href="classTram.html">Tram</a> objecten zouden rijden. <a class="el" href="classStation.html">Station</a> objecten vormen een spoornummer, beter gezegd, een lijn in het <a class="el" href="classMetroNet.html">MetroNet</a>. Stations zijn met elkaar verbonden, elk station heeft een fVolgende station en fVorige station. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a73d335726aad1d844d81cda6d9fd74e6" name="a73d335726aad1d844d81cda6d9fd74e6"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a73d335726aad1d844d81cda6d9fd74e6">&#9670;&#160;</a></span>Station() <span class="overload">[1/2]</span></h2>
@@ -134,25 +134,25 @@ Public Member Functions</h2></td></tr>
           <td class="memname">Station::Station </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>naam</em>, </td>
+          <td class="paramname"><em>fNaam</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>volgende</em>, </td>
+          <td class="paramname"><em>fVolgende</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>vorige</em>, </td>
+          <td class="paramname"><em>fVorige</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>spoorNr</em>&#160;</td>
+          <td class="paramname"><em>fSpoorNr</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -163,10 +163,10 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Constructor voor <a class="el" href="classStation.html">Station</a>. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">naam</td><td>Naam van het station. </td></tr>
-    <tr><td class="paramname">volgende</td><td>Het volgende station. </td></tr>
-    <tr><td class="paramname">vorige</td><td>Het vorige station. </td></tr>
-    <tr><td class="paramname">spoorNr</td><td>Het nummer van de spoor waar het station deel van is. </td></tr>
+    <tr><td class="paramname">fNaam</td><td>Naam van het station. </td></tr>
+    <tr><td class="paramname">fVolgende</td><td>Het fVolgende station. </td></tr>
+    <tr><td class="paramname">fVorige</td><td>Het fVorige station. </td></tr>
+    <tr><td class="paramname">fSpoorNr</td><td>Het nummer van de spoor waar het station deel van is. </td></tr>
   </table>
   </dd>
 </dl>
@@ -189,7 +189,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>De naam van het station. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>De fNaam van het station. </dd></dl>
 
 </div>
 </div>
@@ -225,7 +225,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>De naam van het volgende station. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>De fNaam van het fVolgende station. </dd></dl>
 
 </div>
 </div>
@@ -243,7 +243,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>De naam van het vorige station. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>De fNaam van het fVorige station. </dd></dl>
 
 </div>
 </div>
@@ -280,7 +280,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set de naam van het station. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Set de fNaam van het station. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">n</td><td>Naam van het station. </td></tr>
   </table>
@@ -328,9 +328,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set de naam van het station. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Set de fNaam van het station. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">v</td><td>Naam van het volgende station. </td></tr>
+    <tr><td class="paramname">v</td><td>Naam van het fVolgende station. </td></tr>
   </table>
   </dd>
 </dl>
@@ -352,9 +352,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set de naam van het station vorige station. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Set de fNaam van het station fVorige station. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">v</td><td>Naam van het vorige station. </td></tr>
+    <tr><td class="paramname">v</td><td>Naam van het fVorige station. </td></tr>
   </table>
   </dd>
 </dl>

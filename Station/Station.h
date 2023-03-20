@@ -9,7 +9,7 @@
 /**
 * Klasse Station. Een station is een object waarover Tram objecten zouden rijden. Station objecten vormen een
 * spoornummer, beter gezegd, een lijn in het MetroNet. Stations zijn met elkaar verbonden, elk station heeft een
-* volgende station en vorige station.
+* fVolgende station en fVorige station.
 * **/
 class Station {
 public:
@@ -23,25 +23,25 @@ public:
     /**
      * Constructor voor Station.
      * @param naam Naam van het station.
-     * @param volgende Het volgende station.
-     * @param vorige Het vorige station.
+     * @param volgende Het fVolgende station.
+     * @param vorige Het fVorige station.
      * @param spoorNr Het nummer van de spoor waar het station deel van is.
      * @return Een Station object met attributen.
      * **/
     Station(const std::string &naam,const std::string& volgende,const std::string& vorige, int spoorNr);
 
     /**
-     * @return De naam van het station.
+     * @return De fNaam van het station.
      * **/
     std::string getName() const;
 
     /**
-     * @return De naam van het volgende station.
+     * @return De fNaam van het fVolgende station.
      * **/
     std::string getVolgende() const;
 
     /**
-     * @return De naam van het vorige station.
+     * @return De fNaam van het fVorige station.
      * **/
     std::string getVorige() const;
 
@@ -51,20 +51,20 @@ public:
     int getSpoorNr() const;
 
     /**
-     * Set de naam van het station.
+     * Set de fNaam van het station.
      * @param n Naam van het station.
      * **/
     void setName(std::string n);
 
     /**
-    * Set de naam van het station.
-     * @param v Naam van het volgende station.
+    * Set de fNaam van het station.
+     * @param v Naam van het fVolgende station.
     * **/
     void setVolgende(std::string v);
 
     /**
-    * Set de naam van het station vorige station.
-     * @param v Naam van het vorige station.
+    * Set de fNaam van het station fVorige station.
+     * @param v Naam van het fVorige station.
     * **/
     void setVorige(std::string v);
 
@@ -82,11 +82,11 @@ public:
 
 private:
 
-    std::string naam;
-    std::string volgende;
-    std::string vorige;
-    int spoorNr;
-    Station* _initCheck;
+    std::string fNaam;
+    std::string fVolgende;
+    std::string fVorige;
+    int fSpoorNr;
+    Station* _fInitCheck;
 };
 
 

@@ -1,120 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <METRONET>
     <STATION>
-        <naam>A</naam>
-        <volgende>B</volgende>
-        <vorige>C</vorige>
-        <spoorNr>12</spoorNr>
+        <fNaam>A</fNaam>
+        <fVolgende>B</fVolgende>
+        <fVorige>C</fVorige>
+        <fSpoorNr>12</fSpoorNr>
     </STATION>
     <STATION>
-        <naam>B</naam>
-        <volgende>C</volgende>
-        <vorige>A</vorige>
-        <spoorNr>12</spoorNr>
+        <fNaam>B</fNaam>
+        <fVolgende>C</fVolgende>
+        <fVorige>A</fVorige>
+        <fSpoorNr>12</fSpoorNr>
     </STATION>
     <STATION>
-        <naam>C</naam>
-        <volgende>A</volgende>
-        <vorige>B</vorige>
-        <spoorNr>12</spoorNr>
+        <fNaam>C</fNaam>
+        <fVolgende>A</fVolgende>
+        <fVorige>B</fVorige>
+        <fSpoorNr>12</fSpoorNr>
     </STATION>
     <STATION>
-        <naam>Turnhoutsebaan</naam>
-        <volgende>Atheneum</volgende>
-        <vorige>Sterckshof</vorige>
-        <spoorNr>33</spoorNr>
+        <fNaam>Turnhoutsebaan</fNaam>
+        <fVolgende>Atheneum</fVolgende>
+        <fVorige>Sterckshof</fVorige>
+        <fSpoorNr>33</fSpoorNr>
     </STATION>
     <STATION>
-        <naam>Atheneum</naam>
-        <volgende>JanS</volgende>
-        <vorige>Turnhoutsebaan</vorige>
-        <spoorNr>33</spoorNr>
+        <fNaam>Atheneum</fNaam>
+        <fVolgende>JanS</fVolgende>
+        <fVorige>Turnhoutsebaan</fVorige>
+        <fSpoorNr>33</fSpoorNr>
     </STATION>
     <STATION>
-        <naam>JanS</naam>
-        <volgende>Lakborslei</volgende>
-        <vorige>Atheneum</vorige>
-        <spoorNr>33</spoorNr>
+        <fNaam>JanS</fNaam>
+        <fVolgende>Lakborslei</fVolgende>
+        <fVorige>Atheneum</fVorige>
+        <fSpoorNr>33</fSpoorNr>
     </STATION>
     <STATION>
-        <naam>Lakborslei</naam>
-        <volgende>Deurne</volgende>
-        <vorige>JanS</vorige>
-        <spoorNr>33</spoorNr>
+        <fNaam>Lakborslei</fNaam>
+        <fVolgende>Deurne</fVolgende>
+        <fVorige>JanS</fVorige>
+        <fSpoorNr>33</fSpoorNr>
     </STATION>
     <STATION>
-        <naam>Deurne</naam>
-        <volgende>Sterckshof</volgende>
-        <vorige>Deurne</vorige>
-        <spoorNr>33</spoorNr>
+        <fNaam>Deurne</fNaam>
+        <fVolgende>Sterckshof</fVolgende>
+        <fVorige>Deurne</fVorige>
+        <fSpoorNr>33</fSpoorNr>
     </STATION>
     <STATION>
-        <naam>Wijnegem</naam>
-        <volgende>Shoppingcenter</volgende>
-        <vorige>Zwanebeek</vorige>
-        <spoorNr>10</spoorNr>
+        <fNaam>Wijnegem</fNaam>
+        <fVolgende>Shoppingcenter</fVolgende>
+        <fVorige>Zwanebeek</fVorige>
+        <fSpoorNr>10</fSpoorNr>
     </STATION>
     <STATION>
-        <naam>Shoppingcenter</naam>
-        <volgende>Ruggeveld</volgende>
-        <vorige>Wijnegem</vorige>
-        <spoorNr>10</spoorNr>
+        <fNaam>Shoppingcenter</fNaam>
+        <fVolgende>Ruggeveld</fVolgende>
+        <fVorige>Wijnegem</fVorige>
+        <fSpoorNr>10</fSpoorNr>
     </STATION>
     <STATION>
-        <naam>Ruggeveld</naam>
-        <volgende>Schotensesteenweg</volgende>
-        <vorige>Shoppingcenter</vorige>
-        <spoorNr>10</spoorNr>
+        <fNaam>Ruggeveld</fNaam>
+        <fVolgende>Schotensesteenweg</fVolgende>
+        <fVorige>Shoppingcenter</fVorige>
+        <fSpoorNr>10</fSpoorNr>
     </STATION>
     <STATION>
-        <naam>Schotensesteenweg</naam>
-        <volgende>Cogelsplein</volgende>
-        <vorige>Ruggeveld</vorige>
-        <spoorNr>10</spoorNr>
+        <fNaam>Schotensesteenweg</fNaam>
+        <fVolgende>Cogelsplein</fVolgende>
+        <fVorige>Ruggeveld</fVorige>
+        <fSpoorNr>10</fSpoorNr>
     </STATION>
     <STATION>
-        <naam>Cogelsplein</naam>
-        <volgende>Astrid</volgende>
-        <vorige>Schotensesteenweg</vorige>
-        <spoorNr>10</spoorNr>
+        <fNaam>Cogelsplein</fNaam>
+        <fVolgende>Astrid</fVolgende>
+        <fVorige>Schotensesteenweg</fVorige>
+        <fSpoorNr>10</fSpoorNr>
     </STATION>
     <STATION>
-        <naam>Astrid</naam>
-        <volgende>Opera</volgende>
-        <vorige>Cogelsplein</vorige>
-        <spoorNr>10</spoorNr>
+        <fNaam>Astrid</fNaam>
+        <fVolgende>Opera</fVolgende>
+        <fVorige>Cogelsplein</fVorige>
+        <fSpoorNr>10</fSpoorNr>
     </STATION>
     <STATION>
-        <naam>Opera</naam>
-        <volgende>Stadspark</volgende>
-        <vorige>Astrid</vorige>
-        <spoorNr>10</spoorNr>
+        <fNaam>Opera</fNaam>
+        <fVolgende>Stadspark</fVolgende>
+        <fVorige>Astrid</fVorige>
+        <fSpoorNr>10</fSpoorNr>
     </STATION>
     <STATION>
-        <naam>Stadspark</naam>
-        <volgende>NationaleBank</volgende>
-        <vorige>Opera</vorige>
-        <spoorNr>10</spoorNr>
+        <fNaam>Stadspark</fNaam>
+        <fVolgende>NationaleBank</fVolgende>
+        <fVorige>Opera</fVorige>
+        <fSpoorNr>10</fSpoorNr>
     </STATION>
     <STATION>
-        <naam>NationaleBank</naam>
-        <volgende>Zwanebeek</volgende>
-        <vorige>Stadspark</vorige>
-        <spoorNr>10</spoorNr>
+        <fNaam>NationaleBank</fNaam>
+        <fVolgende>Zwanebeek</fVolgende>
+        <fVorige>Stadspark</fVorige>
+        <fSpoorNr>10</fSpoorNr>
     </STATION>
     <TRAM>
-        <lijnNr>12</lijnNr>
-        <snelheid>60</snelheid>
-        <beginStation>A</beginStation>
+        <fLijnNr>12</fLijnNr>
+        <fSnelheid>60</fSnelheid>
+        <fBeginStation>A</fBeginStation>
     </TRAM>
     <TRAM>
-        <lijnNr>33</lijnNr>
-        <snelheid>90</snelheid>
-        <beginStation>Atheneum</beginStation>
+        <fLijnNr>33</fLijnNr>
+        <fSnelheid>90</fSnelheid>
+        <fBeginStation>Atheneum</fBeginStation>
     </TRAM>
     <TRAM>
-        <lijnNr>12</lijnNr>
-        <snelheid>50</snelheid>
-        <beginStation>Wijnegem</beginStation>
+        <fLijnNr>12</fLijnNr>
+        <fSnelheid>50</fSnelheid>
+        <fBeginStation>Wijnegem</fBeginStation>
     </TRAM>
 </METRONET>

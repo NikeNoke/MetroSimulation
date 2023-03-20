@@ -7,10 +7,10 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classParseTram_a369691c92d6f5c427bc680b2159a360f}{Parse\+Tram}} (\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$element)
+\mbox{\hyperlink{classParseTram_a369691c92d6f5c427bc680b2159a360f}{Parse\+Tram}} (\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$fElement)
 \item 
 void \mbox{\hyperlink{classParseTram_ad627e6bc302f9c2f72de19fd18a0a1a4}{set\+Element}} (\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$el)
-\begin{DoxyCompactList}\small\item\em Set Element Zet element in \doxylink{classParseTram}{Parse\+Tram}. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Set Element Zet fElement in \doxylink{classParseTram}{Parse\+Tram}. \end{DoxyCompactList}\item
 bool \mbox{\hyperlink{classParseTram_a38e16b0b30a35bc0c3dbdbe8a339c27b}{parse\+All}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net, \mbox{\hyperlink{classTram}{Tram}} $\ast$tram) const
 \item 
 bool \mbox{\hyperlink{classParseTram_a6ea5d45826cabae994326686cc665876}{parse\+Lijn\+Nr}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net, \mbox{\hyperlink{classTram}{Tram}} $\ast$tram) const
@@ -26,7 +26,7 @@ bool \mbox{\hyperlink{classParseTram_a4458ed2632bf83c7b9177b9be1c4b73a}{check\+V
 bool \mbox{\hyperlink{classParseTram_a3dd5416164d409b6501dcbdf8ee3eab5}{check\+Valid\+Begin\+Station}} () const
 \begin{DoxyCompactList}\small\item\em Check valid begin\+Station. Methode dat gecalled wordt door check\+Valid\+Tram om te controlleren ofdat begin\+Station correct is. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{classParseTram_a8e9914a8f70387c857e2627af5060cfc}{check\+Valid\+Snelheid}} () const
-\begin{DoxyCompactList}\small\item\em Check valid snelheid. Methode dat gecalled wordt door check\+Valid\+Tram om te controlleren ofdat snelheid correct is. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Check valid fSnelheid. Methode dat gecalled wordt door check\+Valid\+Tram om te controlleren ofdat fSnelheid correct is. \end{DoxyCompactList}\item
 bool \mbox{\hyperlink{classParseTram_aac483b1bae29133a6b6bf18d2edfb9b9}{check\+Non\+Valid\+Attributes}} () const
 \end{DoxyCompactItemize}
 
@@ -39,11 +39,11 @@ Klasse om een \doxylink{classTram}{Tram} object te parsen.
 \index{ParseTram@{ParseTram}!ParseTram@{ParseTram}}
 \index{ParseTram@{ParseTram}!ParseTram@{ParseTram}}
 \doxysubsubsection{\texorpdfstring{ParseTram()}{ParseTram()}}
-{\footnotesize\ttfamily Parse\+Tram\+::\+Parse\+Tram (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$}]{element }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+{\footnotesize\ttfamily Parse\+Tram\+::\+Parse\+Tram (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$}]{fElement }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
 Constructor voor \doxylink{classParseTram}{Parse\+Tram}. 
 \begin{DoxyParams}{Parameters}
-{\em element} & Element dat geparsed zal worden. \\
+{\em fElement} & Element dat geparsed zal worden. \\
 \hline
 \end{DoxyParams}
 
@@ -92,7 +92,7 @@ true of false
 
 
 
-Check valid snelheid. Methode dat gecalled wordt door check\+Valid\+Tram om te controlleren ofdat snelheid correct is. 
+Check valid fSnelheid. Methode dat gecalled wordt door check\+Valid\+Tram om te controlleren ofdat fSnelheid correct is.
 
 \begin{DoxyReturn}{Returns}
 true of false 
@@ -164,7 +164,7 @@ true of false afhankelijk ofdat het lij\+Nr geparsed kon worden.
 \doxysubsubsection{\texorpdfstring{parseSnelheid()}{parseSnelheid()}}
 {\footnotesize\ttfamily bool Parse\+Tram\+::parse\+Snelheid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net,  }\item[{\mbox{\hyperlink{classTram}{Tram}} $\ast$}]{tram }\end{DoxyParamCaption}) const}
 
-Methode dat gecalled wordt door parse\+All of te checken ofdat snelheid geparsed kan worden. 
+Methode dat gecalled wordt door parse\+All of te checken ofdat fSnelheid geparsed kan worden.
 \begin{DoxyParams}{Parameters}
 {\em metro\+Net} & Naam van het \doxylink{classMetroNet}{Metro\+Net}. \\
 \hline
@@ -172,7 +172,7 @@ Methode dat gecalled wordt door parse\+All of te checken ofdat snelheid geparsed
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-true of false afhankelijk ofdat het snelheid geparsed kon worden. 
+true of false afhankelijk ofdat het fSnelheid geparsed kon worden.
 \end{DoxyReturn}
 \Hypertarget{classParseTram_ad627e6bc302f9c2f72de19fd18a0a1a4}\label{classParseTram_ad627e6bc302f9c2f72de19fd18a0a1a4} 
 \index{ParseTram@{ParseTram}!setElement@{setElement}}
@@ -182,7 +182,7 @@ true of false afhankelijk ofdat het snelheid geparsed kon worden.
 
 
 
-Set Element Zet element in \doxylink{classParseTram}{Parse\+Tram}. 
+Set Element Zet fElement in \doxylink{classParseTram}{Parse\+Tram}.
 
 
 \begin{DoxyParams}{Parameters}

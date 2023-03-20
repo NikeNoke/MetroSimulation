@@ -28,7 +28,7 @@ bool Utils::parseStation(MetroNet &metroNet, TiXmlElement *element) {
 
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
-        if (innerElementName == "naam" && !nameFound) {
+        if (innerElementName == "fNaam" && !nameFound) {
             if (metroNet.stationRegistered(innerText)) {
                 broken = true;
                 std::cerr << "Deze station bestaat al in de MetroNet!\n";
@@ -36,15 +36,15 @@ bool Utils::parseStation(MetroNet &metroNet, TiXmlElement *element) {
             }
             tempStation->setName(innerText);
             nameFound = true;
-        } else if (innerElementName == "vorige" && !vorigeFound) {
+        } else if (innerElementName == "fVorige" && !vorigeFound) {
 
             tempStation->setVorige(innerText);
             vorigeFound = true;
-        } else if (innerElementName == "volgende" && !volgendeFound) {
+        } else if (innerElementName == "fVolgende" && !volgendeFound) {
 
             tempStation->setVolgende(innerText);
             volgendeFound = true;
-        } else if (innerElementName == "spoorNr" && !spoorNrFound) {
+        } else if (innerElementName == "fSpoorNr" && !spoorNrFound) {
             int temp;
             sscanf(innerText.c_str(), "%d", &temp);
             tempStation->setSpoorNr(temp);
@@ -60,17 +60,17 @@ bool Utils::parseStation(MetroNet &metroNet, TiXmlElement *element) {
             std::cerr << "De ingelezen station is incompleet!\n";
             std::cerr << "Naam van de station is " << Utils::boolToText(nameFound) << ", Vorige station is "
                       << Utils::boolToText(vorigeFound)
-                      << ", Volgende station is " << Utils::boolToText(volgendeFound) << ", spoorNr is "
+                      << ", Volgende station is " << Utils::boolToText(volgendeFound) << ", fSpoorNr is "
                       << Utils::boolToText(spoorNrFound) << "\n";
 
-            std::cerr << "Na deze error gaan we naar de volgende XML childElement!\n";
+            std::cerr << "Na deze error gaan we naar de fVolgende XML childElement!\n";
             delete tempStation;
             return false;
         }
         metroNet.addStation(tempStation);
         return true;
     }
-    std::cerr << "Na deze error gaan we naar de volgende XML childElement!\n";
+    std::cerr << "Na deze error gaan we naar de fVolgende XML childElement!\n";
     delete tempStation;
     return false;
 }
@@ -92,10 +92,10 @@ bool Utils::parseTram(MetroNet &metroNet, TiXmlElement *element) {
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if (innerElementName == "lijnNr" && !lijnNrFound) {
+        if (innerElementName == "fLijnNr" && !lijnNrFound) {
             if (!Utils::is_int(innerText)) {
                 broken = true;
-                std::cerr << "lijnNr van ingelezen trams is niet een nummer!\n";
+                std::cerr << "fLijnNr van ingelezen fTrams is niet een nummer!\n";
                 break;
             }
             int temp;
@@ -103,10 +103,10 @@ bool Utils::parseTram(MetroNet &metroNet, TiXmlElement *element) {
             tempTram->setLijnNr(temp);
             lijnNrFound = true;
 
-        } else if (innerElementName == "snelheid" && !snelheidFound) {
+        } else if (innerElementName == "fSnelheid" && !snelheidFound) {
             if (!Utils::is_int(innerText)) {
                 broken = true;
-                std::cerr << "snelheid van ingelezen trams is niet een nummer!\n";
+                std::cerr << "fSnelheid van ingelezen fTrams is niet een nummer!\n";
                 break;
             }
             int temp;
@@ -114,7 +114,7 @@ bool Utils::parseTram(MetroNet &metroNet, TiXmlElement *element) {
             tempTram->setSnelheid(temp);
             snelheidFound = true;
 
-        } else if (innerElementName == "beginStation" && !beginStationFound) {
+        } else if (innerElementName == "fBeginStation" && !beginStationFound) {
             tempTram->setBeginStation(innerText);
             tempTram->setHuidigStation(innerText);
             beginStationFound = true;
@@ -126,18 +126,18 @@ bool Utils::parseTram(MetroNet &metroNet, TiXmlElement *element) {
     if (!broken) {
         if (!lijnNrFound || !snelheidFound || !beginStationFound) {
             std::cerr << "De ingelezen tram is incompleet!\n";
-            std::cerr << "De begin station is " << Utils::boolToText(beginStationFound) << ", lijnNr is "
+            std::cerr << "De begin station is " << Utils::boolToText(beginStationFound) << ", fLijnNr is "
                       << Utils::boolToText(lijnNrFound)
-                      << ", de snelheid is " << Utils::boolToText(snelheidFound) << "\n";
+                      << ", de fSnelheid is " << Utils::boolToText(snelheidFound) << "\n";
 
-            std::cerr << "Na deze error gaan we naar de volgende XML childElement!\n";
+            std::cerr << "Na deze error gaan we naar de fVolgende XML childElement!\n";
             delete tempTram;
             return false;
         }
         metroNet.addTram(tempTram);
         return true;
     }
-    std::cerr << "Na deze error gaan we naar de volgende XML childElement!\n";
+    std::cerr << "Na deze error gaan we naar de fVolgende XML childElement!\n";
     delete tempTram;
     return false;
 }
@@ -181,7 +181,7 @@ bool Utils::validMetroNet(MetroNet &metroNet) {
     for (long unsigned int i = 0; i < tempStations.size(); i++) {
         REQUIRE(tempStations[i]->properlyInitialized(), "A station of the metroNet is not properly initialized");
         if (!metroNet.stationRegistered(tempStations[i]->getVorige())) {
-            std::cerr << "De vorige station " << tempStations[i]->getVorige() << "van station "
+            std::cerr << "De fVorige station " << tempStations[i]->getVorige() << "van station "
                       << tempStations[i]->getName()
                       << " is niet geregistreerd "
                       << "in de metroNet\n";
@@ -189,7 +189,7 @@ bool Utils::validMetroNet(MetroNet &metroNet) {
         }
 
         if (!metroNet.stationRegistered(tempStations[i]->getVolgende())) {
-            std::cerr << "De volgende station " << tempStations[i]->getVolgende() << "van station "
+            std::cerr << "De fVolgende station " << tempStations[i]->getVolgende() << "van station "
                       << tempStations[i]->getName()
                       << " is niet geregistreerd "
                       << "in de metroNet\n";
@@ -205,15 +205,15 @@ bool Utils::validMetroNet(MetroNet &metroNet) {
             return false;
 
         if (tempStations[i]->getSpoorNr() != vorige->getSpoorNr()) {
-            std::cerr << "De spoorNr van station " << tempStations[i]->getName()
-                      << " komt niet overeen met de spoorNr van zijn vorige "
+            std::cerr << "De fSpoorNr van station " << tempStations[i]->getName()
+                      << " komt niet overeen met de fSpoorNr van zijn fVorige "
                       << "station " << vorige->getName() << "\n";
             return false;
         }
 
         if (tempStations[i]->getSpoorNr() != volgende->getSpoorNr()) {
-            std::cerr << "De spoorNr van station " << tempStations[i]->getName()
-                      << " komt niet overeen met de spoorNr van zijn volgende "
+            std::cerr << "De fSpoorNr van station " << tempStations[i]->getName()
+                      << " komt niet overeen met de fSpoorNr van zijn fVolgende "
                       << "station " << volgende->getName() << "\n";
             return false;
         }
@@ -228,7 +228,7 @@ bool Utils::validMetroNet(MetroNet &metroNet) {
         }
 
         if (!spoorHeeftTram) {
-            std::cerr << "De spoorNr van station " << tempStations[i]->getName() << " heeft geen TRAM!!!!\n";
+            std::cerr << "De fSpoorNr van station " << tempStations[i]->getName() << " heeft geen TRAM!!!!\n";
             return false;
         }
 
@@ -237,15 +237,15 @@ bool Utils::validMetroNet(MetroNet &metroNet) {
     for (long unsigned int i = 0; i < tempTrams.size(); i++) {
         REQUIRE(tempTrams[i]->properlyInitialized(), "A tram of the metroNet is not properly initialized");
         if (!metroNet.stationRegistered(tempTrams[i]->getBeginStation())) {
-            std::cerr << "De begin station " << tempTrams[i]->getBeginStation() << "van tram met lijnNr "
+            std::cerr << "De begin station " << tempTrams[i]->getBeginStation() << "van tram met fLijnNr "
                       << tempTrams[i]->getLijnNr() << " is niet geregistreerd " << "in de metroNet\n";
             return false;
         }
         Station *beginStation = metroNet.getStation(tempTrams[i]->getBeginStation());
 
         if (beginStation->getSpoorNr() != tempTrams[i]->getLijnNr()) {
-            std::cerr << "De spoorNr van de begin station " << beginStation->getName()
-                      << " komt niet overeen met de spoorNr van de tram met "
+            std::cerr << "De fSpoorNr van de begin station " << beginStation->getName()
+                      << " komt niet overeen met de fSpoorNr van de tram met "
                       << "lijNr " << tempTrams[i]->getLijnNr() << "\n";
             return false;
         }

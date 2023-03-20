@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <METRONET>
     <TRAM>
-        <lijnNr>12</lijnNr>
-        <snelheid>60</snelheid>
-        <beginStation>A</beginStation>
+        <fLijnNr>12</fLijnNr>
+        <fSnelheid>60</fSnelheid>
+        <fBeginStation>A</fBeginStation>
         <NotOke>1</NotOke>
     </TRAM>
 </METRONET>

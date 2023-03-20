@@ -6,7 +6,7 @@ Dit project werd gemaakt door groep 13
 
 ### Project versie 1.0
 
-In versie 1.0 implementeren we de volgende usecases:
+In versie 1.0 implementeren we de fVolgende usecases:
 
 - Het inlezen van Tram objecten en Station objecten.
 - Een simpele uitvoer, we krijgen een file een we schrijven de correspondeerende
@@ -21,7 +21,7 @@ De main IDE dat ons groep gebruikte is [CLion](https://www.jetbrains.com/clion/)
 We gebruiken [GitHub](https://github.com/) voor code samen te kunnen schrijven en delen.
 Ons project bevindt zich in [deze](https://github.com/NikeNoke/MetroSimulation) directory op GitHub.
 
-We maken in ons project gebruik van volgende libraries:
+We maken in ons project gebruik van fVolgende libraries:
 
 - [gtest](https://github.com/google/googletest) aka Google Test framework om in ons project automatische
 unit-tests te kunnen uitvoeren.

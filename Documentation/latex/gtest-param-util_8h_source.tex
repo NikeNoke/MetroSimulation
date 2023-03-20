@@ -77,7 +77,7 @@
 \DoxyCodeLine{00073\ \ \ \textcolor{comment}{//\ Used\ only\ for\ the\ purposes\ of\ iterator\ comparison}}
 \DoxyCodeLine{00074\ \ \ \textcolor{comment}{//\ to\ make\ sure\ that\ two\ iterators\ belong\ to\ the\ same\ generator.}}
 \DoxyCodeLine{00075\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ ParamGeneratorInterface<T>*\ BaseGenerator()\ \textcolor{keyword}{const}\ =\ 0;}
-\DoxyCodeLine{00076\ \ \ \textcolor{comment}{//\ Advances\ iterator\ to\ point\ to\ the\ next\ element}}
+\DoxyCodeLine{00076\ \ \ \textcolor{comment}{//\ Advances\ iterator\ to\ point\ to\ the\ next\ fElement}}
 \DoxyCodeLine{00077\ \ \ \textcolor{comment}{//\ provided\ by\ the\ generator.\ The\ caller\ is\ responsible}}
 \DoxyCodeLine{00078\ \ \ \textcolor{comment}{//\ for\ not\ calling\ Advance()\ on\ an\ iterator\ equal\ to}}
 \DoxyCodeLine{00079\ \ \ \textcolor{comment}{//\ BaseGenerator()-\/>End().}}
@@ -91,7 +91,7 @@
 \DoxyCodeLine{00087\ \ \ \textcolor{comment}{//\ Used\ for\ implementing\ ParamGenerator<T>::operator*().}}
 \DoxyCodeLine{00088\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keyword}{const}\ T*\ Current()\ \textcolor{keyword}{const}\ =\ 0;}
 \DoxyCodeLine{00089\ \ \ \textcolor{comment}{//\ Determines\ whether\ the\ given\ iterator\ and\ other\ point\ to\ the\ same}}
-\DoxyCodeLine{00090\ \ \ \textcolor{comment}{//\ element\ in\ the\ sequence\ generated\ by\ the\ generator.}}
+\DoxyCodeLine{00090\ \ \ \textcolor{comment}{//\ fElement\ in\ the\ sequence\ generated\ by\ the\ generator.}}
 \DoxyCodeLine{00091\ \ \ \textcolor{comment}{//\ Used\ for\ implementing\ ParamGenerator<T>::operator==().}}
 \DoxyCodeLine{00092\ \ \ \textcolor{keyword}{virtual}\ \textcolor{keywordtype}{bool}\ Equals(\textcolor{keyword}{const}\ ParamIteratorInterface\&\ other)\ \textcolor{keyword}{const}\ =\ 0;}
 \DoxyCodeLine{00093\ \};}

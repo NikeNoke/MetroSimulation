@@ -7,49 +7,49 @@
 #include "../Utils/utils.h"
 
 Tram::Tram() {
-    _initCheck = this;
+    _fInitCheck = this;
 }
 
-Tram::Tram(const std::string &beginStation, int snelheid, int lijnNr) : beginStation(beginStation), snelheid(snelheid),
-                                                                        lijnNr(lijnNr), huidigStation(beginStation) {
-    REQUIRE(!(Utils::is_int(beginStation)), "The parameter beginStation is a number");
-    _initCheck = this;
+Tram::Tram(const std::string &beginStation, int snelheid, int lijnNr) : fBeginStation(beginStation), fSnelheid(snelheid),
+                                                                        fLijnNr(lijnNr), fHuidigStation(beginStation) {
+    REQUIRE(!(Utils::is_int(beginStation)), "The parameter fBeginStation is a number");
+    _fInitCheck = this;
 }
 
 std::string Tram::getBeginStation() const {
-    return beginStation;
+    return fBeginStation;
 }
 
 int Tram::getSnelheid() const {
-    return snelheid;
+    return fSnelheid;
 }
 
 int Tram::getLijnNr() const {
-    return lijnNr;
+    return fLijnNr;
 }
 
 std::string Tram::getHuidigStation() const {
-    return huidigStation;
+    return fHuidigStation;
 }
 
 void Tram::setBeginStation(std::string bs) {
-    REQUIRE(!(Utils::is_int(bs)), "The parameter beginStation is a number");
-    beginStation = bs;
+    REQUIRE(!(Utils::is_int(bs)), "The parameter fBeginStation is a number");
+    fBeginStation = bs;
 }
 
 void Tram::setSnelheid(int s) {
-    snelheid = s;
+    fSnelheid = s;
 }
 
 void Tram::setLijnNr(int l) {
-    lijnNr = l;
+    fLijnNr = l;
 }
 
 void Tram::setHuidigStation(std::string h) {
-    REQUIRE(!(Utils::is_int(h)), "The parameter huidigStation is a number");
-    huidigStation = h;
+    REQUIRE(!(Utils::is_int(h)), "The parameter fHuidigStation is a number");
+    fHuidigStation = h;
 }
 
 bool Tram::properlyInitialized() {
-    return _initCheck == this;
+    return _fInitCheck == this;
 }

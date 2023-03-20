@@ -24,10 +24,10 @@
 \begin{DoxyCompactList}\small\item\em Return a handle to the first child node with the given name. \end{DoxyCompactList}\item 
 \Hypertarget{classTiXmlHandle_af0643f8683f3f2b779b8c9d78c67b2c0}\label{classTiXmlHandle_af0643f8683f3f2b779b8c9d78c67b2c0} 
 \mbox{\hyperlink{classTiXmlHandle}{Ti\+Xml\+Handle}} {\bfseries First\+Child\+Element} () const
-\begin{DoxyCompactList}\small\item\em Return a handle to the first child element. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Return a handle to the first child fElement. \end{DoxyCompactList}\item
 \Hypertarget{classTiXmlHandle_a3eaf2d2d4c087cd8a48da261042e75bc}\label{classTiXmlHandle_a3eaf2d2d4c087cd8a48da261042e75bc} 
 \mbox{\hyperlink{classTiXmlHandle}{Ti\+Xml\+Handle}} {\bfseries First\+Child\+Element} (const char $\ast$value) const
-\begin{DoxyCompactList}\small\item\em Return a handle to the first child element with the given name. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Return a handle to the first child fElement with the given name. \end{DoxyCompactList}\item
 \mbox{\hyperlink{classTiXmlHandle}{Ti\+Xml\+Handle}} \mbox{\hyperlink{classTiXmlHandle_a9903b035444ee36450fe00ede403f920}{Child}} (const char $\ast$value, int index) const
 \item 
 \mbox{\hyperlink{classTiXmlHandle}{Ti\+Xml\+Handle}} \mbox{\hyperlink{classTiXmlHandle_a32585942abb28e03eea9c5223f38a659}{Child}} (int index) const
@@ -66,15 +66,15 @@ Take an example\+: \begin{DoxyVerb}<Document>
 \end{DoxyVerb}
 
 
-Assuming you want the value of \char`\"{}attribute\+B\char`\"{} in the 2nd \char`\"{}\+Child\char`\"{} element, it\textquotesingle{}s very easy to write a {\itshape lot} of code that looks like\+:
+Assuming you want the value of \char`\"{}attribute\+B\char`\"{} in the 2nd \char`\"{}\+Child\char`\"{} fElement, it\textquotesingle{}s very easy to write a {\itshape lot} of code that looks like\+:
 
 \begin{DoxyVerb}TiXmlElement* root = document.FirstChildElement( "Document" );
 if ( root )
 {
-    TiXmlElement* element = root->FirstChildElement( "Element" );
-    if ( element )
+    TiXmlElement* fElement = root->FirstChildElement( "Element" );
+    if ( fElement )
     {
-        TiXmlElement* child = element->FirstChildElement( "Child" );
+        TiXmlElement* child = fElement->FirstChildElement( "Child" );
         if ( child )
         {
             TiXmlElement* child2 = child->NextSiblingElement( "Child" );
@@ -114,7 +114,7 @@ while ( true )
 \end{DoxyVerb}
 
 
-It seems reasonable, but it is in fact two embedded while loops. The Child method is a linear walk to find the element, so this code would iterate much more than it needs to. Instead, prefer\+:
+It seems reasonable, but it is in fact two embedded while loops. The Child method is a linear walk to find the fElement, so this code would iterate much more than it needs to. Instead, prefer\+:
 
 \begin{DoxyVerb}TiXmlElement* child = docHandle.FirstChild( "Document" ).FirstChild( "Element" ).FirstChild( "Child" ).ToElement();
 
@@ -144,13 +144,13 @@ Return a handle to the \char`\"{}index\char`\"{} child. The first child is 0, th
 \doxysubsubsection{\texorpdfstring{ChildElement()}{ChildElement()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classTiXmlHandle}{Ti\+Xml\+Handle}} Ti\+Xml\+Handle\+::\+Child\+Element (\begin{DoxyParamCaption}\item[{const char $\ast$}]{value,  }\item[{int}]{index }\end{DoxyParamCaption}) const}
 
-Return a handle to the \char`\"{}index\char`\"{} child element with the given name. The first child element is 0, the second 1, etc. Note that only Ti\+Xml\+Elements are indexed\+: other types are not counted. \Hypertarget{classTiXmlHandle_a57a639ab0ac99ff9358f675a1b73049a}\label{classTiXmlHandle_a57a639ab0ac99ff9358f675a1b73049a} 
+Return a handle to the \char`\"{}index\char`\"{} child fElement with the given name. The first child fElement is 0, the second 1, etc. Note that only Ti\+Xml\+Elements are indexed\+: other types are not counted. \Hypertarget{classTiXmlHandle_a57a639ab0ac99ff9358f675a1b73049a}\label{classTiXmlHandle_a57a639ab0ac99ff9358f675a1b73049a}
 \index{TiXmlHandle@{TiXmlHandle}!ChildElement@{ChildElement}}
 \index{ChildElement@{ChildElement}!TiXmlHandle@{TiXmlHandle}}
 \doxysubsubsection{\texorpdfstring{ChildElement()}{ChildElement()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classTiXmlHandle}{Ti\+Xml\+Handle}} Ti\+Xml\+Handle\+::\+Child\+Element (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption}) const}
 
-Return a handle to the \char`\"{}index\char`\"{} child element. The first child element is 0, the second 1, etc. Note that only Ti\+Xml\+Elements are indexed\+: other types are not counted. \Hypertarget{classTiXmlHandle_ac56814c76757eecc5bd951d3ed710dd2}\label{classTiXmlHandle_ac56814c76757eecc5bd951d3ed710dd2} 
+Return a handle to the \char`\"{}index\char`\"{} child fElement. The first child fElement is 0, the second 1, etc. Note that only Ti\+Xml\+Elements are indexed\+: other types are not counted. \Hypertarget{classTiXmlHandle_ac56814c76757eecc5bd951d3ed710dd2}\label{classTiXmlHandle_ac56814c76757eecc5bd951d3ed710dd2}
 \index{TiXmlHandle@{TiXmlHandle}!Element@{Element}}
 \index{Element@{Element}!TiXmlHandle@{TiXmlHandle}}
 \doxysubsubsection{\texorpdfstring{Element()}{Element()}}

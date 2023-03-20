@@ -25,7 +25,7 @@ public:
 
     /**
      * @brief Set Element
-     * Zet element in ParseTram
+     * Zet fElement in ParseTram
      * @param el Element dat gezet zal worden
      */
     void setElement(TiXmlElement *el);
@@ -39,7 +39,7 @@ public:
     bool parseAll(MetroNet &metroNet, Tram* tram) const;
 
     /**
-     * Methode dat gecalled wordt door parseAll of te checken ofdat lijnNr geparsed kan worden.
+     * Methode dat gecalled wordt door parseAll of te checken ofdat fLijnNr geparsed kan worden.
      * @param metroNet Naam van het MetroNet.
      * @param tram  Naam van de Tram.
      * @return true of false afhankelijk ofdat het lijNr geparsed kon worden.
@@ -47,18 +47,18 @@ public:
     bool parseLijnNr(MetroNet &metroNet, Tram* tram) const;
 
     /**
-    * Methode dat gecalled wordt door parseAll of te checken ofdat beginStation geparsed kan worden.
+    * Methode dat gecalled wordt door parseAll of te checken ofdat fBeginStation geparsed kan worden.
     * @param metroNet Naam van het MetroNet.
     * @param tram  Naam van de Tram.
-    * @return true of false afhankelijk ofdat het beginStation geparsed kon worden.
+    * @return true of false afhankelijk ofdat het fBeginStation geparsed kon worden.
     */
     bool parseBeginStation(MetroNet &metroNet, Tram* tram) const;
 
     /**
-    * Methode dat gecalled wordt door parseAll of te checken ofdat snelheid geparsed kan worden.
+    * Methode dat gecalled wordt door parseAll of te checken ofdat fSnelheid geparsed kan worden.
     * @param metroNet Naam van het MetroNet.
     * @param tram  Naam van de Tram.
-    * @return true of false afhankelijk ofdat het snelheid geparsed kon worden.
+    * @return true of false afhankelijk ofdat het fSnelheid geparsed kon worden.
     */
     bool parseSnelheid(MetroNet &metroNet, Tram* tram) const;
 
@@ -76,15 +76,15 @@ public:
     bool checkValidLijnNr() const;
 
     /**
-     * @brief Check valid beginStation.
-     * Methode dat gecalled wordt door checkValidTram om te controlleren ofdat beginStation correct is.
+     * @brief Check valid fBeginStation.
+     * Methode dat gecalled wordt door checkValidTram om te controlleren ofdat fBeginStation correct is.
      * @return true of false
      */
     bool checkValidBeginStation() const;
 
     /**
-     * @brief Check valid snelheid.
-     * Methode dat gecalled wordt door checkValidTram om te controlleren ofdat snelheid correct is.
+     * @brief Check valid fSnelheid.
+     * Methode dat gecalled wordt door checkValidTram om te controlleren ofdat fSnelheid correct is.
      * @return true of false
      */
     bool checkValidSnelheid() const;
@@ -97,7 +97,7 @@ public:
 
 
 private:
-    TiXmlElement *element;
+    TiXmlElement *fElement;
 
 };
 

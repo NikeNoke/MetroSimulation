@@ -79,9 +79,9 @@ $(function() {
 Functions</h2></td></tr>
 <tr class="memitem:a802a00b4ea5b3bd64949e413c07abfea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.html#a802a00b4ea5b3bd64949e413c07abfea">is_int</a> (const std::string &amp;s)</td></tr>
 <tr class="separator:a802a00b4ea5b3bd64949e413c07abfea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe85ae7ebc6f4201eaba2f79a4ea8a9d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.html#abe85ae7ebc6f4201eaba2f79a4ea8a9d">parseStation</a> (<a class="el" href="classMetroNet.html">MetroNet</a> &amp;metroNet, <a class="el" href="classTiXmlElement.html">TiXmlElement</a> *element)</td></tr>
+<tr class="memitem:abe85ae7ebc6f4201eaba2f79a4ea8a9d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.html#abe85ae7ebc6f4201eaba2f79a4ea8a9d">parseStation</a> (<a class="el" href="classMetroNet.html">MetroNet</a> &amp;metroNet, <a class="el" href="classTiXmlElement.html">TiXmlElement</a> *fElement)</td></tr>
 <tr class="separator:abe85ae7ebc6f4201eaba2f79a4ea8a9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc911dd8c4069ad5d5b2b73074791252"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.html#abc911dd8c4069ad5d5b2b73074791252">parseTram</a> (<a class="el" href="classMetroNet.html">MetroNet</a> &amp;metroNet, <a class="el" href="classTiXmlElement.html">TiXmlElement</a> *element)</td></tr>
+<tr class="memitem:abc911dd8c4069ad5d5b2b73074791252"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.html#abc911dd8c4069ad5d5b2b73074791252">parseTram</a> (<a class="el" href="classMetroNet.html">MetroNet</a> &amp;metroNet, <a class="el" href="classTiXmlElement.html">TiXmlElement</a> *fElement)</td></tr>
 <tr class="separator:abc911dd8c4069ad5d5b2b73074791252"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c8bb62588ca988e26e4fde64485037e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.html#a0c8bb62588ca988e26e4fde64485037e">writeSpecs</a> (std::ofstream &amp;file, <a class="el" href="classMetroNet.html">MetroNet</a> &amp;metroNet)</td></tr>
 <tr class="separator:a0c8bb62588ca988e26e4fde64485037e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -273,7 +273,7 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="classTiXmlElement.html">TiXmlElement</a> *&#160;</td>
-          <td class="paramname"><em>element</em>&#160;</td>
+          <td class="paramname"><em>fElement</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -282,10 +282,10 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Functie dat in een XML file een element station zal parsen. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Functie dat in een XML file een fElement station zal parsen. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">metroNet</td><td>Het metronet waarin het station zal gepushed worden. </td></tr>
-    <tr><td class="paramname">element</td><td>Het station dat geparst wordt. </td></tr>
+    <tr><td class="paramname">fElement</td><td>Het station dat geparst wordt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -309,7 +309,7 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="classTiXmlElement.html">TiXmlElement</a> *&#160;</td>
-          <td class="paramname"><em>element</em>&#160;</td>
+          <td class="paramname"><em>fElement</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -318,10 +318,10 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Functie dat in een XML file een element tram zal parsen. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Functie dat in een XML file een fElement tram zal parsen. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">metroNet</td><td>Het metronet waarin het station zal gepushed worden. </td></tr>
-    <tr><td class="paramname">element</td><td>De tram dat geparst wordt. </td></tr>
+    <tr><td class="paramname">fElement</td><td>De tram dat geparst wordt. </td></tr>
   </table>
   </dd>
 </dl>
@@ -361,7 +361,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>Deze functie moeten we aanpassen zodat het i.p.v. werkt met een hoeveelheid moves, dat het werkt met gebruik van een tijdstip. Hierbij moeten we echter zorgen dat we meerdere attributes hebben die toelaten om een realistische simulatie te doen lopen over een <a class="el" href="classMetroNet.html">MetroNet</a>. Hierbij moeten we <a class="el" href="classTram.html">Tram</a> en <a class="el" href="classStation.html">Station</a> zodanig aanpassen zodat trammen over een bepaalde afstand rijden in een bepaalde tijd met een bepaalde snelheid. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Deze functie moeten we aanpassen zodat het i.p.v. werkt met een hoeveelheid moves, dat het werkt met gebruik van een tijdstip. Hierbij moeten we echter zorgen dat we meerdere attributes hebben die toelaten om een realistische simulatie te doen lopen over een <a class="el" href="classMetroNet.html">MetroNet</a>. Hierbij moeten we <a class="el" href="classTram.html">Tram</a> en <a class="el" href="classStation.html">Station</a> zodanig aanpassen zodat trammen over een bepaalde afstand rijden in een bepaalde tijd met een bepaalde fSnelheid. </dd></dl>
 
 </div>
 </div>

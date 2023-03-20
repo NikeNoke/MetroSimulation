@@ -5,9 +5,9 @@
 \item 
 bool \mbox{\hyperlink{namespaceUtils_a802a00b4ea5b3bd64949e413c07abfea}{is\+\_\+int}} (const std\+::string \&s)
 \item 
-bool \mbox{\hyperlink{namespaceUtils_abe85ae7ebc6f4201eaba2f79a4ea8a9d}{parse\+Station}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net, \mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$element)
+bool \mbox{\hyperlink{namespaceUtils_abe85ae7ebc6f4201eaba2f79a4ea8a9d}{parse\+Station}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net, \mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$fElement)
 \item 
-bool \mbox{\hyperlink{namespaceUtils_abc911dd8c4069ad5d5b2b73074791252}{parse\+Tram}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net, \mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$element)
+bool \mbox{\hyperlink{namespaceUtils_abc911dd8c4069ad5d5b2b73074791252}{parse\+Tram}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net, \mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$fElement)
 \item 
 void \mbox{\hyperlink{namespaceUtils_a0c8bb62588ca988e26e4fde64485037e}{write\+Specs}} (std\+::ofstream \&file, \mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net)
 \item 
@@ -124,13 +124,13 @@ Source is Stack\+Over\+Flow.
 \index{Utils@{Utils}!parseStation@{parseStation}}
 \index{parseStation@{parseStation}!Utils@{Utils}}
 \doxysubsubsection{\texorpdfstring{parseStation()}{parseStation()}}
-{\footnotesize\ttfamily bool Utils\+::parse\+Station (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net,  }\item[{\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$}]{element }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Utils\+::parse\+Station (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net,  }\item[{\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$}]{fElement }\end{DoxyParamCaption})}
 
-Functie dat in een XML file een element station zal parsen. 
+Functie dat in een XML file een fElement station zal parsen.
 \begin{DoxyParams}{Parameters}
 {\em metro\+Net} & Het metronet waarin het station zal gepushed worden. \\
 \hline
-{\em element} & Het station dat geparst wordt. \\
+{\em fElement} & Het station dat geparst wordt. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -140,13 +140,13 @@ true of false afhankelijk ofdat het station geparst en gepushed kon worden of ni
 \index{Utils@{Utils}!parseTram@{parseTram}}
 \index{parseTram@{parseTram}!Utils@{Utils}}
 \doxysubsubsection{\texorpdfstring{parseTram()}{parseTram()}}
-{\footnotesize\ttfamily bool Utils\+::parse\+Tram (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net,  }\item[{\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$}]{element }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Utils\+::parse\+Tram (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net,  }\item[{\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$}]{fElement }\end{DoxyParamCaption})}
 
-Functie dat in een XML file een element tram zal parsen. 
+Functie dat in een XML file een fElement tram zal parsen.
 \begin{DoxyParams}{Parameters}
 {\em metro\+Net} & Het metronet waarin het station zal gepushed worden. \\
 \hline
-{\em element} & De tram dat geparst wordt. \\
+{\em fElement} & De tram dat geparst wordt. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
@@ -166,7 +166,7 @@ Functie dat ons toelaat om een metronet te laten simuleren voor een bepaald aant
 \hline
 \end{DoxyParams}
 \begin{DoxyNote}{Note}
-Deze functie moeten we aanpassen zodat het i.\+p.\+v. werkt met een hoeveelheid moves, dat het werkt met gebruik van een tijdstip. Hierbij moeten we echter zorgen dat we meerdere attributes hebben die toelaten om een realistische simulatie te doen lopen over een \doxylink{classMetroNet}{Metro\+Net}. Hierbij moeten we \doxylink{classTram}{Tram} en \doxylink{classStation}{Station} zodanig aanpassen zodat trammen over een bepaalde afstand rijden in een bepaalde tijd met een bepaalde snelheid. 
+Deze functie moeten we aanpassen zodat het i.\+p.\+v. werkt met een hoeveelheid moves, dat het werkt met gebruik van een tijdstip. Hierbij moeten we echter zorgen dat we meerdere attributes hebben die toelaten om een realistische simulatie te doen lopen over een \doxylink{classMetroNet}{Metro\+Net}. Hierbij moeten we \doxylink{classTram}{Tram} en \doxylink{classStation}{Station} zodanig aanpassen zodat trammen over een bepaalde afstand rijden in een bepaalde tijd met een bepaalde fSnelheid.
 \end{DoxyNote}
 \Hypertarget{namespaceUtils_ad11847528f09e17aa92ae59e41d16427}\label{namespaceUtils_ad11847528f09e17aa92ae59e41d16427} 
 \index{Utils@{Utils}!validMetroNet@{validMetroNet}}

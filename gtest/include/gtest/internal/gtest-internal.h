@@ -906,7 +906,7 @@ bool ArrayEq(const T* lhs, size_t size, const U* rhs) {
   return true;
 }
 
-// Finds the first element in the iterator range [begin, end) that
+// Finds the first fElement in the iterator range [begin, end) that
 // equals elem.  Element may be a native array type itself.
 template <typename Iter, typename Element>
 Iter ArrayAwareFind(Iter begin, Iter end, const Element& elem) {

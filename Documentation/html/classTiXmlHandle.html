@@ -101,11 +101,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a586ebaca4a4d0909db65a765d95d5e59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af0643f8683f3f2b779b8c9d78c67b2c0"><td class="memItemLeft" align="right" valign="top"><a id="af0643f8683f3f2b779b8c9d78c67b2c0" name="af0643f8683f3f2b779b8c9d78c67b2c0"></a>
 <a class="el" href="classTiXmlHandle.html">TiXmlHandle</a>&#160;</td><td class="memItemRight" valign="bottom"><b>FirstChildElement</b> () const</td></tr>
-<tr class="memdesc:af0643f8683f3f2b779b8c9d78c67b2c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a handle to the first child element. <br /></td></tr>
+<tr class="memdesc:af0643f8683f3f2b779b8c9d78c67b2c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a handle to the first child fElement. <br /></td></tr>
 <tr class="separator:af0643f8683f3f2b779b8c9d78c67b2c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3eaf2d2d4c087cd8a48da261042e75bc"><td class="memItemLeft" align="right" valign="top"><a id="a3eaf2d2d4c087cd8a48da261042e75bc" name="a3eaf2d2d4c087cd8a48da261042e75bc"></a>
 <a class="el" href="classTiXmlHandle.html">TiXmlHandle</a>&#160;</td><td class="memItemRight" valign="bottom"><b>FirstChildElement</b> (const char *value) const</td></tr>
-<tr class="memdesc:a3eaf2d2d4c087cd8a48da261042e75bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a handle to the first child element with the given name. <br /></td></tr>
+<tr class="memdesc:a3eaf2d2d4c087cd8a48da261042e75bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a handle to the first child fElement with the given name. <br /></td></tr>
 <tr class="separator:a3eaf2d2d4c087cd8a48da261042e75bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9903b035444ee36450fe00ede403f920"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTiXmlHandle.html">TiXmlHandle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTiXmlHandle.html#a9903b035444ee36450fe00ede403f920">Child</a> (const char *value, int index) const</td></tr>
 <tr class="separator:a9903b035444ee36450fe00ede403f920"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -140,14 +140,14 @@ Public Member Functions</h2></td></tr>
         &lt;Child attributeB = "value2" /&gt;
     &lt;/Element&gt;
 &lt;Document&gt;
-</pre><p>Assuming you want the value of "attributeB" in the 2nd "Child" element, it's very easy to write a <em>lot</em> of code that looks like:</p>
+</pre><p>Assuming you want the value of "attributeB" in the 2nd "Child" fElement, it's very easy to write a <em>lot</em> of code that looks like:</p>
 <pre class="fragment">TiXmlElement* root = document.FirstChildElement( "Document" );
 if ( root )
 {
-    TiXmlElement* element = root-&gt;FirstChildElement( "Element" );
-    if ( element )
+    TiXmlElement* fElement = root-&gt;FirstChildElement( "Element" );
+    if ( fElement )
     {
-        TiXmlElement* child = element-&gt;FirstChildElement( "Child" );
+        TiXmlElement* child = fElement-&gt;FirstChildElement( "Child" );
         if ( child )
         {
             TiXmlElement* child2 = child-&gt;NextSiblingElement( "Child" );
@@ -172,7 +172,7 @@ while ( true )
     // do something
     ++i;
 }
-</pre><p>It seems reasonable, but it is in fact two embedded while loops. The Child method is a linear walk to find the element, so this code would iterate much more than it needs to. Instead, prefer:</p>
+</pre><p>It seems reasonable, but it is in fact two embedded while loops. The Child method is a linear walk to find the fElement, so this code would iterate much more than it needs to. Instead, prefer:</p>
 <pre class="fragment">TiXmlElement* child = docHandle.FirstChild( "Document" ).FirstChild( "Element" ).FirstChild( "Child" ).ToElement();
 
 for( child; child; child=child-&gt;NextSiblingElement() )
@@ -253,7 +253,7 @@ for( child; child; child=child-&gt;NextSiblingElement() )
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Return a handle to the "index" child element with the given name. The first child element is 0, the second 1, etc. Note that only TiXmlElements are indexed: other types are not counted. </p>
+<p>Return a handle to the "index" child fElement with the given name. The first child fElement is 0, the second 1, etc. Note that only TiXmlElements are indexed: other types are not counted. </p>
 
 </div>
 </div>
@@ -272,7 +272,7 @@ for( child; child; child=child-&gt;NextSiblingElement() )
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Return a handle to the "index" child element. The first child element is 0, the second 1, etc. Note that only TiXmlElements are indexed: other types are not counted. </p>
+<p>Return a handle to the "index" child fElement. The first child fElement is 0, the second 1, etc. Note that only TiXmlElements are indexed: other types are not counted. </p>
 
 </div>
 </div>

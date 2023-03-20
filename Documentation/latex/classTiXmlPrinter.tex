@@ -17,10 +17,10 @@ virtual bool \mbox{\hyperlink{classTiXmlPrinter_a2ec73087db26ff4d2c4316c56f861db
 \begin{DoxyCompactList}\small\item\em Visit a document. \end{DoxyCompactList}\item 
 virtual bool \mbox{\hyperlink{classTiXmlPrinter_a0a636046fa589b6d7f3e5bd025b3f33e}{Visit\+Exit}} (const \mbox{\hyperlink{classTiXmlDocument}{Ti\+Xml\+Document}} \&doc)
 \begin{DoxyCompactList}\small\item\em Visit a document. \end{DoxyCompactList}\item 
-virtual bool \mbox{\hyperlink{classTiXmlPrinter_a6dccaf5ee4979f13877690afe28721e8}{Visit\+Enter}} (const \mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} \&element, const \mbox{\hyperlink{classTiXmlAttribute}{Ti\+Xml\+Attribute}} $\ast$first\+Attribute)
-\begin{DoxyCompactList}\small\item\em Visit an element. \end{DoxyCompactList}\item 
-virtual bool \mbox{\hyperlink{classTiXmlPrinter_ae6a1df8271df4bf62d7873c38e34aa69}{Visit\+Exit}} (const \mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} \&element)
-\begin{DoxyCompactList}\small\item\em Visit an element. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classTiXmlPrinter_a6dccaf5ee4979f13877690afe28721e8}{Visit\+Enter}} (const \mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} \&fElement, const \mbox{\hyperlink{classTiXmlAttribute}{Ti\+Xml\+Attribute}} $\ast$first\+Attribute)
+\begin{DoxyCompactList}\small\item\em Visit an fElement. \end{DoxyCompactList}\item
+virtual bool \mbox{\hyperlink{classTiXmlPrinter_ae6a1df8271df4bf62d7873c38e34aa69}{Visit\+Exit}} (const \mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} \&fElement)
+\begin{DoxyCompactList}\small\item\em Visit an fElement. \end{DoxyCompactList}\item
 virtual bool \mbox{\hyperlink{classTiXmlPrinter_adaf7eec4dc43ad071ff52b60361574f5}{Visit}} (const \mbox{\hyperlink{classTiXmlDeclaration}{Ti\+Xml\+Declaration}} \&declaration)
 \begin{DoxyCompactList}\small\item\em Visit a declaration. \end{DoxyCompactList}\item 
 virtual bool \mbox{\hyperlink{classTiXmlPrinter_a0857c5d32c59b9a257f9a49cb9411df5}{Visit}} (const \mbox{\hyperlink{classTiXmlText}{Ti\+Xml\+Text}} \&text)
@@ -54,9 +54,9 @@ virtual bool \mbox{\hyperlink{classTiXmlVisitor_a07baecb52dd7d8716ae2a48ad0956ee
 virtual bool \mbox{\hyperlink{classTiXmlVisitor_aa0ade4f27087447e93974e975c3246ad}{Visit\+Exit}} (const \mbox{\hyperlink{classTiXmlDocument}{Ti\+Xml\+Document}} \&)
 \begin{DoxyCompactList}\small\item\em Visit a document. \end{DoxyCompactList}\item 
 virtual bool \mbox{\hyperlink{classTiXmlVisitor_af6c6178ffa517bbdba95d70490875fff}{Visit\+Enter}} (const \mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} \&, const \mbox{\hyperlink{classTiXmlAttribute}{Ti\+Xml\+Attribute}} $\ast$)
-\begin{DoxyCompactList}\small\item\em Visit an element. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Visit an fElement. \end{DoxyCompactList}\item
 virtual bool \mbox{\hyperlink{classTiXmlVisitor_aec2b1f8116226d52f3a1b95dafd3a32c}{Visit\+Exit}} (const \mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} \&)
-\begin{DoxyCompactList}\small\item\em Visit an element. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Visit an fElement. \end{DoxyCompactList}\item
 virtual bool \mbox{\hyperlink{classTiXmlVisitor_afad71c71ce6473fb9b4b64cd92de4a19}{Visit}} (const \mbox{\hyperlink{classTiXmlDeclaration}{Ti\+Xml\+Declaration}} \&)
 \begin{DoxyCompactList}\small\item\em Visit a declaration. \end{DoxyCompactList}\item 
 virtual bool \mbox{\hyperlink{classTiXmlVisitor_a399b8ebca5cd14664974a32d2ce029e5}{Visit}} (const \mbox{\hyperlink{classTiXmlText}{Ti\+Xml\+Text}} \&)
@@ -184,7 +184,7 @@ Reimplemented from \mbox{\hyperlink{classTiXmlVisitor_a07baecb52dd7d8716ae2a48ad
 
 
 
-Visit an element. 
+Visit an fElement.
 
 
 
@@ -212,7 +212,7 @@ Reimplemented from \mbox{\hyperlink{classTiXmlVisitor_aa0ade4f27087447e93974e975
 
 
 
-Visit an element. 
+Visit an fElement.
 
 
 

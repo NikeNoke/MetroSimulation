@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <METRONET>
     <STATION>
-        <naam>A</naam>
+        <fNaam>A</fNaam>
 
-        <vorige>C</vorige>
-        <spoorNr>12</spoorNr>
+        <fVorige>C</fVorige>
+        <fSpoorNr>12</fSpoorNr>
     </STATION>
     <TRAM>
-        <lijnNr>12</lijnNr>
-        <snelheid>60</snelheid>
-        <beginStation>A</beginStation>
+        <fLijnNr>12</fLijnNr>
+        <fSnelheid>60</fSnelheid>
+        <fBeginStation>A</fBeginStation>
     </TRAM>
 </METRONET>

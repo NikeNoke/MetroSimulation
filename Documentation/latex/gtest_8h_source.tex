@@ -393,12 +393,12 @@
 \DoxyCodeLine{00389\ \ \ \textcolor{comment}{//\ not\ members\ of\ the\ test\ fixture.\ \ Calls\ to\ RecordProperty\ made\ during}}
 \DoxyCodeLine{00390\ \ \ \textcolor{comment}{//\ lifespan\ of\ the\ test\ (from\ the\ moment\ its\ constructor\ starts\ to\ the}}
 \DoxyCodeLine{00391\ \ \ \textcolor{comment}{//\ moment\ its\ destructor\ finishes)\ will\ be\ output\ in\ XML\ as\ attributes\ of}}
-\DoxyCodeLine{00392\ \ \ \textcolor{comment}{//\ the\ <testcase>\ element.\ \ Properties\ recorded\ from\ fixture's}}
+\DoxyCodeLine{00392\ \ \ \textcolor{comment}{//\ the\ <testcase>\ fElement.\ \ Properties\ recorded\ from\ fixture's}}
 \DoxyCodeLine{00393\ \ \ \textcolor{comment}{//\ SetUpTestCase\ or\ TearDownTestCase\ are\ logged\ as\ attributes\ of\ the}}
-\DoxyCodeLine{00394\ \ \ \textcolor{comment}{//\ corresponding\ <testsuite>\ element.\ \ Calls\ to\ RecordProperty\ made\ in\ the}}
+\DoxyCodeLine{00394\ \ \ \textcolor{comment}{//\ corresponding\ <testsuite>\ fElement.\ \ Calls\ to\ RecordProperty\ made\ in\ the}}
 \DoxyCodeLine{00395\ \ \ \textcolor{comment}{//\ global\ context\ (before\ or\ after\ invocation\ of\ RUN\_ALL\_TESTS\ and\ from}}
 \DoxyCodeLine{00396\ \ \ \textcolor{comment}{//\ SetUp/TearDown\ method\ of\ Environment\ objects\ registered\ with\ Google}}
-\DoxyCodeLine{00397\ \ \ \textcolor{comment}{//\ Test)\ will\ be\ output\ as\ attributes\ of\ the\ <testsuites>\ element.}}
+\DoxyCodeLine{00397\ \ \ \textcolor{comment}{//\ Test)\ will\ be\ output\ as\ attributes\ of\ the\ <testsuites>\ fElement.}}
 \DoxyCodeLine{00398\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ RecordProperty(\textcolor{keyword}{const}\ std::string\&\ key,\ \textcolor{keyword}{const}\ std::string\&\ value);}
 \DoxyCodeLine{00399\ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ RecordProperty(\textcolor{keyword}{const}\ std::string\&\ key,\ \textcolor{keywordtype}{int}\ value);}
 \DoxyCodeLine{00400\ }
@@ -568,7 +568,7 @@
 \DoxyCodeLine{00564\ \ \ \textcolor{comment}{//\ a\ non-\/fatal\ failure\ if\ invalid\ (e.g.,\ if\ it\ conflicts\ with\ reserved}}
 \DoxyCodeLine{00565\ \ \ \textcolor{comment}{//\ key\ names).\ If\ a\ property\ is\ already\ recorded\ for\ the\ same\ key,\ the}}
 \DoxyCodeLine{00566\ \ \ \textcolor{comment}{//\ value\ will\ be\ updated,\ rather\ than\ storing\ multiple\ values\ for\ the\ same}}
-\DoxyCodeLine{00567\ \ \ \textcolor{comment}{//\ key.\ \ xml\_element\ specifies\ the\ element\ for\ which\ the\ property\ is\ being}}
+\DoxyCodeLine{00567\ \ \ \textcolor{comment}{//\ key.\ \ xml\_element\ specifies\ the\ fElement\ for\ which\ the\ property\ is\ being}}
 \DoxyCodeLine{00568\ \ \ \textcolor{comment}{//\ recorded\ and\ is\ used\ for\ validation.}}
 \DoxyCodeLine{00569\ \ \ \textcolor{keywordtype}{void}\ RecordProperty(\textcolor{keyword}{const}\ std::string\&\ xml\_element,}
 \DoxyCodeLine{00570\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classtesting_1_1TestProperty}{TestProperty}}\&\ test\_property);}
@@ -908,7 +908,7 @@
 \DoxyCodeLine{00904\ \ \ \textcolor{comment}{//\ elements\ in\ the\ vector.}}
 \DoxyCodeLine{00905\ \ \ std::vector<TestInfo*>\ test\_info\_list\_;}
 \DoxyCodeLine{00906\ \ \ \textcolor{comment}{//\ Provides\ a\ level\ of\ indirection\ for\ the\ test\ list\ to\ allow\ easy}}
-\DoxyCodeLine{00907\ \ \ \textcolor{comment}{//\ shuffling\ and\ restoring\ the\ test\ order.\ \ The\ i-\/th\ element\ in\ this}}
+\DoxyCodeLine{00907\ \ \ \textcolor{comment}{//\ shuffling\ and\ restoring\ the\ test\ order.\ \ The\ i-\/th\ fElement\ in\ this}}
 \DoxyCodeLine{00908\ \ \ \textcolor{comment}{//\ vector\ is\ the\ index\ of\ the\ i-\/th\ test\ in\ the\ shuffled\ test\ list.}}
 \DoxyCodeLine{00909\ \ \ std::vector<int>\ test\_indices\_;}
 \DoxyCodeLine{00910\ \ \ \textcolor{comment}{//\ Pointer\ to\ the\ function\ that\ sets\ up\ the\ test\ case.}}

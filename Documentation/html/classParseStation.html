@@ -80,10 +80,10 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad2d5761a1d4f7c7648930999b030b8ec"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParseStation.html#ad2d5761a1d4f7c7648930999b030b8ec">ParseStation</a> (<a class="el" href="classTiXmlElement.html">TiXmlElement</a> *element)</td></tr>
+<tr class="memitem:ad2d5761a1d4f7c7648930999b030b8ec"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParseStation.html#ad2d5761a1d4f7c7648930999b030b8ec">ParseStation</a> (<a class="el" href="classTiXmlElement.html">TiXmlElement</a> *fElement)</td></tr>
 <tr class="separator:ad2d5761a1d4f7c7648930999b030b8ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af3d3fdac6b0891c57399eeaa95623dcc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParseStation.html#af3d3fdac6b0891c57399eeaa95623dcc">setElement</a> (<a class="el" href="classTiXmlElement.html">TiXmlElement</a> *el)</td></tr>
-<tr class="memdesc:af3d3fdac6b0891c57399eeaa95623dcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set Element Zet de element van <a class="el" href="classParseStation.html">ParseStation</a>.  <br /></td></tr>
+<tr class="memdesc:af3d3fdac6b0891c57399eeaa95623dcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set Element Zet de fElement van <a class="el" href="classParseStation.html">ParseStation</a>.  <br /></td></tr>
 <tr class="separator:af3d3fdac6b0891c57399eeaa95623dcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8823c44ca85e44de27986365d167fbb8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classParseStation.html#a8823c44ca85e44de27986365d167fbb8">parseAll</a> (<a class="el" href="classMetroNet.html">MetroNet</a> &amp;metroNet, <a class="el" href="classStation.html">Station</a> *station) const</td></tr>
 <tr class="separator:a8823c44ca85e44de27986365d167fbb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -124,7 +124,7 @@ Public Member Functions</h2></td></tr>
           <td class="memname">ParseStation::ParseStation </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classTiXmlElement.html">TiXmlElement</a> *&#160;</td>
-          <td class="paramname"><em>element</em></td><td>)</td>
+          <td class="paramname"><em>fElement</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -136,7 +136,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Constructor voor <a class="el" href="classParseStation.html">ParseStation</a>. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">element</td><td>Een TiXmlEmlement dat geparsed zal worden. </td></tr>
+    <tr><td class="paramname">fElement</td><td>Een TiXmlEmlement dat geparsed zal worden. </td></tr>
   </table>
   </dd>
 </dl>
@@ -176,7 +176,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Methode dat gecalled wordt door checkValidStation of te controleren ofdat naam valid is. </p><dl class="section return"><dt>Returns</dt><dd>true of false </dd></dl>
+<p>Methode dat gecalled wordt door checkValidStation of te controleren ofdat fNaam valid is. </p><dl class="section return"><dt>Returns</dt><dd>true of false </dd></dl>
 
 </div>
 </div>
@@ -194,7 +194,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Methode dat gecalled wordt door checkValidStation of te controleren ofdat spoorNr valid is. </p><dl class="section return"><dt>Returns</dt><dd>true of false </dd></dl>
+<p>Methode dat gecalled wordt door checkValidStation of te controleren ofdat fSpoorNr valid is. </p><dl class="section return"><dt>Returns</dt><dd>true of false </dd></dl>
 
 </div>
 </div>
@@ -313,7 +313,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Methode dat gecalled wordt door parseAll om te checken ofdat naam geparsed kan worden </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Methode dat gecalled wordt door parseAll om te checken ofdat fNaam geparsed kan worden </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">metroNet</td><td>Naam van het <a class="el" href="classMetroNet.html">MetroNet</a>. </td></tr>
     <tr><td class="paramname">station</td><td>Naam van het <a class="el" href="classStation.html">Station</a>. </td></tr>
@@ -349,7 +349,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Methode dat gecalled wordt door parseAll om te checken ofdat spoorNr geparsed kan worden </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Methode dat gecalled wordt door parseAll om te checken ofdat fSpoorNr geparsed kan worden </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">metroNet</td><td>Naam van het <a class="el" href="classMetroNet.html">MetroNet</a>. </td></tr>
     <tr><td class="paramname">station</td><td>Naam van het <a class="el" href="classStation.html">Station</a>. </td></tr>
@@ -448,7 +448,7 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Set Element Zet de element van <a class="el" href="classParseStation.html">ParseStation</a>. </p>
+<p>Set Element Zet de fElement van <a class="el" href="classParseStation.html">ParseStation</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">el</td><td>Element dat gezet zal worden. </td></tr>

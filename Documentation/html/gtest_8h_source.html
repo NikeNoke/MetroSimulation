@@ -467,12 +467,12 @@ $(function() {
 <div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>  <span class="comment">// not members of the test fixture.  Calls to RecordProperty made during</span></div>
 <div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>  <span class="comment">// lifespan of the test (from the moment its constructor starts to the</span></div>
 <div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>  <span class="comment">// moment its destructor finishes) will be output in XML as attributes of</span></div>
-<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>  <span class="comment">// the &lt;testcase&gt; element.  Properties recorded from fixture&#39;s</span></div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>  <span class="comment">// the &lt;testcase&gt; fElement.  Properties recorded from fixture&#39;s</span></div>
 <div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>  <span class="comment">// SetUpTestCase or TearDownTestCase are logged as attributes of the</span></div>
-<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>  <span class="comment">// corresponding &lt;testsuite&gt; element.  Calls to RecordProperty made in the</span></div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>  <span class="comment">// corresponding &lt;testsuite&gt; fElement.  Calls to RecordProperty made in the</span></div>
 <div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>  <span class="comment">// global context (before or after invocation of RUN_ALL_TESTS and from</span></div>
 <div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>  <span class="comment">// SetUp/TearDown method of Environment objects registered with Google</span></div>
-<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>  <span class="comment">// Test) will be output as attributes of the &lt;testsuites&gt; element.</span></div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>  <span class="comment">// Test) will be output as attributes of the &lt;testsuites&gt; fElement.</span></div>
 <div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>  <span class="keyword">static</span> <span class="keywordtype">void</span> RecordProperty(<span class="keyword">const</span> std::string&amp; key, <span class="keyword">const</span> std::string&amp; value);</div>
 <div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>  <span class="keyword">static</span> <span class="keywordtype">void</span> RecordProperty(<span class="keyword">const</span> std::string&amp; key, <span class="keywordtype">int</span> value);</div>
 <div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span> </div>
@@ -642,7 +642,7 @@ $(function() {
 <div class="line"><a id="l00564" name="l00564"></a><span class="lineno">  564</span>  <span class="comment">// a non-fatal failure if invalid (e.g., if it conflicts with reserved</span></div>
 <div class="line"><a id="l00565" name="l00565"></a><span class="lineno">  565</span>  <span class="comment">// key names). If a property is already recorded for the same key, the</span></div>
 <div class="line"><a id="l00566" name="l00566"></a><span class="lineno">  566</span>  <span class="comment">// value will be updated, rather than storing multiple values for the same</span></div>
-<div class="line"><a id="l00567" name="l00567"></a><span class="lineno">  567</span>  <span class="comment">// key.  xml_element specifies the element for which the property is being</span></div>
+<div class="line"><a id="l00567" name="l00567"></a><span class="lineno">  567</span>  <span class="comment">// key.  xml_element specifies the fElement for which the property is being</span></div>
 <div class="line"><a id="l00568" name="l00568"></a><span class="lineno">  568</span>  <span class="comment">// recorded and is used for validation.</span></div>
 <div class="line"><a id="l00569" name="l00569"></a><span class="lineno">  569</span>  <span class="keywordtype">void</span> RecordProperty(<span class="keyword">const</span> std::string&amp; xml_element,</div>
 <div class="line"><a id="l00570" name="l00570"></a><span class="lineno">  570</span>                      <span class="keyword">const</span> <a class="code hl_class" href="classtesting_1_1TestProperty.html">TestProperty</a>&amp; test_property);</div>
@@ -982,7 +982,7 @@ $(function() {
 <div class="line"><a id="l00904" name="l00904"></a><span class="lineno">  904</span>  <span class="comment">// elements in the vector.</span></div>
 <div class="line"><a id="l00905" name="l00905"></a><span class="lineno">  905</span>  std::vector&lt;TestInfo*&gt; test_info_list_;</div>
 <div class="line"><a id="l00906" name="l00906"></a><span class="lineno">  906</span>  <span class="comment">// Provides a level of indirection for the test list to allow easy</span></div>
-<div class="line"><a id="l00907" name="l00907"></a><span class="lineno">  907</span>  <span class="comment">// shuffling and restoring the test order.  The i-th element in this</span></div>
+<div class="line"><a id="l00907" name="l00907"></a><span class="lineno">  907</span>  <span class="comment">// shuffling and restoring the test order.  The i-th fElement in this</span></div>
 <div class="line"><a id="l00908" name="l00908"></a><span class="lineno">  908</span>  <span class="comment">// vector is the index of the i-th test in the shuffled test list.</span></div>
 <div class="line"><a id="l00909" name="l00909"></a><span class="lineno">  909</span>  std::vector&lt;int&gt; test_indices_;</div>
 <div class="line"><a id="l00910" name="l00910"></a><span class="lineno">  910</span>  <span class="comment">// Pointer to the function that sets up the test case.</span></div>

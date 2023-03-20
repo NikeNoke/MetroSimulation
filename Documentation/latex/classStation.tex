@@ -9,7 +9,7 @@
 \item 
 \mbox{\hyperlink{classStation_a73d335726aad1d844d81cda6d9fd74e6}{Station}} ()
 \item 
-\mbox{\hyperlink{classStation_a58e12b8ad22bf39d734e0130b9033921}{Station}} (const std\+::string \&naam, const std\+::string \&volgende, const std\+::string \&vorige, int spoor\+Nr)
+\mbox{\hyperlink{classStation_a58e12b8ad22bf39d734e0130b9033921}{Station}} (const std\+::string \&fNaam, const std\+::string \&fVolgende, const std\+::string \&fVorige, int spoor\+Nr)
 \item 
 std\+::string \mbox{\hyperlink{classStation_a6dbbf88c819bc9fbb9354ff5a1c5d592}{get\+Name}} () const
 \item 
@@ -32,7 +32,7 @@ bool \mbox{\hyperlink{classStation_aab182a50a2992afe0df4412f7de4b73d}{properly\+
 
 
 \doxysubsection{Detailed Description}
-Klasse \doxylink{classStation}{Station}. Een station is een object waarover \doxylink{classTram}{Tram} objecten zouden rijden. \doxylink{classStation}{Station} objecten vormen een spoornummer, beter gezegd, een lijn in het \doxylink{classMetroNet}{Metro\+Net}. Stations zijn met elkaar verbonden, elk station heeft een volgende station en vorige station. 
+Klasse \doxylink{classStation}{Station}. Een station is een object waarover \doxylink{classTram}{Tram} objecten zouden rijden. \doxylink{classStation}{Station} objecten vormen een spoornummer, beter gezegd, een lijn in het \doxylink{classMetroNet}{Metro\+Net}. Stations zijn met elkaar verbonden, elk station heeft een fVolgende station en fVorige station.
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{classStation_a73d335726aad1d844d81cda6d9fd74e6}\label{classStation_a73d335726aad1d844d81cda6d9fd74e6} 
@@ -48,15 +48,15 @@ Een \doxylink{classStation}{Station} object zonder attributen.
 \index{Station@{Station}!Station@{Station}}
 \index{Station@{Station}!Station@{Station}}
 \doxysubsubsection{\texorpdfstring{Station()}{Station()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily Station\+::\+Station (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{naam,  }\item[{const std\+::string \&}]{volgende,  }\item[{const std\+::string \&}]{vorige,  }\item[{int}]{spoor\+Nr }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Station\+::\+Station (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{fNaam,  }\item[{const std\+::string \&}]{fVolgende,  }\item[{const std\+::string \&}]{fVorige,  }\item[{int}]{spoor\+Nr }\end{DoxyParamCaption})}
 
 Constructor voor \doxylink{classStation}{Station}. 
 \begin{DoxyParams}{Parameters}
-{\em naam} & Naam van het station. \\
+{\em fNaam} & Naam van het station. \\
 \hline
-{\em volgende} & Het volgende station. \\
+{\em fVolgende} & Het fVolgende station. \\
 \hline
-{\em vorige} & Het vorige station. \\
+{\em fVorige} & Het fVorige station. \\
 \hline
 {\em spoor\+Nr} & Het nummer van de spoor waar het station deel van is. \\
 \hline
@@ -74,7 +74,7 @@ Een \doxylink{classStation}{Station} object met attributen.
 {\footnotesize\ttfamily std\+::string Station\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 \begin{DoxyReturn}{Returns}
-De naam van het station. 
+De fNaam van het station.
 \end{DoxyReturn}
 \Hypertarget{classStation_aa87a627e10424e0ac074adf1f84fbf24}\label{classStation_aa87a627e10424e0ac074adf1f84fbf24} 
 \index{Station@{Station}!getSpoorNr@{getSpoorNr}}
@@ -92,7 +92,7 @@ Het spoornummer waar het station deel van is.
 {\footnotesize\ttfamily std\+::string Station\+::get\+Volgende (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 \begin{DoxyReturn}{Returns}
-De naam van het volgende station. 
+De fNaam van het fVolgende station.
 \end{DoxyReturn}
 \Hypertarget{classStation_a6776dd16c23da9f512d82883ea896fea}\label{classStation_a6776dd16c23da9f512d82883ea896fea} 
 \index{Station@{Station}!getVorige@{getVorige}}
@@ -101,7 +101,7 @@ De naam van het volgende station.
 {\footnotesize\ttfamily std\+::string Station\+::get\+Vorige (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 \begin{DoxyReturn}{Returns}
-De naam van het vorige station. 
+De fNaam van het fVorige station.
 \end{DoxyReturn}
 \Hypertarget{classStation_aab182a50a2992afe0df4412f7de4b73d}\label{classStation_aab182a50a2992afe0df4412f7de4b73d} 
 \index{Station@{Station}!properlyInitialized@{properlyInitialized}}
@@ -118,7 +118,7 @@ true of false naarmate ofdat het correct is geïnitialiseerd of niet.
 \doxysubsubsection{\texorpdfstring{setName()}{setName()}}
 {\footnotesize\ttfamily void Station\+::set\+Name (\begin{DoxyParamCaption}\item[{std\+::string}]{n }\end{DoxyParamCaption})}
 
-Set de naam van het station. 
+Set de fNaam van het station.
 \begin{DoxyParams}{Parameters}
 {\em n} & Naam van het station. \\
 \hline
@@ -140,9 +140,9 @@ Set het spoornummer van het station.
 \doxysubsubsection{\texorpdfstring{setVolgende()}{setVolgende()}}
 {\footnotesize\ttfamily void Station\+::set\+Volgende (\begin{DoxyParamCaption}\item[{std\+::string}]{v }\end{DoxyParamCaption})}
 
-Set de naam van het station. 
+Set de fNaam van het station.
 \begin{DoxyParams}{Parameters}
-{\em v} & Naam van het volgende station. \\
+{\em v} & Naam van het fVolgende station. \\
 \hline
 \end{DoxyParams}
 \Hypertarget{classStation_aa9e7a140b8ee9e463112e0a80cba5e23}\label{classStation_aa9e7a140b8ee9e463112e0a80cba5e23} 
@@ -151,9 +151,9 @@ Set de naam van het station.
 \doxysubsubsection{\texorpdfstring{setVorige()}{setVorige()}}
 {\footnotesize\ttfamily void Station\+::set\+Vorige (\begin{DoxyParamCaption}\item[{std\+::string}]{v }\end{DoxyParamCaption})}
 
-Set de naam van het station vorige station. 
+Set de fNaam van het station fVorige station.
 \begin{DoxyParams}{Parameters}
-{\em v} & Naam van het vorige station. \\
+{\em v} & Naam van het fVorige station. \\
 \hline
 \end{DoxyParams}
 

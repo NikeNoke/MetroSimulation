@@ -82,7 +82,7 @@ $(function() {
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aad83b2e7e79d57528691bf317ab0e1ef"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#aad83b2e7e79d57528691bf317ab0e1ef">Tram</a> ()</td></tr>
 <tr class="separator:aad83b2e7e79d57528691bf317ab0e1ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76a05f638985edefb9d9b885737c02b8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#a76a05f638985edefb9d9b885737c02b8">Tram</a> (const std::string &amp;beginStation, int snelheid, int lijnNr)</td></tr>
+<tr class="memitem:a76a05f638985edefb9d9b885737c02b8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#a76a05f638985edefb9d9b885737c02b8">Tram</a> (const std::string &amp;fBeginStation, int fSnelheid, int fLijnNr)</td></tr>
 <tr class="separator:a76a05f638985edefb9d9b885737c02b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4a7cf6313452140ed54d219d1f6afba"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#ae4a7cf6313452140ed54d219d1f6afba">getBeginStation</a> () const</td></tr>
 <tr class="separator:ae4a7cf6313452140ed54d219d1f6afba"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -134,19 +134,19 @@ Public Member Functions</h2></td></tr>
           <td class="memname">Tram::Tram </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>beginStation</em>, </td>
+          <td class="paramname"><em>fBeginStation</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>snelheid</em>, </td>
+          <td class="paramname"><em>fSnelheid</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>lijnNr</em>&#160;</td>
+          <td class="paramname"><em>fLijnNr</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -157,14 +157,14 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Constructor van een tram object. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">beginStation</td><td>De beginstation waarin de tram zich bevindt. </td></tr>
-    <tr><td class="paramname">lijnNr</td><td>Het nummer van de lijn, komt overeen met spoornummer van een station. </td></tr>
-    <tr><td class="paramname">snelheid</td><td>De snelheid dat deze type tram kan halen. </td></tr>
+    <tr><td class="paramname">fBeginStation</td><td>De beginstation waarin de tram zich bevindt. </td></tr>
+    <tr><td class="paramname">fLijnNr</td><td>Het nummer van de lijn, komt overeen met spoornummer van een station. </td></tr>
+    <tr><td class="paramname">fSnelheid</td><td>De fSnelheid dat deze type tram kan halen. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Een tram object met attributen </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>Type van trammen is nog niet geïmplementeerd. Snelheid is ook nutteloos op dit moment omdat we geen afstand hebben waarover we de snelheid kunnen gebruiken. Verdere aanpassingen nodig. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Type van trammen is nog niet geïmplementeerd. Snelheid is ook nutteloos op dit moment omdat we geen afstand hebben waarover we de fSnelheid kunnen gebruiken. Verdere aanpassingen nodig. </dd></dl>
 
 </div>
 </div>
@@ -237,7 +237,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>De snelheid van een tram. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>De fSnelheid van een tram. </dd></dl>
 
 </div>
 </div>
@@ -276,7 +276,7 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Zet voor een tram object zijn beginstation. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bs</td><td>De naam van het beginstation van een tram. </td></tr>
+    <tr><td class="paramname">bs</td><td>De fNaam van het beginstation van een tram. </td></tr>
   </table>
   </dd>
 </dl>
@@ -346,7 +346,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Zet voor een tram object zijn snelheid </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Zet voor een tram object zijn fSnelheid </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">s</td><td>Snelheid van een tram. </td></tr>
   </table>

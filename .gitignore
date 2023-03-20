@@ -3,6 +3,7 @@ cmake-build-debug-wsl
 cmake-build-release
 CMakeFiles
 Testing
+gtest
 *.lnk
 *.o
 *.cmake
