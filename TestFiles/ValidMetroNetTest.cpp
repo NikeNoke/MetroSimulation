@@ -90,7 +90,7 @@ TEST_F(ValidMetroNet, ValidMetroNet) {
         }
         doc.Clear();
 
-        EXPECT_TRUE(Utils::validMetroNetSilent(metroNet)) << "The metroNet is not Valid\n";
+        EXPECT_TRUE(metroNet.isValidMetroNetSilent()) << "The metroNet is not Valid\n";
 
         fileCounter = fileCounter + 1;
         fileName = "TestInputXML/ValidMetroNet/metroNet" + SSTR(fileCounter) + ".xml";
@@ -140,7 +140,7 @@ TEST_F(ValidMetroNet, InValidMetroNet) {
         }
         doc.Clear();
 
-        EXPECT_FALSE(Utils::validMetroNetSilent(metroNet)) << "The MetroNet was Valid, expected nonValid\n";
+        EXPECT_FALSE(metroNet.isValidMetroNetSilent()) << "The MetroNet was Valid, expected nonValid\n";
 
         fileCounter = fileCounter + 1;
         fileName = "TestInputXML/InValidMetroNet/metroNet" + SSTR(fileCounter) + ".xml";

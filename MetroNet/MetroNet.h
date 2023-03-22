@@ -83,7 +83,13 @@ public:
      * Functie dat test ofdat MetroNet correct geïnitialiseerd is.
      * @return true of false als het correct geïnitialiseerd is of als het niet correct geïnitialiseerd is.
      * **/
-    bool properlyInitialized();
+    bool properlyInitialized() const;
+
+    bool isValidMetroNet();
+
+    bool isValidMetroNetSilent();
+
+    void simulateMetroNet(int seconds);
 
 private:
     std::vector<Station *> fStations;

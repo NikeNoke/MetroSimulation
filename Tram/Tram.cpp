@@ -53,3 +53,7 @@ void Tram::setHuidigStation(std::string h) {
 bool Tram::properlyInitialized() {
     return _initCheck == this;
 }
+
+void Tram::moveTram(std::string targetStation) {
+    huidigStation = targetStation;
+}

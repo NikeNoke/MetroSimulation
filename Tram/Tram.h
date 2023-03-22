@@ -80,6 +80,8 @@ public:
      * **/
     bool properlyInitialized();
 
+    void moveTram(std::string targetStation);
+
 private:
     std::string beginStation;
     int snelheid;
