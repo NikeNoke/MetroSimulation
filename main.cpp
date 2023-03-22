@@ -10,22 +10,10 @@
 #include "ParseXML/ParseTram.h"
 #include <fstream>
 #include "ParseXML/ParseMetroNet.h"
+#include "MetroNetGenerator//MetroNetGenerator.h"
 
 int main() {
 
-    REQUIRE(Utils::fileExists("TestInputXML/metronet1.xml"), "The file does not exist");
-
-    ParseMetroNet metroNetParser("TestInputXML/metronet1.xml");
-
-    MetroNet metroNet;
-
-    metroNetParser.parseMetroNet(metroNet);
-
-
-    if(!metroNet.isValidMetroNet()){
-        std::cerr << "The MetroNet is not Valid\n";
-        return 1;
-    }
-
+    MetroNetGenerator generator("metronet.xml", "metroNetSpecs.txt");
 
 }

@@ -10,6 +10,7 @@
 bool Exporter::exportFile(MetroNet& metroNet) const {
 
     REQUIRE(metroNet.properlyInitialized(), "The metroNet is not properly initialized");
+    REQUIRE(!getPathToFile().empty(), "Path to write is empty");
 //    REQUIRE(Utils::)
 
     std::ofstream file;
@@ -37,18 +38,17 @@ bool Exporter::exportFile(MetroNet& metroNet) const {
         file << "\t\tBegin station: " << tempTrams[i]->getBeginStation() << "\n";
         file << "\t\tHuidig station: " << tempTrams[i]->getHuidigStation() << "\n";
     }
-
+    return true;
 }
 
 Exporter::Exporter(std::string pathToF) {
-    REQUIRE(Utils::fileExists("../" + pathToF), "The file does not exist!");
-    std::string temp = "../" + pathToF;
-    setPathToFile(temp);
-    ENSURE(getPathToFile() == temp, "pathToFile could not be opened");
+//    REQUIRE(Utils::fileExists("../" + pathToF), "The file does not exist!");
+    setPathToFile(pathToF);
+    ENSURE(getPathToFile() == pathToF, "pathToFile could not be opened");
 }
 
 void Exporter::setPathToFile(std::string f) {
-    REQUIRE(Utils::fileExists(f), "The file does not exist!");
+//    REQUIRE(Utils::fileExists(f), "The file does not exist!");
     pathToFile = f;
     ENSURE(getPathToFile() == f, "The set operation was a failure");
 }

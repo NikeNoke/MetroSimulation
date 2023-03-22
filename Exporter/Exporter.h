@@ -16,6 +16,8 @@ public:
 
     explicit Exporter(std::string pathToF);
 
+//    Exporter(){};
+
     bool exportFile(MetroNet& metroNet) const;
 
     std::string getPathToFile() const;

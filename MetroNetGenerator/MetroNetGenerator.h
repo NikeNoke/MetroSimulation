@@ -12,12 +12,15 @@
 #include "../ParseXML/ParseStation.h"
 #include "../Tram/Tram.h"
 #include "../Utils/utils.h"
+#include "../Exporter/Exporter.h"
 
 
 class MetroNetGenerator {
 public:
 
     explicit MetroNetGenerator(std::string pathToXml, std::string pathToWrite);
+
+    void generateMetroNet();
 
     MetroNet& getMetroNet();
 
@@ -33,6 +36,7 @@ private:
     std::string pathToOpenXml;
     std::string pathToWrite;
     MetroNet metroNet;
+//    Exporter exporter;
 };
 
 

@@ -64,8 +64,8 @@ bool ParseMetroNet::loadFile() {
 }
 
 ParseMetroNet::ParseMetroNet(std::string pathToFil) {
-    REQUIRE(Utils::fileExists("../" + pathToFil), "The file does not exist!");
-    std::string temp = "../" + pathToFil;
+    REQUIRE(Utils::fileExists(pathToFil), "The file does not exist!");
+    std::string temp =  pathToFil;
     setPathToFile(std::fopen(temp.c_str(), "r"));
     ENSURE(getPathToFile() != NULL, "pathToFile could not be opened");
 }
