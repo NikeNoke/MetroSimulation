@@ -89,7 +89,7 @@ public:
 
     bool isValidMetroNetSilent();
 
-    void simulateMetroNet(int seconds);
+    void simulateMetroNet();
 
 private:
     std::vector<Station *> fStations;

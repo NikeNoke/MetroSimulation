@@ -9,7 +9,8 @@ MetroNetGenerator::MetroNetGenerator(std::string pathToXml, std::string pathToWr
     REQUIRE(Utils::fileExists(pathToXml), "Path to xml is wrong or file does not exist");
     setPathToOpenXml(pathToXml);
     setPathToWrite(pathToWrit);
-//    exporter.setPathToFile(pathToWrit);
+//    exporter = Exporter(pathToWrit);
+    exporter.setPathToFile(pathToWrit);
 }
 
 MetroNet &MetroNetGenerator::getMetroNet() {
@@ -44,11 +45,23 @@ void MetroNetGenerator::generateMetroNet() {
 
     metroNetParser.parseMetroNet(metroNet);
 
-    Exporter exporter(getPathToWrite());
-
     exporter.exportFile(metroNet);
 
     ENSURE(metroNet.isValidMetroNet(), "The metroNet is not valid");
     ENSURE(Utils::fileExists(getPathToWrite()), "The file was not even created");
 
+}
+
+void MetroNetGenerator::simulate(int seconds) {
+    REQUIRE(getMetroNet().isValidMetroNet(), "The metroNet is not Valid");
+    for(int i = 0; i < seconds; i++){
+        getMetroNet().simulateMetroNet();
+        getExporter().exportFile(getMetroNet());
+    }
+    ENSURE(getMetroNet().isValidMetroNet(), "The metroNet is not Valid");
+}
+
+Exporter &MetroNetGenerator::getExporter() {
+    REQUIRE(exporter.properlyInitialized(), "exporter is not properlyInitialized");
+    return exporter;
 }

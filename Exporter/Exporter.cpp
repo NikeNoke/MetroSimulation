@@ -44,7 +44,9 @@ bool Exporter::exportFile(MetroNet& metroNet) const {
 Exporter::Exporter(std::string pathToF) {
 //    REQUIRE(Utils::fileExists("../" + pathToF), "The file does not exist!");
     setPathToFile(pathToF);
+    _fInitCheck = this;
     ENSURE(getPathToFile() == pathToF, "pathToFile could not be opened");
+    ENSURE(this->properlyInitialized(), "exporter is not properly initialized");
 }
 
 void Exporter::setPathToFile(std::string f) {
@@ -55,4 +57,13 @@ void Exporter::setPathToFile(std::string f) {
 
 std::string Exporter::getPathToFile() const {
     return pathToFile;
+}
+
+bool Exporter::properlyInitialized() const {
+    return this == _fInitCheck;
+}
+
+Exporter::Exporter() {
+    _fInitCheck = this;
+    ENSURE(this->properlyInitialized(), "exporter is not properly initialized");
 }

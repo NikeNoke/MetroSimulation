@@ -249,26 +249,26 @@ bool MetroNet::isValidMetroNetSilent() {
     return true;
 }
 
-void MetroNet::simulateMetroNet(int seconds) {
+void MetroNet::simulateMetroNet() {
 
     REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
 
     std::vector<Tram*> tempTrams = this->getTrams();
 
-    for (int i = 0; i < seconds; i++) {
+    for(unsigned long int j = 0; j < tempTrams.size(); j++){
+        Station *current = this->getStation(tempTrams[j]->getHuidigStation());
+        REQUIRE(current->properlyInitialized(), "The station to move the tram is not properly initialized");
+        REQUIRE(tempTrams[j]->properlyInitialized(), "The tram to move is not properly initialized");
+        REQUIRE(stationRegistered(current->getName()), "The current station of the tram is not registered");
 
-        for(unsigned long int j = 0; j < tempTrams.size(); j++){
-            Station *current = this->getStation(tempTrams[j]->getHuidigStation());
-            REQUIRE(current->properlyInitialized(), "The station to move the tram is not properly initialized");
-            REQUIRE(tempTrams[j]->properlyInitialized(), "The tram to move is not properly initialized");
-            REQUIRE(stationRegistered(current->getName()), "The current station of the tram is not registered");
+        REQUIRE(stationRegistered(current->getVolgende()), "The station to move is not registered");
 
-            REQUIRE(stationRegistered(current->getVolgende()), "The station to move is not registered");
+        tempTrams[j]->moveTram(current->getVolgende());
 
-            tempTrams[j]->moveTram(current->getVolgende());
+        std::cout << "The tram " << tempTrams[j]->getLijnNr() << " moved from station "
+            << current->getName() << " to station " << current->getVolgende() << ".\n";
 
-            ENSURE(tempTrams[j]->getHuidigStation() == current->getVolgende(), "The moving of the tram was not successful");
-        }
+        ENSURE(tempTrams[j]->getHuidigStation() == current->getVolgende(), "The moving of the tram was not successful");
     }
 }
 

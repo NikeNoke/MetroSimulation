@@ -32,11 +32,15 @@ public:
 
     void setPathToWrite(std::string p);
 
+    void simulate(int seconds);
+
+    Exporter& getExporter();
+
 private:
     std::string pathToOpenXml;
     std::string pathToWrite;
     MetroNet metroNet;
-//    Exporter exporter;
+    Exporter exporter;
 };
 
 
