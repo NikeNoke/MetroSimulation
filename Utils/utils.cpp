@@ -95,7 +95,7 @@ bool Utils::parseTram(MetroNet &metroNet, TiXmlElement *element) {
         if (innerElementName == "lijnNr" && !lijnNrFound) {
             if (!Utils::is_int(innerText)) {
                 broken = true;
-                std::cerr << "lijnNr van ingelezen trams is niet een nummer!\n";
+                std::cerr << "lijnNr van ingelezen fTrams is niet een nummer!\n";
                 break;
             }
             int temp;
@@ -106,7 +106,7 @@ bool Utils::parseTram(MetroNet &metroNet, TiXmlElement *element) {
         } else if (innerElementName == "snelheid" && !snelheidFound) {
             if (!Utils::is_int(innerText)) {
                 broken = true;
-                std::cerr << "snelheid van ingelezen trams is niet een nummer!\n";
+                std::cerr << "snelheid van ingelezen fTrams is niet een nummer!\n";
                 break;
             }
             int temp;

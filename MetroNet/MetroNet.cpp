@@ -5,16 +5,16 @@
 
 bool MetroNet::stationRegistered(const std::string &name) const {
     REQUIRE(!(Utils::is_int(name)), "The parameter name is a number");
-    for (long unsigned int i = 0; i < stations.size(); i++) {
-        if (stations[i]->getName() == name)
+    for (long unsigned int i = 0; i < fStations.size(); i++) {
+        if (fStations[i]->getName() == name)
             return true;
     }
     return false;
 }
 
 //bool MetroNet::tramRegistered(std::string &name) const { //
-//    for(int i = 0; i < trams.size(); i++){
-//        if(trams[i].lijnNr == name)
+//    for(int i = 0; i < fTrams.size(); i++){
+//        if(fTrams[i].lijnNr == name)
 //            return true;
 //    }
 //    return false;
@@ -22,37 +22,37 @@ bool MetroNet::stationRegistered(const std::string &name) const {
 
 void MetroNet::addStation(Station *const station) {
     REQUIRE(station->properlyInitialized(), "The parameter station is not properly initialized");
-    stations.push_back(station);
+    fStations.push_back(station);
 }
 
 void MetroNet::addTram(Tram *const tram) {
     REQUIRE(tram->properlyInitialized(), "The parameter tram is not properly initialized");
-    trams.push_back(tram);
+    fTrams.push_back(tram);
 }
 
 Station *MetroNet::getStation(const std::string &name) {
     REQUIRE(!(Utils::is_int(name)), "The parameter name is a number");
-    for (long unsigned int i = 0; i < stations.size(); i++) {
-        if (stations[i]->getName() == name)
-            return stations[i];
+    for (long unsigned int i = 0; i < fStations.size(); i++) {
+        if (fStations[i]->getName() == name)
+            return fStations[i];
     }
     return NULL;
 }
 
 //Tram *MetroNet::getTram(std::string &name) {
-//    for(int i = 0; i < trams.size(); i++){
-//        if(trams[i].naam == name)
-//            return &trams[i];
+//    for(int i = 0; i < fTrams.size(); i++){
+//        if(fTrams[i].naam == name)
+//            return &fTrams[i];
 //    }
 //    return NULL;
 //}
 
 std::vector<Station *> MetroNet::getStations() {
-    return stations;
+    return fStations;
 }
 
 std::vector<Tram *> MetroNet::getTrams() {
-    return trams;
+    return fTrams;
 }
 
 
@@ -81,20 +81,20 @@ bool MetroNet::moveTram(Tram *const tram, const std::string &nameStation) {
 }
 
 MetroNet::~MetroNet() {
-    for (unsigned long int i = 0; i < stations.size(); i++) {
-        delete stations[i];
+    for (unsigned long int i = 0; i < fStations.size(); i++) {
+        delete fStations[i];
     }
-    for (unsigned long int i = 0; i < trams.size(); i++) {
-        delete trams[i];
+    for (unsigned long int i = 0; i < fTrams.size(); i++) {
+        delete fTrams[i];
     }
 }
 
 MetroNet::MetroNet() {
-    _initCheck = this;
+    _fInitCheck = this;
 }
 
 bool MetroNet::properlyInitialized() {
-    return _initCheck == this;
+    return _fInitCheck == this;
 }
 
 

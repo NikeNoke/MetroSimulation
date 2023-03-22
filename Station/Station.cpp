@@ -7,54 +7,54 @@
 #include "../Utils/utils.h"
 
 Station::Station() {
-    _initCheck = this;
+    _fInitCheck = this;
 }
 
-Station::Station(const std::string &naam,const std::string& volgende,const std::string& vorige, int spoorNr) : naam(naam),
-                                                                                                     volgende(volgende),
-                                                                                                     vorige(vorige),
-                                                                                                     spoorNr(spoorNr) {
+Station::Station(const std::string &naam,const std::string& volgende,const std::string& vorige, int spoorNr) : fNaam(naam),
+                                                                                                               fVolgende(volgende),
+                                                                                                               fVorige(vorige),
+                                                                                                               fSpoorNr(spoorNr) {
     REQUIRE(!(Utils::is_int(naam)), "The parameter naam is a number");
     REQUIRE(!(Utils::is_int(volgende)), "The parameter volgende is a number");
     REQUIRE(!(Utils::is_int(vorige)), "The parameter vorige is a number");
-    _initCheck = this;
+    _fInitCheck = this;
 }
 
 std::string Station::getName() const {
-    return naam;
+    return fNaam;
 }
 
 std::string Station::getVolgende() const {
-    return volgende;
+    return fVolgende;
 }
 
 std::string Station::getVorige() const {
-    return vorige;
+    return fVorige;
 }
 
 int Station::getSpoorNr() const {
-    return spoorNr;
+    return fSpoorNr;
 }
 
 void Station::setName(std::string n) {
     REQUIRE(!(Utils::is_int(n)), "The parameter naam is a number");
-    naam = n;
+    fNaam = n;
 }
 
 void Station::setVolgende(std::string v) {
     REQUIRE(!(Utils::is_int(v)), "The parameter volgende is a number");
-    volgende = v;
+    fVolgende = v;
 }
 
 void Station::setVorige(std::string v) {
     REQUIRE(!(Utils::is_int(v)), "The parameter vorige is a number");
-    vorige = v;
+    fVorige = v;
 }
 
 void Station::setSpoorNr(int s) {
-    spoorNr = s;
+    fSpoorNr = s;
 }
 
 bool Station::properlyInitialized() {
-    return _initCheck == this;
+    return _fInitCheck == this;
 }

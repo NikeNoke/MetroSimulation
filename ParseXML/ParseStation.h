@@ -27,6 +27,8 @@ public:
      * @brief Set Element
      * Zet de element van ParseStation.
      * @param el Element dat gezet zal worden.
+     * REQUIRE:
+     * ENSURE:
      */
     void setElement(TiXmlElement *el);
 
@@ -39,6 +41,9 @@ public:
     bool parseAll(MetroNet &metroNet, Station* station) const;
 
     /**
+     *     REQUIRE(station->properlyInitialized(), "Station is not properlyInitialized");
+             REQUIRE(fElement != NULL, "TixmlElement is NULL");
+            REQUIRE(checkValidStation() == true, "The Station tag is not correct");
      * Methode dat gecalled wordt door parseAll om te checken ofdat naam geparsed kan worden
      * @param metroNet Naam van het MetroNet.
      * @param station Naam van het Station.
@@ -108,7 +113,7 @@ public:
 
 
 private:
-    TiXmlElement *element;
+    TiXmlElement *fElement;
 
 };
 

@@ -97,7 +97,7 @@ public:
 
 
 private:
-    TiXmlElement *element;
+    TiXmlElement * fElement;
 
 };
 
