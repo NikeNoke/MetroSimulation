@@ -3,7 +3,6 @@
 #include "../TinyXML/tinyxml.h"
 #include "../Utils/utils.h"
 #include "../ParseXML/ParseTram.h"
-#include "../ParseXML/ParseStation.h"
 #include "../MetroNetGenerator/MetroNetGenerator.h"
 
 //https://stackoverflow.com/questions/5590381/easiest-way-to-convert-int-to-string-in-c
@@ -29,9 +28,10 @@ TEST_F(ValidMetroNet, ValidMetroNet) {
 
     int fileCounter = 0;
     std::string fileName = "TestInputXML/ValidMetroNet/metroNet" + SSTR(fileCounter) + ".xml";
+    std::string output = "TestOutput/metroNetTestSpecs.txt";
 
     while (Utils::fileExists(fileName)) {
-        MetroNetGenerator generator(fileName, "metroNetTestSpecs.txt");
+        MetroNetGenerator generator(fileName, output);
 
         EXPECT_NO_FATAL_FAILURE(generator.generateMetroNet()) << "The metroNet was not Valid!\n";
 
@@ -47,10 +47,11 @@ TEST_F(ValidMetroNet, InValidMetroNet) {
 
     int fileCounter = 0;
     std::string fileName = "TestInputXML/InValidMetroNet/metroNet" + SSTR(fileCounter) + ".xml";
+    std::string output = "TestOutput/metroNetTestSpecs.txt";
 
     while (Utils::fileExists(fileName)) {
 
-        MetroNetGenerator generator(fileName, "metroNetTestSpecs.txt");
+        MetroNetGenerator generator(fileName, output);
 
         EXPECT_DEATH(generator.generateMetroNet(), "c") << "The metroNet was Valid\n";
 
