@@ -222,3 +222,7 @@ bool ParseTram::checkNonValidAttributes() const {
     return false;
 }
 
+TiXmlElement *ParseTram::getElement() const {
+    return fElement;
+}
+

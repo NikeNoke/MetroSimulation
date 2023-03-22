@@ -106,6 +106,8 @@ public:
 */
     bool checkNonValidAttributes() const;
 
+    TiXmlElement * getElement() const;
+
 private:
     TiXmlElement *element;
 
