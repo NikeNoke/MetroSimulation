@@ -49,7 +49,7 @@ bool ParseMetroNet::parseMetroNet(MetroNet &metroNet) {
 
     getDoc().Clear();
 
-    if(metroNet.isValidMetroNet())
+    if(metroNet.isValidMetroNetSilent())
         return true;
     else
         return false;
@@ -65,8 +65,7 @@ bool ParseMetroNet::loadFile() {
 
 ParseMetroNet::ParseMetroNet(std::string pathToFil) {
     REQUIRE(Utils::fileExists(pathToFil), "The file does not exist!");
-    std::string temp =  pathToFil;
-    setPathToFile(std::fopen(temp.c_str(), "r"));
+    setPathToFile(std::fopen(pathToFil.c_str(), "r"));
     ENSURE(getPathToFile() != NULL, "pathToFile could not be opened");
 }
 
