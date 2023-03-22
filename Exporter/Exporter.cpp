@@ -38,6 +38,9 @@ bool Exporter::exportFile(MetroNet& metroNet) const {
         file << "\t\tBegin station: " << tempTrams[i]->getBeginStation() << "\n";
         file << "\t\tHuidig station: " << tempTrams[i]->getHuidigStation() << "\n";
     }
+
+    ENSURE(Utils::fileExists(getPathToFile()), "The file was not even created!");
+    ENSURE(!Utils::fileIsEmpty(getPathToFile()), "The written file is empty");
     return true;
 }
 

@@ -70,14 +70,14 @@ public:
      * **/
     std::vector<Tram *> getTrams();
 
-    /**
-     * Functie dat een tram verplaatst naar een station.
-     * @param tram De tram die verplaatst zou worden.
-     * @param nameStation De string die overeenkomt met de naam van een station en waarnaar de tram zal verplaatst
-     * worden.
-     * @return true of false afhankelijk ofdat de move gaat of niet gaat.
-     * **/
-    bool moveTram(Tram *const tram, const std::string &nameStation);
+//    /**
+//     * Functie dat een tram verplaatst naar een station.
+//     * @param tram De tram die verplaatst zou worden.
+//     * @param nameStation De string die overeenkomt met de naam van een station en waarnaar de tram zal verplaatst
+//     * worden.
+//     * @return true of false afhankelijk ofdat de move gaat of niet gaat.
+//     * **/
+//    bool moveTram(Tram *const tram, const std::string &nameStation);
 
     /**
      * Functie dat test ofdat MetroNet correct geïnitialiseerd is.

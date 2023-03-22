@@ -26,29 +26,6 @@ namespace Utils{
      * **/
     bool is_int(const std::string &s);
 
-    /**
-     * Functie dat in een XML file een element station zal parsen.
-     * @param metroNet Het metronet waarin het station zal gepushed worden.
-     * @param element Het station dat geparst wordt.
-     * @return true of false afhankelijk ofdat het station geparst en gepushed kon worden of niet.
-     * **/
-    bool parseStation(MetroNet& metroNet, TiXmlElement* element);
-
-    /**
-     * Functie dat in een XML file een element tram zal parsen.
-     * @param metroNet Het metronet waarin het station zal gepushed worden.
-     * @param element De tram dat geparst wordt.
-     * @return true of false afhankelijk ofdat de tram geparst en gepushed kon worden of niet.
-     * **/
-    bool parseTram(MetroNet& metroNet, TiXmlElement* element);
-
-    /**
-     * Fuctie dat een file zal creëren van een MetroNet object.
-     * @param file De file naarwaar het metronet zal weggeschreven worden.
-     * @param metroNet Het metronet dat zal weggeschreven worden.
-     * **/
-    void writeSpecs(std::ofstream& file, MetroNet& metroNet);
-
 //    /**
 //     * Functie dat zal nazien ofdat een metronet correct geïnitialiseerd is en wordt geprint op console.
 //     * @param metroNet Het metronet dat gecontroleerd wordt.

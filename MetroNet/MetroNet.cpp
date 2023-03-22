@@ -36,6 +36,7 @@ void MetroNet::addTram(Tram *const tram) {
 
 Station *MetroNet::getStation(const std::string &name) {
     REQUIRE(!(Utils::is_int(name)), "The parameter name is a number");
+    REQUIRE(stationRegistered(name), "The station is not Registered!");
     for (long unsigned int i = 0; i < fStations.size(); i++) {
         if (fStations[i]->getName() == name)
             return fStations[i];
@@ -59,30 +60,30 @@ std::vector<Tram *> MetroNet::getTrams() {
     return fTrams;
 }
 
-
-bool MetroNet::moveTram(Tram *const tram, const std::string &nameStation) {
-
-    REQUIRE(tram->properlyInitialized(), "The parameter tram is not properly initialized");
-    REQUIRE(!(Utils::is_int(nameStation)), "The parameter nameStation is a number");
-    Station *current = getStation(tram->getHuidigStation());
-
-    if (nameStation != current->getVorige() && nameStation != current->getVolgende()) {
-        std::cerr << "De tram kan niet verplaatst worden naar " << nameStation << "\n";
-        return false;
-    }
-
-    if (nameStation == current->getVorige()) {
-        std::cout << "De tram " << tram->getLijnNr() << " reed van station " << tram->getHuidigStation()
-                  << " naar station " << current->getVorige() << "\n";
-        tram->setHuidigStation(current->getVorige());
-        return true;
-    } else {
-        std::cout << "De tram " << tram->getLijnNr() << " reed van station " << tram->getHuidigStation()
-                  << " naar station " << current->getVolgende() << "\n";
-        tram->setHuidigStation(current->getVolgende());
-        return true;
-    }
-}
+//
+//bool MetroNet::moveTram(Tram *const tram, const std::string &nameStation) {
+//
+//    REQUIRE(tram->properlyInitialized(), "The parameter tram is not properly initialized");
+//    REQUIRE(!(Utils::is_int(nameStation)), "The parameter nameStation is a number");
+//    Station *current = getStation(tram->getHuidigStation());
+//
+//    if (nameStation != current->getVorige() && nameStation != current->getVolgende()) {
+//        std::cerr << "De tram kan niet verplaatst worden naar " << nameStation << "\n";
+//        return false;
+//    }
+//
+//    if (nameStation == current->getVorige()) {
+//        std::cout << "De tram " << tram->getLijnNr() << " reed van station " << tram->getHuidigStation()
+//                  << " naar station " << current->getVorige() << "\n";
+//        tram->setHuidigStation(current->getVorige());
+//        return true;
+//    } else {
+//        std::cout << "De tram " << tram->getLijnNr() << " reed van station " << tram->getHuidigStation()
+//                  << " naar station " << current->getVolgende() << "\n";
+//        tram->setHuidigStation(current->getVolgende());
+//        return true;
+//    }
+//}
 
 MetroNet::~MetroNet() {
     for (unsigned long int i = 0; i < fStations.size(); i++) {
