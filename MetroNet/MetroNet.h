@@ -86,9 +86,9 @@ public:
     bool properlyInitialized();
 
 private:
-    std::vector<Station *> stations;
-    std::vector<Tram *> trams;
-    MetroNet *_initCheck;
+    std::vector<Station *> fStations;
+    std::vector<Tram *> fTrams;
+    MetroNet * _fInitCheck;
 };
 
 

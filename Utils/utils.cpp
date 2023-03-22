@@ -95,7 +95,7 @@ bool Utils::parseTram(MetroNet &metroNet, TiXmlElement *element) {
         if (innerElementName == "lijnNr" && !lijnNrFound) {
             if (!Utils::is_int(innerText)) {
                 broken = true;
-                std::cerr << "lijnNr van ingelezen trams is niet een nummer!\n";
+                std::cerr << "lijnNr van ingelezen fTrams is niet een nummer!\n";
                 break;
             }
             int temp;
@@ -106,7 +106,7 @@ bool Utils::parseTram(MetroNet &metroNet, TiXmlElement *element) {
         } else if (innerElementName == "snelheid" && !snelheidFound) {
             if (!Utils::is_int(innerText)) {
                 broken = true;
-                std::cerr << "snelheid van ingelezen trams is niet een nummer!\n";
+                std::cerr << "snelheid van ingelezen fTrams is niet een nummer!\n";
                 break;
             }
             int temp;
@@ -380,10 +380,4 @@ bool Utils::validMetroNetSilent(MetroNet &metroNet) {
     }
 
     return true;
-}
-
-void Utils::checkFile(TiXmlDocument &doc, TiXmlElement *&root, const std::string &fileName) {
-    ASSERT_TRUE(doc.LoadFile(fileName.c_str())) << "The file cannot be opened\n";
-    root = doc.FirstChildElement();
-    ASSERT_TRUE(root != NULL) << "The root cannot be NULL\n";
 }

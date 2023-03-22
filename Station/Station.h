@@ -82,11 +82,11 @@ public:
 
 private:
 
-    std::string naam;
-    std::string volgende;
-    std::string vorige;
-    int spoorNr;
-    Station* _initCheck;
+    std::string fNaam;
+    std::string fVolgende;
+    std::string fVorige;
+    int fSpoorNr;
+    Station* _fInitCheck;
 };
 
 
