@@ -26,42 +26,19 @@ namespace Utils{
      * **/
     bool is_int(const std::string &s);
 
-    /**
-     * Functie dat in een XML file een fElement station zal parsen.
-     * @param metroNet Het metronet waarin het station zal gepushed worden.
-     * @param element Het station dat geparst wordt.
-     * @return true of false afhankelijk ofdat het station geparst en gepushed kon worden of niet.
-     * **/
-    bool parseStation(MetroNet& metroNet, TiXmlElement* element);
-
-    /**
-     * Functie dat in een XML file een fElement tram zal parsen.
-     * @param metroNet Het metronet waarin het station zal gepushed worden.
-     * @param element De tram dat geparst wordt.
-     * @return true of false afhankelijk ofdat de tram geparst en gepushed kon worden of niet.
-     * **/
-    bool parseTram(MetroNet& metroNet, TiXmlElement* element);
-
-    /**
-     * Fuctie dat een file zal creëren van een MetroNet object.
-     * @param file De file naarwaar het metronet zal weggeschreven worden.
-     * @param metroNet Het metronet dat zal weggeschreven worden.
-     * **/
-    void writeSpecs(std::ofstream& file, MetroNet& metroNet);
-
-    /**
-     * Functie dat zal nazien ofdat een metronet correct geïnitialiseerd is en wordt geprint op console.
-     * @param metroNet Het metronet dat gecontroleerd wordt.
-     * @return true of false afhankelijk ofdat het metronet correct geïnitialiseerd is of niet.
-     * **/
-    bool validMetroNet(MetroNet& metroNet);
-
-    /**
-    * Functie dat zal nazien ofdat een metronet correct geïnitialiseerd is en wordt NIET geprint op console.
-     * @param metroNet Het metronet dat gecontroleerd wordt.
-    * @return true of false afhankelijk ofdat het metronet correct geïnitialiseerd is of niet.
-     * **/
-    bool validMetroNetSilent(MetroNet& metroNet);
+//    /**
+//     * Functie dat zal nazien ofdat een metronet correct geïnitialiseerd is en wordt geprint op console.
+//     * @param metroNet Het metronet dat gecontroleerd wordt.
+//     * @return true of false afhankelijk ofdat het metronet correct geïnitialiseerd is of niet.
+//     * **/
+//    bool validMetroNet(MetroNet& metroNet);
+//
+//    /**
+//    * Functie dat zal nazien ofdat een metronet correct geïnitialiseerd is en wordt NIET geprint op console.
+//     * @param metroNet Het metronet dat gecontroleerd wordt.
+//    * @return true of false afhankelijk ofdat het metronet correct geïnitialiseerd is of niet.
+//     * **/
+//    bool validMetroNetSilent(MetroNet& metroNet);
 
     /**
      * Simpele functie dat ons toelaat om i.p.v een bool terug te geven een custom message terug te geven.
@@ -69,17 +46,17 @@ namespace Utils{
      * @return Custom message, in dit geval "gevonden" als b true is en "niet gevonden" als b false is.
      * **/
     std::string boolToText(bool b);
-
-    /**
-     * Functie dat ons toelaat om een metronet te laten simuleren voor een bepaald aantal moves.
-     * @param metroNet Het metronet dat we gaan simuleren.
-     * @param amountOfMove De hoevelheid stappen dat we gaan simuleren.
-     * @note Deze functie moeten we aanpassen zodat het i.p.v. werkt met een hoeveelheid moves, dat het werkt met gebruik
-     * van een tijdstip. Hierbij moeten we echter zorgen dat we meerdere attributes hebben die toelaten om een
-     * realistische simulatie te doen lopen over een MetroNet. Hierbij moeten we Tram en Station zodanig aanpassen
-     * zodat trammen over een bepaalde afstand rijden in een bepaalde tijd met een bepaalde fSnelheid.
-     * **/
-    void simulateMetroNet(MetroNet& metroNet, int amountOfMove);
+//
+//    /**
+//     * Functie dat ons toelaat om een metronet te laten simuleren voor een bepaald aantal moves.
+//     * @param metroNet Het metronet dat we gaan simuleren.
+//     * @param amountOfMove De hoevelheid stappen dat we gaan simuleren.
+//     * @note Deze functie moeten we aanpassen zodat het i.p.v. werkt met een hoeveelheid moves, dat het werkt met gebruik
+//     * van een tijdstip. Hierbij moeten we echter zorgen dat we meerdere attributes hebben die toelaten om een
+//     * realistische simulatie te doen lopen over een MetroNet. Hierbij moeten we Tram en Station zodanig aanpassen
+//     * zodat trammen over een bepaalde afstand rijden in een bepaalde tijd met een bepaalde snelheid.
+//     * **/
+//    void simulateMetroNet(MetroNet& metroNet, int amountOfMove);
 
     /**
      * Simpele functie dat een vrij gerandomiseerde integer terug geeft.

@@ -26,7 +26,7 @@ public:
 
 
     /**
-     * Method stationRegistered die controleert dat station attribute "fNaam" correct ingelezen wordt.
+     * Method stationRegistered die controleert dat station attribute "naam" correct ingelezen wordt.
      * @param name wordt gecontroleert.
      * @return true of false afhankelijk ofdat het station correct werd ingelezen.
      * **/
@@ -48,20 +48,20 @@ public:
     /**
      * Getter dat het station returned met parameter name.
      * @param name Naam van het station dat gezocht wordt.
-     * @return Geeft station terug dat als fNaam "name" heeft of als die niet bestaat geeft het NULL terug.
+     * @return Geeft station terug dat als naam "name" heeft of als die niet bestaat geeft het NULL terug.
      * **/
     Station *getStation(const std::string &name);
 
     /**
      * Getter dat de tram returned met parameter name.
      * @param name
-     * @return Geeft tram terug dat als fNaam "name" heeft of als die niet bestaat geeft het NULL terug.
+     * @return Geeft tram terug dat als naam "name" heeft of als die niet bestaat geeft het NULL terug.
      * @note Functie is nog niet geïmplementeerd.
      * **/
     Tram *getTram(const std::string &name);
 
     /**
-     * @return een vector met daarin alle fStations.
+     * @return een vector met daarin alle stations.
      * **/
     std::vector<Station *> getStations();
 
@@ -70,20 +70,26 @@ public:
      * **/
     std::vector<Tram *> getTrams();
 
-    /**
-     * Functie dat een tram verplaatst naar een station.
-     * @param tram De tram die verplaatst zou worden.
-     * @param nameStation De string die overeenkomt met de fNaam van een station en waarnaar de tram zal verplaatst
-     * worden.
-     * @return true of false afhankelijk ofdat de move gaat of niet gaat.
-     * **/
-    bool moveTram(Tram *const tram, const std::string &nameStation);
+//    /**
+//     * Functie dat een tram verplaatst naar een station.
+//     * @param tram De tram die verplaatst zou worden.
+//     * @param nameStation De string die overeenkomt met de naam van een station en waarnaar de tram zal verplaatst
+//     * worden.
+//     * @return true of false afhankelijk ofdat de move gaat of niet gaat.
+//     * **/
+//    bool moveTram(Tram *const tram, const std::string &nameStation);
 
     /**
      * Functie dat test ofdat MetroNet correct geïnitialiseerd is.
      * @return true of false als het correct geïnitialiseerd is of als het niet correct geïnitialiseerd is.
      * **/
-    bool properlyInitialized();
+    bool properlyInitialized() const;
+
+    bool isValidMetroNet();
+
+    bool isValidMetroNetSilent();
+
+    void simulateMetroNet();
 
 private:
     std::vector<Station *> fStations;

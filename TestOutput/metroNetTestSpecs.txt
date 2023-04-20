@@ -1,4 +1,4 @@
-Stations: 
+Stations:
 	station0:
 		Naam: A
 		Vorige Station: C
@@ -75,17 +75,17 @@ Stations:
 		Naam: NationaleBank
 		Vorige Station: Stadspark
 		Volgende Station: Zwanebeek
-Trams: 
+Trams:
 	tram0:
 		LijnNr: 12
 		Snelheid: 60
 		Begin station: A
-		Huidig station: B
+		Huidig station: A
 	tram1:
 		LijnNr: 33
 		Snelheid: 90
 		Begin station: Atheneum
-		Huidig station: Sterckshof
+		Huidig station: Atheneum
 	tram2:
 		LijnNr: 10
 		Snelheid: 50

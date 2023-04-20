@@ -1,0 +1,19 @@
+Stations: 
+	station0:
+		Naam: A
+		Vorige Station: C
+		Volgende Station: B
+	station1:
+		Naam: B
+		Vorige Station: A
+		Volgende Station: C
+	station2:
+		Naam: C
+		Vorige Station: B
+		Volgende Station: A
+Trams: 
+	tram0:
+		LijnNr: 12
+		Snelheid: 60
+		Begin station: F
+		Huidig station: F

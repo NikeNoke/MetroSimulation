@@ -14,9 +14,9 @@ Station::Station(const std::string &naam,const std::string& volgende,const std::
                                                                                                                fVolgende(volgende),
                                                                                                                fVorige(vorige),
                                                                                                                fSpoorNr(spoorNr) {
-    REQUIRE(!(Utils::is_int(naam)), "The parameter fNaam is a number");
-    REQUIRE(!(Utils::is_int(volgende)), "The parameter fVolgende is a number");
-    REQUIRE(!(Utils::is_int(vorige)), "The parameter fVorige is a number");
+    REQUIRE(!(Utils::is_int(naam)), "The parameter naam is a number");
+    REQUIRE(!(Utils::is_int(volgende)), "The parameter volgende is a number");
+    REQUIRE(!(Utils::is_int(vorige)), "The parameter vorige is a number");
     _fInitCheck = this;
 }
 
@@ -37,17 +37,17 @@ int Station::getSpoorNr() const {
 }
 
 void Station::setName(std::string n) {
-    REQUIRE(!(Utils::is_int(n)), "The parameter fNaam is a number");
+    REQUIRE(!(Utils::is_int(n)), "The parameter naam is a number");
     fNaam = n;
 }
 
 void Station::setVolgende(std::string v) {
-    REQUIRE(!(Utils::is_int(v)), "The parameter fVolgende is a number");
+    REQUIRE(!(Utils::is_int(v)), "The parameter volgende is a number");
     fVolgende = v;
 }
 
 void Station::setVorige(std::string v) {
-    REQUIRE(!(Utils::is_int(v)), "The parameter fVorige is a number");
+    REQUIRE(!(Utils::is_int(v)), "The parameter vorige is a number");
     fVorige = v;
 }
 
