@@ -103,11 +103,11 @@ protected:
                 tramIndex = 1;
             }
         }
-        std::cout << "end of line: " << std::boolalpha << file.eof() << "\n";
+//        std::cout << "end of line: " << std::boolalpha << file.eof() << "\n";
         std::string ok;
         std::getline(file, ok);
-        std::cout << ok << "\n";
-        std::cout << "end of line: " << std::boolalpha << file.eof() << "\n";
+//        std::cout << ok << "\n";
+//        std::cout << "end of line: " << std::boolalpha << file.eof() << "\n";
     }
 };
 

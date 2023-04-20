@@ -6,6 +6,8 @@
 #define METROSIMULATION_STATION_H
 
 #include <string>
+#include <vector>
+class Spoor;
 /**
 * Klasse Station. Een station is een object waarover Tram objecten zouden rijden. Station objecten vormen een
 * spoornummer, beter gezegd, een lijn in het MetroNet. Stations zijn met elkaar verbonden, elk station heeft een
@@ -28,7 +30,7 @@ public:
      * @param spoorNr Het nummer van de spoor waar het station deel van is.
      * @return Een Station object met attributen.
      * **/
-    Station(const std::string &naam,const std::string& volgende,const std::string& vorige, int spoorNr);
+//    Station(const std::string &naam,const std::string& volgende,const std::string& vorige, int spoorNr);
 
     /**
      * @return De naam van het station.
@@ -46,9 +48,9 @@ public:
     std::string getVorige() const;
 
     /**
-     * @return Het spoornummer waar het station deel van is.
+     * @return De sporen
      * **/
-    int getSpoorNr() const;
+    std::vector<Spoor*> getSpoorNr() const;
 
     /**
      * Set de naam van het station.
@@ -80,12 +82,19 @@ public:
      * **/
     bool properlyInitialized();
 
+    void setType(std::string s);
+
+    std::string getType() const;
+
+    ~Station();
+
+    bool addSpoor(Spoor *s);
+
 private:
 
+    std::vector<Spoor*> sporen;
     std::string fNaam;
-    std::string fVolgende;
-    std::string fVorige;
-    int fSpoorNr;
+    std::string fType;
     Station* _fInitCheck;
 };
 

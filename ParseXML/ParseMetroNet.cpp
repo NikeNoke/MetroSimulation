@@ -29,7 +29,7 @@ bool ParseMetroNet::parseMetroNet(MetroNet &metroNet) {
             Station* station = new Station();
             ParseStation parseStation(element);
             if(!parseStation.parseAll(metroNet, station))
-                delete station;
+                delete station; //In testing een foutboodschap gegeven?
             else
                 metroNet.addStation(station);
 

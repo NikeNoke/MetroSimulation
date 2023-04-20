@@ -95,6 +95,13 @@ public:
     */
     bool checkNonValidAttributes() const;
 
+    bool checkValidTypeTram() const;
+
+    bool parseTypeTram(MetroNet &metroNet, Tram* tram) const;
+
+    bool checkValidVoertuigNummer() const;
+
+    bool parserVoertuigNummer(MetroNet &metroNet, Tram* tram) const;
 
     TiXmlElement* getElement() const;
 

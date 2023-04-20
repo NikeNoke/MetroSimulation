@@ -6,6 +6,9 @@
 #define METROSIMULATION_TRAM_H
 
 #include <string>
+
+//enum TypeTram {PCC, StadsLijner, Albatros}; Wil het zo doen maar is zo niet handing in c++98
+
 /**
 * Klasse Tram. Een tram object is een object dat in een MetroNet zal zijn.
 * **/
@@ -82,11 +85,22 @@ public:
 
     void moveTram(std::string targetStation);
 
+    void setType(std::string type);
+
+    std::string getType() const;
+
+    void setVoertuigNummer(int n);
+
+    int getVoertuigNummer() const;
+
+
 private:
     std::string beginStation;
     int snelheid;
     int lijnNr;
     std::string huidigStation;
+    std::string type; //TODO make enum
+    int voertuigNummer;
     Tram* _initCheck;
 };
 
