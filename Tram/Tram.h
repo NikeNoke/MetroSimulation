@@ -6,6 +6,9 @@
 #define METROSIMULATION_TRAM_H
 
 #include <string>
+
+//enum TypeTram {PCC, StadsLijner, Albatros}; Wil het zo doen maar is zo niet handing in c++98
+
 /**
 * Klasse Tram. Een tram object is een object dat in een MetroNet zal zijn.
 * **/
@@ -22,10 +25,10 @@ public:
      * Constructor van een tram object.
      * @param beginStation De beginstation waarin de tram zich bevindt.
      * @param lijnNr Het nummer van de lijn, komt overeen met spoornummer van een station.
-     * @param snelheid De fSnelheid dat deze type tram kan halen.
+     * @param snelheid De snelheid dat deze type tram kan halen.
      * @return Een tram object met attributen
      * @note Type van trammen is nog niet geïmplementeerd. Snelheid is ook nutteloos op dit moment omdat we geen
-     * afstand hebben waarover we de fSnelheid kunnen gebruiken. Verdere aanpassingen nodig.
+     * afstand hebben waarover we de snelheid kunnen gebruiken. Verdere aanpassingen nodig.
      * **/
     Tram(const std::string &beginStation, int snelheid, int lijnNr);
 
@@ -35,7 +38,7 @@ public:
     std::string getBeginStation() const;
 
     /**
-     * @return De fSnelheid van een tram.
+     * @return De snelheid van een tram.
      * **/
     int getSnelheid() const;
 
@@ -52,12 +55,12 @@ public:
 
     /**
      * Zet voor een tram object zijn beginstation.
-     * @param bs De fNaam van het beginstation van een tram.
+     * @param bs De naam van het beginstation van een tram.
      * **/
     void setBeginStation(std::string bs);
 
     /**
-     * Zet voor een tram object zijn fSnelheid
+     * Zet voor een tram object zijn snelheid
      * @param s Snelheid van een tram.
      * **/
     void setSnelheid(int s);
@@ -82,12 +85,23 @@ public:
 
     void moveTram(std::string targetStation);
 
+    void setType(std::string type);
+
+    std::string getType() const;
+
+    void setVoertuigNummer(int n);
+
+    int getVoertuigNummer() const;
+
+
 private:
-    std::string fBeginStation;
-    int fSnelheid;
-    int fLijnNr;
-    std::string fHuidigStation;
-    Tram* _fInitCheck;
+    std::string beginStation;
+    int snelheid;
+    int lijnNr;
+    std::string huidigStation;
+    std::string type; //TODO make enum
+    int voertuigNummer;
+    Tram* _initCheck;
 };
 
 

@@ -11,6 +11,7 @@ MetroNetGenerator::MetroNetGenerator(std::string pathToXml, std::string pathToWr
     setPathToWrite(pathToWrit);
 //    exporter = Exporter(pathToWrit);
     exporter.setPathToFile(pathToWrit);
+    //ENSURE NEEDED? --> set op does it already!
 }
 
 MetroNet &MetroNetGenerator::getMetroNet() {

@@ -46,29 +46,6 @@ public:
 */
     bool parseNaam(MetroNet &metroNet, Station* station) const;
 
-/**
-* Methode dat gecalled wordt door parseAll om te checken ofdat Vorige geparsed kan worden
-* @param metroNet Naam van het MetroNet.
-* @param station Naam van het Station.
-* @return true of false
-*/
-    bool parseVorige(MetroNet &metroNet, Station* station) const;
-
-/**
-* Methode dat gecalled wordt door parseAll om te checken ofdat Volgende geparsed kan worden
-* @param metroNet Naam van het MetroNet.
-* @param station Naam van het Station.
-* @return true of false
-*/
-    bool parseVolgende(MetroNet &metroNet, Station* station) const;
-
-/**
-* Methode dat gecalled wordt door parseAll om te checken ofdat spoorNr geparsed kan worden
-* @param metroNet Naam van het MetroNet.
-* @param station Naam van het Station.
-* @return true of false
-*/
-    bool parseSpoorNr(MetroNet &metroNet, Station* station) const;
 
 /**
 * Checked ofdat het Station object correct is.
@@ -83,33 +60,24 @@ public:
     bool checkValidNaam() const;
 
 /**
-* Methode dat gecalled wordt door checkValidStation of te controleren ofdat Vorige valid is.
-* @return true of false
-*/
-    bool checkValidVorige() const;
-
-/**
-* Methode dat gecalled wordt door checkValidStation of te controleren ofdat Volgende valid is.
-* @return true of false
-*/
-    bool checkValidVolgende() const;
-
-/**
-* Methode dat gecalled wordt door checkValidStation of te controleren ofdat spoorNr valid is.
-* @return true of false
-*/
-    bool checkValidSpoorNr() const;
-
-/**
 * Checked ofdat er onverwachte attributes zijn.
 * @return true of false
 */
     bool checkNonValidAttributes() const;
 
+    bool checkValidTypeStation() const;
+
+    bool parseTypeStation(MetroNet &metroNet, Station* station) const;
+
     TiXmlElement * getElement() const;
+
+    bool properlyInitialized();
+
+    bool parseSpoor(MetroNet &metroNet, Station* station) const;
 
 private:
     TiXmlElement *element;
+    ParseStation* _fInitcheck;
 
 };
 

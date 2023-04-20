@@ -44,7 +44,7 @@ bool ParseTram::checkValidBeginStation() const {
     return amountOfBeginStation == 1;
 }
 
-bool ParseTram::checkValidSnelheid() const {
+bool ParseTram::checkValidSnelheid() const { //TODO change to calculate snelheid
 
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 
@@ -98,7 +98,7 @@ bool ParseTram::checkValidTram() const {
 
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 
-    return checkValidLijnNr() && checkValidSnelheid() && checkValidBeginStation() && !checkNonValidAttributes();
+    return checkValidLijnNr() && checkValidBeginStation() && checkValidTypeTram() && !checkNonValidAttributes();
 }
 
 bool ParseTram::parseSnelheid(MetroNet &metroNet, Tram* tram) const {
@@ -185,13 +185,14 @@ bool ParseTram::parseAll(MetroNet &metroNet, Tram *tram) const {
 //    REQUIRE(checkValidSpoorNr() == true, "The spoorNr tag is not correct in this Station tag");
 //    REQUIRE(checkValidVolgende() == true, "The volgende tag is not correct in this Station tag");
 
-    if(!parseBeginStation(metroNet, tram) || !parseLijnNr(metroNet, tram) || !parseSnelheid(metroNet, tram))
+    if(!parseBeginStation(metroNet, tram) || !parseLijnNr(metroNet, tram) || !parseTypeTram(metroNet, tram) || !parserVoertuigNummer(metroNet, tram))
         return false;
-
+    //TODO setsnelheid
     ENSURE(tram->getLijnNr() != -1, "The lijnNr of tram has not been correctly initialized");
     ENSURE(!tram->getBeginStation().empty(), "The beginStation of Tram has not been correctly initialized");
     ENSURE(!tram->getHuidigStation().empty(), "The huidigStation of Tram has not been correctly initialized");
     ENSURE(tram->getSnelheid() != -1, "The snelheid of tram has not been correctly initialized");
+    ENSURE(!tram->getType().empty(), "The type of Tram has not been correctly initialized");
     ENSURE(getElement() != NULL, "TixmlElement is NULL");
 
     return true;
@@ -212,7 +213,11 @@ bool ParseTram::checkNonValidAttributes() const {
             continue;
         if(innerElementName == "lijnNr")
             continue;
-        if(innerElementName == "snelheid")
+//        if(innerElementName == "snelheid") //TODO snelheid att moet niet langer supported worden
+//            continue;
+        if(innerElementName == "type")
+            continue;
+        if(innerElementName == "voertuigNr")
             continue;
         return true;
     }
@@ -224,5 +229,103 @@ bool ParseTram::checkNonValidAttributes() const {
 
 TiXmlElement *ParseTram::getElement() const {
     return fElement;
+}
+
+bool ParseTram::checkValidTypeTram() const {
+
+    REQUIRE(getElement() != NULL, "TixmlElement is NULL");
+
+    int amountOfType = 0;
+
+    for (TiXmlElement *InnerElement = getElement()->FirstChildElement();
+         InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
+
+        std::string innerElementName = InnerElement->Value();
+        std::string innerText = InnerElement->GetText();
+
+        if(innerElementName == "type"){
+            if(!Utils::is_int(innerText)) //TODO add additional checks
+                amountOfType++;
+            else
+                return false;
+        }
+    }
+
+    ENSURE(getElement() != NULL, "TixmlElement has become NULL");
+
+    return amountOfType == 1;
+}
+
+bool ParseTram::parseTypeTram(MetroNet &metroNet, Tram* tram) const {
+
+    REQUIRE(tram->properlyInitialized(), "Tram is not properlyInitialized");
+    REQUIRE(getElement() != NULL, "TixmlElement is NULL");
+    REQUIRE(checkValidTypeTram() == true, "The type tag is not correct in this Tram tag");
+
+
+    for (TiXmlElement *InnerElement = getElement()->FirstChildElement();
+         InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
+
+        std::string innerElementName = InnerElement->Value();
+        std::string innerText = InnerElement->GetText();
+
+        if(innerElementName == "type"){
+            tram->setType(innerText);
+            return true;
+        }
+    }
+    ENSURE(!tram->getType().empty(), "The type of tram has not been correctly initialized");
+    ENSURE(getElement() != NULL, "TixmlElement is NULL");
+    return false;
+}
+
+bool ParseTram::checkValidVoertuigNummer() const {
+
+    REQUIRE(getElement() != NULL, "TixmlElement is NULL");
+
+    int amountOfVoertuigNr = 0;
+
+    for (TiXmlElement *InnerElement = getElement()->FirstChildElement();
+         InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
+
+        std::string innerElementName = InnerElement->Value();
+        std::string innerText = InnerElement->GetText();
+
+        if(innerElementName == "voertuigNr"){
+            if(Utils::is_int(innerText))
+                amountOfVoertuigNr++;
+            else
+                return false;
+        }
+    }
+
+    ENSURE(getElement() != NULL, "TixmlElement has become NULL");
+
+    return amountOfVoertuigNr == 1;
+}
+
+bool ParseTram::parserVoertuigNummer(MetroNet &metroNet, Tram *tram) const {
+
+    REQUIRE(tram->properlyInitialized(), "Tram is not properlyInitialized");
+    REQUIRE(getElement() != NULL, "TixmlElement is NULL");
+    REQUIRE(checkValidVoertuigNummer() == true, "The lijnNr tag is not correct in this Tram tag");
+
+
+    for (TiXmlElement *InnerElement = getElement()->FirstChildElement();
+         InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
+
+        std::string innerElementName = InnerElement->Value();
+        std::string innerText = InnerElement->GetText();
+
+        if(innerElementName == "voertuigNr"){
+            int temp;
+            sscanf(innerText.c_str(), "%d", &temp);
+            tram->setVoertuigNummer(temp);
+            return true;
+        }
+    }
+    ENSURE(tram->getVoertuigNummer() != -1, "The lijnNr of tram has not been correctly initialized");
+    ENSURE(getElement() != NULL, "TixmlElement is NULL");
+    return false;
 }
 
