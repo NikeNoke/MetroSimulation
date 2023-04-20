@@ -21,7 +21,7 @@ void ParseStation::setElement(TiXmlElement *el) {
     ENSURE(getElement() == element, "TixmlElement is not the element of the parser");
 }
 
-bool ParseStation::parseAll(MetroNet &metroNet, Station* station) const {
+bool ParseStation::parseAll(Station* station) const {
 
     REQUIRE(station->properlyInitialized(), "Station is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
@@ -31,14 +31,15 @@ bool ParseStation::parseAll(MetroNet &metroNet, Station* station) const {
 // REQUIRE(checkValidSpoorNr() == true, "The spoorNr tag is not correct in this Station tag");
 // REQUIRE(checkValidVolgende() == true, "The volgende tag is not correct in this Station tag");
 
-    if(!parseNaam(metroNet, station) || parseSpoor(metroNet, station)
-        || !parseTypeStation(metroNet, station))
+    if(!parseNaam(station) || parseSpoor(station)
+        || !parseTypeStation(station))
         return false;
 
     ENSURE(!station->getName().empty(), "The naam of station has not been correctly initialized");
-    ENSURE(!station->getVorige().empty(), "The vorige of station has not been correctly initialized");
-    ENSURE(!station->getVolgende().empty(), "The volgende of station has not been correctly initialized");
-    ENSURE(!station->getSpoorNr().empty(), "The SPOOR's of station has not been correctly initialized");
+//    for(unsigned int i = 0; i < station->getSporen().size(); i++){
+//        ENSURE(station->getSporen()[i]->, "A spoor of Station is not properly")
+//    }
+    ENSURE(!station->getSporen().empty(), "The SPOOR's of station has not been correctly initialized");
     ENSURE(!station->getType().empty(), "The type of station has not been correctly initialized");
     ENSURE(getElement() != NULL, "TixmlElement is NULL");
 
@@ -78,7 +79,7 @@ bool ParseStation::checkValidStation() const {
 }
 
 
-bool ParseStation::parseNaam(MetroNet &metroNet, Station* station) const {
+bool ParseStation::parseNaam(Station* station) const {
 
     REQUIRE(station->properlyInitialized(), "Station is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
@@ -154,7 +155,7 @@ bool ParseStation::checkValidTypeStation() const {
     return amountOfVolgende == 1;
 }
 
-bool ParseStation::parseTypeStation(MetroNet &metroNet, Station *station) const {
+bool ParseStation::parseTypeStation(Station *station) const {
 
     REQUIRE(station->properlyInitialized(), "Station is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
@@ -180,11 +181,10 @@ bool ParseStation::properlyInitialized() {
     return _fInitcheck == this;
 }
 
-bool ParseStation::parseSpoor(MetroNet &metroNet, Station *station) const {
+bool ParseStation::parseSpoor(Station *station) const {
 
     REQUIRE(station->properlyInitialized(), "Station is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
-    REQUIRE(checkValidTypeStation() == true, "The type tag is not correct in this Station tag");
 
     for (TiXmlElement *InnerElement = getElement()->FirstChildElement();
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
@@ -193,12 +193,16 @@ bool ParseStation::parseSpoor(MetroNet &metroNet, Station *station) const {
         std::string innerText = InnerElement->GetText();
 
         if(innerElementName == "SPOOR"){
+            Spoor* spoor = new Spoor;
             ParseSpoor parseSpoor(InnerElement);
-            if (!parseSpoor.parseAll(station))
+            if (!parseSpoor.parseAll(spoor)){
+                delete spoor;
                 return false;
+            }
+            station->addSpoor(spoor);
         }
     }
-    ENSURE(!station->getType().empty(), "The type of station has not been correctly initialized");
     ENSURE(getElement() != NULL, "TixmlElement is NULL");
+    ENSURE(!station->getSporen().empty(), "The sporen cannot be empty");
     return true;
 }

@@ -16,6 +16,35 @@ public:
     * **/
     bool properlyInitialized();
 
+    /**
+* Set de naam van het station.
+ * @param v Naam van het volgende station.
+* **/
+    void setVolgende(std::string v);
+
+    /**
+    * Set de naam van het station vorige station.
+     * @param v Naam van het vorige station.
+    * **/
+    void setVorige(std::string v);
+
+    /**
+    * Set het spoornummer van het station.
+    * @param s Spoornummer waar het station deel van is.
+     * **/
+    void setSpoorNr(int s);
+
+    /**
+ * @return De naam van het volgende station.
+ * **/
+    std::string getVolgende() const;
+
+    /**
+     * @return De naam van het vorige station.
+     * **/
+    std::string getVorige() const;
+
+    int getSpoorNr() const;
 
 private:
     std::string volgende;

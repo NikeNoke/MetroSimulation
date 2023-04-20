@@ -28,7 +28,7 @@ bool ParseMetroNet::parseMetroNet(MetroNet &metroNet) {
 
             Station* station = new Station();
             ParseStation parseStation(element);
-            if(!parseStation.parseAll(metroNet, station))
+            if(!parseStation.parseAll(station))
                 delete station; //In testing een foutboodschap gegeven?
             else
                 metroNet.addStation(station);
@@ -37,7 +37,7 @@ bool ParseMetroNet::parseMetroNet(MetroNet &metroNet) {
 
             Tram* tram = new Tram();
             ParseTram parseTram(element);
-            if(!parseTram.parseAll(metroNet, tram))
+            if(!parseTram.parseAll(tram))
                 delete tram;
             else
                 metroNet.addTram(tram);

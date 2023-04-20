@@ -4,7 +4,7 @@
 int main() {
     //TODO MAKE it a while loop
     try{
-        MetroNetGenerator generator("TestInputXML/ValidMetroNet/metroNet2.xml", "metroNetSpecs.txt");
+        MetroNetGenerator generator("TestInputXML/temp.xml", "metroNetSpecs.txt");
 
         generator.generateMetroNet();
 

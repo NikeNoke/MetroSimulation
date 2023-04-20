@@ -36,7 +36,7 @@ public:
 * @param station Naam van het Station.
 * @return true of false afhankelijk ofdat het Station object geparsed kon worden.
 */
-    bool parseAll(MetroNet &metroNet, Station* station) const;
+    bool parseAll(Station* station) const;
 
 /**
 * Methode dat gecalled wordt door parseAll om te checken ofdat naam geparsed kan worden
@@ -44,7 +44,7 @@ public:
 * @param station Naam van het Station.
 * @return true of false
 */
-    bool parseNaam(MetroNet &metroNet, Station* station) const;
+    bool parseNaam(Station* station) const;
 
 
 /**
@@ -67,13 +67,13 @@ public:
 
     bool checkValidTypeStation() const;
 
-    bool parseTypeStation(MetroNet &metroNet, Station* station) const;
+    bool parseTypeStation(Station* station) const;
 
     TiXmlElement * getElement() const;
 
     bool properlyInitialized();
 
-    bool parseSpoor(MetroNet &metroNet, Station* station) const;
+    bool parseSpoor(Station* station) const;
 
 private:
     TiXmlElement *element;

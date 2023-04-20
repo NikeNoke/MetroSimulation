@@ -34,7 +34,7 @@ public: //TODO change documentation!!Q
     * @param station Naam van het Station.
     * @return true of false afhankelijk ofdat het Station object geparsed kon worden.
     */
-    bool parseAll(Station* station) const;
+    bool parseAll(Spoor* spoor) const;
 
 
     /**
@@ -43,7 +43,7 @@ public: //TODO change documentation!!Q
     * @param station Naam van het Station.
     * @return true of false
     */
-    bool parseVorige(Station* station) const;
+    bool parseVorige(Spoor* spoor) const;
 
     /**
     * Methode dat gecalled wordt door parseAll om te checken ofdat Volgende geparsed kan worden
@@ -51,7 +51,7 @@ public: //TODO change documentation!!Q
     * @param station Naam van het Station.
     * @return true of false
     */
-    bool parseVolgende(Station* station) const;
+    bool parseVolgende(Spoor* spoor) const;
 
     /**
     * Methode dat gecalled wordt door parseAll om te checken ofdat spoorNr geparsed kan worden
@@ -59,7 +59,7 @@ public: //TODO change documentation!!Q
     * @param station Naam van het Station.
     * @return true of false
     */
-    bool parseSpoorNr(Station* station) const;
+    bool parseSpoorNr(Spoor* spoor) const;
 
     /**
     * Checked ofdat het Station object correct is.

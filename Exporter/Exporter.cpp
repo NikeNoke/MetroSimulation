@@ -6,6 +6,7 @@
 #include "../MetroNet/MetroNet.h"
 #include "../DesignByContract.h"
 #include "../Utils/utils.h"
+#include "../Spoor/Spoor.h"
 
 bool Exporter::exportFile(MetroNet& metroNet) const {
 
@@ -25,8 +26,14 @@ bool Exporter::exportFile(MetroNet& metroNet) const {
     for (long unsigned int i = 0; i < tempStations.size(); i++) {
         file << "\tstation" << i << ":\n";
         file << "\t\tNaam: " << tempStations[i]->getName() << "\n";
-        file << "\t\tVorige Station: " << tempStations[i]->getVorige() << "\n";
-        file << "\t\tVolgende Station: " << tempStations[i]->getVolgende() << "\n";
+//        file << "\t\tVorige Station: " << tempStations[i]->getVorige() << "\n";
+//        file << "\t\tVolgende Station: " << tempStations[i]->getVolgende() << "\n";
+        file << "\t\tSPOREN: \n";
+        for(unsigned int j = 0; j < tempStations[i]->getSporen().size(); j++){
+            file << "\t\t\tSpoorNr: " << tempStations[i]->getSporen()[j]->getSpoorNr() << "\n";
+            file << "\t\t\tVorige Station: " << tempStations[i]->getSporen()[j]->getVorige() << "\n";
+            file << "\t\t\tVolgende Statino: " << tempStations[i]->getSporen()[j]->getVolgende() << "\n";
+        }
     }
 
     file << "Trams:\n";

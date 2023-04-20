@@ -33,7 +33,7 @@ std::string Station::getName() const {
 //    return fVorige;
 //}
 
-std::vector<Spoor*> Station::getSpoorNr() const {
+std::vector<Spoor*> Station::getSporen() const {
     return sporen;
 }
 
@@ -42,22 +42,6 @@ void Station::setName(std::string n) {
     fNaam = n;
     ENSURE(getName() == n, "The member variable naam has not been properly initialized");
 }
-
-//void Station::setVolgende(std::string v) {
-//    REQUIRE(!(Utils::is_int(v)), "The parameter volgende is a number");
-//    fVolgende = v;
-//    ENSURE(getVolgende() == v, "The member variable volgende has not been properly initialized");
-//}
-
-//void Station::setVorige(std::string v) {
-//    REQUIRE(!(Utils::is_int(v)), "The parameter vorige is a number");
-//    fVorige = v;
-//    ENSURE(getVorige() == v, "The member variable vorige has not been properly initialized");
-//}
-
-//void Station::setSpoorNr(int s) {
-//    fSpoorNr = s;
-//}
 
 bool Station::properlyInitialized() {
     return _fInitCheck == this;

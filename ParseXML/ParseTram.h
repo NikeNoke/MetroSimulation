@@ -36,7 +36,7 @@ public:
      * @param tram Naam van de Tram.
      * @return true of false afhankelijk of het gelukt is of niet.
      */
-    bool parseAll(MetroNet &metroNet, Tram* tram) const;
+    bool parseAll(Tram* tram) const;
 
     /**
      * Methode dat gecalled wordt door parseAll of te checken ofdat lijnNr geparsed kan worden.
@@ -44,7 +44,7 @@ public:
      * @param tram  Naam van de Tram.
      * @return true of false afhankelijk ofdat het lijNr geparsed kon worden.
      */
-    bool parseLijnNr(MetroNet &metroNet, Tram* tram) const;
+    bool parseLijnNr(Tram* tram) const;
 
     /**
     * Methode dat gecalled wordt door parseAll of te checken ofdat beginStation geparsed kan worden.
@@ -52,7 +52,7 @@ public:
     * @param tram  Naam van de Tram.
     * @return true of false afhankelijk ofdat het beginStation geparsed kon worden.
     */
-    bool parseBeginStation(MetroNet &metroNet, Tram* tram) const;
+    bool parseBeginStation(Tram* tram) const;
 
     /**
     * Methode dat gecalled wordt door parseAll of te checken ofdat snelheid geparsed kan worden.
@@ -60,7 +60,7 @@ public:
     * @param tram  Naam van de Tram.
     * @return true of false afhankelijk ofdat het snelheid geparsed kon worden.
     */
-    bool parseSnelheid(MetroNet &metroNet, Tram* tram) const;
+    bool parseSnelheid(Tram* tram) const;
 
     /**
      * @brief Check valid Tram.
@@ -97,11 +97,11 @@ public:
 
     bool checkValidTypeTram() const;
 
-    bool parseTypeTram(MetroNet &metroNet, Tram* tram) const;
+    bool parseTypeTram(Tram* tram) const;
 
     bool checkValidVoertuigNummer() const;
 
-    bool parserVoertuigNummer(MetroNet &metroNet, Tram* tram) const;
+    bool parserVoertuigNummer(Tram* tram) const;
 
     TiXmlElement* getElement() const;
 

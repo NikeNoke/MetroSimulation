@@ -38,19 +38,9 @@ public:
     std::string getName() const;
 
     /**
-     * @return De naam van het volgende station.
-     * **/
-    std::string getVolgende() const;
-
-    /**
-     * @return De naam van het vorige station.
-     * **/
-    std::string getVorige() const;
-
-    /**
      * @return De sporen
      * **/
-    std::vector<Spoor*> getSpoorNr() const;
+    std::vector<Spoor*> getSporen() const;
 
     /**
      * Set de naam van het station.
@@ -58,23 +48,6 @@ public:
      * **/
     void setName(std::string n);
 
-    /**
-    * Set de naam van het station.
-     * @param v Naam van het volgende station.
-    * **/
-    void setVolgende(std::string v);
-
-    /**
-    * Set de naam van het station vorige station.
-     * @param v Naam van het vorige station.
-    * **/
-    void setVorige(std::string v);
-
-    /**
-    * Set het spoornummer van het station.
-    * @param s Spoornummer waar het station deel van is.
-     * **/
-    void setSpoorNr(int s);
 
     /**
      * Controleert ofdat het station correct is geïnitialiseerd.

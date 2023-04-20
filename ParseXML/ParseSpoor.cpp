@@ -106,9 +106,9 @@ bool ParseSpoor::checkValidSpoorNr() const {
     return amountOfSpoorNr == 1;
 }
 
-bool ParseSpoor::parseVorige(Station *station) const {
+bool ParseSpoor::parseVorige(Spoor* spoor) const {
 
-    REQUIRE(station->properlyInitialized(), "Station is not properlyInitialized");
+    REQUIRE(spoor->properlyInitialized(), "Station is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
     REQUIRE(checkValidVorige() == true, "The vorige tag is not correct in this Station tag");
 
@@ -119,18 +119,18 @@ bool ParseSpoor::parseVorige(Station *station) const {
         std::string innerText = InnerElement->GetText();
 
         if(innerElementName == "vorige"){
-            station->setVorige(innerText);
+            spoor->setVorige(innerText);
             return true;
         }
     }
-    ENSURE(!station->getVorige().empty(), "The vorige of station has not been correctly initialized");
+    ENSURE(!spoor->getVorige().empty(), "The vorige of station has not been correctly initialized");
     ENSURE(getElement() != NULL, "TixmlElement is NULL");
     return false;
 }
 
-bool ParseSpoor::parseVolgende(Station *station) const {
+bool ParseSpoor::parseVolgende(Spoor* spoor) const {
 
-    REQUIRE(station->properlyInitialized(), "Station is not properlyInitialized");
+    REQUIRE(spoor->properlyInitialized(), "Station is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 // REQUIRE(checkValidVolgende() == true, "The volgende tag is not correct in this Station tag");
 
@@ -141,18 +141,18 @@ bool ParseSpoor::parseVolgende(Station *station) const {
         std::string innerText = InnerElement->GetText();
 
         if(innerElementName == "volgende"){
-            station->setVolgende(innerText);
+            spoor->setVolgende(innerText);
             return true;
         }
     }
-// ENSURE(!station->getVolgende().empty(), "The volgende of station has not been correctly initialized");
+    ENSURE(!spoor->getVolgende().empty(), "The volgende of spoor has not been correctly initialized");
     ENSURE(getElement() != NULL, "TixmlElement is NULL");
     return false;
 }
 
-bool ParseSpoor::parseSpoorNr(Station *station) const {
+bool ParseSpoor::parseSpoorNr(Spoor* spoor) const {
 
-    REQUIRE(station->properlyInitialized(), "Station is not properlyInitialized");
+    REQUIRE(spoor->properlyInitialized(), "Station is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
     REQUIRE(checkValidSpoorNr() == true, "The spoorNr tag is not correct in this Station tag");
 
@@ -165,11 +165,11 @@ bool ParseSpoor::parseSpoorNr(Station *station) const {
         if(innerElementName == "spoorNr"){
             int temp;
             sscanf(innerText.c_str(), "%d", &temp);
-            station->setSpoorNr(temp);
+            spoor->setSpoorNr(temp);
             return true;
         }
     }
-    ENSURE(!station->getSpoorNr().empty(), "The SPOOR's of station has not been correctly initialized");
+    ENSURE(spoor->getSpoorNr() == -1, "The spoorNr of Spoor has not been correctly initialized");
     ENSURE(getElement() != NULL, "TixmlElement is NULL");
     return false;
 }
@@ -202,18 +202,17 @@ TiXmlElement *ParseSpoor::getElement() const {
     return element;
 }
 
-bool ParseSpoor::parseAll(Station *station) const {
+bool ParseSpoor::parseAll(Spoor* spoor) const {
 
-    REQUIRE(station->properlyInitialized(), "Station is not properlyInitialized");
+    REQUIRE(spoor->properlyInitialized(), "Station is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
     REQUIRE(checkValidSpoor() == true, "The Station tag is not correct");
 
-    if(!parseSpoorNr(station) || parseVolgende(station) || !parseVorige(station))
+    if(!parseSpoorNr(spoor) || parseVolgende(spoor) || !parseVorige(spoor))
         return false;
 
-    ENSURE(!station->getVorige().empty(), "The vorige of station has not been correctly initialized");
-    ENSURE(!station->getVolgende().empty(), "The volgende of station has not been correctly initialized");
-    ENSURE(!station->getSpoorNr().empty(), "The SPOOR's of station has not been correctly initialized");
+    ENSURE(!spoor->getVorige().empty(), "The vorige of spoor has not been correctly initialized");
+    ENSURE(!spoor->getVolgende().empty(), "The volgende of spoor has not been correctly initialized");
     ENSURE(getElement() != NULL, "TixmlElement is NULL");
 
     return true;

@@ -91,6 +91,8 @@ public:
 
     void simulateMetroNet();
 
+    bool controlStation(Station* s);
+
 private:
     std::vector<Station *> fStations;
     std::vector<Tram *> fTrams;
