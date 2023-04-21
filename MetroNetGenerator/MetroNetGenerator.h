@@ -6,11 +6,11 @@
 #define METROSIMULATION_METRONETGENERATOR_H
 #include <string>
 #include "../MetroNet/MetroNet.h"
-#include "../Station/Station.h"
+#include "../Stations/Station.h"
 #include "../ParseXML/ParseMetroNet.h"
 #include "../ParseXML/ParseTram.h"
 #include "../ParseXML/ParseStation.h"
-#include "../Tram/Tram.h"
+#include "../Trams/Tram.h"
 #include "../Utils/utils.h"
 #include "../Exporter/Exporter.h"
 
@@ -18,7 +18,7 @@
 class MetroNetGenerator {
 public:
 
-    explicit MetroNetGenerator(std::string pathToXml, std::string pathToWrite);
+    explicit MetroNetGenerator(std::string pathToXml, std::string pathToWrite, std::string pathToWrite2);
 
     void generateMetroNet();
 
@@ -28,9 +28,9 @@ public:
 
     std::string getPathToWrite() const;
 
-    void setPathToOpenXml(std::string p);
+    void setPathToOpenXml(std::string& p);
 
-    void setPathToWrite(std::string p);
+    void setPathToWrite(std::string& p);
 
     void simulate(int seconds);
 

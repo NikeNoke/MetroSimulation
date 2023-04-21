@@ -2,8 +2,8 @@
 #define METRONET_XXX
 
 #include <vector>
-#include "../Station/Station.h"
-#include "../Tram/Tram.h"
+#include "../Stations/Station.h"
+#include "../Trams/Tram.h"
 #include <string>
 
 /**
@@ -92,6 +92,28 @@ public:
     void simulateMetroNet();
 
     bool controlStation(Station* s);
+
+    bool tramAtStation(const std::string& stationName);
+
+    bool uniqueSporen(Station* s);
+
+    bool spoorHasTram(Spoor* s);
+
+    bool tramLineHasSpoor(Tram* t);
+
+    bool beginStationTramCorrect(Tram* t);
+
+    bool uniqueTram(Tram* t);
+
+    bool spoorCorrect(Spoor* s);
+
+    bool valid();
+
+    bool controlTram(Tram* t);
+
+    bool stationHasSpoor(Station* ,int nr);
+
+    Spoor* getSpoor(Station* s, int nr);
 
 private:
     std::vector<Station *> fStations;

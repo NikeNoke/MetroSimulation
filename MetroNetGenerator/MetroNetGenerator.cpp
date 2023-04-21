@@ -5,13 +5,15 @@
 #include "MetroNetGenerator.h"
 #include "../Exporter/Exporter.h"
 
-MetroNetGenerator::MetroNetGenerator(std::string pathToXml, std::string pathToWrit) {
+MetroNetGenerator::MetroNetGenerator(std::string pathToXml,std::string pathToWrit,std::string pathToWrite2) {
     REQUIRE(Utils::fileExists(pathToXml), "Path to xml is wrong or file does not exist");
     setPathToOpenXml(pathToXml);
     setPathToWrite(pathToWrit);
 //    exporter = Exporter(pathToWrit);
-    exporter.setPathToFile(pathToWrit);
+//    exporter.setPathToFile(pathToWrit);
     //ENSURE NEEDED? --> set op does it already!
+    exporter.setPathToSimple(pathToWrit);
+    exporter.setPathToAdvanced(pathToWrite2);
 }
 
 MetroNet &MetroNetGenerator::getMetroNet() {
@@ -26,14 +28,14 @@ std::string MetroNetGenerator::getPathToWrite() const {
     return pathToWrite;
 }
 
-void MetroNetGenerator::setPathToOpenXml(std::string p) {
+void MetroNetGenerator::setPathToOpenXml(std::string& p) {
     REQUIRE(Utils::fileExists(p), "Path to xml is wrong or file does not exist");
     pathToOpenXml = p;
     ENSURE(getPathToOpenXml() ==  p, "The set was a failure");
 
 }
 
-void MetroNetGenerator::setPathToWrite(std::string p) {
+void MetroNetGenerator::setPathToWrite(std::string& p) {
     pathToWrite = p;
     ENSURE(getPathToWrite() == p, "The setting was failure");
 }
@@ -56,8 +58,8 @@ void MetroNetGenerator::generateMetroNet() {
 void MetroNetGenerator::simulate(int seconds) {
     REQUIRE(getMetroNet().isValidMetroNet(), "The metroNet is not Valid");
     for(int i = 0; i < seconds; i++){
-        getMetroNet().simulateMetroNet();
-        getExporter().exportFile(getMetroNet());
+//        getMetroNet().simulateMetroNet();
+//        getExporter().exportFile(getMetroNet());
     }
     ENSURE(getMetroNet().isValidMetroNet(), "The metroNet is not Valid");
 }

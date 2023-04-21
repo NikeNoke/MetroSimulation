@@ -5,7 +5,7 @@
 #ifndef METROSIMULATION_PARSESPOOR_H
 #define METROSIMULATION_PARSESPOOR_H
 #include "../DesignByContract.h"
-#include "../Station/Station.h"
+#include "../Stations/Station.h"
 #include "../MetroNet/MetroNet.h"
 #include "../TinyXML/tinyxml.h"
 #include "../Spoor/Spoor.h"

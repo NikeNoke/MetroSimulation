@@ -6,8 +6,12 @@
 #define METROSIMULATION_TRAM_H
 
 #include <string>
+#include "../Stations/Station.h"
+namespace TramType{
 
-//enum TypeTram {PCC, StadsLijner, Albatros}; Wil het zo doen maar is zo niet handing in c++98
+    enum TypeTram {PCC, StadsLijner, Albatros, InvalidTram};
+
+}
 
 /**
 * Klasse Tram. Een tram object is een object dat in een MetroNet zal zijn.
@@ -40,7 +44,7 @@ public:
     /**
      * @return De snelheid van een tram.
      * **/
-    int getSnelheid() const;
+    virtual int getSnelheid();
 
     /**
      * @return Het lijnnummer van een tram.
@@ -57,7 +61,7 @@ public:
      * Zet voor een tram object zijn beginstation.
      * @param bs De naam van het beginstation van een tram.
      * **/
-    void setBeginStation(std::string bs);
+    void setBeginStation(std::string& bs);
 
     /**
      * Zet voor een tram object zijn snelheid
@@ -75,7 +79,7 @@ public:
      * Zet voor een tram het huidige station.
      * @param h Het huidig station van een tram.
      * **/
-    void setHuidigStation(std::string h);
+    void setHuidigStation(std::string& h);
 
     /**
      * Controleerd ofdat de tram object correct geïnitialiseerd is.
@@ -83,9 +87,9 @@ public:
      * **/
     bool properlyInitialized();
 
-    void moveTram(std::string targetStation);
+    void moveTram(std::string& targetStation);
 
-    void setType(std::string type);
+    void setType(std::string& type);
 
     std::string getType() const;
 
@@ -93,10 +97,17 @@ public:
 
     int getVoertuigNummer() const;
 
+    virtual void calculateSnelheid() = 0;
+
+    virtual bool stationCanBeServiced(Station* s) = 0;
+
+    virtual ~Tram(){};
+
+protected:
+    int snelheid;
 
 private:
     std::string beginStation;
-    int snelheid;
     int lijnNr;
     std::string huidigStation;
     std::string type; //TODO make enum

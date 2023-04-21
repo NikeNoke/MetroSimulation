@@ -4,14 +4,14 @@
 int main() {
     //TODO MAKE it a while loop
     try{
-        MetroNetGenerator generator("TestInputXML/temp.xml", "metroNetSpecs.txt");
+        MetroNetGenerator generator("metronet.xml", "metroNetSpecs.txt", "metroNetSpecs2.txt");
 
         generator.generateMetroNet();
 
-        generator.simulate(10);
+//        generator.simulate(10);
 
     }catch(...) {
-        std::cerr << "Error!!\n";
+        std::cerr << "Error from main!\n";
     }
 
 }

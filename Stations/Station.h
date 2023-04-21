@@ -8,6 +8,13 @@
 #include <string>
 #include <vector>
 class Spoor;
+
+namespace TypeStation{
+
+    enum StationType{MetroStation, Halte, Invalid};
+
+}
+
 /**
 * Klasse Station. Een station is een object waarover Tram objecten zouden rijden. Station objecten vormen een
 * spoornummer, beter gezegd, een lijn in het MetroNet. Stations zijn met elkaar verbonden, elk station heeft een
@@ -46,7 +53,7 @@ public:
      * Set de naam van het station.
      * @param n Naam van het station.
      * **/
-    void setName(std::string n);
+    void setName(std::string& n);
 
 
     /**
@@ -55,13 +62,15 @@ public:
      * **/
     bool properlyInitialized();
 
-    void setType(std::string s);
+    void setType(std::string& s);
 
     std::string getType() const;
 
-    ~Station();
+    virtual ~Station(){};
 
     bool addSpoor(Spoor *s);
+
+    virtual TypeStation::StationType getTypeEnum() = 0;
 
 private:
 

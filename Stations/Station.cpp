@@ -37,7 +37,7 @@ std::vector<Spoor*> Station::getSporen() const {
     return sporen;
 }
 
-void Station::setName(std::string n) {
+void Station::setName(std::string& n) {
     REQUIRE(!(Utils::is_int(n)), "The parameter naam is a number");
     fNaam = n;
     ENSURE(getName() == n, "The member variable naam has not been properly initialized");
@@ -47,7 +47,7 @@ bool Station::properlyInitialized() {
     return _fInitCheck == this;
 }
 
-void Station::setType(std::string s) {
+void Station::setType(std::string& s) {
     REQUIRE(!(Utils::is_int(s)), "The parameter type is a number");
     fType = s;
     ENSURE(getType() == s, "The member variable type has not been properly initialized");
@@ -55,12 +55,6 @@ void Station::setType(std::string s) {
 
 std::string Station::getType() const {
     return fType;
-}
-
-Station::~Station() {
-    for (unsigned long int i = 0; i < sporen.size(); i++) {
-        delete sporen[i];
-    }
 }
 
 bool Station::addSpoor(Spoor *s) {

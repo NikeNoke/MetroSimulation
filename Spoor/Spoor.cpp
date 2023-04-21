@@ -44,3 +44,11 @@ std::string Spoor::getVorige() const {
 int Spoor::getSpoorNr() const {
     return spoorNr;
 }
+
+void Spoor::setHuidig(const std::string &h) {
+    huidig = h;
+}
+
+std::string Spoor::getHuiding() const {
+    return huidig;
+}

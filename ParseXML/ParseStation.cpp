@@ -5,6 +5,8 @@
 #include "ParseStation.h"
 #include "../Utils/utils.h"
 #include "ParseSpoor.h"
+#include "../Stations/MetronetStation.h"
+#include "../Stations/HalteStation.h"
 
 ParseStation::ParseStation(TiXmlElement *element)
         : element(element)
@@ -21,9 +23,9 @@ void ParseStation::setElement(TiXmlElement *el) {
     ENSURE(getElement() == element, "TixmlElement is not the element of the parser");
 }
 
-bool ParseStation::parseAll(Station* station) const {
+bool ParseStation::parseAll() {
 
-    REQUIRE(station->properlyInitialized(), "Station is not properlyInitialized");
+//    REQUIRE(station->properlyInitialized(), "Station is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
     REQUIRE(checkValidStation() == true, "The Station tag is not correct");
 // REQUIRE(checkValidNaam() == true, "The name tag is not correct in this Station tag");
@@ -31,9 +33,21 @@ bool ParseStation::parseAll(Station* station) const {
 // REQUIRE(checkValidSpoorNr() == true, "The spoorNr tag is not correct in this Station tag");
 // REQUIRE(checkValidVolgende() == true, "The volgende tag is not correct in this Station tag");
 
-    if(!parseNaam(station) || parseSpoor(station)
-        || !parseTypeStation(station))
+    Station* station;
+
+    if(getStationType() == TypeStation::MetroStation)
+        station = new MetronetStation;
+    else if(getStationType() == TypeStation::Halte)
+        station = new MetronetStation;
+    else
         return false;
+
+    if(!parseNaam(station) || !parseTypeStation(station) || !parseSpoor(station)){
+        delete station;
+        return false;
+    }
+
+    setParsedStation(station);
 
     ENSURE(!station->getName().empty(), "The naam of station has not been correctly initialized");
 //    for(unsigned int i = 0; i < station->getSporen().size(); i++){
@@ -42,6 +56,7 @@ bool ParseStation::parseAll(Station* station) const {
     ENSURE(!station->getSporen().empty(), "The SPOOR's of station has not been correctly initialized");
     ENSURE(!station->getType().empty(), "The type of station has not been correctly initialized");
     ENSURE(getElement() != NULL, "TixmlElement is NULL");
+    ENSURE(getParsedStation() != NULL, "akfjdajkfl");
 
     return true;
 }
@@ -56,6 +71,8 @@ bool ParseStation::checkValidNaam() const {
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
 
         std::string innerElementName = InnerElement->Value();
+        if(innerElementName == "SPOOR")
+            continue;
         std::string innerText = InnerElement->GetText();
 
         if(innerElementName == "naam"){
@@ -89,6 +106,8 @@ bool ParseStation::parseNaam(Station* station) const {
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
 
         std::string innerElementName = InnerElement->Value();
+        if(innerElementName == "SPOOR")
+            continue;
         std::string innerText = InnerElement->GetText();
 
         if(innerElementName == "naam"){
@@ -110,13 +129,11 @@ bool ParseStation::checkNonValidAttributes() const {
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
 
         std::string innerElementName = InnerElement->Value();
-        std::string innerText = InnerElement->GetText();
-
+        if(innerElementName == "SPOOR")
+            continue;
         if(innerElementName == "naam")
             continue;
         if(innerElementName == "type")
-            continue;
-        if(innerElementName == "SPOOR")
             continue;
         return true;
     }
@@ -140,6 +157,8 @@ bool ParseStation::checkValidTypeStation() const {
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
 
         std::string innerElementName = InnerElement->Value();
+        if(innerElementName == "SPOOR")
+            continue;
         std::string innerText = InnerElement->GetText();
 
         if(innerElementName == "type"){
@@ -165,6 +184,8 @@ bool ParseStation::parseTypeStation(Station *station) const {
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
 
         std::string innerElementName = InnerElement->Value();
+        if(innerElementName == "SPOOR")
+            continue;
         std::string innerText = InnerElement->GetText();
 
         if(innerElementName == "type"){
@@ -190,7 +211,6 @@ bool ParseStation::parseSpoor(Station *station) const {
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
 
         std::string innerElementName = InnerElement->Value();
-        std::string innerText = InnerElement->GetText();
 
         if(innerElementName == "SPOOR"){
             Spoor* spoor = new Spoor;
@@ -199,10 +219,48 @@ bool ParseStation::parseSpoor(Station *station) const {
                 delete spoor;
                 return false;
             }
+            spoor->setHuidig(station->getName());
             station->addSpoor(spoor);
         }
     }
     ENSURE(getElement() != NULL, "TixmlElement is NULL");
     ENSURE(!station->getSporen().empty(), "The sporen cannot be empty");
     return true;
+}
+
+TypeStation::StationType ParseStation::getStationType() const {
+
+    REQUIRE(getElement() != NULL, "TixmlElement is NULL");
+    REQUIRE(checkValidTypeStation() == true, "The type tag is not correct in this Station tag");
+
+    for (TiXmlElement *InnerElement = getElement()->FirstChildElement();
+         InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
+
+        std::string innerElementName = InnerElement->Value();
+        if(innerElementName == "SPOOR")
+            continue;
+        std::string innerText = InnerElement->GetText();
+
+        if(innerElementName == "type"){
+            if(innerText == "Metrostation")
+                return TypeStation::MetroStation;
+            if(innerText == "Halte")
+                return TypeStation::Halte;
+            else
+                return TypeStation::Invalid;
+        }
+    }
+    return TypeStation::Invalid;
+}
+
+bool ParseStation::parseSuccessful() {
+    return parseAll();
+}
+
+void ParseStation::setParsedStation(Station* s) {
+    parsedStation = s;
+}
+
+Station *ParseStation::getParsedStation() const {
+    return parsedStation;
 }

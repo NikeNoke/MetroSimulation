@@ -46,9 +46,14 @@ public:
 
     int getSpoorNr() const;
 
+    std::string getHuiding() const;
+
+    void setHuidig(const std::string& h);
+
 private:
     std::string volgende;
     std::string vorige;
+    std::string huidig;
     int spoorNr;
     Spoor* _fInitCheck;
 };

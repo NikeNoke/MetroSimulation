@@ -208,7 +208,7 @@ bool ParseSpoor::parseAll(Spoor* spoor) const {
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
     REQUIRE(checkValidSpoor() == true, "The Station tag is not correct");
 
-    if(!parseSpoorNr(spoor) || parseVolgende(spoor) || !parseVorige(spoor))
+    if(!parseSpoorNr(spoor) || !parseVolgende(spoor) || !parseVorige(spoor))
         return false;
 
     ENSURE(!spoor->getVorige().empty(), "The vorige of spoor has not been correctly initialized");

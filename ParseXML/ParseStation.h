@@ -5,7 +5,7 @@
 #ifndef METROSIMULATION_PARSESTATION_H
 #define METROSIMULATION_PARSESTATION_H
 #include "../DesignByContract.h"
-#include "../Station/Station.h"
+#include "../Stations/Station.h"
 #include "../MetroNet/MetroNet.h"
 #include "../TinyXML/tinyxml.h"
 #include <string>
@@ -36,7 +36,7 @@ public:
 * @param station Naam van het Station.
 * @return true of false afhankelijk ofdat het Station object geparsed kon worden.
 */
-    bool parseAll(Station* station) const;
+    bool parseAll();
 
 /**
 * Methode dat gecalled wordt door parseAll om te checken ofdat naam geparsed kan worden
@@ -75,9 +75,18 @@ public:
 
     bool parseSpoor(Station* station) const;
 
+    TypeStation::StationType getStationType() const;
+
+    bool parseSuccessful();
+
+    void setParsedStation(Station*);
+
+    Station* getParsedStation() const;
+
 private:
     TiXmlElement *element;
     ParseStation* _fInitcheck;
+    Station* parsedStation;
 
 };
 

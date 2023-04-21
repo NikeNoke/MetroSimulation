@@ -26,21 +26,19 @@ bool ParseMetroNet::parseMetroNet(MetroNet &metroNet) {
         std::string current = element->Value();
         if (current == "STATION") {
 
-            Station* station = new Station();
             ParseStation parseStation(element);
-            if(!parseStation.parseAll(station))
-                delete station; //In testing een foutboodschap gegeven?
+            if(parseStation.parseSuccessful())
+                metroNet.addStation(parseStation.getParsedStation());
             else
-                metroNet.addStation(station);
+                continue; //TODO message display?
 
         } else if (current == "TRAM") {
 
-            Tram* tram = new Tram();
             ParseTram parseTram(element);
-            if(!parseTram.parseAll(tram))
-                delete tram;
+            if(parseTram.parseSuccessful())
+                metroNet.addTram(parseTram.getParsedTram());
             else
-                metroNet.addTram(tram);
+                continue;
 
         } else{
             std::cerr << "Deze element is ongekend!\n";
@@ -49,7 +47,7 @@ bool ParseMetroNet::parseMetroNet(MetroNet &metroNet) {
 
     getDoc().Clear();
 
-    if(metroNet.isValidMetroNetSilent())
+    if(metroNet.isValidMetroNet())
         return true;
     else
         return false;

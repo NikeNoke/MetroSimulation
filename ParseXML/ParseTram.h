@@ -5,7 +5,7 @@
 #ifndef METROSIMULATION_PARSETRAM_H
 #define METROSIMULATION_PARSETRAM_H
 #include "../DesignByContract.h"
-#include "../Tram/Tram.h"
+#include "../Trams/Tram.h"
 #include "../MetroNet/MetroNet.h"
 #include "../TinyXML/tinyxml.h"
 #include <string>
@@ -36,7 +36,7 @@ public:
      * @param tram Naam van de Tram.
      * @return true of false afhankelijk of het gelukt is of niet.
      */
-    bool parseAll(Tram* tram) const;
+    bool parseAll();
 
     /**
      * Methode dat gecalled wordt door parseAll of te checken ofdat lijnNr geparsed kan worden.
@@ -53,14 +53,6 @@ public:
     * @return true of false afhankelijk ofdat het beginStation geparsed kon worden.
     */
     bool parseBeginStation(Tram* tram) const;
-
-    /**
-    * Methode dat gecalled wordt door parseAll of te checken ofdat snelheid geparsed kan worden.
-    * @param metroNet Naam van het MetroNet.
-    * @param tram  Naam van de Tram.
-    * @return true of false afhankelijk ofdat het snelheid geparsed kon worden.
-    */
-    bool parseSnelheid(Tram* tram) const;
 
     /**
      * @brief Check valid Tram.
@@ -82,12 +74,6 @@ public:
      */
     bool checkValidBeginStation() const;
 
-    /**
-     * @brief Check valid snelheid.
-     * Methode dat gecalled wordt door checkValidTram om te controlleren ofdat snelheid correct is.
-     * @return true of false
-     */
-    bool checkValidSnelheid() const;
 
     /**
     * Checked ofdat er onverwachte attributen zijn.
@@ -105,9 +91,17 @@ public:
 
     TiXmlElement* getElement() const;
 
+    bool parseSuccessful();
+
+    void setParsedTram(Tram* t);
+
+    Tram* getParsedTram() const;
+
+    TramType::TypeTram getTramType() const;
 
 private:
     TiXmlElement * fElement;
+    Tram* parsedTram;
 
 };
 
