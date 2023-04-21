@@ -232,7 +232,7 @@ bool MetroNet::controlStation(Station *station) {
 
         Spoor *current = sporen[i];
 
-        if (!spoorCorrect(current)) {
+        if (!validSpoor(current)) {
             std::cerr << "Spoor is niet correct\n";
             return false;
         }
@@ -336,7 +336,7 @@ bool MetroNet::uniqueTram(Tram *t) {
     return tramVoertuigNrs.size() == tramVoertuigNrs2.size();
 }
 
-bool MetroNet::spoorCorrect(Spoor *s) {
+bool MetroNet::validSpoor(Spoor *s) {
 
     Station* huidigStation = getStation(s->getHuiding());
 
@@ -383,35 +383,6 @@ bool MetroNet::spoorCorrect(Spoor *s) {
     return true;
 }
 
-bool MetroNet::valid() {
-
-    REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
-
-    std::vector<Station *> tempStations = this->getStations();
-    std::vector<Tram *> tempTrams = this->getTrams();
-
-    for (long unsigned int i = 0; i < tempStations.size(); i++) {
-        REQUIRE(tempStations[i]->properlyInitialized(), "A station of the metroNet is not properly initialized");
-
-        if (!controlStation(tempStations[i])) {
-            return false;
-        };
-
-    }
-
-    for (long unsigned int i = 0; i < tempTrams.size(); i++) {
-        REQUIRE(tempTrams[i]->properlyInitialized(), "A tram of the metroNet is not properly initialized");
-
-        if (!controlTram(tempTrams[i])) {
-            return false;
-        }
-
-    }
-
-    return true;
-
-
-}
 
 bool MetroNet::controlTram(Tram *t) {
 

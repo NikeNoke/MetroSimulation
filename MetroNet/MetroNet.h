@@ -91,9 +91,12 @@ public:
 
     void simulateMetroNet();
 
-    bool controlStation(Station* s);
-
     bool tramAtStation(const std::string& stationName);
+
+    Spoor* getSpoor(Station* s, int nr);
+private:
+
+    bool controlStation(Station* s);
 
     bool uniqueSporen(Station* s);
 
@@ -105,15 +108,11 @@ public:
 
     bool uniqueTram(Tram* t);
 
-    bool spoorCorrect(Spoor* s);
-
-    bool valid();
+    bool validSpoor(Spoor* s);
 
     bool controlTram(Tram* t);
 
     bool stationHasSpoor(Station* ,int nr);
-
-    Spoor* getSpoor(Station* s, int nr);
 
 private:
     std::vector<Station *> fStations;
