@@ -55,29 +55,46 @@ bool ParseMetroNet::parseMetroNet(MetroNet &metroNet) {
 }
 
 bool ParseMetroNet::loadFile() {
-    REQUIRE(getPathToFile() != NULL, "pathToFile is NULL");
-    bool success = getDoc().LoadFile(getPathToFile());
+    REQUIRE(getPathToInput() != NULL, "pathToFile is NULL");
+    bool success = getDoc().LoadFile(getPathToInput());
     ENSURE(success, "File could not be loaded");
     return success;
 }
 
-ParseMetroNet::ParseMetroNet(std::string pathToFil) {
-    REQUIRE(Utils::fileExists(pathToFil), "The file does not exist!");
-    setPathToFile(std::fopen(pathToFil.c_str(), "r"));
-    ENSURE(getPathToFile() != NULL, "pathToFile could not be opened");
+ParseMetroNet::ParseMetroNet(const std::string& pathToInput) {
+    REQUIRE(Utils::fileExists(pathToInput), "The file does not exist!");
+//    REQUIRE(!pathToLog.empty(), "Path to log is empty");
+    setPathToInput(std::fopen(pathToInput.c_str(), "r"));
+
+//    std::ofstream file;
+//
+//    file.open(path.c_str());
+//    setPathToLog(std::fopen(pathToLog.c_str(), "r"));
+    ENSURE(getPathToInput() != NULL, "pathToFile could not be opened");
 }
 
 TiXmlDocument &ParseMetroNet::getDoc() {
     return doc;
 }
 
-FILE *ParseMetroNet::getPathToFile() const {
-    return pathToFile;
+FILE *ParseMetroNet::getPathToInput() const {
+    return pathToInput;
 }
 
-bool ParseMetroNet::setPathToFile(FILE *f) {
+bool ParseMetroNet::setPathToInput(FILE *f) {
     REQUIRE(f != NULL, "The File prt is NULL");
-    pathToFile = f;
-    ENSURE(pathToFile == f, "setting was not successful");
+    pathToInput = f;
+    ENSURE(getPathToInput() == f, "setting was not successful");
     return true;
 }
+
+//FILE *ParseMetroNet::getPathToLog() const {
+//    return pathToLog;
+//}
+//
+//bool ParseMetroNet::setPathToLog(FILE *f) {
+//    REQUIRE(f != NULL, "The File prt is NULL");
+//    pathToLog = f;
+//    ENSURE(getPathToLog() == f, "setting was not successful");
+//    return true;
+//}

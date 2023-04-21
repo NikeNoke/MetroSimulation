@@ -36,9 +36,14 @@ public:
 
     Exporter& getExporter();
 
+//    std::string getPathToLog() const;
+
+//    void setPathToLog(std::string& p);
+
 private:
     std::string pathToOpenXml;
     std::string pathToWrite;
+//    std::string pathToLog;
     MetroNet metroNet;
     Exporter exporter;
 };

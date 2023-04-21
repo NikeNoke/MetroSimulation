@@ -13,7 +13,7 @@ class MetroNet;
 class ParseMetroNet {
 public:
 
-    explicit ParseMetroNet(std::string pathToFile);
+    explicit ParseMetroNet(const std::string& pathToFile);
 
     bool parseMetroNet(MetroNet& metroNet);
 
@@ -21,14 +21,19 @@ public:
 
     TiXmlDocument& getDoc();
 
-    FILE* getPathToFile() const;
+    FILE* getPathToInput() const;
 
-    bool setPathToFile(FILE* f);
+    bool setPathToInput(FILE* f);
+
+//    bool setPathToLog(FILE* f);
+
+//    FILE* getPathToLog() const;
 
 
 private:
     TiXmlDocument doc;
-    FILE* pathToFile;
+    FILE* pathToInput;
+//    FILE* pathToLog;
 };
 
 

@@ -68,3 +68,11 @@ Exporter &MetroNetGenerator::getExporter() {
     REQUIRE(exporter.properlyInitialized(), "exporter is not properlyInitialized");
     return exporter;
 }
+
+//std::string MetroNetGenerator::getPathToLog() const {
+//    return pathToLog;
+//}
+//
+//void MetroNetGenerator::setPathToLog(std::string &p) {
+//    pathToLog = p;
+//}

@@ -2,6 +2,10 @@
 #include "MetroNetGenerator//MetroNetGenerator.h"
 
 int main() {
+    //also clears its content, perfect
+    freopen("testingLog.txt", "w", stdout);
+    freopen("testingLogError.txt", "w", stderr);
+
     //TODO MAKE it a while loop
     try{
         MetroNetGenerator generator("metronet.xml", "metroNetSpecs.txt", "metroNetSpecs2.txt");
