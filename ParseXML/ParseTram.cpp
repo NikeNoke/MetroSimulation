@@ -147,8 +147,10 @@ bool ParseTram::parseAll() {
         tram = new StadslijnerTram;
     else if(getTramType() == TramType::Albatros)
         tram = new AlbatrosTram;
-    else
+    else{
+        std::cerr << "Tram type is invalid!\n";
         return false;
+    }
 
     if(!parseBeginStation(tram) || !parseLijnNr(tram) || !parseTypeTram(tram) || !parserVoertuigNummer(tram)){
         delete tram;

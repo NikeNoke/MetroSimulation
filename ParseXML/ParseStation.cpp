@@ -2,6 +2,7 @@
 // Created by byamba on 20/03/23.
 //
 
+#include <iostream>
 #include "ParseStation.h"
 #include "../Utils/utils.h"
 #include "ParseSpoor.h"
@@ -39,8 +40,10 @@ bool ParseStation::parseAll() {
         station = new MetronetStation;
     else if(getStationType() == TypeStation::Halte)
         station = new MetronetStation;
-    else
+    else{
+        std::cerr << "The station type is not correct\n";
         return false;
+    }
 
     if(!parseNaam(station) || !parseTypeStation(station) || !parseSpoor(station)){
         delete station;
