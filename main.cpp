@@ -3,8 +3,8 @@
 
 int main() {
     //also clears its content, perfect
-    freopen("testingLog.txt", "w", stdout);
-    freopen("testingLogError.txt", "w", stderr);
+    freopen("OperationLog.txt", "w", stdout);
+    freopen("ErrorLog.txt", "w", stderr);
 
     //TODO MAKE it a while loop
     try{

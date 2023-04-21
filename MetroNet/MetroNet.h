@@ -93,14 +93,11 @@ public:
 
     bool tramAtStation(const std::string& stationName);
 
-    Spoor* getSpoor(Station* s, int nr);
 private:
 
     bool controlStation(Station* s);
 
-    bool uniqueSporen(Station* s);
-
-    bool spoorHasTram(Spoor* s);
+    bool spoorLineHasTram(Spoor* s);
 
     bool tramLineHasSpoor(Tram* t);
 
@@ -111,8 +108,6 @@ private:
     bool validSpoor(Spoor* s);
 
     bool controlTram(Tram* t);
-
-    bool stationHasSpoor(Station* ,int nr);
 
 private:
     std::vector<Station *> fStations;

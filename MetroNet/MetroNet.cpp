@@ -219,11 +219,11 @@ bool MetroNet::isValidMetroNet() {
 //    }
 //}
 
-bool MetroNet::controlStation(Station *station) {
+bool MetroNet::controlStation(Station *station){
 
     std::vector<Spoor *> sporen = station->getSporen();
 
-    if (!uniqueSporen(station)) {
+    if (!station->hasUniqueSporen()) {
         std::cerr << "Sporen in de station " << station->getName() << " is niet uniek\n";
         return false;
     }
@@ -237,7 +237,7 @@ bool MetroNet::controlStation(Station *station) {
             return false;
         }
 
-        if (!spoorHasTram(current)) {
+        if (!spoorLineHasTram(current)) {
             std::cerr << "Spoor heeft geen tram\n";
             return false;
         }
@@ -247,7 +247,7 @@ bool MetroNet::controlStation(Station *station) {
 
 }
 
-bool MetroNet::tramAtStation(const std::string &stationName) {
+bool MetroNet::tramAtStation(const std::string &stationName){
 
     std::vector<Tram *> trams = getTrams();
 
@@ -260,23 +260,7 @@ bool MetroNet::tramAtStation(const std::string &stationName) {
     return false;
 }
 
-bool MetroNet::uniqueSporen(Station *s) {
-
-    std::vector<int> spoorNrs;
-
-
-    for (unsigned int i = 0; i < s->getSporen().size(); i++) {
-
-        spoorNrs.push_back(s->getSporen()[i]->getSpoorNr());
-
-    }
-
-    std::set<int> spoorNrs2(spoorNrs.begin(), spoorNrs.end());
-
-    return spoorNrs.size() == spoorNrs2.size();
-}
-
-bool MetroNet::spoorHasTram(Spoor *s) {
+bool MetroNet::spoorLineHasTram(Spoor *s) {
 
     std::vector<Tram *> trams = this->getTrams();
 
@@ -295,7 +279,7 @@ bool MetroNet::tramLineHasSpoor(Tram *t) {
 
     for(unsigned int i = 0; i < stations.size(); i++){
 
-        if(stationHasSpoor(stations[i], t->getLijnNr()))
+        if(stations[i]->hasSpoor(t->getLijnNr()))
             return true;
 
     }
@@ -312,7 +296,7 @@ bool MetroNet::beginStationTramCorrect(Tram *t) {
 
     Station* bS = this->getStation(beginStation);
 
-    if(!stationHasSpoor(bS, t->getLijnNr())){
+    if(!bS->hasSpoor(t->getLijnNr())){
         return false;
     }
 
@@ -356,29 +340,29 @@ bool MetroNet::validSpoor(Spoor *s) {
     std::vector<Spoor* > sporenVanVorige = vorigeStation->getSporen();
     std::vector<Spoor* > sporenVanVolgende = volgendeStation->getSporen();
 
-    for(unsigned int i = 0; i < sporenVanHuidige.size(); i++){
+//    for(unsigned int i = 0; i < sporenVanHuidige.size(); i++){
 
-        if(!stationHasSpoor(vorigeStation, sporenVanHuidige[i]->getSpoorNr())){
-            return false;
-        }
-
-        if(!stationHasSpoor(volgendeStation, sporenVanHuidige[i]->getSpoorNr())){
-            return false;
-        }
-
-        Spoor* spoorVorige = getSpoor(vorigeStation, s->getSpoorNr());
-
-        if(spoorVorige->getVolgende() != s->getHuiding()){
-            return false;
-        }
-
-        Spoor* spoorVolgende = getSpoor(volgendeStation, s->getSpoorNr());
-
-        if(spoorVolgende->getVorige() != s->getHuiding()){
-            return false;
-        }
-
+    if(!vorigeStation->hasSpoor(s->getSpoorNr())){
+        return false;
     }
+
+    if(!volgendeStation->hasSpoor(s->getSpoorNr())){
+        return false;
+    }
+
+    Spoor* spoorVorige = vorigeStation->getSpoor(s->getSpoorNr());
+
+    if(spoorVorige->getVolgende() != s->getHuiding()){
+        return false;
+    }
+
+    Spoor* spoorVolgende = volgendeStation->getSpoor(s->getSpoorNr());
+
+    if(spoorVolgende->getVorige() != s->getHuiding()){
+        return false;
+    }
+
+//    }
 
     return true;
 }
@@ -400,30 +384,3 @@ bool MetroNet::controlTram(Tram *t) {
     return true;
 }
 
-bool MetroNet::stationHasSpoor(Station* s ,int nr) {
-
-    std::vector<Spoor* > sporen = s->getSporen();
-
-    for(unsigned int i = 0; i < sporen.size(); i++){
-
-        if(sporen[i]->getSpoorNr() == nr)
-            return true;
-
-    }
-    return false;
-}
-
-Spoor *MetroNet::getSpoor(Station *s, int nr) {
-
-    REQUIRE(stationHasSpoor(s, nr), "Station heeft het spoor zelfs niet!");
-
-    std::vector<Spoor* > sporen = s->getSporen();
-
-    for(unsigned int i = 0; i < sporen.size(); i++){
-
-        if(sporen[i]->getSpoorNr() == nr)
-            return sporen[i];
-
-    }
-    return NULL;
-}

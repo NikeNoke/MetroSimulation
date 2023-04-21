@@ -72,6 +72,12 @@ public:
 
     virtual TypeStation::StationType getTypeEnum() = 0;
 
+    Spoor* getSpoor(int nr) const;
+
+    bool hasUniqueSporen() const;
+
+    bool hasSpoor(int nr) const;
+
 private:
 
     std::vector<Spoor*> sporen;

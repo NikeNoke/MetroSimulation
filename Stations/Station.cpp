@@ -2,6 +2,7 @@
 // Created by Thomas on 02/03/2023.
 //
 
+#include <set>
 #include "Station.h"
 #include "../DesignByContract.h"
 #include "../Utils/utils.h"
@@ -65,4 +66,41 @@ bool Station::addSpoor(Spoor *s) {
             return false;
     }
     return true;
+}
+
+Spoor *Station::getSpoor(int nr) const {
+
+    for(unsigned int i = 0; i < sporen.size(); i++){
+
+        if(sporen[i]->getSpoorNr() == nr)
+            return sporen[i];
+
+    }
+    return NULL;
+}
+
+bool Station::hasUniqueSporen() const {
+    std::vector<int> spoorNrs;
+
+
+    for (unsigned int i = 0; i < this->getSporen().size(); i++) {
+
+        spoorNrs.push_back(this->getSporen()[i]->getSpoorNr());
+
+    }
+
+    std::set<int> spoorNrs2(spoorNrs.begin(), spoorNrs.end());
+
+    return spoorNrs.size() == spoorNrs2.size();
+}
+
+bool Station::hasSpoor(int nr) const {
+
+    for(unsigned int i = 0; i < sporen.size(); i++){
+
+        if(sporen[i]->getSpoorNr() == nr)
+            return true;
+
+    }
+    return false;
 }
