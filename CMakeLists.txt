@@ -18,7 +18,7 @@ set(RELEASE_SOURCE_FILES main.cpp Trams/Tram.cpp Stations/Station.cpp TinyXML/ti
         Utils/utils.cpp ParseXML/ParseStation.cpp ParseXML/ParseTram.cpp ParseXML/ParseMetroNet.cpp
         Exporter/Exporter.cpp MetroNetGenerator/MetroNetGenerator.cpp Spoor/Spoor.cpp ParseXML/ParseSpoor.cpp
         Trams/PCCTram.cpp Trams/AlbatrosTram.cpp Trams/StadslijnerTram.cpp
-        Stations/MetronetStation.cpp Stations/HalteStation.cpp Exporter/SimpleExport.cpp Exporter/AdvancedExport.cpp)
+        Stations/MetronetStation.cpp Stations/HalteStation.cpp Exporter/SimpleExport.cpp Exporter/AdvancedExport.cpp Exporter/InterfaceExport.cpp Exporter/InterfaceExport.h)
 
 # Set source files for DEBUG target
 set(DEBUG_SOURCE_FILES tests.cpp Trams/Tram.cpp Stations/Station.cpp TinyXML/tinyxmlparser.cpp
