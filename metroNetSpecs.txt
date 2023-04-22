@@ -26,6 +26,21 @@
 	-> Station B
 	<- Station  A
 
+= Station D =
+* Spoor 17:
+	-> Station E
+	<- Station  F
+
+= Station E =
+* Spoor 17:
+	-> Station F
+	<- Station  D
+
+= Station F =
+* Spoor 17:
+	-> Station D
+	<- Station  E
+
 --== TRAMS ==--
 Tram 12 nr 1
 	type: PCC
@@ -35,10 +50,15 @@ Tram 12 nr 1
 Tram 12 nr 2
 	type: Albatros
 	snelheid: 70
-	huidig station: B
+	huidig station: C
 
 Tram 21 nr 3
 	type: Albatros
 	snelheid: 70
-	huidig station: B
+	huidig station: A
+
+Tram 17 nr 4
+	type: PCC
+	snelheid: 40
+	huidig station: E
 

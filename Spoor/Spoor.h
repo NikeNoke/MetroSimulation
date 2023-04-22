@@ -50,6 +50,8 @@ public:
 
     void setHuidig(const std::string& h);
 
+    bool connectedToStation(const std::string& stationName) const;
+
 private:
     std::string volgende;
     std::string vorige;

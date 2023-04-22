@@ -89,9 +89,17 @@ public:
 
     bool isValidMetroNetSilent();
 
-    void simulateMetroNet();
+    void simulateMetroNet(int seconds);
 
-    bool tramAtStation(const std::string& stationName);
+    bool aTramAtStation(const std::string& stationName);
+
+    bool aTramAtStationSpoor(const std::string& stationName, int lijnNr);
+
+    bool moveTram(Tram* t , std::string& TargetStationName);
+
+    void moveAllTramsOnce();
+
+    Tram* getTramAtStationSpoor(const std::string& stationName, int lijnNr);
 
 private:
 

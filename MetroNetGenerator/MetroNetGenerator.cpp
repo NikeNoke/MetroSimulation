@@ -57,10 +57,10 @@ void MetroNetGenerator::generateMetroNet() {
 
 void MetroNetGenerator::simulate(int seconds) {
     REQUIRE(getMetroNet().isValidMetroNet(), "The metroNet is not Valid");
-    for(int i = 0; i < seconds; i++){
-//        getMetroNet().simulateMetroNet();
-//        getExporter().exportFile(getMetroNet());
-    }
+
+    getMetroNet().simulateMetroNet(seconds);
+    getExporter().exportFile(getMetroNet());
+
     ENSURE(getMetroNet().isValidMetroNet(), "The metroNet is not Valid");
 }
 

@@ -39,7 +39,7 @@ bool ParseStation::parseAll() {
     if(getStationType() == TypeStation::MetroStation)
         station = new MetronetStation;
     else if(getStationType() == TypeStation::Halte)
-        station = new MetronetStation;
+        station = new HalteStation;
     else{
         std::cerr << "The station type is not correct\n";
         return false;
@@ -223,7 +223,10 @@ bool ParseStation::parseSpoor(Station *station) const {
                 return false;
             }
             spoor->setHuidig(station->getName());
-            station->addSpoor(spoor);
+            if(!station->addSpoor(spoor)){
+                std::cerr << "Halte kan enkel 1 spoor hebben!\n";
+                return false;
+            }
         }
     }
     ENSURE(getElement() != NULL, "TixmlElement is NULL");

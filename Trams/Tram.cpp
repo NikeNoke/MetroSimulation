@@ -2,6 +2,7 @@
 // Created by Thomas on 02/03/2023.
 //
 
+#include <iostream>
 #include "Tram.h"
 #include "../DesignByContract.h"
 #include "../Utils/utils.h"
@@ -60,9 +61,24 @@ bool Tram::properlyInitialized() {
     return _initCheck == this;
 }
 
-void Tram::moveTram(std::string& targetStation) {
-    huidigStation = targetStation;
-    ENSURE(getHuidigStation() == targetStation, "The member huidigStation type has not been set properly");
+bool Tram::move(Station* targetStation) {
+    REQUIRE(targetStation->aSpoorConnectedToStation(getHuidigStation(), getLijnNr()), "Station to move to has no Spoor connected to the current Station of the tram!");
+    REQUIRE(targetStation->hasSpoor(getLijnNr()), "The target station does not have the same lijnNr as this tram");
+    //targetStation at lijnNr has no Tram at the moment
+    std::string temp = getHuidigStation();
+    std::string target = targetStation->getName();
+    if(stationCanBeServiced(targetStation)){
+        setHuidigStation(target);
+        std::cout << "The tram " << getVoertuigNummer() << " reed van station " << temp << " naar station " << target
+        << " op spoor " << getLijnNr() << "\n";
+        ENSURE(getHuidigStation() == target, "The member huidigStation has not been changed properly");
+        return true;
+    }else{
+        std::cout << "The tram " << getVoertuigNummer() << " kan niet rijden van station " << temp << " naar station " << target
+        << " op spoor " << getLijnNr() << "\n";
+        ENSURE(getHuidigStation() == temp, "The member huidigStation has changed");
+        return false;
+    }
 }
 
 void Tram::setType(std::string& t) {

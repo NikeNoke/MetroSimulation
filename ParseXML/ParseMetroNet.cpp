@@ -29,8 +29,10 @@ bool ParseMetroNet::parseMetroNet(MetroNet &metroNet) {
             ParseStation parseStation(element);
             if(parseStation.parseSuccessful())
                 metroNet.addStation(parseStation.getParsedStation());
-            else
-                continue; //TODO message display?
+            else{
+                std::cerr << "STATION WAS WRONG\n";
+                return false;
+            }
 
         } else if (current == "TRAM") {
 

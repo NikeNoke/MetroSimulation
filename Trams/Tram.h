@@ -87,7 +87,7 @@ public:
      * **/
     bool properlyInitialized();
 
-    void moveTram(std::string& targetStation);
+    bool move(Station* station);
 
     void setType(std::string& type);
 

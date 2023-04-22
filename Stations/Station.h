@@ -78,6 +78,12 @@ public:
 
     bool hasSpoor(int nr) const;
 
+    bool aSpoorConnectedToStation(const std::string& stationName, int lijnNr) const;
+
+    std::string nextOfSpoor(int lijnNr) const;
+
+    std::string previousOfSpoor(int lijnNr) const;
+
 private:
 
     std::vector<Spoor*> sporen;

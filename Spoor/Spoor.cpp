@@ -52,3 +52,13 @@ void Spoor::setHuidig(const std::string &h) {
 std::string Spoor::getHuiding() const {
     return huidig;
 }
+
+bool Spoor::connectedToStation(const std::string &stationName) const {
+
+    if(getVolgende() == stationName)
+        return true;
+    if(getVorige() == stationName)
+        return true;
+
+    return false;
+}

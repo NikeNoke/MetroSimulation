@@ -64,6 +64,7 @@ bool Station::addSpoor(Spoor *s) {
     else if(getType() == "Halte"){
         if(sporen.size() >= 1)
             return false;
+        sporen.push_back(s);
     }
     return true;
 }
@@ -103,4 +104,52 @@ bool Station::hasSpoor(int nr) const {
 
     }
     return false;
+}
+
+bool Station::aSpoorConnectedToStation(const std::string &stationName, int lijnNr) const {
+
+    std::vector<Spoor* > tempSporen = this->getSporen();
+
+    for(unsigned int i = 0; i < tempSporen.size(); i++){
+
+        if(tempSporen[i]->getSpoorNr() != lijnNr)
+            continue;
+
+        if(tempSporen[i]->connectedToStation(stationName))
+            return true;
+
+    }
+    return false;
+}
+
+std::string Station::nextOfSpoor(int lijnNr) const {
+
+    std::vector<Spoor* > tempSporen = this->getSporen();
+
+    for(unsigned int i = 0; i < tempSporen.size(); i++){
+
+        if(tempSporen[i]->getSpoorNr() != lijnNr)
+            continue;
+
+        REQUIRE(tempSporen[i]->getHuiding() == getName(), "Spoor in station is wrong");
+        return tempSporen[i]->getVolgende();
+
+    }
+    return "";
+}
+
+std::string Station::previousOfSpoor(int lijnNr) const {
+
+    std::vector<Spoor* > tempSporen = this->getSporen();
+
+    for(unsigned int i = 0; i < tempSporen.size(); i++){
+
+        if(tempSporen[i]->getSpoorNr() != lijnNr)
+            continue;
+
+        REQUIRE(tempSporen[i]->getHuiding() == getName(), "Spoor in station is wrong");
+        return tempSporen[i]->getVorige();
+
+    }
+    return "";
 }

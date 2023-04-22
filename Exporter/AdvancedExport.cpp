@@ -67,7 +67,7 @@ bool AdvancedExport::exportFile(MetroNet &metroNet, std::string path) const {
 
         for(unsigned int j = 0; j < correctOrder.size(); j++){
 
-            if(metroNet.tramAtStation(correctOrder[j]))
+            if(metroNet.aTramAtStation(correctOrder[j]))
                 file << " T ";
             else
                 file << "   ";
