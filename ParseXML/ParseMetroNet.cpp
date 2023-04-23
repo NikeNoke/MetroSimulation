@@ -49,8 +49,10 @@ bool ParseMetroNet::parseMetroNet(MetroNet &metroNet) {
 
     getDoc().Clear();
 
-    if(metroNet.isValidMetroNet())
+    if(metroNet.isValidMetroNet()){
+        metroNet.initializeStat();
         return true;
+    }
     else
         return false;
 

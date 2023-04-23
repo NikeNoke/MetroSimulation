@@ -46,11 +46,13 @@ void MetroNetGenerator::generateMetroNet() {
 
     ParseMetroNet metroNetParser(getPathToOpenXml());
 
-    metroNetParser.parseMetroNet(metroNet);
+    metroNetParser.parseMetroNet(getMetroNet());
 
-    exporter.exportFile(metroNet);
+    getExporter().exportFile(getMetroNet());
 
-    ENSURE(metroNet.isValidMetroNet(), "The metroNet is not valid");
+    getMetroNet().getStatReport();
+
+    ENSURE(getMetroNet().isValidMetroNet(), "The metroNet is not valid");
     ENSURE(Utils::fileExists(getPathToWrite()), "The file was not even created");
 
 }
@@ -60,6 +62,7 @@ void MetroNetGenerator::simulate(int seconds) {
 
     getMetroNet().simulateMetroNet(seconds);
     getExporter().exportFile(getMetroNet());
+    getMetroNet().getStatReport();
 
     ENSURE(getMetroNet().isValidMetroNet(), "The metroNet is not Valid");
 }

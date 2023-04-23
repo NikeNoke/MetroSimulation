@@ -60,5 +60,5 @@ Tram 21 nr 3
 Tram 17 nr 4
 	type: PCC
 	snelheid: 40
-	huidig station: E
+	huidig station: F
 

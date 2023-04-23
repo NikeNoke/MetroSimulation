@@ -77,7 +77,11 @@ bool ParseTram::checkValidTram() const {
 
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 
-    return checkValidLijnNr() && checkValidBeginStation() && checkValidTypeTram() && !checkNonValidAttributes();
+    if(getTramType() != TramType::PCC)
+        return checkValidLijnNr() && checkValidBeginStation() && checkValidTypeTram() && !checkNonValidAttributes();
+    return checkValidLijnNr() && checkValidBeginStation() && checkValidTypeTram() && checkValidReparatieTijd()
+            && checkValidReparatieKosten() && checkValidAantalDefecten() && checkValidVoertuigNummer()
+            && !checkNonValidAttributes();
 }
 
 bool ParseTram::parseBeginStation(Tram *tram) const {
@@ -197,6 +201,14 @@ bool ParseTram::checkNonValidAttributes() const {
             continue;
         if(innerElementName == "voertuigNr")
             continue;
+        if(getTramType() == TramType::PCC){
+            if(innerElementName == "reparatieKost")
+                continue;
+            if(innerElementName == "reparatieTijd")
+                continue;
+            if(innerElementName == "aantalDefecten")
+                continue;
+        }
         return true;
     }
 

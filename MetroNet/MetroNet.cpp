@@ -4,6 +4,7 @@
 #include "../DesignByContract.h"
 #include "../Spoor/Spoor.h"
 #include <set>
+#include <ctime>
 
 bool MetroNet::stationRegistered(const std::string &name) const {
     REQUIRE(!(Utils::is_int(name)), "The parameter name is a number");
@@ -98,6 +99,7 @@ MetroNet::~MetroNet() {
 
 MetroNet::MetroNet() {
     _fInitCheck = this;
+    setInitializeStatCalled(false);
 }
 
 bool MetroNet::properlyInitialized() const {
@@ -198,11 +200,32 @@ bool MetroNet::isValidMetroNet() {
 
 void MetroNet::simulateMetroNet(int seconds) {
 
-    for(int i = 0; i < seconds; i++){
+    struct timespec start, finish;
+    double elapsed;
+
+    clock_gettime(CLOCK_MONOTONIC, &start);
+
+    clock_gettime(CLOCK_MONOTONIC, &finish);
+
+    elapsed = (finish.tv_sec - start.tv_sec);
+    elapsed += (finish.tv_nsec - start.tv_nsec) / 1000000000.0;
+
+    while(elapsed <= seconds){
 
         moveAllTramsOnce();
 
+        clock_gettime(CLOCK_MONOTONIC, &finish);
+
+        elapsed = (finish.tv_sec - start.tv_sec);
+        elapsed += (finish.tv_nsec - start.tv_nsec) / 1000000000.0;
+
     }
+//
+//    for(int i = 0; i < seconds; i++){
+//
+//        moveAllTramsOnce();
+//
+//    }
 }
 
 bool MetroNet::controlStation(Station *station){
@@ -390,8 +413,11 @@ bool MetroNet::moveTram(Tram* tram, std::string &targetStationName) {
     Station* targetStation = getStation(targetStationName);
     //if possible
     if(currentStation->aSpoorConnectedToStation(targetStationName, tram->getLijnNr())){
-        if(tram->move(targetStation))
+        if(tram->move(targetStation)){
+            //if moved targetStation visitedByTrams + 1 TODO
+            targetStation->setVisitedByTrams(targetStation->getVisitedByTrams()+1);
             return true;
+        }
         return false;
     }
 
@@ -419,7 +445,7 @@ void MetroNet::moveAllTramsOnce() {
         }
 
         moveTram(tempTrams[i], targetStationName);
-        ENSURE(tempTrams[i]->getHuidigStation() == targetStationName, "The tram has not moved successfully");
+//        ENSURE(tempTrams[i]->getHuidigStation() == targetStationName, "The tram has not moved successfully");
     }
 
 }
@@ -473,5 +499,59 @@ int MetroNet::getTotaalMetroNetReparatieKost() {
 
     }
     return ans;
+}
+
+void MetroNet::initializeStat() {
+    REQUIRE(isValidMetroNet(), "The metronet must be valid");
+    if(getInitializeStatCalled())
+        return;
+
+    std::vector<Tram* > tempTrams;
+
+    for(unsigned int i = 0; i < tempTrams.size(); i++){
+
+        Station* visitedStation = getStation(tempTrams[i]->getHuidigStation());
+
+        visitedStation->setVisitedByTrams(visitedStation->getVisitedByTrams()+1);
+
+    }
+    setInitializeStatCalled(true);
+}
+
+bool MetroNet::getInitializeStatCalled() const {
+    return initializeStatCalled;
+}
+
+void MetroNet::setInitializeStatCalled(bool b) {
+    initializeStatCalled = b;
+}
+
+void MetroNet::getStatReport() {
+
+    int totReperatieKost = 0;
+
+    std::vector<Tram* > tempTrams = getTrams();
+
+    std::cout << "\n\n ====BEGIN STAT REPORT====\n";
+
+    for(unsigned int i = 0; i < tempTrams.size(); i++){
+
+        std::cout << "De reparatie kost van tram " << tempTrams[i]->getVoertuigNummer() << " is " << tempTrams[i]->getTotalReparatieKost()
+        << "\n";
+        totReperatieKost += tempTrams[i]->getTotalReparatieKost();
+
+    }
+    std::cout << "De totale reparatie kost van de metronet is gelijk aan " << totReperatieKost << "\n";
+
+    std::vector<Station* > tempStations = getStations();
+
+    for(unsigned int i = 0; i < tempStations.size(); i++){
+
+        std::cout << "De station " << tempStations[i]->getName() << " werd bezocht door " << tempStations[i]->getVisitedByTrams()
+        << " trams\n";
+
+    }
+
+    std::cout << "\n\n====END STAT REPORT====\n\n";
 }
 

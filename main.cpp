@@ -13,7 +13,7 @@ int main() {
 
         generator.generateMetroNet();
 
-        generator.simulate(10);
+        generator.simulate(1);
 
     }catch(...) {
         std::cerr << "Error from main!\n";

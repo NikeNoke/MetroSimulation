@@ -103,6 +103,10 @@ public:
 
     int getTotaalMetroNetReparatieKost();
 
+    void initializeStat();
+
+    void getStatReport();
+
 private:
 
     bool controlStation(Station* s);
@@ -123,6 +127,13 @@ private:
     std::vector<Station *> fStations;
     std::vector<Tram *> fTrams;
     MetroNet * _fInitCheck;
+
+    bool initializeStatCalled;
+
+    bool getInitializeStatCalled() const;
+
+    void setInitializeStatCalled(bool b);
+
 };
 
 
