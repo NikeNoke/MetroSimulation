@@ -461,3 +461,17 @@ bool MetroNet::aTramAtStationSpoor(const std::string &stationName, int lijnNr) {
     return false;
 }
 
+int MetroNet::getTotaalMetroNetReparatieKost() {
+
+    std::vector<Tram* > tempTrams = getTrams();
+
+    int ans = 0;
+
+    for(unsigned int i = 0; i < tempTrams.size(); i++){
+
+        ans += tempTrams[i]->getTotalReparatieKost();
+
+    }
+    return ans;
+}
+

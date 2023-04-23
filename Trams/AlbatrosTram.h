@@ -17,6 +17,18 @@ public:
     int getSnelheid();
 
     ~AlbatrosTram(){};
+
+    int getAantalDefecten() const;
+
+    void setAantalDefecten(int aantal);
+
+    int getReparatieTijd() const;
+
+    void setReparatieTijd(int aantal);
+
+    int getReparatieKost() const;
+
+    void setReparatieKost(int aantal);
 };
 
 

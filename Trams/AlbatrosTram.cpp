@@ -22,3 +22,27 @@ int AlbatrosTram::getSnelheid() {
     calculateSnelheid();
     return snelheid;
 }
+
+int AlbatrosTram::getAantalDefecten() const {
+    return 0;
+}
+
+void AlbatrosTram::setAantalDefecten(int aantal) {
+    aantalDefecten = 0;
+}
+
+int AlbatrosTram::getReparatieTijd() const {
+    return 0;
+}
+
+void AlbatrosTram::setReparatieTijd(int aantal) {
+    reparatieTijd = 0;
+}
+
+int AlbatrosTram::getReparatieKost() const {
+    return 0;
+}
+
+void AlbatrosTram::setReparatieKost(int aantal) {
+    reparatieKost = 0;
+}

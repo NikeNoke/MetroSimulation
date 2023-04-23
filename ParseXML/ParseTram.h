@@ -99,6 +99,18 @@ public:
 
     TramType::TypeTram getTramType() const;
 
+    bool checkValidAantalDefecten() const;
+
+    bool checkValidReparatieTijd() const;
+
+    bool checkValidReparatieKosten() const;
+
+    bool parseAantalDefecten(Tram* tram);
+
+    bool parseReparatieTijd(Tram* tram);
+
+    bool parseReparatieKosten(Tram* tram);
+
 private:
     TiXmlElement * fElement;
     Tram* parsedTram;

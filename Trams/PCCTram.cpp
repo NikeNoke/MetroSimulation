@@ -20,3 +20,27 @@ int PCCTram::getSnelheid() {
     calculateSnelheid();
     return snelheid;
 }
+
+int PCCTram::getAantalDefecten() const {
+    return aantalDefecten;
+}
+
+void PCCTram::setAantalDefecten(int aantal) {
+    aantalDefecten = aantal;
+}
+
+int PCCTram::getReparatieTijd() const {
+    return reparatieTijd;
+}
+
+void PCCTram::setReparatieTijd(int aantal) {
+    reparatieTijd = aantal;
+}
+
+int PCCTram::getReparatieKost() const {
+    return reparatieKost;
+}
+
+void PCCTram::setReparatieKost(int aantal) {
+    reparatieKost = aantal;
+}

@@ -68,6 +68,12 @@ bool Tram::move(Station* targetStation) {
     std::string temp = getHuidigStation();
     std::string target = targetStation->getName();
     if(stationCanBeServiced(targetStation)){
+        if(!tramCanMove()){
+            std::cout << "De huidige tram " << getVoertuigNummer() << " kan niet bewegen, want het is defect voor nog "
+            << getTotalReparatieKost() - getReparatieTijdWatcher() << " 'stappen'\n";
+            ENSURE(getHuidigStation() == temp, "The member huidigStation has changed");
+            return false;
+        }
         setHuidigStation(target);
         std::cout << "The tram " << getVoertuigNummer() << " reed van station " << temp << " naar station " << target
         << " op spoor " << getLijnNr() << "\n";
@@ -98,4 +104,48 @@ void Tram::setVoertuigNummer(int n) {
 
 int Tram::getVoertuigNummer() const {
     return voertuigNummer;
+}
+
+int Tram::getDefectWatcher() const {
+    return defectWatcher;
+}
+
+void Tram::setDefectWatcher(int d) {
+    Tram::defectWatcher = d;
+}
+
+int Tram::getReparatieTijdWatcher() const {
+    return reparatieTijdWatcher;
+}
+
+void Tram::setReparatieTijdWatcher(int r) {
+    Tram::reparatieTijdWatcher = r;
+}
+
+bool Tram::tramDefect() const {
+    if(getAantalDefecten() == 0)
+        return false;
+    return getDefectWatcher() == getAantalDefecten();
+}
+
+int Tram::getTotalReparatieKost() const {
+    if(getReparatieTijd() == 0)
+        return 0;
+    return getReparatieTijd() + getReparatieKost();
+}
+
+bool Tram::tramCanMove() {
+    if(tramDefect()){
+        if(getReparatieTijdWatcher() == getTotalReparatieKost()){
+            setDefectWatcher(0);
+            setReparatieTijdWatcher(0);
+            ENSURE(!tramDefect(), "Tram must now be able to move");
+            return true;
+        }
+        setReparatieTijdWatcher(getReparatieTijdWatcher()+1);
+        return false;
+    }
+    setDefectWatcher(getDefectWatcher()+1);
+    setReparatieTijdWatcher(0);
+    return true;
 }

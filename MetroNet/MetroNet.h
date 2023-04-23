@@ -101,6 +101,8 @@ public:
 
     Tram* getTramAtStationSpoor(const std::string& stationName, int lijnNr);
 
+    int getTotaalMetroNetReparatieKost();
+
 private:
 
     bool controlStation(Station* s);

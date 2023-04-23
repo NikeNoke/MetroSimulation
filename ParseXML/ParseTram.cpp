@@ -156,6 +156,12 @@ bool ParseTram::parseAll() {
         delete tram;
         return false;
     }
+    if(getTramType() == TramType::PCC){
+        if(!parseAantalDefecten(tram) || !parseReparatieTijd(tram) || !parseReparatieKosten(tram)){
+            delete tram;
+            return false;
+        }
+    }
     setParsedTram(tram);
     //TODO setsnelheid
     tram->calculateSnelheid();
@@ -334,5 +340,158 @@ Tram *ParseTram::getParsedTram() const {
 
 bool ParseTram::parseSuccessful() {
     return parseAll();
+}
+
+bool ParseTram::checkValidAantalDefecten() const {
+
+    REQUIRE(getElement() != NULL, "TixmlElement is NULL");
+
+    int aantalDefecten = 0;
+
+    for (TiXmlElement *InnerElement = getElement()->FirstChildElement();
+         InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
+
+        std::string innerElementName = InnerElement->Value();
+        std::string innerText = InnerElement->GetText();
+
+        if(innerElementName == "aantalDefecten"){
+            if(Utils::is_int(innerText))
+                aantalDefecten++;
+            else
+                return false;
+        }
+    }
+
+    ENSURE(getElement() != NULL, "TixmlElement has become NULL");
+
+    return aantalDefecten == 1;
+}
+
+bool ParseTram::checkValidReparatieTijd() const {
+
+    REQUIRE(getElement() != NULL, "TixmlElement is NULL");
+
+    int aantalReparatieTijd = 0;
+
+    for (TiXmlElement *InnerElement = getElement()->FirstChildElement();
+         InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
+
+        std::string innerElementName = InnerElement->Value();
+        std::string innerText = InnerElement->GetText();
+
+        if(innerElementName == "reparatieTijd"){
+            if(Utils::is_int(innerText))
+                aantalReparatieTijd++;
+            else
+                return false;
+        }
+    }
+
+    ENSURE(getElement() != NULL, "TixmlElement has become NULL");
+
+    return aantalReparatieTijd == 1;
+}
+
+bool ParseTram::checkValidReparatieKosten() const {
+
+    REQUIRE(getElement() != NULL, "TixmlElement is NULL");
+
+    int aantalReparatieKost = 0;
+
+    for (TiXmlElement *InnerElement = getElement()->FirstChildElement();
+         InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
+
+        std::string innerElementName = InnerElement->Value();
+        std::string innerText = InnerElement->GetText();
+
+        if(innerElementName == "reparatieKost"){
+            if(Utils::is_int(innerText))
+                aantalReparatieKost++;
+            else
+                return false;
+        }
+    }
+
+    ENSURE(getElement() != NULL, "TixmlElement has become NULL");
+
+    return aantalReparatieKost == 1;
+}
+
+bool ParseTram::parseAantalDefecten(Tram* tram) {
+
+    REQUIRE(getTramType() == TramType::PCC, "Will not work on other types");
+    REQUIRE(tram->properlyInitialized(), "Tram is not properlyInitialized");
+    REQUIRE(getElement() != NULL, "TixmlElement is NULL");
+    REQUIRE(checkValidAantalDefecten() == true, "The aantalDefecten tag is not correct in this Tram tag");
+
+
+    for (TiXmlElement *InnerElement = getElement()->FirstChildElement();
+         InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
+
+        std::string innerElementName = InnerElement->Value();
+        std::string innerText = InnerElement->GetText();
+
+        if(innerElementName == "aantalDefecten"){
+            int temp;
+            sscanf(innerText.c_str(), "%d", &temp);
+            tram->setAantalDefecten(temp);
+            return true;
+        }
+    }
+    ENSURE(tram->getAantalDefecten() != -1, "The aantalDefecten of tram has not been correctly initialized");
+    ENSURE(getElement() != NULL, "TixmlElement is NULL");
+    return false;
+}
+
+bool ParseTram::parseReparatieTijd(Tram *tram) {
+
+    REQUIRE(getTramType() == TramType::PCC, "Will not work on other types");
+    REQUIRE(tram->properlyInitialized(), "Tram is not properlyInitialized");
+    REQUIRE(getElement() != NULL, "TixmlElement is NULL");
+    REQUIRE(checkValidReparatieTijd() == true, "The reparatieTijd tag is not correct in this Tram tag");
+
+
+    for (TiXmlElement *InnerElement = getElement()->FirstChildElement();
+         InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
+
+        std::string innerElementName = InnerElement->Value();
+        std::string innerText = InnerElement->GetText();
+
+        if(innerElementName == "reparatieTijd"){
+            int temp;
+            sscanf(innerText.c_str(), "%d", &temp);
+            tram->setReparatieTijd(temp);
+            return true;
+        }
+    }
+    ENSURE(tram->getReparatieTijd() != -1, "The reparatieTijd of tram has not been correctly initialized");
+    ENSURE(getElement() != NULL, "TixmlElement is NULL");
+    return false;
+}
+
+bool ParseTram::parseReparatieKosten(Tram *tram) {
+
+    REQUIRE(getTramType() == TramType::PCC, "Will not work on other types");
+    REQUIRE(tram->properlyInitialized(), "Tram is not properlyInitialized");
+    REQUIRE(getElement() != NULL, "TixmlElement is NULL");
+    REQUIRE(checkValidReparatieKosten() == true, "The reparatieKost tag is not correct in this Tram tag");
+
+
+    for (TiXmlElement *InnerElement = getElement()->FirstChildElement();
+         InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
+
+        std::string innerElementName = InnerElement->Value();
+        std::string innerText = InnerElement->GetText();
+
+        if(innerElementName == "reparatieKost"){
+            int temp;
+            sscanf(innerText.c_str(), "%d", &temp);
+            tram->setReparatieKost(temp);
+            return true;
+        }
+    }
+    ENSURE(tram->getReparatieTijd() != -1, "The reparatieKost of tram has not been correctly initialized");
+    ENSURE(getElement() != NULL, "TixmlElement is NULL");
+    return false;
 }
 

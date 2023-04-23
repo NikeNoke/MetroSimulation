@@ -84,12 +84,18 @@ public:
 
     std::string previousOfSpoor(int lijnNr) const;
 
+    int getVisitedByTrams() const;
+
+    void setVisitedByTrams(int amount);
+
 private:
 
     std::vector<Spoor*> sporen;
     std::string fNaam;
     std::string fType;
     Station* _fInitCheck;
+
+    int visitedByTrams;
 };
 
 

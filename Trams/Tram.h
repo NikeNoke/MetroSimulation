@@ -103,8 +103,27 @@ public:
 
     virtual ~Tram(){};
 
+    virtual int getAantalDefecten() const = 0;
+
+    virtual void setAantalDefecten(int aantal) = 0;
+
+    virtual int getReparatieTijd() const = 0;
+
+    virtual void setReparatieTijd(int aantal) = 0;
+
+    virtual int getReparatieKost() const = 0;
+
+    virtual void setReparatieKost(int aantal) = 0;
+
+    bool tramDefect() const;
+
+    int getTotalReparatieKost() const;
+
 protected:
     int snelheid;
+    int aantalDefecten;
+    int reparatieTijd;
+    int reparatieKost; //gwn + reparatieTijd of + reparatieTijd bij elke defect???? TODO ask
 
 private:
     std::string beginStation;
@@ -113,6 +132,20 @@ private:
     std::string type; //TODO make enum
     int voertuigNummer;
     Tram* _initCheck;
+
+    int defectWatcher;
+
+    int getDefectWatcher() const;
+
+    void setDefectWatcher(int defectWatcher);
+
+    int reparatieTijdWatcher;
+
+    int getReparatieTijdWatcher() const;
+
+    void setReparatieTijdWatcher(int reparatieTijdWatcher);
+
+    bool tramCanMove();
 };
 
 

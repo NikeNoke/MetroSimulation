@@ -10,6 +10,7 @@
 
 Station::Station() {
     _fInitCheck = this;
+    visitedByTrams = 0;
 }
 
 //Station::Station(const std::string &naam,const std::string& volgende,const std::string& vorige, int spoorNr) : fNaam(naam),
@@ -152,4 +153,12 @@ std::string Station::previousOfSpoor(int lijnNr) const {
 
     }
     return "";
+}
+
+int Station::getVisitedByTrams() const {
+    return visitedByTrams;
+}
+
+void Station::setVisitedByTrams(int amount) {
+    visitedByTrams = amount;
 }
