@@ -1,44 +1,64 @@
-Stations: 
-	station0:
-		Naam: A
-		Vorige Station: C
-		Volgende Station: B
-	station1:
-		Naam: B
-		Vorige Station: A
-		Volgende Station: C
-	station2:
-		Naam: C
-		Vorige Station: B
-		Volgende Station: A
-	station3:
-		Naam: Turnhoutsebaan
-		Vorige Station: Sterckshof
-		Volgende Station: Atheneum
-	station4:
-		Naam: Atheneum
-		Vorige Station: Turnhoutsebaan
-		Volgende Station: JanS
-	station5:
-		Naam: JanS
-		Vorige Station: Atheneum
-		Volgende Station: Lakborslei
-	station6:
-		Naam: Lakborslei
-		Vorige Station: JanS
-		Volgende Station: Deurne
-	station7:
-		Naam: Deurne
-		Vorige Station: Deurne
-		Volgende Station: Sterckshof
-Trams: 
-	tram0:
-		LijnNr: 12
-		Snelheid: 60
-		Begin station: A
-		Huidig station: A
-	tram1:
-		LijnNr: 33
-		Snelheid: 90
-		Begin station: Atheneum
-		Huidig station: Atheneum
+--== STATIONS ==--
+= Station A =
+* Spoor 12:
+	-> Station B
+	<- Station  C
+
+* Spoor 21:
+	-> Station C
+	<- Station  B
+
+= Station B =
+* Spoor 12:
+	-> Station C
+	<- Station  A
+
+* Spoor 21:
+	-> Station A
+	<- Station  C
+
+= Station C =
+* Spoor 12:
+	-> Station A
+	<- Station  B
+
+* Spoor 21:
+	-> Station B
+	<- Station  A
+
+= Station D =
+* Spoor 17:
+	-> Station E
+	<- Station  F
+
+= Station E =
+* Spoor 17:
+	-> Station F
+	<- Station  D
+
+= Station F =
+* Spoor 17:
+	-> Station D
+	<- Station  E
+
+--== TRAMS ==--
+Tram 12 nr 1
+	type: PCC
+	snelheid: 40
+	huidig station: A
+
+Tram 12 nr 2
+	type: Albatros
+	snelheid: 70
+	huidig station: C
+
+Tram 21 nr 3
+	type: Albatros
+	snelheid: 70
+	huidig station: A
+
+Tram 17 nr 4
+	type: PCC
+	snelheid: 40
+	huidig station: F
+

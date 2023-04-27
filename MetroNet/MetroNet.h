@@ -2,8 +2,8 @@
 #define METRONET_XXX
 
 #include <vector>
-#include "../Station/Station.h"
-#include "../Tram/Tram.h"
+#include "../Stations/Station.h"
+#include "../Trams/Tram.h"
 #include <string>
 
 /**
@@ -70,25 +70,70 @@ public:
      * **/
     std::vector<Tram *> getTrams();
 
-    /**
-     * Functie dat een tram verplaatst naar een station.
-     * @param tram De tram die verplaatst zou worden.
-     * @param nameStation De string die overeenkomt met de naam van een station en waarnaar de tram zal verplaatst
-     * worden.
-     * @return true of false afhankelijk ofdat de move gaat of niet gaat.
-     * **/
-    bool moveTram(Tram *const tram, const std::string &nameStation);
+//    /**
+//     * Functie dat een tram verplaatst naar een station.
+//     * @param tram De tram die verplaatst zou worden.
+//     * @param nameStation De string die overeenkomt met de naam van een station en waarnaar de tram zal verplaatst
+//     * worden.
+//     * @return true of false afhankelijk ofdat de move gaat of niet gaat.
+//     * **/
+//    bool moveTram(Tram *const tram, const std::string &nameStation);
 
     /**
      * Functie dat test ofdat MetroNet correct geïnitialiseerd is.
      * @return true of false als het correct geïnitialiseerd is of als het niet correct geïnitialiseerd is.
      * **/
-    bool properlyInitialized();
+    bool properlyInitialized() const;
+
+    bool isValidMetroNet();
+
+    bool isValidMetroNetSilent();
+
+    void simulateMetroNet(int seconds);
+
+    bool aTramAtStation(const std::string& stationName);
+
+    bool aTramAtStationSpoor(const std::string& stationName, int lijnNr);
+
+    bool moveTram(Tram* t , std::string& TargetStationName);
+
+    void moveAllTramsOnce();
+
+    Tram* getTramAtStationSpoor(const std::string& stationName, int lijnNr);
+
+    int getTotaalMetroNetReparatieKost();
+
+    void initializeStat();
+
+    void getStatReport();
 
 private:
-    std::vector<Station *> stations;
-    std::vector<Tram *> trams;
-    MetroNet *_initCheck;
+
+    bool controlStation(Station* s);
+
+    bool spoorLineHasTram(Spoor* s);
+
+    bool tramLineHasSpoor(Tram* t);
+
+    bool beginStationTramCorrect(Tram* t);
+
+    bool uniqueTram(Tram* t);
+
+    bool validSpoor(Spoor* s);
+
+    bool controlTram(Tram* t);
+
+private:
+    std::vector<Station *> fStations;
+    std::vector<Tram *> fTrams;
+    MetroNet * _fInitCheck;
+
+    bool initializeStatCalled;
+
+    bool getInitializeStatCalled() const;
+
+    void setInitializeStatCalled(bool b);
+
 };
 
 

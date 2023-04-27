@@ -12,15 +12,21 @@ include_directories(gtest/include)
 link_directories(gtest/lib)
 
 # Set source files for RELEASE target
-set(RELEASE_SOURCE_FILES main.cpp Tram/Tram.cpp Station/Station.cpp TinyXML/tinyxmlparser.cpp
+set(RELEASE_SOURCE_FILES main.cpp Trams/Tram.cpp Stations/Station.cpp TinyXML/tinyxmlparser.cpp
         TinyXML/tinyxmlerror.cpp TinyXML/tinyxml.cpp TinyXML/tinystr.cpp
         MetroNet/MetroNet.cpp
-        ParseXML/ParseXML.cpp
-        Utils/utils.cpp
-        )
+        Utils/utils.cpp ParseXML/ParseStation.cpp ParseXML/ParseTram.cpp ParseXML/ParseMetroNet.cpp
+        Exporter/Exporter.cpp MetroNetGenerator/MetroNetGenerator.cpp Spoor/Spoor.cpp ParseXML/ParseSpoor.cpp
+        Trams/PCCTram.cpp Trams/AlbatrosTram.cpp Trams/StadslijnerTram.cpp
+        Stations/MetronetStation.cpp Stations/HalteStation.cpp Exporter/SimpleExport.cpp Exporter/AdvancedExport.cpp Exporter/InterfaceExport.cpp Exporter/InterfaceExport.h)
 
 # Set source files for DEBUG target
-set(DEBUG_SOURCE_FILES tests.cpp TinyXML/tinystr.cpp TinyXML/tinyxml.cpp TinyXML/tinyxmlerror.cpp TinyXML/tinyxmlparser.cpp Tram/Tram.h Station/Station.h TestFiles/ValidAmountAttributesTram.cpp TestFiles/ValidAmountAttributesStation.cpp TestFiles/AttributeTypeCorrectness.cpp)
+set(DEBUG_SOURCE_FILES tests.cpp Trams/Tram.cpp Stations/Station.cpp TinyXML/tinyxmlparser.cpp
+        TinyXML/tinyxmlerror.cpp TinyXML/tinyxml.cpp TinyXML/tinystr.cpp
+        MetroNet/MetroNet.cpp
+        Utils/utils.cpp ParseXML/ParseStation.cpp ParseXML/ParseTram.cpp ParseXML/ParseMetroNet.cpp
+        Exporter/Exporter.cpp MetroNetGenerator/MetroNetGenerator.cpp TestFiles/ValidMetroNetTest.cpp
+        TestFiles/ValidAttributesStation.cpp TestFiles/ValidAttributesTram.cpp TestFiles/ValidExport.cpp)
 
 # Create RELEASE target
 add_executable(Metro ${RELEASE_SOURCE_FILES})

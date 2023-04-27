@@ -1,0 +1,52 @@
+\hypertarget{ParseTram_8h_source}{}\doxysection{Parse\+Tram.\+h}
+\label{ParseTram_8h_source}\index{ParseTram.h@{ParseTram.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ byamba\ on\ 20/03/23.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ METROSIMULATION\_PARSETRAM\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ METROSIMULATION\_PARSETRAM\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}../DesignByContract.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}../Tram/Tram.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}../MetroNet/MetroNet.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}../TinyXML/tinyxml.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classParseTram}{ParseTram}}\ \{}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classParseTram}{ParseTram}}(\mbox{\hyperlink{classTiXmlElement}{TiXmlElement}}\ *element);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classParseTram_ad627e6bc302f9c2f72de19fd18a0a1a4}{setElement}}(\mbox{\hyperlink{classTiXmlElement}{TiXmlElement}}\ *el);}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classParseTram_a38e16b0b30a35bc0c3dbdbe8a339c27b}{parseAll}}(\mbox{\hyperlink{classMetroNet}{MetroNet}}\ \&metroNet,\ \mbox{\hyperlink{classTram}{Tram}}*\ tram)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00047\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classParseTram_a6ea5d45826cabae994326686cc665876}{parseLijnNr}}(\mbox{\hyperlink{classMetroNet}{MetroNet}}\ \&metroNet,\ \mbox{\hyperlink{classTram}{Tram}}*\ tram)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classParseTram_a241778b9ab6d5a66605c3722f150a6fa}{parseBeginStation}}(\mbox{\hyperlink{classMetroNet}{MetroNet}}\ \&metroNet,\ \mbox{\hyperlink{classTram}{Tram}}*\ tram)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classParseTram_a4e9996d405ca51adca6b142779f3de52}{parseSnelheid}}(\mbox{\hyperlink{classMetroNet}{MetroNet}}\ \&metroNet,\ \mbox{\hyperlink{classTram}{Tram}}*\ tram)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classParseTram_a932254bde53a5dfe5a15f5edf7cad7ca}{checkValidTram}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classParseTram_a4458ed2632bf83c7b9177b9be1c4b73a}{checkValidLijnNr}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00083\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classParseTram_a3dd5416164d409b6501dcbdf8ee3eab5}{checkValidBeginStation}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classParseTram_a8e9914a8f70387c857e2627af5060cfc}{checkValidSnelheid}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00096\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classParseTram_aac483b1bae29133a6b6bf18d2edfb9b9}{checkNonValidAttributes}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{classTiXmlElement}{TiXmlElement}}\ *element;}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \};}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//METROSIMULATION\_PARSETRAM\_H}}
+
+\end{DoxyCode}
