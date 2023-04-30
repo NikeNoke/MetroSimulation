@@ -1,0 +1,280 @@
+\hypertarget{classParseSpoor}{}\doxysection{Parse\+Spoor Class Reference}
+\label{classParseSpoor}\index{ParseSpoor@{ParseSpoor}}
+
+
+{\ttfamily \#include $<$Parse\+Spoor.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classParseSpoor_aa9a9786687d9456ec633e15801069f93}{Parse\+Spoor}} (\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$element)
+\item 
+void \mbox{\hyperlink{classParseSpoor_a823a49af779859eab6d444618ee3b892}{set\+Element}} (\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$el)
+\item 
+bool \mbox{\hyperlink{classParseSpoor_a9a81760b0b2f811284d4ab816a6ee4aa}{parse\+All}} (\mbox{\hyperlink{classSpoor}{Spoor}} $\ast$spoor) const
+\item 
+bool \mbox{\hyperlink{classParseSpoor_a7c9fe45eed81d67c2fa94676fc6a5ae6}{parse\+Vorige}} (\mbox{\hyperlink{classSpoor}{Spoor}} $\ast$spoor) const
+\item 
+bool \mbox{\hyperlink{classParseSpoor_a1d1a85cfb4e24aa1a1d6d021a2397597}{parse\+Volgende}} (\mbox{\hyperlink{classSpoor}{Spoor}} $\ast$spoor) const
+\item 
+bool \mbox{\hyperlink{classParseSpoor_ab078288a68db3a904999bb77b461b415}{parse\+Spoor\+Nr}} (\mbox{\hyperlink{classSpoor}{Spoor}} $\ast$spoor) const
+\item 
+bool \mbox{\hyperlink{classParseSpoor_a7f9aba44523e58f106288ec3db446bad}{check\+Valid\+Spoor}} () const
+\item 
+bool \mbox{\hyperlink{classParseSpoor_a04fdc5fc10196cd350d509f090e2f14a}{check\+Valid\+Vorige}} () const
+\item 
+bool \mbox{\hyperlink{classParseSpoor_a31b0130bfdc1690b45fe0a1675783da1}{check\+Valid\+Volgende}} () const
+\item 
+bool \mbox{\hyperlink{classParseSpoor_aa6c08c7955d9c6c54afa98b393d7cf2d}{check\+Valid\+Spoor\+Nr}} () const
+\item 
+bool \mbox{\hyperlink{classParseSpoor_ab642a4b72fe7b7aebf4e9b9d63e3e711}{check\+Non\+Valid\+Attributes}} () const
+\item 
+\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$ \mbox{\hyperlink{classParseSpoor_acc00bb88523ce8bdc5846aa356819238}{get\+Element}} () const
+\item 
+bool \mbox{\hyperlink{classParseSpoor_a1073c012e895ffcb3caf32a2db1dabc4}{properly\+Initialized}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasse \doxylink{classParseSpoor}{Parse\+Spoor} dat er voor zorgt dat een spoor correct geparsed kan worden. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classParseSpoor_aa9a9786687d9456ec633e15801069f93}\label{classParseSpoor_aa9a9786687d9456ec633e15801069f93} 
+\index{ParseSpoor@{ParseSpoor}!ParseSpoor@{ParseSpoor}}
+\index{ParseSpoor@{ParseSpoor}!ParseSpoor@{ParseSpoor}}
+\doxysubsubsection{\texorpdfstring{ParseSpoor()}{ParseSpoor()}}
+{\footnotesize\ttfamily Parse\+Spoor\+::\+Parse\+Spoor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$}]{element }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+Explicit constructor voor \doxylink{classParseSpoor}{Parse\+Spoor}. \begin{DoxyPrecond}{Precondition}
+REQUIRE(element != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(\doxylink{classParseSpoor_acc00bb88523ce8bdc5846aa356819238}{get\+Element()} == element, \char`\"{}\+Tixml\+Element is not the element of the parser\char`\"{}) 
+
+ENSURE(\doxylink{classParseSpoor_a1073c012e895ffcb3caf32a2db1dabc4}{properly\+Initialized()}, \char`\"{}\+Parse\+Spoor has been properly initialized\char`\"{}) 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em element} & Element dat gebruikt wordt om te parsen vanuit een XML file. Een spoor zal een element zijn van een \doxylink{classMetroNet}{Metro\+Net} in de XML en daarom parsen we de element van \doxylink{classMetroNet}{Metro\+Net}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{classParseSpoor}{Parse\+Spoor} object 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classParseSpoor_ab642a4b72fe7b7aebf4e9b9d63e3e711}\label{classParseSpoor_ab642a4b72fe7b7aebf4e9b9d63e3e711} 
+\index{ParseSpoor@{ParseSpoor}!checkNonValidAttributes@{checkNonValidAttributes}}
+\index{checkNonValidAttributes@{checkNonValidAttributes}!ParseSpoor@{ParseSpoor}}
+\doxysubsubsection{\texorpdfstring{checkNonValidAttributes()}{checkNonValidAttributes()}}
+{\footnotesize\ttfamily bool Parse\+Spoor\+::check\+Non\+Valid\+Attributes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Functie dat controleerd ofdatr er attriebuten zijn die niet behoren tot het \doxylink{classSpoor}{Spoor} object. \begin{DoxyPrecond}{Precondition}
+REQUIRE(\doxylink{classParseSpoor_acc00bb88523ce8bdc5846aa356819238}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(\doxylink{classParseSpoor_acc00bb88523ce8bdc5846aa356819238}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element has become NULL\char`\"{}) 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+\Hypertarget{classParseSpoor_a7f9aba44523e58f106288ec3db446bad}\label{classParseSpoor_a7f9aba44523e58f106288ec3db446bad} 
+\index{ParseSpoor@{ParseSpoor}!checkValidSpoor@{checkValidSpoor}}
+\index{checkValidSpoor@{checkValidSpoor}!ParseSpoor@{ParseSpoor}}
+\doxysubsubsection{\texorpdfstring{checkValidSpoor()}{checkValidSpoor()}}
+{\footnotesize\ttfamily bool Parse\+Spoor\+::check\+Valid\+Spoor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Functie dat controleerd ofdat een spoor valid is of niet. \begin{DoxyPrecond}{Precondition}
+REQUIRE(\doxylink{classParseSpoor_acc00bb88523ce8bdc5846aa356819238}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+\Hypertarget{classParseSpoor_aa6c08c7955d9c6c54afa98b393d7cf2d}\label{classParseSpoor_aa6c08c7955d9c6c54afa98b393d7cf2d} 
+\index{ParseSpoor@{ParseSpoor}!checkValidSpoorNr@{checkValidSpoorNr}}
+\index{checkValidSpoorNr@{checkValidSpoorNr}!ParseSpoor@{ParseSpoor}}
+\doxysubsubsection{\texorpdfstring{checkValidSpoorNr()}{checkValidSpoorNr()}}
+{\footnotesize\ttfamily bool Parse\+Spoor\+::check\+Valid\+Spoor\+Nr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Functie dat controleerd ofdat de spoor\+Nr valid is of niet. \begin{DoxyPrecond}{Precondition}
+REQUIRE(\doxylink{classParseSpoor_acc00bb88523ce8bdc5846aa356819238}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(\doxylink{classParseSpoor_acc00bb88523ce8bdc5846aa356819238}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element has become NULL\char`\"{}) 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+\Hypertarget{classParseSpoor_a31b0130bfdc1690b45fe0a1675783da1}\label{classParseSpoor_a31b0130bfdc1690b45fe0a1675783da1} 
+\index{ParseSpoor@{ParseSpoor}!checkValidVolgende@{checkValidVolgende}}
+\index{checkValidVolgende@{checkValidVolgende}!ParseSpoor@{ParseSpoor}}
+\doxysubsubsection{\texorpdfstring{checkValidVolgende()}{checkValidVolgende()}}
+{\footnotesize\ttfamily bool Parse\+Spoor\+::check\+Valid\+Volgende (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Functie dat controleerd ofdat de volgende station valid is of niet. \begin{DoxyPrecond}{Precondition}
+REQUIRE(\doxylink{classParseSpoor_acc00bb88523ce8bdc5846aa356819238}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(\doxylink{classParseSpoor_acc00bb88523ce8bdc5846aa356819238}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element has become NULL\char`\"{}) 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+\Hypertarget{classParseSpoor_a04fdc5fc10196cd350d509f090e2f14a}\label{classParseSpoor_a04fdc5fc10196cd350d509f090e2f14a} 
+\index{ParseSpoor@{ParseSpoor}!checkValidVorige@{checkValidVorige}}
+\index{checkValidVorige@{checkValidVorige}!ParseSpoor@{ParseSpoor}}
+\doxysubsubsection{\texorpdfstring{checkValidVorige()}{checkValidVorige()}}
+{\footnotesize\ttfamily bool Parse\+Spoor\+::check\+Valid\+Vorige (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Functie dat controleerd ofdat de vorige station valid is of niet. \begin{DoxyPrecond}{Precondition}
+REQUIRE(\doxylink{classParseSpoor_acc00bb88523ce8bdc5846aa356819238}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(\doxylink{classParseSpoor_acc00bb88523ce8bdc5846aa356819238}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element has become NULL\char`\"{}) 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+\Hypertarget{classParseSpoor_acc00bb88523ce8bdc5846aa356819238}\label{classParseSpoor_acc00bb88523ce8bdc5846aa356819238} 
+\index{ParseSpoor@{ParseSpoor}!getElement@{getElement}}
+\index{getElement@{getElement}!ParseSpoor@{ParseSpoor}}
+\doxysubsubsection{\texorpdfstring{getElement()}{getElement()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$ Parse\+Spoor\+::get\+Element (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter functie dat een element geeft van het type \doxylink{classTiXmlElement}{Ti\+Xml\+Element}. \begin{DoxyReturn}{Returns}
+element 
+\end{DoxyReturn}
+\Hypertarget{classParseSpoor_a9a81760b0b2f811284d4ab816a6ee4aa}\label{classParseSpoor_a9a81760b0b2f811284d4ab816a6ee4aa} 
+\index{ParseSpoor@{ParseSpoor}!parseAll@{parseAll}}
+\index{parseAll@{parseAll}!ParseSpoor@{ParseSpoor}}
+\doxysubsubsection{\texorpdfstring{parseAll()}{parseAll()}}
+{\footnotesize\ttfamily bool Parse\+Spoor\+::parse\+All (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSpoor}{Spoor}} $\ast$}]{spoor }\end{DoxyParamCaption}) const}
+
+Functie parsed een \doxylink{classSpoor}{Spoor} object van een \doxylink{classMetroNet}{Metro\+Net} object. \begin{DoxyPrecond}{Precondition}
+REQUIRE(spoor-\/\texorpdfstring{$>$}{>}\doxylink{classParseSpoor_a1073c012e895ffcb3caf32a2db1dabc4}{properly\+Initialized()}, \char`\"{}\+Station is not properly\+Initialized\char`\"{}) 
+
+REQUIRE(\doxylink{classParseSpoor_acc00bb88523ce8bdc5846aa356819238}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+
+REQUIRE(\doxylink{classParseSpoor_a7f9aba44523e58f106288ec3db446bad}{check\+Valid\+Spoor()} == true, \char`\"{}\+The Station tag is not correct\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(!spoor-\/\texorpdfstring{$>$}{>}get\+Vorige().empty(), \char`\"{}\+The vorige of spoor has not been correctly initialized\char`\"{}) 
+
+ENSURE(!spoor-\/\texorpdfstring{$>$}{>}get\+Volgende().empty(), \char`\"{}\+The volgende of spoor has not been correctly initialized\char`\"{}) 
+
+ENSURE(\doxylink{classParseSpoor_acc00bb88523ce8bdc5846aa356819238}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em spoor} & \doxylink{classSpoor}{Spoor} dat geparsed zal worden. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+\Hypertarget{classParseSpoor_ab078288a68db3a904999bb77b461b415}\label{classParseSpoor_ab078288a68db3a904999bb77b461b415} 
+\index{ParseSpoor@{ParseSpoor}!parseSpoorNr@{parseSpoorNr}}
+\index{parseSpoorNr@{parseSpoorNr}!ParseSpoor@{ParseSpoor}}
+\doxysubsubsection{\texorpdfstring{parseSpoorNr()}{parseSpoorNr()}}
+{\footnotesize\ttfamily bool Parse\+Spoor\+::parse\+Spoor\+Nr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSpoor}{Spoor}} $\ast$}]{spoor }\end{DoxyParamCaption}) const}
+
+Functie dat gecalled wordt door parse\+All om te checken ofdat spoor\+Nr geparsed kan worden. \begin{DoxyPrecond}{Precondition}
+REQUIRE(spoor-\/\texorpdfstring{$>$}{>}\doxylink{classParseSpoor_a1073c012e895ffcb3caf32a2db1dabc4}{properly\+Initialized()}, \char`\"{}\+Station is not properly\+Initialized\char`\"{}) 
+
+REQUIRE(\doxylink{classParseSpoor_acc00bb88523ce8bdc5846aa356819238}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+
+REQUIRE(\doxylink{classParseSpoor_aa6c08c7955d9c6c54afa98b393d7cf2d}{check\+Valid\+Spoor\+Nr()} == true, \char`\"{}\+The spoor\+Nr tag is not correct in this Station tag\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(spoor-\/\texorpdfstring{$>$}{>}get\+Spoor\+Nr() == -\/1, \char`\"{}\+The spoor\+Nr of Spoor has not been correctly initialized\char`\"{}) 
+
+ENSURE(\doxylink{classParseSpoor_acc00bb88523ce8bdc5846aa356819238}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em spoor} & waarvan spoor\+Nr gecontroleerd wordt. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+\Hypertarget{classParseSpoor_a1d1a85cfb4e24aa1a1d6d021a2397597}\label{classParseSpoor_a1d1a85cfb4e24aa1a1d6d021a2397597} 
+\index{ParseSpoor@{ParseSpoor}!parseVolgende@{parseVolgende}}
+\index{parseVolgende@{parseVolgende}!ParseSpoor@{ParseSpoor}}
+\doxysubsubsection{\texorpdfstring{parseVolgende()}{parseVolgende()}}
+{\footnotesize\ttfamily bool Parse\+Spoor\+::parse\+Volgende (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSpoor}{Spoor}} $\ast$}]{spoor }\end{DoxyParamCaption}) const}
+
+Functie dat gecalled wordt door parse\+All om te checken ofdat Volgende geparsed kan worden. \begin{DoxyPrecond}{Precondition}
+REQUIRE(spoor-\/\texorpdfstring{$>$}{>}\doxylink{classParseSpoor_a1073c012e895ffcb3caf32a2db1dabc4}{properly\+Initialized()}, \char`\"{}\+Station is not properly\+Initialized\char`\"{}) 
+
+REQUIRE(\doxylink{classParseSpoor_acc00bb88523ce8bdc5846aa356819238}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(!spoor-\/\texorpdfstring{$>$}{>}get\+Volgende().empty(), \char`\"{}\+The volgende of spoor has not been correctly initialized\char`\"{}) 
+
+ENSURE(\doxylink{classParseSpoor_acc00bb88523ce8bdc5846aa356819238}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em spoor} & Huidige spoor dat gechecked wordt, volgende is dus spoor dat hierna komt. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+\Hypertarget{classParseSpoor_a7c9fe45eed81d67c2fa94676fc6a5ae6}\label{classParseSpoor_a7c9fe45eed81d67c2fa94676fc6a5ae6} 
+\index{ParseSpoor@{ParseSpoor}!parseVorige@{parseVorige}}
+\index{parseVorige@{parseVorige}!ParseSpoor@{ParseSpoor}}
+\doxysubsubsection{\texorpdfstring{parseVorige()}{parseVorige()}}
+{\footnotesize\ttfamily bool Parse\+Spoor\+::parse\+Vorige (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSpoor}{Spoor}} $\ast$}]{spoor }\end{DoxyParamCaption}) const}
+
+Functie dat gecalled wordt door parse\+All om te checken ofdat Vorige geparsed kan worden. \begin{DoxyPrecond}{Precondition}
+REQUIRE(spoor-\/\texorpdfstring{$>$}{>}\doxylink{classParseSpoor_a1073c012e895ffcb3caf32a2db1dabc4}{properly\+Initialized()}, \char`\"{}\+Station is not properly\+Initialized\char`\"{}) 
+
+REQUIRE(\doxylink{classParseSpoor_acc00bb88523ce8bdc5846aa356819238}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}); 
+
+REQUIRE(\doxylink{classParseSpoor_a04fdc5fc10196cd350d509f090e2f14a}{check\+Valid\+Vorige()} == true, \char`\"{}\+The vorige tag is not correct in this Station tag\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(!spoor-\/\texorpdfstring{$>$}{>}get\+Vorige().empty(), \char`\"{}\+The vorige of station has not been correctly initialized\char`\"{}) 
+
+ENSURE(\doxylink{classParseSpoor_acc00bb88523ce8bdc5846aa356819238}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em spoor} & Huidige spoor dat gechecked wordt, vorige is dus spoor dat hiervoor komt. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+\Hypertarget{classParseSpoor_a1073c012e895ffcb3caf32a2db1dabc4}\label{classParseSpoor_a1073c012e895ffcb3caf32a2db1dabc4} 
+\index{ParseSpoor@{ParseSpoor}!properlyInitialized@{properlyInitialized}}
+\index{properlyInitialized@{properlyInitialized}!ParseSpoor@{ParseSpoor}}
+\doxysubsubsection{\texorpdfstring{properlyInitialized()}{properlyInitialized()}}
+{\footnotesize\ttfamily bool Parse\+Spoor\+::properly\+Initialized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Functie controleerd ofdat \doxylink{classParseSpoor}{Parse\+Spoor} correct werd geïnitialiseerd. \begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+\Hypertarget{classParseSpoor_a823a49af779859eab6d444618ee3b892}\label{classParseSpoor_a823a49af779859eab6d444618ee3b892} 
+\index{ParseSpoor@{ParseSpoor}!setElement@{setElement}}
+\index{setElement@{setElement}!ParseSpoor@{ParseSpoor}}
+\doxysubsubsection{\texorpdfstring{setElement()}{setElement()}}
+{\footnotesize\ttfamily void Parse\+Spoor\+::set\+Element (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$}]{el }\end{DoxyParamCaption})}
+
+Setter functie dat een element van type \doxylink{classTiXmlElement}{Ti\+Xml\+Element} zal setten. \begin{DoxyPostcond}{Postcondition}
+ENSURE(\doxylink{classParseSpoor_acc00bb88523ce8bdc5846aa356819238}{get\+Element()} == el, \char`\"{}\+The member variable element has not been properly set\char`\"{}) 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em el} & Element dat gezet zal worden in de \doxylink{classSpoor}{Spoor}. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Parse\+Spoor.\+h\item 
+Parse\+Spoor.\+cpp\end{DoxyCompactItemize}

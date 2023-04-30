@@ -1,0 +1,79 @@
+\hypertarget{classAdvancedExport}{}\doxysection{Advanced\+Export Class Reference}
+\label{classAdvancedExport}\index{AdvancedExport@{AdvancedExport}}
+
+
+{\ttfamily \#include $<$Advanced\+Export.\+h$>$}
+
+Inheritance diagram for Advanced\+Export\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classAdvancedExport}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classAdvancedExport_a66e6afecc78afdb5e51f1bffb532f20a}{export\+File}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net, std\+::string path) const
+\item 
+int \mbox{\hyperlink{classAdvancedExport_accc4790320b9793cadc7861caab106d0}{index\+Volgende}} (std\+::vector$<$ \mbox{\hyperlink{classSpoor}{Spoor}} $\ast$ $>$ \&container, const std\+::string \&naam) const
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{classInterfaceExport_aa1e6e11fccfa82910fe69f85cb25cf57}{export\+File}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net, std\+::string path) const =0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasse \doxylink{classAdvancedExport}{Advanced\+Export} dat overerft van \doxylink{classInterfaceExport}{Interface\+Export}. Zorgt ervoor dat we files kunnen creëren met een advanced path. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classAdvancedExport_a66e6afecc78afdb5e51f1bffb532f20a}\label{classAdvancedExport_a66e6afecc78afdb5e51f1bffb532f20a} 
+\index{AdvancedExport@{AdvancedExport}!exportFile@{exportFile}}
+\index{exportFile@{exportFile}!AdvancedExport@{AdvancedExport}}
+\doxysubsubsection{\texorpdfstring{exportFile()}{exportFile()}}
+{\footnotesize\ttfamily bool Advanced\+Export\+::export\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net,  }\item[{std\+::string}]{path }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Methode om een metro\+Net te exporteren naar een file. \begin{DoxyPrecond}{Precondition}
+REQUIRE(metro\+Net.\+properly\+Initialized(), \char`\"{}\+The metro\+Net is not properly initialized\char`\"{}) 
+
+REQUIRE(!path.empty(), \char`\"{}\+Path to write is empty\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(Utils\+::file\+Exists(path), \char`\"{}\+The file was not even created!\char`\"{}) 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em metro\+Net} & Het metro\+Net dat geëxporteerd zal zijn. \\
+\hline
+{\em path} & van de file. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classInterfaceExport_aa1e6e11fccfa82910fe69f85cb25cf57}{Interface\+Export}}.
+
+\Hypertarget{classAdvancedExport_accc4790320b9793cadc7861caab106d0}\label{classAdvancedExport_accc4790320b9793cadc7861caab106d0} 
+\index{AdvancedExport@{AdvancedExport}!indexVolgende@{indexVolgende}}
+\index{indexVolgende@{indexVolgende}!AdvancedExport@{AdvancedExport}}
+\doxysubsubsection{\texorpdfstring{indexVolgende()}{indexVolgende()}}
+{\footnotesize\ttfamily int Advanced\+Export\+::index\+Volgende (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classSpoor}{Spoor}} $\ast$ $>$ \&}]{container,  }\item[{const std\+::string \&}]{naam }\end{DoxyParamCaption}) const}
+
+Helperfunctie om een index van het volgende spoor. 
+\begin{DoxyParams}{Parameters}
+{\em container} & De vector waarin alle sporen zijn gelegen. \\
+\hline
+{\em naam} & Naam van het spoor. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index van het spoor of default -\/1 als er iets mis gaat. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Advanced\+Export.\+h\item 
+Advanced\+Export.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,254 @@
+\hypertarget{classPCCTram}{}\doxysection{PCCTram Class Reference}
+\label{classPCCTram}\index{PCCTram@{PCCTram}}
+
+
+{\ttfamily \#include $<$PCCTram.\+h$>$}
+
+Inheritance diagram for PCCTram\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classPCCTram}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classPCCTram_a1f7971753ce9134323bbd5f12ebe216a}{calculate\+Snelheid}} ()
+\item 
+bool \mbox{\hyperlink{classPCCTram_a2307d29ccf727dd89442f5092f7b7137}{station\+Can\+Be\+Serviced}} (\mbox{\hyperlink{classStation}{Station}} $\ast$s)
+\item 
+int \mbox{\hyperlink{classPCCTram_a4c74ccbb110b0af7e7ee78ef3ea6a84d}{get\+Snelheid}} ()
+\item 
+\mbox{\hyperlink{classPCCTram_a74f6fa1e995055122b66ff50993d1a11}{$\sim$\+PCCTram}} ()
+\item 
+int \mbox{\hyperlink{classPCCTram_a43bedfccf44a7f8cbe7ab5c1376588cc}{get\+Aantal\+Defecten}} () const
+\item 
+void \mbox{\hyperlink{classPCCTram_ac0d50651cef95d2efaba5e7fcbc5214b}{set\+Aantal\+Defecten}} (int aantal)
+\item 
+int \mbox{\hyperlink{classPCCTram_a67db5d4463f78f05bfa8577be0736b29}{get\+Reparatie\+Tijd}} () const
+\item 
+void \mbox{\hyperlink{classPCCTram_addebb009a4a7ebc55206a414c67e3779}{set\+Reparatie\+Tijd}} (int aantal)
+\item 
+int \mbox{\hyperlink{classPCCTram_af38f9584a5a80222cc396c738bbcd1e9}{get\+Reparatie\+Kost}} () const
+\item 
+void \mbox{\hyperlink{classPCCTram_a25b2ab34cf7ec4051c88a33a6475c62a}{set\+Reparatie\+Kost}} (int aantal)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classTram}{Tram}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTram_aad83b2e7e79d57528691bf317ab0e1ef}{Tram}} ()
+\item 
+\mbox{\hyperlink{classTram_a76a05f638985edefb9d9b885737c02b8}{Tram}} (const std\+::string \&begin\+Station, int snelheid, int lijn\+Nr)
+\item 
+std\+::string \mbox{\hyperlink{classTram_ae4a7cf6313452140ed54d219d1f6afba}{get\+Begin\+Station}} () const
+\item 
+virtual int \mbox{\hyperlink{classTram_afcd79d44b9bc18fb1e7302daa40f56f5}{get\+Snelheid}} ()
+\item 
+int \mbox{\hyperlink{classTram_ad2404fa7837b41287feab05f6a1b52bf}{get\+Lijn\+Nr}} () const
+\item 
+std\+::string \mbox{\hyperlink{classTram_ae1d03c1fb6e0f5f97c57d35fe10fa8dd}{get\+Huidig\+Station}} () const
+\item 
+void \mbox{\hyperlink{classTram_a84f6ad02d1160bb6365dde706f50a116}{set\+Begin\+Station}} (std\+::string \&bs)
+\item 
+void \mbox{\hyperlink{classTram_a2cabc354af57462ae361ead62a20aca6}{set\+Snelheid}} (int s)
+\item 
+void \mbox{\hyperlink{classTram_acfa9bb360bc614e2b591191f8c525ad8}{set\+Lijn\+Nr}} (int l)
+\item 
+void \mbox{\hyperlink{classTram_a46c31a4814722962c688b7eebd1beaf0}{set\+Huidig\+Station}} (std\+::string \&h)
+\item 
+bool \mbox{\hyperlink{classTram_ac69cbbacaed7e1b9e60e608d766d02ee}{properly\+Initialized}} ()
+\item 
+bool \mbox{\hyperlink{classTram_ae1f7d32d9c29b09fb437b86fe3170725}{move}} (\mbox{\hyperlink{classStation}{Station}} $\ast$station)
+\item 
+void \mbox{\hyperlink{classTram_a790af7fffaea8dd84c3c43fadb02aaaa}{set\+Type}} (std\+::string \&type)
+\item 
+std\+::string \mbox{\hyperlink{classTram_a2e75ee5e2cbc43da2862334e6ff148e1}{get\+Type}} () const
+\item 
+void \mbox{\hyperlink{classTram_ac0155ac5ceee1462fd2d22e5184aa240}{set\+Voertuig\+Nummer}} (int n)
+\item 
+int \mbox{\hyperlink{classTram_a6e9f78befa2850add25925559ed98bc1}{get\+Voertuig\+Nummer}} () const
+\item 
+virtual void \mbox{\hyperlink{classTram_af4e2bdac52d769d39fb9157a680729a4}{calculate\+Snelheid}} ()=0
+\item 
+virtual bool \mbox{\hyperlink{classTram_ae5a174ef5bbef8db21c5446c50c42737}{station\+Can\+Be\+Serviced}} (\mbox{\hyperlink{classStation}{Station}} $\ast$s)=0
+\item 
+virtual \mbox{\hyperlink{classTram_a79137376610a01d0d11a302c82e147d8}{$\sim$\+Tram}} ()
+\item 
+virtual int \mbox{\hyperlink{classTram_ac54384fcc146ea7a759823e724cc3509}{get\+Aantal\+Defecten}} () const =0
+\item 
+virtual void \mbox{\hyperlink{classTram_ad073bc58fcac0d974476059d53d5ba67}{set\+Aantal\+Defecten}} (int aantal)=0
+\item 
+virtual int \mbox{\hyperlink{classTram_a07acce09d3df5deece3b8758011b0143}{get\+Reparatie\+Tijd}} () const =0
+\item 
+virtual void \mbox{\hyperlink{classTram_a92437d1d1b39c4ec53d30a9fbdf7ba67}{set\+Reparatie\+Tijd}} (int aantal)=0
+\item 
+virtual int \mbox{\hyperlink{classTram_ab205a017f42df554987b89091ab3270c}{get\+Reparatie\+Kost}} () const =0
+\item 
+virtual void \mbox{\hyperlink{classTram_a6952bd8d9be4b1ab1175c98944600197}{set\+Reparatie\+Kost}} (int aantal)=0
+\item 
+bool \mbox{\hyperlink{classTram_a68f00d883a6e06ab06a817fef2e58bde}{tram\+Defect}} () const
+\item 
+int \mbox{\hyperlink{classTram_aeada784548f7e7b7131cd5297ee83c9c}{get\+Total\+Reparatie\+Kost}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+\doxysubsubsection*{Protected Attributes inherited from \mbox{\hyperlink{classTram}{Tram}}}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classTram_abcdf7f3ab0e67b537067f06092c5019e}\label{classTram_abcdf7f3ab0e67b537067f06092c5019e} 
+int {\bfseries snelheid}
+\item 
+\Hypertarget{classTram_ada71a19c4db3d611561025db4184b9f4}\label{classTram_ada71a19c4db3d611561025db4184b9f4} 
+int {\bfseries aantal\+Defecten}
+\item 
+\Hypertarget{classTram_a4946625100d123ac3118bb913d5143a9}\label{classTram_a4946625100d123ac3118bb913d5143a9} 
+int {\bfseries reparatie\+Tijd}
+\item 
+\Hypertarget{classTram_adc9f1e972524ac43a3507bc94612cac7}\label{classTram_adc9f1e972524ac43a3507bc94612cac7} 
+int {\bfseries reparatie\+Kost}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasse \doxylink{classPCCTram}{PCCTram}, sub-\/klasse van \doxylink{classTram}{Tram}. Deze klasse of type tram heeft attributen die uniek zijn voor dit type van tram specifiek. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classPCCTram_a74f6fa1e995055122b66ff50993d1a11}\label{classPCCTram_a74f6fa1e995055122b66ff50993d1a11} 
+\index{PCCTram@{PCCTram}!````~PCCTram@{$\sim$PCCTram}}
+\index{````~PCCTram@{$\sim$PCCTram}!PCCTram@{PCCTram}}
+\doxysubsubsection{\texorpdfstring{$\sim$PCCTram()}{~PCCTram()}}
+{\footnotesize\ttfamily PCCTram\+::$\sim$\+PCCTram (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Destructor van een \doxylink{classPCCTram}{PCCTram} object. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classPCCTram_a1f7971753ce9134323bbd5f12ebe216a}\label{classPCCTram_a1f7971753ce9134323bbd5f12ebe216a} 
+\index{PCCTram@{PCCTram}!calculateSnelheid@{calculateSnelheid}}
+\index{calculateSnelheid@{calculateSnelheid}!PCCTram@{PCCTram}}
+\doxysubsubsection{\texorpdfstring{calculateSnelheid()}{calculateSnelheid()}}
+{\footnotesize\ttfamily void PCCTram\+::calculate\+Snelheid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Functie die de snelheid van een \doxylink{classTram}{Tram} object van type \doxylink{classPCCTram}{PCCTram} bepaald. 
+
+Implements \mbox{\hyperlink{classTram_af4e2bdac52d769d39fb9157a680729a4}{Tram}}.
+
+\Hypertarget{classPCCTram_a43bedfccf44a7f8cbe7ab5c1376588cc}\label{classPCCTram_a43bedfccf44a7f8cbe7ab5c1376588cc} 
+\index{PCCTram@{PCCTram}!getAantalDefecten@{getAantalDefecten}}
+\index{getAantalDefecten@{getAantalDefecten}!PCCTram@{PCCTram}}
+\doxysubsubsection{\texorpdfstring{getAantalDefecten()}{getAantalDefecten()}}
+{\footnotesize\ttfamily int PCCTram\+::get\+Aantal\+Defecten (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Getter functie die het aantal defecten zal teruggeven van een \doxylink{classTram}{Tram} object van type \doxylink{classPCCTram}{PCCTram}. \begin{DoxyReturn}{Returns}
+aantaldefecten 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classTram_ac54384fcc146ea7a759823e724cc3509}{Tram}}.
+
+\Hypertarget{classPCCTram_af38f9584a5a80222cc396c738bbcd1e9}\label{classPCCTram_af38f9584a5a80222cc396c738bbcd1e9} 
+\index{PCCTram@{PCCTram}!getReparatieKost@{getReparatieKost}}
+\index{getReparatieKost@{getReparatieKost}!PCCTram@{PCCTram}}
+\doxysubsubsection{\texorpdfstring{getReparatieKost()}{getReparatieKost()}}
+{\footnotesize\ttfamily int PCCTram\+::get\+Reparatie\+Kost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Getter functie die de reparatie kost van een \doxylink{classTram}{Tram} object van type \doxylink{classPCCTram}{PCCTram} teruggeeft. \begin{DoxyReturn}{Returns}
+reparatie kost 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classTram_ab205a017f42df554987b89091ab3270c}{Tram}}.
+
+\Hypertarget{classPCCTram_a67db5d4463f78f05bfa8577be0736b29}\label{classPCCTram_a67db5d4463f78f05bfa8577be0736b29} 
+\index{PCCTram@{PCCTram}!getReparatieTijd@{getReparatieTijd}}
+\index{getReparatieTijd@{getReparatieTijd}!PCCTram@{PCCTram}}
+\doxysubsubsection{\texorpdfstring{getReparatieTijd()}{getReparatieTijd()}}
+{\footnotesize\ttfamily int PCCTram\+::get\+Reparatie\+Tijd (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Getter functie die de reparatie tijd van een \doxylink{classTram}{Tram} object van type \doxylink{classPCCTram}{PCCTram} teruggeeft. \begin{DoxyReturn}{Returns}
+reparatie tijd 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classTram_a07acce09d3df5deece3b8758011b0143}{Tram}}.
+
+\Hypertarget{classPCCTram_a4c74ccbb110b0af7e7ee78ef3ea6a84d}\label{classPCCTram_a4c74ccbb110b0af7e7ee78ef3ea6a84d} 
+\index{PCCTram@{PCCTram}!getSnelheid@{getSnelheid}}
+\index{getSnelheid@{getSnelheid}!PCCTram@{PCCTram}}
+\doxysubsubsection{\texorpdfstring{getSnelheid()}{getSnelheid()}}
+{\footnotesize\ttfamily int PCCTram\+::get\+Snelheid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Getter functie die de snelheid van een \doxylink{classTram}{Tram} object van type \doxylink{classPCCTram}{PCCTram} teruggeeft. \begin{DoxyReturn}{Returns}
+snelheid 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{classTram_afcd79d44b9bc18fb1e7302daa40f56f5}{Tram}}.
+
+\Hypertarget{classPCCTram_ac0d50651cef95d2efaba5e7fcbc5214b}\label{classPCCTram_ac0d50651cef95d2efaba5e7fcbc5214b} 
+\index{PCCTram@{PCCTram}!setAantalDefecten@{setAantalDefecten}}
+\index{setAantalDefecten@{setAantalDefecten}!PCCTram@{PCCTram}}
+\doxysubsubsection{\texorpdfstring{setAantalDefecten()}{setAantalDefecten()}}
+{\footnotesize\ttfamily void PCCTram\+::set\+Aantal\+Defecten (\begin{DoxyParamCaption}\item[{int}]{aantal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Setter functie die het aantal defecten zal zetten van een \doxylink{classTram}{Tram} object van type \doxylink{classPCCTram}{PCCTram}. 
+\begin{DoxyParams}{Parameters}
+{\em aantal} & defecten, ergo om de hoeveel tijd een tram in de panne zal staan wegens een defect. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classTram_ad073bc58fcac0d974476059d53d5ba67}{Tram}}.
+
+\Hypertarget{classPCCTram_a25b2ab34cf7ec4051c88a33a6475c62a}\label{classPCCTram_a25b2ab34cf7ec4051c88a33a6475c62a} 
+\index{PCCTram@{PCCTram}!setReparatieKost@{setReparatieKost}}
+\index{setReparatieKost@{setReparatieKost}!PCCTram@{PCCTram}}
+\doxysubsubsection{\texorpdfstring{setReparatieKost()}{setReparatieKost()}}
+{\footnotesize\ttfamily void PCCTram\+::set\+Reparatie\+Kost (\begin{DoxyParamCaption}\item[{int}]{aantal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Setter functie die de reparatie kost van een \doxylink{classTram}{Tram} objec van type \doxylink{classPCCTram}{PCCTram} zal zetten. 
+\begin{DoxyParams}{Parameters}
+{\em aantal} & reparatie kost \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classTram_a6952bd8d9be4b1ab1175c98944600197}{Tram}}.
+
+\Hypertarget{classPCCTram_addebb009a4a7ebc55206a414c67e3779}\label{classPCCTram_addebb009a4a7ebc55206a414c67e3779} 
+\index{PCCTram@{PCCTram}!setReparatieTijd@{setReparatieTijd}}
+\index{setReparatieTijd@{setReparatieTijd}!PCCTram@{PCCTram}}
+\doxysubsubsection{\texorpdfstring{setReparatieTijd()}{setReparatieTijd()}}
+{\footnotesize\ttfamily void PCCTram\+::set\+Reparatie\+Tijd (\begin{DoxyParamCaption}\item[{int}]{aantal }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Setter functie die de reparatie tijd van een \doxylink{classTram}{Tram} object van type \doxylink{classPCCTram}{PCCTram} zal zetten. 
+\begin{DoxyParams}{Parameters}
+{\em aantal} & Duur van een reparatie. \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classTram_a92437d1d1b39c4ec53d30a9fbdf7ba67}{Tram}}.
+
+\Hypertarget{classPCCTram_a2307d29ccf727dd89442f5092f7b7137}\label{classPCCTram_a2307d29ccf727dd89442f5092f7b7137} 
+\index{PCCTram@{PCCTram}!stationCanBeServiced@{stationCanBeServiced}}
+\index{stationCanBeServiced@{stationCanBeServiced}!PCCTram@{PCCTram}}
+\doxysubsubsection{\texorpdfstring{stationCanBeServiced()}{stationCanBeServiced()}}
+{\footnotesize\ttfamily bool PCCTram\+::station\+Can\+Be\+Serviced (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Functie dat nagaat ofdat een \doxylink{classStation}{Station} geserviced kan worden. 
+\begin{DoxyParams}{Parameters}
+{\em s} & \doxylink{classStation}{Station} dat men controleerd. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classTram_ae5a174ef5bbef8db21c5446c50c42737}{Tram}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+PCCTram.\+h\item 
+PCCTram.\+cpp\end{DoxyCompactItemize}
