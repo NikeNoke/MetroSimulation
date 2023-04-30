@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Metro Simulation<span id="projectnumber">&#160;v1.0</span>
+   <div id="projectname">Metro Simulation<span id="projectnumber">&#160;v2.0</span>
    </div>
   </td>
  </tr>
@@ -79,20 +79,8 @@ $(function() {
 Functions</h2></td></tr>
 <tr class="memitem:a802a00b4ea5b3bd64949e413c07abfea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.html#a802a00b4ea5b3bd64949e413c07abfea">is_int</a> (const std::string &amp;s)</td></tr>
 <tr class="separator:a802a00b4ea5b3bd64949e413c07abfea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe85ae7ebc6f4201eaba2f79a4ea8a9d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.html#abe85ae7ebc6f4201eaba2f79a4ea8a9d">parseStation</a> (<a class="el" href="classMetroNet.html">MetroNet</a> &amp;metroNet, <a class="el" href="classTiXmlElement.html">TiXmlElement</a> *element)</td></tr>
-<tr class="separator:abe85ae7ebc6f4201eaba2f79a4ea8a9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc911dd8c4069ad5d5b2b73074791252"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.html#abc911dd8c4069ad5d5b2b73074791252">parseTram</a> (<a class="el" href="classMetroNet.html">MetroNet</a> &amp;metroNet, <a class="el" href="classTiXmlElement.html">TiXmlElement</a> *element)</td></tr>
-<tr class="separator:abc911dd8c4069ad5d5b2b73074791252"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c8bb62588ca988e26e4fde64485037e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.html#a0c8bb62588ca988e26e4fde64485037e">writeSpecs</a> (std::ofstream &amp;file, <a class="el" href="classMetroNet.html">MetroNet</a> &amp;metroNet)</td></tr>
-<tr class="separator:a0c8bb62588ca988e26e4fde64485037e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad11847528f09e17aa92ae59e41d16427"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.html#ad11847528f09e17aa92ae59e41d16427">validMetroNet</a> (<a class="el" href="classMetroNet.html">MetroNet</a> &amp;metroNet)</td></tr>
-<tr class="separator:ad11847528f09e17aa92ae59e41d16427"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4607b8e89d3717373c83e3c0a9852f78"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.html#a4607b8e89d3717373c83e3c0a9852f78">validMetroNetSilent</a> (<a class="el" href="classMetroNet.html">MetroNet</a> &amp;metroNet)</td></tr>
-<tr class="separator:a4607b8e89d3717373c83e3c0a9852f78"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5eacbdb48517d85b0e130baa175fe65a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.html#a5eacbdb48517d85b0e130baa175fe65a">boolToText</a> (bool b)</td></tr>
 <tr class="separator:a5eacbdb48517d85b0e130baa175fe65a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0401fc9bc835070caaba946b302551cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.html#a0401fc9bc835070caaba946b302551cf">simulateMetroNet</a> (<a class="el" href="classMetroNet.html">MetroNet</a> &amp;metroNet, int amountOfMove)</td></tr>
-<tr class="separator:a0401fc9bc835070caaba946b302551cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aefb37faa1cbd7079dfa0381d8a04391c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.html#aefb37faa1cbd7079dfa0381d8a04391c">getRandomInt</a> (int max)</td></tr>
 <tr class="separator:aefb37faa1cbd7079dfa0381d8a04391c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a423538e4aeff794291e090917492aade"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceUtils.html#a423538e4aeff794291e090917492aade">directoryExists</a> (const std::string dirname)</td></tr>
@@ -254,199 +242,6 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true of false afhankelijk ofdat de string een integer is of niet. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Source is StackOverFlow. </dd></dl>
-
-</div>
-</div>
-<a id="abe85ae7ebc6f4201eaba2f79a4ea8a9d" name="abe85ae7ebc6f4201eaba2f79a4ea8a9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe85ae7ebc6f4201eaba2f79a4ea8a9d">&#9670;&#160;</a></span>parseStation()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Utils::parseStation </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classMetroNet.html">MetroNet</a> &amp;&#160;</td>
-          <td class="paramname"><em>metroNet</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classTiXmlElement.html">TiXmlElement</a> *&#160;</td>
-          <td class="paramname"><em>element</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Functie dat in een XML file een element station zal parsen. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">metroNet</td><td>Het metronet waarin het station zal gepushed worden. </td></tr>
-    <tr><td class="paramname">element</td><td>Het station dat geparst wordt. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>true of false afhankelijk ofdat het station geparst en gepushed kon worden of niet. </dd></dl>
-
-</div>
-</div>
-<a id="abc911dd8c4069ad5d5b2b73074791252" name="abc911dd8c4069ad5d5b2b73074791252"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc911dd8c4069ad5d5b2b73074791252">&#9670;&#160;</a></span>parseTram()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Utils::parseTram </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classMetroNet.html">MetroNet</a> &amp;&#160;</td>
-          <td class="paramname"><em>metroNet</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classTiXmlElement.html">TiXmlElement</a> *&#160;</td>
-          <td class="paramname"><em>element</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Functie dat in een XML file een element tram zal parsen. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">metroNet</td><td>Het metronet waarin het station zal gepushed worden. </td></tr>
-    <tr><td class="paramname">element</td><td>De tram dat geparst wordt. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>true of false afhankelijk ofdat de tram geparst en gepushed kon worden of niet. </dd></dl>
-
-</div>
-</div>
-<a id="a0401fc9bc835070caaba946b302551cf" name="a0401fc9bc835070caaba946b302551cf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0401fc9bc835070caaba946b302551cf">&#9670;&#160;</a></span>simulateMetroNet()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Utils::simulateMetroNet </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classMetroNet.html">MetroNet</a> &amp;&#160;</td>
-          <td class="paramname"><em>metroNet</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>amountOfMove</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Functie dat ons toelaat om een metronet te laten simuleren voor een bepaald aantal moves. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">metroNet</td><td>Het metronet dat we gaan simuleren. </td></tr>
-    <tr><td class="paramname">amountOfMove</td><td>De hoevelheid stappen dat we gaan simuleren. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>Deze functie moeten we aanpassen zodat het i.p.v. werkt met een hoeveelheid moves, dat het werkt met gebruik van een tijdstip. Hierbij moeten we echter zorgen dat we meerdere attributes hebben die toelaten om een realistische simulatie te doen lopen over een <a class="el" href="classMetroNet.html">MetroNet</a>. Hierbij moeten we <a class="el" href="classTram.html">Tram</a> en <a class="el" href="classStation.html">Station</a> zodanig aanpassen zodat trammen over een bepaalde afstand rijden in een bepaalde tijd met een bepaalde snelheid. </dd></dl>
-
-</div>
-</div>
-<a id="ad11847528f09e17aa92ae59e41d16427" name="ad11847528f09e17aa92ae59e41d16427"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad11847528f09e17aa92ae59e41d16427">&#9670;&#160;</a></span>validMetroNet()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Utils::validMetroNet </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classMetroNet.html">MetroNet</a> &amp;&#160;</td>
-          <td class="paramname"><em>metroNet</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Functie dat zal nazien ofdat een metronet correct geïnitialiseerd is en wordt geprint op console. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">metroNet</td><td>Het metronet dat gecontroleerd wordt. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>true of false afhankelijk ofdat het metronet correct geïnitialiseerd is of niet. </dd></dl>
-
-</div>
-</div>
-<a id="a4607b8e89d3717373c83e3c0a9852f78" name="a4607b8e89d3717373c83e3c0a9852f78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4607b8e89d3717373c83e3c0a9852f78">&#9670;&#160;</a></span>validMetroNetSilent()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Utils::validMetroNetSilent </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="classMetroNet.html">MetroNet</a> &amp;&#160;</td>
-          <td class="paramname"><em>metroNet</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Functie dat zal nazien ofdat een metronet correct geïnitialiseerd is en wordt NIET geprint op console. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">metroNet</td><td>Het metronet dat gecontroleerd wordt. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>true of false afhankelijk ofdat het metronet correct geïnitialiseerd is of niet. </dd></dl>
-
-</div>
-</div>
-<a id="a0c8bb62588ca988e26e4fde64485037e" name="a0c8bb62588ca988e26e4fde64485037e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c8bb62588ca988e26e4fde64485037e">&#9670;&#160;</a></span>writeSpecs()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Utils::writeSpecs </td>
-          <td>(</td>
-          <td class="paramtype">std::ofstream &amp;&#160;</td>
-          <td class="paramname"><em>file</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="classMetroNet.html">MetroNet</a> &amp;&#160;</td>
-          <td class="paramname"><em>metroNet</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Fuctie dat een file zal creëren van een <a class="el" href="classMetroNet.html">MetroNet</a> object. </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">file</td><td>De file naarwaar het metronet zal weggeschreven worden. </td></tr>
-    <tr><td class="paramname">metroNet</td><td>Het metronet dat zal weggeschreven worden. </td></tr>
-  </table>
-  </dd>
-</dl>
 
 </div>
 </div>

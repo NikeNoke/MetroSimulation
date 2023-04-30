@@ -5,19 +5,7 @@
 \item 
 bool \mbox{\hyperlink{namespaceUtils_a802a00b4ea5b3bd64949e413c07abfea}{is\+\_\+int}} (const std\+::string \&s)
 \item 
-bool \mbox{\hyperlink{namespaceUtils_abe85ae7ebc6f4201eaba2f79a4ea8a9d}{parse\+Station}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net, \mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$element)
-\item 
-bool \mbox{\hyperlink{namespaceUtils_abc911dd8c4069ad5d5b2b73074791252}{parse\+Tram}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net, \mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$element)
-\item 
-void \mbox{\hyperlink{namespaceUtils_a0c8bb62588ca988e26e4fde64485037e}{write\+Specs}} (std\+::ofstream \&file, \mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net)
-\item 
-bool \mbox{\hyperlink{namespaceUtils_ad11847528f09e17aa92ae59e41d16427}{valid\+Metro\+Net}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net)
-\item 
-bool \mbox{\hyperlink{namespaceUtils_a4607b8e89d3717373c83e3c0a9852f78}{valid\+Metro\+Net\+Silent}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net)
-\item 
 std\+::string \mbox{\hyperlink{namespaceUtils_a5eacbdb48517d85b0e130baa175fe65a}{bool\+To\+Text}} (bool b)
-\item 
-void \mbox{\hyperlink{namespaceUtils_a0401fc9bc835070caaba946b302551cf}{simulate\+Metro\+Net}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net, int amount\+Of\+Move)
 \item 
 int \mbox{\hyperlink{namespaceUtils_aefb37faa1cbd7079dfa0381d8a04391c}{get\+Random\+Int}} (int max)
 \item 
@@ -120,92 +108,3 @@ true of false afhankelijk ofdat de string een integer is of niet.
 \begin{DoxyNote}{Note}
 Source is Stack\+Over\+Flow. 
 \end{DoxyNote}
-\Hypertarget{namespaceUtils_abe85ae7ebc6f4201eaba2f79a4ea8a9d}\label{namespaceUtils_abe85ae7ebc6f4201eaba2f79a4ea8a9d} 
-\index{Utils@{Utils}!parseStation@{parseStation}}
-\index{parseStation@{parseStation}!Utils@{Utils}}
-\doxysubsubsection{\texorpdfstring{parseStation()}{parseStation()}}
-{\footnotesize\ttfamily bool Utils\+::parse\+Station (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net,  }\item[{\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$}]{element }\end{DoxyParamCaption})}
-
-Functie dat in een XML file een element station zal parsen. 
-\begin{DoxyParams}{Parameters}
-{\em metro\+Net} & Het metronet waarin het station zal gepushed worden. \\
-\hline
-{\em element} & Het station dat geparst wordt. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-true of false afhankelijk ofdat het station geparst en gepushed kon worden of niet. 
-\end{DoxyReturn}
-\Hypertarget{namespaceUtils_abc911dd8c4069ad5d5b2b73074791252}\label{namespaceUtils_abc911dd8c4069ad5d5b2b73074791252} 
-\index{Utils@{Utils}!parseTram@{parseTram}}
-\index{parseTram@{parseTram}!Utils@{Utils}}
-\doxysubsubsection{\texorpdfstring{parseTram()}{parseTram()}}
-{\footnotesize\ttfamily bool Utils\+::parse\+Tram (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net,  }\item[{\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$}]{element }\end{DoxyParamCaption})}
-
-Functie dat in een XML file een element tram zal parsen. 
-\begin{DoxyParams}{Parameters}
-{\em metro\+Net} & Het metronet waarin het station zal gepushed worden. \\
-\hline
-{\em element} & De tram dat geparst wordt. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-true of false afhankelijk ofdat de tram geparst en gepushed kon worden of niet. 
-\end{DoxyReturn}
-\Hypertarget{namespaceUtils_a0401fc9bc835070caaba946b302551cf}\label{namespaceUtils_a0401fc9bc835070caaba946b302551cf} 
-\index{Utils@{Utils}!simulateMetroNet@{simulateMetroNet}}
-\index{simulateMetroNet@{simulateMetroNet}!Utils@{Utils}}
-\doxysubsubsection{\texorpdfstring{simulateMetroNet()}{simulateMetroNet()}}
-{\footnotesize\ttfamily void Utils\+::simulate\+Metro\+Net (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net,  }\item[{int}]{amount\+Of\+Move }\end{DoxyParamCaption})}
-
-Functie dat ons toelaat om een metronet te laten simuleren voor een bepaald aantal moves. 
-\begin{DoxyParams}{Parameters}
-{\em metro\+Net} & Het metronet dat we gaan simuleren. \\
-\hline
-{\em amount\+Of\+Move} & De hoevelheid stappen dat we gaan simuleren. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyNote}{Note}
-Deze functie moeten we aanpassen zodat het i.\+p.\+v. werkt met een hoeveelheid moves, dat het werkt met gebruik van een tijdstip. Hierbij moeten we echter zorgen dat we meerdere attributes hebben die toelaten om een realistische simulatie te doen lopen over een \doxylink{classMetroNet}{Metro\+Net}. Hierbij moeten we \doxylink{classTram}{Tram} en \doxylink{classStation}{Station} zodanig aanpassen zodat trammen over een bepaalde afstand rijden in een bepaalde tijd met een bepaalde snelheid. 
-\end{DoxyNote}
-\Hypertarget{namespaceUtils_ad11847528f09e17aa92ae59e41d16427}\label{namespaceUtils_ad11847528f09e17aa92ae59e41d16427} 
-\index{Utils@{Utils}!validMetroNet@{validMetroNet}}
-\index{validMetroNet@{validMetroNet}!Utils@{Utils}}
-\doxysubsubsection{\texorpdfstring{validMetroNet()}{validMetroNet()}}
-{\footnotesize\ttfamily bool Utils\+::valid\+Metro\+Net (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net }\end{DoxyParamCaption})}
-
-Functie dat zal nazien ofdat een metronet correct geïnitialiseerd is en wordt geprint op console. 
-\begin{DoxyParams}{Parameters}
-{\em metro\+Net} & Het metronet dat gecontroleerd wordt. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-true of false afhankelijk ofdat het metronet correct geïnitialiseerd is of niet. 
-\end{DoxyReturn}
-\Hypertarget{namespaceUtils_a4607b8e89d3717373c83e3c0a9852f78}\label{namespaceUtils_a4607b8e89d3717373c83e3c0a9852f78} 
-\index{Utils@{Utils}!validMetroNetSilent@{validMetroNetSilent}}
-\index{validMetroNetSilent@{validMetroNetSilent}!Utils@{Utils}}
-\doxysubsubsection{\texorpdfstring{validMetroNetSilent()}{validMetroNetSilent()}}
-{\footnotesize\ttfamily bool Utils\+::valid\+Metro\+Net\+Silent (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net }\end{DoxyParamCaption})}
-
-Functie dat zal nazien ofdat een metronet correct geïnitialiseerd is en wordt NIET geprint op console. 
-\begin{DoxyParams}{Parameters}
-{\em metro\+Net} & Het metronet dat gecontroleerd wordt. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-true of false afhankelijk ofdat het metronet correct geïnitialiseerd is of niet. 
-\end{DoxyReturn}
-\Hypertarget{namespaceUtils_a0c8bb62588ca988e26e4fde64485037e}\label{namespaceUtils_a0c8bb62588ca988e26e4fde64485037e} 
-\index{Utils@{Utils}!writeSpecs@{writeSpecs}}
-\index{writeSpecs@{writeSpecs}!Utils@{Utils}}
-\doxysubsubsection{\texorpdfstring{writeSpecs()}{writeSpecs()}}
-{\footnotesize\ttfamily void Utils\+::write\+Specs (\begin{DoxyParamCaption}\item[{std\+::ofstream \&}]{file,  }\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net }\end{DoxyParamCaption})}
-
-Fuctie dat een file zal creëren van een \doxylink{classMetroNet}{Metro\+Net} object. 
-\begin{DoxyParams}{Parameters}
-{\em file} & De file naarwaar het metronet zal weggeschreven worden. \\
-\hline
-{\em metro\+Net} & Het metronet dat zal weggeschreven worden. \\
-\hline
-\end{DoxyParams}

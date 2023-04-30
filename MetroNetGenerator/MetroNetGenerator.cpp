@@ -5,14 +5,14 @@
 #include "MetroNetGenerator.h"
 #include "../Exporter/Exporter.h"
 
-MetroNetGenerator::MetroNetGenerator(std::string pathToXml,std::string pathToWrit,std::string pathToWrite2) {
+MetroNetGenerator::MetroNetGenerator(std::string pathToXml,std::string pathToWrite,std::string pathToWrite2) {
     REQUIRE(Utils::fileExists(pathToXml), "Path to xml is wrong or file does not exist");
     setPathToOpenXml(pathToXml);
-    setPathToWrite(pathToWrit);
+    setPathToWrite(pathToWrite);
 //    exporter = Exporter(pathToWrit);
 //    exporter.setPathToFile(pathToWrit);
     //ENSURE NEEDED? --> set op does it already!
-    exporter.setPathToSimple(pathToWrit);
+    exporter.setPathToSimple(pathToWrite);
     exporter.setPathToAdvanced(pathToWrite2);
 }
 

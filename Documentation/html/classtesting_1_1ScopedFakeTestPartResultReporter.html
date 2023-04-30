@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Metro Simulation<span id="projectnumber">&#160;v1.0</span>
+   <div id="projectname">Metro Simulation<span id="projectnumber">&#160;v2.0</span>
    </div>
   </td>
  </tr>
@@ -94,6 +94,14 @@ Inheritance diagram for testing::ScopedFakeTestPartResultReporter:</div>
 Public Types</h2></td></tr>
 <tr class="memitem:a82f6209b3cf5c4b15ec8bd8041dbc2d5"><td class="memItemLeft" align="right" valign="top"><a id="a82f6209b3cf5c4b15ec8bd8041dbc2d5" name="a82f6209b3cf5c4b15ec8bd8041dbc2d5"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>InterceptMode</b> { <b>INTERCEPT_ONLY_CURRENT_THREAD</b>
 , <b>INTERCEPT_ALL_THREADS</b>
+, <b>INTERCEPT_ONLY_CURRENT_THREAD</b>
+, <b>INTERCEPT_ALL_THREADS</b>
+ }</td></tr>
+<tr class="separator:a82f6209b3cf5c4b15ec8bd8041dbc2d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82f6209b3cf5c4b15ec8bd8041dbc2d5"><td class="memItemLeft" align="right" valign="top"><a id="a82f6209b3cf5c4b15ec8bd8041dbc2d5" name="a82f6209b3cf5c4b15ec8bd8041dbc2d5"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>InterceptMode</b> { <b>INTERCEPT_ONLY_CURRENT_THREAD</b>
+, <b>INTERCEPT_ALL_THREADS</b>
+, <b>INTERCEPT_ONLY_CURRENT_THREAD</b>
+, <b>INTERCEPT_ALL_THREADS</b>
  }</td></tr>
 <tr class="separator:a82f6209b3cf5c4b15ec8bd8041dbc2d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -107,13 +115,24 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a57cbc09ed48627c8a73e622618dc4b4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bc6cb939cbc3db71ece8846e6bafe00"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtesting_1_1ScopedFakeTestPartResultReporter.html#a3bc6cb939cbc3db71ece8846e6bafe00">ReportTestPartResult</a> (const <a class="el" href="classtesting_1_1TestPartResult.html">TestPartResult</a> &amp;result)</td></tr>
 <tr class="separator:a3bc6cb939cbc3db71ece8846e6bafe00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0100ecf4799fb51d45167be6a5de1d5"><td class="memItemLeft" align="right" valign="top"><a id="aa0100ecf4799fb51d45167be6a5de1d5" name="aa0100ecf4799fb51d45167be6a5de1d5"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ScopedFakeTestPartResultReporter</b> (<a class="el" href="classtesting_1_1TestPartResultArray.html">TestPartResultArray</a> *result)</td></tr>
+<tr class="separator:aa0100ecf4799fb51d45167be6a5de1d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57cbc09ed48627c8a73e622618dc4b4f"><td class="memItemLeft" align="right" valign="top"><a id="a57cbc09ed48627c8a73e622618dc4b4f" name="a57cbc09ed48627c8a73e622618dc4b4f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>ScopedFakeTestPartResultReporter</b> (InterceptMode intercept_mode, <a class="el" href="classtesting_1_1TestPartResultArray.html">TestPartResultArray</a> *result)</td></tr>
+<tr class="separator:a57cbc09ed48627c8a73e622618dc4b4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bc6cb939cbc3db71ece8846e6bafe00"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtesting_1_1ScopedFakeTestPartResultReporter.html#a3bc6cb939cbc3db71ece8846e6bafe00">ReportTestPartResult</a> (const <a class="el" href="classtesting_1_1TestPartResult.html">TestPartResult</a> &amp;result)</td></tr>
+<tr class="separator:a3bc6cb939cbc3db71ece8846e6bafe00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2f920e7a5a0a6d0faf19e3727928c22"><td class="memItemLeft" align="right" valign="top"><a id="aa2f920e7a5a0a6d0faf19e3727928c22" name="aa2f920e7a5a0a6d0faf19e3727928c22"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>ReportTestPartResult</b> (const <a class="el" href="classtesting_1_1TestPartResult.html">TestPartResult</a> &amp;result)=0</td></tr>
+<tr class="separator:aa2f920e7a5a0a6d0faf19e3727928c22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2f920e7a5a0a6d0faf19e3727928c22"><td class="memItemLeft" align="right" valign="top"><a id="aa2f920e7a5a0a6d0faf19e3727928c22" name="aa2f920e7a5a0a6d0faf19e3727928c22"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>ReportTestPartResult</b> (const <a class="el" href="classtesting_1_1TestPartResult.html">TestPartResult</a> &amp;result)=0</td></tr>
 <tr class="separator:aa2f920e7a5a0a6d0faf19e3727928c22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a3bc6cb939cbc3db71ece8846e6bafe00" name="a3bc6cb939cbc3db71ece8846e6bafe00"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3bc6cb939cbc3db71ece8846e6bafe00">&#9670;&#160;</a></span>ReportTestPartResult()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bc6cb939cbc3db71ece8846e6bafe00">&#9670;&#160;</a></span>ReportTestPartResult() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -140,8 +159,37 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>ReportTestPar
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="gtest-spi_8h_source.html">gtest-spi.h</a></li>
+<a id="a3bc6cb939cbc3db71ece8846e6bafe00" name="a3bc6cb939cbc3db71ece8846e6bafe00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bc6cb939cbc3db71ece8846e6bafe00">&#9670;&#160;</a></span>ReportTestPartResult() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void testing::ScopedFakeTestPartResultReporter::ReportTestPartResult </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtesting_1_1TestPartResult.html">TestPartResult</a> &amp;&#160;</td>
+          <td class="paramname"><em>result</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classtesting_1_1TestPartResultReporterInterface.html">testing::TestPartResultReporterInterface</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="include_2gtest_2gtest-spi_8h_source.html">include/gtest/gtest-spi.h</a></li>
+<li><a class="el" href="lib_2include_2gtest_2gtest-spi_8h_source.html">lib/include/gtest/gtest-spi.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

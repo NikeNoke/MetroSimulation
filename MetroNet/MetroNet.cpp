@@ -200,7 +200,8 @@ bool MetroNet::isValidMetroNet() {
 
 void MetroNet::simulateMetroNet(int seconds) {
 
-    struct timespec start, finish;
+    struct timespec finish;
+    struct timespec start;
     double elapsed;
 
     clock_gettime(CLOCK_MONOTONIC, &start);
@@ -407,7 +408,8 @@ bool MetroNet::controlTram(Tram *t) {
 
 bool MetroNet::moveTram(Tram* tram, std::string &targetStationName) {
 
-    REQUIRE(!aTramAtStationSpoor(targetStationName, tram->getLijnNr()), "There cannot be a tram at targetStation SpoorNr to move Tram!");
+    REQUIRE(!aTramAtStationSpoor(targetStationName, tram->getLijnNr()),\
+    "There cannot be a tram at targetStation SpoorNr to move Tram!");
 
     Station* currentStation = getStation(tram->getHuidigStation());
     Station* targetStation = getStation(targetStationName);

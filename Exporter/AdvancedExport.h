@@ -7,11 +7,31 @@
 #include "../MetroNet/MetroNet.h"
 #include "InterfaceExport.h"
 
+/**
+ * Klasse AdvancedExport dat overerft van InterfaceExport. Zorgt ervoor dat we files kunnen creëren
+ * met een advanced path.
+ * **/
 class AdvancedExport: public InterfaceExport{
 public:
+
+    /**
+     * Methode om een metroNet te exporteren naar een file.
+     * @pre REQUIRE(metroNet.properlyInitialized(), "The metroNet is not properly initialized")
+     * @pre REQUIRE(!path.empty(), "Path to write is empty")
+     * @post ENSURE(Utils::fileExists(path), "The file was not even created!")
+     * @param metroNet Het metroNet dat geëxporteerd zal zijn.
+     * @param path van de file.
+     * @return true or false
+     * **/
     bool exportFile(MetroNet& metroNet, std::string path) const;
 
-    int indexVolgende(std::vector<Spoor* >&, const std::string& naam) const;
+    /**
+     * Helperfunctie om een index van het volgende spoor.
+     * @param container De vector waarin alle sporen zijn gelegen.
+     * @param naam Naam van het spoor.
+     * @return Index van het spoor of default -1 als er iets mis gaat.
+     * **/
+    int indexVolgende(std::vector<Spoor* >&container, const std::string& naam) const;
 
 private:
 

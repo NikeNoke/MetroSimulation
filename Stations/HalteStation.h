@@ -6,12 +6,23 @@
 #define METROSIMULATION_HALTESTATION_H
 #include "Station.h"
 
+
+/**
+ * Klasse HalteStation, erft over van Station.
+ * **/
 class HalteStation: public Station{
 
 public:
 
+    /**
+     * Getter functie die het type _HalteStation_ teruggeeft van het Station.
+     * @return Type van het Station.
+     * **/
     TypeStation::StationType getTypeEnum();
 
+    /**
+     * Destructor van HalteStation.
+     * **/
     ~HalteStation();
 
 };

@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Metro Simulation<span id="projectnumber">&#160;v1.0</span>
+   <div id="projectname">Metro Simulation<span id="projectnumber">&#160;v2.0</span>
    </div>
   </td>
  </tr>
@@ -82,66 +82,77 @@ $(function() {
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#ifndef METROSIMULATION_PARSESTATION_H</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#define METROSIMULATION_PARSESTATION_H</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;../DesignByContract.h&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;../Station/Station.h&quot;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;../MetroNet/MetroNet.h&quot;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;../TinyXML/tinyxml.h&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classParseStation.html">   16</a></span><span class="keyword">class </span><a class="code hl_class" href="classParseStation.html">ParseStation</a> {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classParseStation.html">ParseStation</a>(<a class="code hl_class" href="classTiXmlElement.html">TiXmlElement</a> *element);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classParseStation.html#af3d3fdac6b0891c57399eeaa95623dcc">setElement</a>(<a class="code hl_class" href="classTiXmlElement.html">TiXmlElement</a> *el);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classParseStation.html#a8823c44ca85e44de27986365d167fbb8">parseAll</a>(<a class="code hl_class" href="classMetroNet.html">MetroNet</a> &amp;metroNet, <a class="code hl_class" href="classStation.html">Station</a>* station) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classParseStation.html#a0c638d47db8e6e3e63dab6f693aba3c6">parseNaam</a>(<a class="code hl_class" href="classMetroNet.html">MetroNet</a> &amp;metroNet, <a class="code hl_class" href="classStation.html">Station</a>* station) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classParseStation.html#aec9bc7149cb0da3749965daec61fe45d">parseVorige</a>(<a class="code hl_class" href="classMetroNet.html">MetroNet</a> &amp;metroNet, <a class="code hl_class" href="classStation.html">Station</a>* station) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classParseStation.html#acd9feab97bd2b56a62cfbada1d62d988">parseVolgende</a>(<a class="code hl_class" href="classMetroNet.html">MetroNet</a> &amp;metroNet, <a class="code hl_class" href="classStation.html">Station</a>* station) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classParseStation.html#afb03eab0638683cf6bfdb9728eeae848">parseSpoorNr</a>(<a class="code hl_class" href="classMetroNet.html">MetroNet</a> &amp;metroNet, <a class="code hl_class" href="classStation.html">Station</a>* station) <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classParseStation.html#a1f2654c28b7b61245a17d6deb09ff35e">checkValidStation</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;../DesignByContract.h&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;../Stations/Station.h&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;../MetroNet/MetroNet.h&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;../TinyXML/tinyxml.h&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classParseStation.html">   17</a></span><span class="keyword">class </span><a class="code hl_class" href="classParseStation.html">ParseStation</a> {</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classParseStation.html">ParseStation</a>(<a class="code hl_class" href="classTiXmlElement.html">TiXmlElement</a> *element);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classParseStation.html#af3d3fdac6b0891c57399eeaa95623dcc">setElement</a>(<a class="code hl_class" href="classTiXmlElement.html">TiXmlElement</a> *el);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classParseStation.html#a9d4e5fe4a23b3e8603068740242d6b40">parseAll</a>();</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classParseStation.html#aa2f46c060f2fa627655353560b8d16c7">parseNaam</a>(<a class="code hl_class" href="classStation.html">Station</a> *station) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classParseStation.html#a1f2654c28b7b61245a17d6deb09ff35e">checkValidStation</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classParseStation.html#afbb60f05c99b31b0e561a4f16906ed84">checkValidNaam</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classParseStation.html#afbb60f05c99b31b0e561a4f16906ed84">checkValidNaam</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classParseStation.html#aa58b49a8e1826f4bdb4df3d95082d3b3">checkValidVorige</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classParseStation.html#ac238edc3616fb8a59e7324ce43a5cac6">checkValidVolgende</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classParseStation.html#a715acb337bc012223f663c2505d60e21">checkValidSpoorNr</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classParseStation.html#a128d45041af61f9ce898284c6a2d0387">checkNonValidAttributes</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <a class="code hl_class" href="classTiXmlElement.html">TiXmlElement</a> *element;</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    std::string  naam;</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>};</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="preprocessor">#endif </span><span class="comment">//METROSIMULATION_PARSESTATION_H</span></div>
-<div class="ttc" id="aclassMetroNet_html"><div class="ttname"><a href="classMetroNet.html">MetroNet</a></div><div class="ttdef"><b>Definition:</b> MetroNet.h:13</div></div>
-<div class="ttc" id="aclassParseStation_html"><div class="ttname"><a href="classParseStation.html">ParseStation</a></div><div class="ttdef"><b>Definition:</b> ParseStation.h:16</div></div>
-<div class="ttc" id="aclassParseStation_html_a0c638d47db8e6e3e63dab6f693aba3c6"><div class="ttname"><a href="classParseStation.html#a0c638d47db8e6e3e63dab6f693aba3c6">ParseStation::parseNaam</a></div><div class="ttdeci">bool parseNaam(MetroNet &amp;metroNet, Station *station) const</div><div class="ttdef"><b>Definition:</b> ParseStation.cpp:150</div></div>
-<div class="ttc" id="aclassParseStation_html_a128d45041af61f9ce898284c6a2d0387"><div class="ttname"><a href="classParseStation.html#a128d45041af61f9ce898284c6a2d0387">ParseStation::checkNonValidAttributes</a></div><div class="ttdeci">bool checkNonValidAttributes() const</div><div class="ttdef"><b>Definition:</b> ParseStation.cpp:243</div></div>
-<div class="ttc" id="aclassParseStation_html_a1f2654c28b7b61245a17d6deb09ff35e"><div class="ttname"><a href="classParseStation.html#a1f2654c28b7b61245a17d6deb09ff35e">ParseStation::checkValidStation</a></div><div class="ttdeci">bool checkValidStation() const</div><div class="ttdef"><b>Definition:</b> ParseStation.cpp:93</div></div>
-<div class="ttc" id="aclassParseStation_html_a715acb337bc012223f663c2505d60e21"><div class="ttname"><a href="classParseStation.html#a715acb337bc012223f663c2505d60e21">ParseStation::checkValidSpoorNr</a></div><div class="ttdeci">bool checkValidSpoorNr() const</div><div class="ttdef"><b>Definition:</b> ParseStation.cpp:125</div></div>
-<div class="ttc" id="aclassParseStation_html_a8823c44ca85e44de27986365d167fbb8"><div class="ttname"><a href="classParseStation.html#a8823c44ca85e44de27986365d167fbb8">ParseStation::parseAll</a></div><div class="ttdeci">bool parseAll(MetroNet &amp;metroNet, Station *station) const</div><div class="ttdef"><b>Definition:</b> ParseStation.cpp:21</div></div>
-<div class="ttc" id="aclassParseStation_html_aa58b49a8e1826f4bdb4df3d95082d3b3"><div class="ttname"><a href="classParseStation.html#aa58b49a8e1826f4bdb4df3d95082d3b3">ParseStation::checkValidVorige</a></div><div class="ttdeci">bool checkValidVorige() const</div><div class="ttdef"><b>Definition:</b> ParseStation.cpp:68</div></div>
-<div class="ttc" id="aclassParseStation_html_ac238edc3616fb8a59e7324ce43a5cac6"><div class="ttname"><a href="classParseStation.html#ac238edc3616fb8a59e7324ce43a5cac6">ParseStation::checkValidVolgende</a></div><div class="ttdeci">bool checkValidVolgende() const</div><div class="ttdef"><b>Definition:</b> ParseStation.cpp:100</div></div>
-<div class="ttc" id="aclassParseStation_html_acd9feab97bd2b56a62cfbada1d62d988"><div class="ttname"><a href="classParseStation.html#acd9feab97bd2b56a62cfbada1d62d988">ParseStation::parseVolgende</a></div><div class="ttdeci">bool parseVolgende(MetroNet &amp;metroNet, Station *station) const</div><div class="ttdef"><b>Definition:</b> ParseStation.cpp:196</div></div>
-<div class="ttc" id="aclassParseStation_html_aec9bc7149cb0da3749965daec61fe45d"><div class="ttname"><a href="classParseStation.html#aec9bc7149cb0da3749965daec61fe45d">ParseStation::parseVorige</a></div><div class="ttdeci">bool parseVorige(MetroNet &amp;metroNet, Station *station) const</div><div class="ttdef"><b>Definition:</b> ParseStation.cpp:173</div></div>
-<div class="ttc" id="aclassParseStation_html_af3d3fdac6b0891c57399eeaa95623dcc"><div class="ttname"><a href="classParseStation.html#af3d3fdac6b0891c57399eeaa95623dcc">ParseStation::setElement</a></div><div class="ttdeci">void setElement(TiXmlElement *el)</div><div class="ttdoc">Set Element Zet de element van ParseStation.</div><div class="ttdef"><b>Definition:</b> ParseStation.cpp:15</div></div>
-<div class="ttc" id="aclassParseStation_html_afb03eab0638683cf6bfdb9728eeae848"><div class="ttname"><a href="classParseStation.html#afb03eab0638683cf6bfdb9728eeae848">ParseStation::parseSpoorNr</a></div><div class="ttdeci">bool parseSpoorNr(MetroNet &amp;metroNet, Station *station) const</div><div class="ttdef"><b>Definition:</b> ParseStation.cpp:218</div></div>
-<div class="ttc" id="aclassParseStation_html_afbb60f05c99b31b0e561a4f16906ed84"><div class="ttname"><a href="classParseStation.html#afbb60f05c99b31b0e561a4f16906ed84">ParseStation::checkValidNaam</a></div><div class="ttdeci">bool checkValidNaam() const</div><div class="ttdef"><b>Definition:</b> ParseStation.cpp:43</div></div>
-<div class="ttc" id="aclassStation_html"><div class="ttname"><a href="classStation.html">Station</a></div><div class="ttdef"><b>Definition:</b> Station.h:14</div></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classParseStation.html#a128d45041af61f9ce898284c6a2d0387">checkNonValidAttributes</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classParseStation.html#ab4b3e4f7469c5215300a2bdb59d12df7">checkValidTypeStation</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classParseStation.html#a50de3e504cc779ff77ee814876312c2c">parseTypeStation</a>(<a class="code hl_class" href="classStation.html">Station</a> *station) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <a class="code hl_class" href="classTiXmlElement.html">TiXmlElement</a> *<a class="code hl_function" href="classParseStation.html#af02e06d57fbef4fb2427b2e44d72de2d">getElement</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classParseStation.html#a95a39a10e1e89c6ccae2737e32fd1f35">properlyInitialized</a>();</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classParseStation.html#af63e613f83f6987fa5e7fe6832b9f6a0">parseSpoor</a>(<a class="code hl_class" href="classStation.html">Station</a> *station) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    TypeStation::StationType <a class="code hl_function" href="classParseStation.html#ac531c56b5e88a01627756bd58c6cb0b2">getStationType</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classParseStation.html#a96d2f681df38225431d37a5f59bd9355">parseSuccessful</a>();</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classParseStation.html#a8ad2f5e408410da5fef10ce624ae7545">setParsedStation</a>(<a class="code hl_class" href="classStation.html">Station</a> *s);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <a class="code hl_class" href="classStation.html">Station</a> *<a class="code hl_function" href="classParseStation.html#a790a4e7cbfef9fe7507ad86621bc1b82">getParsedStation</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <a class="code hl_class" href="classTiXmlElement.html">TiXmlElement</a> *element;</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <a class="code hl_class" href="classParseStation.html">ParseStation</a> *_fInitcheck;</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <a class="code hl_class" href="classStation.html">Station</a> *parsedStation;</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>};</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="preprocessor">#endif </span><span class="comment">//METROSIMULATION_PARSESTATION_H</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="ttc" id="aclassParseStation_html"><div class="ttname"><a href="classParseStation.html">ParseStation</a></div><div class="ttdef"><b>Definition:</b> ParseStation.h:17</div></div>
+<div class="ttc" id="aclassParseStation_html_a128d45041af61f9ce898284c6a2d0387"><div class="ttname"><a href="classParseStation.html#a128d45041af61f9ce898284c6a2d0387">ParseStation::checkNonValidAttributes</a></div><div class="ttdeci">bool checkNonValidAttributes() const</div><div class="ttdef"><b>Definition:</b> ParseStation.cpp:127</div></div>
+<div class="ttc" id="aclassParseStation_html_a1f2654c28b7b61245a17d6deb09ff35e"><div class="ttname"><a href="classParseStation.html#a1f2654c28b7b61245a17d6deb09ff35e">ParseStation::checkValidStation</a></div><div class="ttdeci">bool checkValidStation() const</div><div class="ttdef"><b>Definition:</b> ParseStation.cpp:94</div></div>
+<div class="ttc" id="aclassParseStation_html_a50de3e504cc779ff77ee814876312c2c"><div class="ttname"><a href="classParseStation.html#a50de3e504cc779ff77ee814876312c2c">ParseStation::parseTypeStation</a></div><div class="ttdeci">bool parseTypeStation(Station *station) const</div><div class="ttdef"><b>Definition:</b> ParseStation.cpp:180</div></div>
+<div class="ttc" id="aclassParseStation_html_a790a4e7cbfef9fe7507ad86621bc1b82"><div class="ttname"><a href="classParseStation.html#a790a4e7cbfef9fe7507ad86621bc1b82">ParseStation::getParsedStation</a></div><div class="ttdeci">Station * getParsedStation() const</div><div class="ttdef"><b>Definition:</b> ParseStation.cpp:270</div></div>
+<div class="ttc" id="aclassParseStation_html_a8ad2f5e408410da5fef10ce624ae7545"><div class="ttname"><a href="classParseStation.html#a8ad2f5e408410da5fef10ce624ae7545">ParseStation::setParsedStation</a></div><div class="ttdeci">void setParsedStation(Station *s)</div><div class="ttdef"><b>Definition:</b> ParseStation.cpp:266</div></div>
+<div class="ttc" id="aclassParseStation_html_a95a39a10e1e89c6ccae2737e32fd1f35"><div class="ttname"><a href="classParseStation.html#a95a39a10e1e89c6ccae2737e32fd1f35">ParseStation::properlyInitialized</a></div><div class="ttdeci">bool properlyInitialized()</div><div class="ttdef"><b>Definition:</b> ParseStation.cpp:204</div></div>
+<div class="ttc" id="aclassParseStation_html_a96d2f681df38225431d37a5f59bd9355"><div class="ttname"><a href="classParseStation.html#a96d2f681df38225431d37a5f59bd9355">ParseStation::parseSuccessful</a></div><div class="ttdeci">bool parseSuccessful()</div><div class="ttdef"><b>Definition:</b> ParseStation.cpp:262</div></div>
+<div class="ttc" id="aclassParseStation_html_a9d4e5fe4a23b3e8603068740242d6b40"><div class="ttname"><a href="classParseStation.html#a9d4e5fe4a23b3e8603068740242d6b40">ParseStation::parseAll</a></div><div class="ttdeci">bool parseAll()</div><div class="ttdef"><b>Definition:</b> ParseStation.cpp:27</div></div>
+<div class="ttc" id="aclassParseStation_html_aa2f46c060f2fa627655353560b8d16c7"><div class="ttname"><a href="classParseStation.html#aa2f46c060f2fa627655353560b8d16c7">ParseStation::parseNaam</a></div><div class="ttdeci">bool parseNaam(Station *station) const</div><div class="ttdef"><b>Definition:</b> ParseStation.cpp:102</div></div>
+<div class="ttc" id="aclassParseStation_html_ab4b3e4f7469c5215300a2bdb59d12df7"><div class="ttname"><a href="classParseStation.html#ab4b3e4f7469c5215300a2bdb59d12df7">ParseStation::checkValidTypeStation</a></div><div class="ttdeci">bool checkValidTypeStation() const</div><div class="ttdef"><b>Definition:</b> ParseStation.cpp:153</div></div>
+<div class="ttc" id="aclassParseStation_html_ac531c56b5e88a01627756bd58c6cb0b2"><div class="ttname"><a href="classParseStation.html#ac531c56b5e88a01627756bd58c6cb0b2">ParseStation::getStationType</a></div><div class="ttdeci">TypeStation::StationType getStationType() const</div><div class="ttdef"><b>Definition:</b> ParseStation.cpp:237</div></div>
+<div class="ttc" id="aclassParseStation_html_af02e06d57fbef4fb2427b2e44d72de2d"><div class="ttname"><a href="classParseStation.html#af02e06d57fbef4fb2427b2e44d72de2d">ParseStation::getElement</a></div><div class="ttdeci">TiXmlElement * getElement() const</div><div class="ttdef"><b>Definition:</b> ParseStation.cpp:149</div></div>
+<div class="ttc" id="aclassParseStation_html_af3d3fdac6b0891c57399eeaa95623dcc"><div class="ttname"><a href="classParseStation.html#af3d3fdac6b0891c57399eeaa95623dcc">ParseStation::setElement</a></div><div class="ttdeci">void setElement(TiXmlElement *el)</div><div class="ttdef"><b>Definition:</b> ParseStation.cpp:21</div></div>
+<div class="ttc" id="aclassParseStation_html_af63e613f83f6987fa5e7fe6832b9f6a0"><div class="ttname"><a href="classParseStation.html#af63e613f83f6987fa5e7fe6832b9f6a0">ParseStation::parseSpoor</a></div><div class="ttdeci">bool parseSpoor(Station *station) const</div><div class="ttdef"><b>Definition:</b> ParseStation.cpp:208</div></div>
+<div class="ttc" id="aclassParseStation_html_afbb60f05c99b31b0e561a4f16906ed84"><div class="ttname"><a href="classParseStation.html#afbb60f05c99b31b0e561a4f16906ed84">ParseStation::checkValidNaam</a></div><div class="ttdeci">bool checkValidNaam() const</div><div class="ttdef"><b>Definition:</b> ParseStation.cpp:67</div></div>
+<div class="ttc" id="aclassStation_html"><div class="ttname"><a href="classStation.html">Station</a></div><div class="ttdef"><b>Definition:</b> Station.h:23</div></div>
 <div class="ttc" id="aclassTiXmlElement_html"><div class="ttname"><a href="classTiXmlElement.html">TiXmlElement</a></div><div class="ttdef"><b>Definition:</b> tinyxml.h:941</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

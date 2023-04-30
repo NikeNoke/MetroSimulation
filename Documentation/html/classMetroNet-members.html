@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Metro Simulation<span id="projectnumber">&#160;v1.0</span>
+   <div id="projectname">Metro Simulation<span id="projectnumber">&#160;v2.0</span>
    </div>
   </td>
  </tr>
@@ -77,13 +77,23 @@ $(function() {
 <table class="directory">
   <tr class="even"><td class="entry"><a class="el" href="classMetroNet.html#a3e18ff076868c8bbf770c1550733f987">addStation</a>(Station *const station)</td><td class="entry"><a class="el" href="classMetroNet.html">MetroNet</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classMetroNet.html#a1b5e6fada29587bb810cbebe20116f5c">addTram</a>(Tram *const tram)</td><td class="entry"><a class="el" href="classMetroNet.html">MetroNet</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classMetroNet.html#a05099a1d547e56022aec6334411154ba">aTramAtStation</a>(const std::string &amp;stationName)</td><td class="entry"><a class="el" href="classMetroNet.html">MetroNet</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classMetroNet.html#acfea3e712371ae78953afebffd426e70">aTramAtStationSpoor</a>(const std::string &amp;stationName, int lijnNr)</td><td class="entry"><a class="el" href="classMetroNet.html">MetroNet</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classMetroNet.html#ae08d94fa2c11c33976f98cb3da870eae">getStation</a>(const std::string &amp;name)</td><td class="entry"><a class="el" href="classMetroNet.html">MetroNet</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classMetroNet.html#a46edb061e63b058c22593a1b9353a47d">getStations</a>()</td><td class="entry"><a class="el" href="classMetroNet.html">MetroNet</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classMetroNet.html#afa2765dbc70c7ffb6e0385063721c7bc">getStatReport</a>()</td><td class="entry"><a class="el" href="classMetroNet.html">MetroNet</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classMetroNet.html#a217b086b8ca4ec61baef33ce52e1e3ba">getTotaalMetroNetReparatieKost</a>()</td><td class="entry"><a class="el" href="classMetroNet.html">MetroNet</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classMetroNet.html#a88a3d8b5533b86a0c4165f8b3bf48b10">getTram</a>(const std::string &amp;name)</td><td class="entry"><a class="el" href="classMetroNet.html">MetroNet</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classMetroNet.html#a6da862e9539dc2ce0232aa4a52e592e0">getTrams</a>()</td><td class="entry"><a class="el" href="classMetroNet.html">MetroNet</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classMetroNet.html#a72cadd71b4830c9e4e8d416cc46c7799">getTramAtStationSpoor</a>(const std::string &amp;stationName, int lijnNr)</td><td class="entry"><a class="el" href="classMetroNet.html">MetroNet</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classMetroNet.html#a6da862e9539dc2ce0232aa4a52e592e0">getTrams</a>()</td><td class="entry"><a class="el" href="classMetroNet.html">MetroNet</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classMetroNet.html#aa188abfa6ab307b29d4346007c39bc3f">initializeStat</a>()</td><td class="entry"><a class="el" href="classMetroNet.html">MetroNet</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classMetroNet.html#a30184ddce5ce01a1c365a54c9475d272">isValidMetroNet</a>()</td><td class="entry"><a class="el" href="classMetroNet.html">MetroNet</a></td><td class="entry"></td></tr>
+  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>isValidMetroNetSilent</b>() (defined in <a class="el" href="classMetroNet.html">MetroNet</a>)</td><td class="entry"><a class="el" href="classMetroNet.html">MetroNet</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classMetroNet.html#ac412bda72e2e95d64ddce9f860acdf92">MetroNet</a>()</td><td class="entry"><a class="el" href="classMetroNet.html">MetroNet</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="classMetroNet.html#a8d881a522eb52ccfffa6e8cd5ff27415">move</a>(Tram *const tram, const std::string &amp;nameStation)</td><td class="entry"><a class="el" href="classMetroNet.html">MetroNet</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="classMetroNet.html#aeec3db5980e6074796f6a7bf6cc9ce21">properlyInitialized</a>()</td><td class="entry"><a class="el" href="classMetroNet.html">MetroNet</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classMetroNet.html#a27b4fb44cdc49a61cbfa4c9090ad7fee">moveAllTramsOnce</a>()</td><td class="entry"><a class="el" href="classMetroNet.html">MetroNet</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classMetroNet.html#a7de603d7605925e78d33bc17811c637c">moveTram</a>(Tram *t, std::string &amp;TargetStationName)</td><td class="entry"><a class="el" href="classMetroNet.html">MetroNet</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="classMetroNet.html#ad7b306379f1788b660df08b9c6a0882f">properlyInitialized</a>() const</td><td class="entry"><a class="el" href="classMetroNet.html">MetroNet</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="classMetroNet.html#a671d06118b65d02e829d0748acbe184e">simulateMetroNet</a>(int seconds)</td><td class="entry"><a class="el" href="classMetroNet.html">MetroNet</a></td><td class="entry"></td></tr>
   <tr class="odd"><td class="entry"><a class="el" href="classMetroNet.html#a08e11b88658e8972c6121c5eb8c03671">stationRegistered</a>(const std::string &amp;name) const</td><td class="entry"><a class="el" href="classMetroNet.html">MetroNet</a></td><td class="entry"></td></tr>
   <tr class="even"><td class="entry"><a class="el" href="classMetroNet.html#a8d775a6bd435b468b7da134b32184c65">~MetroNet</a>()</td><td class="entry"><a class="el" href="classMetroNet.html">MetroNet</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->

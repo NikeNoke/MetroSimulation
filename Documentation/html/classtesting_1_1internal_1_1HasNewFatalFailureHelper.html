@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Metro Simulation<span id="projectnumber">&#160;v1.0</span>
+   <div id="projectname">Metro Simulation<span id="projectnumber">&#160;v2.0</span>
    </div>
   </td>
  </tr>
@@ -96,13 +96,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a91b7bac47f09076db4be0304a2110a9e"><td class="memItemLeft" align="right" valign="top"><a id="a91b7bac47f09076db4be0304a2110a9e" name="a91b7bac47f09076db4be0304a2110a9e"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>has_new_fatal_failure</b> () const</td></tr>
 <tr class="separator:a91b7bac47f09076db4be0304a2110a9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7b5e77c9847b2b057cb97193ba82441"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtesting_1_1internal_1_1HasNewFatalFailureHelper.html#ac7b5e77c9847b2b057cb97193ba82441">ReportTestPartResult</a> (const <a class="el" href="classtesting_1_1TestPartResult.html">TestPartResult</a> &amp;result)</td></tr>
+<tr class="separator:ac7b5e77c9847b2b057cb97193ba82441"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91b7bac47f09076db4be0304a2110a9e"><td class="memItemLeft" align="right" valign="top"><a id="a91b7bac47f09076db4be0304a2110a9e" name="a91b7bac47f09076db4be0304a2110a9e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>has_new_fatal_failure</b> () const</td></tr>
+<tr class="separator:a91b7bac47f09076db4be0304a2110a9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2f920e7a5a0a6d0faf19e3727928c22"><td class="memItemLeft" align="right" valign="top"><a id="aa2f920e7a5a0a6d0faf19e3727928c22" name="aa2f920e7a5a0a6d0faf19e3727928c22"></a>
+virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>ReportTestPartResult</b> (const <a class="el" href="classtesting_1_1TestPartResult.html">TestPartResult</a> &amp;result)=0</td></tr>
+<tr class="separator:aa2f920e7a5a0a6d0faf19e3727928c22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2f920e7a5a0a6d0faf19e3727928c22"><td class="memItemLeft" align="right" valign="top"><a id="aa2f920e7a5a0a6d0faf19e3727928c22" name="aa2f920e7a5a0a6d0faf19e3727928c22"></a>
 virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>ReportTestPartResult</b> (const <a class="el" href="classtesting_1_1TestPartResult.html">TestPartResult</a> &amp;result)=0</td></tr>
 <tr class="separator:aa2f920e7a5a0a6d0faf19e3727928c22"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ac7b5e77c9847b2b057cb97193ba82441" name="ac7b5e77c9847b2b057cb97193ba82441"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7b5e77c9847b2b057cb97193ba82441">&#9670;&#160;</a></span>ReportTestPartResult()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7b5e77c9847b2b057cb97193ba82441">&#9670;&#160;</a></span>ReportTestPartResult() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -129,8 +137,37 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>ReportTestPar
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="gtest-test-part_8h_source.html">gtest-test-part.h</a></li>
+<a id="ac7b5e77c9847b2b057cb97193ba82441" name="ac7b5e77c9847b2b057cb97193ba82441"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7b5e77c9847b2b057cb97193ba82441">&#9670;&#160;</a></span>ReportTestPartResult() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void testing::internal::HasNewFatalFailureHelper::ReportTestPartResult </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classtesting_1_1TestPartResult.html">TestPartResult</a> &amp;&#160;</td>
+          <td class="paramname"><em>result</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implements <a class="el" href="classtesting_1_1TestPartResultReporterInterface.html">testing::TestPartResultReporterInterface</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="include_2gtest_2gtest-test-part_8h_source.html">include/gtest/gtest-test-part.h</a></li>
+<li><a class="el" href="lib_2include_2gtest_2gtest-test-part_8h_source.html">lib/include/gtest/gtest-test-part.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
