@@ -31,7 +31,7 @@ TEST_F(ValidMetroNet, ValidMetroNet) {
     std::string output = "TestOutput/metroNetTestSpecs.txt";
 
     while (Utils::fileExists(fileName)) {
-        MetroNetGenerator generator(fileName, output);
+        MetroNetGenerator generator(fileName, output, output);
 
         EXPECT_NO_FATAL_FAILURE(generator.generateMetroNet()) << "The metroNet was not Valid!\n";
 
@@ -51,7 +51,7 @@ TEST_F(ValidMetroNet, InValidMetroNet) {
 
     while (Utils::fileExists(fileName)) {
 
-        MetroNetGenerator generator(fileName, output);
+        MetroNetGenerator generator(fileName, output, output);
 
         EXPECT_DEATH(generator.generateMetroNet(), "c") << "The metroNet was Valid\n";
 
