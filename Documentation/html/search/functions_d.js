@@ -1,8 +1,10 @@
 var searchData=
 [
-  ['removeattribute_0',['RemoveAttribute',['../classTiXmlElement.html#a56979767deca794376b1dfa69a525b2a',1,'TiXmlElement']]],
-  ['removechild_1',['RemoveChild',['../classTiXmlNode.html#ae19d8510efc90596552f4feeac9a8fbf',1,'TiXmlNode']]],
-  ['replacechild_2',['ReplaceChild',['../classTiXmlNode.html#a543208c2c801c84a213529541e904b9f',1,'TiXmlNode']]],
-  ['rootelement_3',['RootElement',['../classTiXmlDocument.html#ab7d8c7025dd910259f1fea16fc72cda0',1,'TiXmlDocument']]],
-  ['row_4',['Row',['../classTiXmlBase.html#ad0cacca5d76d156b26511f46080b442e',1,'TiXmlBase']]]
+  ['queryboolattribute_0',['QueryBoolAttribute',['../classTiXmlElement.html#a5789b1488af75b6ae37a749700495ceb',1,'TiXmlElement']]],
+  ['querydoubleattribute_1',['QueryDoubleAttribute',['../classTiXmlElement.html#ae04bad29ddb281a7e6c662b3882e9928',1,'TiXmlElement']]],
+  ['querydoublevalue_2',['QueryDoubleValue',['../classTiXmlAttribute.html#a6fa41b710c1b79de37a97004aa600c06',1,'TiXmlAttribute']]],
+  ['queryfloatattribute_3',['QueryFloatAttribute',['../classTiXmlElement.html#a5591929834178699b4561ab6ab460068',1,'TiXmlElement']]],
+  ['queryintattribute_4',['QueryIntAttribute',['../classTiXmlElement.html#a5c0f739e0f6f5905a201364532e54a60',1,'TiXmlElement']]],
+  ['queryintvalue_5',['QueryIntValue',['../classTiXmlAttribute.html#a6caa8090d2fbb7966700a16e45ed33de',1,'TiXmlAttribute']]],
+  ['queryunsignedattribute_6',['QueryUnsignedAttribute',['../classTiXmlElement.html#ab75c83543d4ace62f4c40d7e8e392fc3',1,'TiXmlElement']]]
 ];

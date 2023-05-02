@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Metro Simulation<span id="projectnumber">&#160;v1.0</span>
+   <div id="projectname">Metro Simulation<span id="projectnumber">&#160;v2.0</span>
    </div>
   </td>
  </tr>
@@ -91,12 +91,19 @@ Inheritance diagram for testing::Test:</div>
   <map id="testing::Test_map" name="testing::Test_map">
 <area href="classValidAttributesStation.html" alt="ValidAttributesStation" shape="rect" coords="0,56,132,80"/>
 <area href="classValidAttributesTram.html" alt="ValidAttributesTram" shape="rect" coords="142,56,274,80"/>
-<area href="classValidMetroNet.html" alt="ValidMetroNet" shape="rect" coords="284,56,416,80"/>
+<area href="classValidExport.html" alt="ValidExport" shape="rect" coords="284,56,416,80"/>
+<area href="classValidMetroNet.html" alt="ValidMetroNet" shape="rect" coords="426,56,558,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
+<tr class="memitem:a5f2a051d1d99c9b784c666c586186cf9"><td class="memItemLeft" align="right" valign="top"><a id="a5f2a051d1d99c9b784c666c586186cf9" name="a5f2a051d1d99c9b784c666c586186cf9"></a>
+typedef internal::SetUpTestCaseFunc&#160;</td><td class="memItemRight" valign="bottom"><b>SetUpTestCaseFunc</b></td></tr>
+<tr class="separator:a5f2a051d1d99c9b784c666c586186cf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0f532e93b9f3500144c53f31466976c"><td class="memItemLeft" align="right" valign="top"><a id="aa0f532e93b9f3500144c53f31466976c" name="aa0f532e93b9f3500144c53f31466976c"></a>
+typedef internal::TearDownTestCaseFunc&#160;</td><td class="memItemRight" valign="bottom"><b>TearDownTestCaseFunc</b></td></tr>
+<tr class="separator:aa0f532e93b9f3500144c53f31466976c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f2a051d1d99c9b784c666c586186cf9"><td class="memItemLeft" align="right" valign="top"><a id="a5f2a051d1d99c9b784c666c586186cf9" name="a5f2a051d1d99c9b784c666c586186cf9"></a>
 typedef internal::SetUpTestCaseFunc&#160;</td><td class="memItemRight" valign="bottom"><b>SetUpTestCaseFunc</b></td></tr>
 <tr class="separator:a5f2a051d1d99c9b784c666c586186cf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,6 +134,27 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>RecordProperty
 <tr class="memitem:af602903efb17730b977304fc56500881"><td class="memItemLeft" align="right" valign="top"><a id="af602903efb17730b977304fc56500881" name="af602903efb17730b977304fc56500881"></a>
 static void&#160;</td><td class="memItemRight" valign="bottom"><b>RecordProperty</b> (const std::string &amp;key, int value)</td></tr>
 <tr class="separator:af602903efb17730b977304fc56500881"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ccbac42fee8c5b00b0bfe89b6c49d79"><td class="memItemLeft" align="right" valign="top"><a id="a5ccbac42fee8c5b00b0bfe89b6c49d79" name="a5ccbac42fee8c5b00b0bfe89b6c49d79"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>SetUpTestCase</b> ()</td></tr>
+<tr class="separator:a5ccbac42fee8c5b00b0bfe89b6c49d79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af374706cbaf0ffc460f4fd04e7c150f1"><td class="memItemLeft" align="right" valign="top"><a id="af374706cbaf0ffc460f4fd04e7c150f1" name="af374706cbaf0ffc460f4fd04e7c150f1"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>TearDownTestCase</b> ()</td></tr>
+<tr class="separator:af374706cbaf0ffc460f4fd04e7c150f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a89846458f0e8ed1c9457c957e8182a"><td class="memItemLeft" align="right" valign="top"><a id="a0a89846458f0e8ed1c9457c957e8182a" name="a0a89846458f0e8ed1c9457c957e8182a"></a>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><b>HasFatalFailure</b> ()</td></tr>
+<tr class="separator:a0a89846458f0e8ed1c9457c957e8182a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07e896f1b1836f8ac075c26d7b7c9fb8"><td class="memItemLeft" align="right" valign="top"><a id="a07e896f1b1836f8ac075c26d7b7c9fb8" name="a07e896f1b1836f8ac075c26d7b7c9fb8"></a>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><b>HasNonfatalFailure</b> ()</td></tr>
+<tr class="separator:a07e896f1b1836f8ac075c26d7b7c9fb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a00be7dd0a6bfdc8d47a1b784623613"><td class="memItemLeft" align="right" valign="top"><a id="a7a00be7dd0a6bfdc8d47a1b784623613" name="a7a00be7dd0a6bfdc8d47a1b784623613"></a>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><b>HasFailure</b> ()</td></tr>
+<tr class="separator:a7a00be7dd0a6bfdc8d47a1b784623613"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0448aec9e389fab70f6a75a59ff6aa2"><td class="memItemLeft" align="right" valign="top"><a id="ae0448aec9e389fab70f6a75a59ff6aa2" name="ae0448aec9e389fab70f6a75a59ff6aa2"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>RecordProperty</b> (const std::string &amp;key, const std::string &amp;value)</td></tr>
+<tr class="separator:ae0448aec9e389fab70f6a75a59ff6aa2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af602903efb17730b977304fc56500881"><td class="memItemLeft" align="right" valign="top"><a id="af602903efb17730b977304fc56500881" name="af602903efb17730b977304fc56500881"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><b>RecordProperty</b> (const std::string &amp;key, int value)</td></tr>
+<tr class="separator:af602903efb17730b977304fc56500881"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -134,16 +162,47 @@ Protected Member Functions</h2></td></tr>
 <tr class="separator:a8b38992669fb844864807cf32e416853"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aab3c02c9f81afe1357adfc45afccd474"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtesting_1_1Test.html#aab3c02c9f81afe1357adfc45afccd474">TearDown</a> ()</td></tr>
 <tr class="separator:aab3c02c9f81afe1357adfc45afccd474"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b38992669fb844864807cf32e416853"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtesting_1_1Test.html#a8b38992669fb844864807cf32e416853">SetUp</a> ()</td></tr>
+<tr class="separator:a8b38992669fb844864807cf32e416853"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab3c02c9f81afe1357adfc45afccd474"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classtesting_1_1Test.html#aab3c02c9f81afe1357adfc45afccd474">TearDown</a> ()</td></tr>
+<tr class="separator:aab3c02c9f81afe1357adfc45afccd474"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
 Friends</h2></td></tr>
-<tr class="memitem:a4c49c2cdb6c328e6b709b4542f23de3c"><td class="memItemLeft" align="right" valign="top"><a id="a4c49c2cdb6c328e6b709b4542f23de3c" name="a4c49c2cdb6c328e6b709b4542f23de3c"></a>
+<tr class="memitem:aed3c96e2bd5a46339c1cbe49a4a233ee"><td class="memItemLeft" align="right" valign="top"><a id="aed3c96e2bd5a46339c1cbe49a4a233ee" name="aed3c96e2bd5a46339c1cbe49a4a233ee"></a>
 class&#160;</td><td class="memItemRight" valign="bottom"><b>TestInfo</b></td></tr>
-<tr class="separator:a4c49c2cdb6c328e6b709b4542f23de3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:aed3c96e2bd5a46339c1cbe49a4a233ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a8b38992669fb844864807cf32e416853" name="a8b38992669fb844864807cf32e416853"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8b38992669fb844864807cf32e416853">&#9670;&#160;</a></span>SetUp()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b38992669fb844864807cf32e416853">&#9670;&#160;</a></span>SetUp() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void testing::Test::SetUp </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classValidAttributesStation.html#abbbd5c08274d7f4bd29acdb334e31f61">ValidAttributesStation</a>, and <a class="el" href="classValidAttributesTram.html#a5b4aa9a8ccec679c0bae5460758c7758">ValidAttributesTram</a>.</p>
+
+</div>
+</div>
+<a id="a8b38992669fb844864807cf32e416853" name="a8b38992669fb844864807cf32e416853"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b38992669fb844864807cf32e416853">&#9670;&#160;</a></span>SetUp() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -170,7 +229,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>TestInfo</b></td></t
 </div>
 </div>
 <a id="aab3c02c9f81afe1357adfc45afccd474" name="aab3c02c9f81afe1357adfc45afccd474"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab3c02c9f81afe1357adfc45afccd474">&#9670;&#160;</a></span>TearDown()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aab3c02c9f81afe1357adfc45afccd474">&#9670;&#160;</a></span>TearDown() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -196,8 +255,36 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>TestInfo</b></td></t
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="gtest_8h_source.html">gtest.h</a></li>
+<a id="aab3c02c9f81afe1357adfc45afccd474" name="aab3c02c9f81afe1357adfc45afccd474"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab3c02c9f81afe1357adfc45afccd474">&#9670;&#160;</a></span>TearDown() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void testing::Test::TearDown </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reimplemented in <a class="el" href="classValidAttributesStation.html#aa5368ca09eba9b9fc54d7fb743ad0156">ValidAttributesStation</a>, and <a class="el" href="classValidAttributesTram.html#a5c3c0b47ce4034fb8ac8b0b139bcbc63">ValidAttributesTram</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="include_2gtest_2gtest_8h_source.html">include/gtest/gtest.h</a></li>
+<li><a class="el" href="lib_2include_2gtest_2gtest_8h_source.html">lib/include/gtest/gtest.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

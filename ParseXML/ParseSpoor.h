@@ -4,96 +4,137 @@
 
 #ifndef METROSIMULATION_PARSESPOOR_H
 #define METROSIMULATION_PARSESPOOR_H
+
 #include "../DesignByContract.h"
-#include "../Station/Station.h"
+#include "../Stations/Station.h"
 #include "../MetroNet/MetroNet.h"
 #include "../TinyXML/tinyxml.h"
 #include "../Spoor/Spoor.h"
 #include <string>
 
+/**
+ * Klasse ParseSpoor dat er voor zorgt dat een spoor correct geparsed kan worden.
+ * **/
 class ParseSpoor {
 
-public: //TODO change documentation!!Q
+public:
 
     /**
-    * Constructor voor ParseStation.
-    * @param element Een TiXmlEmlement dat geparsed zal worden.
-    */
+     * Explicit constructor voor ParseSpoor.
+     * @pre REQUIRE(element != NULL, "TixmlElement is NULL")
+     * @post ENSURE(getElement() == element, "TixmlElement is not the element of the parser")
+     * @post ENSURE(properlyInitialized(), "ParseSpoor has been properly initialized")
+     * @param element Element dat gebruikt wordt om te parsen vanuit een XML file. Een spoor zal een element
+     * zijn van een MetroNet in de XML en daarom parsen we de element van MetroNet.
+     * @return ParseSpoor object
+     * **/
     explicit ParseSpoor(TiXmlElement *element);
 
     /**
-    * @brief Set Element
-    * Zet de element van ParseStation.
-    * @param el Element dat gezet zal worden.
-    */
+     * Setter functie dat een element van type TiXmlElement zal setten.
+     * @post ENSURE(getElement() == el, "The member variable element has not been properly set")
+     * @param el Element dat gezet zal worden in de Spoor.
+     * **/
     void setElement(TiXmlElement *el);
 
     /**
-    * Parsed het Station object van een MetroNet object.
-    * @param metroNet Naam van het MetroNet.
-    * @param station Naam van het Station.
-    * @return true of false afhankelijk ofdat het Station object geparsed kon worden.
-    */
-    bool parseAll(Station* station) const;
-
-
-    /**
-    * Methode dat gecalled wordt door parseAll om te checken ofdat Vorige geparsed kan worden
-    * @param metroNet Naam van het MetroNet.
-    * @param station Naam van het Station.
-    * @return true of false
-    */
-    bool parseVorige(Station* station) const;
+     * Functie parsed een Spoor object van een MetroNet object.
+     * @pre REQUIRE(spoor->properlyInitialized(), "Station is not properlyInitialized")
+     * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
+     * @pre REQUIRE(checkValidSpoor() == true, "The Station tag is not correct")
+     * @post ENSURE(!spoor->getVorige().empty(), "The vorige of spoor has not been correctly initialized")
+     * @post ENSURE(!spoor->getVolgende().empty(), "The volgende of spoor has not been correctly initialized")
+     * @post ENSURE(getElement() != NULL, "TixmlElement is NULL")
+     * @param spoor Spoor dat geparsed zal worden.
+     * @return true or false
+     * **/
+    bool parseAll(Spoor *spoor) const;
 
     /**
-    * Methode dat gecalled wordt door parseAll om te checken ofdat Volgende geparsed kan worden
-    * @param metroNet Naam van het MetroNet.
-    * @param station Naam van het Station.
-    * @return true of false
-    */
-    bool parseVolgende(Station* station) const;
+     * Functie dat gecalled wordt door parseAll om te checken ofdat Vorige geparsed kan worden.
+     * @pre REQUIRE(spoor->properlyInitialized(), "Station is not properlyInitialized")
+     * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL");
+     * @pre REQUIRE(checkValidVorige() == true, "The vorige tag is not correct in this Station tag")
+     * @post ENSURE(!spoor->getVorige().empty(), "The vorige of station has not been correctly initialized")
+     * @post ENSURE(getElement() != NULL, "TixmlElement is NULL")
+     * @param spoor Huidige spoor dat gechecked wordt, vorige is dus spoor dat hiervoor komt.
+     * @return true or false
+     * **/
+    bool parseVorige(Spoor *spoor) const;
 
     /**
-    * Methode dat gecalled wordt door parseAll om te checken ofdat spoorNr geparsed kan worden
-    * @param metroNet Naam van het MetroNet.
-    * @param station Naam van het Station.
-    * @return true of false
-    */
-    bool parseSpoorNr(Station* station) const;
+     * Functie dat gecalled wordt door parseAll om te checken ofdat Volgende geparsed kan worden.
+     * @pre REQUIRE(spoor->properlyInitialized(), "Station is not properlyInitialized")
+     * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
+     * @post ENSURE(!spoor->getVolgende().empty(), "The volgende of spoor has not been correctly initialized")
+     * @post ENSURE(getElement() != NULL, "TixmlElement is NULL")
+     * @param spoor Huidige spoor dat gechecked wordt, volgende is dus spoor dat hierna komt.
+     * @return true or false
+     * **/
+    bool parseVolgende(Spoor *spoor) const;
 
     /**
-    * Checked ofdat het Station object correct is.
-    * @return true of false
-    */
+     * Functie dat gecalled wordt door parseAll om te checken ofdat spoorNr geparsed kan worden.
+     * @pre REQUIRE(spoor->properlyInitialized(), "Station is not properlyInitialized")
+     * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
+     * @pre REQUIRE(checkValidSpoorNr() == true, "The spoorNr tag is not correct in this Station tag")
+     * @post ENSURE(spoor->getSpoorNr() == -1, "The spoorNr of Spoor has not been correctly initialized")
+     * @post ENSURE(getElement() != NULL, "TixmlElement is NULL")
+     * @param spoor waarvan spoorNr gecontroleerd wordt.
+     * @return true or false
+     * **/
+    bool parseSpoorNr(Spoor *spoor) const;
+
+    /**
+     * Functie dat controleerd ofdat een spoor valid is of niet.
+     * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
+     * @return true or false
+     * **/
     bool checkValidSpoor() const;
 
 
     /**
-    * Methode dat gecalled wordt door checkValidStation of te controleren ofdat Vorige valid is.
-    * @return true of false
-    */
+     * Functie dat controleerd ofdat de vorige station valid is of niet.
+     * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
+     * @post ENSURE(getElement() != NULL, "TixmlElement has become NULL")
+     * @return true or false
+     * **/
     bool checkValidVorige() const;
 
     /**
-    * Methode dat gecalled wordt door checkValidStation of te controleren ofdat Volgende valid is.
-    * @return true of false
-    */
+     * Functie dat controleerd ofdat de volgende station valid is of niet.
+     * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
+     * @post ENSURE(getElement() != NULL, "TixmlElement has become NULL")
+     * @return true or false
+     * **/
     bool checkValidVolgende() const;
 
     /**
-    * Methode dat gecalled wordt door checkValidStation of te controleren ofdat spoorNr valid is.
-    * @return true of false
-    */
+     * Functie dat controleerd ofdat de spoorNr valid is of niet.
+     * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
+     * @post ENSURE(getElement() != NULL, "TixmlElement has become NULL")
+     * @return true or false
+     * **/
     bool checkValidSpoorNr() const;
 
     /**
-    * Checked ofdat er onverwachte attributes zijn.
-    * @return true of false
-    */
+     * Functie dat controleerd ofdatr er attriebuten zijn die niet behoren tot het Spoor object.
+     * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
+     * @post ENSURE(getElement() != NULL, "TixmlElement has become NULL")
+     * @return true or false
+     * **/
     bool checkNonValidAttributes() const;
 
-    TiXmlElement * getElement() const;
+    /**
+     * Getter functie dat een element geeft van het type TiXmlElement.
+     * @return element
+     * **/
+    TiXmlElement *getElement() const;
 
+    /**
+     * Functie controleerd ofdat ParseSpoor correct werd geïnitialiseerd.
+     * @return true or false
+     * **/
     bool properlyInitialized();
 
 private:
@@ -101,7 +142,7 @@ private:
     std::string vorige;
     std::string volgende;
     int spoorNr;
-    ParseSpoor* _fInitcheck;
+    ParseSpoor *_fInitcheck;
 };
 
 

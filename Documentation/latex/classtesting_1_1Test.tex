@@ -14,9 +14,36 @@ typedef internal\+::\+Set\+Up\+Test\+Case\+Func {\bfseries Set\+Up\+Test\+Case\+
 \item 
 \Hypertarget{classtesting_1_1Test_aa0f532e93b9f3500144c53f31466976c}\label{classtesting_1_1Test_aa0f532e93b9f3500144c53f31466976c} 
 typedef internal\+::\+Tear\+Down\+Test\+Case\+Func {\bfseries Tear\+Down\+Test\+Case\+Func}
+\item 
+\Hypertarget{classtesting_1_1Test_a5f2a051d1d99c9b784c666c586186cf9}\label{classtesting_1_1Test_a5f2a051d1d99c9b784c666c586186cf9} 
+typedef internal\+::\+Set\+Up\+Test\+Case\+Func {\bfseries Set\+Up\+Test\+Case\+Func}
+\item 
+\Hypertarget{classtesting_1_1Test_aa0f532e93b9f3500144c53f31466976c}\label{classtesting_1_1Test_aa0f532e93b9f3500144c53f31466976c} 
+typedef internal\+::\+Tear\+Down\+Test\+Case\+Func {\bfseries Tear\+Down\+Test\+Case\+Func}
 \end{DoxyCompactItemize}
 \doxysubsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classtesting_1_1Test_a5ccbac42fee8c5b00b0bfe89b6c49d79}\label{classtesting_1_1Test_a5ccbac42fee8c5b00b0bfe89b6c49d79} 
+static void {\bfseries Set\+Up\+Test\+Case} ()
+\item 
+\Hypertarget{classtesting_1_1Test_af374706cbaf0ffc460f4fd04e7c150f1}\label{classtesting_1_1Test_af374706cbaf0ffc460f4fd04e7c150f1} 
+static void {\bfseries Tear\+Down\+Test\+Case} ()
+\item 
+\Hypertarget{classtesting_1_1Test_a0a89846458f0e8ed1c9457c957e8182a}\label{classtesting_1_1Test_a0a89846458f0e8ed1c9457c957e8182a} 
+static bool {\bfseries Has\+Fatal\+Failure} ()
+\item 
+\Hypertarget{classtesting_1_1Test_a07e896f1b1836f8ac075c26d7b7c9fb8}\label{classtesting_1_1Test_a07e896f1b1836f8ac075c26d7b7c9fb8} 
+static bool {\bfseries Has\+Nonfatal\+Failure} ()
+\item 
+\Hypertarget{classtesting_1_1Test_a7a00be7dd0a6bfdc8d47a1b784623613}\label{classtesting_1_1Test_a7a00be7dd0a6bfdc8d47a1b784623613} 
+static bool {\bfseries Has\+Failure} ()
+\item 
+\Hypertarget{classtesting_1_1Test_ae0448aec9e389fab70f6a75a59ff6aa2}\label{classtesting_1_1Test_ae0448aec9e389fab70f6a75a59ff6aa2} 
+static void {\bfseries Record\+Property} (const std\+::string \&key, const std\+::string \&value)
+\item 
+\Hypertarget{classtesting_1_1Test_af602903efb17730b977304fc56500881}\label{classtesting_1_1Test_af602903efb17730b977304fc56500881} 
+static void {\bfseries Record\+Property} (const std\+::string \&key, int value)
 \item 
 \Hypertarget{classtesting_1_1Test_a5ccbac42fee8c5b00b0bfe89b6c49d79}\label{classtesting_1_1Test_a5ccbac42fee8c5b00b0bfe89b6c49d79} 
 static void {\bfseries Set\+Up\+Test\+Case} ()
@@ -45,11 +72,15 @@ static void {\bfseries Record\+Property} (const std\+::string \&key, int value)
 virtual void \mbox{\hyperlink{classtesting_1_1Test_a8b38992669fb844864807cf32e416853}{Set\+Up}} ()
 \item 
 virtual void \mbox{\hyperlink{classtesting_1_1Test_aab3c02c9f81afe1357adfc45afccd474}{Tear\+Down}} ()
+\item 
+virtual void \mbox{\hyperlink{classtesting_1_1Test_a8b38992669fb844864807cf32e416853}{Set\+Up}} ()
+\item 
+virtual void \mbox{\hyperlink{classtesting_1_1Test_aab3c02c9f81afe1357adfc45afccd474}{Tear\+Down}} ()
 \end{DoxyCompactItemize}
 \doxysubsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classtesting_1_1Test_a4c49c2cdb6c328e6b709b4542f23de3c}\label{classtesting_1_1Test_a4c49c2cdb6c328e6b709b4542f23de3c} 
+\Hypertarget{classtesting_1_1Test_aed3c96e2bd5a46339c1cbe49a4a233ee}\label{classtesting_1_1Test_aed3c96e2bd5a46339c1cbe49a4a233ee} 
 class {\bfseries Test\+Info}
 \end{DoxyCompactItemize}
 
@@ -58,7 +89,17 @@ class {\bfseries Test\+Info}
 \Hypertarget{classtesting_1_1Test_a8b38992669fb844864807cf32e416853}\label{classtesting_1_1Test_a8b38992669fb844864807cf32e416853} 
 \index{testing::Test@{testing::Test}!SetUp@{SetUp}}
 \index{SetUp@{SetUp}!testing::Test@{testing::Test}}
-\doxysubsubsection{\texorpdfstring{SetUp()}{SetUp()}}
+\doxysubsubsection{\texorpdfstring{SetUp()}{SetUp()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void testing\+::\+Test\+::\+Set\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classValidAttributesStation_abbbd5c08274d7f4bd29acdb334e31f61}{Valid\+Attributes\+Station}}, and \mbox{\hyperlink{classValidAttributesTram_a5b4aa9a8ccec679c0bae5460758c7758}{Valid\+Attributes\+Tram}}.
+
+\Hypertarget{classtesting_1_1Test_a8b38992669fb844864807cf32e416853}\label{classtesting_1_1Test_a8b38992669fb844864807cf32e416853} 
+\index{testing::Test@{testing::Test}!SetUp@{SetUp}}
+\index{SetUp@{SetUp}!testing::Test@{testing::Test}}
+\doxysubsubsection{\texorpdfstring{SetUp()}{SetUp()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily virtual void testing\+::\+Test\+::\+Set\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
 
 
@@ -68,7 +109,17 @@ Reimplemented in \mbox{\hyperlink{classValidAttributesStation_abbbd5c08274d7f4bd
 \Hypertarget{classtesting_1_1Test_aab3c02c9f81afe1357adfc45afccd474}\label{classtesting_1_1Test_aab3c02c9f81afe1357adfc45afccd474} 
 \index{testing::Test@{testing::Test}!TearDown@{TearDown}}
 \index{TearDown@{TearDown}!testing::Test@{testing::Test}}
-\doxysubsubsection{\texorpdfstring{TearDown()}{TearDown()}}
+\doxysubsubsection{\texorpdfstring{TearDown()}{TearDown()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void testing\+::\+Test\+::\+Tear\+Down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{classValidAttributesStation_aa5368ca09eba9b9fc54d7fb743ad0156}{Valid\+Attributes\+Station}}, and \mbox{\hyperlink{classValidAttributesTram_a5c3c0b47ce4034fb8ac8b0b139bcbc63}{Valid\+Attributes\+Tram}}.
+
+\Hypertarget{classtesting_1_1Test_aab3c02c9f81afe1357adfc45afccd474}\label{classtesting_1_1Test_aab3c02c9f81afe1357adfc45afccd474} 
+\index{testing::Test@{testing::Test}!TearDown@{TearDown}}
+\index{TearDown@{TearDown}!testing::Test@{testing::Test}}
+\doxysubsubsection{\texorpdfstring{TearDown()}{TearDown()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily virtual void testing\+::\+Test\+::\+Tear\+Down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}, {\ttfamily [virtual]}}
 
 
@@ -77,6 +128,7 @@ Reimplemented in \mbox{\hyperlink{classValidAttributesStation_aa5368ca09eba9b9fc
 
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-gtest.\+h\end{DoxyCompactItemize}
+include/gtest/gtest.\+h\item 
+lib/include/gtest/gtest.\+h\end{DoxyCompactItemize}

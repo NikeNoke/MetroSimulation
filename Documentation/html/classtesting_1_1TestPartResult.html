@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Metro Simulation<span id="projectnumber">&#160;v1.0</span>
+   <div id="projectname">Metro Simulation<span id="projectnumber">&#160;v2.0</span>
    </div>
   </td>
  </tr>
@@ -83,9 +83,26 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
 Public Types</h2></td></tr>
-<tr class="memitem:a65ae656b33fdfdfffaf34858778a52d5"><td class="memItemLeft" align="right" valign="top"><a id="a65ae656b33fdfdfffaf34858778a52d5" name="a65ae656b33fdfdfffaf34858778a52d5"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>Type</b> { <b>kSuccess</b>
+<tr class="memitem:a65ae656b33fdfdfffaf34858778a52d5"><td class="memItemLeft" align="right" valign="top"><a id="a65ae656b33fdfdfffaf34858778a52d5" name="a65ae656b33fdfdfffaf34858778a52d5"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>Type</b> { <br />
+&#160;&#160;<b>kSuccess</b>
 , <b>kNonFatalFailure</b>
 , <b>kFatalFailure</b>
+, <b>kSuccess</b>
+, <br />
+&#160;&#160;<b>kNonFatalFailure</b>
+, <b>kFatalFailure</b>
+<br />
+ }</td></tr>
+<tr class="separator:a65ae656b33fdfdfffaf34858778a52d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65ae656b33fdfdfffaf34858778a52d5"><td class="memItemLeft" align="right" valign="top"><a id="a65ae656b33fdfdfffaf34858778a52d5" name="a65ae656b33fdfdfffaf34858778a52d5"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>Type</b> { <br />
+&#160;&#160;<b>kSuccess</b>
+, <b>kNonFatalFailure</b>
+, <b>kFatalFailure</b>
+, <b>kSuccess</b>
+, <br />
+&#160;&#160;<b>kNonFatalFailure</b>
+, <b>kFatalFailure</b>
+<br />
  }</td></tr>
 <tr class="separator:a65ae656b33fdfdfffaf34858778a52d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -121,9 +138,40 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>nonfatally_failed</b>
 <tr class="memitem:a77db157eff9531c3c00c2420502f9a89"><td class="memItemLeft" align="right" valign="top"><a id="a77db157eff9531c3c00c2420502f9a89" name="a77db157eff9531c3c00c2420502f9a89"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>fatally_failed</b> () const</td></tr>
 <tr class="separator:a77db157eff9531c3c00c2420502f9a89"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6409eb519c1cd514aab2426c8f40737f"><td class="memItemLeft" align="right" valign="top"><a id="a6409eb519c1cd514aab2426c8f40737f" name="a6409eb519c1cd514aab2426c8f40737f"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TestPartResult</b> (Type a_type, const char *a_file_name, int a_line_number, const char *a_message)</td></tr>
+<tr class="separator:a6409eb519c1cd514aab2426c8f40737f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab92b225e8a472e78bd3889ca6df0d2a"><td class="memItemLeft" align="right" valign="top"><a id="aab92b225e8a472e78bd3889ca6df0d2a" name="aab92b225e8a472e78bd3889ca6df0d2a"></a>
+Type&#160;</td><td class="memItemRight" valign="bottom"><b>type</b> () const</td></tr>
+<tr class="separator:aab92b225e8a472e78bd3889ca6df0d2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b44531e6847fa75882c43cf758345ff"><td class="memItemLeft" align="right" valign="top"><a id="a5b44531e6847fa75882c43cf758345ff" name="a5b44531e6847fa75882c43cf758345ff"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>file_name</b> () const</td></tr>
+<tr class="separator:a5b44531e6847fa75882c43cf758345ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4c5da5f13245ac18cf256d0d9f3eda9"><td class="memItemLeft" align="right" valign="top"><a id="ad4c5da5f13245ac18cf256d0d9f3eda9" name="ad4c5da5f13245ac18cf256d0d9f3eda9"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>line_number</b> () const</td></tr>
+<tr class="separator:ad4c5da5f13245ac18cf256d0d9f3eda9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42fa8f2568e3317f146e969298f63158"><td class="memItemLeft" align="right" valign="top"><a id="a42fa8f2568e3317f146e969298f63158" name="a42fa8f2568e3317f146e969298f63158"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>summary</b> () const</td></tr>
+<tr class="separator:a42fa8f2568e3317f146e969298f63158"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c522b89938fd685797adcafa357b771"><td class="memItemLeft" align="right" valign="top"><a id="a1c522b89938fd685797adcafa357b771" name="a1c522b89938fd685797adcafa357b771"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>message</b> () const</td></tr>
+<tr class="separator:a1c522b89938fd685797adcafa357b771"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac90edd5ea9cc4bb986a1eb2b5e1d53de"><td class="memItemLeft" align="right" valign="top"><a id="ac90edd5ea9cc4bb986a1eb2b5e1d53de" name="ac90edd5ea9cc4bb986a1eb2b5e1d53de"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>passed</b> () const</td></tr>
+<tr class="separator:ac90edd5ea9cc4bb986a1eb2b5e1d53de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa04b377c3e7ed57d39e882df5561ac90"><td class="memItemLeft" align="right" valign="top"><a id="aa04b377c3e7ed57d39e882df5561ac90" name="aa04b377c3e7ed57d39e882df5561ac90"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>failed</b> () const</td></tr>
+<tr class="separator:aa04b377c3e7ed57d39e882df5561ac90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6197c7f6672acc1cfdf580eb1f2183ac"><td class="memItemLeft" align="right" valign="top"><a id="a6197c7f6672acc1cfdf580eb1f2183ac" name="a6197c7f6672acc1cfdf580eb1f2183ac"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>nonfatally_failed</b> () const</td></tr>
+<tr class="separator:a6197c7f6672acc1cfdf580eb1f2183ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77db157eff9531c3c00c2420502f9a89"><td class="memItemLeft" align="right" valign="top"><a id="a77db157eff9531c3c00c2420502f9a89" name="a77db157eff9531c3c00c2420502f9a89"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>fatally_failed</b> () const</td></tr>
+<tr class="separator:a77db157eff9531c3c00c2420502f9a89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="gtest-test-part_8h_source.html">gtest-test-part.h</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="include_2gtest_2gtest-test-part_8h_source.html">include/gtest/gtest-test-part.h</a></li>
+<li><a class="el" href="lib_2include_2gtest_2gtest-test-part_8h_source.html">lib/include/gtest/gtest-test-part.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

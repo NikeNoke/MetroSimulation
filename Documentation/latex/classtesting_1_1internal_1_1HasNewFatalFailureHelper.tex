@@ -13,8 +13,16 @@ virtual void \mbox{\hyperlink{classtesting_1_1internal_1_1HasNewFatalFailureHelp
 \item 
 \Hypertarget{classtesting_1_1internal_1_1HasNewFatalFailureHelper_a91b7bac47f09076db4be0304a2110a9e}\label{classtesting_1_1internal_1_1HasNewFatalFailureHelper_a91b7bac47f09076db4be0304a2110a9e} 
 bool {\bfseries has\+\_\+new\+\_\+fatal\+\_\+failure} () const
+\item 
+virtual void \mbox{\hyperlink{classtesting_1_1internal_1_1HasNewFatalFailureHelper_ac7b5e77c9847b2b057cb97193ba82441}{Report\+Test\+Part\+Result}} (const \mbox{\hyperlink{classtesting_1_1TestPartResult}{Test\+Part\+Result}} \&result)
+\item 
+\Hypertarget{classtesting_1_1internal_1_1HasNewFatalFailureHelper_a91b7bac47f09076db4be0304a2110a9e}\label{classtesting_1_1internal_1_1HasNewFatalFailureHelper_a91b7bac47f09076db4be0304a2110a9e} 
+bool {\bfseries has\+\_\+new\+\_\+fatal\+\_\+failure} () const
 \end{DoxyCompactItemize}
 \begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classtesting_1_1TestPartResultReporterInterface_aa2f920e7a5a0a6d0faf19e3727928c22}\label{classtesting_1_1TestPartResultReporterInterface_aa2f920e7a5a0a6d0faf19e3727928c22} 
+virtual void {\bfseries Report\+Test\+Part\+Result} (const \mbox{\hyperlink{classtesting_1_1TestPartResult}{Test\+Part\+Result}} \&result)=0
 \item 
 \Hypertarget{classtesting_1_1TestPartResultReporterInterface_aa2f920e7a5a0a6d0faf19e3727928c22}\label{classtesting_1_1TestPartResultReporterInterface_aa2f920e7a5a0a6d0faf19e3727928c22} 
 virtual void {\bfseries Report\+Test\+Part\+Result} (const \mbox{\hyperlink{classtesting_1_1TestPartResult}{Test\+Part\+Result}} \&result)=0
@@ -25,7 +33,17 @@ virtual void {\bfseries Report\+Test\+Part\+Result} (const \mbox{\hyperlink{clas
 \Hypertarget{classtesting_1_1internal_1_1HasNewFatalFailureHelper_ac7b5e77c9847b2b057cb97193ba82441}\label{classtesting_1_1internal_1_1HasNewFatalFailureHelper_ac7b5e77c9847b2b057cb97193ba82441} 
 \index{testing::internal::HasNewFatalFailureHelper@{testing::internal::HasNewFatalFailureHelper}!ReportTestPartResult@{ReportTestPartResult}}
 \index{ReportTestPartResult@{ReportTestPartResult}!testing::internal::HasNewFatalFailureHelper@{testing::internal::HasNewFatalFailureHelper}}
-\doxysubsubsection{\texorpdfstring{ReportTestPartResult()}{ReportTestPartResult()}}
+\doxysubsubsection{\texorpdfstring{ReportTestPartResult()}{ReportTestPartResult()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void testing\+::internal\+::\+Has\+New\+Fatal\+Failure\+Helper\+::\+Report\+Test\+Part\+Result (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtesting_1_1TestPartResult}{Test\+Part\+Result}} \&}]{result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classtesting_1_1TestPartResultReporterInterface}{testing\+::\+Test\+Part\+Result\+Reporter\+Interface}}.
+
+\Hypertarget{classtesting_1_1internal_1_1HasNewFatalFailureHelper_ac7b5e77c9847b2b057cb97193ba82441}\label{classtesting_1_1internal_1_1HasNewFatalFailureHelper_ac7b5e77c9847b2b057cb97193ba82441} 
+\index{testing::internal::HasNewFatalFailureHelper@{testing::internal::HasNewFatalFailureHelper}!ReportTestPartResult@{ReportTestPartResult}}
+\index{ReportTestPartResult@{ReportTestPartResult}!testing::internal::HasNewFatalFailureHelper@{testing::internal::HasNewFatalFailureHelper}}
+\doxysubsubsection{\texorpdfstring{ReportTestPartResult()}{ReportTestPartResult()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily virtual void testing\+::internal\+::\+Has\+New\+Fatal\+Failure\+Helper\+::\+Report\+Test\+Part\+Result (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtesting_1_1TestPartResult}{Test\+Part\+Result}} \&}]{result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
@@ -34,6 +52,7 @@ Implements \mbox{\hyperlink{classtesting_1_1TestPartResultReporterInterface}{tes
 
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-gtest-\/test-\/part.\+h\end{DoxyCompactItemize}
+include/gtest/gtest-\/test-\/part.\+h\item 
+lib/include/gtest/gtest-\/test-\/part.\+h\end{DoxyCompactItemize}

@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Metro Simulation<span id="projectnumber">&#160;v1.0</span>
+   <div id="projectname">Metro Simulation<span id="projectnumber">&#160;v2.0</span>
    </div>
   </td>
  </tr>
@@ -71,40 +71,99 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classTram-members.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Tram Class Reference</div></div>
+  <div class="headertitle"><div class="title">Tram Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="Tram_8h_source.html">Tram.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for Tram:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classTram.png" usemap="#Tram_map" alt=""/>
+  <map id="Tram_map" name="Tram_map">
+<area href="classAlbatrosTram.html" alt="AlbatrosTram" shape="rect" coords="0,56,99,80"/>
+<area href="classPCCTram.html" alt="PCCTram" shape="rect" coords="109,56,208,80"/>
+<area href="classStadslijnerTram.html" alt="StadslijnerTram" shape="rect" coords="218,56,317,80"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aad83b2e7e79d57528691bf317ab0e1ef"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#aad83b2e7e79d57528691bf317ab0e1ef">Tram</a> ()</td></tr>
 <tr class="separator:aad83b2e7e79d57528691bf317ab0e1ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76a05f638985edefb9d9b885737c02b8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#a76a05f638985edefb9d9b885737c02b8">Tram</a> (const std::string &amp;fBeginStation, int fSnelheid, int fLijnNr)</td></tr>
+<tr class="memitem:a76a05f638985edefb9d9b885737c02b8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#a76a05f638985edefb9d9b885737c02b8">Tram</a> (const std::string &amp;beginStation, int snelheid, int lijnNr)</td></tr>
 <tr class="separator:a76a05f638985edefb9d9b885737c02b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4a7cf6313452140ed54d219d1f6afba"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#ae4a7cf6313452140ed54d219d1f6afba">getBeginStation</a> () const</td></tr>
 <tr class="separator:ae4a7cf6313452140ed54d219d1f6afba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa8bcd980469801cb8524f170006f666c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#aa8bcd980469801cb8524f170006f666c">getSnelheid</a> () const</td></tr>
-<tr class="separator:aa8bcd980469801cb8524f170006f666c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcd79d44b9bc18fb1e7302daa40f56f5"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#afcd79d44b9bc18fb1e7302daa40f56f5">getSnelheid</a> ()</td></tr>
+<tr class="separator:afcd79d44b9bc18fb1e7302daa40f56f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2404fa7837b41287feab05f6a1b52bf"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#ad2404fa7837b41287feab05f6a1b52bf">getLijnNr</a> () const</td></tr>
 <tr class="separator:ad2404fa7837b41287feab05f6a1b52bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1d03c1fb6e0f5f97c57d35fe10fa8dd"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#ae1d03c1fb6e0f5f97c57d35fe10fa8dd">getHuidigStation</a> () const</td></tr>
 <tr class="separator:ae1d03c1fb6e0f5f97c57d35fe10fa8dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a794aa9864d38b82f57726d3e5a0cfe2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#a794aa9864d38b82f57726d3e5a0cfe2d">setBeginStation</a> (std::string bs)</td></tr>
-<tr class="separator:a794aa9864d38b82f57726d3e5a0cfe2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84f6ad02d1160bb6365dde706f50a116"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#a84f6ad02d1160bb6365dde706f50a116">setBeginStation</a> (std::string &amp;bs)</td></tr>
+<tr class="separator:a84f6ad02d1160bb6365dde706f50a116"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2cabc354af57462ae361ead62a20aca6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#a2cabc354af57462ae361ead62a20aca6">setSnelheid</a> (int s)</td></tr>
 <tr class="separator:a2cabc354af57462ae361ead62a20aca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfa9bb360bc614e2b591191f8c525ad8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#acfa9bb360bc614e2b591191f8c525ad8">setLijnNr</a> (int l)</td></tr>
 <tr class="separator:acfa9bb360bc614e2b591191f8c525ad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a808a9cd6ba36bcefb788d059544968c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#a808a9cd6ba36bcefb788d059544968c8">setHuidigStation</a> (std::string h)</td></tr>
-<tr class="separator:a808a9cd6ba36bcefb788d059544968c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46c31a4814722962c688b7eebd1beaf0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#a46c31a4814722962c688b7eebd1beaf0">setHuidigStation</a> (std::string &amp;h)</td></tr>
+<tr class="separator:a46c31a4814722962c688b7eebd1beaf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac69cbbacaed7e1b9e60e608d766d02ee"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#ac69cbbacaed7e1b9e60e608d766d02ee">properlyInitialized</a> ()</td></tr>
 <tr class="separator:ac69cbbacaed7e1b9e60e608d766d02ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1f7d32d9c29b09fb437b86fe3170725"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#ae1f7d32d9c29b09fb437b86fe3170725">move</a> (<a class="el" href="classStation.html">Station</a> *station)</td></tr>
+<tr class="separator:ae1f7d32d9c29b09fb437b86fe3170725"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a790af7fffaea8dd84c3c43fadb02aaaa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#a790af7fffaea8dd84c3c43fadb02aaaa">setType</a> (std::string &amp;type)</td></tr>
+<tr class="separator:a790af7fffaea8dd84c3c43fadb02aaaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e75ee5e2cbc43da2862334e6ff148e1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#a2e75ee5e2cbc43da2862334e6ff148e1">getType</a> () const</td></tr>
+<tr class="separator:a2e75ee5e2cbc43da2862334e6ff148e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0155ac5ceee1462fd2d22e5184aa240"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#ac0155ac5ceee1462fd2d22e5184aa240">setVoertuigNummer</a> (int n)</td></tr>
+<tr class="separator:ac0155ac5ceee1462fd2d22e5184aa240"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e9f78befa2850add25925559ed98bc1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#a6e9f78befa2850add25925559ed98bc1">getVoertuigNummer</a> () const</td></tr>
+<tr class="separator:a6e9f78befa2850add25925559ed98bc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4e2bdac52d769d39fb9157a680729a4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#af4e2bdac52d769d39fb9157a680729a4">calculateSnelheid</a> ()=0</td></tr>
+<tr class="separator:af4e2bdac52d769d39fb9157a680729a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5a174ef5bbef8db21c5446c50c42737"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#ae5a174ef5bbef8db21c5446c50c42737">stationCanBeServiced</a> (<a class="el" href="classStation.html">Station</a> *s)=0</td></tr>
+<tr class="separator:ae5a174ef5bbef8db21c5446c50c42737"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79137376610a01d0d11a302c82e147d8"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#a79137376610a01d0d11a302c82e147d8">~Tram</a> ()</td></tr>
+<tr class="separator:a79137376610a01d0d11a302c82e147d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac54384fcc146ea7a759823e724cc3509"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#ac54384fcc146ea7a759823e724cc3509">getAantalDefecten</a> () const =0</td></tr>
+<tr class="separator:ac54384fcc146ea7a759823e724cc3509"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad073bc58fcac0d974476059d53d5ba67"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#ad073bc58fcac0d974476059d53d5ba67">setAantalDefecten</a> (int aantal)=0</td></tr>
+<tr class="separator:ad073bc58fcac0d974476059d53d5ba67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07acce09d3df5deece3b8758011b0143"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#a07acce09d3df5deece3b8758011b0143">getReparatieTijd</a> () const =0</td></tr>
+<tr class="separator:a07acce09d3df5deece3b8758011b0143"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92437d1d1b39c4ec53d30a9fbdf7ba67"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#a92437d1d1b39c4ec53d30a9fbdf7ba67">setReparatieTijd</a> (int aantal)=0</td></tr>
+<tr class="separator:a92437d1d1b39c4ec53d30a9fbdf7ba67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab205a017f42df554987b89091ab3270c"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#ab205a017f42df554987b89091ab3270c">getReparatieKost</a> () const =0</td></tr>
+<tr class="separator:ab205a017f42df554987b89091ab3270c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6952bd8d9be4b1ab1175c98944600197"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#a6952bd8d9be4b1ab1175c98944600197">setReparatieKost</a> (int aantal)=0</td></tr>
+<tr class="separator:a6952bd8d9be4b1ab1175c98944600197"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68f00d883a6e06ab06a817fef2e58bde"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#a68f00d883a6e06ab06a817fef2e58bde">tramDefect</a> () const</td></tr>
+<tr class="separator:a68f00d883a6e06ab06a817fef2e58bde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeada784548f7e7b7131cd5297ee83c9c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTram.html#aeada784548f7e7b7131cd5297ee83c9c">getTotalReparatieKost</a> () const</td></tr>
+<tr class="separator:aeada784548f7e7b7131cd5297ee83c9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:abcdf7f3ab0e67b537067f06092c5019e"><td class="memItemLeft" align="right" valign="top"><a id="abcdf7f3ab0e67b537067f06092c5019e" name="abcdf7f3ab0e67b537067f06092c5019e"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>snelheid</b></td></tr>
+<tr class="separator:abcdf7f3ab0e67b537067f06092c5019e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada71a19c4db3d611561025db4184b9f4"><td class="memItemLeft" align="right" valign="top"><a id="ada71a19c4db3d611561025db4184b9f4" name="ada71a19c4db3d611561025db4184b9f4"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>aantalDefecten</b></td></tr>
+<tr class="separator:ada71a19c4db3d611561025db4184b9f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4946625100d123ac3118bb913d5143a9"><td class="memItemLeft" align="right" valign="top"><a id="a4946625100d123ac3118bb913d5143a9" name="a4946625100d123ac3118bb913d5143a9"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>reparatieTijd</b></td></tr>
+<tr class="separator:a4946625100d123ac3118bb913d5143a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc9f1e972524ac43a3507bc94612cac7"><td class="memItemLeft" align="right" valign="top"><a id="adc9f1e972524ac43a3507bc94612cac7" name="adc9f1e972524ac43a3507bc94612cac7"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>reparatieKost</b></td></tr>
+<tr class="separator:adc9f1e972524ac43a3507bc94612cac7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Klasse <a class="el" href="classTram.html">Tram</a>. Een tram object is een object dat in een <a class="el" href="classMetroNet.html">MetroNet</a> zal zijn. </p>
+<div class="textblock"><p>Klasse <a class="el" href="classTram.html">Tram</a>. Een basis klasse waarvan meerdere sub-klasses (types van trammen) overerven. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aad83b2e7e79d57528691bf317ab0e1ef" name="aad83b2e7e79d57528691bf317ab0e1ef"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aad83b2e7e79d57528691bf317ab0e1ef">&#9670;&#160;</a></span>Tram() <span class="overload">[1/2]</span></h2>
@@ -120,7 +179,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Default constructor van een tram object. </p><dl class="section return"><dt>Returns</dt><dd>Een tram object zonder attributen. </dd></dl>
+<p>Default constructor van een tram object. </p><dl class="section post"><dt>Postcondition</dt><dd>ENSURE(<a class="el" href="classTram.html#ac69cbbacaed7e1b9e60e608d766d02ee">properlyInitialized()</a>, "Tram has not been properly initialized") </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Een tram object zonder attributen. </dd></dl>
 
 </div>
 </div>
@@ -134,19 +194,19 @@ Public Member Functions</h2></td></tr>
           <td class="memname">Tram::Tram </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>fBeginStation</em>, </td>
+          <td class="paramname"><em>beginStation</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>fSnelheid</em>, </td>
+          <td class="paramname"><em>snelheid</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>fLijnNr</em>&#160;</td>
+          <td class="paramname"><em>lijnNr</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -155,20 +215,104 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Constructor van een tram object. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Constructor van een tram object. </p><dl class="section pre"><dt>Precondition</dt><dd>REQUIRE(!(Utils::is_int(beginStation)), "The parameter beginStation is a number") </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>ENSURE(<a class="el" href="classTram.html#ac69cbbacaed7e1b9e60e608d766d02ee">properlyInitialized()</a>, "Tram has not been properly initialized") </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">fBeginStation</td><td>De beginstation waarin de tram zich bevindt. </td></tr>
-    <tr><td class="paramname">fLijnNr</td><td>Het nummer van de lijn, komt overeen met spoornummer van een station. </td></tr>
-    <tr><td class="paramname">fSnelheid</td><td>De fSnelheid dat deze type tram kan halen. </td></tr>
+    <tr><td class="paramname">beginStation</td><td>De beginstation waarin de tram zich bevindt. </td></tr>
+    <tr><td class="paramname">lijnNr</td><td>Het nummer van de lijn, komt overeen met spoornummer van een station. </td></tr>
+    <tr><td class="paramname">snelheid</td><td>De snelheid dat deze type tram kan halen. </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Een tram object met attributen </dd></dl>
-<dl class="section note"><dt>Note</dt><dd>Type van trammen is nog niet geïmplementeerd. Snelheid is ook nutteloos op dit moment omdat we geen afstand hebben waarover we de fSnelheid kunnen gebruiken. Verdere aanpassingen nodig. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Type van trammen is geïmplementeerd. <a class="el" href="classTram.html">Tram</a> wordt nu een virtual klasse waarvan de types gaan overerven. </dd></dl>
+
+</div>
+</div>
+<a id="a79137376610a01d0d11a302c82e147d8" name="a79137376610a01d0d11a302c82e147d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79137376610a01d0d11a302c82e147d8">&#9670;&#160;</a></span>~Tram()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Tram::~Tram </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Virtual destructor. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="af4e2bdac52d769d39fb9157a680729a4" name="af4e2bdac52d769d39fb9157a680729a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4e2bdac52d769d39fb9157a680729a4">&#9670;&#160;</a></span>calculateSnelheid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Tram::calculateSnelheid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Virtual calculateSnelheid </p>
+
+<p>Implemented in <a class="el" href="classAlbatrosTram.html#a96fa9073dbcc64de268335014494f7b4">AlbatrosTram</a>, <a class="el" href="classPCCTram.html#a1f7971753ce9134323bbd5f12ebe216a">PCCTram</a>, and <a class="el" href="classStadslijnerTram.html#aeeba8f3b21839129a4a8332351699471">StadslijnerTram</a>.</p>
+
+</div>
+</div>
+<a id="ac54384fcc146ea7a759823e724cc3509" name="ac54384fcc146ea7a759823e724cc3509"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac54384fcc146ea7a759823e724cc3509">&#9670;&#160;</a></span>getAantalDefecten()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int Tram::getAantalDefecten </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Virtual getAantalDefecten </p>
+
+<p>Implemented in <a class="el" href="classAlbatrosTram.html#ab845bfbb1b6ac1e86f9cc561e9042d87">AlbatrosTram</a>, <a class="el" href="classPCCTram.html#a43bedfccf44a7f8cbe7ab5c1376588cc">PCCTram</a>, and <a class="el" href="classStadslijnerTram.html#a9e2dbf36c8f958a0dd7a5727af039b75">StadslijnerTram</a>.</p>
+
+</div>
+</div>
 <a id="ae4a7cf6313452140ed54d219d1f6afba" name="ae4a7cf6313452140ed54d219d1f6afba"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae4a7cf6313452140ed54d219d1f6afba">&#9670;&#160;</a></span>getBeginStation()</h2>
 
@@ -223,21 +367,173 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aa8bcd980469801cb8524f170006f666c" name="aa8bcd980469801cb8524f170006f666c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa8bcd980469801cb8524f170006f666c">&#9670;&#160;</a></span>getSnelheid()</h2>
+<a id="ab205a017f42df554987b89091ab3270c" name="ab205a017f42df554987b89091ab3270c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab205a017f42df554987b89091ab3270c">&#9670;&#160;</a></span>getReparatieKost()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int Tram::getReparatieKost </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Virtual getReparatieKost </p>
+
+<p>Implemented in <a class="el" href="classAlbatrosTram.html#ae01000b96b4606738d67342189938adf">AlbatrosTram</a>, <a class="el" href="classPCCTram.html#af38f9584a5a80222cc396c738bbcd1e9">PCCTram</a>, and <a class="el" href="classStadslijnerTram.html#af3d180e2b8b22d5ee247edbbd2e65597">StadslijnerTram</a>.</p>
+
+</div>
+</div>
+<a id="a07acce09d3df5deece3b8758011b0143" name="a07acce09d3df5deece3b8758011b0143"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07acce09d3df5deece3b8758011b0143">&#9670;&#160;</a></span>getReparatieTijd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual int Tram::getReparatieTijd </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Virtual getReparatieTijd </p>
+
+<p>Implemented in <a class="el" href="classAlbatrosTram.html#a643cb9d3d6188f9d996081b081d85b31">AlbatrosTram</a>, <a class="el" href="classPCCTram.html#a67db5d4463f78f05bfa8577be0736b29">PCCTram</a>, and <a class="el" href="classStadslijnerTram.html#a631b7306e673afc8562d7e669b4a7e2f">StadslijnerTram</a>.</p>
+
+</div>
+</div>
+<a id="afcd79d44b9bc18fb1e7302daa40f56f5" name="afcd79d44b9bc18fb1e7302daa40f56f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcd79d44b9bc18fb1e7302daa40f56f5">&#9670;&#160;</a></span>getSnelheid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Tram::getSnelheid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>De snelheid van een tram. </dd></dl>
+
+<p>Reimplemented in <a class="el" href="classAlbatrosTram.html#aa23bbe122b1bb2d397426887e42d78e6">AlbatrosTram</a>, <a class="el" href="classPCCTram.html#a4c74ccbb110b0af7e7ee78ef3ea6a84d">PCCTram</a>, and <a class="el" href="classStadslijnerTram.html#a018a60edcf59bd5367650f64bb3ea4f0">StadslijnerTram</a>.</p>
+
+</div>
+</div>
+<a id="aeada784548f7e7b7131cd5297ee83c9c" name="aeada784548f7e7b7131cd5297ee83c9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeada784548f7e7b7131cd5297ee83c9c">&#9670;&#160;</a></span>getTotalReparatieKost()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int Tram::getSnelheid </td>
+          <td class="memname">int Tram::getTotalReparatieKost </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>De fSnelheid van een tram. </dd></dl>
+<p>Functie controleerd wat de totale reparatiekost is van een <a class="el" href="classTram.html">Tram</a> object. </p><dl class="section return"><dt>Returns</dt><dd>Totale reparatiekost van type int. </dd></dl>
+
+</div>
+</div>
+<a id="a2e75ee5e2cbc43da2862334e6ff148e1" name="a2e75ee5e2cbc43da2862334e6ff148e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e75ee5e2cbc43da2862334e6ff148e1">&#9670;&#160;</a></span>getType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Tram::getType </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Getter functie die het Type van een <a class="el" href="classTram.html">Tram</a> object zal teruggeven. </p><dl class="section return"><dt>Returns</dt><dd>Type van het <a class="el" href="classTram.html">Tram</a> object. </dd></dl>
+
+</div>
+</div>
+<a id="a6e9f78befa2850add25925559ed98bc1" name="a6e9f78befa2850add25925559ed98bc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e9f78befa2850add25925559ed98bc1">&#9670;&#160;</a></span>getVoertuigNummer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Tram::getVoertuigNummer </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Getter functie die het voertuignummer van een <a class="el" href="classTram.html">Tram</a> object zal teruggeven. </p><dl class="section return"><dt>Returns</dt><dd>Voertuignummer van het <a class="el" href="classTram.html">Tram</a> object. </dd></dl>
+
+</div>
+</div>
+<a id="ae1f7d32d9c29b09fb437b86fe3170725" name="ae1f7d32d9c29b09fb437b86fe3170725"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1f7d32d9c29b09fb437b86fe3170725">&#9670;&#160;</a></span>move()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Tram::move </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classStation.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>station</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Functie die een <a class="el" href="classTram.html">Tram</a> object van de ene <a class="el" href="classStation.html">Station</a> object naar de volgende <a class="el" href="classStation.html">Station</a> object verplaatst. </p><dl class="section pre"><dt>Precondition</dt><dd>REQUIRE(targetStation-&gt;aSpoorConnectedToStation(<a class="el" href="classTram.html#ae1d03c1fb6e0f5f97c57d35fe10fa8dd">getHuidigStation()</a>, <a class="el" href="classTram.html#ad2404fa7837b41287feab05f6a1b52bf">getLijnNr()</a>), "Station to move to has no Spoor connected to the current Station of the tram!") </dd>
+<dd>
+REQUIRE(targetStation-&gt;hasSpoor(getLijnNr()), "The target station does not have the same lijnNr as this tram") </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>ENSURE(<a class="el" href="classTram.html#ae1d03c1fb6e0f5f97c57d35fe10fa8dd">getHuidigStation()</a> == temp, "The member huidigStation has changed") </dd>
+<dd>
+ENSURE(<a class="el" href="classTram.html#ae1d03c1fb6e0f5f97c57d35fe10fa8dd">getHuidigStation()</a> == target, "The member huidigStation has not been changed properly") </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">station</td><td>naar waar de <a class="el" href="classTram.html">Tram</a> object verplaatst zal worden. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true or false </dd></dl>
+<dl class="section attention"><dt>Attention</dt><dd>De eerste ENSURE wordt opgeroepen in geval dat een <a class="el" href="classTram.html">Tram</a> object <b>NIET</b> verplaatst kan worden naar een volgende <a class="el" href="classStation.html">Station</a>. De tweede ENSURE wordt opgeroepen in geval dat een <a class="el" href="classTram.html">Tram</a> wel naar een volgende <a class="el" href="classStation.html">Station</a> verplaatst kan worden. In de tweede ENSURE zal die dan ook een ERROR throwen als er tog iets mis gaat. </dd></dl>
 
 </div>
 </div>
@@ -255,12 +551,46 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Controleerd ofdat de tram object correct geïnitialiseerd is. </p><dl class="section return"><dt>Returns</dt><dd>true of false afhankelijk ofdat de tram object correct geïnitialiseerd is of niet. </dd></dl>
+<p>Controleerd ofdat de tram object correct geïnitialiseerd is. </p><dl class="section return"><dt>Returns</dt><dd>true or false </dd></dl>
 
 </div>
 </div>
-<a id="a794aa9864d38b82f57726d3e5a0cfe2d" name="a794aa9864d38b82f57726d3e5a0cfe2d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a794aa9864d38b82f57726d3e5a0cfe2d">&#9670;&#160;</a></span>setBeginStation()</h2>
+<a id="ad073bc58fcac0d974476059d53d5ba67" name="ad073bc58fcac0d974476059d53d5ba67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad073bc58fcac0d974476059d53d5ba67">&#9670;&#160;</a></span>setAantalDefecten()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Tram::setAantalDefecten </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>aantal</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Virtual setAantalDefecten </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aantal</td><td>defecten </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classAlbatrosTram.html#adcae5949cf67a4162f0d7194f7cf9b2b">AlbatrosTram</a>, <a class="el" href="classPCCTram.html#ac0d50651cef95d2efaba5e7fcbc5214b">PCCTram</a>, and <a class="el" href="classStadslijnerTram.html#a1d976c9f21987c12376747ef87c0338c">StadslijnerTram</a>.</p>
+
+</div>
+</div>
+<a id="a84f6ad02d1160bb6365dde706f50a116" name="a84f6ad02d1160bb6365dde706f50a116"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84f6ad02d1160bb6365dde706f50a116">&#9670;&#160;</a></span>setBeginStation()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -268,23 +598,25 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Tram::setBeginStation </td>
           <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
           <td class="paramname"><em>bs</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Zet voor een tram object zijn beginstation. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Setter functie voor een tram object zijn beginstation te zetten. </p><dl class="section pre"><dt>Precondition</dt><dd>REQUIRE(!(Utils::is_int(bs)), "The parameter beginStation is a number") </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>ENSURE(<a class="el" href="classTram.html#ae4a7cf6313452140ed54d219d1f6afba">getBeginStation()</a> == bs, "The member beginStation type has not been set properly") </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bs</td><td>De fNaam van het beginstation van een tram. </td></tr>
+    <tr><td class="paramname">bs</td><td>De naam van het beginstation van een tram. </td></tr>
   </table>
   </dd>
 </dl>
 
 </div>
 </div>
-<a id="a808a9cd6ba36bcefb788d059544968c8" name="a808a9cd6ba36bcefb788d059544968c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a808a9cd6ba36bcefb788d059544968c8">&#9670;&#160;</a></span>setHuidigStation()</h2>
+<a id="a46c31a4814722962c688b7eebd1beaf0" name="a46c31a4814722962c688b7eebd1beaf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46c31a4814722962c688b7eebd1beaf0">&#9670;&#160;</a></span>setHuidigStation()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -292,13 +624,15 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void Tram::setHuidigStation </td>
           <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
           <td class="paramname"><em>h</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Zet voor een tram het huidige station. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Setter functie voor een tram het huidige station te zetten. </p><dl class="section pre"><dt>Precondition</dt><dd>REQUIRE(!(Utils::is_int(h)), "The parameter huidigStation is a number") </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>ENSURE(<a class="el" href="classTram.html#ae1d03c1fb6e0f5f97c57d35fe10fa8dd">getHuidigStation()</a> == h, "The member huidigStation type has not been set properly") </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">h</td><td>Het huidig station van een tram. </td></tr>
   </table>
@@ -322,12 +656,81 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Zet voor een tram object zijn lijnnummer. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Setter functie voor een tram object zijn lijnnummer te zetten. </p><dl class="section post"><dt>Postcondition</dt><dd>ENSURE(<a class="el" href="classTram.html#ad2404fa7837b41287feab05f6a1b52bf">getLijnNr()</a> == l, "The member lijnNr type has not been set properly") </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">l</td><td>Lijnnummer van een tram. </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a6952bd8d9be4b1ab1175c98944600197" name="a6952bd8d9be4b1ab1175c98944600197"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6952bd8d9be4b1ab1175c98944600197">&#9670;&#160;</a></span>setReparatieKost()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Tram::setReparatieKost </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>aantal</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Virtual setReparatieKost </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aantal</td><td>Kost van reparatie. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classAlbatrosTram.html#a355a298267ccf14d650a66c02045856e">AlbatrosTram</a>, <a class="el" href="classPCCTram.html#a25b2ab34cf7ec4051c88a33a6475c62a">PCCTram</a>, and <a class="el" href="classStadslijnerTram.html#a0a883d564403d9a500b2108621f5ac34">StadslijnerTram</a>.</p>
+
+</div>
+</div>
+<a id="a92437d1d1b39c4ec53d30a9fbdf7ba67" name="a92437d1d1b39c4ec53d30a9fbdf7ba67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92437d1d1b39c4ec53d30a9fbdf7ba67">&#9670;&#160;</a></span>setReparatieTijd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Tram::setReparatieTijd </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>aantal</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Virtual setReparatieTijd </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aantal</td><td>Duur van reparatie </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classAlbatrosTram.html#a8bfe0dc78ca7a8f7f87da783529e8e57">AlbatrosTram</a>, <a class="el" href="classPCCTram.html#addebb009a4a7ebc55206a414c67e3779">PCCTram</a>, and <a class="el" href="classStadslijnerTram.html#a0ac9533cd6b80ce83e0f7eca45b3ac1c">StadslijnerTram</a>.</p>
 
 </div>
 </div>
@@ -346,12 +749,115 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Zet voor een tram object zijn fSnelheid </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Setter functie voor een tram object zijn snelheid te zetten. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">s</td><td>Snelheid van een tram. </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a790af7fffaea8dd84c3c43fadb02aaaa" name="a790af7fffaea8dd84c3c43fadb02aaaa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a790af7fffaea8dd84c3c43fadb02aaaa">&#9670;&#160;</a></span>setType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Tram::setType </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>type</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Setter functie die het Type attribuut zet voor een <a class="el" href="classTram.html">Tram</a> object. </p><dl class="section pre"><dt>Precondition</dt><dd>REQUIRE(!(Utils::is_int(t)), "The parameter type is a number") </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>ENSURE(<a class="el" href="classTram.html#a2e75ee5e2cbc43da2862334e6ff148e1">getType()</a> == t, "The member variable type has not been set properly") </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>van het <a class="el" href="classTram.html">Tram</a> object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ac0155ac5ceee1462fd2d22e5184aa240" name="ac0155ac5ceee1462fd2d22e5184aa240"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0155ac5ceee1462fd2d22e5184aa240">&#9670;&#160;</a></span>setVoertuigNummer()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Tram::setVoertuigNummer </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Setter functie die het voertuigNr attribuut zet voor een <a class="el" href="classTram.html">Tram</a> object. </p><dl class="section post"><dt>Postcondition</dt><dd>ENSURE(<a class="el" href="classTram.html#a6e9f78befa2850add25925559ed98bc1">getVoertuigNummer()</a> == n, "The member variable voertuigNummer has not been set properly") </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">n</td><td>voertuignummer van het <a class="el" href="classTram.html">Tram</a> object. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae5a174ef5bbef8db21c5446c50c42737" name="ae5a174ef5bbef8db21c5446c50c42737"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5a174ef5bbef8db21c5446c50c42737">&#9670;&#160;</a></span>stationCanBeServiced()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool Tram::stationCanBeServiced </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classStation.html">Station</a> *&#160;</td>
+          <td class="paramname"><em>s</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Virtual stationCanBeServiced </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td><a class="el" href="classStation.html">Station</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implemented in <a class="el" href="classAlbatrosTram.html#a30661d687090b565f3e5b7fc7a03f5c6">AlbatrosTram</a>, <a class="el" href="classPCCTram.html#a2307d29ccf727dd89442f5092f7b7137">PCCTram</a>, and <a class="el" href="classStadslijnerTram.html#ab77704005414a8b268ec155367333fd2">StadslijnerTram</a>.</p>
+
+</div>
+</div>
+<a id="a68f00d883a6e06ab06a817fef2e58bde" name="a68f00d883a6e06ab06a817fef2e58bde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68f00d883a6e06ab06a817fef2e58bde">&#9670;&#160;</a></span>tramDefect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Tram::tramDefect </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Functie controleerd ofdat een <a class="el" href="classTram.html">Tram</a> object een defect heeft of niet. </p><dl class="section return"><dt>Returns</dt><dd>true or false </dd></dl>
 
 </div>
 </div>

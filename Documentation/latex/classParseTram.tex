@@ -7,45 +7,80 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classParseTram_a369691c92d6f5c427bc680b2159a360f}{Parse\+Tram}} (\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$fElement)
+\mbox{\hyperlink{classParseTram_a369691c92d6f5c427bc680b2159a360f}{Parse\+Tram}} (\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$element)
 \item 
 void \mbox{\hyperlink{classParseTram_ad627e6bc302f9c2f72de19fd18a0a1a4}{set\+Element}} (\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$el)
-\begin{DoxyCompactList}\small\item\em Set Element Zet fElement in \doxylink{classParseTram}{Parse\+Tram}. \end{DoxyCompactList}\item
-bool \mbox{\hyperlink{classParseTram_a38e16b0b30a35bc0c3dbdbe8a339c27b}{parse\+All}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net, \mbox{\hyperlink{classTram}{Tram}} $\ast$tram) const
 \item 
-bool \mbox{\hyperlink{classParseTram_a6ea5d45826cabae994326686cc665876}{parse\+Lijn\+Nr}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net, \mbox{\hyperlink{classTram}{Tram}} $\ast$tram) const
+bool \mbox{\hyperlink{classParseTram_ad468476949c70f2c7dfd3a83dcf6c919}{parse\+All}} ()
 \item 
-bool \mbox{\hyperlink{classParseTram_a241778b9ab6d5a66605c3722f150a6fa}{parse\+Begin\+Station}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net, \mbox{\hyperlink{classTram}{Tram}} $\ast$tram) const
+bool \mbox{\hyperlink{classParseTram_a76433e893fd6a6019cf6fc00f6104a55}{parse\+Lijn\+Nr}} (\mbox{\hyperlink{classTram}{Tram}} $\ast$tram) const
 \item 
-bool \mbox{\hyperlink{classParseTram_a4e9996d405ca51adca6b142779f3de52}{parse\+Snelheid}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net, \mbox{\hyperlink{classTram}{Tram}} $\ast$tram) const
+bool \mbox{\hyperlink{classParseTram_ad949a2ba5dfeac69528209edb24c73b4}{parse\+Begin\+Station}} (\mbox{\hyperlink{classTram}{Tram}} $\ast$tram) const
 \item 
 bool \mbox{\hyperlink{classParseTram_a932254bde53a5dfe5a15f5edf7cad7ca}{check\+Valid\+Tram}} () const
-\begin{DoxyCompactList}\small\item\em Check valid \doxylink{classTram}{Tram}. \end{DoxyCompactList}\item 
+\item 
 bool \mbox{\hyperlink{classParseTram_a4458ed2632bf83c7b9177b9be1c4b73a}{check\+Valid\+Lijn\+Nr}} () const
-\begin{DoxyCompactList}\small\item\em Check valid lij\+Nr. Methode dat gecalled wordt door check\+Valid\+Tram om te controlleren ofdat lij\+Nr correct is. \end{DoxyCompactList}\item 
+\item 
 bool \mbox{\hyperlink{classParseTram_a3dd5416164d409b6501dcbdf8ee3eab5}{check\+Valid\+Begin\+Station}} () const
-\begin{DoxyCompactList}\small\item\em Check valid begin\+Station. Methode dat gecalled wordt door check\+Valid\+Tram om te controlleren ofdat begin\+Station correct is. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classParseTram_a8e9914a8f70387c857e2627af5060cfc}{check\+Valid\+Snelheid}} () const
-\begin{DoxyCompactList}\small\item\em Check valid fSnelheid. Methode dat gecalled wordt door check\+Valid\+Tram om te controlleren ofdat fSnelheid correct is. \end{DoxyCompactList}\item
+\item 
 bool \mbox{\hyperlink{classParseTram_aac483b1bae29133a6b6bf18d2edfb9b9}{check\+Non\+Valid\+Attributes}} () const
+\item 
+bool \mbox{\hyperlink{classParseTram_ae8fa0e86367199ced39eef278b343064}{check\+Valid\+Type\+Tram}} () const
+\item 
+bool \mbox{\hyperlink{classParseTram_a5ca2e4d218404b0ae54d181ffa64814a}{parse\+Type\+Tram}} (\mbox{\hyperlink{classTram}{Tram}} $\ast$tram) const
+\item 
+bool \mbox{\hyperlink{classParseTram_a839e23b6c7cf3d266b39c2bf997d6160}{check\+Valid\+Voertuig\+Nummer}} () const
+\item 
+bool \mbox{\hyperlink{classParseTram_a67970a802fb9dff4e858ca64e60e76f1}{parser\+Voertuig\+Nummer}} (\mbox{\hyperlink{classTram}{Tram}} $\ast$tram) const
+\item 
+\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$ \mbox{\hyperlink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element}} () const
+\item 
+bool \mbox{\hyperlink{classParseTram_aacc71ce274b21a4aa1a7166192d445cc}{parse\+Successful}} ()
+\item 
+void \mbox{\hyperlink{classParseTram_a89321a30ef16d88d7be962cb21df2a59}{set\+Parsed\+Tram}} (\mbox{\hyperlink{classTram}{Tram}} $\ast$t)
+\item 
+\mbox{\hyperlink{classTram}{Tram}} $\ast$ \mbox{\hyperlink{classParseTram_a9b05584dd9de8906d406445245d218fc}{get\+Parsed\+Tram}} () const
+\item 
+Tram\+Type\+::\+Type\+Tram \mbox{\hyperlink{classParseTram_aee7631e99f9074940bedd286510a2047}{get\+Tram\+Type}} () const
+\item 
+bool \mbox{\hyperlink{classParseTram_a4aeca1eb443ea602b4deba3a889fb844}{check\+Valid\+Aantal\+Defecten}} () const
+\item 
+bool \mbox{\hyperlink{classParseTram_a25d41e562acde0af5c11a57e7c4bcdda}{check\+Valid\+Reparatie\+Tijd}} () const
+\item 
+bool \mbox{\hyperlink{classParseTram_a34e93e74daa05c3602233fcb312407f3}{check\+Valid\+Reparatie\+Kosten}} () const
+\item 
+bool \mbox{\hyperlink{classParseTram_a19cbd4b7b85617f8f9bd452dadfb3d0c}{parse\+Aantal\+Defecten}} (\mbox{\hyperlink{classTram}{Tram}} $\ast$tram)
+\item 
+bool \mbox{\hyperlink{classParseTram_a3697a087e2720746c4d031006dcb7a47}{parse\+Reparatie\+Tijd}} (\mbox{\hyperlink{classTram}{Tram}} $\ast$tram)
+\item 
+bool \mbox{\hyperlink{classParseTram_af36890481e5c57cfe4cc66aa8e18c9f4}{parse\+Reparatie\+Kosten}} (\mbox{\hyperlink{classTram}{Tram}} $\ast$tram)
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Klasse om een \doxylink{classTram}{Tram} object te parsen. 
+Klasse om een \doxylink{classTram}{Tram} object met een welbepaalde type te parsen. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
 \Hypertarget{classParseTram_a369691c92d6f5c427bc680b2159a360f}\label{classParseTram_a369691c92d6f5c427bc680b2159a360f} 
 \index{ParseTram@{ParseTram}!ParseTram@{ParseTram}}
 \index{ParseTram@{ParseTram}!ParseTram@{ParseTram}}
 \doxysubsubsection{\texorpdfstring{ParseTram()}{ParseTram()}}
-{\footnotesize\ttfamily Parse\+Tram\+::\+Parse\+Tram (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$}]{fElement }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+{\footnotesize\ttfamily Parse\+Tram\+::\+Parse\+Tram (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$}]{element }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
-Constructor voor \doxylink{classParseTram}{Parse\+Tram}. 
+Explicit constructor voor een \doxylink{classParseTram}{Parse\+Tram} object. \begin{DoxyPrecond}{Precondition}
+REQUIRE(element != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} == element, \char`\"{}\+Tixml\+Element is not the element of the parser\char`\"{}) 
+\end{DoxyPostcond}
+
 \begin{DoxyParams}{Parameters}
-{\em fElement} & Element dat geparsed zal worden. \\
+{\em element} & Element dat geparsed zal worden. \\
 \hline
 \end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Een \doxylink{classParseTram}{Parse\+Tram} object. 
+\end{DoxyReturn}
 
 
 \doxysubsection{Member Function Documentation}
@@ -55,8 +90,29 @@ Constructor voor \doxylink{classParseTram}{Parse\+Tram}.
 \doxysubsubsection{\texorpdfstring{checkNonValidAttributes()}{checkNonValidAttributes()}}
 {\footnotesize\ttfamily bool Parse\+Tram\+::check\+Non\+Valid\+Attributes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Checked ofdat er onverwachte attributen zijn. \begin{DoxyReturn}{Returns}
+Functie controleerd ofdat er geen attributen zijn die niet behoren tot het \doxylink{classTram}{Tram} object. \begin{DoxyPrecond}{Precondition}
+REQUIRE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element has become NULL\char`\"{}) 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
 true of false 
+\end{DoxyReturn}
+\Hypertarget{classParseTram_a4aeca1eb443ea602b4deba3a889fb844}\label{classParseTram_a4aeca1eb443ea602b4deba3a889fb844} 
+\index{ParseTram@{ParseTram}!checkValidAantalDefecten@{checkValidAantalDefecten}}
+\index{checkValidAantalDefecten@{checkValidAantalDefecten}!ParseTram@{ParseTram}}
+\doxysubsubsection{\texorpdfstring{checkValidAantalDefecten()}{checkValidAantalDefecten()}}
+{\footnotesize\ttfamily bool Parse\+Tram\+::check\+Valid\+Aantal\+Defecten (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Functie controleerd ofdat het aantal\+Defecten attribuut valid is. \begin{DoxyPrecond}{Precondition}
+REQUIRE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element has become NULL\char`\"{}) 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+true or false 
 \end{DoxyReturn}
 \Hypertarget{classParseTram_a3dd5416164d409b6501dcbdf8ee3eab5}\label{classParseTram_a3dd5416164d409b6501dcbdf8ee3eab5} 
 \index{ParseTram@{ParseTram}!checkValidBeginStation@{checkValidBeginStation}}
@@ -64,10 +120,12 @@ true of false
 \doxysubsubsection{\texorpdfstring{checkValidBeginStation()}{checkValidBeginStation()}}
 {\footnotesize\ttfamily bool Parse\+Tram\+::check\+Valid\+Begin\+Station (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-
-
-Check valid begin\+Station. Methode dat gecalled wordt door check\+Valid\+Tram om te controlleren ofdat begin\+Station correct is. 
-
+Functie controleerd ofdat de begin\+Station attribuut van het \doxylink{classTram}{Tram} object valid is. \begin{DoxyPrecond}{Precondition}
+REQUIRE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element has become NULL\char`\"{}) 
+\end{DoxyPostcond}
 \begin{DoxyReturn}{Returns}
 true of false 
 \end{DoxyReturn}
@@ -77,25 +135,44 @@ true of false
 \doxysubsubsection{\texorpdfstring{checkValidLijnNr()}{checkValidLijnNr()}}
 {\footnotesize\ttfamily bool Parse\+Tram\+::check\+Valid\+Lijn\+Nr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-
-
-Check valid lij\+Nr. Methode dat gecalled wordt door check\+Valid\+Tram om te controlleren ofdat lij\+Nr correct is. 
-
+Functie controleerd ofdat de lijn\+Nr attribuut van het \doxylink{classTram}{Tram} object valid is. \begin{DoxyPrecond}{Precondition}
+REQUIRE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element has become NULL\char`\"{}) 
+\end{DoxyPostcond}
 \begin{DoxyReturn}{Returns}
 true of false 
 \end{DoxyReturn}
-\Hypertarget{classParseTram_a8e9914a8f70387c857e2627af5060cfc}\label{classParseTram_a8e9914a8f70387c857e2627af5060cfc} 
-\index{ParseTram@{ParseTram}!checkValidSnelheid@{checkValidSnelheid}}
-\index{checkValidSnelheid@{checkValidSnelheid}!ParseTram@{ParseTram}}
-\doxysubsubsection{\texorpdfstring{checkValidSnelheid()}{checkValidSnelheid()}}
-{\footnotesize\ttfamily bool Parse\+Tram\+::check\+Valid\+Snelheid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+\Hypertarget{classParseTram_a34e93e74daa05c3602233fcb312407f3}\label{classParseTram_a34e93e74daa05c3602233fcb312407f3} 
+\index{ParseTram@{ParseTram}!checkValidReparatieKosten@{checkValidReparatieKosten}}
+\index{checkValidReparatieKosten@{checkValidReparatieKosten}!ParseTram@{ParseTram}}
+\doxysubsubsection{\texorpdfstring{checkValidReparatieKosten()}{checkValidReparatieKosten()}}
+{\footnotesize\ttfamily bool Parse\+Tram\+::check\+Valid\+Reparatie\+Kosten (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-
-
-Check valid fSnelheid. Methode dat gecalled wordt door check\+Valid\+Tram om te controlleren ofdat fSnelheid correct is.
-
+Functie controleerd ofdat het reparatie\+Kost attribuut valid is. \begin{DoxyPrecond}{Precondition}
+REQUIRE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element has become NULL\char`\"{}) 
+\end{DoxyPostcond}
 \begin{DoxyReturn}{Returns}
-true of false 
+true or false 
+\end{DoxyReturn}
+\Hypertarget{classParseTram_a25d41e562acde0af5c11a57e7c4bcdda}\label{classParseTram_a25d41e562acde0af5c11a57e7c4bcdda} 
+\index{ParseTram@{ParseTram}!checkValidReparatieTijd@{checkValidReparatieTijd}}
+\index{checkValidReparatieTijd@{checkValidReparatieTijd}!ParseTram@{ParseTram}}
+\doxysubsubsection{\texorpdfstring{checkValidReparatieTijd()}{checkValidReparatieTijd()}}
+{\footnotesize\ttfamily bool Parse\+Tram\+::check\+Valid\+Reparatie\+Tijd (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Functie controleerd ofdat het reparatie\+Tijd attribuut valid is. \begin{DoxyPrecond}{Precondition}
+REQUIRE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element has become NULL\char`\"{}) 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+true or false 
 \end{DoxyReturn}
 \Hypertarget{classParseTram_a932254bde53a5dfe5a15f5edf7cad7ca}\label{classParseTram_a932254bde53a5dfe5a15f5edf7cad7ca} 
 \index{ParseTram@{ParseTram}!checkValidTram@{checkValidTram}}
@@ -103,76 +180,304 @@ true of false
 \doxysubsubsection{\texorpdfstring{checkValidTram()}{checkValidTram()}}
 {\footnotesize\ttfamily bool Parse\+Tram\+::check\+Valid\+Tram (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-
-
-Check valid \doxylink{classTram}{Tram}. 
-
+Functie controleerd ofdat het \doxylink{classTram}{Tram} object valid is. \begin{DoxyPrecond}{Precondition}
+REQUIRE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+\end{DoxyPrecond}
 \begin{DoxyReturn}{Returns}
-true of false 
+true or false 
 \end{DoxyReturn}
-\Hypertarget{classParseTram_a38e16b0b30a35bc0c3dbdbe8a339c27b}\label{classParseTram_a38e16b0b30a35bc0c3dbdbe8a339c27b} 
+\Hypertarget{classParseTram_ae8fa0e86367199ced39eef278b343064}\label{classParseTram_ae8fa0e86367199ced39eef278b343064} 
+\index{ParseTram@{ParseTram}!checkValidTypeTram@{checkValidTypeTram}}
+\index{checkValidTypeTram@{checkValidTypeTram}!ParseTram@{ParseTram}}
+\doxysubsubsection{\texorpdfstring{checkValidTypeTram()}{checkValidTypeTram()}}
+{\footnotesize\ttfamily bool Parse\+Tram\+::check\+Valid\+Type\+Tram (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Functie controleerd ofdat de Type attribuut van het \doxylink{classTram}{Tram} object valid is. \begin{DoxyPrecond}{Precondition}
+REQUIRE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element has become NULL\char`\"{}) 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+\Hypertarget{classParseTram_a839e23b6c7cf3d266b39c2bf997d6160}\label{classParseTram_a839e23b6c7cf3d266b39c2bf997d6160} 
+\index{ParseTram@{ParseTram}!checkValidVoertuigNummer@{checkValidVoertuigNummer}}
+\index{checkValidVoertuigNummer@{checkValidVoertuigNummer}!ParseTram@{ParseTram}}
+\doxysubsubsection{\texorpdfstring{checkValidVoertuigNummer()}{checkValidVoertuigNummer()}}
+{\footnotesize\ttfamily bool Parse\+Tram\+::check\+Valid\+Voertuig\+Nummer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Functie contro ofdat de voertuig\+Nr attribuut valid is. \begin{DoxyPrecond}{Precondition}
+REQUIRE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element has become NULL\char`\"{}) 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+\Hypertarget{classParseTram_a54de9643f039738b2672dd035c320675}\label{classParseTram_a54de9643f039738b2672dd035c320675} 
+\index{ParseTram@{ParseTram}!getElement@{getElement}}
+\index{getElement@{getElement}!ParseTram@{ParseTram}}
+\doxysubsubsection{\texorpdfstring{getElement()}{getElement()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$ Parse\+Tram\+::get\+Element (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter functie die een element teruggeeft van type \doxylink{classTiXmlElement}{Ti\+Xml\+Element}. \begin{DoxyReturn}{Returns}
+f\+Element 
+\end{DoxyReturn}
+\Hypertarget{classParseTram_a9b05584dd9de8906d406445245d218fc}\label{classParseTram_a9b05584dd9de8906d406445245d218fc} 
+\index{ParseTram@{ParseTram}!getParsedTram@{getParsedTram}}
+\index{getParsedTram@{getParsedTram}!ParseTram@{ParseTram}}
+\doxysubsubsection{\texorpdfstring{getParsedTram()}{getParsedTram()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTram}{Tram}} $\ast$ Parse\+Tram\+::get\+Parsed\+Tram (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter functie dat een \doxylink{classTram}{Tram} object teruggeeft dat geparsed werd. \begin{DoxyReturn}{Returns}
+\doxylink{classTram}{Tram} object 
+\end{DoxyReturn}
+\Hypertarget{classParseTram_aee7631e99f9074940bedd286510a2047}\label{classParseTram_aee7631e99f9074940bedd286510a2047} 
+\index{ParseTram@{ParseTram}!getTramType@{getTramType}}
+\index{getTramType@{getTramType}!ParseTram@{ParseTram}}
+\doxysubsubsection{\texorpdfstring{getTramType()}{getTramType()}}
+{\footnotesize\ttfamily Tram\+Type\+::\+Type\+Tram Parse\+Tram\+::get\+Tram\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter functie dat het Type van een \doxylink{classTram}{Tram} object teruggeeft. \begin{DoxyPrecond}{Precondition}
+REQUIRE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+
+REQUIRE(\doxylink{classParseTram_ae8fa0e86367199ced39eef278b343064}{check\+Valid\+Type\+Tram()} == true, \char`\"{}\+The type tag is not correct in this Station tag\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyReturn}{Returns}
+Type van een \doxylink{classTram}{Tram} object. 
+\end{DoxyReturn}
+\Hypertarget{classParseTram_a19cbd4b7b85617f8f9bd452dadfb3d0c}\label{classParseTram_a19cbd4b7b85617f8f9bd452dadfb3d0c} 
+\index{ParseTram@{ParseTram}!parseAantalDefecten@{parseAantalDefecten}}
+\index{parseAantalDefecten@{parseAantalDefecten}!ParseTram@{ParseTram}}
+\doxysubsubsection{\texorpdfstring{parseAantalDefecten()}{parseAantalDefecten()}}
+{\footnotesize\ttfamily bool Parse\+Tram\+::parse\+Aantal\+Defecten (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTram}{Tram}} $\ast$}]{tram }\end{DoxyParamCaption})}
+
+Methode dat gecalled wordt door parse\+All om het aantal\+Defecten attribuut te parsen. \begin{DoxyPrecond}{Precondition}
+REQUIRE(\doxylink{classParseTram_aee7631e99f9074940bedd286510a2047}{get\+Tram\+Type()} == Tram\+Type\+::\+PCC, \char`\"{}\+Will not work on other types\char`\"{}) 
+
+REQUIRE(tram-\/\texorpdfstring{$>$}{>}properly\+Initialized(), \char`\"{}\+Tram is not properly\+Initialized\char`\"{}) 
+
+REQUIRE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+
+REQUIRE(\doxylink{classParseTram_a4aeca1eb443ea602b4deba3a889fb844}{check\+Valid\+Aantal\+Defecten()} == true, \char`\"{}\+The aantal\+Defecten tag is not correct in this Tram tag\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(tram-\/\texorpdfstring{$>$}{>}get\+Aantal\+Defecten() != -\/1, \char`\"{}\+The aantal\+Defecten of tram has not been correctly initialized\char`\"{}) 
+
+ENSURE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em tram} & waarvan men het aantal\+Defecten attribuut gaan parsen. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+\Hypertarget{classParseTram_ad468476949c70f2c7dfd3a83dcf6c919}\label{classParseTram_ad468476949c70f2c7dfd3a83dcf6c919} 
 \index{ParseTram@{ParseTram}!parseAll@{parseAll}}
 \index{parseAll@{parseAll}!ParseTram@{ParseTram}}
 \doxysubsubsection{\texorpdfstring{parseAll()}{parseAll()}}
-{\footnotesize\ttfamily bool Parse\+Tram\+::parse\+All (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net,  }\item[{\mbox{\hyperlink{classTram}{Tram}} $\ast$}]{tram }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily bool Parse\+Tram\+::parse\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Parsed de \doxylink{classTram}{Tram} object van een \doxylink{classMetroNet}{Metro\+Net} object. 
-\begin{DoxyParams}{Parameters}
-{\em metro\+Net} & Naam van het \doxylink{classMetroNet}{Metro\+Net}. \\
-\hline
-{\em tram} & Naam van de \doxylink{classTram}{Tram}. \\
-\hline
-\end{DoxyParams}
+Parsed de \doxylink{classTram}{Tram} object met een specifieke type van een \doxylink{classMetroNet}{Metro\+Net} object. \begin{DoxyPrecond}{Precondition}
+REQUIRE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+
+REQUIRE(\doxylink{classParseTram_a932254bde53a5dfe5a15f5edf7cad7ca}{check\+Valid\+Tram()} == true, \char`\"{}\+The Tram tag is not correct\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(tram-\/\texorpdfstring{$>$}{>}get\+Lijn\+Nr() != -\/1, \char`\"{}\+The lijn\+Nr of tram has not been correctly initialized\char`\"{}) 
+
+ENSURE(!tram-\/\texorpdfstring{$>$}{>}get\+Begin\+Station().empty(), \char`\"{}\+The begin\+Station of Tram has not been correctly initialized\char`\"{}) 
+
+ENSURE(!tram-\/\texorpdfstring{$>$}{>}get\+Huidig\+Station().empty(), \char`\"{}\+The huidig\+Station of Tram has not been correctly initialized\char`\"{}) 
+
+ENSURE(tram-\/\texorpdfstring{$>$}{>}get\+Snelheid() != -\/1, \char`\"{}\+The snelheid of tram has not been correctly initialized\char`\"{}) 
+
+ENSURE(!tram-\/\texorpdfstring{$>$}{>}get\+Type().empty(), \char`\"{}\+The type of Tram has not been correctly initialized\char`\"{}) 
+
+ENSURE(\doxylink{classParseTram_a9b05584dd9de8906d406445245d218fc}{get\+Parsed\+Tram()} == tram, \char`\"{}\+GG\char`\"{}) 
+
+ENSURE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+\end{DoxyPostcond}
 \begin{DoxyReturn}{Returns}
-true of false afhankelijk of het gelukt is of niet. 
+true or false 
 \end{DoxyReturn}
-\Hypertarget{classParseTram_a241778b9ab6d5a66605c3722f150a6fa}\label{classParseTram_a241778b9ab6d5a66605c3722f150a6fa} 
+\Hypertarget{classParseTram_ad949a2ba5dfeac69528209edb24c73b4}\label{classParseTram_ad949a2ba5dfeac69528209edb24c73b4} 
 \index{ParseTram@{ParseTram}!parseBeginStation@{parseBeginStation}}
 \index{parseBeginStation@{parseBeginStation}!ParseTram@{ParseTram}}
 \doxysubsubsection{\texorpdfstring{parseBeginStation()}{parseBeginStation()}}
-{\footnotesize\ttfamily bool Parse\+Tram\+::parse\+Begin\+Station (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net,  }\item[{\mbox{\hyperlink{classTram}{Tram}} $\ast$}]{tram }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily bool Parse\+Tram\+::parse\+Begin\+Station (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTram}{Tram}} $\ast$}]{tram }\end{DoxyParamCaption}) const}
 
-Methode dat gecalled wordt door parse\+All of te checken ofdat begin\+Station geparsed kan worden. 
+Methode dat gecalled wordt door parse\+All of te checken ofdat begin\+Station geparsed kan worden. \begin{DoxyPrecond}{Precondition}
+REQUIRE(tram-\/\texorpdfstring{$>$}{>}properly\+Initialized(), \char`\"{}\+Tram is not properly\+Initialized\char`\"{}) 
+
+REQUIRE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+
+REQUIRE(\doxylink{classParseTram_a3dd5416164d409b6501dcbdf8ee3eab5}{check\+Valid\+Begin\+Station()} == true, \char`\"{}\+The begin\+Station tag is not correct in this Tram tag\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(!tram-\/\texorpdfstring{$>$}{>}get\+Begin\+Station().empty(), \char`\"{}\+The begin\+Station of Tram has not been correctly initialized\char`\"{}) 
+
+ENSURE(!tram-\/\texorpdfstring{$>$}{>}get\+Huidig\+Station().empty(), \char`\"{}\+The huidig\+Station of Tram has not been correctly initialized\char`\"{}) 
+
+ENSURE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+\end{DoxyPostcond}
+
 \begin{DoxyParams}{Parameters}
-{\em metro\+Net} & Naam van het \doxylink{classMetroNet}{Metro\+Net}. \\
-\hline
-{\em tram} & Naam van de \doxylink{classTram}{Tram}. \\
+{\em tram} & waarvan men begin\+Station gaan parsen. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-true of false afhankelijk ofdat het begin\+Station geparsed kon worden. 
+true or false 
 \end{DoxyReturn}
-\Hypertarget{classParseTram_a6ea5d45826cabae994326686cc665876}\label{classParseTram_a6ea5d45826cabae994326686cc665876} 
+\Hypertarget{classParseTram_a76433e893fd6a6019cf6fc00f6104a55}\label{classParseTram_a76433e893fd6a6019cf6fc00f6104a55} 
 \index{ParseTram@{ParseTram}!parseLijnNr@{parseLijnNr}}
 \index{parseLijnNr@{parseLijnNr}!ParseTram@{ParseTram}}
 \doxysubsubsection{\texorpdfstring{parseLijnNr()}{parseLijnNr()}}
-{\footnotesize\ttfamily bool Parse\+Tram\+::parse\+Lijn\+Nr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net,  }\item[{\mbox{\hyperlink{classTram}{Tram}} $\ast$}]{tram }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily bool Parse\+Tram\+::parse\+Lijn\+Nr (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTram}{Tram}} $\ast$}]{tram }\end{DoxyParamCaption}) const}
 
-Methode dat gecalled wordt door parse\+All of te checken ofdat lijn\+Nr geparsed kan worden. 
+Methode dat gecalled wordt door parse\+All of te checken ofdat lijn\+Nr geparsed kan worden. \begin{DoxyPrecond}{Precondition}
+REQUIRE(tram-\/\texorpdfstring{$>$}{>}properly\+Initialized(), \char`\"{}\+Tram is not properly\+Initialized\char`\"{}) 
+
+REQUIRE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+
+REQUIRE(\doxylink{classParseTram_a4458ed2632bf83c7b9177b9be1c4b73a}{check\+Valid\+Lijn\+Nr()} == true, \char`\"{}\+The lijn\+Nr tag is not correct in this Tram tag\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(tram-\/\texorpdfstring{$>$}{>}get\+Lijn\+Nr() != -\/1, \char`\"{}\+The lijn\+Nr of tram has not been correctly initialized\char`\"{}) 
+
+ENSURE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+\end{DoxyPostcond}
+
 \begin{DoxyParams}{Parameters}
-{\em metro\+Net} & Naam van het \doxylink{classMetroNet}{Metro\+Net}. \\
-\hline
-{\em tram} & Naam van de \doxylink{classTram}{Tram}. \\
+{\em tram} & waarvan men de lijn\+Nr gaan parsen. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-true of false afhankelijk ofdat het lij\+Nr geparsed kon worden. 
+true or false 
 \end{DoxyReturn}
-\Hypertarget{classParseTram_a4e9996d405ca51adca6b142779f3de52}\label{classParseTram_a4e9996d405ca51adca6b142779f3de52} 
-\index{ParseTram@{ParseTram}!parseSnelheid@{parseSnelheid}}
-\index{parseSnelheid@{parseSnelheid}!ParseTram@{ParseTram}}
-\doxysubsubsection{\texorpdfstring{parseSnelheid()}{parseSnelheid()}}
-{\footnotesize\ttfamily bool Parse\+Tram\+::parse\+Snelheid (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net,  }\item[{\mbox{\hyperlink{classTram}{Tram}} $\ast$}]{tram }\end{DoxyParamCaption}) const}
+\Hypertarget{classParseTram_af36890481e5c57cfe4cc66aa8e18c9f4}\label{classParseTram_af36890481e5c57cfe4cc66aa8e18c9f4} 
+\index{ParseTram@{ParseTram}!parseReparatieKosten@{parseReparatieKosten}}
+\index{parseReparatieKosten@{parseReparatieKosten}!ParseTram@{ParseTram}}
+\doxysubsubsection{\texorpdfstring{parseReparatieKosten()}{parseReparatieKosten()}}
+{\footnotesize\ttfamily bool Parse\+Tram\+::parse\+Reparatie\+Kosten (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTram}{Tram}} $\ast$}]{tram }\end{DoxyParamCaption})}
 
-Methode dat gecalled wordt door parse\+All of te checken ofdat fSnelheid geparsed kan worden.
+Methode dat gecalled wordt door parse\+All om het reparatie\+Kost attribuut te parsen. \begin{DoxyPrecond}{Precondition}
+REQUIRE(\doxylink{classParseTram_aee7631e99f9074940bedd286510a2047}{get\+Tram\+Type()} == Tram\+Type\+::\+PCC, \char`\"{}\+Will not work on other types\char`\"{}) 
+
+REQUIRE(tram-\/\texorpdfstring{$>$}{>}properly\+Initialized(), \char`\"{}\+Tram is not properly\+Initialized\char`\"{}) 
+
+REQUIRE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+
+REQUIRE(\doxylink{classParseTram_a34e93e74daa05c3602233fcb312407f3}{check\+Valid\+Reparatie\+Kosten()} == true, \char`\"{}\+The reparatie\+Kost tag is not correct in this Tram tag\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(tram-\/\texorpdfstring{$>$}{>}get\+Reparatie\+Tijd() != -\/1, \char`\"{}\+The reparatie\+Kost of tram has not been correctly initialized\char`\"{}) 
+
+ENSURE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+\end{DoxyPostcond}
+
 \begin{DoxyParams}{Parameters}
-{\em metro\+Net} & Naam van het \doxylink{classMetroNet}{Metro\+Net}. \\
-\hline
-{\em tram} & Naam van de \doxylink{classTram}{Tram}. \\
+{\em tram} & waarvan men het reparatie\+Kost attribuut gaan parsen. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-true of false afhankelijk ofdat het fSnelheid geparsed kon worden.
+true or false 
+\end{DoxyReturn}
+\Hypertarget{classParseTram_a3697a087e2720746c4d031006dcb7a47}\label{classParseTram_a3697a087e2720746c4d031006dcb7a47} 
+\index{ParseTram@{ParseTram}!parseReparatieTijd@{parseReparatieTijd}}
+\index{parseReparatieTijd@{parseReparatieTijd}!ParseTram@{ParseTram}}
+\doxysubsubsection{\texorpdfstring{parseReparatieTijd()}{parseReparatieTijd()}}
+{\footnotesize\ttfamily bool Parse\+Tram\+::parse\+Reparatie\+Tijd (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTram}{Tram}} $\ast$}]{tram }\end{DoxyParamCaption})}
+
+Methode dat gecalled wordt door parse\+All om het aantal\+Defecten attribuut te parsen. \begin{DoxyPrecond}{Precondition}
+REQUIRE(\doxylink{classParseTram_aee7631e99f9074940bedd286510a2047}{get\+Tram\+Type()} == Tram\+Type\+::\+PCC, \char`\"{}\+Will not work on other types\char`\"{}) 
+
+REQUIRE(tram-\/\texorpdfstring{$>$}{>}properly\+Initialized(), \char`\"{}\+Tram is not properly\+Initialized\char`\"{}) 
+
+REQUIRE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+
+REQUIRE(\doxylink{classParseTram_a25d41e562acde0af5c11a57e7c4bcdda}{check\+Valid\+Reparatie\+Tijd()} == true, \char`\"{}\+The reparatie\+Tijd tag is not correct in this Tram tag\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(tram-\/\texorpdfstring{$>$}{>}get\+Reparatie\+Tijd() != -\/1, \char`\"{}\+The reparatie\+Tijd of tram has not been correctly initialized\char`\"{}) 
+
+ENSURE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em tram} & waarvan men het reparatie\+Tijd attribuut gaan parsen. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+\Hypertarget{classParseTram_a67970a802fb9dff4e858ca64e60e76f1}\label{classParseTram_a67970a802fb9dff4e858ca64e60e76f1} 
+\index{ParseTram@{ParseTram}!parserVoertuigNummer@{parserVoertuigNummer}}
+\index{parserVoertuigNummer@{parserVoertuigNummer}!ParseTram@{ParseTram}}
+\doxysubsubsection{\texorpdfstring{parserVoertuigNummer()}{parserVoertuigNummer()}}
+{\footnotesize\ttfamily bool Parse\+Tram\+::parser\+Voertuig\+Nummer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTram}{Tram}} $\ast$}]{tram }\end{DoxyParamCaption}) const}
+
+Methode dat gecalled wordt door parse\+All om de voertuig\+Nr te parsen. \begin{DoxyPrecond}{Precondition}
+REQUIRE(tram-\/\texorpdfstring{$>$}{>}properly\+Initialized(), \char`\"{}\+Tram is not properly\+Initialized\char`\"{}) 
+
+REQUIRE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+
+REQUIRE(\doxylink{classParseTram_a839e23b6c7cf3d266b39c2bf997d6160}{check\+Valid\+Voertuig\+Nummer()} == true, \char`\"{}\+The lijn\+Nr tag is not correct in this Tram tag\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(tram-\/\texorpdfstring{$>$}{>}get\+Voertuig\+Nummer() != -\/1, \char`\"{}\+The lijn\+Nr of tram has not been correctly initialized\char`\"{}) 
+
+ENSURE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em tram} & waarvan men het voertuig\+Nr attribuut gaan parsen \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+\Hypertarget{classParseTram_aacc71ce274b21a4aa1a7166192d445cc}\label{classParseTram_aacc71ce274b21a4aa1a7166192d445cc} 
+\index{ParseTram@{ParseTram}!parseSuccessful@{parseSuccessful}}
+\index{parseSuccessful@{parseSuccessful}!ParseTram@{ParseTram}}
+\doxysubsubsection{\texorpdfstring{parseSuccessful()}{parseSuccessful()}}
+{\footnotesize\ttfamily bool Parse\+Tram\+::parse\+Successful (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Functie controleerd ofdat parse\+All succesvol was. \begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classParseTram_ad468476949c70f2c7dfd3a83dcf6c919}{parse\+All} 
+\end{DoxySeeAlso}
+\Hypertarget{classParseTram_a5ca2e4d218404b0ae54d181ffa64814a}\label{classParseTram_a5ca2e4d218404b0ae54d181ffa64814a} 
+\index{ParseTram@{ParseTram}!parseTypeTram@{parseTypeTram}}
+\index{parseTypeTram@{parseTypeTram}!ParseTram@{ParseTram}}
+\doxysubsubsection{\texorpdfstring{parseTypeTram()}{parseTypeTram()}}
+{\footnotesize\ttfamily bool Parse\+Tram\+::parse\+Type\+Tram (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTram}{Tram}} $\ast$}]{tram }\end{DoxyParamCaption}) const}
+
+Methode dat gecalled wordt door parse\+All om de Type attribuut te parsen. \begin{DoxyPrecond}{Precondition}
+REQUIRE(tram-\/\texorpdfstring{$>$}{>}properly\+Initialized(), \char`\"{}\+Tram is not properly\+Initialized\char`\"{}) 
+
+REQUIRE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+
+REQUIRE(\doxylink{classParseTram_ae8fa0e86367199ced39eef278b343064}{check\+Valid\+Type\+Tram()} == true, \char`\"{}\+The type tag is not correct in this Tram tag\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(!tram-\/\texorpdfstring{$>$}{>}get\+Type().empty(), \char`\"{}\+The type of tram has not been correctly initialized\char`\"{}) 
+
+ENSURE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em tram} & waarvan men het Type attribuut gaan parsen. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true or false 
 \end{DoxyReturn}
 \Hypertarget{classParseTram_ad627e6bc302f9c2f72de19fd18a0a1a4}\label{classParseTram_ad627e6bc302f9c2f72de19fd18a0a1a4} 
 \index{ParseTram@{ParseTram}!setElement@{setElement}}
@@ -180,13 +485,26 @@ true of false afhankelijk ofdat het fSnelheid geparsed kon worden.
 \doxysubsubsection{\texorpdfstring{setElement()}{setElement()}}
 {\footnotesize\ttfamily void Parse\+Tram\+::set\+Element (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$}]{el }\end{DoxyParamCaption})}
 
-
-
-Set Element Zet fElement in \doxylink{classParseTram}{Parse\+Tram}.
-
+Setter functie om een element van type \doxylink{classTiXmlElement}{Ti\+Xml\+Element} te zetten. \begin{DoxyPrecond}{Precondition}
+REQUIRE(el != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(\doxylink{classParseTram_a54de9643f039738b2672dd035c320675}{get\+Element()} == f\+Element, \char`\"{}\+Tixml\+Element is not the element of the parser\char`\"{}) 
+\end{DoxyPostcond}
 
 \begin{DoxyParams}{Parameters}
-{\em el} & Element dat gezet zal worden \\
+{\em el} & Element dat gezet gaat worden. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classParseTram_a89321a30ef16d88d7be962cb21df2a59}\label{classParseTram_a89321a30ef16d88d7be962cb21df2a59} 
+\index{ParseTram@{ParseTram}!setParsedTram@{setParsedTram}}
+\index{setParsedTram@{setParsedTram}!ParseTram@{ParseTram}}
+\doxysubsubsection{\texorpdfstring{setParsedTram()}{setParsedTram()}}
+{\footnotesize\ttfamily void Parse\+Tram\+::set\+Parsed\+Tram (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTram}{Tram}} $\ast$}]{t }\end{DoxyParamCaption})}
+
+Setter functie dat een \doxylink{classTram}{Tram} object plaatst in een \doxylink{classMetroNet}{Metro\+Net} object. 
+\begin{DoxyParams}{Parameters}
+{\em t} & \doxylink{classTram}{Tram} dat geset wordt. \\
 \hline
 \end{DoxyParams}
 

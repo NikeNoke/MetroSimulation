@@ -1,0 +1,57 @@
+\hypertarget{MetroNetGenerator_8h_source}{}\doxysection{Metro\+Net\+Generator.\+h}
+\label{MetroNetGenerator_8h_source}\index{MetroNetGenerator.h@{MetroNetGenerator.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ byamba\ on\ 22/03/23.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ METROSIMULATION\_METRONETGENERATOR\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ METROSIMULATION\_METRONETGENERATOR\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}../MetroNet/MetroNet.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}../Stations/Station.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}../ParseXML/ParseMetroNet.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}../ParseXML/ParseTram.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}../ParseXML/ParseStation.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}../Trams/Tram.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}../Utils/utils.h"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}../Exporter/Exporter.h"{}}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classMetroNetGenerator}{MetroNetGenerator}}\ \{}
+\DoxyCodeLine{00023\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classMetroNetGenerator}{MetroNetGenerator}}(std::string\ pathToXml,\ std::string\ pathToWrite,\ std::string\ pathToWrite2);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMetroNetGenerator_a6ee2b08a23d2f39f6b6a0565868712be}{generateMetroNet}}();}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00047\ \ \ \ \ \mbox{\hyperlink{classMetroNet}{MetroNet}}\&\ \mbox{\hyperlink{classMetroNetGenerator_a278e11ef638742a088eedb905088582d}{getMetroNet}}();}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00053\ \ \ \ \ std::string\ \mbox{\hyperlink{classMetroNetGenerator_af01ad74cbb61629fa70ca5eecd81273f}{getPathToOpenXml}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00059\ \ \ \ \ std::string\ \mbox{\hyperlink{classMetroNetGenerator_aa572a38e0857c0f4ea06a05c22f06fba}{getPathToWrite}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMetroNetGenerator_a9f2da1831bd31803f6bf83336a4810ba}{setPathToOpenXml}}(std::string\&\ p);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMetroNetGenerator_a47a95a552fb3322489c58afdbea9d302}{setPathToWrite}}(std::string\&\ p);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMetroNetGenerator_acf096c3286ed4751f78c720ad19d3029}{simulate}}(\textcolor{keywordtype}{int}\ seconds);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00089\ \ \ \ \ \mbox{\hyperlink{classExporter}{Exporter}}\&\ \mbox{\hyperlink{classMetroNetGenerator_ad46353b3c397895dca03ec21f94acd18}{getExporter}}();}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{comment}{//\ \ \ \ std::string\ getPathToLog()\ const;}}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{comment}{//\ \ \ \ void\ setPathToLog(std::string\&\ p);}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00096\ \ \ \ \ std::string\ pathToOpenXml;}
+\DoxyCodeLine{00097\ \ \ \ \ std::string\ pathToWrite;}
+\DoxyCodeLine{00098\ \textcolor{comment}{//\ \ \ \ std::string\ pathToLog;}}
+\DoxyCodeLine{00099\ \ \ \ \ \mbox{\hyperlink{classMetroNet}{MetroNet}}\ metroNet;}
+\DoxyCodeLine{00100\ \ \ \ \ \mbox{\hyperlink{classExporter}{Exporter}}\ exporter;}
+\DoxyCodeLine{00101\ \};}
+\DoxyCodeLine{00102\ }
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//METROSIMULATION\_METRONETGENERATOR\_H}}
+
+\end{DoxyCode}

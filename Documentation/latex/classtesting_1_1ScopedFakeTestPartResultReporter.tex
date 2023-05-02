@@ -12,10 +12,27 @@ Inheritance diagram for testing\+::Scoped\+Fake\+Test\+Part\+Result\+Reporter\+:
 \Hypertarget{classtesting_1_1ScopedFakeTestPartResultReporter_a82f6209b3cf5c4b15ec8bd8041dbc2d5}\label{classtesting_1_1ScopedFakeTestPartResultReporter_a82f6209b3cf5c4b15ec8bd8041dbc2d5} 
 enum {\bfseries Intercept\+Mode} \{ {\bfseries INTERCEPT\+\_\+\+ONLY\+\_\+\+CURRENT\+\_\+\+THREAD}
 , {\bfseries INTERCEPT\+\_\+\+ALL\+\_\+\+THREADS}
+, {\bfseries INTERCEPT\+\_\+\+ONLY\+\_\+\+CURRENT\+\_\+\+THREAD}
+, {\bfseries INTERCEPT\+\_\+\+ALL\+\_\+\+THREADS}
+ \}
+\item 
+\Hypertarget{classtesting_1_1ScopedFakeTestPartResultReporter_a82f6209b3cf5c4b15ec8bd8041dbc2d5}\label{classtesting_1_1ScopedFakeTestPartResultReporter_a82f6209b3cf5c4b15ec8bd8041dbc2d5} 
+enum {\bfseries Intercept\+Mode} \{ {\bfseries INTERCEPT\+\_\+\+ONLY\+\_\+\+CURRENT\+\_\+\+THREAD}
+, {\bfseries INTERCEPT\+\_\+\+ALL\+\_\+\+THREADS}
+, {\bfseries INTERCEPT\+\_\+\+ONLY\+\_\+\+CURRENT\+\_\+\+THREAD}
+, {\bfseries INTERCEPT\+\_\+\+ALL\+\_\+\+THREADS}
  \}
 \end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classtesting_1_1ScopedFakeTestPartResultReporter_aa0100ecf4799fb51d45167be6a5de1d5}\label{classtesting_1_1ScopedFakeTestPartResultReporter_aa0100ecf4799fb51d45167be6a5de1d5} 
+{\bfseries Scoped\+Fake\+Test\+Part\+Result\+Reporter} (\mbox{\hyperlink{classtesting_1_1TestPartResultArray}{Test\+Part\+Result\+Array}} $\ast$result)
+\item 
+\Hypertarget{classtesting_1_1ScopedFakeTestPartResultReporter_a57cbc09ed48627c8a73e622618dc4b4f}\label{classtesting_1_1ScopedFakeTestPartResultReporter_a57cbc09ed48627c8a73e622618dc4b4f} 
+{\bfseries Scoped\+Fake\+Test\+Part\+Result\+Reporter} (Intercept\+Mode intercept\+\_\+mode, \mbox{\hyperlink{classtesting_1_1TestPartResultArray}{Test\+Part\+Result\+Array}} $\ast$result)
+\item 
+virtual void \mbox{\hyperlink{classtesting_1_1ScopedFakeTestPartResultReporter_a3bc6cb939cbc3db71ece8846e6bafe00}{Report\+Test\+Part\+Result}} (const \mbox{\hyperlink{classtesting_1_1TestPartResult}{Test\+Part\+Result}} \&result)
 \item 
 \Hypertarget{classtesting_1_1ScopedFakeTestPartResultReporter_aa0100ecf4799fb51d45167be6a5de1d5}\label{classtesting_1_1ScopedFakeTestPartResultReporter_aa0100ecf4799fb51d45167be6a5de1d5} 
 {\bfseries Scoped\+Fake\+Test\+Part\+Result\+Reporter} (\mbox{\hyperlink{classtesting_1_1TestPartResultArray}{Test\+Part\+Result\+Array}} $\ast$result)
@@ -29,6 +46,9 @@ virtual void \mbox{\hyperlink{classtesting_1_1ScopedFakeTestPartResultReporter_a
 \item 
 \Hypertarget{classtesting_1_1TestPartResultReporterInterface_aa2f920e7a5a0a6d0faf19e3727928c22}\label{classtesting_1_1TestPartResultReporterInterface_aa2f920e7a5a0a6d0faf19e3727928c22} 
 virtual void {\bfseries Report\+Test\+Part\+Result} (const \mbox{\hyperlink{classtesting_1_1TestPartResult}{Test\+Part\+Result}} \&result)=0
+\item 
+\Hypertarget{classtesting_1_1TestPartResultReporterInterface_aa2f920e7a5a0a6d0faf19e3727928c22}\label{classtesting_1_1TestPartResultReporterInterface_aa2f920e7a5a0a6d0faf19e3727928c22} 
+virtual void {\bfseries Report\+Test\+Part\+Result} (const \mbox{\hyperlink{classtesting_1_1TestPartResult}{Test\+Part\+Result}} \&result)=0
 \end{DoxyCompactItemize}
 
 
@@ -36,7 +56,17 @@ virtual void {\bfseries Report\+Test\+Part\+Result} (const \mbox{\hyperlink{clas
 \Hypertarget{classtesting_1_1ScopedFakeTestPartResultReporter_a3bc6cb939cbc3db71ece8846e6bafe00}\label{classtesting_1_1ScopedFakeTestPartResultReporter_a3bc6cb939cbc3db71ece8846e6bafe00} 
 \index{testing::ScopedFakeTestPartResultReporter@{testing::ScopedFakeTestPartResultReporter}!ReportTestPartResult@{ReportTestPartResult}}
 \index{ReportTestPartResult@{ReportTestPartResult}!testing::ScopedFakeTestPartResultReporter@{testing::ScopedFakeTestPartResultReporter}}
-\doxysubsubsection{\texorpdfstring{ReportTestPartResult()}{ReportTestPartResult()}}
+\doxysubsubsection{\texorpdfstring{ReportTestPartResult()}{ReportTestPartResult()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily virtual void testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter\+::\+Report\+Test\+Part\+Result (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtesting_1_1TestPartResult}{Test\+Part\+Result}} \&}]{result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classtesting_1_1TestPartResultReporterInterface}{testing\+::\+Test\+Part\+Result\+Reporter\+Interface}}.
+
+\Hypertarget{classtesting_1_1ScopedFakeTestPartResultReporter_a3bc6cb939cbc3db71ece8846e6bafe00}\label{classtesting_1_1ScopedFakeTestPartResultReporter_a3bc6cb939cbc3db71ece8846e6bafe00} 
+\index{testing::ScopedFakeTestPartResultReporter@{testing::ScopedFakeTestPartResultReporter}!ReportTestPartResult@{ReportTestPartResult}}
+\index{ReportTestPartResult@{ReportTestPartResult}!testing::ScopedFakeTestPartResultReporter@{testing::ScopedFakeTestPartResultReporter}}
+\doxysubsubsection{\texorpdfstring{ReportTestPartResult()}{ReportTestPartResult()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily virtual void testing\+::\+Scoped\+Fake\+Test\+Part\+Result\+Reporter\+::\+Report\+Test\+Part\+Result (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classtesting_1_1TestPartResult}{Test\+Part\+Result}} \&}]{result }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 
@@ -45,6 +75,7 @@ Implements \mbox{\hyperlink{classtesting_1_1TestPartResultReporterInterface}{tes
 
 
 
-The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-gtest-\/spi.\+h\end{DoxyCompactItemize}
+include/gtest/gtest-\/spi.\+h\item 
+lib/include/gtest/gtest-\/spi.\+h\end{DoxyCompactItemize}

@@ -1,93 +1,64 @@
-Stations: 
-	station0:
-		Naam: A
-		Vorige Station: C
-		Volgende Station: B
-	station1:
-		Naam: B
-		Vorige Station: A
-		Volgende Station: C
-	station2:
-		Naam: C
-		Vorige Station: B
-		Volgende Station: A
-	station3:
-		Naam: Turnhoutsebaan
-		Vorige Station: Sterckshof
-		Volgende Station: Atheneum
-	station4:
-		Naam: Sterckshof
-		Vorige Station: Deurne
-		Volgende Station: Turnhoutsebaan
-	station5:
-		Naam: Atheneum
-		Vorige Station: Turnhoutsebaan
-		Volgende Station: JanS
-	station6:
-		Naam: JanS
-		Vorige Station: Atheneum
-		Volgende Station: Lakborslei
-	station7:
-		Naam: Lakborslei
-		Vorige Station: JanS
-		Volgende Station: Deurne
-	station8:
-		Naam: Deurne
-		Vorige Station: Lakborslei
-		Volgende Station: Sterckshof
-	station9:
-		Naam: Wijnegem
-		Vorige Station: Zwanebeek
-		Volgende Station: Shoppingcenter
-	station10:
-		Naam: Zwanebeek
-		Vorige Station: NationaleBank
-		Volgende Station: Wijnegem
-	station11:
-		Naam: Shoppingcenter
-		Vorige Station: Wijnegem
-		Volgende Station: Ruggeveld
-	station12:
-		Naam: Ruggeveld
-		Vorige Station: Shoppingcenter
-		Volgende Station: Schotensesteenweg
-	station13:
-		Naam: Schotensesteenweg
-		Vorige Station: Ruggeveld
-		Volgende Station: Cogelsplein
-	station14:
-		Naam: Cogelsplein
-		Vorige Station: Schotensesteenweg
-		Volgende Station: Astrid
-	station15:
-		Naam: Astrid
-		Vorige Station: Cogelsplein
-		Volgende Station: Opera
-	station16:
-		Naam: Opera
-		Vorige Station: Astrid
-		Volgende Station: Stadspark
-	station17:
-		Naam: Stadspark
-		Vorige Station: Opera
-		Volgende Station: NationaleBank
-	station18:
-		Naam: NationaleBank
-		Vorige Station: Stadspark
-		Volgende Station: Zwanebeek
-Trams: 
-	tram0:
-		LijnNr: 12
-		Snelheid: 60
-		Begin station: A
-		Huidig station: B
-	tram1:
-		LijnNr: 33
-		Snelheid: 90
-		Begin station: Atheneum
-		Huidig station: Sterckshof
-	tram2:
-		LijnNr: 10
-		Snelheid: 50
-		Begin station: Wijnegem
-		Huidig station: Wijnegem
+--== STATIONS ==--
+= Station A =
+* Spoor 12:
+	-> Station B
+	<- Station  C
+
+* Spoor 21:
+	-> Station C
+	<- Station  B
+
+= Station B =
+* Spoor 12:
+	-> Station C
+	<- Station  A
+
+* Spoor 21:
+	-> Station A
+	<- Station  C
+
+= Station C =
+* Spoor 12:
+	-> Station A
+	<- Station  B
+
+* Spoor 21:
+	-> Station B
+	<- Station  A
+
+= Station D =
+* Spoor 17:
+	-> Station E
+	<- Station  F
+
+= Station E =
+* Spoor 17:
+	-> Station F
+	<- Station  D
+
+= Station F =
+* Spoor 17:
+	-> Station D
+	<- Station  E
+
+--== TRAMS ==--
+Tram 12 nr 1
+	type: PCC
+	snelheid: 40
+	huidig station: A
+
+Tram 12 nr 2
+	type: Albatros
+	snelheid: 70
+	huidig station: C
+
+Tram 21 nr 3
+	type: Albatros
+	snelheid: 70
+	huidig station: A
+
+Tram 17 nr 4
+	type: PCC
+	snelheid: 40
+	huidig station: E
+

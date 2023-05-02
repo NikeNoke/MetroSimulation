@@ -5,13 +5,15 @@
 #include "MetroNetGenerator.h"
 #include "../Exporter/Exporter.h"
 
-MetroNetGenerator::MetroNetGenerator(std::string pathToXml, std::string pathToWrit) {
+MetroNetGenerator::MetroNetGenerator(std::string pathToXml,std::string pathToWrite,std::string pathToWrite2) {
     REQUIRE(Utils::fileExists(pathToXml), "Path to xml is wrong or file does not exist");
     setPathToOpenXml(pathToXml);
-    setPathToWrite(pathToWrit);
+    setPathToWrite(pathToWrite);
 //    exporter = Exporter(pathToWrit);
-    exporter.setPathToFile(pathToWrit);
+//    exporter.setPathToFile(pathToWrit);
     //ENSURE NEEDED? --> set op does it already!
+    exporter.setPathToSimple(pathToWrite);
+    exporter.setPathToAdvanced(pathToWrite2);
 }
 
 MetroNet &MetroNetGenerator::getMetroNet() {
@@ -26,14 +28,14 @@ std::string MetroNetGenerator::getPathToWrite() const {
     return pathToWrite;
 }
 
-void MetroNetGenerator::setPathToOpenXml(std::string p) {
+void MetroNetGenerator::setPathToOpenXml(std::string& p) {
     REQUIRE(Utils::fileExists(p), "Path to xml is wrong or file does not exist");
     pathToOpenXml = p;
     ENSURE(getPathToOpenXml() ==  p, "The set was a failure");
 
 }
 
-void MetroNetGenerator::setPathToWrite(std::string p) {
+void MetroNetGenerator::setPathToWrite(std::string& p) {
     pathToWrite = p;
     ENSURE(getPathToWrite() == p, "The setting was failure");
 }
@@ -44,21 +46,24 @@ void MetroNetGenerator::generateMetroNet() {
 
     ParseMetroNet metroNetParser(getPathToOpenXml());
 
-    metroNetParser.parseMetroNet(metroNet);
+    metroNetParser.parseMetroNet(getMetroNet());
 
-    exporter.exportFile(metroNet);
+    getExporter().exportFile(getMetroNet());
 
-    ENSURE(metroNet.isValidMetroNet(), "The metroNet is not valid");
+    getMetroNet().getStatReport();
+
+    ENSURE(getMetroNet().isValidMetroNet(), "The metroNet is not valid");
     ENSURE(Utils::fileExists(getPathToWrite()), "The file was not even created");
 
 }
 
 void MetroNetGenerator::simulate(int seconds) {
     REQUIRE(getMetroNet().isValidMetroNet(), "The metroNet is not Valid");
-    for(int i = 0; i < seconds; i++){
-        getMetroNet().simulateMetroNet();
-        getExporter().exportFile(getMetroNet());
-    }
+
+    getMetroNet().simulateMetroNet(seconds);
+    getExporter().exportFile(getMetroNet());
+    getMetroNet().getStatReport();
+
     ENSURE(getMetroNet().isValidMetroNet(), "The metroNet is not Valid");
 }
 
@@ -66,3 +71,11 @@ Exporter &MetroNetGenerator::getExporter() {
     REQUIRE(exporter.properlyInitialized(), "exporter is not properlyInitialized");
     return exporter;
 }
+
+//std::string MetroNetGenerator::getPathToLog() const {
+//    return pathToLog;
+//}
+//
+//void MetroNetGenerator::setPathToLog(std::string &p) {
+//    pathToLog = p;
+//}

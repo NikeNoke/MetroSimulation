@@ -1,0 +1,49 @@
+\hypertarget{Spoor_8h_source}{}\doxysection{Spoor.\+h}
+\label{Spoor_8h_source}\index{Spoor.h@{Spoor.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Created\ by\ byamba\ on\ 20/04/23.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#ifndef\ METROSIMULATION\_SPOOR\_H}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ METROSIMULATION\_SPOOR\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classSpoor}{Spoor}}\ \{}
+\DoxyCodeLine{00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00021\ \ \ \ \ \mbox{\hyperlink{classSpoor_a64778a4094d2d9cd3a08cbbef5a11787}{Spoor}}();}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classSpoor_a31982084b33e5946f1e15844b084f62f}{properlyInitialized}}();}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSpoor_a476ce74960eafa843c36648f28bbca19}{setVolgende}}(std::string\ v);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSpoor_a0c93bf01e0b5624cb589fedd69f1217d}{setVorige}}(std::string\ v);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSpoor_a64aab85964cb95637425812d32906ee4}{setSpoorNr}}(\textcolor{keywordtype}{int}\ s);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00056\ \ \ \ \ std::string\ \mbox{\hyperlink{classSpoor_a36fd88cce3079d8dac441be67a1bee45}{getVolgende}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00062\ \ \ \ \ std::string\ \mbox{\hyperlink{classSpoor_a8dca8a071a3b5abf60d3f8ce86693a2f}{getVorige}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classSpoor_af9f96177f03686e49ff18bda3758f0b1}{getSpoorNr}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00074\ \ \ \ \ std::string\ \mbox{\hyperlink{classSpoor_a9559bb1ddbf24caed665a49c2ea658c1}{getHuiding}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00080\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSpoor_a7ef9bb19df9b325163e8744983646e8c}{setHuidig}}(\textcolor{keyword}{const}\ std::string\&\ h);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classSpoor_a8f69c594eebdc5104804d4f348ed3943}{connectedToStation}}(\textcolor{keyword}{const}\ std::string\&\ stationName)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00088\ }
+\DoxyCodeLine{00089\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00090\ \ \ \ \ std::string\ volgende;}
+\DoxyCodeLine{00091\ \ \ \ \ std::string\ vorige;}
+\DoxyCodeLine{00092\ \ \ \ \ std::string\ huidig;}
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{int}\ spoorNr;}
+\DoxyCodeLine{00094\ \ \ \ \ \mbox{\hyperlink{classSpoor}{Spoor}}*\ \_fInitCheck;}
+\DoxyCodeLine{00095\ \};}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//METROSIMULATION\_SPOOR\_H}}
+
+\end{DoxyCode}

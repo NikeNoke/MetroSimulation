@@ -4,14 +4,27 @@ Dit project werd gemaakt door groep 13
 
 - Byamba-Ochir Oyungerel en Thomas Olszowka.
 
-### Project versie 1.0
+### Project versie 2.0
 
-In versie 1.0 implementeren we de fVolgende usecases:
+In versie 2.0 implementeren we de volgende usecases:
 
-- Het inlezen van Tram objecten en Station objecten.
-- Een simpele uitvoer, we krijgen een file een we schrijven de correspondeerende
-objecten en hun attributen uit naar een file.
-- Het rijden van Tram(s) over Station(s) in een MetroNet.
+| Use case | Description van usecase                     | status   | promised? |
+|:---------|:--------------------------------------------|:---------|:----------|
+| 1.1      | Trams en stations inlezen                   | complete | &check;   |
+| 1.2      | Trams en stations met type inlezen          | complete | &check;   |
+| 1.3      | Trams met voertuignummers                   | complete | &check;   |
+| 1.4      | Stations met meerdere sporen inlezen        | complete | &cross;   |
+| 2.2      | Simpele uitvoer (herzien)                   | complete | &check;   |
+| 2.3      | Geavanceerde uitvoer                        | complete | &check;   |
+| 3.1      | Rijden van trams                            | complete | &check;   |
+| 3.3      | Automatische simulatie (herzien)            | complete | &check;   |
+| 3.4      | Rijden van trams met type                   | complete | &check;   |
+| 3.5      | Rijden van meerdere trams                   | complete | &check;   |
+| 3.6      | Botspreventie                               | complete | &check;   |
+| 3.7      | Defecten en reparaties                      | complete | &check;   |
+| 3.8      | Reparatiekosten                             | complete | &check;   |
+| 3.9      | Statistische verwerking simulatie           | complete | &cross;   |
+| /        | Doxygen documentation voor heel het project | complete | n.v.t.    | 
 
 ### Gebruikte werktuigen in dit project
 Dit project werd geprogrammeerd in [C++98](https://en.wikipedia.org/wiki/C%2B%2B).
@@ -21,7 +34,7 @@ De main IDE dat ons groep gebruikte is [CLion](https://www.jetbrains.com/clion/)
 We gebruiken [GitHub](https://github.com/) voor code samen te kunnen schrijven en delen.
 Ons project bevindt zich in [deze](https://github.com/NikeNoke/MetroSimulation) directory op GitHub.
 
-We maken in ons project gebruik van fVolgende libraries:
+We maken in ons project gebruik van volgende libraries:
 
 - [gtest](https://github.com/google/googletest) aka Google Test framework om in ons project automatische
 unit-tests te kunnen uitvoeren.

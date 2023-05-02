@@ -1,0 +1,116 @@
+\hypertarget{classParseMetroNet}{}\doxysection{Parse\+Metro\+Net Class Reference}
+\label{classParseMetroNet}\index{ParseMetroNet@{ParseMetroNet}}
+
+
+{\ttfamily \#include $<$Parse\+Metro\+Net.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classParseMetroNet_a17ae84dc632d636d1c53ae00f8d0ce4b}{Parse\+Metro\+Net}} (const std\+::string \&path\+To\+File)
+\item 
+bool \mbox{\hyperlink{classParseMetroNet_a46d362894c0c5a4a3c15b4f14226731e}{parse\+Metro\+Net}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net)
+\item 
+bool \mbox{\hyperlink{classParseMetroNet_a20f11abe28c35ae4a959553c5dd28382}{load\+File}} ()
+\item 
+\mbox{\hyperlink{classTiXmlDocument}{Ti\+Xml\+Document}} \& \mbox{\hyperlink{classParseMetroNet_acc3f9e2b64cc92873c0ed3da4e7cec5c}{get\+Doc}} ()
+\item 
+FILE $\ast$ \mbox{\hyperlink{classParseMetroNet_a4841783303554b9facf7c4892a2afe9f}{get\+Path\+To\+Input}} () const
+\item 
+bool \mbox{\hyperlink{classParseMetroNet_aa7529d5ca13d32ebd7133a1f9d3f8d47}{set\+Path\+To\+Input}} (FILE $\ast$f)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Klasse \doxylink{classParseMetroNet}{Parse\+Metro\+Net} dat een \doxylink{classMetroNet}{Metro\+Net} zal parsen vanuit een XML file en daarvan een \doxylink{classMetroNet}{Metro\+Net} object van maken in de memory om daarmee verder dingen te doen zoals een \doxylink{classMetroNet}{Metro\+Net} simuleren. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classParseMetroNet_a17ae84dc632d636d1c53ae00f8d0ce4b}\label{classParseMetroNet_a17ae84dc632d636d1c53ae00f8d0ce4b} 
+\index{ParseMetroNet@{ParseMetroNet}!ParseMetroNet@{ParseMetroNet}}
+\index{ParseMetroNet@{ParseMetroNet}!ParseMetroNet@{ParseMetroNet}}
+\doxysubsubsection{\texorpdfstring{ParseMetroNet()}{ParseMetroNet()}}
+{\footnotesize\ttfamily Parse\+Metro\+Net\+::\+Parse\+Metro\+Net (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path\+To\+File }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+Explicit \doxylink{classParseMetroNet}{Parse\+Metro\+Net} constructor. \begin{DoxyPrecond}{Precondition}
+REQUIRE(Utils\+::file\+Exists(path\+To\+Input), \char`\"{}\+The file does not exist!\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(\doxylink{classParseMetroNet_a4841783303554b9facf7c4892a2afe9f}{get\+Path\+To\+Input()} != NULL, \char`\"{}path\+To\+File could not be opened\char`\"{}) 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+Een \doxylink{classParseMetroNet}{Parse\+Metro\+Net} object. 
+\end{DoxyReturn}
+\begin{DoxyAttention}{Attention}
+Zal een file openen waarnaar de \doxylink{classMetroNet}{Metro\+Net} weggeschreven zal worden nadat die geparsed werd. 
+\end{DoxyAttention}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classParseMetroNet_acc3f9e2b64cc92873c0ed3da4e7cec5c}\label{classParseMetroNet_acc3f9e2b64cc92873c0ed3da4e7cec5c} 
+\index{ParseMetroNet@{ParseMetroNet}!getDoc@{getDoc}}
+\index{getDoc@{getDoc}!ParseMetroNet@{ParseMetroNet}}
+\doxysubsubsection{\texorpdfstring{getDoc()}{getDoc()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTiXmlDocument}{Ti\+Xml\+Document}} \& Parse\+Metro\+Net\+::get\+Doc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Getter functie die een document returned van type \doxylink{classTiXmlDocument}{Ti\+Xml\+Document}. \begin{DoxyReturn}{Returns}
+doc 
+\end{DoxyReturn}
+\Hypertarget{classParseMetroNet_a4841783303554b9facf7c4892a2afe9f}\label{classParseMetroNet_a4841783303554b9facf7c4892a2afe9f} 
+\index{ParseMetroNet@{ParseMetroNet}!getPathToInput@{getPathToInput}}
+\index{getPathToInput@{getPathToInput}!ParseMetroNet@{ParseMetroNet}}
+\doxysubsubsection{\texorpdfstring{getPathToInput()}{getPathToInput()}}
+{\footnotesize\ttfamily FILE $\ast$ Parse\+Metro\+Net\+::get\+Path\+To\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Getter functie die een path\+To\+Input terug zal geven. \begin{DoxyReturn}{Returns}
+path\+To\+Input 
+\end{DoxyReturn}
+\Hypertarget{classParseMetroNet_a20f11abe28c35ae4a959553c5dd28382}\label{classParseMetroNet_a20f11abe28c35ae4a959553c5dd28382} 
+\index{ParseMetroNet@{ParseMetroNet}!loadFile@{loadFile}}
+\index{loadFile@{loadFile}!ParseMetroNet@{ParseMetroNet}}
+\doxysubsubsection{\texorpdfstring{loadFile()}{loadFile()}}
+{\footnotesize\ttfamily bool Parse\+Metro\+Net\+::load\+File (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Functie die controleert ofdat de file waarnaar we weg willen schrijven ingelezen kan worden. \begin{DoxyPrecond}{Precondition}
+REQUIRE(\doxylink{classParseMetroNet_a4841783303554b9facf7c4892a2afe9f}{get\+Path\+To\+Input()} != NULL, \char`\"{}path\+To\+File is NULL\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(success, \char`\"{}\+File could not be loaded\char`\"{}) 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+success of true als de file ingelezen kon worden. 
+\end{DoxyReturn}
+\Hypertarget{classParseMetroNet_a46d362894c0c5a4a3c15b4f14226731e}\label{classParseMetroNet_a46d362894c0c5a4a3c15b4f14226731e} 
+\index{ParseMetroNet@{ParseMetroNet}!parseMetroNet@{parseMetroNet}}
+\index{parseMetroNet@{parseMetroNet}!ParseMetroNet@{ParseMetroNet}}
+\doxysubsubsection{\texorpdfstring{parseMetroNet()}{parseMetroNet()}}
+{\footnotesize\ttfamily bool Parse\+Metro\+Net\+::parse\+Metro\+Net (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net }\end{DoxyParamCaption})}
+
+Functie die effectief de \doxylink{classMetroNet}{Metro\+Net} zal parsen. \begin{DoxyPrecond}{Precondition}
+REQUIRE(\doxylink{classParseMetroNet_a20f11abe28c35ae4a959553c5dd28382}{load\+File()}, \char`\"{}\+The file could not be loaded\char`\"{}) 
+\end{DoxyPrecond}
+
+\begin{DoxyParams}{Parameters}
+{\em metro\+Net} & die geparsed wordt. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classParseMetroNet_aa7529d5ca13d32ebd7133a1f9d3f8d47}\label{classParseMetroNet_aa7529d5ca13d32ebd7133a1f9d3f8d47} 
+\index{ParseMetroNet@{ParseMetroNet}!setPathToInput@{setPathToInput}}
+\index{setPathToInput@{setPathToInput}!ParseMetroNet@{ParseMetroNet}}
+\doxysubsubsection{\texorpdfstring{setPathToInput()}{setPathToInput()}}
+{\footnotesize\ttfamily bool Parse\+Metro\+Net\+::set\+Path\+To\+Input (\begin{DoxyParamCaption}\item[{FILE $\ast$}]{f }\end{DoxyParamCaption})}
+
+Setter functie die de path van de file zal zetten. \begin{DoxyPrecond}{Precondition}
+REQUIRE(f != NULL, \char`\"{}\+The File prt is NULL\char`\"{}) 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+ENSURE(\doxylink{classParseMetroNet_a4841783303554b9facf7c4892a2afe9f}{get\+Path\+To\+Input()} == f, \char`\"{}setting was not successful\char`\"{}) 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Parse\+Metro\+Net.\+h\item 
+Parse\+Metro\+Net.\+cpp\end{DoxyCompactItemize}

@@ -2,16 +2,21 @@
 #include "MetroNetGenerator//MetroNetGenerator.h"
 
 int main() {
+    //also clears its content, perfect
+    freopen("OperationLog.txt", "w", stdout);
+    freopen("ErrorLog.txt", "w", stderr);
+
+    //TODO test bots preventie!
     //TODO MAKE it a while loop
     try{
-        MetroNetGenerator generator("TestInputXML/ValidMetroNet/metroNet2.xml", "metroNetSpecs.txt");
+        MetroNetGenerator generator("metronet.xml", "metroNetSpecs.txt", "metroNetSpecs2.txt");
 
         generator.generateMetroNet();
 
-        generator.simulate(10);
+        generator.simulate(1);
 
     }catch(...) {
-        std::cerr << "Error!!\n";
+        std::cerr << "Error from main!\n";
     }
 
 }

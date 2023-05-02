@@ -5,8 +5,8 @@
 #include <string>
 #include "../TinyXML/tinyxml.h"
 #include "../MetroNet/MetroNet.h"
-#include "../Station/Station.h"
-#include "../Tram/Tram.h"
+#include "../Stations/Station.h"
+#include "../Trams/Tram.h"
 #include <fstream>
 #include <vector>
 

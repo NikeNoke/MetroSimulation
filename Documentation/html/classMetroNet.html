@@ -21,7 +21,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Metro Simulation<span id="projectnumber">&#160;v1.0</span>
+   <div id="projectname">Metro Simulation<span id="projectnumber">&#160;v2.0</span>
    </div>
   </td>
  </tr>
@@ -98,10 +98,31 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a46edb061e63b058c22593a1b9353a47d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6da862e9539dc2ce0232aa4a52e592e0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classTram.html">Tram</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMetroNet.html#a6da862e9539dc2ce0232aa4a52e592e0">getTrams</a> ()</td></tr>
 <tr class="separator:a6da862e9539dc2ce0232aa4a52e592e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d881a522eb52ccfffa6e8cd5ff27415"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMetroNet.html#a8d881a522eb52ccfffa6e8cd5ff27415">moveTram</a> (<a class="el" href="classTram.html">Tram</a> *const tram, const std::string &amp;nameStation)</td></tr>
-<tr class="separator:a8d881a522eb52ccfffa6e8cd5ff27415"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeec3db5980e6074796f6a7bf6cc9ce21"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMetroNet.html#aeec3db5980e6074796f6a7bf6cc9ce21">properlyInitialized</a> ()</td></tr>
-<tr class="separator:aeec3db5980e6074796f6a7bf6cc9ce21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7b306379f1788b660df08b9c6a0882f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMetroNet.html#ad7b306379f1788b660df08b9c6a0882f">properlyInitialized</a> () const</td></tr>
+<tr class="separator:ad7b306379f1788b660df08b9c6a0882f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30184ddce5ce01a1c365a54c9475d272"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMetroNet.html#a30184ddce5ce01a1c365a54c9475d272">isValidMetroNet</a> ()</td></tr>
+<tr class="separator:a30184ddce5ce01a1c365a54c9475d272"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a600f56c0ff2fa0b756be686b09aff189"><td class="memItemLeft" align="right" valign="top"><a id="a600f56c0ff2fa0b756be686b09aff189" name="a600f56c0ff2fa0b756be686b09aff189"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isValidMetroNetSilent</b> ()</td></tr>
+<tr class="separator:a600f56c0ff2fa0b756be686b09aff189"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a671d06118b65d02e829d0748acbe184e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMetroNet.html#a671d06118b65d02e829d0748acbe184e">simulateMetroNet</a> (int seconds)</td></tr>
+<tr class="separator:a671d06118b65d02e829d0748acbe184e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05099a1d547e56022aec6334411154ba"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMetroNet.html#a05099a1d547e56022aec6334411154ba">aTramAtStation</a> (const std::string &amp;stationName)</td></tr>
+<tr class="separator:a05099a1d547e56022aec6334411154ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfea3e712371ae78953afebffd426e70"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMetroNet.html#acfea3e712371ae78953afebffd426e70">aTramAtStationSpoor</a> (const std::string &amp;stationName, int lijnNr)</td></tr>
+<tr class="separator:acfea3e712371ae78953afebffd426e70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7de603d7605925e78d33bc17811c637c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMetroNet.html#a7de603d7605925e78d33bc17811c637c">moveTram</a> (<a class="el" href="classTram.html">Tram</a> *t, std::string &amp;TargetStationName)</td></tr>
+<tr class="separator:a7de603d7605925e78d33bc17811c637c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27b4fb44cdc49a61cbfa4c9090ad7fee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMetroNet.html#a27b4fb44cdc49a61cbfa4c9090ad7fee">moveAllTramsOnce</a> ()</td></tr>
+<tr class="separator:a27b4fb44cdc49a61cbfa4c9090ad7fee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72cadd71b4830c9e4e8d416cc46c7799"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classTram.html">Tram</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMetroNet.html#a72cadd71b4830c9e4e8d416cc46c7799">getTramAtStationSpoor</a> (const std::string &amp;stationName, int lijnNr)</td></tr>
+<tr class="separator:a72cadd71b4830c9e4e8d416cc46c7799"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a217b086b8ca4ec61baef33ce52e1e3ba"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMetroNet.html#a217b086b8ca4ec61baef33ce52e1e3ba">getTotaalMetroNetReparatieKost</a> ()</td></tr>
+<tr class="separator:a217b086b8ca4ec61baef33ce52e1e3ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa188abfa6ab307b29d4346007c39bc3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMetroNet.html#aa188abfa6ab307b29d4346007c39bc3f">initializeStat</a> ()</td></tr>
+<tr class="separator:aa188abfa6ab307b29d4346007c39bc3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa2765dbc70c7ffb6e0385063721c7bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMetroNet.html#afa2765dbc70c7ffb6e0385063721c7bc">getStatReport</a> ()</td></tr>
+<tr class="separator:afa2765dbc70c7ffb6e0385063721c7bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Klasse <a class="el" href="classMetroNet.html">MetroNet</a>, een <a class="el" href="classMetroNet.html">MetroNet</a> object waarin alle <a class="el" href="classTram.html">Tram</a> en <a class="el" href="classStation.html">Station</a> objecten zouden geplaatst worden en waarover gesimuleert zal worden. </p>
@@ -158,7 +179,11 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Voegt station toe bij <a class="el" href="classMetroNet.html">MetroNet</a>. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Voegt station toe bij <a class="el" href="classMetroNet.html">MetroNet</a>. </p><dl class="section pre"><dt>Precondition</dt><dd>REQUIRE(station-&gt;<a class="el" href="classMetroNet.html#ad7b306379f1788b660df08b9c6a0882f">properlyInitialized()</a>, "The parameter station is not properly initialized") </dd>
+<dd>
+REQUIRE(!stationRegistered(station-&gt;getName()), "The station is already in the metroNet") </dd></dl>
+<dl class="section post"><dt>Postcondition</dt><dd>ENSURE(stationRegistered(station-&gt;getName()), "The station was not successfully added") </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">station</td><td>station dat toegevoegd wordt. </td></tr>
   </table>
@@ -182,12 +207,77 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Voegt tram toe bij <a class="el" href="classMetroNet.html">MetroNet</a>. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Voegt tram toe bij <a class="el" href="classMetroNet.html">MetroNet</a>. </p><dl class="section pre"><dt>Precondition</dt><dd>REQUIRE(tram-&gt;<a class="el" href="classMetroNet.html#ad7b306379f1788b660df08b9c6a0882f">properlyInitialized()</a>, "The parameter tram is not properly initialized") </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">tram</td><td>tram dat toegevoegd wordt. </td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a05099a1d547e56022aec6334411154ba" name="a05099a1d547e56022aec6334411154ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05099a1d547e56022aec6334411154ba">&#9670;&#160;</a></span>aTramAtStation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MetroNet::aTramAtStation </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>stationName</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Functie dat kijkt in ofdat er op een gegeven station er een tram zich bevindt. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stationName</td><td>naam van het station dat we gaan controleren. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true or false. </dd></dl>
+
+</div>
+</div>
+<a id="acfea3e712371ae78953afebffd426e70" name="acfea3e712371ae78953afebffd426e70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfea3e712371ae78953afebffd426e70">&#9670;&#160;</a></span>aTramAtStationSpoor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MetroNet::aTramAtStationSpoor </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>stationName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lijnNr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Functie dat kijkt ofdar er op een gegeven station er een tram zich bevindt (advanced). </p><dl class="section pre"><dt>Precondition</dt><dd>REQUIRE(stationRegistered(stationName), "stationName must be valid") </dd>
+<dd>
+REQUIRE(getStation(stationName)-&gt;hasSpoor(lijnNr), "Station must have lijnNr") </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stationName</td><td>naam van het station dat we gaan controleren. </td></tr>
+    <tr><td class="paramname">lijnNr</td><td>lijnNr dat we gaan controleren ofdat die overeenkomt met die van een tram. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true or false </dd></dl>
 
 </div>
 </div>
@@ -206,13 +296,16 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Getter dat het station returned met parameter name. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Getter dat het station returned met parameter name. </p><dl class="section pre"><dt>Precondition</dt><dd>REQUIRE(!(Utils::is_int(name)), "The parameter name is a number") </dd>
+<dd>
+REQUIRE(stationRegistered(name), "The station is not Registered!") </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">name</td><td>Naam van het station dat gezocht wordt. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Geeft station terug dat als fNaam "name" heeft of als die niet bestaat geeft het NULL terug. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Geeft station terug dat als naam "name" heeft of als die niet bestaat geeft het NULL terug. </dd></dl>
 
 </div>
 </div>
@@ -230,7 +323,43 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>een vector met daarin alle fStations. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>een vector met daarin alle stations. </dd></dl>
+
+</div>
+</div>
+<a id="afa2765dbc70c7ffb6e0385063721c7bc" name="afa2765dbc70c7ffb6e0385063721c7bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa2765dbc70c7ffb6e0385063721c7bc">&#9670;&#160;</a></span>getStatReport()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MetroNet::getStatReport </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Geeft een status report van een gesimuleerde <a class="el" href="classMetroNet.html">MetroNet</a>. Wordt gebruikt om in een file belangrijke informatie weg te schrijven zoals: totale reparatiekosten, welke station door welke tram bezocht werd etc. </p>
+
+</div>
+</div>
+<a id="a217b086b8ca4ec61baef33ce52e1e3ba" name="a217b086b8ca4ec61baef33ce52e1e3ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a217b086b8ca4ec61baef33ce52e1e3ba">&#9670;&#160;</a></span>getTotaalMetroNetReparatieKost()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MetroNet::getTotaalMetroNetReparatieKost </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Getter functie dat de totale reparatie kost zal teruggeven. </p><dl class="section return"><dt>Returns</dt><dd>Totale reparatie kost. </dd></dl>
 
 </div>
 </div>
@@ -255,8 +384,44 @@ Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Geeft tram terug dat als fNaam "name" heeft of als die niet bestaat geeft het NULL terug. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Geeft tram terug dat als naam "name" heeft of als die niet bestaat geeft het NULL terug. </dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Functie is nog niet geïmplementeerd. </dd></dl>
+
+</div>
+</div>
+<a id="a72cadd71b4830c9e4e8d416cc46c7799" name="a72cadd71b4830c9e4e8d416cc46c7799"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a72cadd71b4830c9e4e8d416cc46c7799">&#9670;&#160;</a></span>getTramAtStationSpoor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classTram.html">Tram</a> * MetroNet::getTramAtStationSpoor </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>stationName</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>lijnNr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Getter functie dat de <a class="el" href="classTram.html">Tram</a> zal teruggeven dat op zich bevindt op de gegeven station. </p><dl class="section pre"><dt>Precondition</dt><dd>REQUIRE(aTramAtStationSpoor(stationName, lijnNr), "There must be a tram at station SpoorNr") </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stationName</td><td>naam van het station dat we gaan controleren. </td></tr>
+    <tr><td class="paramname">lijnNr</td><td>lijnNr dat we gaan controleren ofdat die overeenkomt met die van een tram. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -278,8 +443,64 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a8d881a522eb52ccfffa6e8cd5ff27415" name="a8d881a522eb52ccfffa6e8cd5ff27415"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d881a522eb52ccfffa6e8cd5ff27415">&#9670;&#160;</a></span>moveTram()</h2>
+<a id="aa188abfa6ab307b29d4346007c39bc3f" name="aa188abfa6ab307b29d4346007c39bc3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa188abfa6ab307b29d4346007c39bc3f">&#9670;&#160;</a></span>initializeStat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MetroNet::initializeStat </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Functie wordt gebruikt om te checken hoeveel keer een bepaald station bezoekt werd door trammen. </p><dl class="section pre"><dt>Precondition</dt><dd>REQUIRE(<a class="el" href="classMetroNet.html#a30184ddce5ce01a1c365a54c9475d272">isValidMetroNet()</a>, "The metronet must be valid") </dd></dl>
+
+</div>
+</div>
+<a id="a30184ddce5ce01a1c365a54c9475d272" name="a30184ddce5ce01a1c365a54c9475d272"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30184ddce5ce01a1c365a54c9475d272">&#9670;&#160;</a></span>isValidMetroNet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool MetroNet::isValidMetroNet </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Functie dat test ofdat de <a class="el" href="classMetroNet.html">MetroNet</a> dat we maken wel degelijk een valid <a class="el" href="classMetroNet.html">MetroNet</a> is. </p><dl class="section return"><dt>Returns</dt><dd>true of false </dd></dl>
+
+</div>
+</div>
+<a id="a27b4fb44cdc49a61cbfa4c9090ad7fee" name="a27b4fb44cdc49a61cbfa4c9090ad7fee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27b4fb44cdc49a61cbfa4c9090ad7fee">&#9670;&#160;</a></span>moveAllTramsOnce()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MetroNet::moveAllTramsOnce </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Functie dat alle trammen zal verplaatsen naar hun volgende station als dat mogelijk is. </p><dl class="section pre"><dt>Precondition</dt><dd>REQUIRE(<a class="el" href="classMetroNet.html#a30184ddce5ce01a1c365a54c9475d272">isValidMetroNet()</a>, "Cannot move trams in a invalid metronet") </dd>
+<dd>
+REQUIRE(!targetStationName.empty(), "TargetStationName cannot be empty to move Tram") </dd></dl>
+
+</div>
+</div>
+<a id="a7de603d7605925e78d33bc17811c637c" name="a7de603d7605925e78d33bc17811c637c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7de603d7605925e78d33bc17811c637c">&#9670;&#160;</a></span>moveTram()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -287,14 +508,14 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">bool MetroNet::moveTram </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classTram.html">Tram</a> *const&#160;</td>
-          <td class="paramname"><em>tram</em>, </td>
+          <td class="paramtype"><a class="el" href="classTram.html">Tram</a> *&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>nameStation</em>&#160;</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>TargetStationName</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -303,19 +524,20 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Functie dat een tram verplaatst naar een station. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Functie dat een tram van zijn huidige station gaat moven naar zijn volgende station. </p><dl class="section pre"><dt>Precondition</dt><dd>REQUIRE(!aTramAtStationSpoor(targetStationName, tram-&gt;getLijnNr()),"There cannot be a tram at targetStation SpoorNr to move Tram!") </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">tram</td><td>De tram die verplaatst zou worden. </td></tr>
-    <tr><td class="paramname">nameStation</td><td>De string die overeenkomt met de fNaam van een station en waarnaar de tram zal verplaatst worden. </td></tr>
+    <tr><td class="paramname">t</td><td><a class="el" href="classTram.html">Tram</a> dat we gaan moven </td></tr>
+    <tr><td class="paramname">TargetStationName</td><td><a class="el" href="classStation.html">Station</a> waar we de tram naar willen verplaatsen. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true of false afhankelijk ofdat de move gaat of niet gaat. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true or false </dd></dl>
 
 </div>
 </div>
-<a id="aeec3db5980e6074796f6a7bf6cc9ce21" name="aeec3db5980e6074796f6a7bf6cc9ce21"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeec3db5980e6074796f6a7bf6cc9ce21">&#9670;&#160;</a></span>properlyInitialized()</h2>
+<a id="ad7b306379f1788b660df08b9c6a0882f" name="ad7b306379f1788b660df08b9c6a0882f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7b306379f1788b660df08b9c6a0882f">&#9670;&#160;</a></span>properlyInitialized()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -324,11 +546,36 @@ Public Member Functions</h2></td></tr>
           <td class="memname">bool MetroNet::properlyInitialized </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>Functie dat test ofdat <a class="el" href="classMetroNet.html">MetroNet</a> correct geïnitialiseerd is. </p><dl class="section return"><dt>Returns</dt><dd>true of false als het correct geïnitialiseerd is of als het niet correct geïnitialiseerd is. </dd></dl>
+
+</div>
+</div>
+<a id="a671d06118b65d02e829d0748acbe184e" name="a671d06118b65d02e829d0748acbe184e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a671d06118b65d02e829d0748acbe184e">&#9670;&#160;</a></span>simulateMetroNet()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MetroNet::simulateMetroNet </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>seconds</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Functie dat een <a class="el" href="classMetroNet.html">MetroNet</a> zal simuleren. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">seconds</td><td>Hoe lang de simulatie zal runnen. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section attention"><dt>Attention</dt><dd>De simulatie maakt gebruik van ctime.h en diens ingebouwde functies om het verloop van een simulatie in computer tijd te kunnen runnen ipv in real time de simulatie te runnen. Deze functie roept de moveAllTramsOnce methode op om elke tram te bewegen naar zijn volgende station. </dd></dl>
 
 </div>
 </div>
@@ -347,7 +594,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Method stationRegistered die controleert dat station attribute "fNaam" correct ingelezen wordt. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>Method stationRegistered die controleert dat station attribute "naam" correct ingelezen wordt. </p><dl class="section pre"><dt>Precondition</dt><dd>REQUIRE(!(Utils::is_int(name)), "The parameter name is a number") </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">name</td><td>wordt gecontroleert. </td></tr>
   </table>
