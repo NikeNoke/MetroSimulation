@@ -83,9 +83,9 @@ TEST_F(ValidAttributesTram, ValidTrams) {
                     //                    << "Begin Station has not been correctly parsed\n";
 
                     EXPECT_FALSE(parseTram.checkNonValidAttributes()) << "There are wrong atrributes present\n";
-
+                    delete tram;
                 }
-                delete tram;
+
             }
             doc.Clear();
 
@@ -137,9 +137,9 @@ TEST_F(ValidAttributesTram, InValidTrams) {
 
                     //EXPECT_DEATH(parseTram.parseAll(metroNet, tram), "The Tram tag is not correct");
 
-
+                    delete tram;
                 }
-                delete tram;
+
             }
             doc.Clear();
             fileCounter = fileCounter + 1;
@@ -187,9 +187,9 @@ TEST_F(ValidAttributesTram, InValidTramAttributes) {
 
                     EXPECT_TRUE(parseTram.checkNonValidAttributes())
                                         << "Wrong attributes are not present (was expected)\n";
-
+                    delete tram;
                 }
-                delete tram;
+
             }
             doc.Clear();
 

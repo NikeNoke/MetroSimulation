@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <METRONET>
     <TRAM>
-        <fLijnNr>12</fLijnNr>
-        <fSnelheid>60</fSnelheid>
-        <fBeginStation>A</fBeginStation>
+        <lijnNr>17</lijnNr>
+        <type>PCC</type>
+        <voertuigNr>4</voertuigNr>
+        <beginStation>D</beginStation>
+        <aantalDefecten>3</aantalDefecten>
+        <reparatieTijd>2</reparatieTijd>
+        <reparatieKost>1</reparatieKost>
     </TRAM>
 </METRONET>

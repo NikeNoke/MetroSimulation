@@ -15,7 +15,7 @@ Inheritance diagram for Ti\+Xml\+Element\+:\begin{figure}[H]
 \item 
 \Hypertarget{classTiXmlElement_a01bc3ab372d35da08efcbbe65ad90c60}\label{classTiXmlElement_a01bc3ab372d35da08efcbbe65ad90c60} 
 {\bfseries Ti\+Xml\+Element} (const char $\ast$in\+\_\+value)
-\begin{DoxyCompactList}\small\item\em Construct an fElement. \end{DoxyCompactList}\item
+\begin{DoxyCompactList}\small\item\em Construct an f\+Element. \end{DoxyCompactList}\item 
 \Hypertarget{classTiXmlElement_a1ca4465f3c2eac6a60e641cd7f1d9f7e}\label{classTiXmlElement_a1ca4465f3c2eac6a60e641cd7f1d9f7e} 
 {\bfseries Ti\+Xml\+Element} (const \mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} \&)
 \item 
@@ -51,20 +51,20 @@ void \mbox{\hyperlink{classTiXmlElement_a56979767deca794376b1dfa69a525b2a}{Remov
 \item 
 \Hypertarget{classTiXmlElement_ad9326f97287828cf533de34fb8e10834}\label{classTiXmlElement_ad9326f97287828cf533de34fb8e10834} 
 const \mbox{\hyperlink{classTiXmlAttribute}{Ti\+Xml\+Attribute}} $\ast$ {\bfseries First\+Attribute} () const
-\begin{DoxyCompactList}\small\item\em Access the first attribute in this fElement. \end{DoxyCompactList}\item
+\begin{DoxyCompactList}\small\item\em Access the first attribute in this f\+Element. \end{DoxyCompactList}\item 
 \Hypertarget{classTiXmlElement_a0153a30eacb8bcb22fc705bf6587aa14}\label{classTiXmlElement_a0153a30eacb8bcb22fc705bf6587aa14} 
 \mbox{\hyperlink{classTiXmlAttribute}{Ti\+Xml\+Attribute}} $\ast$ {\bfseries First\+Attribute} ()
 \item 
 \Hypertarget{classTiXmlElement_adb3212c0c62ab98dba77b68d41c3fa9e}\label{classTiXmlElement_adb3212c0c62ab98dba77b68d41c3fa9e} 
 const \mbox{\hyperlink{classTiXmlAttribute}{Ti\+Xml\+Attribute}} $\ast$ {\bfseries Last\+Attribute} () const
-\begin{DoxyCompactList}\small\item\em Access the last attribute in this fElement. \end{DoxyCompactList}\item
+\begin{DoxyCompactList}\small\item\em Access the last attribute in this f\+Element. \end{DoxyCompactList}\item 
 \Hypertarget{classTiXmlElement_a7064f4d269e816df3a22147e0b92502d}\label{classTiXmlElement_a7064f4d269e816df3a22147e0b92502d} 
 \mbox{\hyperlink{classTiXmlAttribute}{Ti\+Xml\+Attribute}} $\ast$ {\bfseries Last\+Attribute} ()
 \item 
 const char $\ast$ \mbox{\hyperlink{classTiXmlElement_af0f814ecbd43d50d4cdbdf4354d3da39}{Get\+Text}} () const
 \item 
 virtual \mbox{\hyperlink{classTiXmlNode}{Ti\+Xml\+Node}} $\ast$ \mbox{\hyperlink{classTiXmlElement_a810ea8fa40844c01334e5af2a26794cb}{Clone}} () const
-\begin{DoxyCompactList}\small\item\em Creates a new Element and returns it -\/ the returned fElement is a copy. \end{DoxyCompactList}\item
+\begin{DoxyCompactList}\small\item\em Creates a new Element and returns it -\/ the returned f\+Element is a copy. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classTiXmlElement_aa31a15cddfb8601a31236fe7d2569fb4}{Print}} (FILE $\ast$cfile, int depth) const
 \item 
 virtual const char $\ast$ \mbox{\hyperlink{classTiXmlElement_af95c9165159fd9dfdcc5b894a3fcf85b}{Parse}} (const char $\ast$p, \mbox{\hyperlink{classTiXmlParsingData}{Ti\+Xml\+Parsing\+Data}} $\ast$data, Ti\+Xml\+Encoding encoding)
@@ -408,7 +408,7 @@ static const char $\ast$ \mbox{\hyperlink{classTiXmlBase_a7ac8feec4100e446b3d78e
 
 
 \doxysubsection{Detailed Description}
-The fElement is a container class. It has a value, the fElement name, and can contain other elements, text, comments, and unknowns. Elements also contain an arbitrary number of attributes.
+The f\+Element is a container class. It has a value, the f\+Element name, and can contain other elements, text, comments, and unknowns. Elements also contain an arbitrary number of attributes. 
 
 \doxysubsection{Member Function Documentation}
 \Hypertarget{classTiXmlElement_a01d33358cce9d1817b557d314dda3779}\label{classTiXmlElement_a01d33358cce9d1817b557d314dda3779} 
@@ -447,7 +447,7 @@ Given an attribute name, \doxylink{classTiXmlElement_a6042f518748f475a7ac4b4e0b5
 
 
 
-Creates a new Element and returns it -\/ the returned fElement is a copy.
+Creates a new Element and returns it -\/ the returned f\+Element is a copy. 
 
 
 
@@ -459,7 +459,7 @@ Implements \mbox{\hyperlink{classTiXmlNode_a8393385d6431e5e046c78c91ea44843e}{Ti
 \doxysubsubsection{\texorpdfstring{GetText()}{GetText()}}
 {\footnotesize\ttfamily const char $\ast$ Ti\+Xml\+Element\+::\+Get\+Text (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Convenience function for easy access to the text inside an fElement. Although easy and concise, \doxylink{classTiXmlElement_af0f814ecbd43d50d4cdbdf4354d3da39}{Get\+Text()} is limited compared to getting the \doxylink{classTiXmlText}{Ti\+Xml\+Text} child and accessing it directly.
+Convenience function for easy access to the text inside an f\+Element. Although easy and concise, \doxylink{classTiXmlElement_af0f814ecbd43d50d4cdbdf4354d3da39}{Get\+Text()} is limited compared to getting the \doxylink{classTiXmlText}{Ti\+Xml\+Text} child and accessing it directly.
 
 If the first child of \textquotesingle{}this\textquotesingle{} is a \doxylink{classTiXmlText}{Ti\+Xml\+Text}, the \doxylink{classTiXmlElement_af0f814ecbd43d50d4cdbdf4354d3da39}{Get\+Text()} returns the character string of the Text node, else null is returned.
 
@@ -470,11 +470,11 @@ const char* str = fooElement->GetText();
 
 \textquotesingle{}str\textquotesingle{} will be a pointer to \char`\"{}\+This is text\char`\"{}.
 
-Note that this function can be misleading. If the fElement foo was created from this XML\+: \begin{DoxyVerb}<foo><b>This is text</b></foo>
+Note that this function can be misleading. If the f\+Element foo was created from this XML\+: \begin{DoxyVerb}<foo><b>This is text</b></foo> 
 \end{DoxyVerb}
 
 
-then the value of str would be null. The first child node isn\textquotesingle{}t a text node, it is another fElement. From this XML\+: \begin{DoxyVerb}<foo>This is <b>text</b></foo>
+then the value of str would be null. The first child node isn\textquotesingle{}t a text node, it is another f\+Element. From this XML\+: \begin{DoxyVerb}<foo>This is <b>text</b></foo> 
 \end{DoxyVerb}
  \doxylink{classTiXmlElement_af0f814ecbd43d50d4cdbdf4354d3da39}{Get\+Text()} will return \char`\"{}\+This is \char`\"{}.
 

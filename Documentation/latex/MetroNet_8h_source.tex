@@ -50,15 +50,15 @@
 \DoxyCodeLine{00102\ }
 \DoxyCodeLine{00110\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMetroNet_a671d06118b65d02e829d0748acbe184e}{simulateMetroNet}}(\textcolor{keywordtype}{int}\ seconds);}
 \DoxyCodeLine{00111\ }
-\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMetroNet_a05099a1d547e56022aec6334411154ba}{aTramAtStation}}(\textcolor{keyword}{const}\ std::string\&\ stationName);}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMetroNet_a05099a1d547e56022aec6334411154ba}{aTramAtStation}}(\textcolor{keyword}{const}\ std::string\ \&stationName);}
 \DoxyCodeLine{00118\ }
-\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMetroNet_acfea3e712371ae78953afebffd426e70}{aTramAtStationSpoor}}(\textcolor{keyword}{const}\ std::string\&\ stationName,\ \textcolor{keywordtype}{int}\ lijnNr);}
+\DoxyCodeLine{00127\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMetroNet_acfea3e712371ae78953afebffd426e70}{aTramAtStationSpoor}}(\textcolor{keyword}{const}\ std::string\ \&stationName,\ \textcolor{keywordtype}{int}\ lijnNr);}
 \DoxyCodeLine{00128\ }
-\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMetroNet_a7de603d7605925e78d33bc17811c637c}{moveTram}}(\mbox{\hyperlink{classTram}{Tram}}*\ t\ ,\ std::string\&\ TargetStationName);}
+\DoxyCodeLine{00136\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classMetroNet_a7de603d7605925e78d33bc17811c637c}{moveTram}}(\mbox{\hyperlink{classTram}{Tram}}\ *t,\ std::string\ \&TargetStationName);}
 \DoxyCodeLine{00137\ }
 \DoxyCodeLine{00143\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classMetroNet_a27b4fb44cdc49a61cbfa4c9090ad7fee}{moveAllTramsOnce}}();}
 \DoxyCodeLine{00144\ }
-\DoxyCodeLine{00151\ \ \ \ \ \mbox{\hyperlink{classTram}{Tram}}*\ \mbox{\hyperlink{classMetroNet_a72cadd71b4830c9e4e8d416cc46c7799}{getTramAtStationSpoor}}(\textcolor{keyword}{const}\ std::string\&\ stationName,\ \textcolor{keywordtype}{int}\ lijnNr);}
+\DoxyCodeLine{00151\ \ \ \ \ \mbox{\hyperlink{classTram}{Tram}}\ *\mbox{\hyperlink{classMetroNet_a72cadd71b4830c9e4e8d416cc46c7799}{getTramAtStationSpoor}}(\textcolor{keyword}{const}\ std::string\ \&stationName,\ \textcolor{keywordtype}{int}\ lijnNr);}
 \DoxyCodeLine{00152\ }
 \DoxyCodeLine{00157\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classMetroNet_a217b086b8ca4ec61baef33ce52e1e3ba}{getTotaalMetroNetReparatieKost}}();}
 \DoxyCodeLine{00158\ }
@@ -68,24 +68,24 @@
 \DoxyCodeLine{00170\ }
 \DoxyCodeLine{00171\ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00172\ }
-\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordtype}{bool}\ controlStation(\mbox{\hyperlink{classStation}{Station}}*\ s);}
+\DoxyCodeLine{00173\ \ \ \ \ \textcolor{keywordtype}{bool}\ controlStation(\mbox{\hyperlink{classStation}{Station}}\ *s);}
 \DoxyCodeLine{00174\ }
-\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordtype}{bool}\ spoorLineHasTram(\mbox{\hyperlink{classSpoor}{Spoor}}*\ s);}
+\DoxyCodeLine{00175\ \ \ \ \ \textcolor{keywordtype}{bool}\ spoorLineHasTram(\mbox{\hyperlink{classSpoor}{Spoor}}\ *s);}
 \DoxyCodeLine{00176\ }
-\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordtype}{bool}\ tramLineHasSpoor(\mbox{\hyperlink{classTram}{Tram}}*\ t);}
+\DoxyCodeLine{00177\ \ \ \ \ \textcolor{keywordtype}{bool}\ tramLineHasSpoor(\mbox{\hyperlink{classTram}{Tram}}\ *t);}
 \DoxyCodeLine{00178\ }
-\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordtype}{bool}\ beginStationTramCorrect(\mbox{\hyperlink{classTram}{Tram}}*\ t);}
+\DoxyCodeLine{00179\ \ \ \ \ \textcolor{keywordtype}{bool}\ beginStationTramCorrect(\mbox{\hyperlink{classTram}{Tram}}\ *t);}
 \DoxyCodeLine{00180\ }
-\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keywordtype}{bool}\ uniqueTram(\mbox{\hyperlink{classTram}{Tram}}*\ t);}
+\DoxyCodeLine{00181\ \ \ \ \ \textcolor{keywordtype}{bool}\ uniqueTram(\mbox{\hyperlink{classTram}{Tram}}\ *t);}
 \DoxyCodeLine{00182\ }
-\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordtype}{bool}\ validSpoor(\mbox{\hyperlink{classSpoor}{Spoor}}*\ s);}
+\DoxyCodeLine{00183\ \ \ \ \ \textcolor{keywordtype}{bool}\ validSpoor(\mbox{\hyperlink{classSpoor}{Spoor}}\ *s);}
 \DoxyCodeLine{00184\ }
-\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordtype}{bool}\ controlTram(\mbox{\hyperlink{classTram}{Tram}}*\ t);}
+\DoxyCodeLine{00185\ \ \ \ \ \textcolor{keywordtype}{bool}\ controlTram(\mbox{\hyperlink{classTram}{Tram}}\ *t);}
 \DoxyCodeLine{00186\ }
 \DoxyCodeLine{00187\ \textcolor{keyword}{private}:}
 \DoxyCodeLine{00188\ \ \ \ \ std::vector<Station\ *>\ fStations;}
 \DoxyCodeLine{00189\ \ \ \ \ std::vector<Tram\ *>\ fTrams;}
-\DoxyCodeLine{00190\ \ \ \ \ \mbox{\hyperlink{classMetroNet}{MetroNet}}\ *\ \_fInitCheck;}
+\DoxyCodeLine{00190\ \ \ \ \ \mbox{\hyperlink{classMetroNet}{MetroNet}}\ *\_fInitCheck;}
 \DoxyCodeLine{00191\ }
 \DoxyCodeLine{00192\ \ \ \ \ \textcolor{keywordtype}{bool}\ initializeStatCalled;}
 \DoxyCodeLine{00193\ }

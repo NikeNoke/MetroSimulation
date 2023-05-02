@@ -1,9 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <METRONET>
     <STATION>
-        <fNaam>A</fNaam>
-        <fVorige>C</fVorige>
-        <fVolgende>F</fVolgende>
-        <fSpoorNr>12</fSpoorNr>
+        <naam>Centraal</naam>
+        <type>Metrostation</type>
+        <SPOOR>
+            <spoorNr>12</spoorNr>
+            <volgende>B</volgende>
+            <vorige>C</vorige>
+        </SPOOR>
+        <SPOOR>
+            <spoorNr>21</spoorNr>
+            <volgende>C</volgende>
+            <vorige>B</vorige>
+        </SPOOR>
+        <SPOOR>
+            <spoorNr>18</spoorNr>
+            <volgende>D</volgende>
+            <vorige>F</vorige>
+        </SPOOR>
+        <SPOOR>
+            <spoorNr>81</spoorNr>
+            <volgende>F</volgende>
+            <vorige>D</vorige>
+        </SPOOR>
+        <SPOOR>
+            <spoorNr>45</spoorNr>
+            <volgende>X</volgende>
+            <vorige>Y</vorige>
+        </SPOOR>
+        <SPOOR>
+            <spoorNr>54</spoorNr>
+            <volgende>Y</volgende>
+            <vorige>X</vorige>
+        </SPOOR>
     </STATION>
 </METRONET>

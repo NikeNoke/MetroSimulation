@@ -1,132 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <METRONET>
     <STATION>
-        <fNaam>A</fNaam>
-        <fVolgende>B</fVolgende>
-        <fVorige>C</fVorige>
-        <fSpoorNr>12</fSpoorNr>
+        <naam>A</naam>
+        <type>Metrostation</type>
+        <SPOOR>
+            <spoorNr>12</spoorNr>
+            <volgende>B</volgende>
+            <vorige>C</vorige>
+        </SPOOR>
+        <SPOOR>
+            <spoorNr>21</spoorNr>
+            <volgende>C</volgende>
+            <vorige>B</vorige>
+        </SPOOR>
     </STATION>
     <STATION>
-        <fNaam>B</fNaam>
-        <fVolgende>C</fVolgende>
-        <fVorige>A</fVorige>
-        <fSpoorNr>12</fSpoorNr>
+        <naam>B</naam>
+        <type>Metrostation</type>
+        <SPOOR>
+            <spoorNr>12</spoorNr>
+            <volgende>C</volgende>
+            <vorige>A</vorige>
+        </SPOOR>
+        <SPOOR>
+            <spoorNr>21</spoorNr>
+            <volgende>A</volgende>
+            <vorige>C</vorige>
+        </SPOOR>
     </STATION>
     <STATION>
-        <fNaam>C</fNaam>
-        <fVolgende>A</fVolgende>
-        <fVorige>B</fVorige>
-        <fSpoorNr>12</fSpoorNr>
+        <naam>C</naam>
+        <type>Metrostation</type>
+        <SPOOR>
+            <spoorNr>12</spoorNr>
+            <volgende>A</volgende>
+            <vorige>B</vorige>
+        </SPOOR>
+        <SPOOR>
+            <spoorNr>21</spoorNr>
+            <volgende>B</volgende>
+            <vorige>A</vorige>
+        </SPOOR>
     </STATION>
     <STATION>
-        <fNaam>Turnhoutsebaan</fNaam>
-        <fVolgende>Atheneum</fVolgende>
-        <fVorige>Sterckshof</fVorige>
-        <fSpoorNr>33</fSpoorNr>
+        <naam>D</naam>
+        <type>Halte</type>
+        <SPOOR>
+            <spoorNr>17</spoorNr>
+            <volgende>E</volgende>
+            <vorige>F</vorige>
+        </SPOOR>
     </STATION>
     <STATION>
-        <fNaam>Sterckshof</fNaam>
-        <fVolgende>Turnhoutsebaan</fVolgende>
-        <fVorige>Deurne</fVorige>
-        <fSpoorNr>33</fSpoorNr>
+        <naam>E</naam>
+        <type>Halte</type>
+        <SPOOR>
+            <spoorNr>17</spoorNr>
+            <volgende>F</volgende>
+            <vorige>D</vorige>
+        </SPOOR>
     </STATION>
     <STATION>
-        <fNaam>Atheneum</fNaam>
-        <fVolgende>JanS</fVolgende>
-        <fVorige>Turnhoutsebaan</fVorige>
-        <fSpoorNr>33</fSpoorNr>
-    </STATION>
-    <STATION>
-        <fNaam>JanS</fNaam>
-        <fVolgende>Lakborslei</fVolgende>
-        <fVorige>Atheneum</fVorige>
-        <fSpoorNr>33</fSpoorNr>
-    </STATION>
-    <STATION>
-        <fNaam>Lakborslei</fNaam>
-        <fVolgende>Deurne</fVolgende>
-        <fVorige>JanS</fVorige>
-        <fSpoorNr>33</fSpoorNr>
-    </STATION>
-    <STATION>
-        <fNaam>Deurne</fNaam>
-        <fVolgende>Sterckshof</fVolgende>
-        <fVorige>Lakborslei</fVorige>
-        <fSpoorNr>33</fSpoorNr>
-    </STATION>
-    <STATION>
-        <fNaam>Wijnegem</fNaam>
-        <fVolgende>Shoppingcenter</fVolgende>
-        <fVorige>Zwanebeek</fVorige>
-        <fSpoorNr>10</fSpoorNr>
-    </STATION>
-    <STATION>
-        <fNaam>Zwanebeek</fNaam>
-        <fVolgende>Wijnegem</fVolgende>
-        <fVorige>NationaleBank</fVorige>
-        <fSpoorNr>10</fSpoorNr>
-    </STATION>
-    <STATION>
-        <fNaam>Shoppingcenter</fNaam>
-        <fVolgende>Ruggeveld</fVolgende>
-        <fVorige>Wijnegem</fVorige>
-        <fSpoorNr>10</fSpoorNr>
-    </STATION>
-    <STATION>
-        <fNaam>Ruggeveld</fNaam>
-        <fVolgende>Schotensesteenweg</fVolgende>
-        <fVorige>Shoppingcenter</fVorige>
-        <fSpoorNr>10</fSpoorNr>
-    </STATION>
-    <STATION>
-        <fNaam>Schotensesteenweg</fNaam>
-        <fVolgende>Cogelsplein</fVolgende>
-        <fVorige>Ruggeveld</fVorige>
-        <fSpoorNr>10</fSpoorNr>
-    </STATION>
-    <STATION>
-        <fNaam>Cogelsplein</fNaam>
-        <fVolgende>Astrid</fVolgende>
-        <fVorige>Schotensesteenweg</fVorige>
-        <fSpoorNr>10</fSpoorNr>
-    </STATION>
-    <STATION>
-        <fNaam>Astrid</fNaam>
-        <fVolgende>Opera</fVolgende>
-        <fVorige>Cogelsplein</fVorige>
-        <fSpoorNr>10</fSpoorNr>
-    </STATION>
-    <STATION>
-        <fNaam>Opera</fNaam>
-        <fVolgende>Stadspark</fVolgende>
-        <fVorige>Astrid</fVorige>
-        <fSpoorNr>10</fSpoorNr>
-    </STATION>
-    <STATION>
-        <fNaam>Stadspark</fNaam>
-        <fVolgende>NationaleBank</fVolgende>
-        <fVorige>Opera</fVorige>
-        <fSpoorNr>10</fSpoorNr>
-    </STATION>
-    <STATION>
-        <fNaam>NationaleBank</fNaam>
-        <fVolgende>Zwanebeek</fVolgende>
-        <fVorige>Stadspark</fVorige>
-        <fSpoorNr>10</fSpoorNr>
+        <naam>F</naam>
+        <type>Halte</type>
+        <SPOOR>
+            <spoorNr>17</spoorNr>
+            <volgende>D</volgende>
+            <vorige>E</vorige>
+        </SPOOR>
     </STATION>
     <TRAM>
-        <fLijnNr>12</fLijnNr>
-        <fSnelheid>60</fSnelheid>
-        <fBeginStation>A</fBeginStation>
+        <lijnNr>12</lijnNr>
+        <type>PCC</type>
+        <voertuigNr>1</voertuigNr>
+        <beginStation>A</beginStation>
+        <aantalDefecten>3</aantalDefecten>
+        <reparatieTijd>2</reparatieTijd>
+        <reparatieKost>1</reparatieKost>
     </TRAM>
     <TRAM>
-        <fLijnNr>33</fLijnNr>
-        <fSnelheid>90</fSnelheid>
-        <fBeginStation>Atheneum</fBeginStation>
+        <lijnNr>12</lijnNr>
+        <type>Albatros</type>
+        <voertuigNr>2</voertuigNr>
+        <beginStation>B</beginStation>
     </TRAM>
     <TRAM>
-        <fLijnNr>10</fLijnNr>
-        <fSnelheid>50</fSnelheid>
-        <fBeginStation>Wijnegem</fBeginStation>
+        <lijnNr>21</lijnNr>
+        <type>Albatros</type>
+        <voertuigNr>3</voertuigNr>
+        <beginStation>B</beginStation>
+    </TRAM>
+    <TRAM>
+        <lijnNr>17</lijnNr>
+        <type>PCC</type>
+        <voertuigNr>4</voertuigNr>
+        <beginStation>D</beginStation>
+        <aantalDefecten>3</aantalDefecten>
+        <reparatieTijd>2</reparatieTijd>
+        <reparatieKost>1</reparatieKost>
     </TRAM>
 </METRONET>

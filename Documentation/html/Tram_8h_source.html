@@ -85,117 +85,120 @@ $(function() {
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;../Stations/Station.h&quot;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span>TramType{</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">enum</span> TypeTram {PCC, StadsLijner, Albatros, InvalidTram};</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>}</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classTram.html">   19</a></span><span class="keyword">class </span><a class="code hl_class" href="classTram.html">Tram</a> {</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_function" href="classTram.html#aad83b2e7e79d57528691bf317ab0e1ef">Tram</a>();</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <a class="code hl_function" href="classTram.html#aad83b2e7e79d57528691bf317ab0e1ef">Tram</a>(<span class="keyword">const</span> std::string &amp;beginStation, <span class="keywordtype">int</span> snelheid, <span class="keywordtype">int</span> lijnNr);</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    std::string <a class="code hl_function" href="classTram.html#ae4a7cf6313452140ed54d219d1f6afba">getBeginStation</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classTram.html#afcd79d44b9bc18fb1e7302daa40f56f5">getSnelheid</a>();</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classTram.html#ad2404fa7837b41287feab05f6a1b52bf">getLijnNr</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    std::string <a class="code hl_function" href="classTram.html#ae1d03c1fb6e0f5f97c57d35fe10fa8dd">getHuidigStation</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTram.html#a84f6ad02d1160bb6365dde706f50a116">setBeginStation</a>(std::string&amp; bs);</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTram.html#a2cabc354af57462ae361ead62a20aca6">setSnelheid</a>(<span class="keywordtype">int</span> s);</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTram.html#acfa9bb360bc614e2b591191f8c525ad8">setLijnNr</a>(<span class="keywordtype">int</span> l);</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTram.html#a46c31a4814722962c688b7eebd1beaf0">setHuidigStation</a>(std::string&amp; h);</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classTram.html#ac69cbbacaed7e1b9e60e608d766d02ee">properlyInitialized</a>();</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classTram.html#ae1f7d32d9c29b09fb437b86fe3170725">move</a>(<a class="code hl_class" href="classStation.html">Station</a>* station);</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTram.html#a790af7fffaea8dd84c3c43fadb02aaaa">setType</a>(std::string&amp; type);</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    std::string <a class="code hl_function" href="classTram.html#a2e75ee5e2cbc43da2862334e6ff148e1">getType</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTram.html#ac0155ac5ceee1462fd2d22e5184aa240">setVoertuigNummer</a>(<span class="keywordtype">int</span> n);</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classTram.html#a6e9f78befa2850add25925559ed98bc1">getVoertuigNummer</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="classTram.html#af4e2bdac52d769d39fb9157a680729a4">  141</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classTram.html#af4e2bdac52d769d39fb9157a680729a4">calculateSnelheid</a>() = 0;</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="classTram.html#ae5a174ef5bbef8db21c5446c50c42737">  147</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classTram.html#ae5a174ef5bbef8db21c5446c50c42737">stationCanBeServiced</a>(<a class="code hl_class" href="classStation.html">Station</a>* s) = 0;</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno"><a class="line" href="classTram.html#a79137376610a01d0d11a302c82e147d8">  152</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classTram.html#a79137376610a01d0d11a302c82e147d8">~Tram</a>(){};</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="classTram.html#ac54384fcc146ea7a759823e724cc3509">  157</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classTram.html#ac54384fcc146ea7a759823e724cc3509">getAantalDefecten</a>() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno"><a class="line" href="classTram.html#ad073bc58fcac0d974476059d53d5ba67">  163</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classTram.html#ad073bc58fcac0d974476059d53d5ba67">setAantalDefecten</a>(<span class="keywordtype">int</span> aantal) = 0;</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="classTram.html#a07acce09d3df5deece3b8758011b0143">  168</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classTram.html#a07acce09d3df5deece3b8758011b0143">getReparatieTijd</a>() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="classTram.html#a92437d1d1b39c4ec53d30a9fbdf7ba67">  174</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classTram.html#a92437d1d1b39c4ec53d30a9fbdf7ba67">setReparatieTijd</a>(<span class="keywordtype">int</span> aantal) = 0;</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno"><a class="line" href="classTram.html#ab205a017f42df554987b89091ab3270c">  179</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classTram.html#ab205a017f42df554987b89091ab3270c">getReparatieKost</a>() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno"><a class="line" href="classTram.html#a6952bd8d9be4b1ab1175c98944600197">  185</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classTram.html#a6952bd8d9be4b1ab1175c98944600197">setReparatieKost</a>(<span class="keywordtype">int</span> aantal) = 0;</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classTram.html#a68f00d883a6e06ab06a817fef2e58bde">tramDefect</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classTram.html#aeada784548f7e7b7131cd5297ee83c9c">getTotalReparatieKost</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="keyword">protected</span>:</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    <span class="keywordtype">int</span> snelheid;</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>    <span class="keywordtype">int</span> aantalDefecten;</div>
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <span class="keywordtype">int</span> reparatieTijd;</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <span class="keywordtype">int</span> reparatieKost; <span class="comment">//gwn + reparatieTijd of + reparatieTijd bij elke defect???? TODO ask</span></div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span> </div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    std::string beginStation;</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <span class="keywordtype">int</span> lijnNr;</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    std::string huidigStation;</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    std::string type; <span class="comment">//TODO make enum</span></div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    <span class="keywordtype">int</span> voertuigNummer;</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    <a class="code hl_class" href="classTram.html">Tram</a>* _initCheck;</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span> </div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    <span class="keywordtype">int</span> defectWatcher;</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    <span class="keywordtype">int</span> getDefectWatcher() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
-<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>    <span class="keywordtype">void</span> setDefectWatcher(<span class="keywordtype">int</span> defectWatcher);</div>
-<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
-<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    <span class="keywordtype">int</span> reparatieTijdWatcher;</div>
-<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    <span class="keywordtype">int</span> getReparatieTijdWatcher() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    <span class="keywordtype">void</span> setReparatieTijdWatcher(<span class="keywordtype">int</span> reparatieTijdWatcher);</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    <span class="keywordtype">bool</span> tramCanMove();</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>};</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">namespace </span>TramType {</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <span class="keyword">enum</span> TypeTram {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        PCC, StadsLijner, Albatros, InvalidTram</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    };</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>}</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classTram.html">   22</a></span><span class="keyword">class </span><a class="code hl_class" href="classTram.html">Tram</a> {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_function" href="classTram.html#aad83b2e7e79d57528691bf317ab0e1ef">Tram</a>();</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_function" href="classTram.html#aad83b2e7e79d57528691bf317ab0e1ef">Tram</a>(<span class="keyword">const</span> std::string &amp;beginStation, <span class="keywordtype">int</span> snelheid, <span class="keywordtype">int</span> lijnNr);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    std::string <a class="code hl_function" href="classTram.html#ae4a7cf6313452140ed54d219d1f6afba">getBeginStation</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classTram.html#afcd79d44b9bc18fb1e7302daa40f56f5">getSnelheid</a>();</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classTram.html#ad2404fa7837b41287feab05f6a1b52bf">getLijnNr</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    std::string <a class="code hl_function" href="classTram.html#ae1d03c1fb6e0f5f97c57d35fe10fa8dd">getHuidigStation</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTram.html#a84f6ad02d1160bb6365dde706f50a116">setBeginStation</a>(std::string &amp;bs);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTram.html#a2cabc354af57462ae361ead62a20aca6">setSnelheid</a>(<span class="keywordtype">int</span> s);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTram.html#acfa9bb360bc614e2b591191f8c525ad8">setLijnNr</a>(<span class="keywordtype">int</span> l);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTram.html#a46c31a4814722962c688b7eebd1beaf0">setHuidigStation</a>(std::string &amp;h);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classTram.html#ac69cbbacaed7e1b9e60e608d766d02ee">properlyInitialized</a>();</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classTram.html#ae1f7d32d9c29b09fb437b86fe3170725">move</a>(<a class="code hl_class" href="classStation.html">Station</a> *station);</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTram.html#a790af7fffaea8dd84c3c43fadb02aaaa">setType</a>(std::string &amp;type);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    std::string <a class="code hl_function" href="classTram.html#a2e75ee5e2cbc43da2862334e6ff148e1">getType</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="classTram.html#ac0155ac5ceee1462fd2d22e5184aa240">setVoertuigNummer</a>(<span class="keywordtype">int</span> n);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classTram.html#a6e9f78befa2850add25925559ed98bc1">getVoertuigNummer</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="classTram.html#af4e2bdac52d769d39fb9157a680729a4">  144</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classTram.html#af4e2bdac52d769d39fb9157a680729a4">calculateSnelheid</a>() = 0;</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno"><a class="line" href="classTram.html#ae5a174ef5bbef8db21c5446c50c42737">  150</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classTram.html#ae5a174ef5bbef8db21c5446c50c42737">stationCanBeServiced</a>(<a class="code hl_class" href="classStation.html">Station</a> *s) = 0;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="classTram.html#a79137376610a01d0d11a302c82e147d8">  155</a></span>    <span class="keyword">virtual</span> <a class="code hl_function" href="classTram.html#a79137376610a01d0d11a302c82e147d8">~Tram</a>() {};</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="classTram.html#ac54384fcc146ea7a759823e724cc3509">  160</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classTram.html#ac54384fcc146ea7a759823e724cc3509">getAantalDefecten</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno"><a class="line" href="classTram.html#ad073bc58fcac0d974476059d53d5ba67">  166</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classTram.html#ad073bc58fcac0d974476059d53d5ba67">setAantalDefecten</a>(<span class="keywordtype">int</span> aantal) = 0;</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno"><a class="line" href="classTram.html#a07acce09d3df5deece3b8758011b0143">  171</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classTram.html#a07acce09d3df5deece3b8758011b0143">getReparatieTijd</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno"><a class="line" href="classTram.html#a92437d1d1b39c4ec53d30a9fbdf7ba67">  177</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classTram.html#a92437d1d1b39c4ec53d30a9fbdf7ba67">setReparatieTijd</a>(<span class="keywordtype">int</span> aantal) = 0;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno"><a class="line" href="classTram.html#ab205a017f42df554987b89091ab3270c">  182</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classTram.html#ab205a017f42df554987b89091ab3270c">getReparatieKost</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno"><a class="line" href="classTram.html#a6952bd8d9be4b1ab1175c98944600197">  188</a></span>    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classTram.html#a6952bd8d9be4b1ab1175c98944600197">setReparatieKost</a>(<span class="keywordtype">int</span> aantal) = 0;</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classTram.html#a68f00d883a6e06ab06a817fef2e58bde">tramDefect</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="classTram.html#aeada784548f7e7b7131cd5297ee83c9c">getTotalReparatieKost</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="keyword">protected</span>:</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <span class="keywordtype">int</span> snelheid;</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <span class="keywordtype">int</span> aantalDefecten;</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <span class="keywordtype">int</span> reparatieTijd;</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keywordtype">int</span> reparatieKost; <span class="comment">//gwn + reparatieTijd of + reparatieTijd bij elke defect???? TODO ask</span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    std::string beginStation;</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    <span class="keywordtype">int</span> lijnNr;</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    std::string huidigStation;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    std::string type; <span class="comment">//TODO make enum</span></div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    <span class="keywordtype">int</span> voertuigNummer;</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    <a class="code hl_class" href="classTram.html">Tram</a> *_initCheck;</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    <span class="keywordtype">int</span> defectWatcher;</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    <span class="keywordtype">int</span> getDefectWatcher() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    <span class="keywordtype">void</span> setDefectWatcher(<span class="keywordtype">int</span> defectWatcher);</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span> </div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    <span class="keywordtype">int</span> reparatieTijdWatcher;</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    <span class="keywordtype">int</span> getReparatieTijdWatcher() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    <span class="keywordtype">void</span> setReparatieTijdWatcher(<span class="keywordtype">int</span> reparatieTijdWatcher);</div>
 <div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span><span class="preprocessor">#endif </span><span class="comment">//METROSIMULATION_TRAM_H</span></div>
-<div class="ttc" id="aclassStation_html"><div class="ttname"><a href="classStation.html">Station</a></div><div class="ttdef"><b>Definition:</b> Station.h:23</div></div>
-<div class="ttc" id="aclassTram_html"><div class="ttname"><a href="classTram.html">Tram</a></div><div class="ttdef"><b>Definition:</b> Tram.h:19</div></div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    <span class="keywordtype">bool</span> tramCanMove();</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>};</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span><span class="preprocessor">#endif </span><span class="comment">//METROSIMULATION_TRAM_H</span></div>
+<div class="ttc" id="aclassStation_html"><div class="ttname"><a href="classStation.html">Station</a></div><div class="ttdef"><b>Definition:</b> Station.h:26</div></div>
+<div class="ttc" id="aclassTram_html"><div class="ttname"><a href="classTram.html">Tram</a></div><div class="ttdef"><b>Definition:</b> Tram.h:22</div></div>
 <div class="ttc" id="aclassTram_html_a07acce09d3df5deece3b8758011b0143"><div class="ttname"><a href="classTram.html#a07acce09d3df5deece3b8758011b0143">Tram::getReparatieTijd</a></div><div class="ttdeci">virtual int getReparatieTijd() const =0</div></div>
 <div class="ttc" id="aclassTram_html_a2cabc354af57462ae361ead62a20aca6"><div class="ttname"><a href="classTram.html#a2cabc354af57462ae361ead62a20aca6">Tram::setSnelheid</a></div><div class="ttdeci">void setSnelheid(int s)</div><div class="ttdef"><b>Definition:</b> Tram.cpp:44</div></div>
-<div class="ttc" id="aclassTram_html_a2e75ee5e2cbc43da2862334e6ff148e1"><div class="ttname"><a href="classTram.html#a2e75ee5e2cbc43da2862334e6ff148e1">Tram::getType</a></div><div class="ttdeci">std::string getType() const</div><div class="ttdef"><b>Definition:</b> Tram.cpp:96</div></div>
+<div class="ttc" id="aclassTram_html_a2e75ee5e2cbc43da2862334e6ff148e1"><div class="ttname"><a href="classTram.html#a2e75ee5e2cbc43da2862334e6ff148e1">Tram::getType</a></div><div class="ttdeci">std::string getType() const</div><div class="ttdef"><b>Definition:</b> Tram.cpp:98</div></div>
 <div class="ttc" id="aclassTram_html_a46c31a4814722962c688b7eebd1beaf0"><div class="ttname"><a href="classTram.html#a46c31a4814722962c688b7eebd1beaf0">Tram::setHuidigStation</a></div><div class="ttdeci">void setHuidigStation(std::string &amp;h)</div><div class="ttdef"><b>Definition:</b> Tram.cpp:54</div></div>
-<div class="ttc" id="aclassTram_html_a68f00d883a6e06ab06a817fef2e58bde"><div class="ttname"><a href="classTram.html#a68f00d883a6e06ab06a817fef2e58bde">Tram::tramDefect</a></div><div class="ttdeci">bool tramDefect() const</div><div class="ttdef"><b>Definition:</b> Tram.cpp:125</div></div>
+<div class="ttc" id="aclassTram_html_a68f00d883a6e06ab06a817fef2e58bde"><div class="ttname"><a href="classTram.html#a68f00d883a6e06ab06a817fef2e58bde">Tram::tramDefect</a></div><div class="ttdeci">bool tramDefect() const</div><div class="ttdef"><b>Definition:</b> Tram.cpp:127</div></div>
 <div class="ttc" id="aclassTram_html_a6952bd8d9be4b1ab1175c98944600197"><div class="ttname"><a href="classTram.html#a6952bd8d9be4b1ab1175c98944600197">Tram::setReparatieKost</a></div><div class="ttdeci">virtual void setReparatieKost(int aantal)=0</div></div>
-<div class="ttc" id="aclassTram_html_a6e9f78befa2850add25925559ed98bc1"><div class="ttname"><a href="classTram.html#a6e9f78befa2850add25925559ed98bc1">Tram::getVoertuigNummer</a></div><div class="ttdeci">int getVoertuigNummer() const</div><div class="ttdef"><b>Definition:</b> Tram.cpp:105</div></div>
-<div class="ttc" id="aclassTram_html_a790af7fffaea8dd84c3c43fadb02aaaa"><div class="ttname"><a href="classTram.html#a790af7fffaea8dd84c3c43fadb02aaaa">Tram::setType</a></div><div class="ttdeci">void setType(std::string &amp;type)</div><div class="ttdef"><b>Definition:</b> Tram.cpp:90</div></div>
-<div class="ttc" id="aclassTram_html_a79137376610a01d0d11a302c82e147d8"><div class="ttname"><a href="classTram.html#a79137376610a01d0d11a302c82e147d8">Tram::~Tram</a></div><div class="ttdeci">virtual ~Tram()</div><div class="ttdef"><b>Definition:</b> Tram.h:152</div></div>
+<div class="ttc" id="aclassTram_html_a6e9f78befa2850add25925559ed98bc1"><div class="ttname"><a href="classTram.html#a6e9f78befa2850add25925559ed98bc1">Tram::getVoertuigNummer</a></div><div class="ttdeci">int getVoertuigNummer() const</div><div class="ttdef"><b>Definition:</b> Tram.cpp:107</div></div>
+<div class="ttc" id="aclassTram_html_a790af7fffaea8dd84c3c43fadb02aaaa"><div class="ttname"><a href="classTram.html#a790af7fffaea8dd84c3c43fadb02aaaa">Tram::setType</a></div><div class="ttdeci">void setType(std::string &amp;type)</div><div class="ttdef"><b>Definition:</b> Tram.cpp:92</div></div>
+<div class="ttc" id="aclassTram_html_a79137376610a01d0d11a302c82e147d8"><div class="ttname"><a href="classTram.html#a79137376610a01d0d11a302c82e147d8">Tram::~Tram</a></div><div class="ttdeci">virtual ~Tram()</div><div class="ttdef"><b>Definition:</b> Tram.h:155</div></div>
 <div class="ttc" id="aclassTram_html_a84f6ad02d1160bb6365dde706f50a116"><div class="ttname"><a href="classTram.html#a84f6ad02d1160bb6365dde706f50a116">Tram::setBeginStation</a></div><div class="ttdeci">void setBeginStation(std::string &amp;bs)</div><div class="ttdef"><b>Definition:</b> Tram.cpp:38</div></div>
 <div class="ttc" id="aclassTram_html_a92437d1d1b39c4ec53d30a9fbdf7ba67"><div class="ttname"><a href="classTram.html#a92437d1d1b39c4ec53d30a9fbdf7ba67">Tram::setReparatieTijd</a></div><div class="ttdeci">virtual void setReparatieTijd(int aantal)=0</div></div>
 <div class="ttc" id="aclassTram_html_aad83b2e7e79d57528691bf317ab0e1ef"><div class="ttname"><a href="classTram.html#aad83b2e7e79d57528691bf317ab0e1ef">Tram::Tram</a></div><div class="ttdeci">Tram()</div><div class="ttdef"><b>Definition:</b> Tram.cpp:10</div></div>
 <div class="ttc" id="aclassTram_html_ab205a017f42df554987b89091ab3270c"><div class="ttname"><a href="classTram.html#ab205a017f42df554987b89091ab3270c">Tram::getReparatieKost</a></div><div class="ttdeci">virtual int getReparatieKost() const =0</div></div>
-<div class="ttc" id="aclassTram_html_ac0155ac5ceee1462fd2d22e5184aa240"><div class="ttname"><a href="classTram.html#ac0155ac5ceee1462fd2d22e5184aa240">Tram::setVoertuigNummer</a></div><div class="ttdeci">void setVoertuigNummer(int n)</div><div class="ttdef"><b>Definition:</b> Tram.cpp:100</div></div>
+<div class="ttc" id="aclassTram_html_ac0155ac5ceee1462fd2d22e5184aa240"><div class="ttname"><a href="classTram.html#ac0155ac5ceee1462fd2d22e5184aa240">Tram::setVoertuigNummer</a></div><div class="ttdeci">void setVoertuigNummer(int n)</div><div class="ttdef"><b>Definition:</b> Tram.cpp:102</div></div>
 <div class="ttc" id="aclassTram_html_ac54384fcc146ea7a759823e724cc3509"><div class="ttname"><a href="classTram.html#ac54384fcc146ea7a759823e724cc3509">Tram::getAantalDefecten</a></div><div class="ttdeci">virtual int getAantalDefecten() const =0</div></div>
 <div class="ttc" id="aclassTram_html_ac69cbbacaed7e1b9e60e608d766d02ee"><div class="ttname"><a href="classTram.html#ac69cbbacaed7e1b9e60e608d766d02ee">Tram::properlyInitialized</a></div><div class="ttdeci">bool properlyInitialized()</div><div class="ttdef"><b>Definition:</b> Tram.cpp:60</div></div>
 <div class="ttc" id="aclassTram_html_acfa9bb360bc614e2b591191f8c525ad8"><div class="ttname"><a href="classTram.html#acfa9bb360bc614e2b591191f8c525ad8">Tram::setLijnNr</a></div><div class="ttdeci">void setLijnNr(int l)</div><div class="ttdef"><b>Definition:</b> Tram.cpp:49</div></div>
@@ -205,7 +208,7 @@ $(function() {
 <div class="ttc" id="aclassTram_html_ae1f7d32d9c29b09fb437b86fe3170725"><div class="ttname"><a href="classTram.html#ae1f7d32d9c29b09fb437b86fe3170725">Tram::move</a></div><div class="ttdeci">bool move(Station *station)</div><div class="ttdef"><b>Definition:</b> Tram.cpp:64</div></div>
 <div class="ttc" id="aclassTram_html_ae4a7cf6313452140ed54d219d1f6afba"><div class="ttname"><a href="classTram.html#ae4a7cf6313452140ed54d219d1f6afba">Tram::getBeginStation</a></div><div class="ttdeci">std::string getBeginStation() const</div><div class="ttdef"><b>Definition:</b> Tram.cpp:22</div></div>
 <div class="ttc" id="aclassTram_html_ae5a174ef5bbef8db21c5446c50c42737"><div class="ttname"><a href="classTram.html#ae5a174ef5bbef8db21c5446c50c42737">Tram::stationCanBeServiced</a></div><div class="ttdeci">virtual bool stationCanBeServiced(Station *s)=0</div></div>
-<div class="ttc" id="aclassTram_html_aeada784548f7e7b7131cd5297ee83c9c"><div class="ttname"><a href="classTram.html#aeada784548f7e7b7131cd5297ee83c9c">Tram::getTotalReparatieKost</a></div><div class="ttdeci">int getTotalReparatieKost() const</div><div class="ttdef"><b>Definition:</b> Tram.cpp:131</div></div>
+<div class="ttc" id="aclassTram_html_aeada784548f7e7b7131cd5297ee83c9c"><div class="ttname"><a href="classTram.html#aeada784548f7e7b7131cd5297ee83c9c">Tram::getTotalReparatieKost</a></div><div class="ttdeci">int getTotalReparatieKost() const</div><div class="ttdef"><b>Definition:</b> Tram.cpp:133</div></div>
 <div class="ttc" id="aclassTram_html_af4e2bdac52d769d39fb9157a680729a4"><div class="ttname"><a href="classTram.html#af4e2bdac52d769d39fb9157a680729a4">Tram::calculateSnelheid</a></div><div class="ttdeci">virtual void calculateSnelheid()=0</div></div>
 <div class="ttc" id="aclassTram_html_afcd79d44b9bc18fb1e7302daa40f56f5"><div class="ttname"><a href="classTram.html#afcd79d44b9bc18fb1e7302daa40f56f5">Tram::getSnelheid</a></div><div class="ttdeci">virtual int getSnelheid()</div><div class="ttdef"><b>Definition:</b> Tram.cpp:26</div></div>
 </div><!-- fragment --></div><!-- contents -->

@@ -86,43 +86,44 @@ $(function() {
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;../TinyXML/tinyxml.h&quot;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">class </span><a class="code hl_class" href="classMetroNet.html">MetroNet</a>;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="classParseMetroNet.html">   17</a></span><span class="keyword">class </span><a class="code hl_class" href="classParseMetroNet.html">ParseMetroNet</a> {</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classParseMetroNet.html">ParseMetroNet</a>(<span class="keyword">const</span> std::string&amp; pathToFile);</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classParseMetroNet.html#a46d362894c0c5a4a3c15b4f14226731e">parseMetroNet</a>(<a class="code hl_class" href="classMetroNet.html">MetroNet</a>&amp; metroNet);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classParseMetroNet.html#a20f11abe28c35ae4a959553c5dd28382">loadFile</a>();</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <a class="code hl_class" href="classTiXmlDocument.html">TiXmlDocument</a>&amp; <a class="code hl_function" href="classParseMetroNet.html#acc3f9e2b64cc92873c0ed3da4e7cec5c">getDoc</a>();</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    FILE* <a class="code hl_function" href="classParseMetroNet.html#a4841783303554b9facf7c4892a2afe9f">getPathToInput</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classParseMetroNet.html#aa7529d5ca13d32ebd7133a1f9d3f8d47">setPathToInput</a>(FILE* f);</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">//    bool setPathToLog(FILE* f);</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">//    FILE* getPathToLog() const;</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">class </span><a class="code hl_class" href="classMetroNet.html">MetroNet</a>;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="classParseMetroNet.html">   18</a></span><span class="keyword">class </span><a class="code hl_class" href="classParseMetroNet.html">ParseMetroNet</a> {</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">explicit</span> <a class="code hl_class" href="classParseMetroNet.html">ParseMetroNet</a>(<span class="keyword">const</span> std::string &amp;pathToFile);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classParseMetroNet.html#a46d362894c0c5a4a3c15b4f14226731e">parseMetroNet</a>(<a class="code hl_class" href="classMetroNet.html">MetroNet</a> &amp;metroNet);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classParseMetroNet.html#a20f11abe28c35ae4a959553c5dd28382">loadFile</a>();</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <a class="code hl_class" href="classTiXmlDocument.html">TiXmlDocument</a> &amp;<a class="code hl_function" href="classParseMetroNet.html#acc3f9e2b64cc92873c0ed3da4e7cec5c">getDoc</a>();</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    FILE *<a class="code hl_function" href="classParseMetroNet.html#a4841783303554b9facf7c4892a2afe9f">getPathToInput</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="classParseMetroNet.html#aa7529d5ca13d32ebd7133a1f9d3f8d47">setPathToInput</a>(FILE *f);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">//    bool setPathToLog(FILE* f);</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="comment">//    FILE* getPathToLog() const;</span></div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    <a class="code hl_class" href="classTiXmlDocument.html">TiXmlDocument</a> doc;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    FILE* pathToInput;</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">//    FILE* pathToLog;</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>};</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <a class="code hl_class" href="classTiXmlDocument.html">TiXmlDocument</a> doc;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    FILE *pathToInput;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">//    FILE* pathToLog;</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>};</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="preprocessor">#endif </span><span class="comment">//METROSIMULATION_PARSEMETRONET_H</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">#endif </span><span class="comment">//METROSIMULATION_PARSEMETRONET_H</span></div>
 <div class="ttc" id="aclassMetroNet_html"><div class="ttname"><a href="classMetroNet.html">MetroNet</a></div><div class="ttdef"><b>Definition:</b> MetroNet.h:13</div></div>
-<div class="ttc" id="aclassParseMetroNet_html"><div class="ttname"><a href="classParseMetroNet.html">ParseMetroNet</a></div><div class="ttdef"><b>Definition:</b> ParseMetroNet.h:17</div></div>
-<div class="ttc" id="aclassParseMetroNet_html_a20f11abe28c35ae4a959553c5dd28382"><div class="ttname"><a href="classParseMetroNet.html#a20f11abe28c35ae4a959553c5dd28382">ParseMetroNet::loadFile</a></div><div class="ttdeci">bool loadFile()</div><div class="ttdef"><b>Definition:</b> ParseMetroNet.cpp:61</div></div>
+<div class="ttc" id="aclassParseMetroNet_html"><div class="ttname"><a href="classParseMetroNet.html">ParseMetroNet</a></div><div class="ttdef"><b>Definition:</b> ParseMetroNet.h:18</div></div>
+<div class="ttc" id="aclassParseMetroNet_html_a20f11abe28c35ae4a959553c5dd28382"><div class="ttname"><a href="classParseMetroNet.html#a20f11abe28c35ae4a959553c5dd28382">ParseMetroNet::loadFile</a></div><div class="ttdeci">bool loadFile()</div><div class="ttdef"><b>Definition:</b> ParseMetroNet.cpp:60</div></div>
 <div class="ttc" id="aclassParseMetroNet_html_a46d362894c0c5a4a3c15b4f14226731e"><div class="ttname"><a href="classParseMetroNet.html#a46d362894c0c5a4a3c15b4f14226731e">ParseMetroNet::parseMetroNet</a></div><div class="ttdeci">bool parseMetroNet(MetroNet &amp;metroNet)</div><div class="ttdef"><b>Definition:</b> ParseMetroNet.cpp:13</div></div>
-<div class="ttc" id="aclassParseMetroNet_html_a4841783303554b9facf7c4892a2afe9f"><div class="ttname"><a href="classParseMetroNet.html#a4841783303554b9facf7c4892a2afe9f">ParseMetroNet::getPathToInput</a></div><div class="ttdeci">FILE * getPathToInput() const</div><div class="ttdef"><b>Definition:</b> ParseMetroNet.cpp:84</div></div>
-<div class="ttc" id="aclassParseMetroNet_html_aa7529d5ca13d32ebd7133a1f9d3f8d47"><div class="ttname"><a href="classParseMetroNet.html#aa7529d5ca13d32ebd7133a1f9d3f8d47">ParseMetroNet::setPathToInput</a></div><div class="ttdeci">bool setPathToInput(FILE *f)</div><div class="ttdef"><b>Definition:</b> ParseMetroNet.cpp:88</div></div>
-<div class="ttc" id="aclassParseMetroNet_html_acc3f9e2b64cc92873c0ed3da4e7cec5c"><div class="ttname"><a href="classParseMetroNet.html#acc3f9e2b64cc92873c0ed3da4e7cec5c">ParseMetroNet::getDoc</a></div><div class="ttdeci">TiXmlDocument &amp; getDoc()</div><div class="ttdef"><b>Definition:</b> ParseMetroNet.cpp:80</div></div>
+<div class="ttc" id="aclassParseMetroNet_html_a4841783303554b9facf7c4892a2afe9f"><div class="ttname"><a href="classParseMetroNet.html#a4841783303554b9facf7c4892a2afe9f">ParseMetroNet::getPathToInput</a></div><div class="ttdeci">FILE * getPathToInput() const</div><div class="ttdef"><b>Definition:</b> ParseMetroNet.cpp:83</div></div>
+<div class="ttc" id="aclassParseMetroNet_html_aa7529d5ca13d32ebd7133a1f9d3f8d47"><div class="ttname"><a href="classParseMetroNet.html#aa7529d5ca13d32ebd7133a1f9d3f8d47">ParseMetroNet::setPathToInput</a></div><div class="ttdeci">bool setPathToInput(FILE *f)</div><div class="ttdef"><b>Definition:</b> ParseMetroNet.cpp:87</div></div>
+<div class="ttc" id="aclassParseMetroNet_html_acc3f9e2b64cc92873c0ed3da4e7cec5c"><div class="ttname"><a href="classParseMetroNet.html#acc3f9e2b64cc92873c0ed3da4e7cec5c">ParseMetroNet::getDoc</a></div><div class="ttdeci">TiXmlDocument &amp; getDoc()</div><div class="ttdef"><b>Definition:</b> ParseMetroNet.cpp:79</div></div>
 <div class="ttc" id="aclassTiXmlDocument_html"><div class="ttname"><a href="classTiXmlDocument.html">TiXmlDocument</a></div><div class="ttdef"><b>Definition:</b> tinyxml.h:1394</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

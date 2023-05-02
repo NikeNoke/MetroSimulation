@@ -664,8 +664,8 @@ void *&#160;</td><td class="memItemRight" valign="bottom"><b>userData</b></td></
 <p>This is a convenient method for getting the text of simple contained text: </p><pre class="fragment">&lt;foo&gt;This is text&lt;/foo&gt;
 const char* str = fooElement-&gt;GetText();
 </pre><p>'str' will be a pointer to "This is text".</p>
-<p>Note that this function can be misleading. If the fElement foo was created from this XML: </p><pre class="fragment">&lt;foo&gt;&lt;b&gt;This is text&lt;/b&gt;&lt;/foo&gt;
-</pre><p>then the value of str would be null. The first child node isn't a text node, it is another fElement. From this XML: </p><pre class="fragment">&lt;foo&gt;This is &lt;b&gt;text&lt;/b&gt;&lt;/foo&gt;
+<p>Note that this function can be misleading. If the fElement foo was created from this XML: </p><pre class="fragment">&lt;foo&gt;&lt;b&gt;This is text&lt;/b&gt;&lt;/foo&gt; 
+</pre><p>then the value of str would be null. The first child node isn't a text node, it is another fElement. From this XML: </p><pre class="fragment">&lt;foo&gt;This is &lt;b&gt;text&lt;/b&gt;&lt;/foo&gt; 
 </pre><p> <a class="el" href="classTiXmlElement.html#af0f814ecbd43d50d4cdbdf4354d3da39">GetText()</a> will return "This is ".</p>
 <p>WARNING: <a class="el" href="classTiXmlElement.html#af0f814ecbd43d50d4cdbdf4354d3da39">GetText()</a> accesses a child node - don't become confused with the similarly named <a class="el" href="classTiXmlHandle.html#a58a9b3e3d710a603038e6e291eb6d580">TiXmlHandle::Text()</a> and <a class="el" href="classTiXmlNode.html#a8e2e910e97726d80309dbb485bcf774d" title="Cast to a more defined type. Will return null if not of the requested type.">TiXmlNode::ToText()</a> which are safe type casts on the referenced node. </p>
 

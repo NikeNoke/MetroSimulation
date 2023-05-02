@@ -69,7 +69,7 @@ public:
     bool checkValidStation() const;
 
     /**
-     * Functi dat naam valid is.
+     * Functie dat controleerd ofdat naam valid is.
      * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
      * @post ENSURE(getElement() != NULL, "TixmlElement has become NULL")
      * @return true or false

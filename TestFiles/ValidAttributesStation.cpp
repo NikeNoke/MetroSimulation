@@ -78,7 +78,8 @@ TEST_F(ValidAttributesStation, ValidStations) {
                     //EXPECT_TRUE(parseStation.checkValidVolgende()) << "Volgende is not Valid\n";
                     //EXPECT_TRUE(parseStation.checkValidVorige()) << "Vorige is not Valid\n";
                     EXPECT_TRUE(parseStation.checkValidNaam()) << "Naam is not Valid\n";
-
+                    EXPECT_TRUE(parseStation.checkValidTypeStation()) << "Type is not valid\n";
+                    EXPECT_TRUE(parseStation.checkValidStation()) << "Station is not valid\n";
                     //EXPECT_TRUE(parseStation.parseVorige(metroNet, station)) << "Vorige has not been correctly parsed\n";
                     //EXPECT_TRUE(parseStation.parseVolgende(metroNet, station)) << "Volgende has not been correctly parsed\n";
                     //EXPECT_TRUE(parseStation.parseSpoorNr(metroNet, station)) << "SpoorNr has not been correctly parsed\n";

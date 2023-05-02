@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <METRONET>
     <STATION>
-        <fNaam>1</fNaam>
+        <naam>1</naam>
+        <type>Metrostation</type>
+        <SPOOR>
+            <spoorNr>12</spoorNr>
+            <volgende>B</volgende>
+            <vorige>C</vorige>
+        </SPOOR>
     </STATION>
 </METRONET>
