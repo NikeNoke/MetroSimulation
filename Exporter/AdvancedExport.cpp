@@ -24,21 +24,21 @@ bool AdvancedExport::exportFile(MetroNet &metroNet, std::string path) const {
     std::vector<Station *> tempStations = metroNet.getStations();
     std::vector<Tram *> tempTrams = metroNet.getTrams();
 
-    std::map<int, std::vector<Spoor* > > spoorMap;
+    std::map<int, std::vector<Spoor *> > spoorMap;
 
     for (long unsigned int i = 0; i < tempStations.size(); i++) {
 //        Station* currentStation = tempStations[i];
-        for(unsigned int j = 0; j < tempStations[i]->getSporen().size(); j++){
-            Spoor* currentSpoor = tempStations[i]->getSporen()[j];
+        for (unsigned int j = 0; j < tempStations[i]->getSporen().size(); j++) {
+            Spoor *currentSpoor = tempStations[i]->getSporen()[j];
             const int nr = currentSpoor->getSpoorNr();
 
             spoorMap[nr].push_back(currentSpoor);
         }
     }
 
-    std::map<int, std::vector<Spoor* > >::iterator it;
+    std::map<int, std::vector<Spoor *> >::iterator it;
 
-    for(it = spoorMap.begin(); it != spoorMap.end(); it++){
+    for (it = spoorMap.begin(); it != spoorMap.end(); it++) {
 
         std::vector<std::string> correctOrder;
 
@@ -48,7 +48,7 @@ bool AdvancedExport::exportFile(MetroNet &metroNet, std::string path) const {
 
         std::string toSearch = it->second[0]->getVolgende();
 
-        while(correctOrder.size() < it->second.size()){
+        while (correctOrder.size() < it->second.size()) {
 
             int index = indexVolgende(it->second, toSearch);
 
@@ -58,16 +58,16 @@ bool AdvancedExport::exportFile(MetroNet &metroNet, std::string path) const {
 
         }
 
-        for(unsigned int j = 0; j < correctOrder.size(); j++){
+        for (unsigned int j = 0; j < correctOrder.size(); j++) {
 
             file << "=" << correctOrder[j] << "=";
 
         }
         file << "\n";
 
-        for(unsigned int j = 0; j < correctOrder.size(); j++){
+        for (unsigned int j = 0; j < correctOrder.size(); j++) {
 
-            if(metroNet.aTramAtStation(correctOrder[j]))
+            if (metroNet.aTramAtStation(correctOrder[j]))
                 file << " T ";
             else
                 file << "   ";
@@ -83,10 +83,10 @@ bool AdvancedExport::exportFile(MetroNet &metroNet, std::string path) const {
     return true;
 }
 
-int AdvancedExport::indexVolgende(std::vector<Spoor* >&container, const std::string& naam) const {
+int AdvancedExport::indexVolgende(std::vector<Spoor *> &container, const std::string &naam) const {
 
-    for(unsigned int i = 0; i < container.size(); i++){
-        if(container[i]->getHuiding() == naam)
+    for (unsigned int i = 0; i < container.size(); i++) {
+        if (container[i]->getHuiding() == naam)
             return i;
     }
 

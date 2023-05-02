@@ -7,9 +7,12 @@
 
 #include <string>
 #include "../Stations/Station.h"
-namespace TramType{
 
-    enum TypeTram {PCC, StadsLijner, Albatros, InvalidTram};
+namespace TramType {
+
+    enum TypeTram {
+        PCC, StadsLijner, Albatros, InvalidTram
+    };
 
 }
 
@@ -65,7 +68,7 @@ public:
      * @post ENSURE(getBeginStation() == bs, "The member beginStation type has not been set properly")
      * @param bs De naam van het beginstation van een tram.
      * **/
-    void setBeginStation(std::string& bs);
+    void setBeginStation(std::string &bs);
 
     /**
      * Setter functie voor een tram object zijn snelheid te zetten.
@@ -86,7 +89,7 @@ public:
      * @post ENSURE(getHuidigStation() == h, "The member huidigStation type has not been set properly")
      * @param h Het huidig station van een tram.
      * **/
-    void setHuidigStation(std::string& h);
+    void setHuidigStation(std::string &h);
 
     /**
      * Controleerd ofdat de tram object correct geïnitialiseerd is.
@@ -106,7 +109,7 @@ public:
      * naar een volgende Station. De tweede ENSURE wordt opgeroepen in geval dat een Tram wel naar een volgende Station
      * verplaatst kan worden. In de tweede ENSURE zal die dan ook een ERROR throwen als er tog iets mis gaat.
      * **/
-    bool move(Station* station);
+    bool move(Station *station);
 
     /**
      * Setter functie die het Type attribuut zet voor een Tram object.
@@ -114,7 +117,7 @@ public:
      * @post ENSURE(getType() == t, "The member variable type has not been set properly")
      * @param type van het Tram object.
      * **/
-    void setType(std::string& type);
+    void setType(std::string &type);
 
     /**
      * Getter functie die het Type van een Tram object zal teruggeven.
@@ -144,12 +147,12 @@ public:
      * Virtual stationCanBeServiced
      * @param s Station
      * **/
-    virtual bool stationCanBeServiced(Station* s) = 0;
+    virtual bool stationCanBeServiced(Station *s) = 0;
 
     /**
      * Virtual destructor.
      * **/
-    virtual ~Tram(){};
+    virtual ~Tram() {};
 
     /**
      * Virtual getAantalDefecten
@@ -208,7 +211,7 @@ private:
     std::string huidigStation;
     std::string type; //TODO make enum
     int voertuigNummer;
-    Tram* _initCheck;
+    Tram *_initCheck;
 
     int defectWatcher;
 

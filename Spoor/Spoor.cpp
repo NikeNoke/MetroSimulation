@@ -55,9 +55,9 @@ std::string Spoor::getHuiding() const {
 
 bool Spoor::connectedToStation(const std::string &stationName) const {
 
-    if(getVolgende() == stationName)
+    if (getVolgende() == stationName)
         return true;
-    if(getVorige() == stationName)
+    if (getVorige() == stationName)
         return true;
 
     return false;

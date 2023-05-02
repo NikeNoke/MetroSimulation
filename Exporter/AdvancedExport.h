@@ -4,6 +4,7 @@
 
 #ifndef METROSIMULATION_ADVANCEDEXPORT_H
 #define METROSIMULATION_ADVANCEDEXPORT_H
+
 #include "../MetroNet/MetroNet.h"
 #include "InterfaceExport.h"
 
@@ -11,7 +12,7 @@
  * Klasse AdvancedExport dat overerft van InterfaceExport. Zorgt ervoor dat we files kunnen creëren
  * met een advanced path.
  * **/
-class AdvancedExport: public InterfaceExport{
+class AdvancedExport : public InterfaceExport {
 public:
 
     /**
@@ -23,7 +24,7 @@ public:
      * @param path van de file.
      * @return true or false
      * **/
-    bool exportFile(MetroNet& metroNet, std::string path) const;
+    bool exportFile(MetroNet &metroNet, std::string path) const;
 
     /**
      * Helperfunctie om een index van het volgende spoor.
@@ -31,7 +32,7 @@ public:
      * @param naam Naam van het spoor.
      * @return Index van het spoor of default -1 als er iets mis gaat.
      * **/
-    int indexVolgende(std::vector<Spoor* >&container, const std::string& naam) const;
+    int indexVolgende(std::vector<Spoor *> &container, const std::string &naam) const;
 
 private:
 

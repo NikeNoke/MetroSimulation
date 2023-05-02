@@ -10,8 +10,7 @@
 #include "../Stations/HalteStation.h"
 
 ParseStation::ParseStation(TiXmlElement *element)
-        : element(element)
-{
+        : element(element) {
     REQUIRE(element != NULL, "TixmlElement is NULL");
     _fInitcheck = this;
     ENSURE(getElement() == element, "TixmlElement is not the element of the parser");
@@ -34,18 +33,18 @@ bool ParseStation::parseAll() {
 // REQUIRE(checkValidSpoorNr() == true, "The spoorNr tag is not correct in this Station tag");
 // REQUIRE(checkValidVolgende() == true, "The volgende tag is not correct in this Station tag");
 
-    Station* station;
+    Station *station;
 
-    if(getStationType() == TypeStation::MetroStation)
+    if (getStationType() == TypeStation::MetroStation)
         station = new MetronetStation;
-    else if(getStationType() == TypeStation::Halte)
+    else if (getStationType() == TypeStation::Halte)
         station = new HalteStation;
-    else{
+    else {
         std::cerr << "The station type is not correct\n";
         return false;
     }
 
-    if(!parseNaam(station) || !parseTypeStation(station) || !parseSpoor(station)){
+    if (!parseNaam(station) || !parseTypeStation(station) || !parseSpoor(station)) {
         delete station;
         return false;
     }
@@ -74,12 +73,12 @@ bool ParseStation::checkValidNaam() const {
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
 
         std::string innerElementName = InnerElement->Value();
-        if(innerElementName == "SPOOR")
+        if (innerElementName == "SPOOR")
             continue;
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "naam"){
-            if(!Utils::is_int(innerText))
+        if (innerElementName == "naam") {
+            if (!Utils::is_int(innerText))
                 amountOfNamen++;
             else
                 return false;
@@ -95,11 +94,11 @@ bool ParseStation::checkValidStation() const {
 
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 
-    return checkValidNaam()  && checkValidTypeStation() && !checkNonValidAttributes();
+    return checkValidNaam() && checkValidTypeStation() && !checkNonValidAttributes();
 }
 
 
-bool ParseStation::parseNaam(Station* station) const {
+bool ParseStation::parseNaam(Station *station) const {
 
     REQUIRE(station->properlyInitialized(), "Station is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
@@ -109,11 +108,11 @@ bool ParseStation::parseNaam(Station* station) const {
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
 
         std::string innerElementName = InnerElement->Value();
-        if(innerElementName == "SPOOR")
+        if (innerElementName == "SPOOR")
             continue;
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "naam"){
+        if (innerElementName == "naam") {
             station->setName(innerText);
             return true;
         }
@@ -132,11 +131,11 @@ bool ParseStation::checkNonValidAttributes() const {
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
 
         std::string innerElementName = InnerElement->Value();
-        if(innerElementName == "SPOOR")
+        if (innerElementName == "SPOOR")
             continue;
-        if(innerElementName == "naam")
+        if (innerElementName == "naam")
             continue;
-        if(innerElementName == "type")
+        if (innerElementName == "type")
             continue;
         return true;
     }
@@ -160,12 +159,12 @@ bool ParseStation::checkValidTypeStation() const {
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
 
         std::string innerElementName = InnerElement->Value();
-        if(innerElementName == "SPOOR")
+        if (innerElementName == "SPOOR")
             continue;
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "type"){
-            if(!Utils::is_int(innerText))
+        if (innerElementName == "type") {
+            if (!Utils::is_int(innerText))
                 amountOfVolgende++;
             else
                 return false;
@@ -187,11 +186,11 @@ bool ParseStation::parseTypeStation(Station *station) const {
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
 
         std::string innerElementName = InnerElement->Value();
-        if(innerElementName == "SPOOR")
+        if (innerElementName == "SPOOR")
             continue;
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "type"){
+        if (innerElementName == "type") {
             station->setType(innerText);
             return true;
         }
@@ -215,15 +214,15 @@ bool ParseStation::parseSpoor(Station *station) const {
 
         std::string innerElementName = InnerElement->Value();
 
-        if(innerElementName == "SPOOR"){
-            Spoor* spoor = new Spoor;
+        if (innerElementName == "SPOOR") {
+            Spoor *spoor = new Spoor;
             ParseSpoor parseSpoor(InnerElement);
-            if (!parseSpoor.parseAll(spoor)){
+            if (!parseSpoor.parseAll(spoor)) {
                 delete spoor;
                 return false;
             }
             spoor->setHuidig(station->getName());
-            if(!station->addSpoor(spoor)){
+            if (!station->addSpoor(spoor)) {
                 std::cerr << "Halte kan enkel 1 spoor hebben!\n";
                 return false;
             }
@@ -243,14 +242,14 @@ TypeStation::StationType ParseStation::getStationType() const {
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
 
         std::string innerElementName = InnerElement->Value();
-        if(innerElementName == "SPOOR")
+        if (innerElementName == "SPOOR")
             continue;
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "type"){
-            if(innerText == "Metrostation")
+        if (innerElementName == "type") {
+            if (innerText == "Metrostation")
                 return TypeStation::MetroStation;
-            if(innerText == "Halte")
+            if (innerText == "Halte")
                 return TypeStation::Halte;
             else
                 return TypeStation::Invalid;
@@ -263,7 +262,7 @@ bool ParseStation::parseSuccessful() {
     return parseAll();
 }
 
-void ParseStation::setParsedStation(Station* s) {
+void ParseStation::setParsedStation(Station *s) {
     parsedStation = s;
 }
 

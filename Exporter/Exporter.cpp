@@ -7,7 +7,7 @@
 #include "../Utils/utils.h"
 #include "../Spoor/Spoor.h"
 
-bool Exporter::exportFile(MetroNet& metroNet) const {
+bool Exporter::exportFile(MetroNet &metroNet) const {
 
     SimpleExport simpleExporter;
     simpleExporter.exportFile(metroNet, getPathToSimple());
@@ -16,7 +16,7 @@ bool Exporter::exportFile(MetroNet& metroNet) const {
     return true;
 }
 
-Exporter::Exporter(std::string& pathS, std::string& pathA) {
+Exporter::Exporter(std::string &pathS, std::string &pathA) {
 //    REQUIRE(Utils::fileExists("../" + pathToF), "The file does not exist!");
     setPathToAdvanced(pathA);
     setPathToSimple(pathS); //TODO more ensures and requires

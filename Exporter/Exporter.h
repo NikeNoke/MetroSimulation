@@ -12,6 +12,7 @@
 #include "SimpleExport.h"
 
 class MetroNet;
+
 /**
  * Exporter klasse voor files te creëren en exporten.
  * **/
@@ -25,7 +26,7 @@ public:
      * @param pathToSimple
      * @param pathToAdvanced
      * **/
-    explicit Exporter(std::string& pathToSimple, std::string& pathToAdvanced);
+    explicit Exporter(std::string &pathToSimple, std::string &pathToAdvanced);
 
     /**
      * Default constructor van de klasse Exporter.
@@ -39,7 +40,7 @@ public:
      * @param metroNet Het metroNet dat geëxporteerd zal worden.
      * @return true or false
      * **/
-    bool exportFile(MetroNet& metroNet) const;
+    bool exportFile(MetroNet &metroNet) const;
 
 //    std::string getPathToFile() const;
 
@@ -80,7 +81,7 @@ private:
 
     std::string pathToSimple;
     std::string pathToAdvanced;
-    Exporter* _fInitCheck;
+    Exporter *_fInitCheck;
 
 };
 

@@ -10,8 +10,7 @@
 #include "../Trams/StadslijnerTram.h"
 
 ParseTram::ParseTram(TiXmlElement *element)
-    : fElement(element)
-{
+        : fElement(element) {
     REQUIRE(element != NULL, "TixmlElement is NULL");
     ENSURE(getElement() == element, "TixmlElement is not the element of the parser");
 }
@@ -34,8 +33,8 @@ bool ParseTram::checkValidBeginStation() const {
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "beginStation"){
-            if(!Utils::is_int(innerText))
+        if (innerElementName == "beginStation") {
+            if (!Utils::is_int(innerText))
                 amountOfBeginStation++;
             else
                 return false;
@@ -60,8 +59,8 @@ bool ParseTram::checkValidLijnNr() const {
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "lijnNr"){
-            if(Utils::is_int(innerText))
+        if (innerElementName == "lijnNr") {
+            if (Utils::is_int(innerText))
                 amountOfLijnNr++;
             else
                 return false;
@@ -77,11 +76,11 @@ bool ParseTram::checkValidTram() const {
 
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 
-    if(getTramType() != TramType::PCC)
+    if (getTramType() != TramType::PCC)
         return checkValidLijnNr() && checkValidBeginStation() && checkValidTypeTram() && !checkNonValidAttributes();
     return checkValidLijnNr() && checkValidBeginStation() && checkValidTypeTram() && checkValidReparatieTijd()
-            && checkValidReparatieKosten() && checkValidAantalDefecten() && checkValidVoertuigNummer()
-            && !checkNonValidAttributes();
+           && checkValidReparatieKosten() && checkValidAantalDefecten() && checkValidVoertuigNummer()
+           && !checkNonValidAttributes();
 }
 
 bool ParseTram::parseBeginStation(Tram *tram) const {
@@ -96,7 +95,7 @@ bool ParseTram::parseBeginStation(Tram *tram) const {
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "beginStation"){
+        if (innerElementName == "beginStation") {
             tram->setBeginStation(innerText);
             tram->setHuidigStation(innerText);
             return true;
@@ -121,7 +120,7 @@ bool ParseTram::parseLijnNr(Tram *tram) const {
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "lijnNr"){
+        if (innerElementName == "lijnNr") {
             int temp;
             sscanf(innerText.c_str(), "%d", &temp);
             tram->setLijnNr(temp);
@@ -143,25 +142,25 @@ bool ParseTram::parseAll() {
 //    REQUIRE(checkValidSpoorNr() == true, "The spoorNr tag is not correct in this Station tag");
 //    REQUIRE(checkValidVolgende() == true, "The volgende tag is not correct in this Station tag");
 
-    Tram* tram;
+    Tram *tram;
 
-    if(getTramType() == TramType::PCC)
+    if (getTramType() == TramType::PCC)
         tram = new PCCTram;
-    else if(getTramType() == TramType::StadsLijner)
+    else if (getTramType() == TramType::StadsLijner)
         tram = new StadslijnerTram;
-    else if(getTramType() == TramType::Albatros)
+    else if (getTramType() == TramType::Albatros)
         tram = new AlbatrosTram;
-    else{
+    else {
         std::cerr << "Tram type is invalid!\n";
         return false;
     }
 
-    if(!parseBeginStation(tram) || !parseLijnNr(tram) || !parseTypeTram(tram) || !parserVoertuigNummer(tram)){
+    if (!parseBeginStation(tram) || !parseLijnNr(tram) || !parseTypeTram(tram) || !parserVoertuigNummer(tram)) {
         delete tram;
         return false;
     }
-    if(getTramType() == TramType::PCC){
-        if(!parseAantalDefecten(tram) || !parseReparatieTijd(tram) || !parseReparatieKosten(tram)){
+    if (getTramType() == TramType::PCC) {
+        if (!parseAantalDefecten(tram) || !parseReparatieTijd(tram) || !parseReparatieKosten(tram)) {
             delete tram;
             return false;
         }
@@ -191,22 +190,22 @@ bool ParseTram::checkNonValidAttributes() const {
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "beginStation")
+        if (innerElementName == "beginStation")
             continue;
-        if(innerElementName == "lijnNr")
+        if (innerElementName == "lijnNr")
             continue;
 //        if(innerElementName == "snelheid") //TODO snelheid att moet niet langer supported worden
 //            continue;
-        if(innerElementName == "type")
+        if (innerElementName == "type")
             continue;
-        if(innerElementName == "voertuigNr")
+        if (innerElementName == "voertuigNr")
             continue;
-        if(getTramType() == TramType::PCC){
-            if(innerElementName == "reparatieKost")
+        if (getTramType() == TramType::PCC) {
+            if (innerElementName == "reparatieKost")
                 continue;
-            if(innerElementName == "reparatieTijd")
+            if (innerElementName == "reparatieTijd")
                 continue;
-            if(innerElementName == "aantalDefecten")
+            if (innerElementName == "aantalDefecten")
                 continue;
         }
         return true;
@@ -233,8 +232,8 @@ bool ParseTram::checkValidTypeTram() const {
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "type"){
-            if(!Utils::is_int(innerText)) //TODO add additional checks
+        if (innerElementName == "type") {
+            if (!Utils::is_int(innerText)) //TODO add additional checks
                 amountOfType++;
             else
                 return false;
@@ -246,7 +245,7 @@ bool ParseTram::checkValidTypeTram() const {
     return amountOfType == 1;
 }
 
-bool ParseTram::parseTypeTram(Tram* tram) const {
+bool ParseTram::parseTypeTram(Tram *tram) const {
 
     REQUIRE(tram->properlyInitialized(), "Tram is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
@@ -259,7 +258,7 @@ bool ParseTram::parseTypeTram(Tram* tram) const {
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "type"){
+        if (innerElementName == "type") {
             tram->setType(innerText);
             return true;
         }
@@ -281,8 +280,8 @@ bool ParseTram::checkValidVoertuigNummer() const {
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "voertuigNr"){
-            if(Utils::is_int(innerText))
+        if (innerElementName == "voertuigNr") {
+            if (Utils::is_int(innerText))
                 amountOfVoertuigNr++;
             else
                 return false;
@@ -307,7 +306,7 @@ bool ParseTram::parserVoertuigNummer(Tram *tram) const {
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "voertuigNr"){
+        if (innerElementName == "voertuigNr") {
             int temp;
             sscanf(innerText.c_str(), "%d", &temp);
             tram->setVoertuigNummer(temp);
@@ -329,12 +328,12 @@ TramType::TypeTram ParseTram::getTramType() const {
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "type"){
-            if(innerText == "PCC")
+        if (innerElementName == "type") {
+            if (innerText == "PCC")
                 return TramType::PCC;
-            if(innerText == "Stadslijner")
+            if (innerText == "Stadslijner")
                 return TramType::StadsLijner;
-            if(innerText == "Albatros")
+            if (innerText == "Albatros")
                 return TramType::Albatros;
             return TramType::InvalidTram;
         }
@@ -366,8 +365,8 @@ bool ParseTram::checkValidAantalDefecten() const {
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "aantalDefecten"){
-            if(Utils::is_int(innerText))
+        if (innerElementName == "aantalDefecten") {
+            if (Utils::is_int(innerText))
                 aantalDefecten++;
             else
                 return false;
@@ -391,8 +390,8 @@ bool ParseTram::checkValidReparatieTijd() const {
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "reparatieTijd"){
-            if(Utils::is_int(innerText))
+        if (innerElementName == "reparatieTijd") {
+            if (Utils::is_int(innerText))
                 aantalReparatieTijd++;
             else
                 return false;
@@ -416,8 +415,8 @@ bool ParseTram::checkValidReparatieKosten() const {
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "reparatieKost"){
-            if(Utils::is_int(innerText))
+        if (innerElementName == "reparatieKost") {
+            if (Utils::is_int(innerText))
                 aantalReparatieKost++;
             else
                 return false;
@@ -429,7 +428,7 @@ bool ParseTram::checkValidReparatieKosten() const {
     return aantalReparatieKost == 1;
 }
 
-bool ParseTram::parseAantalDefecten(Tram* tram) {
+bool ParseTram::parseAantalDefecten(Tram *tram) {
 
     REQUIRE(getTramType() == TramType::PCC, "Will not work on other types");
     REQUIRE(tram->properlyInitialized(), "Tram is not properlyInitialized");
@@ -443,7 +442,7 @@ bool ParseTram::parseAantalDefecten(Tram* tram) {
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "aantalDefecten"){
+        if (innerElementName == "aantalDefecten") {
             int temp;
             sscanf(innerText.c_str(), "%d", &temp);
             tram->setAantalDefecten(temp);
@@ -469,7 +468,7 @@ bool ParseTram::parseReparatieTijd(Tram *tram) {
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "reparatieTijd"){
+        if (innerElementName == "reparatieTijd") {
             int temp;
             sscanf(innerText.c_str(), "%d", &temp);
             tram->setReparatieTijd(temp);
@@ -495,7 +494,7 @@ bool ParseTram::parseReparatieKosten(Tram *tram) {
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "reparatieKost"){
+        if (innerElementName == "reparatieKost") {
             int temp;
             sscanf(innerText.c_str(), "%d", &temp);
             tram->setReparatieKost(temp);

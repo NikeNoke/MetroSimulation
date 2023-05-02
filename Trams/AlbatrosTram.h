@@ -4,6 +4,7 @@
 
 #ifndef METROSIMULATION_ALBATROSTRAM_H
 #define METROSIMULATION_ALBATROSTRAM_H
+
 #include "Tram.h"
 
 
@@ -11,9 +12,9 @@
  * Klasse AlbatrosTram, een sub-klasse van Tram. Deze klasse of type tram heeft attributen die uniek zijn voor
  * dit type van tram specifiek.
  * **/
-class AlbatrosTram: public Tram{
+class AlbatrosTram : public Tram {
 public:
-    
+
     /**
      * Helper functie die het type teruggeeft.
      * @return type
@@ -41,7 +42,7 @@ public:
     /**
      * Destructor van een AlbatrosTram object.
      * **/
-    ~AlbatrosTram(){};
+    ~AlbatrosTram() {};
 
     /**
      * Getter functie die het aantal defecten zal teruggeven van een Tram object van type AlbatrosTram.

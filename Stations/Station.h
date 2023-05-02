@@ -7,11 +7,14 @@
 
 #include <string>
 #include <vector>
+
 class Spoor;
 
-namespace TypeStation{
+namespace TypeStation {
 
-    enum StationType{MetroStation, Halte, Invalid};
+    enum StationType {
+        MetroStation, Halte, Invalid
+    };
 
 }
 
@@ -49,13 +52,13 @@ public:
      * Getter functie dat een vector van sporen zal teruggeven.
      * @return vector van Spoor objecten.
      * **/
-    std::vector<Spoor*> getSporen() const;
+    std::vector<Spoor *> getSporen() const;
 
     /**
      * Setter functie dat de naam van het station set.
      * @param n Naam van het station.
      * **/
-    void setName(std::string& n);
+    void setName(std::string &n);
 
 
     /**
@@ -70,7 +73,7 @@ public:
      * @post ENSURE(getType() == s, "The member variable type has not been properly initialized")
      * @param s Type
      * **/
-    void setType(std::string& s);
+    void setType(std::string &s);
 
     /**
      * Getter functie dat het type van een Station object zal teruggeven.
@@ -81,7 +84,7 @@ public:
     /**
      * Virtual destructor van een Station object.
      * **/
-    virtual ~Station(){};
+    virtual ~Station() {};
 
     /**
      * Functie dat Spoor object zal bijvoegen aan het MetroNet object (steekt ze in een vector van Spoor objecten).
@@ -99,7 +102,7 @@ public:
      * @param nr Spoor dat we willen.
      * @return Spoor object (of NULL pntr)
      * **/
-    Spoor* getSpoor(int nr) const;
+    Spoor *getSpoor(int nr) const;
 
     /**
      * Functie controleerd ofdat een Station object alleen unieke sporen heeft.
@@ -119,7 +122,7 @@ public:
      * @param lijnNr
      * @return true or false
      * **/
-    bool aSpoorConnectedToStation(const std::string& stationName, int lijnNr) const;
+    bool aSpoorConnectedToStation(const std::string &stationName, int lijnNr) const;
 
     /**
      * Functie controleerd ofdat de volgende Station ook dezelfde Spoor heeft
@@ -153,10 +156,10 @@ public:
 
 private:
 
-    std::vector<Spoor*> sporen;
+    std::vector<Spoor *> sporen;
     std::string fNaam;
     std::string fType;
-    Station* _fInitCheck;
+    Station *_fInitCheck;
 
     int visitedByTrams;
 };

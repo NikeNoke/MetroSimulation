@@ -24,18 +24,18 @@ protected:
 
     }
 
-    void checkOutputStations(std::ifstream file, int end){
+    void checkOutputStations(std::ifstream file, int end) {
 
     }
 
-    void checkOutputTrams(std::ifstream file, int end){
+    void checkOutputTrams(std::ifstream file, int end) {
 
     }
 
-    void checkOutputMetroNet(std::string output, MetroNet& metroNet){
+    void checkOutputMetroNet(std::string output, MetroNet &metroNet) {
 
-        std::vector<Station*> stations = metroNet.getStations();
-        std::vector<Tram*> trams = metroNet.getTrams();
+        std::vector<Station *> stations = metroNet.getStations();
+        std::vector<Tram *> trams = metroNet.getTrams();
 
         std::ifstream file;
 
@@ -49,24 +49,22 @@ protected:
         int endLineStation = 1 + (stations.size() * 4);
         int stationIndex = 1;
         int stationCounter = 0;
-        for(std::string line; lineCounter < endLineStation; lineCounter++){
+        for (std::string line; lineCounter < endLineStation; lineCounter++) {
             EXPECT_NO_FATAL_FAILURE(getline(file, line));
             EXPECT_FALSE(line == "Trams:") << "Not enough Stations\n";
-            if(stationIndex == 1){
-                EXPECT_TRUE(line == "\tstation" + SSTR(stationCounter) + ":") << "The station is not numbered correctly\n";
+            if (stationIndex == 1) {
+                EXPECT_TRUE(line == "\tstation" + SSTR(stationCounter) + ":")
+                                    << "The station is not numbered correctly\n";
                 stationCounter++;
                 stationIndex++;
-            }
-            else if(stationIndex == 2){
-                EXPECT_TRUE(line == "\t\tNaam: " + stations[stationCounter-1]->getName());
+            } else if (stationIndex == 2) {
+                EXPECT_TRUE(line == "\t\tNaam: " + stations[stationCounter - 1]->getName());
                 stationIndex++;
-            }
-            else if(stationIndex == 3){
-                EXPECT_TRUE(line == "\t\tVorige Station: " + stations[stationCounter-1]->getVorige());
+            } else if (stationIndex == 3) {
+                EXPECT_TRUE(line == "\t\tVorige Station: " + stations[stationCounter - 1]->getVorige());
                 stationIndex++;
-            }
-            else{
-                EXPECT_TRUE(line == "\t\tVolgende Station: " + stations[stationCounter-1]->getVolgende());
+            } else {
+                EXPECT_TRUE(line == "\t\tVolgende Station: " + stations[stationCounter - 1]->getVolgende());
                 stationIndex = 1;
             }
         }
@@ -78,28 +76,24 @@ protected:
         std::getline(file, startTrams);
         EXPECT_TRUE(startTrams == "Trams:") << "The tramStart of the file is wrong!\n";
         lineCounter++;
-        for(std::string line; lineCounter < endLineTram; lineCounter++){
+        for (std::string line; lineCounter < endLineTram; lineCounter++) {
 
             EXPECT_NO_FATAL_FAILURE(getline(file, line));
-            if(tramIndex == 1){
+            if (tramIndex == 1) {
                 EXPECT_TRUE(line == "\ttram" + SSTR(tramCounter) + ":") << "The Tram is not numbered correctly\n";
                 tramCounter++;
                 tramIndex++;
-            }
-            else if(tramIndex == 2){
-                EXPECT_TRUE(line == "\t\tLijnNr: " + SSTR(trams[tramCounter-1]->getLijnNr()));
+            } else if (tramIndex == 2) {
+                EXPECT_TRUE(line == "\t\tLijnNr: " + SSTR(trams[tramCounter - 1]->getLijnNr()));
                 tramIndex++;
-            }
-            else if(tramIndex == 3){
-                EXPECT_TRUE(line == "\t\tSnelheid: " + SSTR(trams[tramCounter-1]->getSnelheid()));
+            } else if (tramIndex == 3) {
+                EXPECT_TRUE(line == "\t\tSnelheid: " + SSTR(trams[tramCounter - 1]->getSnelheid()));
                 tramIndex++;
-            }
-            else if(tramIndex == 4){
-                EXPECT_TRUE(line == "\t\tBegin station: " + SSTR(trams[tramCounter-1]->getBeginStation()));
+            } else if (tramIndex == 4) {
+                EXPECT_TRUE(line == "\t\tBegin station: " + SSTR(trams[tramCounter - 1]->getBeginStation()));
                 tramIndex++;
-            }
-            else{
-                EXPECT_TRUE(line == "\t\tHuidig station: " + SSTR(trams[tramCounter-1]->getHuidigStation()));
+            } else {
+                EXPECT_TRUE(line == "\t\tHuidig station: " + SSTR(trams[tramCounter - 1]->getHuidigStation()));
                 tramIndex = 1;
             }
         }

@@ -1,9 +1,9 @@
 =C==A==B=
- T  T    
+ T     T 
 
 =F==D==E=
-       T 
+ T       
 
 =B==A==C=
-    T  T 
+ T     T 
 

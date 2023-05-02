@@ -9,9 +9,9 @@ void PCCTram::calculateSnelheid() {
 }
 
 bool PCCTram::stationCanBeServiced(Station *s) {
-    if(s->getTypeEnum() == TypeStation::MetroStation)
+    if (s->getTypeEnum() == TypeStation::MetroStation)
         return true;
-    if(s->getTypeEnum() == TypeStation::Halte)
+    if (s->getTypeEnum() == TypeStation::Halte)
         return true;
     return false;
 }

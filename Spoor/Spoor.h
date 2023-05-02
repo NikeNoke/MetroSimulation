@@ -4,6 +4,7 @@
 
 #ifndef METROSIMULATION_SPOOR_H
 #define METROSIMULATION_SPOOR_H
+
 #include <string>
 
 /**
@@ -77,21 +78,21 @@ public:
      * Setter functie dat de naam van het huidige station set.
      * @param h naam van het huidig station
      * **/
-    void setHuidig(const std::string& h);
+    void setHuidig(const std::string &h);
 
     /**
      * Functie dat controleerd ofdat een bepaald station verbonden is met een andere station op het MetroNet.
      * @param stationName
      * @return true or false
      * **/
-    bool connectedToStation(const std::string& stationName) const;
+    bool connectedToStation(const std::string &stationName) const;
 
 private:
     std::string volgende;
     std::string vorige;
     std::string huidig;
     int spoorNr;
-    Spoor* _fInitCheck;
+    Spoor *_fInitCheck;
 };
 
 

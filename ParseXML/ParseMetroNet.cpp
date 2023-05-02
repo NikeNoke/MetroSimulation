@@ -27,9 +27,9 @@ bool ParseMetroNet::parseMetroNet(MetroNet &metroNet) {
         if (current == "STATION") {
 
             ParseStation parseStation(element);
-            if(parseStation.parseSuccessful())
+            if (parseStation.parseSuccessful())
                 metroNet.addStation(parseStation.getParsedStation());
-            else{
+            else {
                 std::cerr << "STATION WAS WRONG\n";
                 return false;
             }
@@ -37,23 +37,22 @@ bool ParseMetroNet::parseMetroNet(MetroNet &metroNet) {
         } else if (current == "TRAM") {
 
             ParseTram parseTram(element);
-            if(parseTram.parseSuccessful())
+            if (parseTram.parseSuccessful())
                 metroNet.addTram(parseTram.getParsedTram());
             else
                 continue;
 
-        } else{
+        } else {
             std::cerr << "Deze element is ongekend!\n";
         }
     }
 
     getDoc().Clear();
 
-    if(metroNet.isValidMetroNet()){
+    if (metroNet.isValidMetroNet()) {
         metroNet.initializeStat();
         return true;
-    }
-    else
+    } else
         return false;
 
 }
@@ -65,7 +64,7 @@ bool ParseMetroNet::loadFile() {
     return success;
 }
 
-ParseMetroNet::ParseMetroNet(const std::string& pathToInput) {
+ParseMetroNet::ParseMetroNet(const std::string &pathToInput) {
     REQUIRE(Utils::fileExists(pathToInput), "The file does not exist!");
 //    REQUIRE(!pathToLog.empty(), "Path to log is empty");
     setPathToInput(std::fopen(pathToInput.c_str(), "r"));

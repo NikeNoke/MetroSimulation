@@ -9,7 +9,7 @@ void StadslijnerTram::calculateSnelheid() {
 }
 
 bool StadslijnerTram::stationCanBeServiced(Station *s) {
-    if(s->getTypeEnum() == TypeStation::MetroStation)
+    if (s->getTypeEnum() == TypeStation::MetroStation)
         return true;
     return false;
 }

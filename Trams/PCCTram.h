@@ -4,6 +4,7 @@
 
 #ifndef METROSIMULATION_PCCTRAM_H
 #define METROSIMULATION_PCCTRAM_H
+
 #include "Tram.h"
 
 
@@ -11,7 +12,7 @@
  * Klasse PCCTram, sub-klasse van Tram. Deze klasse of type tram heeft attributen die uniek zijn voor
  * dit type van tram specifiek.
  * **/
-class PCCTram: public Tram {
+class PCCTram : public Tram {
 public:
 
     /**
@@ -35,7 +36,7 @@ public:
     /**
      * Destructor van een PCCTram object.
      * **/
-    ~PCCTram(){};
+    ~PCCTram() {};
 
     /**
      * Getter functie die het aantal defecten zal teruggeven van een Tram object van type PCCTram.

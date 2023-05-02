@@ -13,7 +13,7 @@ void AlbatrosTram::calculateSnelheid() {
 }
 
 bool AlbatrosTram::stationCanBeServiced(Station *s) {
-    if(s->getTypeEnum() == TypeStation::MetroStation)
+    if (s->getTypeEnum() == TypeStation::MetroStation)
         return true;
     return false;
 }

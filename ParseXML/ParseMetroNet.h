@@ -8,6 +8,7 @@
 
 #include <string>
 #include "../TinyXML/tinyxml.h"
+
 class MetroNet;
 
 /**
@@ -24,14 +25,14 @@ public:
      * @return Een ParseMetroNet object.
      * @attention Zal een file openen waarnaar de MetroNet weggeschreven zal worden nadat die geparsed werd.
      * **/
-    explicit ParseMetroNet(const std::string& pathToFile);
+    explicit ParseMetroNet(const std::string &pathToFile);
 
     /**
      * Functie die effectief de MetroNet zal parsen.
      * @pre REQUIRE(loadFile(), "The file could not be loaded")
      * @param metroNet die geparsed wordt.
      * **/
-    bool parseMetroNet(MetroNet& metroNet);
+    bool parseMetroNet(MetroNet &metroNet);
 
     /**
      * Functie die controleert ofdat de file waarnaar we weg willen schrijven ingelezen kan worden.
@@ -45,13 +46,13 @@ public:
      * Getter functie die een document returned van type TiXmlDocument.
      * @return doc
      * **/
-    TiXmlDocument& getDoc();
+    TiXmlDocument &getDoc();
 
     /**
      * Getter functie die een pathToInput terug zal geven.
      * @return pathToInput
      * **/
-    FILE* getPathToInput() const;
+    FILE *getPathToInput() const;
 
     /**
      * Setter functie die de path van de file zal zetten.
@@ -59,7 +60,7 @@ public:
      * @post ENSURE(getPathToInput() == f, "setting was not successful")
      * @return true or false
      * **/
-    bool setPathToInput(FILE* f);
+    bool setPathToInput(FILE *f);
 
 //    bool setPathToLog(FILE* f);
 
@@ -68,7 +69,7 @@ public:
 
 private:
     TiXmlDocument doc;
-    FILE* pathToInput;
+    FILE *pathToInput;
 //    FILE* pathToLog;
 };
 

@@ -7,6 +7,7 @@
 
 
 #include "../MetroNet/MetroNet.h"
+
 /*
  * Pure virtual klasse dat dient voor files te exporten.
  * */
@@ -18,7 +19,8 @@ public:
      * @param metroNet Het metroNet dat men zal exporten.
      * @param path van de file.
      * **/
-    virtual bool exportFile(MetroNet& metroNet, std::string path) const = 0;
+    virtual bool exportFile(MetroNet &metroNet, std::string path) const = 0;
+
 private:
 };
 

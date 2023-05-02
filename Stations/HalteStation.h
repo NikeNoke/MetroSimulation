@@ -4,13 +4,14 @@
 
 #ifndef METROSIMULATION_HALTESTATION_H
 #define METROSIMULATION_HALTESTATION_H
+
 #include "Station.h"
 
 
 /**
  * Klasse HalteStation, erft over van Station.
  * **/
-class HalteStation: public Station{
+class HalteStation : public Station {
 
 public:
 

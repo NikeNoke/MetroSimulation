@@ -26,7 +26,7 @@ bool SimpleExport::exportFile(MetroNet &metroNet, std::string path) const {
         file << "= Station " << tempStations[i]->getName() << " =\n";
 //        file << "\t\tVorige Station: " << tempStations[i]->getVorige() << "\n";
 //        file << "\t\tVolgende Station: " << tempStations[i]->getVolgende() << "\n";
-        for(unsigned int j = 0; j < tempStations[i]->getSporen().size(); j++){
+        for (unsigned int j = 0; j < tempStations[i]->getSporen().size(); j++) {
             file << "* Spoor " << tempStations[i]->getSporen()[j]->getSpoorNr() << ":\n";
             file << "\t-> Station " << tempStations[i]->getSporen()[j]->getVolgende() << "\n";
             file << "\t<- Station  " << tempStations[i]->getSporen()[j]->getVorige() << "\n";
@@ -37,7 +37,7 @@ bool SimpleExport::exportFile(MetroNet &metroNet, std::string path) const {
     file << "--== TRAMS ==--\n";
 
     for (long unsigned int i = 0; i < tempTrams.size(); i++) {
-        Tram* currentTram = tempTrams[i];
+        Tram *currentTram = tempTrams[i];
         file << "Tram " << currentTram->getLijnNr() << " nr " << currentTram->getVoertuigNummer() << "\n";
         file << "\ttype: " << currentTram->getType() << "\n";
         file << "\tsnelheid: " << currentTram->getSnelheid() << "\n";

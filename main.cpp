@@ -8,14 +8,14 @@ int main() {
 
     //TODO test bots preventie!
     //TODO MAKE it a while loop
-    try{
+    try {
         MetroNetGenerator generator("metronet.xml", "metroNetSpecs.txt", "metroNetSpecs2.txt");
 
         generator.generateMetroNet();
 
         generator.simulate(1);
 
-    }catch(...) {
+    } catch (...) {
         std::cerr << "Error from main!\n";
     }
 

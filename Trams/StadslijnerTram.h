@@ -4,13 +4,14 @@
 
 #ifndef METROSIMULATION_STADSLIJNERTRAM_H
 #define METROSIMULATION_STADSLIJNERTRAM_H
+
 #include "Tram.h"
 
 /**
  * Klasse StadslijnerTram, een sub-klasse van Tram. Deze klasse of type tram heeft attributen die uniek zijn voor
  * dit type van tram specifiek.
  * **/
-class StadslijnerTram: public Tram {
+class StadslijnerTram : public Tram {
 public:
 
     /**
@@ -34,7 +35,7 @@ public:
     /**
      * Destructor van een StadslijnerTram object.
      * **/
-    ~StadslijnerTram(){};
+    ~StadslijnerTram() {};
 
     /**
      * Getter functie die het aantal defecten zal teruggeven van een Tram object van type StadslijnerTram.

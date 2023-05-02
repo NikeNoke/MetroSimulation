@@ -6,8 +6,7 @@
 #include "../Utils/utils.h"
 
 ParseSpoor::ParseSpoor(TiXmlElement *element)
-    : element(element)
-{
+        : element(element) {
     REQUIRE(element != NULL, "TixmlElement is NULL");
     _fInitcheck = this;
     ENSURE(getElement() == element, "TixmlElement is not the element of the parser");
@@ -30,8 +29,8 @@ bool ParseSpoor::checkValidVorige() const {
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "vorige"){
-            if(!Utils::is_int(innerText))
+        if (innerElementName == "vorige") {
+            if (!Utils::is_int(innerText))
                 amountOfVorige++;
             else
                 return false;
@@ -56,8 +55,8 @@ bool ParseSpoor::checkValidVolgende() const {
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "volgende"){
-            if(!Utils::is_int(innerText))
+        if (innerElementName == "volgende") {
+            if (!Utils::is_int(innerText))
                 amountOfVolgende++;
             else
                 return false;
@@ -93,8 +92,8 @@ bool ParseSpoor::checkValidSpoorNr() const {
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "spoorNr"){
-            if(Utils::is_int(innerText))
+        if (innerElementName == "spoorNr") {
+            if (Utils::is_int(innerText))
                 amountOfSpoorNr++;
             else
                 return false;
@@ -106,7 +105,7 @@ bool ParseSpoor::checkValidSpoorNr() const {
     return amountOfSpoorNr == 1;
 }
 
-bool ParseSpoor::parseVorige(Spoor* spoor) const {
+bool ParseSpoor::parseVorige(Spoor *spoor) const {
 
     REQUIRE(spoor->properlyInitialized(), "Station is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
@@ -118,7 +117,7 @@ bool ParseSpoor::parseVorige(Spoor* spoor) const {
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "vorige"){
+        if (innerElementName == "vorige") {
             spoor->setVorige(innerText);
             return true;
         }
@@ -128,7 +127,7 @@ bool ParseSpoor::parseVorige(Spoor* spoor) const {
     return false;
 }
 
-bool ParseSpoor::parseVolgende(Spoor* spoor) const {
+bool ParseSpoor::parseVolgende(Spoor *spoor) const {
 
     REQUIRE(spoor->properlyInitialized(), "Station is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
@@ -140,7 +139,7 @@ bool ParseSpoor::parseVolgende(Spoor* spoor) const {
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "volgende"){
+        if (innerElementName == "volgende") {
             spoor->setVolgende(innerText);
             return true;
         }
@@ -150,7 +149,7 @@ bool ParseSpoor::parseVolgende(Spoor* spoor) const {
     return false;
 }
 
-bool ParseSpoor::parseSpoorNr(Spoor* spoor) const {
+bool ParseSpoor::parseSpoorNr(Spoor *spoor) const {
 
     REQUIRE(spoor->properlyInitialized(), "Station is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
@@ -162,7 +161,7 @@ bool ParseSpoor::parseSpoorNr(Spoor* spoor) const {
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "spoorNr"){
+        if (innerElementName == "spoorNr") {
             int temp;
             sscanf(innerText.c_str(), "%d", &temp);
             spoor->setSpoorNr(temp);
@@ -184,11 +183,11 @@ bool ParseSpoor::checkNonValidAttributes() const {
         std::string innerElementName = InnerElement->Value();
         std::string innerText = InnerElement->GetText();
 
-        if(innerElementName == "spoorNr")
+        if (innerElementName == "spoorNr")
             continue;
-        if(innerElementName == "volgende")
+        if (innerElementName == "volgende")
             continue;
-        if(innerElementName == "vorige")
+        if (innerElementName == "vorige")
             continue;
         return true;
     }
@@ -202,13 +201,13 @@ TiXmlElement *ParseSpoor::getElement() const {
     return element;
 }
 
-bool ParseSpoor::parseAll(Spoor* spoor) const {
+bool ParseSpoor::parseAll(Spoor *spoor) const {
 
     REQUIRE(spoor->properlyInitialized(), "Station is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
     REQUIRE(checkValidSpoor() == true, "The Station tag is not correct");
 
-    if(!parseSpoorNr(spoor) || !parseVolgende(spoor) || !parseVorige(spoor))
+    if (!parseSpoorNr(spoor) || !parseVolgende(spoor) || !parseVorige(spoor))
         return false;
 
     ENSURE(!spoor->getVorige().empty(), "The vorige of spoor has not been correctly initialized");

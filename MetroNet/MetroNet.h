@@ -114,7 +114,7 @@ public:
      * @param stationName naam van het station dat we gaan controleren.
      * @return true or false.
      * **/
-    bool aTramAtStation(const std::string& stationName);
+    bool aTramAtStation(const std::string &stationName);
 
     /**
      * Functie dat kijkt ofdar er op een gegeven station er een tram zich bevindt (advanced).
@@ -124,7 +124,7 @@ public:
      * @param lijnNr lijnNr dat we gaan controleren ofdat die overeenkomt met die van een tram.
      * @return true or false
      * **/
-    bool aTramAtStationSpoor(const std::string& stationName, int lijnNr);
+    bool aTramAtStationSpoor(const std::string &stationName, int lijnNr);
 
     /**
      * Functie dat een tram van zijn huidige station gaat moven naar zijn volgende station.
@@ -133,7 +133,7 @@ public:
      * @param TargetStationName Station waar we de tram naar willen verplaatsen.
      * @return true or false
      * **/
-    bool moveTram(Tram* t , std::string& TargetStationName);
+    bool moveTram(Tram *t, std::string &TargetStationName);
 
     /**
      * Functie dat alle trammen zal verplaatsen naar hun volgende station als dat mogelijk is.
@@ -148,7 +148,7 @@ public:
      * @param stationName naam van het station dat we gaan controleren.
      * @param lijnNr lijnNr dat we gaan controleren ofdat die overeenkomt met die van een tram.
      * **/
-    Tram* getTramAtStationSpoor(const std::string& stationName, int lijnNr);
+    Tram *getTramAtStationSpoor(const std::string &stationName, int lijnNr);
 
     /**
      * Getter functie dat de totale reparatie kost zal teruggeven.
@@ -170,24 +170,24 @@ public:
 
 private:
 
-    bool controlStation(Station* s);
+    bool controlStation(Station *s);
 
-    bool spoorLineHasTram(Spoor* s);
+    bool spoorLineHasTram(Spoor *s);
 
-    bool tramLineHasSpoor(Tram* t);
+    bool tramLineHasSpoor(Tram *t);
 
-    bool beginStationTramCorrect(Tram* t);
+    bool beginStationTramCorrect(Tram *t);
 
-    bool uniqueTram(Tram* t);
+    bool uniqueTram(Tram *t);
 
-    bool validSpoor(Spoor* s);
+    bool validSpoor(Spoor *s);
 
-    bool controlTram(Tram* t);
+    bool controlTram(Tram *t);
 
 private:
     std::vector<Station *> fStations;
     std::vector<Tram *> fTrams;
-    MetroNet * _fInitCheck;
+    MetroNet *_fInitCheck;
 
     bool initializeStatCalled;
 

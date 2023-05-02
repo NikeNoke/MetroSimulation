@@ -35,11 +35,11 @@ std::string Station::getName() const {
 //    return fVorige;
 //}
 
-std::vector<Spoor*> Station::getSporen() const {
+std::vector<Spoor *> Station::getSporen() const {
     return sporen;
 }
 
-void Station::setName(std::string& n) {
+void Station::setName(std::string &n) {
     REQUIRE(!(Utils::is_int(n)), "The parameter naam is a number");
     fNaam = n;
     ENSURE(getName() == n, "The member variable naam has not been properly initialized");
@@ -49,7 +49,7 @@ bool Station::properlyInitialized() {
     return _fInitCheck == this;
 }
 
-void Station::setType(std::string& s) {
+void Station::setType(std::string &s) {
     REQUIRE(!(Utils::is_int(s)), "The parameter type is a number");
     fType = s;
     ENSURE(getType() == s, "The member variable type has not been properly initialized");
@@ -60,10 +60,10 @@ std::string Station::getType() const {
 }
 
 bool Station::addSpoor(Spoor *s) {
-    if(getType() == "Metrostation")
+    if (getType() == "Metrostation")
         sporen.push_back(s);
-    else if(getType() == "Halte"){
-        if(sporen.size() >= 1)
+    else if (getType() == "Halte") {
+        if (sporen.size() >= 1)
             return false;
         sporen.push_back(s);
     }
@@ -72,9 +72,9 @@ bool Station::addSpoor(Spoor *s) {
 
 Spoor *Station::getSpoor(int nr) const {
 
-    for(unsigned int i = 0; i < sporen.size(); i++){
+    for (unsigned int i = 0; i < sporen.size(); i++) {
 
-        if(sporen[i]->getSpoorNr() == nr)
+        if (sporen[i]->getSpoorNr() == nr)
             return sporen[i];
 
     }
@@ -98,9 +98,9 @@ bool Station::hasUniqueSporen() const {
 
 bool Station::hasSpoor(int nr) const {
 
-    for(unsigned int i = 0; i < sporen.size(); i++){
+    for (unsigned int i = 0; i < sporen.size(); i++) {
 
-        if(sporen[i]->getSpoorNr() == nr)
+        if (sporen[i]->getSpoorNr() == nr)
             return true;
 
     }
@@ -109,14 +109,14 @@ bool Station::hasSpoor(int nr) const {
 
 bool Station::aSpoorConnectedToStation(const std::string &stationName, int lijnNr) const {
 
-    std::vector<Spoor* > tempSporen = this->getSporen();
+    std::vector<Spoor *> tempSporen = this->getSporen();
 
-    for(unsigned int i = 0; i < tempSporen.size(); i++){
+    for (unsigned int i = 0; i < tempSporen.size(); i++) {
 
-        if(tempSporen[i]->getSpoorNr() != lijnNr)
+        if (tempSporen[i]->getSpoorNr() != lijnNr)
             continue;
 
-        if(tempSporen[i]->connectedToStation(stationName))
+        if (tempSporen[i]->connectedToStation(stationName))
             return true;
 
     }
@@ -125,11 +125,11 @@ bool Station::aSpoorConnectedToStation(const std::string &stationName, int lijnN
 
 std::string Station::nextOfSpoor(int lijnNr) const {
 
-    std::vector<Spoor* > tempSporen = this->getSporen();
+    std::vector<Spoor *> tempSporen = this->getSporen();
 
-    for(unsigned int i = 0; i < tempSporen.size(); i++){
+    for (unsigned int i = 0; i < tempSporen.size(); i++) {
 
-        if(tempSporen[i]->getSpoorNr() != lijnNr)
+        if (tempSporen[i]->getSpoorNr() != lijnNr)
             continue;
 
         REQUIRE(tempSporen[i]->getHuiding() == getName(), "Spoor in station is wrong");
@@ -141,11 +141,11 @@ std::string Station::nextOfSpoor(int lijnNr) const {
 
 std::string Station::previousOfSpoor(int lijnNr) const {
 
-    std::vector<Spoor* > tempSporen = this->getSporen();
+    std::vector<Spoor *> tempSporen = this->getSporen();
 
-    for(unsigned int i = 0; i < tempSporen.size(); i++){
+    for (unsigned int i = 0; i < tempSporen.size(); i++) {
 
-        if(tempSporen[i]->getSpoorNr() != lijnNr)
+        if (tempSporen[i]->getSpoorNr() != lijnNr)
             continue;
 
         REQUIRE(tempSporen[i]->getHuiding() == getName(), "Spoor in station is wrong");

@@ -5,7 +5,7 @@
 #include "MetroNetGenerator.h"
 #include "../Exporter/Exporter.h"
 
-MetroNetGenerator::MetroNetGenerator(std::string pathToXml,std::string pathToWrite,std::string pathToWrite2) {
+MetroNetGenerator::MetroNetGenerator(std::string pathToXml, std::string pathToWrite, std::string pathToWrite2) {
     REQUIRE(Utils::fileExists(pathToXml), "Path to xml is wrong or file does not exist");
     setPathToOpenXml(pathToXml);
     setPathToWrite(pathToWrite);
@@ -28,14 +28,14 @@ std::string MetroNetGenerator::getPathToWrite() const {
     return pathToWrite;
 }
 
-void MetroNetGenerator::setPathToOpenXml(std::string& p) {
+void MetroNetGenerator::setPathToOpenXml(std::string &p) {
     REQUIRE(Utils::fileExists(p), "Path to xml is wrong or file does not exist");
     pathToOpenXml = p;
-    ENSURE(getPathToOpenXml() ==  p, "The set was a failure");
+    ENSURE(getPathToOpenXml() == p, "The set was a failure");
 
 }
 
-void MetroNetGenerator::setPathToWrite(std::string& p) {
+void MetroNetGenerator::setPathToWrite(std::string &p) {
     pathToWrite = p;
     ENSURE(getPathToWrite() == p, "The setting was failure");
 }
