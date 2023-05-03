@@ -153,6 +153,12 @@ public:
      * **/
     Station *getParsedStation() const;
 
+    /**
+     * Functie dat controleert ofdat er sporen aanwezig zijn en die valid zijn.
+     * @return true or false
+     * **/
+    bool checkSporen() const;
+
 private:
     TiXmlElement *element;
     ParseStation *_fInitcheck;

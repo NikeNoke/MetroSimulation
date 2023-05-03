@@ -242,9 +242,17 @@ public:
      * **/
     bool parseReparatieKosten(Tram* tram);
 
+    /**
+     * Methode controleert ofdat er een type is tijdens het parsen.
+     * @return true or false
+     * @attention Deze methode is niet hetzelfde als checkValidTramType. Deze functie checkt namelijk ofdat er uberhaubt
+     * een type is. checkValidTramType checked dat er niet meer dan één zijn.
+     * **/
+    bool checkTramTypeExists() const;
 private:
     TiXmlElement * fElement;
     Tram* parsedTram;
+
 
 };
 

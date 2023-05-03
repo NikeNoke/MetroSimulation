@@ -78,10 +78,9 @@ bool ParseStation::checkValidNaam() const {
         std::string innerText = InnerElement->GetText();
 
         if (innerElementName == "naam") {
-            if (!Utils::is_int(innerText))
+            if (!Utils::is_int(innerText)) {
                 amountOfNamen++;
-            else
-                return false;
+            } else { return false; }
         }
     }
 
@@ -94,9 +93,25 @@ bool ParseStation::checkValidStation() const {
 
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 
-    return checkValidNaam() && checkValidTypeStation() && !checkNonValidAttributes();
+    return checkValidNaam() && checkValidTypeStation() && !checkNonValidAttributes() && checkSporen();
 }
 
+bool ParseStation::checkSporen() const {
+    REQUIRE(getElement() != NULL, "TixmlElement is NULL");
+    int spoorAantal = 0;
+    for (TiXmlElement *InnerElement = getElement()->FirstChildElement();
+         InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
+
+        std::string innerElementName = InnerElement->Value();
+        if (innerElementName == "SPOOR") {
+            spoorAantal++;
+        }
+
+
+    }
+    ENSURE(getElement() != NULL, "TixmlElement has become NULL");
+    return spoorAantal > 0;
+}
 
 bool ParseStation::parseNaam(Station *station) const {
 
@@ -164,10 +179,9 @@ bool ParseStation::checkValidTypeStation() const {
         std::string innerText = InnerElement->GetText();
 
         if (innerElementName == "type") {
-            if (!Utils::is_int(innerText))
+            if (!Utils::is_int(innerText)) {
                 amountOfVolgende++;
-            else
-                return false;
+            } else { return false; }
         }
     }
 

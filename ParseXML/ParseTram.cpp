@@ -77,10 +77,25 @@ bool ParseTram::checkValidTram() const {
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 
     if (getTramType() != TramType::PCC)
-        return checkValidLijnNr() && checkValidBeginStation() && checkValidTypeTram() && !checkNonValidAttributes();
+        return checkValidLijnNr() && checkValidBeginStation() && checkValidTypeTram() && !checkNonValidAttributes() &&
+               checkTramTypeExists();
     return checkValidLijnNr() && checkValidBeginStation() && checkValidTypeTram() && checkValidReparatieTijd()
-           && checkValidReparatieKosten() && checkValidAantalDefecten() && checkValidVoertuigNummer()
-           && !checkNonValidAttributes();
+           && checkValidReparatieKosten() && checkValidAantalDefecten() && checkValidVoertuigNummer() &&
+           checkTramTypeExists() && !checkNonValidAttributes();
+}
+
+bool ParseTram::checkTramTypeExists() const {
+    REQUIRE(getElement() != NULL, "TixmlElement is NULL");
+    bool exists = false;
+    for (TiXmlElement *innerElement = getElement()->FirstChildElement();
+         innerElement != NULL; innerElement = innerElement->NextSiblingElement()) {
+
+        std::string innerElementName = innerElement->Value();
+        if (innerElementName == "type") {
+            exists = true;
+        }
+    }
+    return exists;
 }
 
 bool ParseTram::parseBeginStation(Tram *tram) const {
@@ -242,7 +257,7 @@ bool ParseTram::checkValidTypeTram() const {
 
     ENSURE(getElement() != NULL, "TixmlElement has become NULL");
 
-    return amountOfType == 1;
+    return amountOfType <= 1;
 }
 
 bool ParseTram::parseTypeTram(Tram *tram) const {
@@ -320,7 +335,7 @@ bool ParseTram::parserVoertuigNummer(Tram *tram) const {
 
 TramType::TypeTram ParseTram::getTramType() const {
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
-    REQUIRE(checkValidTypeTram() == true, "The type tag is not correct in this Station tag");
+    REQUIRE(checkValidTypeTram() == true, "The type tag is not correct in this Tram tag");
 
     for (TiXmlElement *InnerElement = getElement()->FirstChildElement();
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
