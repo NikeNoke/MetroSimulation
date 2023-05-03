@@ -2,7 +2,8 @@
 <METRONET>
     <STATION>
         <naam>A</naam>
-        <typeMetrostation</type>
+        <naam>b</naam>
+        <type>Metrostation</type>
         <SPOOR>
             <spoorNr>12</spoorNr>
             <volgende>B</volgende>

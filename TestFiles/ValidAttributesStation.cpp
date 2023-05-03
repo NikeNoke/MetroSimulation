@@ -58,45 +58,37 @@ TEST_F(ValidAttributesStation, ValidStations) {
 
             std::string current = element->Value();
             if (current == "STATION") {
-                Station *station;
-                for (TiXmlElement *attribute = element->FirstChildElement();
-                     attribute != NULL; attribute = attribute->NextSiblingElement()) {
-                    std::string type = attribute->Value();
-                    std::string typeText = attribute->GetText();
-                    if (type == "type") {
-                        if (typeText == "Metrostation") {
-                            station = new MetronetStation;
-                        }
-                        if (typeText == "Halte") {
-                            station = new HalteStation;
-                        }
-                    }
-                    ParseStation parseStation(element);
 
-                    EXPECT_TRUE(parseStation.parseSuccessful()) << "Parse unsuccessful\n";
-                    //EXPECT_TRUE(parseStation.checkValidSpoorNr()) << "SpoorNr is not Valid\n";
-                    //EXPECT_TRUE(parseStation.checkValidVolgende()) << "Volgende is not Valid\n";
-                    //EXPECT_TRUE(parseStation.checkValidVorige()) << "Vorige is not Valid\n";
-                    EXPECT_TRUE(parseStation.checkValidNaam()) << "Naam is not Valid\n";
-                    EXPECT_TRUE(parseStation.checkValidTypeStation()) << "Type is not valid\n";
-                    EXPECT_TRUE(parseStation.checkValidStation()) << "Station is not valid\n";
-                    //EXPECT_TRUE(parseStation.parseVorige(metroNet, station)) << "Vorige has not been correctly parsed\n";
-                    //EXPECT_TRUE(parseStation.parseVolgende(metroNet, station)) << "Volgende has not been correctly parsed\n";
-                    //EXPECT_TRUE(parseStation.parseSpoorNr(metroNet, station)) << "SpoorNr has not been correctly parsed\n";
-                    //EXPECT_TRUE(parseStation.parseNaam(metroNet, station)) << "Naam has not been correctly parsed\n";
 
-                    EXPECT_FALSE(parseStation.checkNonValidAttributes()) << "There are wrong atrributes present\n";
-                }
-                delete station;
+                ParseStation parseStation(element);
+
+                EXPECT_TRUE(parseStation.parseSuccessful()) << "Parse unsuccessful\n";
+                //EXPECT_TRUE(parseStation.checkValidSpoorNr()) << "SpoorNr is not Valid\n";
+                //EXPECT_TRUE(parseStation.checkValidVolgende()) << "Volgende is not Valid\n";
+                //EXPECT_TRUE(parseStation.checkValidVorige()) << "Vorige is not Valid\n";
+                EXPECT_TRUE(parseStation.checkValidNaam()) << "Naam is not Valid\n";
+                EXPECT_TRUE(parseStation.checkValidTypeStation()) << "Type is not valid\n";
+                EXPECT_TRUE(parseStation.checkValidStation()) << "Station is not valid\n";
+                //EXPECT_TRUE(parseStation.parseVorige(metroNet, station)) << "Vorige has not been correctly parsed\n";
+                //EXPECT_TRUE(parseStation.parseVolgende(metroNet, station)) << "Volgende has not been correctly parsed\n";
+                //EXPECT_TRUE(parseStation.parseSpoorNr(metroNet, station)) << "SpoorNr has not been correctly parsed\n";
+                //EXPECT_TRUE(parseStation.parseNaam(metroNet, station)) << "Naam has not been correctly parsed\n";
+
+                EXPECT_FALSE(parseStation.checkNonValidAttributes()) << "There are wrong atrributes present\n";
+
+
             }
+
         }
+
         doc.Clear();
 
         fileCounter = fileCounter + 1;
         fileName = "TestInputXML/ValidStation/metroNet" + SSTR(fileCounter) + ".xml";
     }
-
 }
+
+
 
 //Death Test
 TEST_F(ValidAttributesStation, InValidStation) {
@@ -118,19 +110,7 @@ TEST_F(ValidAttributesStation, InValidStation) {
 
             std::string current = element->Value();
             if (current == "STATION") {
-                Station *station;
-                for (TiXmlElement *inner = element->FirstChildElement();
-                     inner != NULL; inner = inner->NextSiblingElement()) {
-                    std::string type = inner->Value();
-                    std::string typeText = inner->GetText();
-                    if (type == "type") {
-                        if (typeText == "Metrostation") {
-                            station = new MetronetStation;
-                        }
-                        if (typeText == "Halte") {
-                            station = new HalteStation;
-                        }
-                    }
+
                     ParseStation parseStation(element);
 
                     EXPECT_FALSE(parseStation.checkValidStation()) << "checkValidStation returned true\n";
@@ -141,10 +121,10 @@ TEST_F(ValidAttributesStation, InValidStation) {
 
 //                if(!station->getName().empty()){
 //                    if(!metroNet.stationRegistered(station->getName()))
-                delete station;
+
 //                }
 
-            }
+
         }
         doc.Clear();
 

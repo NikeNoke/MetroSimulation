@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<METRONET>
-    <STATION>
+<METRONET
+    <STATIO>
         <naam>A</naam>
         <type></type>
         <SPOOR>
@@ -13,7 +13,7 @@
             <volgende>C</volgende>
             <vorige>B</vorige>
         </SPOOR>
-    </STATION>
+    </STAT
     <STATION>
         <naam>B</naam>
         <type>Metrostation</type>
