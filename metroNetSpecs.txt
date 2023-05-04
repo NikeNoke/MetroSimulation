@@ -45,20 +45,20 @@
 Tram 12 nr 1
 	type: PCC
 	snelheid: 40
-	huidig station: C
+	huidig station: B
 
 Tram 12 nr 2
 	type: Albatros
 	snelheid: 70
-	huidig station: B
+	huidig station: A
 
 Tram 21 nr 3
 	type: Albatros
 	snelheid: 70
-	huidig station: B
+	huidig station: C
 
 Tram 17 nr 4
 	type: PCC
 	snelheid: 40
-	huidig station: D
+	huidig station: F
 
