@@ -58,7 +58,7 @@ public:
      * Setter functie dat de naam van het station set.
      * @param n Naam van het station.
      * **/
-    void setName(std::string &n);
+    void setName(std::string n);
 
 
     /**
@@ -70,10 +70,11 @@ public:
     /**
      * Setter functie dat het type van een Station object zal setten.
      * @pre REQUIRE(!(Utils::is_int(s)), "The parameter type is a number")
+     * @pre REQUIRE(s == "Metrostation" || s == "Halte", "Type of Station is an invalid type.")
      * @post ENSURE(getType() == s, "The member variable type has not been properly initialized")
      * @param s Type
      * **/
-    void setType(std::string &s);
+    void setType(std::string s);
 
     /**
      * Getter functie dat het type van een Station object zal teruggeven.
@@ -160,7 +161,7 @@ private:
     std::string fNaam;
     std::string fType;
     Station *_fInitCheck;
-
+    std::vector<std::string> types;
     int visitedByTrams;
 };
 

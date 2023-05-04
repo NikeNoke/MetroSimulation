@@ -86,6 +86,13 @@ namespace Utils{
      */
     bool fileIsEmpty(const std::string filename);
 
+    /**
+     * Functie dat controleerd ofdat een getal negatief is.
+     * @param n getal
+     * @return true or false
+     * **/
+    bool isNegative(int n);
+
 }
 
 #endif //METROSIMULATION_UTILS_H

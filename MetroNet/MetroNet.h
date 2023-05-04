@@ -38,6 +38,8 @@ public:
      * Voegt station toe bij MetroNet.
      * @pre REQUIRE(station->properlyInitialized(), "The parameter station is not properly initialized")
      * @pre REQUIRE(!stationRegistered(station->getName()), "The station is already in the metroNet")
+     * @pre REQUIRE(station->getName() != "", "The station needs have a name.")
+     * @pre REQUIRE(!station->getSporen().empty(), "Station must have sporen.")
      * @post ENSURE(stationRegistered(station->getName()), "The station was not successfully added")
      * @param station station dat toegevoegd wordt.
      * **/
@@ -114,7 +116,7 @@ public:
      * @param stationName naam van het station dat we gaan controleren.
      * @return true or false.
      * **/
-    bool aTramAtStation(const std::string &stationName);
+    bool aTramAtStation(const std::string stationName);
 
     /**
      * Functie dat kijkt ofdar er op een gegeven station er een tram zich bevindt (advanced).
@@ -133,7 +135,7 @@ public:
      * @param TargetStationName Station waar we de tram naar willen verplaatsen.
      * @return true or false
      * **/
-    bool moveTram(Tram *t, std::string &TargetStationName);
+    bool moveTram(Tram *t, std::string TargetStationName);
 
     /**
      * Functie dat alle trammen zal verplaatsen naar hun volgende station als dat mogelijk is.
@@ -167,6 +169,16 @@ public:
      * weg te schrijven zoals: totale reparatiekosten, welke station door welke tram bezocht werd etc.
      * **/
     void getStatReport();
+
+    /**
+     * Zelfde functie als moveTram maar zonder print statements speciaal voor test case usage.
+     * @pre REQUIRE(!aTramAtStationSpoor(targetStationName, tram->getLijnNr()),"There cannot be a tram at targetStation SpoorNr to move Tram!")
+     * @param t Tram dat we gaan moven
+     * @param TargetStationName Station waar we de tram naar willen verplaatsen.
+     * @return true or false
+     * @see moveTram
+     * **/
+    bool _moveTest(Tram *tram, std::string targetStationName);
 
 private:
 

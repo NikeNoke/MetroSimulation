@@ -26,6 +26,8 @@ bool MetroNet::stationRegistered(const std::string &name) const {
 void MetroNet::addStation(Station *const station) {
     REQUIRE(station->properlyInitialized(), "The parameter station is not properly initialized");
     REQUIRE(!stationRegistered(station->getName()), "The station is already in the metroNet");
+    REQUIRE(station->getName() != "", "The station needs have a name.");
+    REQUIRE(!station->getSporen().empty(), "Station must have sporen.");
     fStations.push_back(station);
     ENSURE(stationRegistered(station->getName()), "The station was not successfully added");
 }
@@ -39,7 +41,7 @@ void MetroNet::addTram(Tram *const tram) {
 
 Station *MetroNet::getStation(const std::string &name) {
     REQUIRE(!(Utils::is_int(name)), "The parameter name is a number");
-    REQUIRE(stationRegistered(name), "The station is not Registered!");
+    //REQUIRE(stationRegistered(name), "The station is not Registered!");
     for (long unsigned int i = 0; i < fStations.size(); i++) {
         if (fStations[i]->getName() == name)
             return fStations[i];
@@ -257,7 +259,7 @@ bool MetroNet::controlStation(Station *station) {
 
 }
 
-bool MetroNet::aTramAtStation(const std::string &stationName) {
+bool MetroNet::aTramAtStation(const std::string stationName) {
 
     std::vector<Tram *> trams = getTrams();
 
@@ -412,7 +414,7 @@ bool MetroNet::controlTram(Tram *t) {
     return true;
 }
 
-bool MetroNet::moveTram(Tram *tram, std::string &targetStationName) {
+bool MetroNet::moveTram(Tram *tram, std::string targetStationName) {
 
     REQUIRE(!aTramAtStationSpoor(targetStationName, tram->getLijnNr()), \
     "There cannot be a tram at targetStation SpoorNr to move Tram!");
@@ -422,6 +424,26 @@ bool MetroNet::moveTram(Tram *tram, std::string &targetStationName) {
     //if possible
     if (currentStation->aSpoorConnectedToStation(targetStationName, tram->getLijnNr())) {
         if (tram->move(targetStation)) {
+            //if moved targetStation visitedByTrams + 1 TODO
+            targetStation->setVisitedByTrams(targetStation->getVisitedByTrams() + 1);
+            return true;
+        }
+        return false;
+    }
+
+    return false;
+}
+
+bool MetroNet::_moveTest(Tram *tram, std::string targetStationName) {
+
+    REQUIRE(!aTramAtStationSpoor(targetStationName, tram->getLijnNr()), \
+    "There cannot be a tram at targetStation SpoorNr to move Tram!");
+
+    Station *currentStation = getStation(tram->getHuidigStation());
+    Station *targetStation = getStation(targetStationName);
+    //if possible
+    if (currentStation->aSpoorConnectedToStation(targetStationName, tram->getLijnNr())) {
+        if (tram->_moveTest(targetStation)) {
             //if moved targetStation visitedByTrams + 1 TODO
             targetStation->setVisitedByTrams(targetStation->getVisitedByTrams() + 1);
             return true;

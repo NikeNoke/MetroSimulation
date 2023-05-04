@@ -62,3 +62,9 @@ bool Spoor::connectedToStation(const std::string &stationName) const {
 
     return false;
 }
+
+Spoor::Spoor(const std::string vorige, const std::string volgende, int spoorNr) : volgende(volgende), vorige(vorige),
+                                                                                  spoorNr(spoorNr) {
+    _fInitCheck = this;
+    ENSURE(properlyInitialized(), "The Spoor has not been properly initialized");
+}

@@ -22,6 +22,18 @@ public:
     Spoor();
 
     /**
+     * Constructor met gegeven attributes.
+     * @post ENSURE(properlyInitialized(), "The Spoor has not been properly initialized")
+     * @param vorige station op deze spoor
+     * @param volgende station op deze spoor
+     * @param spoorNr nummer van de spoor
+     * @return Spoor object
+     * @note Deze constructor wordt vooral gebruikt bij het testen ipv bij het runnen.
+     * Dit is omdat we al een vaste parser hebben die werkt met een default constructor.
+     * **/
+    Spoor(const std::string vorige, const std::string volgende, int spoorNr);
+
+    /**
      * Controleert ofdat het spoor correct is geïnitialiseerd.
      * @return true of false
      * **/

@@ -57,3 +57,10 @@ bool Utils::fileIsEmpty(const std::string filename) {
     return st.st_size == 0;
 }
 
+bool Utils::isNegative(int n) {
+    if (n - n != 0) {
+        return true;
+    } else { return false; }
+
+}
+
