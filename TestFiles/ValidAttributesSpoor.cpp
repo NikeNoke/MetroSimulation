@@ -124,3 +124,40 @@ TEST_F(ValidAttributesSpoor, InValidSporen) {
         fileName = "TestInputXML/InValidSporen/metroNet" + SSTR(fileCounter) + ".xml";
     }
 }
+
+TEST_F(ValidAttributesSpoor, InValidSpoorAttributes) {
+    ASSERT_TRUE(Utils::directoryExists("TestInputXML")) << "Directory to test does not exist\n";
+
+    int fileCounter = 0;
+    std::string fileName = "TestInputXML/InValidSpoorAttributes/metroNet" + SSTR(fileCounter) + ".xml";
+
+    while (Utils::fileExists(fileName)) {
+        TiXmlDocument doc;
+        TiXmlElement *root = NULL;
+        checkFile(doc, root, fileName);
+
+        MetroNet metroNet;
+
+        for (TiXmlElement *element = root->FirstChildElement();
+             element != NULL; element = element->NextSiblingElement()) {
+
+            std::string current = element->Value();
+            if (current == "STATION") {
+                for (TiXmlElement *innerElement = element->FirstChildElement();
+                     innerElement != NULL; innerElement = innerElement->NextSiblingElement()) {
+                    std::string innerCurrent = innerElement->Value();
+                    if (innerCurrent == "SPOOR") {
+                        ParseSpoor parseSpoor(innerElement);
+                        EXPECT_FALSE(parseSpoor.checkValidSpoor()) << "Spoor is valid but was expected not to \n";
+                    }
+                }
+            }
+
+        }
+
+        doc.Clear();
+
+        fileCounter = fileCounter + 1;
+        fileName = "TestInputXML/InValidSpoorAttributes/metroNet" + SSTR(fileCounter) + ".xml";
+    }
+}

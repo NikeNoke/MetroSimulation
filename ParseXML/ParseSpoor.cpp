@@ -173,6 +173,32 @@ bool ParseSpoor::parseSpoorNr(Spoor *spoor) const {
     return false;
 }
 
+bool ParseSpoor::checkNonValidAttributesAmount() const {
+
+    REQUIRE(getElement() != NULL, "TixmlElement is NULL");
+    int amountSpoorNr = 0;
+    int amountVolgende = 0;
+    int amountVorige = 0;
+    for (TiXmlElement *InnerElement = getElement()->FirstChildElement();
+         InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
+
+        std::string innerElementName = InnerElement->Value();
+        std::string innerText = InnerElement->GetText();
+
+        if (innerElementName == "spoorNr") {
+            amountSpoorNr++;
+        }
+        if (innerElementName == "volgende") {
+            amountVolgende++;
+        }
+
+        if (innerElementName == "vorige") {
+            amountVorige++;
+        }
+    }
+    return amountSpoorNr == 1 && amountVolgende == 1 && amountVorige == 1;
+}
+
 bool ParseSpoor::checkNonValidAttributes() const {
 
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");

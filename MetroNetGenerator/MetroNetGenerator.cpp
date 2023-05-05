@@ -40,7 +40,7 @@ void MetroNetGenerator::setPathToWrite(std::string &p) {
     ENSURE(getPathToWrite() == p, "The setting was failure");
 }
 
-void MetroNetGenerator::generateMetroNet() {
+void MetroNetGenerator::generateMetroNet(bool noStat) {
 
     REQUIRE(Utils::fileExists(getPathToOpenXml()), "The file to open does not exist");
 
@@ -50,7 +50,9 @@ void MetroNetGenerator::generateMetroNet() {
 
     getExporter().exportFile(getMetroNet());
 
-    getMetroNet().getStatReport();
+    if (!noStat) {
+        getMetroNet().getStatReport();
+    }
 
     ENSURE(getMetroNet().isValidMetroNet(), "The metroNet is not valid");
     ENSURE(Utils::fileExists(getPathToWrite()), "The file was not even created");

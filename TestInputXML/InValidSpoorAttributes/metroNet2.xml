@@ -4,9 +4,10 @@
         <naam>A</naam>
         <type>Metrostation</type>
         <SPOOR>
-            <spoorNr>12</spoorNr>
-            <volgende>B</volgende>
-
+            <spoorNr>586</spoorNr>
+            <spoorNr>21</spoorNr>
+            <volgende>C</volgende>
+            <vorige>B</vorige>
         </SPOOR>
     </STATION>
 </METRONET>

@@ -33,7 +33,7 @@ TEST_F(ValidMetroNet, ValidMetroNet) {
     while (Utils::fileExists(fileName)) {
         MetroNetGenerator generator(fileName, output, output);
 
-        EXPECT_NO_FATAL_FAILURE(generator.generateMetroNet()) << "The metroNet was not Valid!\n";
+        EXPECT_NO_FATAL_FAILURE(generator.generateMetroNet(true)) << "The metroNet was not Valid!\n";
 
         fileCounter = fileCounter + 1;
         fileName = "TestInputXML/ValidMetroNet/metroNet" + SSTR(fileCounter) + ".xml";

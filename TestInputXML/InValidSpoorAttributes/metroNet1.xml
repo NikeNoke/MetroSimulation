@@ -6,7 +6,8 @@
         <SPOOR>
             <spoorNr>12</spoorNr>
             <volgende>B</volgende>
-
+            <vorige>C</vorige>
+            <INVALID>ofeoi"éfoijéfoij</INVALID>
         </SPOOR>
     </STATION>
 </METRONET>

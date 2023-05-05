@@ -92,6 +92,12 @@ public:
      * **/
     bool checkValidSpoor() const;
 
+    /**
+     * Checked ofdat elke spoor de valid aantal attributen heeft en dat elk attribuut exact 1 keer geparsed wordt.
+     * @return true or false
+     * **/
+    bool checkNonValidAttributesAmount() const;
+
 
     /**
      * Functie dat controleerd ofdat de vorige station valid is of niet.

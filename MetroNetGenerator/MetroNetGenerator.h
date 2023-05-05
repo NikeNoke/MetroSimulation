@@ -36,9 +36,11 @@ public:
      * @pre REQUIRE(Utils::fileExists(getPathToOpenXml()), "The file to open does not exist")
      * @post ENSURE(getMetroNet().isValidMetroNet(), "The metroNet is not valid")
      * @post ENSURE(Utils::fileExists(getPathToWrite()), "The file was not even created")
+     * @param noStat boolean dat op default op false staat. Als ze op true wordt gezet dan zal er geen stat
+     * report afgedrukt worden. (Handig voor testsen waar we geen bloat willen).
      * @note Roept de methode metroNetParser van ParseMetroNet om de MetroNet van de XML file te parsen.
      * **/
-    void generateMetroNet();
+    void generateMetroNet(bool noStat=false);
 
     /**
      * Getter functie om MetroNet te returnen.
