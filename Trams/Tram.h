@@ -207,6 +207,8 @@ public:
      * **/
     bool _moveTest(Station *targetStation);
 
+    bool tramCanMove();
+
 protected:
     int snelheid;
     int aantalDefecten;
@@ -232,9 +234,6 @@ private:
     int getReparatieTijdWatcher() const;
 
     void setReparatieTijdWatcher(int reparatieTijdWatcher);
-
-    bool tramCanMove();
-
 
 };
 

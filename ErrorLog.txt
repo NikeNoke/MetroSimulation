@@ -1,0 +1,1 @@
+testing_tool: /home/byamba/CLionProjects/MetroSimulation/MetroNet/MetroNet.cpp:419: Assertion `There cannot be a tram at targetStation SpoorNr to move Tram!' failed.
