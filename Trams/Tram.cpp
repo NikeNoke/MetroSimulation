@@ -114,11 +114,18 @@ bool Tram::_moveTest(Station *targetStation) {
 void Tram::setType(std::string t) {
     REQUIRE(!(Utils::is_int(t)), "The parameter type is a number");
     REQUIRE(t == "Albatros" || t == "PCC" || t == "Stadslijner", "Type given for tram is an invalid type");
-    type = t;
-    ENSURE(getType() == t, "The member variable type has not been set properly");
+    if (t == "PCC")
+        type = TramType::PCC;
+    else if(t == "Stadslijner")
+        type = TramType::StadsLijner;
+    else if (t == "Albatros")
+        type = TramType::Albatros;
+    else
+        type = TramType::InvalidTram;
+    ENSURE(getType() == type, "The member variable type has not been set properly");
 }
 
-std::string Tram::getType() const {
+TramType::TypeTram Tram::getType() const {
     return type;
 }
 

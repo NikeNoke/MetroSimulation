@@ -78,7 +78,7 @@ bool ParseTram::checkValidTram() const {
 
     if (getTramType() != TramType::PCC)
         return checkValidLijnNr() && checkValidBeginStation() && checkValidTypeTram() && !checkNonValidAttributes() &&
-               checkTramTypeExists();
+               checkTramTypeExists() && checkValidVoertuigNummer();
     return checkValidLijnNr() && checkValidBeginStation() && checkValidTypeTram() && checkValidReparatieTijd()
            && checkValidReparatieKosten() && checkValidAantalDefecten() && checkValidVoertuigNummer() &&
            checkTramTypeExists() && !checkNonValidAttributes();
@@ -187,7 +187,7 @@ bool ParseTram::parseAll() {
     ENSURE(!tram->getBeginStation().empty(), "The beginStation of Tram has not been correctly initialized");
     ENSURE(!tram->getHuidigStation().empty(), "The huidigStation of Tram has not been correctly initialized");
     ENSURE(tram->getSnelheid() != -1, "The snelheid of tram has not been correctly initialized");
-    ENSURE(!tram->getType().empty(), "The type of Tram has not been correctly initialized");
+    ENSURE(tram->getType() != TramType::InvalidTram, "The type of Tram has not been correctly initialized");
     ENSURE(getParsedTram() == tram, "GG");
     ENSURE(getElement() != NULL, "TixmlElement is NULL");
 
@@ -278,7 +278,7 @@ bool ParseTram::parseTypeTram(Tram *tram) const {
             return true;
         }
     }
-    ENSURE(!tram->getType().empty(), "The type of tram has not been correctly initialized");
+    ENSURE(tram->getType() != TramType::InvalidTram, "The type of tram has not been correctly initialized");
     ENSURE(getElement() != NULL, "TixmlElement is NULL");
     return false;
 }

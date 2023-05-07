@@ -104,6 +104,10 @@ bool ParseStation::checkSporen() const {
 
         std::string innerElementName = InnerElement->Value();
         if (innerElementName == "SPOOR") {
+            ParseSpoor parseSpoor(InnerElement);
+            if (!parseSpoor.checkValidSpoor()) {
+                return false;
+            }
             spoorAantal++;
         }
 
@@ -180,7 +184,10 @@ bool ParseStation::checkValidTypeStation() const {
 
         if (innerElementName == "type") {
             if (!Utils::is_int(innerText)) {
-                amountOfVolgende++;
+                if(innerText == "Metrostation" || innerText == "Halte")
+                    amountOfVolgende++;
+                else
+                    return false;
             } else { return false; }
         }
     }

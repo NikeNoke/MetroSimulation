@@ -51,6 +51,7 @@ protected:
 
 TEST_F(ValidAttributesSpoor, ValidSporen) {
     ASSERT_TRUE(Utils::directoryExists("TestInputXML")) << "Directory to test does not exist\n";
+    ASSERT_TRUE(Utils::directoryExists("TestInputXML/ValidSporen")) << "Directory to test does not exist\n";
 
     int fileCounter = 0;
     std::string fileName = "TestInputXML/ValidSporen/metroNet" + SSTR(fileCounter) + ".xml";
@@ -72,8 +73,10 @@ TEST_F(ValidAttributesSpoor, ValidSporen) {
                     std::string innerCurrent = innerElement->Value();
                     if (innerCurrent == "SPOOR") {
                         ParseSpoor parseSpoor(innerElement);
-
+                        Spoor* spoor = new Spoor;
                         EXPECT_TRUE(parseSpoor.checkValidSpoor()) << "Spoor is not valid \n";
+                        EXPECT_TRUE(parseSpoor.parseAll(spoor)) << "The parse was not successful";
+                        delete spoor;
                     }
                 }
             }
@@ -89,6 +92,7 @@ TEST_F(ValidAttributesSpoor, ValidSporen) {
 
 TEST_F(ValidAttributesSpoor, InValidSporen) {
     ASSERT_TRUE(Utils::directoryExists("TestInputXML")) << "Directory to test does not exist\n";
+    ASSERT_TRUE(Utils::directoryExists("TestInputXML/InValidSporen")) << "Directory to test does not exist\n";
 
     int fileCounter = 0;
     std::string fileName = "TestInputXML/InValidSporen/metroNet" + SSTR(fileCounter) + ".xml";
@@ -110,8 +114,10 @@ TEST_F(ValidAttributesSpoor, InValidSporen) {
                     std::string innerCurrent = innerElement->Value();
                     if (innerCurrent == "SPOOR") {
                         ParseSpoor parseSpoor(innerElement);
-
+                        Spoor* spoor = new Spoor;
                         EXPECT_FALSE(parseSpoor.checkValidSpoor()) << "Spoor is valid but was expected not to \n";
+//                        EXPECT_DEATH(parseSpoor.parseAll(spoor), "The Spoor tag is not correct");
+                        delete spoor;
                     }
                 }
             }
@@ -127,6 +133,7 @@ TEST_F(ValidAttributesSpoor, InValidSporen) {
 
 TEST_F(ValidAttributesSpoor, InValidSpoorAttributes) {
     ASSERT_TRUE(Utils::directoryExists("TestInputXML")) << "Directory to test does not exist\n";
+    ASSERT_TRUE(Utils::directoryExists("TestInputXML/InValidSpoorAttributes")) << "Directory to test does not exist\n";
 
     int fileCounter = 0;
     std::string fileName = "TestInputXML/InValidSpoorAttributes/metroNet" + SSTR(fileCounter) + ".xml";
@@ -148,6 +155,7 @@ TEST_F(ValidAttributesSpoor, InValidSpoorAttributes) {
                     std::string innerCurrent = innerElement->Value();
                     if (innerCurrent == "SPOOR") {
                         ParseSpoor parseSpoor(innerElement);
+                        EXPECT_TRUE(parseSpoor.checkNonValidAttributes()) << "The none Valid attributes were not detected\n";
                         EXPECT_FALSE(parseSpoor.checkValidSpoor()) << "Spoor is valid but was expected not to \n";
                     }
                 }

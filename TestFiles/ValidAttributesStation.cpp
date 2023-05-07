@@ -42,6 +42,7 @@ protected:
 //HappyDay
 TEST_F(ValidAttributesStation, ValidStations) {
     ASSERT_TRUE(Utils::directoryExists("TestInputXML")) << "Directory to test does not exist\n";
+    ASSERT_TRUE(Utils::directoryExists("TestInputXML/ValidStation")) << "Directory to test does not exist\n";
 
     int fileCounter = 0;
     std::string fileName = "TestInputXML/ValidStation/metroNet" + SSTR(fileCounter) + ".xml";
@@ -62,19 +63,8 @@ TEST_F(ValidAttributesStation, ValidStations) {
 
                 ParseStation parseStation(element);
 
+                EXPECT_TRUE(parseStation.checkValidStation()) << "The station was not seen as valid\n";
                 EXPECT_TRUE(parseStation.parseSuccessful()) << "Parse unsuccessful\n";
-                //EXPECT_TRUE(parseStation.checkValidSpoorNr()) << "SpoorNr is not Valid\n";
-                //EXPECT_TRUE(parseStation.checkValidVolgende()) << "Volgende is not Valid\n";
-                //EXPECT_TRUE(parseStation.checkValidVorige()) << "Vorige is not Valid\n";
-                EXPECT_TRUE(parseStation.checkValidNaam()) << "Naam is not Valid\n";
-                EXPECT_TRUE(parseStation.checkValidTypeStation()) << "Type is not valid\n";
-                EXPECT_TRUE(parseStation.checkValidStation()) << "Station is not valid\n";
-                //EXPECT_TRUE(parseStation.parseVorige(metroNet, station)) << "Vorige has not been correctly parsed\n";
-                //EXPECT_TRUE(parseStation.parseVolgende(metroNet, station)) << "Volgende has not been correctly parsed\n";
-                //EXPECT_TRUE(parseStation.parseSpoorNr(metroNet, station)) << "SpoorNr has not been correctly parsed\n";
-                //EXPECT_TRUE(parseStation.parseNaam(metroNet, station)) << "Naam has not been correctly parsed\n";
-
-                EXPECT_FALSE(parseStation.checkNonValidAttributes()) << "There are wrong atrributes present\n";
 
 
             }
@@ -94,6 +84,7 @@ TEST_F(ValidAttributesStation, ValidStations) {
 TEST_F(ValidAttributesStation, InValidStation) {
 
     ASSERT_TRUE(Utils::directoryExists("TestInputXML")) << "Directory to test does not exist\n";
+    ASSERT_TRUE(Utils::directoryExists("TestInputXML/InValidStation")) << "Directory to test does not exist\n";
 
     int fileCounter = 0;
     std::string fileName = "TestInputXML/InValidStation/metroNet" + SSTR(fileCounter) + ".xml";
@@ -156,7 +147,7 @@ TEST_F(ValidAttributesStation, InValidStationAttributes) {
                 ParseStation parseStation(element);
 
                 EXPECT_TRUE(parseStation.checkNonValidAttributes())
-                                    << "Wrong attributes are not present (was expected)\n";
+                                    << "Wrong attributes were not detected\n";
 
             }
         }

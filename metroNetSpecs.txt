@@ -43,22 +43,22 @@
 
 --== TRAMS ==--
 Tram 12 nr 1
-	type: PCC
+	type: 0
 	snelheid: 40
-	huidig station: C
+	huidig station: A
 
 Tram 12 nr 2
-	type: Albatros
+	type: 2
 	snelheid: 70
-	huidig station: B
+	huidig station: C
 
 Tram 21 nr 3
-	type: Albatros
+	type: 2
 	snelheid: 70
-	huidig station: B
+	huidig station: A
 
 Tram 17 nr 4
-	type: PCC
+	type: 0
 	snelheid: 40
-	huidig station: D
+	huidig station: E
 

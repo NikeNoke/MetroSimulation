@@ -124,7 +124,7 @@ public:
      * Getter functie die het Type van een Tram object zal teruggeven.
      * @return Type van het Tram object.
      * **/
-    std::string getType() const;
+    TramType::TypeTram getType() const;
 
     /**
      * Setter functie die het voertuigNr attribuut zet voor een Tram object.
@@ -217,7 +217,7 @@ private:
     std::string beginStation;
     int lijnNr;
     std::string huidigStation;
-    std::string type; //TODO make enum
+    TramType::TypeTram type; //TODO make enum
     int voertuigNummer;
     Tram *_initCheck;
 

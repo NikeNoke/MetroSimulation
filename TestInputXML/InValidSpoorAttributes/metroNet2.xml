@@ -4,7 +4,7 @@
         <naam>A</naam>
         <type>Metrostation</type>
         <SPOOR>
-            <spoorNr>586</spoorNr>
+            <spoorN>586</spoorN>
             <spoorNr>21</spoorNr>
             <volgende>C</volgende>
             <vorige>B</vorige>

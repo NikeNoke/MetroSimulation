@@ -202,7 +202,6 @@ bool ParseSpoor::checkNonValidAttributesAmount() const {
 bool ParseSpoor::checkNonValidAttributes() const {
 
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
-
     for (TiXmlElement *InnerElement = getElement()->FirstChildElement();
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
 
@@ -229,9 +228,9 @@ TiXmlElement *ParseSpoor::getElement() const {
 
 bool ParseSpoor::parseAll(Spoor *spoor) const {
 
-    REQUIRE(spoor->properlyInitialized(), "Station is not properlyInitialized");
+    REQUIRE(spoor->properlyInitialized(), "Spoor is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
-    REQUIRE(checkValidSpoor() == true, "The Station tag is not correct");
+    REQUIRE(checkValidSpoor() == true, "The Spoor tag is not correct");
 
     if (!parseSpoorNr(spoor) || !parseVolgende(spoor) || !parseVorige(spoor))
         return false;

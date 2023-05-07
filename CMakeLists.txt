@@ -28,7 +28,7 @@ set(DEBUG_SOURCE_FILES tests.cpp Trams/Tram.cpp Stations/Station.cpp TinyXML/tin
         Exporter/Exporter.cpp Exporter/InterfaceExport.cpp Exporter/SimpleExport.cpp
         Utils/utils.cpp ParseXML/ParseStation.cpp ParseXML/ParseTram.cpp ParseXML/ParseMetroNet.cpp
         Exporter/Exporter.cpp MetroNetGenerator/MetroNetGenerator.cpp TestFiles/ValidMetroNetTest.cpp
-        TestFiles/ValidAttributesStation.cpp TestFiles/ValidAttributesTram.cpp TestFiles/ValidExport.cpp TestFiles/DomainTestSuite.cpp TestFiles/ValidAttributesSpoor.cpp TestFiles/TagChecker.cpp)
+        TestFiles/ValidAttributesStation.cpp TestFiles/ValidAttributesTram.cpp TestFiles/ValidSimpleExport.cpp TestFiles/DomainTestSuite.cpp TestFiles/ValidAttributesSpoor.cpp TestFiles/TagChecker.cpp TestFiles/ValidAdvancedExport.cpp)
 
 # Create RELEASE target
 add_executable(Metro ${RELEASE_SOURCE_FILES})

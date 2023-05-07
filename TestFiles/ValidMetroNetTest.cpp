@@ -25,6 +25,8 @@ protected:
 //Preconditie: Stations and Trams are correct!
 TEST_F(ValidMetroNet, ValidMetroNet) {
     ASSERT_TRUE(Utils::directoryExists("TestInputXML")) << "Directory to test does not exist\n";
+    ASSERT_TRUE(Utils::directoryExists("TestInputXML/ValidMetroNet")) << "Directory to test does not exist\n";
+    ASSERT_TRUE(Utils::directoryExists("TestOutput")) << "Directory for test output does not exist\n";
 
     int fileCounter = 0;
     std::string fileName = "TestInputXML/ValidMetroNet/metroNet" + SSTR(fileCounter) + ".xml";
@@ -44,6 +46,8 @@ TEST_F(ValidMetroNet, ValidMetroNet) {
 //Preconditie: Stations and Trams are correct!
 TEST_F(ValidMetroNet, InValidMetroNet) {
     ASSERT_TRUE(Utils::directoryExists("TestInputXML")) << "Directory to test does not exist\n";
+    ASSERT_TRUE(Utils::directoryExists("TestInputXML/InValidMetroNet")) << "Directory to test does not exist\n";
+    ASSERT_TRUE(Utils::directoryExists("TestOutput")) << "Directory for test output does not exist\n";
 
     int fileCounter = 0;
     std::string fileName = "TestInputXML/InValidMetroNet/metroNet" + SSTR(fileCounter) + ".xml";

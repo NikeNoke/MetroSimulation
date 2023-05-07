@@ -39,6 +39,7 @@ protected:
 
 TEST_F(ValidAttributesTram, ValidTrams) {
     ASSERT_TRUE(Utils::directoryExists("TestInputXML")) << "Directory to test does not exist\n";
+    ASSERT_TRUE(Utils::directoryExists("TestInputXML/ValidTram")) << "Directory to test does not exist\n";
 
     int fileCounter = 0;
     std::string fileName = "TestInputXML/ValidTram/metronet" + SSTR(fileCounter) + ".xml";
@@ -58,17 +59,24 @@ TEST_F(ValidAttributesTram, ValidTrams) {
 
                 ParseTram parseTram(element);
 
-                EXPECT_TRUE(parseTram.checkValidLijnNr()) << "LijnNr is not Valid\n";
-                EXPECT_TRUE(parseTram.checkValidBeginStation()) << "Begin Station is not Valid\n";
-                //EXPECT_TRUE(parseTram.checkValidSnelheid()) << "Snelheid is not Valid\n";
+                EXPECT_TRUE(parseTram.checkTramTypeExists()) << "Tram does not have a type is not Valid\n";
+                EXPECT_TRUE(parseTram.checkValidTypeTram()) << "Type of Tram is not Valid\n";
 
-                //EXPECT_TRUE(parseTram.parseSnelheid(metroNet, tram)) << "Snelheid has not been correctly parsed\n";
-                //EXPECT_TRUE(parseTram.parseLijnNr(metroNet, tram)) << "LijnNr has not been correctly parsed\n";
-                //EXPECT_TRUE(parseTram.parseBeginStation(metroNet, tram))
-                //                    << "Begin Station has not been correctly parsed\n";
-
-                EXPECT_FALSE(parseTram.checkNonValidAttributes()) << "There are wrong atrributes present\n";
-
+                if(parseTram.getTramType() != TramType::PCC){
+                    EXPECT_TRUE(parseTram.checkValidLijnNr()) << "LijnNr is not Valid\n";
+                    EXPECT_TRUE(parseTram.checkValidBeginStation()) << "Begin Station is not Valid\n";
+                    EXPECT_TRUE(parseTram.checkValidVoertuigNummer()) << "The Tram identification is not Valid\n";
+                    EXPECT_FALSE(parseTram.checkNonValidAttributes()) << "There are nonValidAttributes in the Tram\n";
+                }else{
+                    EXPECT_TRUE(parseTram.checkValidLijnNr()) << "LijnNr is not Valid\n";
+                    EXPECT_TRUE(parseTram.checkValidBeginStation()) << "Begin Station is not Valid\n";
+                    EXPECT_TRUE(parseTram.checkValidVoertuigNummer()) << "The Tram identification is not Valid\n";
+                    EXPECT_TRUE(parseTram.checkValidReparatieTijd()) << "The reparation Time is not Valid\n";
+                    EXPECT_TRUE(parseTram.checkValidReparatieKosten()) << "The reparation Cost is not Valid\n";
+                    EXPECT_TRUE(parseTram.checkValidAantalDefecten()) << "The amount of defects are not Valid\n";
+                    EXPECT_FALSE(parseTram.checkNonValidAttributes()) << "There are wrong atrributes present\n";
+                }
+                EXPECT_TRUE(parseTram.parseSuccessful()) << "The parsing was not successful\n";
             }
 
         }
@@ -83,6 +91,7 @@ TEST_F(ValidAttributesTram, ValidTrams) {
 //Death test
 TEST_F(ValidAttributesTram, InValidTrams) {
     ASSERT_TRUE(Utils::directoryExists("TestInputXML")) << "Directory to test does not exist\n";
+    ASSERT_TRUE(Utils::directoryExists("TestInputXML/InValidTram")) << "Directory to test does not exist\n";
 
     int fileCounter = 0;
     std::string fileName = "TestInputXML/InValidTram/metronet" + SSTR(fileCounter) + ".xml";
@@ -104,9 +113,7 @@ TEST_F(ValidAttributesTram, InValidTrams) {
                 ParseTram parseTram(element);
 
                 EXPECT_FALSE(parseTram.checkValidTram()) << "Tram should not have been valid\n";
-
-                    //EXPECT_DEATH(parseTram.parseAll(metroNet, tram), "The Tram tag is not correct");
-
+                EXPECT_FALSE(parseTram.parseSuccessful()) << "Tram should not have been parsed\n";
 
             }
 
@@ -141,7 +148,7 @@ TEST_F(ValidAttributesTram, InValidTramAttributes) {
                 ParseTram parseTram(element);
 
                 EXPECT_TRUE(parseTram.checkNonValidAttributes())
-                                    << "Wrong attributes are not present (was expected)\n";
+                                    << "Wrong attributes were no detected\n";
 
             }
 

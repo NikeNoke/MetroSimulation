@@ -43,6 +43,9 @@ bool SimpleExport::exportFile(MetroNet &metroNet, std::string path) const {
         file << "\tsnelheid: " << currentTram->getSnelheid() << "\n";
         file << "\thuidig station: " << currentTram->getHuidigStation() << "\n";
         //reparatie kosten
+        if(currentTram->getType() == TramType::PCC){
+            file << "\treparatiekosten: " << currentTram->getTotalReparatieKost() << "\n";
+        }
         file << "\n";
     }
 

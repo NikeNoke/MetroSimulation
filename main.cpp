@@ -6,8 +6,6 @@ int main() {
     freopen("OperationLog.txt", "w", stdout);
     freopen("ErrorLog.txt", "w", stderr);
 
-    //TODO test bots preventie!
-    //TODO MAKE it a while loop
     try {
         MetroNetGenerator generator("metronet.xml", "metroNetSpecs.txt", "metroNetSpecs2.txt");
 

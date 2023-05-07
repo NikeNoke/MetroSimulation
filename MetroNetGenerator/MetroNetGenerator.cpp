@@ -14,6 +14,8 @@ MetroNetGenerator::MetroNetGenerator(std::string pathToXml, std::string pathToWr
     //ENSURE NEEDED? --> set op does it already!
     exporter.setPathToSimple(pathToWrite);
     exporter.setPathToAdvanced(pathToWrite2);
+    ENSURE(exporter.getPathToSimple() == pathToWrite, "setter was not successful");
+    ENSURE(exporter.getPathToAdvanced() == pathToWrite2, "setter was not successful");
 }
 
 MetroNet &MetroNetGenerator::getMetroNet() {
