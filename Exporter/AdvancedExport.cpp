@@ -90,3 +90,11 @@ int AdvancedExport::indexVolgende(std::vector<Spoor *> &container, const std::st
 
     return -1;
 }
+
+AdvancedExport::AdvancedExport() {
+    _initCheck = this;
+}
+
+bool AdvancedExport::properlyInitialized() const {
+    return this == _initCheck;
+}

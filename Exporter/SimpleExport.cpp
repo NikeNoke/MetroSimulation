@@ -53,3 +53,11 @@ bool SimpleExport::exportFile(MetroNet &metroNet, const std::string& path) const
 //    ENSURE(!Utils::fileIsEmpty(getPathToFile()), "The written file is empty");
     return true;
 }
+
+SimpleExport::SimpleExport() {
+    _initCheck = this;
+}
+
+bool SimpleExport::properlyInitialized() const {
+    return this == _initCheck;
+}

@@ -28,8 +28,12 @@ public:
      * **/
     bool exportFile(MetroNet &metroNet, const std::string& path) const;
 
-private:
+    bool properlyInitialized() const;
 
+    SimpleExport();
+
+private:
+    SimpleExport* _initCheck;
 };
 
 

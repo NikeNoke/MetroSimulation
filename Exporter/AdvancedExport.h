@@ -37,8 +37,12 @@ public:
      * **/
     int indexVolgende(std::vector<Spoor *> &container, const std::string &naam) const;
 
-private:
+    bool properlyInitialized() const;
 
+    AdvancedExport();
+
+private:
+    AdvancedExport* _initCheck;
 };
 
 

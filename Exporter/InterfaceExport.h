@@ -24,6 +24,8 @@ public:
      * **/
     virtual bool exportFile(MetroNet &metroNet, const std::string& path) const = 0;
 
+    virtual bool properlyInitialized() const = 0;
+
 private:
 };
 
