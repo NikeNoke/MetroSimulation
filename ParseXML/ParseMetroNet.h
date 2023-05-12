@@ -67,6 +67,8 @@ public:
 
 //    FILE* getPathToLog() const;
 
+    ~ParseMetroNet();
+
 
 private:
     TiXmlDocument doc;

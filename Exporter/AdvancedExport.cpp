@@ -12,7 +12,7 @@
 bool AdvancedExport::exportFile(MetroNet &metroNet, const std::string& path) const {
 
     REQUIRE(metroNet.properlyInitialized(), "The metroNet is not properly initialized");
-//    REQUIRE(Utils::)
+    REQUIRE(!path.empty(), "Path to write is empty");
 
     std::ofstream file;
 //
@@ -76,8 +76,7 @@ bool AdvancedExport::exportFile(MetroNet &metroNet, const std::string& path) con
     }
 
 
-//    ENSURE(Utils::fileExists(path), "The file was not even created!");
-//    ENSURE(!Utils::fileIsEmpty(getPathToFile()), "The written file is empty");
+    ENSURE(Utils::fileExists(path), "The file was not even created!");
     return true;
 }
 
@@ -93,6 +92,7 @@ int AdvancedExport::indexVolgende(std::vector<Spoor *> &container, const std::st
 
 AdvancedExport::AdvancedExport() {
     _initCheck = this;
+    ENSURE(properlyInitialized() == true, "Advanced exporter was not initialized properly");
 }
 
 bool AdvancedExport::properlyInitialized() const {

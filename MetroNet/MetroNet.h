@@ -104,8 +104,6 @@ public:
      * **/
     bool isValidMetroNet();
 
-    bool isValidMetroNetSilent();
-
     /**
      * Functie dat een MetroNet zal simuleren.
      * @param seconds Hoe lang de simulatie zal runnen.
@@ -174,16 +172,6 @@ public:
      * **/
     void getStatReport();
 
-    /**
-     * Zelfde functie als moveTram maar zonder print statements speciaal voor test case usage.
-     * @pre REQUIRE(!aTramAtStationSpoor(targetStationName, tram->getLijnNr()),"There cannot be a tram at targetStation SpoorNr to move Tram!")
-     * @param t Tram dat we gaan moven
-     * @param TargetStationName Station waar we de tram naar willen verplaatsen.
-     * @return true or false
-     * @see moveTram
-     * **/
-    bool _moveTest(Tram *tram, std::string targetStationName);
-
     Exporter& getExporter();
 
 private:
@@ -196,7 +184,7 @@ private:
 
     bool beginStationTramCorrect(Tram *t);
 
-    bool uniqueTram(Tram *t);
+    bool uniqueTram();
 
     bool validSpoor(Spoor *s);
 

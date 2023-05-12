@@ -80,13 +80,6 @@ namespace Utils{
     bool fileExists(const std::string filename);
 
     /**
-     * Functie dat controleerd ofdat een file leeg is.
-     * @param filename Naam van de file.
-     * @return true of false
-     */
-    bool fileIsEmpty(const std::string filename);
-
-    /**
      * Functie dat controleerd ofdat een getal negatief is.
      * @param n getal
      * @return true or false

@@ -46,7 +46,7 @@ bool ParseMetroNet::parseMetroNet(MetroNet &metroNet, Exporter& e) {
             }
 
         } else {
-            e.writeToError("Deze element is ongekend!\n");
+            e.writeToError("This tag in the metronet is unknown\n");
         }
     }
 
@@ -68,14 +68,9 @@ bool ParseMetroNet::loadFile() {
 }
 
 ParseMetroNet::ParseMetroNet(const std::string &pathToInput) {
+    REQUIRE(!pathToInput.empty(), "Path to xml is empty");
     REQUIRE(Utils::fileExists(pathToInput), "The file does not exist!");
-//    REQUIRE(!pathToLog.empty(), "Path to log is empty");
     setPathToInput(std::fopen(pathToInput.c_str(), "r"));
-
-//    std::ofstream file;
-//
-//    file.open(path.c_str());
-//    setPathToLog(std::fopen(pathToLog.c_str(), "r"));
     ENSURE(getPathToInput() != NULL, "pathToFile could not be opened");
 }
 
@@ -92,4 +87,8 @@ bool ParseMetroNet::setPathToInput(FILE *f) {
     pathToInput = f;
     ENSURE(getPathToInput() == f, "setting was not successful");
     return true;
+}
+
+ParseMetroNet::~ParseMetroNet() {
+    fclose(getPathToInput());
 }

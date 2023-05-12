@@ -10,12 +10,12 @@
 bool SimpleExport::exportFile(MetroNet &metroNet, const std::string& path) const {
 
     REQUIRE(metroNet.properlyInitialized(), "The metroNet is not properly initialized");
-//    REQUIRE(!path.empty(), "Path to write is empty");
-//    REQUIRE(Utils::)
+    REQUIRE(properlyInitialized(), "This simple exporter isn ot properly initialized");
+    REQUIRE(!path.empty(), "Path to write is empty");
 
-    std::ofstream file;
+    std::ofstream file(path.c_str());
 //
-    file.open(path.c_str());
+//    file.open(path.c_str());
 
     file << "--== STATIONS ==--\n";
 
@@ -49,13 +49,13 @@ bool SimpleExport::exportFile(MetroNet &metroNet, const std::string& path) const
         file << "\n";
     }
 
-//    ENSURE(Utils::streamExists(path), "The stream was not even created!");
-//    ENSURE(!Utils::fileIsEmpty(getPathToFile()), "The written file is empty");
+    ENSURE(Utils::fileExists(path), "The file was not even created!");
     return true;
 }
 
 SimpleExport::SimpleExport() {
     _initCheck = this;
+    ENSURE(properlyInitialized() == true, "Simple exporter was not initialized properly");
 }
 
 bool SimpleExport::properlyInitialized() const {

@@ -51,12 +51,6 @@ bool Utils::fileExists(const std::string filename) {
     }
 }
 
-bool Utils::fileIsEmpty(const std::string filename) {
-    struct stat st;
-    if (stat(filename.c_str(), &st) != 0) return true; // File does not exist; thus it is empty
-    return st.st_size == 0;
-}
-
 bool Utils::isNegative(int n) {
     if (n - n != 0) {
         return true;

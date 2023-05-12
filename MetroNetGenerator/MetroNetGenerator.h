@@ -93,10 +93,7 @@ private:
     std::string pathToOpenXml;
     std::string pathToWriteSimple;
     std::string pathToWriteAdvanced;
-//    Exporter simpleExporter;
-//    Exporter advancedExporter;
     Exporter exporter;
-//    std::string pathToLog;
     MetroNet metroNet;
 };
 

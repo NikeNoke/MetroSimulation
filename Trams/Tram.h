@@ -109,7 +109,7 @@ public:
      * naar een volgende Station. De tweede ENSURE wordt opgeroepen in geval dat een Tram wel naar een volgende Station
      * verplaatst kan worden. In de tweede ENSURE zal die dan ook een ERROR throwen als er tog iets mis gaat.
      * **/
-    virtual bool move(Station *station, Exporter& e); //TODO make virtual and override!
+    virtual bool move(Station *station, Exporter& e) = 0; //TODO make virtual and override!
 
     /**
      * Setter functie die het Type attribuut zet voor een Tram object.
@@ -200,14 +200,7 @@ public:
      * **/
     int getTotalReparatieKost() const;
 
-    /**
-     * Zelfde functie als move maar wordt gebruikt door testen en heeft geen prints.
-     * @param targetStation
-     * @return true or false
-     * **/
-    bool _moveTest(Station *targetStation);
-
-    bool tramCanMove();
+    virtual bool tramCanMove();
 
 protected:
     int snelheid;
@@ -222,6 +215,8 @@ private:
     TramType::TypeTram type; //TODO make enum
     int voertuigNummer;
     Tram *_initCheck;
+
+protected:
 
     int defectWatcher;
 

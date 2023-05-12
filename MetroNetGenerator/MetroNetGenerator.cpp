@@ -9,13 +9,16 @@ MetroNetGenerator::MetroNetGenerator(std::string pathToXml, std::string pathToWr
         , std::ostream& op, std::ostream& err)
         : exporter(pathToWrite, pathToWrite2, op, err), metroNet(exporter)
         {
+    REQUIRE(!pathToXml.empty(), "Path to xml is empty");
+    REQUIRE(!pathToWrite.empty(), "Path to simple is empty");
+    REQUIRE(!pathToWrite2.empty(), "Path to advanced is empty");
     REQUIRE(Utils::fileExists(pathToXml), "Path to xml is wrong or file does not exist");
     setPathToOpenXml(pathToXml);
     setPathToSimple(pathToWrite);
     setPathToAdvanced(pathToWrite2);
-    ENSURE(getPathToSimple() == pathToWrite, "Simple path not set properly");
-    ENSURE(getPathToAdvanced() == pathToWrite2, "Advanced path not set properly");
-//  ENSURE()
+    ENSURE(getPathToSimple() == pathToWrite, "Simple path was not set properly");
+    ENSURE(getPathToAdvanced() == pathToWrite2, "Advanced path was not set properly");
+    ENSURE(getPathToOpenXml() == pathToXml, "XML path was not set properly");
 }
 
 MetroNet &MetroNetGenerator::getMetroNet() {
