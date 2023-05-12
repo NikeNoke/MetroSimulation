@@ -41,7 +41,6 @@ public:
      * Functie parsed een Spoor object van een MetroNet object.
      * @pre REQUIRE(spoor->properlyInitialized(), "Station is not properlyInitialized")
      * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
-     * @pre REQUIRE(checkValidSpoor() == true, "The Station tag is not correct")
      * @post ENSURE(!spoor->getVorige().empty(), "The vorige of spoor has not been correctly initialized")
      * @post ENSURE(!spoor->getVolgende().empty(), "The volgende of spoor has not been correctly initialized")
      * @post ENSURE(getElement() != NULL, "TixmlElement is NULL")
@@ -64,8 +63,9 @@ public:
 
     /**
      * Functie dat gecalled wordt door parseAll om te checken ofdat Volgende geparsed kan worden.
-     * @pre REQUIRE(spoor->properlyInitialized(), "Station is not properlyInitialized")
-     * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
+    REQUIRE(spoor->properlyInitialized(), "Station is not properlyInitialized");
+    REQUIRE(getElement() != NULL, "TixmlElement is NULL");
+    REQUIRE(checkValidVolgende(e) == true, "The volgende tag is not correct in this Station tag");
      * @post ENSURE(!spoor->getVolgende().empty(), "The volgende of spoor has not been correctly initialized")
      * @post ENSURE(getElement() != NULL, "TixmlElement is NULL")
      * @param spoor Huidige spoor dat gechecked wordt, volgende is dus spoor dat hierna komt.
@@ -94,6 +94,7 @@ public:
 
     /**
      * Checked ofdat elke spoor de valid aantal attributen heeft en dat elk attribuut exact 1 keer geparsed wordt.
+     * REQUIRE(getElement() != NULL, "TixmlElement is NULL");
      * @return true or false
      * **/
     bool checkNonValidAttributesAmount(Exporter& e) const;

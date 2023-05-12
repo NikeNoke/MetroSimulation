@@ -24,20 +24,24 @@ class MetroNetGenerator {
 public:
 
     /**
-     * Explicit MetroNetGenerator constructor.
-     * @pre REQUIRE(Utils::fileExists(pathToXml), "Path to xml is wrong or file does not exist")
-     * @param pathToWrite Gebruikt om weg te schrijven met gebruik van de SimpleExport.
-     * @param pathToWrite2 Gebruikt om weg te schrijven met gebruik van de AdvancedExport.
-     * @param pathToXml XML file dat gebruikt zou worden om daarven een MetroNet uit te halen.
-     * **/
+     *  Explicit MetroNetGenerator constructor.
+        REQUIRE(!pathToXml.empty(), "Path to xml is empty");
+        REQUIRE(!pathToWrite.empty(), "Path to simple is empty");
+        REQUIRE(!pathToWrite2.empty(), "Path to advanced is empty");
+        REQUIRE(Utils::fileExists(pathToXml), "Path to xml is wrong or file does not exist");
+        ENSURE(getPathToSimple() == pathToWrite, "Simple path was not set properly");
+        ENSURE(getPathToAdvanced() == pathToWrite2, "Advanced path was not set properly");
+        ENSURE(getPathToOpenXml() == pathToXml, "XML path was not set properly");
+        ENSURE(getExporter().properlyInitialized(), "The exporter is not properly initialized");
+    * **/
     explicit MetroNetGenerator(std::string pathToXml, std::string pathToSimple, std::string pathToAdvanced
                                 , std::ostream& op, std::ostream& err);
 
     /**
      * Functie dat de MetroNet zal genereren en die dan wegschrijven.
      * @pre REQUIRE(Utils::fileExists(getPathToOpenXml()), "The file to open does not exist")
+            REQUIRE(getExporter().properlyInitialized(), "The exporter is not properly initialized");
      * @post ENSURE(getMetroNet().isValidMetroNet(), "The metroNet is not valid")
-     * @post ENSURE(Utils::fileExists(getPathToWrite()), "The file was not even created")
      * @param noStat boolean dat op default op false staat. Als ze op true wordt gezet dan zal er geen stat
      * report afgedrukt worden. (Handig voor testsen waar we geen bloat willen).
      * @note Roept de methode metroNetParser van ParseMetroNet om de MetroNet van de XML file te parsen.
@@ -68,6 +72,7 @@ public:
     /**
      * Functie dat onze MetroNet zal simuleren.
      * @pre REQUIRE(getMetroNet().isValidMetroNet(), "The metroNet is not Valid")
+            REQUIRE(getExporter().properlyInitialized(), "The exporter is not properly initialized");
      * @post ENSURE(getMetroNet().isValidMetroNet(), "The metroNet is not Valid")
      * @param seconds Duur van de simulatie.
      * **/
@@ -80,13 +85,25 @@ public:
      * **/
     Exporter& getExporter();
 
-
+    /**
+     * get Path to Advanced
+     */
     std::string getPathToAdvanced() const;
-
+    /**
+     * set Path to Advanced
+       ENSURE(getPathToAdvanced() == s, "Not correctly set");
+     */
     void setPathToAdvanced(const std::string& s);
 
+    /**
+     * get Path to Simple
+     */
     std::string getPathToSimple() const;
 
+    /**
+     * set Path to Simple
+       ENSURE(getPathToSimple() == s, "Not correctly set");
+     */
     void setPathToSimple(const std::string& s);
 
 private:

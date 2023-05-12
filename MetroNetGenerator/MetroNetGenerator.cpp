@@ -19,10 +19,7 @@ MetroNetGenerator::MetroNetGenerator(std::string pathToXml, std::string pathToWr
     ENSURE(getPathToSimple() == pathToWrite, "Simple path was not set properly");
     ENSURE(getPathToAdvanced() == pathToWrite2, "Advanced path was not set properly");
     ENSURE(getPathToOpenXml() == pathToXml, "XML path was not set properly");
-//    ENSURE(getExporter().getPathToAdvanced() == getMetroNet().getExporter().getPathToAdvanced(), "LOL");
-//    getExporter().writeToError("HELLO\n");
-//    getExporter().writeToOperation("HELLO\n");
-//    std::cout << "sjdfasdkl;";
+    ENSURE(getExporter().properlyInitialized(), "The exporter is not properly initialized");
 }
 
 MetroNet &MetroNetGenerator::getMetroNet() {
@@ -42,6 +39,7 @@ void MetroNetGenerator::setPathToOpenXml(std::string &p) {
 void MetroNetGenerator::generateMetroNet(bool noStat) {
 
     REQUIRE(Utils::fileExists(getPathToOpenXml()), "The file to open does not exist");
+    REQUIRE(getExporter().properlyInitialized(), "The exporter is not properly initialized");
 
     ParseMetroNet metroNetParser(getPathToOpenXml());
 
@@ -58,6 +56,7 @@ void MetroNetGenerator::generateMetroNet(bool noStat) {
 
 void MetroNetGenerator::simulate(int seconds) {
     REQUIRE(getMetroNet().isValidMetroNet(), "The metroNet is not Valid");
+    REQUIRE(getExporter().properlyInitialized(), "The exporter is not properly initialized");
 
     getMetroNet().simulateMetroNet(seconds);
     getExporter().exportFile(getMetroNet());

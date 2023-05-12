@@ -38,13 +38,13 @@ public:
 
     /**
      * Functie dat het Station object parsed van een MetroNet object.
-     * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
-     * @pre REQUIRE(checkValidStation() == true, "The Station tag is not correct")
-     * @post ENSURE(!station->getName().empty(), "The naam of station has not been correctly initialized")
-     * @post ENSURE(!station->getSporen().empty(), "The SPOOR's of station has not been correctly initialized")
-     * @post ENSURE(!station->getType().empty(), "The type of station has not been correctly initialized")
-     * @post ENSURE(getElement() != NULL, "TixmlElement is NULL")
-     * @post ENSURE(getParsedStation() != NULL, "akfjdajkfl");
+    REQUIRE(getElement() != NULL, "TixmlElement is NULL");
+    REQUIRE(e.properlyInitialized(), "The exporter must be properly initialized");
+    ENSURE(!station->getName().empty(), "The naam of station has not been correctly initialized");
+    ENSURE(!station->getSporen().empty(), "The SPOOR's of station has not been correctly initialized");
+    ENSURE(!station->getType().empty(), "The type of station has not been correctly initialized");
+    ENSURE(getElement() != NULL, "TixmlElement is NULL");
+    ENSURE(getParsedStation() != NULL, "parsedStation is Null");
      * @return true or false
      * **/
     bool parseAll(Exporter& e);
@@ -143,7 +143,7 @@ public:
 
     /**
      * Setter functie dat Station set.
-     * @param s Station dat geset wordt.
+     * ENSURE(getParsedStation() == s, "The setting was not successful");
      * **/
     void setParsedStation(Station *s);
 
@@ -155,6 +155,8 @@ public:
 
     /**
      * Functie dat controleert ofdat er sporen aanwezig zijn en die valid zijn.
+     * REQUIRE(getElement() != NULL, "TixmlElement is NULL");
+     * ENSURE(getElement() != NULL, "TixmlElement has become NULL");
      * @return true or false
      * **/
     bool checkSporen(Exporter& e) const;

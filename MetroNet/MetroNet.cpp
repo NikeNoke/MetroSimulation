@@ -33,11 +33,12 @@ void MetroNet::addTram(Tram *const tram) {
 //    Require not registered
     fTrams.push_back(tram);
     //Ensure registered
+    ENSURE(getTram(tram->getVoertuigNummer()) == tram, "The tram has not been added");
 }
 
 Station *MetroNet::getStation(const std::string &name) {
     REQUIRE(!(Utils::is_int(name)), "The parameter name is a number");
-    //REQUIRE(stationRegistered(name), "The station is not Registered!");
+//    REQUIRE(stationRegistered(name), "The station is not Registered!");
     for (long unsigned int i = 0; i < fStations.size(); i++) {
         if (fStations[i]->getName() == name)
             return fStations[i];
@@ -75,6 +76,7 @@ MetroNet::MetroNet(Exporter& e)
 {
     _fInitCheck = this;
     setInitializeStatCalled(false);
+    ENSURE(properlyInitialized(), "The metroNet is not properly initialized");
 }
 
 bool MetroNet::properlyInitialized() const {
@@ -119,6 +121,9 @@ bool MetroNet::isValidMetroNet() {
 
 void MetroNet::simulateMetroNet(int seconds) {
 
+    REQUIRE(properlyInitialized(), "Metronet must be properly initialized");
+    REQUIRE(isValidMetroNet(), "The metronet must be valid");
+
     struct timespec finish;
     struct timespec start;
     double elapsed;
@@ -140,11 +145,12 @@ void MetroNet::simulateMetroNet(int seconds) {
         elapsed += (finish.tv_nsec - start.tv_nsec) / 1000000000.0;
 
     }
-
+    ENSURE(isValidMetroNet(), "The metronet must still be valid");
 }
 
 bool MetroNet::controlStation(Station *station) {
 
+    REQUIRE(station->properlyInitialized(), "The station must be properly initialized");
     std::vector<Spoor *> tempSporen = station->getSporen();
     bool result = true;
     if (!station->hasUniqueSporen()) {
@@ -185,6 +191,8 @@ bool MetroNet::aTramAtStation(const std::string stationName) {
 
 bool MetroNet::spoorLineHasTram(Spoor *s) {
 
+    REQUIRE(s->properlyInitialized(), "The spoor must be properly initialized");
+
     std::vector<Tram *> trams = this->getTrams();
 
     for (unsigned int i = 0; i < trams.size(); i++) {
@@ -198,6 +206,8 @@ bool MetroNet::spoorLineHasTram(Spoor *s) {
 
 bool MetroNet::tramLineHasSpoor(Tram *t) {
 
+    REQUIRE(t->properlyInitialized(), "The tram must be properly initialized");
+
     std::vector<Station *> stations = this->getStations();
 
     for (unsigned int i = 0; i < stations.size(); i++) {
@@ -210,6 +220,8 @@ bool MetroNet::tramLineHasSpoor(Tram *t) {
 }
 
 bool MetroNet::beginStationTramCorrect(Tram *t) {
+
+    REQUIRE(t->properlyInitialized(), "The tram must be properly initialized");
 
     std::string beginStation = t->getBeginStation();
 
@@ -246,6 +258,8 @@ bool MetroNet::uniqueTram() {
 }
 
 bool MetroNet::validSpoor(Spoor *s) {
+
+    REQUIRE(s->properlyInitialized(), "The spoor must be properly initialized");
 
     Station *huidigStation = getStation(s->getHuiding());
     bool result = true;
@@ -323,6 +337,8 @@ bool MetroNet::validSpoor(Spoor *s) {
 
 bool MetroNet::controlTram(Tram *t) {
 
+    REQUIRE(t->properlyInitialized(), "The tram must be properly initialized");
+
     if (!beginStationTramCorrect(t)) {
         getExporter().writeToError("\tThis tram: " + SSTR(t->getVoertuigNummer()) + " is not correct\n");
         return false;
@@ -381,7 +397,7 @@ void MetroNet::moveAllTramsOnce() {
         moveTram(tempTrams[i], targetStationName);
 //        ENSURE(tempTrams[i]->getHuidigStation() == targetStationName, "The tram has not moved successfully");
     }
-
+    ENSURE(isValidMetroNet(), "The metronet must still be valid");
 }
 
 Tram *MetroNet::getTramAtStationSpoor(const std::string &stationName, int lijnNr) {
@@ -437,6 +453,7 @@ int MetroNet::getTotaalMetroNetReparatieKost() {
 
 void MetroNet::initializeStat() {
     REQUIRE(isValidMetroNet(), "The metronet must be valid");
+    REQUIRE(getInitializeStatCalled() == false, "This function must only be called once");
     if (getInitializeStatCalled())
         return;
 
@@ -450,6 +467,7 @@ void MetroNet::initializeStat() {
 
     }
     setInitializeStatCalled(true);
+    ENSURE(isValidMetroNet(), "The metronet must still be valid");
 }
 
 bool MetroNet::getInitializeStatCalled() const {
@@ -458,6 +476,7 @@ bool MetroNet::getInitializeStatCalled() const {
 
 void MetroNet::setInitializeStatCalled(bool b) {
     initializeStatCalled = b;
+    ENSURE(getInitializeStatCalled() == b, "The setting was not successful");
 }
 
 void MetroNet::getStatReport() {

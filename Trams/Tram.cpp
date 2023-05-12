@@ -47,7 +47,6 @@ void Tram::setBeginStation(std::string bs) {
 
 void Tram::setSnelheid(int s) {
     snelheid = s;
-//    ENSURE(getSnelheid() == s, "The member snelheid type has not been set properly");
 }
 
 void Tram::setLijnNr(int l) {
@@ -66,6 +65,7 @@ bool Tram::properlyInitialized() {
 }
 
 bool Tram::move(Station *targetStation, Exporter& e) { //TODO refactor and virtualize
+    REQUIRE(properlyInitialized(), "The tram must be properly initialized");
     REQUIRE(targetStation->aSpoorConnectedToStation(getHuidigStation(), getLijnNr()),
             "Station to move to has no Spoor connected to the current Station of the tram!");
     REQUIRE(targetStation->hasSpoor(getLijnNr()), "The target station does not have the same lijnNr as this tram");
@@ -126,6 +126,7 @@ int Tram::getDefectWatcher() const {
 
 void Tram::setDefectWatcher(int d) {
     Tram::defectWatcher = d;
+    ENSURE(getDefectWatcher() == d, "The setting was not successful");
 }
 
 int Tram::getReparatieTijdWatcher() const {
@@ -134,6 +135,7 @@ int Tram::getReparatieTijdWatcher() const {
 
 void Tram::setReparatieTijdWatcher(int r) {
     Tram::reparatieTijdWatcher = r;
+    ENSURE(getReparatieTijdWatcher() == r, "The setting was not succesful");
 }
 
 bool Tram::tramDefect() const {

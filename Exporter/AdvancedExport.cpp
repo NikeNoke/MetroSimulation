@@ -13,6 +13,7 @@ bool AdvancedExport::exportFile(MetroNet &metroNet, const std::string& path) con
 
     REQUIRE(metroNet.properlyInitialized(), "The metroNet is not properly initialized");
     REQUIRE(!path.empty(), "Path to write is empty");
+    REQUIRE(properlyInitialized(), "Advanced exporter is not properly initialized");
 
     std::ofstream file;
 //

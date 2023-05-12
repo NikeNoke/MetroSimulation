@@ -99,6 +99,7 @@ public:
 
     /**
      * Functie die een Tram object van de ene Station object naar de volgende Station object verplaatst.
+            REQUIRE(properlyInitialized(), "The tram must be properly initialized");
      * @pre REQUIRE(targetStation->aSpoorConnectedToStation(getHuidigStation(), getLijnNr()), "Station to move to has no Spoor connected to the current Station of the tram!")
      * @pre REQUIRE(targetStation->hasSpoor(getLijnNr()), "The target station does not have the same lijnNr as this tram")
      * @post ENSURE(getHuidigStation() == temp, "The member huidigStation has changed")
@@ -200,6 +201,9 @@ public:
      * **/
     int getTotalReparatieKost() const;
 
+    /**
+     * Can the tram move?
+     */
     virtual bool tramCanMove();
 
 protected:
@@ -220,14 +224,28 @@ protected:
 
     int defectWatcher;
 
+    /**
+     * get DefectWatcher
+     */
     int getDefectWatcher() const;
 
+    /**
+     * set DefectWatcher
+       ENSURE(getDefectWatcher() == d, "The setting was not successful");
+     */
     void setDefectWatcher(int defectWatcher);
 
     int reparatieTijdWatcher;
 
+    /**
+     * get ReparteTijdWatcher
+     */
     int getReparatieTijdWatcher() const;
 
+    /**
+     * set ReparteTijdWatcher
+       ENSURE(getReparatieTijdWatcher() == r, "The setting was not succesful");
+     */
     void setReparatieTijdWatcher(int reparatieTijdWatcher);
 
 };

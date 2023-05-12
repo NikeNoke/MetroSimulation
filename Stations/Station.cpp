@@ -11,6 +11,7 @@
 Station::Station() {
     _fInitCheck = this;
     visitedByTrams = 0;
+    ENSURE(properlyInitialized(), "Must be proerly initialized");
 }
 
 //Station::Station(const std::string &naam,const std::string& volgende,const std::string& vorige, int spoorNr) : fNaam(naam),
@@ -68,6 +69,7 @@ bool Station::addSpoor(Spoor *s) {
             return false;
         sporen.push_back(s);
     }
+    ENSURE(hasSpoor(s->getSpoorNr()), "Spoor has not been added");
     return true;
 }
 
@@ -162,4 +164,5 @@ int Station::getVisitedByTrams() const {
 
 void Station::setVisitedByTrams(int amount) {
     visitedByTrams = amount;
+    ENSURE(getVisitedByTrams() == amount, "The setting was not successful");
 }

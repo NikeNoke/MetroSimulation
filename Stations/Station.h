@@ -28,19 +28,9 @@ public:
 
     /**
      * Default constructor voor Station.
-     * @return Een Station object zonder attributen.
+         ENSURE(properlyInitialized(), "Must be proerly initialized");
      * **/
     Station();
-
-    /*/**
-     * Constructor voor Station.
-     * @param naam Naam van het station.
-     * @param volgende Het volgende station.
-     * @param vorige Het vorige station.
-     * @param spoorNr Het nummer van de spoor waar het station deel van is.
-     * @return Een Station object met attributen.
-     * **/
-//    Station(const std::string &naam,const std::string& volgende,const std::string& vorige, int spoorNr);
 
     /**
      * Getter functie dat de naam van het station gaat teruggeven.
@@ -56,7 +46,8 @@ public:
 
     /**
      * Setter functie dat de naam van het station set.
-     * @param n Naam van het station.
+    REQUIRE(!(Utils::is_int(n)), "The parameter naam is a number");
+    ENSURE(getName() == n, "The member variable naam has not been properly initialized");
      * **/
     void setName(std::string n);
 
@@ -89,6 +80,7 @@ public:
 
     /**
      * Functie dat Spoor object zal bijvoegen aan het MetroNet object (steekt ze in een vector van Spoor objecten).
+       ENSURE(hasSpoor(s->getSpoorNr()), "Spoor has not been added");
      * @return true or false
      * **/
     bool addSpoor(Spoor *s);
@@ -151,7 +143,7 @@ public:
 
     /**
      * Setter functie dat de hoeveelheid dat trammen een bepaalde Station hebben bezocht set.
-     * @param amount Hoeveel keer trammen een Station hebben bezocht.
+     * ENSURE(getVisitedByTrams() == amount, "The setting was not successful");
      * **/
     void setVisitedByTrams(int amount);
 

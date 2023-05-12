@@ -6,6 +6,7 @@
 #include "Exporter.h"
 #include "../DesignByContract.h"
 #include "../Spoor/Spoor.h"
+#include "../Utils/utils.h"
 
 bool Exporter::exportFile(MetroNet &metroNet) const {
 
@@ -15,6 +16,8 @@ bool Exporter::exportFile(MetroNet &metroNet) const {
     AdvancedExport advancedExport;
     REQUIRE(simpleExporter.properlyInitialized(), "Advanced exporter is not properly initialized");
     advancedExport.exportFile(metroNet, getPathToAdvanced());
+    ENSURE(Utils::fileExists(getPathToSimple()), "File for simple was not created");
+    ENSURE(Utils::fileExists(getPathToAdvanced()), "File for advanced was not created");
     return true;
 }
 
@@ -29,6 +32,8 @@ void Exporter::writeToOperation(const std::string &load) {
 Exporter::Exporter(std::string pathToSimple, std::string pathToAdvanced, std::ostream &op, std::ostream &err)
     : pathToSimple(pathToSimple), pathToAdvanced(pathToAdvanced), operationStream(op), errorLog(err), _fInitCheck(this)
 {
+    REQUIRE(!pathToSimple.empty(), "The path to simple may not be empty");
+    REQUIRE(!pathToAdvanced.empty(), "The path t0 advanced may not be empty");
     ENSURE(getPathToSimple() == pathToSimple, "This exporter's path to simple was not set properly");
     ENSURE(getPathToAdvanced() == pathToAdvanced, "This exporter's path to advanced was not set properly");
     ENSURE(getOperationStream() == op, "This exporter's operation stream was not set properly");

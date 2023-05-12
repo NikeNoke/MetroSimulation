@@ -15,12 +15,14 @@ void StadslijnerTram::calculateSnelheid() {
 }
 
 bool StadslijnerTram::stationCanBeServiced(Station *s) {
+    REQUIRE(s->properlyInitialized(), "The station must be properly initialized");
     if (s->getTypeEnum() == TypeStation::MetroStation)
         return true;
     return false;
 }
 
 int StadslijnerTram::getSnelheid() {
+    REQUIRE(properlyInitialized(), "The tram must be properly initialized");
     calculateSnelheid();
     return snelheid;
 }
@@ -31,6 +33,7 @@ int StadslijnerTram::getAantalDefecten() const {
 
 void StadslijnerTram::setAantalDefecten(int aantal) {
     aantalDefecten = 0;
+    ENSURE(getAantalDefecten() == 0, "Set not correct");
 }
 
 int StadslijnerTram::getReparatieTijd() const {
@@ -39,6 +42,7 @@ int StadslijnerTram::getReparatieTijd() const {
 
 void StadslijnerTram::setReparatieTijd(int aantal) {
     reparatieTijd = aantal;
+    ENSURE(getReparatieTijd() == 0, "The set not correct");
 }
 
 int StadslijnerTram::getReparatieKost() const {
@@ -47,9 +51,11 @@ int StadslijnerTram::getReparatieKost() const {
 
 void StadslijnerTram::setReparatieKost(int aantal) {
     reparatieKost = aantal;
+    ENSURE(getReparatieKost() == 0, "The set not correct");
 }
 
 bool StadslijnerTram::move(Station *targetStation, Exporter &e) {
+    REQUIRE(properlyInitialized(), "The tram must be properly initialized");
     REQUIRE(targetStation->aSpoorConnectedToStation(getHuidigStation(), getLijnNr()),
             "Station to move to has no Spoor connected to the current Station of the tram!");
     REQUIRE(targetStation->hasSpoor(getLijnNr()), "The target station does not have the same lijnNr as this tram");

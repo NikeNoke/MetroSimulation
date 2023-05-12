@@ -21,8 +21,7 @@ public:
 
     /**
      * Functie dat nagaat ofdat een Station geserviced kan worden.
-     * @param s Station dat men controleerd.
-     * @return true or false
+    REQUIRE(s->properlyInitialized(), "The station must be properly initialized");
      * **/
     bool stationCanBeServiced(Station *s);
 
@@ -45,7 +44,7 @@ public:
 
     /**
      * Setter functie die het aantal defecten zal zetten van een Tram object van type StadslijnerTram.
-     * @param aantal defecten, ergo om de hoeveel tijd een tram in de panne zal staan wegens een defect.
+    ENSURE(getAantalDefecten() == 0, "Set not correct");
      * **/
     void setAantalDefecten(int aantal);
 
@@ -57,7 +56,7 @@ public:
 
     /**
      * Setter functie die de reparatie tijd van een Tram object van type StadslijnerTram zal zetten.
-     * @param aantal Duur van een reparatie.
+      ENSURE(getReparatieTijd() == 0, "The set not correct");
      * **/
     void setReparatieTijd(int aantal);
 
@@ -69,10 +68,19 @@ public:
 
     /**
      * Setter functie die de reparatie kost van een Tram objec van type StadslijnerTram zal zetten.
-     * @param aantal reparatie kost
-     * **/
+    ENSURE(getReparatieKost() == 0, "The set not correct");
+     **/
     void setReparatieKost(int aantal);
 
+    /**
+     * Move Tram
+     * REQUIRE(properlyInitialized(), "The tram must be properly initialized");
+       REQUIRE(targetStation->aSpoorConnectedToStation(getHuidigStation(), getLijnNr()),
+            "Station to move to has no Spoor connected to the current Station of the tram!");
+       REQUIRE(targetStation->hasSpoor(getLijnNr()), "The target station does not have the same lijnNr as this tram");
+       ENSURE(getHuidigStation() == target, "The member huidigStation has not been changed properly");
+       ENSURE(getHuidigStation() == temp, "The member huidigStation has changed");
+     */
     bool move(Station *station, Exporter& e);
 };
 

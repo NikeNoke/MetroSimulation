@@ -37,14 +37,13 @@ public:
     /**
      * Parsed de Tram object met een specifieke type van een MetroNet object.
      * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
-     * @pre REQUIRE(checkValidTram() == true, "The Tram tag is not correct")
-     * @post ENSURE(tram->getLijnNr() != -1, "The lijnNr of tram has not been correctly initialized")
-     * @post ENSURE(!tram->getBeginStation().empty(), "The beginStation of Tram has not been correctly initialized")
-     * @post ENSURE(!tram->getHuidigStation().empty(), "The huidigStation of Tram has not been correctly initialized")
-     * @post ENSURE(tram->getSnelheid() != -1, "The snelheid of tram has not been correctly initialized")
-     * @post ENSURE(!tram->getType().empty(), "The type of Tram has not been correctly initialized")
-     * @post ENSURE(getParsedTram() == tram, "GG")
-     * @post ENSURE(getElement() != NULL, "TixmlElement is NULL")
+    ENSURE(tram->getLijnNr() != -1, "The lijnNr of tram has not been correctly initialized");
+    ENSURE(!tram->getBeginStation().empty(), "The beginStation of Tram has not been correctly initialized");
+    ENSURE(!tram->getHuidigStation().empty(), "The huidigStation of Tram has not been correctly initialized");
+    ENSURE(tram->getSnelheid() != -1, "The snelheid of tram has not been correctly initialized");
+    ENSURE(tram->getType() != TramType::InvalidTram, "The type of Tram has not been correctly initialized");
+    ENSURE(getParsedTram() == tram, "GG");
+    ENSURE(getElement() != NULL, "TixmlElement is NULL");
      * @return true or false
      * **/
     bool parseAll(Exporter& e);
@@ -161,7 +160,7 @@ public:
 
     /**
      * Setter functie dat een Tram object plaatst in een MetroNet object.
-     * @param t Tram dat geset wordt.
+       ENSURE(getParsedTram() == t, "The setting has gone wrong");
      * **/
     void setParsedTram(Tram* t);
 
@@ -245,6 +244,7 @@ public:
     /**
      * Methode controleert ofdat er een type is tijdens het parsen.
      * @return true or false
+     * REQUIRE(getElement() != NULL, "TixmlElement is NULL");
      * @attention Deze methode is niet hetzelfde als checkValidTramType. Deze functie checkt namelijk ofdat er uberhaubt
      * een type is. checkValidTramType checked dat er niet meer dan één zijn.
      * **/

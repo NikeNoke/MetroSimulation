@@ -21,10 +21,9 @@ public:
 
     /**
      * Explicit ParseMetroNet constructor.
-     * @pre REQUIRE(Utils::fileExists(pathToInput), "The file does not exist!")
-     * @post ENSURE(getPathToInput() != NULL, "pathToFile could not be opened")
-     * @return Een ParseMetroNet object.
-     * @attention Zal een file openen waarnaar de MetroNet weggeschreven zal worden nadat die geparsed werd.
+       REQUIRE(!pathToInput.empty(), "Path to xml is empty");
+       REQUIRE(Utils::fileExists(pathToInput), "The file does not exist!");
+       ENSURE(getPathToInput() != NULL, "pathToFile could not be opened");
      * **/
     explicit ParseMetroNet(const std::string &pathToFile);
 
@@ -63,10 +62,9 @@ public:
      * **/
     bool setPathToInput(FILE *f);
 
-//    bool setPathToLog(FILE* f);
-
-//    FILE* getPathToLog() const;
-
+    /**
+     * Destructor of parser, closes stream
+     */
     ~ParseMetroNet();
 
 

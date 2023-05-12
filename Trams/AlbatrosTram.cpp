@@ -10,15 +10,13 @@
 #define SSTR(x) static_cast< std::ostringstream & >( \
         ( std::ostringstream() << std::dec << x ) ).str()
 
-void AlbatrosTram::test() const {
-    this->getType();
-}
-
 void AlbatrosTram::calculateSnelheid() {
+    REQUIRE(properlyInitialized(), "The tram must be properly initialized");
     setSnelheid(70);
 }
 
 bool AlbatrosTram::stationCanBeServiced(Station *s) {
+    REQUIRE(s->properlyInitialized(), "The station must be prperly initialized");
     if (s->getTypeEnum() == TypeStation::MetroStation)
         return true;
     return false;
@@ -35,6 +33,7 @@ int AlbatrosTram::getAantalDefecten() const {
 
 void AlbatrosTram::setAantalDefecten(int aantal) {
     aantalDefecten = 0;
+    ENSURE(getAantalDefecten() == 0, "Set not correct");
 }
 
 int AlbatrosTram::getReparatieTijd() const {
@@ -43,6 +42,7 @@ int AlbatrosTram::getReparatieTijd() const {
 
 void AlbatrosTram::setReparatieTijd(int aantal) {
     reparatieTijd = 0;
+    ENSURE(getReparatieTijd() == 0, "Set not correct");
 }
 
 int AlbatrosTram::getReparatieKost() const {
@@ -51,6 +51,7 @@ int AlbatrosTram::getReparatieKost() const {
 
 void AlbatrosTram::setReparatieKost(int aantal) {
     reparatieKost = 0;
+    ENSURE(getReparatieKost() == 0, "Set not correct");
 }
 
 bool AlbatrosTram::move(Station *targetStation, Exporter &e) {

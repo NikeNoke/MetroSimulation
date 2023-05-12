@@ -25,9 +25,8 @@ void ParseStation::setElement(TiXmlElement *el) {
 
 bool ParseStation::parseAll(Exporter& e) {
 
-//    REQUIRE(station->properlyInitialized(), "Station is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
-//    REQUIRE(checkValidStation(e) == true, "The Station tag is not correct");
+    REQUIRE(e.properlyInitialized(), "The exporter must be properly initialized");
     if(!checkValidStation(e))
         return false;
 
@@ -50,13 +49,10 @@ bool ParseStation::parseAll(Exporter& e) {
     setParsedStation(station);
 
     ENSURE(!station->getName().empty(), "The naam of station has not been correctly initialized");
-//    for(unsigned int i = 0; i < station->getSporen().size(); i++){
-//        ENSURE(station->getSporen()[i]->, "A spoor of Station is not properly")
-//    }
     ENSURE(!station->getSporen().empty(), "The SPOOR's of station has not been correctly initialized");
     ENSURE(!station->getType().empty(), "The type of station has not been correctly initialized");
     ENSURE(getElement() != NULL, "TixmlElement is NULL");
-    ENSURE(getParsedStation() != NULL, "akfjdajkfl");
+    ENSURE(getParsedStation() != NULL, "parsedStation is Null");
 
     return true;
 }
@@ -130,9 +126,6 @@ bool ParseStation::parseNaam(Station *station, Exporter& e) const {
     REQUIRE(station->properlyInitialized(), "Station is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
     REQUIRE(checkValidNaam(e) == true, "The name tag is not correct in this Station tag");
-//    if(!checkValidNaam(e)){
-//        return false;
-//    }
 
     for (TiXmlElement *InnerElement = getElement()->FirstChildElement();
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
@@ -223,10 +216,7 @@ bool ParseStation::parseTypeStation(Station *station, Exporter& e) const {
     REQUIRE(station->properlyInitialized(), "Station is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
     REQUIRE(checkValidTypeStation(e) == true, "The type tag is not correct in this Station tag");
-//    if(!checkValidTypeStation()){
-//        e.writeToError("The type tag is not correct in this Station tag\n");
-//        return false;
-//    }
+
 
     for (TiXmlElement *InnerElement = getElement()->FirstChildElement();
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
@@ -254,10 +244,10 @@ bool ParseStation::parseSpoor(Station *station, Exporter& e) const {
 
     REQUIRE(station->properlyInitialized(), "Station is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
-    REQUIRE(checkSporen(e), "The SPOOR of this Station is not valid");
-//    if(!checkSporen()){
-//        e.writeToError("The sp")
-//    }
+    if(!checkSporen(e)){
+        e.writeToError("The Station has no SPOOR\n");
+        return false;
+    }
 
     for (TiXmlElement *InnerElement = getElement()->FirstChildElement();
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
@@ -314,6 +304,7 @@ bool ParseStation::parseSuccessful(Exporter& e) {
 
 void ParseStation::setParsedStation(Station *s) {
     parsedStation = s;
+    ENSURE(getParsedStation() == s, "The setting was not successful");
 }
 
 Station *ParseStation::getParsedStation() const {

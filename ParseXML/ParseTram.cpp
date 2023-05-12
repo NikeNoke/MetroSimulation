@@ -394,6 +394,7 @@ TramType::TypeTram ParseTram::getTramType(Exporter& e) const {
 
 void ParseTram::setParsedTram(Tram *t) {
     parsedTram = t;
+    ENSURE(getParsedTram() == t, "The setting has gone wrong");
 }
 
 Tram *ParseTram::getParsedTram() const {

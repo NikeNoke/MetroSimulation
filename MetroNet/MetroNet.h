@@ -17,6 +17,7 @@ public:
 
     /**
      * Constructor voor MetroNet.
+        ENSURE(properlyInitialized(), "The metroNet is not properly initialized");
      * @return Een MetroNet object.
      * **/
     MetroNet(Exporter& e);
@@ -26,7 +27,6 @@ public:
      * **/
     ~MetroNet();
 
-
     /**
      * Method stationRegistered die controleert dat station attribute "naam" correct ingelezen wordt.
      * @pre REQUIRE(!(Utils::is_int(name)), "The parameter name is a number")
@@ -34,7 +34,6 @@ public:
      * @return true of false afhankelijk ofdat het station correct werd ingelezen.
      * **/
     bool stationRegistered(const std::string &name) const;
-    //bool tramRegistered(std::string& name) const;
 
     /**
      * Voegt station toe bij MetroNet.
@@ -50,6 +49,7 @@ public:
     /**
      * Voegt tram toe bij MetroNet.
      * @pre REQUIRE(tram->properlyInitialized(), "The parameter tram is not properly initialized")
+     * ENSURE(getTram(tram->getVoertuigNummer()) == tram, "The tram has not been added");
      * @param tram tram dat toegevoegd wordt.
      * */
     void addTram(Tram *const tram);
@@ -64,8 +64,8 @@ public:
     Station *getStation(const std::string &name);
 
     /**
-     * Getter dat de tram returned met parameter name.
-     * @param name
+     * Getter dat de tram returned met parameter voertuigNr.
+     * REQUIRE(tramExists(voertuigNr), "The tram with this nummer must exist");
      * @return Geeft tram terug dat als naam "name" heeft of als die niet bestaat geeft het NULL terug.
      * @note Functie is nog niet geïmplementeerd.
      * **/
@@ -83,15 +83,6 @@ public:
      * **/
     std::vector<Tram *> getTrams();
 
-//    /**
-//     * Functie dat een tram verplaatst naar een station.
-//     * @param tram De tram die verplaatst zou worden.
-//     * @param nameStation De string die overeenkomt met de naam van een station en waarnaar de tram zal verplaatst
-//     * worden.
-//     * @return true of false afhankelijk ofdat de move gaat of niet gaat.
-//     * **/
-//    bool moveTram(Tram *const tram, const std::string &nameStation);
-
     /**
      * Functie dat test ofdat MetroNet correct geïnitialiseerd is.
      * @return true of false als het correct geïnitialiseerd is of als het niet correct geïnitialiseerd is.
@@ -100,13 +91,16 @@ public:
 
     /**
      * Functie dat test ofdat de MetroNet dat we maken wel degelijk een valid MetroNet is.
+     * REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
      * @return true of false
      * **/
     bool isValidMetroNet();
 
     /**
      * Functie dat een MetroNet zal simuleren.
-     * @param seconds Hoe lang de simulatie zal runnen.
+     * REQUIRE(properlyInitialized(), "Metronet must be properly initialized");
+       REQUIRE(isValidMetroNet(), "The metronet must be valid");
+       ENSURE(isValidMetroNet(), "The metronet must still be valid");
      * @attention De simulatie maakt gebruik van ctime.h en diens ingebouwde functies om het verloop van een simulatie
      * in computer tijd te kunnen runnen ipv in real time de simulatie te runnen.
      * Deze functie roept de moveAllTramsOnce methode op om elke tram te bewegen naar zijn volgende station.
@@ -143,6 +137,7 @@ public:
      * Functie dat alle trammen zal verplaatsen naar hun volgende station als dat mogelijk is.
      * @pre REQUIRE(isValidMetroNet(), "Cannot move trams in a invalid metronet")
      * @pre REQUIRE(!targetStationName.empty(), "TargetStationName cannot be empty to move Tram")
+       ENSURE(isValidMetroNet(), "The metronet must still be valid");
      * **/
     void moveAllTramsOnce();
 
@@ -163,6 +158,8 @@ public:
     /**
      * Functie wordt gebruikt om te checken hoeveel keer een bepaald station bezoekt werd door trammen.
      * @pre REQUIRE(isValidMetroNet(), "The metronet must be valid")
+       REQUIRE(getInitializeStatCalled() == false, "This function must only be called once");
+       ENSURE(isValidMetroNet(), "The metronet must still be valid");
      * **/
     void initializeStat();
 
@@ -172,22 +169,51 @@ public:
      * **/
     void getStatReport();
 
+    /**
+     * get Exporter
+     */
     Exporter& getExporter();
 
 private:
-
+    /**
+     * Check validity of Station
+     * REQUIRE(station->properlyInitialized(), "The station must be properly initialized");
+     */
     bool controlStation(Station *s);
 
+    /**
+     * Does spoor have a tram with the same tramLine nummer?
+     * REQUIRE(s->properlyInitialized(), "The spoor must be properly initialized");
+     */
     bool spoorLineHasTram(Spoor *s);
 
+    /**
+     * Does tram have spoor with the same tramLine nummer?
+     * REQUIRE(t->properlyInitialized(), "The tram must be properly initialized");
+     */
     bool tramLineHasSpoor(Tram *t);
 
+    /**
+     * Is the start Station of the Tram correct?
+     * REQUIRE(t->properlyInitialized(), "The tram must be properly initialized");
+     */
     bool beginStationTramCorrect(Tram *t);
 
+    /**
+     * Does the metroNet have unique trams?
+     */
     bool uniqueTram();
 
+    /**
+     * Is the spoor Valid?
+       REQUIRE(s->properlyInitialized(), "The spoor must be properly initialized");
+     */
     bool validSpoor(Spoor *s);
 
+    /**
+     * Check the validity of Tram
+       REQUIRE(t->properlyInitialized(), "The tram must be properly initialized");
+     */
     bool controlTram(Tram *t);
 
 private:
@@ -197,8 +223,15 @@ private:
 
     bool initializeStatCalled;
 
+    /**
+     * get the member variable initializeStatCalled
+     */
     bool getInitializeStatCalled() const;
 
+    /**
+     * get the member variable initializeStatCalled to param b
+       ENSURE(getInitializeStatCalled() == b, "The setting was not successful");
+     */
     void setInitializeStatCalled(bool b);
 
     Exporter exporter;

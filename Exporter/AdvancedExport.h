@@ -20,12 +20,10 @@ public:
 
     /**
      * Methode om een metroNet te exporteren naar een file.
-     * @pre REQUIRE(metroNet.properlyInitialized(), "The metroNet is not properly initialized")
-     * @pre REQUIRE(!path.empty(), "Path to write is empty")
-     * @post ENSURE(Utils::fileExists(path), "The file was not even created!")
-     * @param metroNet Het metroNet dat geëxporteerd zal zijn.
-     * @param path van de file.
-     * @return true or false
+     * REQUIRE(metroNet.properlyInitialized(), "The metroNet is not properly initialized");
+     * REQUIRE(!path.empty(), "Path to write is empty");
+     * REQUIRE(properlyInitialized(), "Advanced exporter is not properly initialized");
+     * ENSURE(Utils::fileExists(path), "The file was not even created!");
      * **/
     bool exportFile(MetroNet &metroNet, const std::string& path) const;
 
@@ -39,6 +37,9 @@ public:
 
     bool properlyInitialized() const;
 
+    /**
+     * ENSURE(properlyInitialized() == true, "Advanced exporter was not initialized properly");
+     */
     AdvancedExport();
 
 private:

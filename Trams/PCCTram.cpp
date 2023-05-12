@@ -15,6 +15,7 @@ void PCCTram::calculateSnelheid() {
 }
 
 bool PCCTram::stationCanBeServiced(Station *s) {
+    REQUIRE(s->properlyInitialized(), "The station must be properly initialized");
     if (s->getTypeEnum() == TypeStation::MetroStation)
         return true;
     if (s->getTypeEnum() == TypeStation::Halte)
@@ -33,6 +34,7 @@ int PCCTram::getAantalDefecten() const {
 
 void PCCTram::setAantalDefecten(int aantal) {
     aantalDefecten = aantal;
+    ENSURE(getAantalDefecten() == aantal, "The set not correct");
 }
 
 int PCCTram::getReparatieTijd() const {
@@ -41,6 +43,7 @@ int PCCTram::getReparatieTijd() const {
 
 void PCCTram::setReparatieTijd(int aantal) {
     reparatieTijd = aantal;
+    ENSURE(getReparatieTijd() == aantal, "The set not corerct");
 }
 
 int PCCTram::getReparatieKost() const {
@@ -49,6 +52,7 @@ int PCCTram::getReparatieKost() const {
 
 void PCCTram::setReparatieKost(int aantal) {
     reparatieKost = aantal;
+    ENSURE(getReparatieKost() == aantal, "The set not correct");
 }
 
 bool PCCTram::move(Station *targetStation, Exporter &e) {

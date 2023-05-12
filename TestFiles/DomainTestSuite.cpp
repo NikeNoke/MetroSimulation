@@ -55,9 +55,9 @@ TEST_F(DomainTests, DefaultConstructors) {
 
     std::string fileName = "TestInputXML/ValidMetroNet/metroNet" + SSTR(0) + ".xml";
     std::string output = "TestOutput/DomainTest/metroNet" +  SSTR(0) + "Simple.txt";
-    std::string output2 = "TestOutput/metroNetTest" +  SSTR(0) + "Advanced.txt";
-    std::string op = "TestOutput/operation" +  SSTR(0) + ".txt";
-    std::string err = "TestOutput/error" +  SSTR(0) + ".txt";
+    std::string output2 = "TestOutput/DomainTest/metroNetTest" +  SSTR(0) + "Advanced.txt";
+    std::string op = "TestOutput/DomainTest/operation" +  SSTR(0) + ".txt";
+    std::string err = "TestOutput/DomainTest/error" +  SSTR(0) + ".txt";
 
     operation.open(op.c_str());
     error.open(err.c_str());
@@ -91,9 +91,9 @@ TEST_F(DomainTests, MoveTrams) {
 
     std::string fileName = "TestInputXML/ValidMetroNet/metroNet" + SSTR(0) + ".xml";
     std::string output = "TestOutput/DomainTest/metroNet" +  SSTR(0) + "Simple.txt";
-    std::string output2 = "TestOutput/metroNetTest" +  SSTR(0) + "Advanced.txt";
-    std::string op = "TestOutput/operation" +  SSTR(0) + ".txt";
-    std::string err = "TestOutput/error" +  SSTR(0) + ".txt";
+    std::string output2 = "TestOutput/DomainTest/metroNetTest" +  SSTR(0) + "Advanced.txt";
+    std::string op = "TestOutput/DomainTest/operation" +  SSTR(0) + ".txt";
+    std::string err = "TestOutput/DomainTest/error" +  SSTR(0) + ".txt";
 
     operation.open(op.c_str());
     error.open(err.c_str());
@@ -145,9 +145,9 @@ TEST_F(DomainTests, ContractViolations) {
 
     std::string fileName = "TestInputXML/ValidMetroNet/metroNet" + SSTR(0) + ".xml";
     std::string output = "TestOutput/DomainTest/metroNet" +  SSTR(0) + "Simple.txt";
-    std::string output2 = "TestOutput/metroNetTest" +  SSTR(0) + "Advanced.txt";
-    std::string op = "TestOutput/operation" +  SSTR(0) + ".txt";
-    std::string err = "TestOutput/error" +  SSTR(0) + ".txt";
+    std::string output2 = "TestOutput/DomainTest/metroNetTest" +  SSTR(0) + "Advanced.txt";
+    std::string op = "TestOutput/DomainTest/operation" +  SSTR(0) + ".txt";
+    std::string err = "TestOutput/DomainTest/error" +  SSTR(0) + ".txt";
 
     operation.open(op.c_str());
     error.open(err.c_str());
