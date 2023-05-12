@@ -93,6 +93,8 @@ namespace Utils{
      * **/
     bool isNegative(int n);
 
+    bool FileCompare(const std::string& leftFileName, const std::string& rightFileName);
+
 }
 
 #endif //METROSIMULATION_UTILS_H

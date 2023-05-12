@@ -6,7 +6,10 @@
 #define METROSIMULATION_INTERFACEEXPORT_H
 
 
-#include "../MetroNet/MetroNet.h"
+//#include "../MetroNet/MetroNet.h"
+#include <fstream>
+
+class MetroNet;
 
 /*
  * Pure virtual klasse dat dient voor files te exporten.
@@ -19,7 +22,7 @@ public:
      * @param metroNet Het metroNet dat men zal exporten.
      * @param path van de file.
      * **/
-    virtual bool exportFile(MetroNet &metroNet, std::string path) const = 0;
+    virtual bool exportFile(MetroNet &metroNet, const std::string& path) const = 0;
 
 private:
 };

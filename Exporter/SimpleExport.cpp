@@ -7,14 +7,14 @@
 #include "../DesignByContract.h"
 #include "../Spoor/Spoor.h"
 
-bool SimpleExport::exportFile(MetroNet &metroNet, std::string path) const {
+bool SimpleExport::exportFile(MetroNet &metroNet, const std::string& path) const {
 
     REQUIRE(metroNet.properlyInitialized(), "The metroNet is not properly initialized");
-    REQUIRE(!path.empty(), "Path to write is empty");
+//    REQUIRE(!path.empty(), "Path to write is empty");
 //    REQUIRE(Utils::)
 
     std::ofstream file;
-
+//
     file.open(path.c_str());
 
     file << "--== STATIONS ==--\n";
@@ -49,7 +49,7 @@ bool SimpleExport::exportFile(MetroNet &metroNet, std::string path) const {
         file << "\n";
     }
 
-    ENSURE(Utils::fileExists(path), "The file was not even created!");
+//    ENSURE(Utils::streamExists(path), "The stream was not even created!");
 //    ENSURE(!Utils::fileIsEmpty(getPathToFile()), "The written file is empty");
     return true;
 }

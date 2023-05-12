@@ -6,8 +6,6 @@
 #include "../TinyXML/tinyxml.h"
 #include "../MetroNetGenerator/MetroNetGenerator.h"
 #include "../Spoor/Spoor.h"
-#include "../Trams/Tram.h"
-#include "../Utils/utils.h"
 
 //https://stackoverflow.com/questions/5590381/easiest-way-to-convert-int-to-string-in-c
 #define SSTR(x) static_cast< std::ostringstream & >( \

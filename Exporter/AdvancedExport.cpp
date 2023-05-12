@@ -9,16 +9,14 @@
 #include <map>
 #include <vector>
 
-bool AdvancedExport::exportFile(MetroNet &metroNet, std::string path) const {
+bool AdvancedExport::exportFile(MetroNet &metroNet, const std::string& path) const {
 
     REQUIRE(metroNet.properlyInitialized(), "The metroNet is not properly initialized");
-    REQUIRE(!path.empty(), "Path to write is empty");
 //    REQUIRE(Utils::)
 
     std::ofstream file;
-
+//
     file.open(path.c_str());
-
 //    file << "--== STATIONS ==--\n";
 
     std::vector<Station *> tempStations = metroNet.getStations();
@@ -78,7 +76,7 @@ bool AdvancedExport::exportFile(MetroNet &metroNet, std::string path) const {
     }
 
 
-    ENSURE(Utils::fileExists(path), "The file was not even created!");
+//    ENSURE(Utils::fileExists(path), "The file was not even created!");
 //    ENSURE(!Utils::fileIsEmpty(getPathToFile()), "The written file is empty");
     return true;
 }

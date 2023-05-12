@@ -6,6 +6,10 @@
 #include "Tram.h"
 #include "../DesignByContract.h"
 #include "../Utils/utils.h"
+#include <sstream>
+
+#define SSTR(x) static_cast< std::ostringstream & >( \
+        ( std::ostringstream() << std::dec << x ) ).str()
 
 Tram::Tram() {
     _initCheck = this;
@@ -61,7 +65,7 @@ bool Tram::properlyInitialized() {
     return _initCheck == this;
 }
 
-bool Tram::move(Station *targetStation) {
+bool Tram::move(Station *targetStation, Exporter& e) { //TODO refactor and virtualize
     REQUIRE(targetStation->aSpoorConnectedToStation(getHuidigStation(), getLijnNr()),
             "Station to move to has no Spoor connected to the current Station of the tram!");
     REQUIRE(targetStation->hasSpoor(getLijnNr()), "The target station does not have the same lijnNr as this tram");
@@ -70,42 +74,20 @@ bool Tram::move(Station *targetStation) {
     std::string target = targetStation->getName();
     if (stationCanBeServiced(targetStation)) {
         if (!tramCanMove()) {
-            std::cout << "De huidige tram " << getVoertuigNummer() << " kan niet bewegen, want het is defect voor nog "
-                      << getTotalReparatieKost() - getReparatieTijdWatcher() << " 'stappen'\n";
+            e.writeToOperation("De huidige tram " + SSTR(getVoertuigNummer()) + " kan niet bewegen, want het is defect voor nog "
+                      + SSTR(getTotalReparatieKost() - getReparatieTijdWatcher()) + " 'stappen'\n");
             ENSURE(getHuidigStation() == temp, "The member huidigStation has changed");
             return false;
         }
         setHuidigStation(target);
-        std::cout << "The tram " << getVoertuigNummer() << " reed van station " << temp << " naar station " << target
-                  << " op spoor " << getLijnNr() << "\n";
+        e.writeToOperation("The tram " + SSTR(getVoertuigNummer()) + " reed van station " + temp + " naar station " + target
+                  + " op spoor " + SSTR(getLijnNr()) + "\n");
         ENSURE(getHuidigStation() == target, "The member huidigStation has not been changed properly");
         return true;
     } else {
-        std::cout << "The tram " << getVoertuigNummer() << " kan niet rijden van station " << temp << " naar station "
-                  << target
-                  << " op spoor " << getLijnNr() << "\n";
-        ENSURE(getHuidigStation() == temp, "The member huidigStation has changed");
-        return false;
-    }
-}
-
-bool Tram::_moveTest(Station *targetStation) {
-    REQUIRE(targetStation->aSpoorConnectedToStation(getHuidigStation(), getLijnNr()),
-            "Station to move to has no Spoor connected to the current Station of the tram!");
-    REQUIRE(targetStation->hasSpoor(getLijnNr()), "The target station does not have the same lijnNr as this tram");
-    //targetStation at lijnNr has no Tram at the moment
-    std::string temp = getHuidigStation();
-    std::string target = targetStation->getName();
-    if (stationCanBeServiced(targetStation)) {
-        if (!tramCanMove()) {
-
-            ENSURE(getHuidigStation() == temp, "The member huidigStation has changed");
-            return false;
-        }
-        setHuidigStation(target);
-        ENSURE(getHuidigStation() == target, "The member huidigStation has not been changed properly");
-        return true;
-    } else {
+        e.writeToOperation("The tram " + SSTR(getVoertuigNummer()) + " kan niet rijden van station " + temp + " naar station "
+                  + target
+                  + " op spoor " + SSTR(getLijnNr()) + "\n");
         ENSURE(getHuidigStation() == temp, "The member huidigStation has changed");
         return false;
     }

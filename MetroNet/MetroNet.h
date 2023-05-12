@@ -4,7 +4,9 @@
 #include <vector>
 #include "../Stations/Station.h"
 #include "../Trams/Tram.h"
+#include "../Exporter/Exporter.h"
 #include <string>
+#include <fstream>
 
 /**
 * Klasse MetroNet, een MetroNet object waarin alle Tram en Station objecten zouden geplaatst worden en waarover
@@ -17,7 +19,7 @@ public:
      * Constructor voor MetroNet.
      * @return Een MetroNet object.
      * **/
-    MetroNet();
+    MetroNet(Exporter& e);
 
     /**
      * Destructor voor MetroNet.
@@ -67,7 +69,9 @@ public:
      * @return Geeft tram terug dat als naam "name" heeft of als die niet bestaat geeft het NULL terug.
      * @note Functie is nog niet geïmplementeerd.
      * **/
-    Tram *getTram(const std::string &name);
+    Tram *getTram(int voertuigNr);
+
+    bool tramExists(int voertuigNr);
 
     /**
      * @return een vector met daarin alle stations.
@@ -180,6 +184,8 @@ public:
      * **/
     bool _moveTest(Tram *tram, std::string targetStationName);
 
+    Exporter& getExporter();
+
 private:
 
     bool controlStation(Station *s);
@@ -207,6 +213,7 @@ private:
 
     void setInitializeStatCalled(bool b);
 
+    Exporter exporter;
 };
 
 

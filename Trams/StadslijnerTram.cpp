@@ -42,3 +42,7 @@ int StadslijnerTram::getReparatieKost() const {
 void StadslijnerTram::setReparatieKost(int aantal) {
     reparatieKost = aantal;
 }
+
+bool StadslijnerTram::move(Station *station, Exporter &e) {
+    return Tram::move(station, e);
+}

@@ -48,7 +48,7 @@ public:
      * @param spoor Spoor dat geparsed zal worden.
      * @return true or false
      * **/
-    bool parseAll(Spoor *spoor) const;
+    bool parseAll(Spoor *spoor, Exporter& e) const;
 
     /**
      * Functie dat gecalled wordt door parseAll om te checken ofdat Vorige geparsed kan worden.
@@ -60,7 +60,7 @@ public:
      * @param spoor Huidige spoor dat gechecked wordt, vorige is dus spoor dat hiervoor komt.
      * @return true or false
      * **/
-    bool parseVorige(Spoor *spoor) const;
+    bool parseVorige(Spoor *spoor, Exporter& e) const;
 
     /**
      * Functie dat gecalled wordt door parseAll om te checken ofdat Volgende geparsed kan worden.
@@ -71,7 +71,7 @@ public:
      * @param spoor Huidige spoor dat gechecked wordt, volgende is dus spoor dat hierna komt.
      * @return true or false
      * **/
-    bool parseVolgende(Spoor *spoor) const;
+    bool parseVolgende(Spoor *spoor, Exporter& e) const;
 
     /**
      * Functie dat gecalled wordt door parseAll om te checken ofdat spoorNr geparsed kan worden.
@@ -83,20 +83,20 @@ public:
      * @param spoor waarvan spoorNr gecontroleerd wordt.
      * @return true or false
      * **/
-    bool parseSpoorNr(Spoor *spoor) const;
+    bool parseSpoorNr(Spoor *spoor, Exporter& e) const;
 
     /**
      * Functie dat controleerd ofdat een spoor valid is of niet.
      * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
      * @return true or false
      * **/
-    bool checkValidSpoor() const;
+    bool checkValidSpoor(Exporter& e) const;
 
     /**
      * Checked ofdat elke spoor de valid aantal attributen heeft en dat elk attribuut exact 1 keer geparsed wordt.
      * @return true or false
      * **/
-    bool checkNonValidAttributesAmount() const;
+    bool checkNonValidAttributesAmount(Exporter& e) const;
 
 
     /**
@@ -105,7 +105,7 @@ public:
      * @post ENSURE(getElement() != NULL, "TixmlElement has become NULL")
      * @return true or false
      * **/
-    bool checkValidVorige() const;
+    bool checkValidVorige(Exporter& e) const;
 
     /**
      * Functie dat controleerd ofdat de volgende station valid is of niet.
@@ -113,7 +113,7 @@ public:
      * @post ENSURE(getElement() != NULL, "TixmlElement has become NULL")
      * @return true or false
      * **/
-    bool checkValidVolgende() const;
+    bool checkValidVolgende(Exporter& e) const;
 
     /**
      * Functie dat controleerd ofdat de spoorNr valid is of niet.
@@ -121,7 +121,7 @@ public:
      * @post ENSURE(getElement() != NULL, "TixmlElement has become NULL")
      * @return true or false
      * **/
-    bool checkValidSpoorNr() const;
+    bool checkValidSpoorNr(Exporter& e) const;
 
     /**
      * Functie dat controleerd ofdatr er attriebuten zijn die niet behoren tot het Spoor object.
@@ -129,7 +129,7 @@ public:
      * @post ENSURE(getElement() != NULL, "TixmlElement has become NULL")
      * @return true or false
      * **/
-    bool checkNonValidAttributes() const;
+    bool checkNonValidAttributes(Exporter& e) const;
 
     /**
      * Getter functie dat een element geeft van het type TiXmlElement.

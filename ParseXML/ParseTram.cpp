@@ -21,7 +21,7 @@ void ParseTram::setElement(TiXmlElement *el) {
     ENSURE(getElement() == fElement, "TixmlElement is not the element of the parser");
 }
 
-bool ParseTram::checkValidBeginStation() const {
+bool ParseTram::checkValidBeginStation(Exporter& e) const {
 
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 
@@ -36,18 +36,24 @@ bool ParseTram::checkValidBeginStation() const {
         if (innerElementName == "beginStation") {
             if (!Utils::is_int(innerText))
                 amountOfBeginStation++;
-            else
+            else{
+                e.writeToError("The beginStation of this TRAM is an int\n");
                 return false;
+            }
         }
     }
 
     ENSURE(getElement() != NULL, "TixmlElement has become NULL");
 
-    return amountOfBeginStation == 1;
+    if(amountOfBeginStation != 1){
+        e.writeToError("The amount of beginStation of this TRAM is not equal to one\n");
+        return false;
+    }
+    return true;
 }
 
 
-bool ParseTram::checkValidLijnNr() const {
+bool ParseTram::checkValidLijnNr(Exporter& e) const {
 
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 
@@ -62,29 +68,48 @@ bool ParseTram::checkValidLijnNr() const {
         if (innerElementName == "lijnNr") {
             if (Utils::is_int(innerText))
                 amountOfLijnNr++;
-            else
+            else{
+                e.writeToError("The lijnNr of this TRAM is not an int\n");
                 return false;
+            }
         }
     }
 
     ENSURE(getElement() != NULL, "TixmlElement has become NULL");
 
-    return amountOfLijnNr == 1;
+    if(amountOfLijnNr != 1){
+        e.writeToError("The amount of lijnNr of this TRAM is not equal to one\n");
+        return false;
+    }
+    return true;
 }
 
-bool ParseTram::checkValidTram() const {
+bool ParseTram::checkValidTram(Exporter& e) const {
 
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 
-    if (getTramType() != TramType::PCC)
-        return checkValidLijnNr() && checkValidBeginStation() && checkValidTypeTram() && !checkNonValidAttributes() &&
-               checkTramTypeExists() && checkValidVoertuigNummer();
-    return checkValidLijnNr() && checkValidBeginStation() && checkValidTypeTram() && checkValidReparatieTijd()
-           && checkValidReparatieKosten() && checkValidAantalDefecten() && checkValidVoertuigNummer() &&
-           checkTramTypeExists() && !checkNonValidAttributes();
+    if (getTramType(e) != TramType::PCC){
+        bool one = checkValidLijnNr(e);
+        bool two = checkValidBeginStation(e);
+        bool three = checkValidTypeTram(e);
+        bool four = !checkNonValidAttributes(e);
+        bool five = checkTramTypeExists(e);
+        bool six = checkValidVoertuigNummer(e);
+        return one && two && three && four && five && six;
+    }
+    bool one = checkValidLijnNr(e);
+    bool two = checkValidBeginStation(e);
+    bool three = checkValidTypeTram(e);
+    bool four = !checkNonValidAttributes(e);
+    bool five = checkTramTypeExists(e);
+    bool six = checkValidVoertuigNummer(e);
+    bool seven = checkValidReparatieTijd(e);
+    bool eight = checkValidReparatieKosten(e);
+    bool nine =  checkValidAantalDefecten(e);
+    return one && two && three && four && five && six && seven && eight && nine;
 }
 
-bool ParseTram::checkTramTypeExists() const {
+bool ParseTram::checkTramTypeExists(Exporter& e) const {
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
     bool exists = false;
     for (TiXmlElement *innerElement = getElement()->FirstChildElement();
@@ -95,14 +120,16 @@ bool ParseTram::checkTramTypeExists() const {
             exists = true;
         }
     }
+    if(!exists)
+        e.writeToError("The tag 'type' of this TRAM does not exist\n");
     return exists;
 }
 
-bool ParseTram::parseBeginStation(Tram *tram) const {
+bool ParseTram::parseBeginStation(Tram *tram, Exporter& e) const {
 
     REQUIRE(tram->properlyInitialized(), "Tram is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
-    REQUIRE(checkValidBeginStation() == true, "The beginStation tag is not correct in this Tram tag");
+    REQUIRE(checkValidBeginStation(e) == true, "The beginStation tag is not correct in this Tram tag");
 
     for (TiXmlElement *InnerElement = getElement()->FirstChildElement();
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
@@ -122,11 +149,11 @@ bool ParseTram::parseBeginStation(Tram *tram) const {
     return false;
 }
 
-bool ParseTram::parseLijnNr(Tram *tram) const {
+bool ParseTram::parseLijnNr(Tram *tram, Exporter& e) const {
 
     REQUIRE(tram->properlyInitialized(), "Tram is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
-    REQUIRE(checkValidLijnNr() == true, "The lijnNr tag is not correct in this Tram tag");
+    REQUIRE(checkValidLijnNr(e) == true, "The lijnNr tag is not correct in this Tram tag");
 
 
     for (TiXmlElement *InnerElement = getElement()->FirstChildElement();
@@ -147,35 +174,29 @@ bool ParseTram::parseLijnNr(Tram *tram) const {
     return false;
 }
 
-bool ParseTram::parseAll() {
-//    std::cout << "Parse all is called\n";
-//    REQUIRE(tram->properlyInitialized(), "Station is not properlyInitialized");
+bool ParseTram::parseAll(Exporter& e) {
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
-    REQUIRE(checkValidTram() == true, "The Tram tag is not correct");
-//    REQUIRE(checkValidNaam() == true, "The name tag is not correct in this Station tag");
-//    REQUIRE(checkValidVorige() == true, "The vorige tag is not correct in this Station tag");
-//    REQUIRE(checkValidSpoorNr() == true, "The spoorNr tag is not correct in this Station tag");
-//    REQUIRE(checkValidVolgende() == true, "The volgende tag is not correct in this Station tag");
+    REQUIRE(checkValidTram(e) == true, "The Tram tag is not correct");
 
     Tram *tram;
 
-    if (getTramType() == TramType::PCC)
+    if (getTramType(e) == TramType::PCC)
         tram = new PCCTram;
-    else if (getTramType() == TramType::StadsLijner)
+    else if (getTramType(e) == TramType::StadsLijner)
         tram = new StadslijnerTram;
-    else if (getTramType() == TramType::Albatros)
+    else if (getTramType(e) == TramType::Albatros)
         tram = new AlbatrosTram;
     else {
-        std::cerr << "Tram type is invalid!\n";
+        e.writeToError("Tram type is invalid!\n");
         return false;
     }
 
-    if (!parseBeginStation(tram) || !parseLijnNr(tram) || !parseTypeTram(tram) || !parserVoertuigNummer(tram)) {
+    if (!parseBeginStation(tram, e) || !parseLijnNr(tram, e) || !parseTypeTram(tram, e) || !parserVoertuigNummer(tram, e)) {
         delete tram;
         return false;
     }
-    if (getTramType() == TramType::PCC) {
-        if (!parseAantalDefecten(tram) || !parseReparatieTijd(tram) || !parseReparatieKosten(tram)) {
+    if (getTramType(e) == TramType::PCC) {
+        if (!parseAantalDefecten(tram, e) || !parseReparatieTijd(tram, e) || !parseReparatieKosten(tram, e)) {
             delete tram;
             return false;
         }
@@ -194,7 +215,7 @@ bool ParseTram::parseAll() {
     return true;
 }
 
-bool ParseTram::checkNonValidAttributes() const {
+bool ParseTram::checkNonValidAttributes(Exporter& e) const {
 
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 
@@ -215,7 +236,7 @@ bool ParseTram::checkNonValidAttributes() const {
             continue;
         if (innerElementName == "voertuigNr")
             continue;
-        if (getTramType() == TramType::PCC) {
+        if (getTramType(e) == TramType::PCC) {
             if (innerElementName == "reparatieKost")
                 continue;
             if (innerElementName == "reparatieTijd")
@@ -223,6 +244,7 @@ bool ParseTram::checkNonValidAttributes() const {
             if (innerElementName == "aantalDefecten")
                 continue;
         }
+        e.writeToError("This TRAM has an invalid attrubute tag\n");
         return true;
     }
 
@@ -235,7 +257,7 @@ TiXmlElement *ParseTram::getElement() const {
     return fElement;
 }
 
-bool ParseTram::checkValidTypeTram() const {
+bool ParseTram::checkValidTypeTram(Exporter& e) const {
 
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 
@@ -250,21 +272,27 @@ bool ParseTram::checkValidTypeTram() const {
         if (innerElementName == "type") {
             if (!Utils::is_int(innerText)) //TODO add additional checks
                 amountOfType++;
-            else
+            else{
+                e.writeToError("The type of this TRAM is an int\n");
                 return false;
+            }
         }
     }
 
     ENSURE(getElement() != NULL, "TixmlElement has become NULL");
 
-    return amountOfType <= 1;
+    if(amountOfType != 1){
+        e.writeToError("The amount of type tag of TRAM is not equal to one\n");
+        return false;
+    }
+    return true;
 }
 
-bool ParseTram::parseTypeTram(Tram *tram) const {
+bool ParseTram::parseTypeTram(Tram *tram, Exporter& e) const {
 
     REQUIRE(tram->properlyInitialized(), "Tram is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
-    REQUIRE(checkValidTypeTram() == true, "The type tag is not correct in this Tram tag");
+    REQUIRE(checkValidTypeTram(e) == true, "The type tag is not correct in this Tram tag");
 
 
     for (TiXmlElement *InnerElement = getElement()->FirstChildElement();
@@ -283,7 +311,7 @@ bool ParseTram::parseTypeTram(Tram *tram) const {
     return false;
 }
 
-bool ParseTram::checkValidVoertuigNummer() const {
+bool ParseTram::checkValidVoertuigNummer(Exporter& e) const {
 
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 
@@ -298,21 +326,27 @@ bool ParseTram::checkValidVoertuigNummer() const {
         if (innerElementName == "voertuigNr") {
             if (Utils::is_int(innerText))
                 amountOfVoertuigNr++;
-            else
+            else{
+                e.writeToError("The voertuigNr of this TRAM is not an int\n");
                 return false;
+            }
         }
     }
 
     ENSURE(getElement() != NULL, "TixmlElement has become NULL");
 
-    return amountOfVoertuigNr == 1;
+    if(amountOfVoertuigNr != 1){
+        e.writeToError("The amount of voertuigNr tag of this TRAM is not equal to one\n");
+        return false;
+    }
+    return true;
 }
 
-bool ParseTram::parserVoertuigNummer(Tram *tram) const {
+bool ParseTram::parserVoertuigNummer(Tram *tram, Exporter& e) const {
 
     REQUIRE(tram->properlyInitialized(), "Tram is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
-    REQUIRE(checkValidVoertuigNummer() == true, "The lijnNr tag is not correct in this Tram tag");
+    REQUIRE(checkValidVoertuigNummer(e) == true, "The lijnNr tag is not correct in this Tram tag");
 
 
     for (TiXmlElement *InnerElement = getElement()->FirstChildElement();
@@ -333,9 +367,9 @@ bool ParseTram::parserVoertuigNummer(Tram *tram) const {
     return false;
 }
 
-TramType::TypeTram ParseTram::getTramType() const {
+TramType::TypeTram ParseTram::getTramType(Exporter& e) const {
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
-    REQUIRE(checkValidTypeTram() == true, "The type tag is not correct in this Tram tag");
+    REQUIRE(checkValidTypeTram(e) == true, "The type tag is not correct in this Tram tag");
 
     for (TiXmlElement *InnerElement = getElement()->FirstChildElement();
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
@@ -364,11 +398,11 @@ Tram *ParseTram::getParsedTram() const {
     return parsedTram;
 }
 
-bool ParseTram::parseSuccessful() {
-    return parseAll();
+bool ParseTram::parseSuccessful(Exporter& e) {
+    return parseAll(e);
 }
 
-bool ParseTram::checkValidAantalDefecten() const {
+bool ParseTram::checkValidAantalDefecten(Exporter& e) const {
 
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 
@@ -383,17 +417,23 @@ bool ParseTram::checkValidAantalDefecten() const {
         if (innerElementName == "aantalDefecten") {
             if (Utils::is_int(innerText))
                 aantalDefecten++;
-            else
+            else{
+                e.writeToError("The AantalDefecten of this TRAM is not an int\n");
                 return false;
+            }
         }
     }
 
     ENSURE(getElement() != NULL, "TixmlElement has become NULL");
 
-    return aantalDefecten == 1;
+    if(aantalDefecten != 1){
+        e.writeToError("The amount of AantalDefecten of this TRAM is not equal to one\n");
+        return false;
+    }
+    return true;
 }
 
-bool ParseTram::checkValidReparatieTijd() const {
+bool ParseTram::checkValidReparatieTijd(Exporter& e) const {
 
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 
@@ -408,17 +448,23 @@ bool ParseTram::checkValidReparatieTijd() const {
         if (innerElementName == "reparatieTijd") {
             if (Utils::is_int(innerText))
                 aantalReparatieTijd++;
-            else
+            else{
+                e.writeToError("The reparatieTijd of this TRAM is not an int\n");
                 return false;
+            }
         }
     }
 
     ENSURE(getElement() != NULL, "TixmlElement has become NULL");
 
-    return aantalReparatieTijd == 1;
+    if(aantalReparatieTijd != 1){
+        e.writeToError("The amount of eparatieTijd of this TRAM is not equal to one\n");
+        return false;
+    }
+    return true;
 }
 
-bool ParseTram::checkValidReparatieKosten() const {
+bool ParseTram::checkValidReparatieKosten(Exporter& e) const {
 
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 
@@ -433,22 +479,28 @@ bool ParseTram::checkValidReparatieKosten() const {
         if (innerElementName == "reparatieKost") {
             if (Utils::is_int(innerText))
                 aantalReparatieKost++;
-            else
+            else{
+                e.writeToError("The reparatieKost of this TRAM is not an int\n");
                 return false;
+            }
         }
     }
 
     ENSURE(getElement() != NULL, "TixmlElement has become NULL");
 
-    return aantalReparatieKost == 1;
+    if(aantalReparatieKost != 1){
+        e.writeToError("The amount of ReparatieKost of this TRAM is not equal to one\n");
+        return false;
+    }
+    return true;
 }
 
-bool ParseTram::parseAantalDefecten(Tram *tram) {
+bool ParseTram::parseAantalDefecten(Tram *tram, Exporter& e) {
 
-    REQUIRE(getTramType() == TramType::PCC, "Will not work on other types");
+    REQUIRE(getTramType(e) == TramType::PCC, "Will not work on other types");
     REQUIRE(tram->properlyInitialized(), "Tram is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
-    REQUIRE(checkValidAantalDefecten() == true, "The aantalDefecten tag is not correct in this Tram tag");
+    REQUIRE(checkValidAantalDefecten(e) == true, "The aantalDefecten tag is not correct in this Tram tag");
 
 
     for (TiXmlElement *InnerElement = getElement()->FirstChildElement();
@@ -469,12 +521,12 @@ bool ParseTram::parseAantalDefecten(Tram *tram) {
     return false;
 }
 
-bool ParseTram::parseReparatieTijd(Tram *tram) {
+bool ParseTram::parseReparatieTijd(Tram *tram, Exporter& e) {
 
-    REQUIRE(getTramType() == TramType::PCC, "Will not work on other types");
+    REQUIRE(getTramType(e) == TramType::PCC, "Will not work on other types");
     REQUIRE(tram->properlyInitialized(), "Tram is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
-    REQUIRE(checkValidReparatieTijd() == true, "The reparatieTijd tag is not correct in this Tram tag");
+    REQUIRE(checkValidReparatieTijd(e) == true, "The reparatieTijd tag is not correct in this Tram tag");
 
 
     for (TiXmlElement *InnerElement = getElement()->FirstChildElement();
@@ -495,12 +547,12 @@ bool ParseTram::parseReparatieTijd(Tram *tram) {
     return false;
 }
 
-bool ParseTram::parseReparatieKosten(Tram *tram) {
+bool ParseTram::parseReparatieKosten(Tram *tram, Exporter& e) {
 
-    REQUIRE(getTramType() == TramType::PCC, "Will not work on other types");
+    REQUIRE(getTramType(e) == TramType::PCC, "Will not work on other types");
     REQUIRE(tram->properlyInitialized(), "Tram is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
-    REQUIRE(checkValidReparatieKosten() == true, "The reparatieKost tag is not correct in this Tram tag");
+    REQUIRE(checkValidReparatieKosten(e) == true, "The reparatieKost tag is not correct in this Tram tag");
 
 
     for (TiXmlElement *InnerElement = getElement()->FirstChildElement();

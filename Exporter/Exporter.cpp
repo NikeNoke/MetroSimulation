@@ -2,9 +2,9 @@
 // Created by byamba on 22/03/23.
 //
 
+#include <iostream>
 #include "Exporter.h"
 #include "../DesignByContract.h"
-#include "../Utils/utils.h"
 #include "../Spoor/Spoor.h"
 
 bool Exporter::exportFile(MetroNet &metroNet) const {
@@ -16,32 +16,33 @@ bool Exporter::exportFile(MetroNet &metroNet) const {
     return true;
 }
 
-Exporter::Exporter(std::string &pathS, std::string &pathA) {
-//    REQUIRE(Utils::fileExists("../" + pathToF), "The file does not exist!");
-    setPathToAdvanced(pathA);
-    setPathToSimple(pathS); //TODO more ensures and requires
-    _fInitCheck = this;
-    ENSURE(getPathToAdvanced() == pathA, "pathToFile could not be opened");
-    ENSURE(this->properlyInitialized(), "exporter is not properly initialized");
-}
-
-//void Exporter::setPathToFile(std::string f) {
-////    REQUIRE(Utils::fileExists(f), "The file does not exist!");
-//    pathToFile = f;
-//    ENSURE(getPathToFile() == f, "The set operation was a failure");
-//}
-//
-//std::string Exporter::getPathToFile() const {
-//    return pathToFile;
-//}
-
 bool Exporter::properlyInitialized() const {
     return this == _fInitCheck;
 }
 
-Exporter::Exporter() {
-    _fInitCheck = this;
-    ENSURE(this->properlyInitialized(), "exporter is not properly initialized");
+void Exporter::writeToOperation(const std::string &load) {
+    getOperationStream() << load;
+}
+
+Exporter::Exporter(std::string pathToSimple, std::string pathToAdvanced, std::ostream &op, std::ostream &err)
+    : pathToSimple(pathToSimple), pathToAdvanced(pathToAdvanced), operationStream(op), errorLog(err)
+{
+//    ENSURE()
+//    ENSURE()
+//    ENSURE()
+//    ENSURE()
+}
+
+void Exporter::writeToError(const std::string &load) {
+    getErrorStream() << load;
+}
+
+std::ostream &Exporter::getOperationStream() {
+    return operationStream;
+}
+
+std::ostream &Exporter::getErrorStream() {
+    return errorLog;
 }
 
 std::string Exporter::getPathToAdvanced() const {

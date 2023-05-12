@@ -72,6 +72,8 @@ public:
      * @param aantal reparatie kost
      * **/
     void setReparatieKost(int aantal);
+
+    bool move(Station *station, Exporter& e);
 };
 
 

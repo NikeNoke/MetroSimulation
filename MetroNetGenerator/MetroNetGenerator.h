@@ -5,6 +5,7 @@
 #ifndef METROSIMULATION_METRONETGENERATOR_H
 #define METROSIMULATION_METRONETGENERATOR_H
 #include <string>
+#include <iostream>
 #include "../MetroNet/MetroNet.h"
 #include "../Stations/Station.h"
 #include "../ParseXML/ParseMetroNet.h"
@@ -29,7 +30,8 @@ public:
      * @param pathToWrite2 Gebruikt om weg te schrijven met gebruik van de AdvancedExport.
      * @param pathToXml XML file dat gebruikt zou worden om daarven een MetroNet uit te halen.
      * **/
-    explicit MetroNetGenerator(std::string pathToXml, std::string pathToWrite, std::string pathToWrite2);
+    explicit MetroNetGenerator(std::string pathToXml, std::string pathToSimple, std::string pathToAdvanced
+                                , std::ostream& op, std::ostream& err);
 
     /**
      * Functie dat de MetroNet zal genereren en die dan wegschrijven.
@@ -54,11 +56,6 @@ public:
      * **/
     std::string getPathToOpenXml() const;
 
-    /**
-     * Getter functie om de path naar de file waar we gaan wegschrijven te verkrijgen.
-     * @return pathToWrite
-     * **/
-    std::string getPathToWrite() const;
 
     /**
      * Zet de path van de XML file dat we gaan openen om daaruit de MetroNet te parsen.
@@ -67,13 +64,6 @@ public:
      * @param p Path van de XML file dat geparsed zal worden.
      * **/
     void setPathToOpenXml(std::string& p);
-
-    /**
-     * Zet de path naar de file waar we gaan wegschrijven.
-     * @post ENSURE(getPathToWrite() == p, "The setting was failure")
-     * @param p Path van de file waar we gaan wegschrijven.
-     * **/
-    void setPathToWrite(std::string& p);
 
     /**
      * Functie dat onze MetroNet zal simuleren.
@@ -90,16 +80,24 @@ public:
      * **/
     Exporter& getExporter();
 
-//    std::string getPathToLog() const;
 
-//    void setPathToLog(std::string& p);
+    std::string getPathToAdvanced() const;
+
+    void setPathToAdvanced(const std::string& s);
+
+    std::string getPathToSimple() const;
+
+    void setPathToSimple(const std::string& s);
 
 private:
     std::string pathToOpenXml;
-    std::string pathToWrite;
+    std::string pathToWriteSimple;
+    std::string pathToWriteAdvanced;
+//    Exporter simpleExporter;
+//    Exporter advancedExporter;
+    Exporter exporter;
 //    std::string pathToLog;
     MetroNet metroNet;
-    Exporter exporter;
 };
 
 

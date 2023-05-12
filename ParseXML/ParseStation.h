@@ -47,7 +47,7 @@ public:
      * @post ENSURE(getParsedStation() != NULL, "akfjdajkfl");
      * @return true or false
      * **/
-    bool parseAll();
+    bool parseAll(Exporter& e);
 
     /**
      * Functie dat gecalled wordt door parseAll om ervoor te zorgen dat de naam van een spoor geparsed kan worden.
@@ -59,14 +59,14 @@ public:
      * @param station dat men gaat parsen
      * @return true or false
      * **/
-    bool parseNaam(Station *station) const;
+    bool parseNaam(Station *station, Exporter& e) const;
 
     /**
      * Functie dat nakijkt ofdat het Station object valid is.
      * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
      * @return true or false
      * **/
-    bool checkValidStation() const;
+    bool checkValidStation(Exporter& e) const;
 
     /**
      * Functie dat controleerd ofdat naam valid is.
@@ -74,7 +74,7 @@ public:
      * @post ENSURE(getElement() != NULL, "TixmlElement has become NULL")
      * @return true or false
      * **/
-    bool checkValidNaam() const;
+    bool checkValidNaam(Exporter& e) const;
 
     /**
      * Functie dat controleerd ofdat er attriebuten zijn die niet deel zijn van een Station object.
@@ -82,7 +82,7 @@ public:
      * @post ENSURE(getElement() != NULL, "TixmlElement has become NULL")
      * @return true or false
      * **/
-    bool checkNonValidAttributes() const;
+    bool checkNonValidAttributes(Exporter& e) const;
 
     /**
      * Functie dat controleerd ofdat het type van het Station object valid is.
@@ -90,7 +90,7 @@ public:
      * @post ENSURE(getElement() != NULL, "TixmlElement has become NULL")
      * @return true or false
      * **/
-    bool checkValidTypeStation() const;
+    bool checkValidTypeStation(Exporter& e) const;
 
     /**
      * Functie dat het type van een station parsed.
@@ -102,7 +102,7 @@ public:
      * @param station waarven we het type willen parsen.
      * @return true or false
      * **/
-    bool parseTypeStation(Station *station) const;
+    bool parseTypeStation(Station *station, Exporter& e) const;
 
     /**
      * Getter functie dat een element teruggeeft van type TiXmlElement.
@@ -125,7 +125,7 @@ public:
      * @param station dat we gaan parsen.
      * @return true or false
      * **/
-    bool parseSpoor(Station *station) const;
+    bool parseSpoor(Station *station, Exporter& e) const;
 
     /**
      * Getter functie het Station type gaat teruggeven.
@@ -133,13 +133,13 @@ public:
      * @pre REQUIRE(checkValidTypeStation() == true, "The type tag is not correct in this Station tag")
      * @return StationType
      * **/
-    TypeStation::StationType getStationType() const;
+    TypeStation::StationType getStationType(Exporter& e) const;
 
     /**
      * Functie dat controleert ofdat en parse succesvol was of niet.
      * @return true or false
      * **/
-    bool parseSuccessful();
+    bool parseSuccessful(Exporter& e);
 
     /**
      * Setter functie dat Station set.
@@ -157,7 +157,7 @@ public:
      * Functie dat controleert ofdat er sporen aanwezig zijn en die valid zijn.
      * @return true or false
      * **/
-    bool checkSporen() const;
+    bool checkSporen(Exporter& e) const;
 
 private:
     TiXmlElement *element;

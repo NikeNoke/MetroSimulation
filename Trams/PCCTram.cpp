@@ -44,3 +44,7 @@ int PCCTram::getReparatieKost() const {
 void PCCTram::setReparatieKost(int aantal) {
     reparatieKost = aantal;
 }
+
+bool PCCTram::move(Station *station, Exporter &e) {
+    return Tram::move(station, e);
+}

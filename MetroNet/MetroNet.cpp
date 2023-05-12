@@ -5,6 +5,10 @@
 #include "../Spoor/Spoor.h"
 #include <set>
 #include <ctime>
+#include <sstream>
+
+#define SSTR(x) static_cast< std::ostringstream & >( \
+        ( std::ostringstream() << std::dec << x ) ).str()
 
 bool MetroNet::stationRegistered(const std::string &name) const {
     REQUIRE(!(Utils::is_int(name)), "The parameter name is a number");
@@ -14,14 +18,6 @@ bool MetroNet::stationRegistered(const std::string &name) const {
     }
     return false;
 }
-
-//bool MetroNet::tramRegistered(std::string &name) const { //
-//    for(int i = 0; i < fTrams.size(); i++){
-//        if(fTrams[i].lijnNr == name)
-//            return true;
-//    }
-//    return false;
-//}
 
 void MetroNet::addStation(Station *const station) {
     REQUIRE(station->properlyInitialized(), "The parameter station is not properly initialized");
@@ -65,31 +61,6 @@ std::vector<Tram *> MetroNet::getTrams() {
     return fTrams;
 }
 
-//
-//bool MetroNet::moveTram(Tram *const tram, const std::string &nameStation) {
-//
-//    REQUIRE(tram->properlyInitialized(), "The parameter tram is not properly initialized");
-//    REQUIRE(!(Utils::is_int(nameStation)), "The parameter nameStation is a number");
-//    Station *current = getStation(tram->getHuidigStation());
-//
-//    if (nameStation != current->getVorige() && nameStation != current->getVolgende()) {
-//        std::cerr << "De tram kan niet verplaatst worden naar " << nameStation << "\n";
-//        return false;
-//    }
-//
-//    if (nameStation == current->getVorige()) {
-//        std::cout << "De tram " << tram->getLijnNr() << " reed van station " << tram->getHuidigStation()
-//                  << " naar station " << current->getVorige() << "\n";
-//        tram->setHuidigStation(current->getVorige());
-//        return true;
-//    } else {
-//        std::cout << "De tram " << tram->getLijnNr() << " reed van station " << tram->getHuidigStation()
-//                  << " naar station " << current->getVolgende() << "\n";
-//        tram->setHuidigStation(current->getVolgende());
-//        return true;
-//    }
-//}
-
 MetroNet::~MetroNet() {
     for (unsigned long int i = 0; i < fStations.size(); i++) {
         delete fStations[i];
@@ -99,7 +70,9 @@ MetroNet::~MetroNet() {
     }
 }
 
-MetroNet::MetroNet() {
+MetroNet::MetroNet(Exporter& e)
+    : exporter(e)
+{
     _fInitCheck = this;
     setInitializeStatCalled(false);
 }
@@ -136,70 +109,6 @@ bool MetroNet::isValidMetroNet() {
     return true;
 }
 
-//bool MetroNet::isValidMetroNetSilent() {
-//
-//    REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
-//
-//    std::vector<Station *> tempStations = this->getStations();
-//    std::vector<Tram *> tempTrams = this->getTrams();
-//
-//    for (long unsigned int i = 0; i < tempStations.size(); i++) {
-//        REQUIRE(tempStations[i]->properlyInitialized(), "A station of the metroNet is not properly initialized");
-//        if (!this->stationRegistered(tempStations[i]->getVorige())) {
-//            return false;
-//        }
-//
-//        if (!this->stationRegistered(tempStations[i]->getVolgende())) {
-//            return false;
-//        }
-//
-//        Station *vorige = this->getStation(tempStations[i]->getVorige());
-//        Station *volgende = this->getStation(tempStations[i]->getVolgende());
-//
-//        if (vorige->getVolgende() != tempStations[i]->getName())
-//            return false;
-//        if (volgende->getVorige() != tempStations[i]->getName())
-//            return false;
-//
-//        if (tempStations[i]->getSporen() != vorige->getSporen()) {
-//            return false;
-//        }
-//
-//        if (tempStations[i]->getSporen() != volgende->getSporen()) {
-//            return false;
-//        }
-//
-//        bool spoorHeeftTram = false;
-//        for (long unsigned int j = 0; j < tempTrams.size(); j++) {
-//            REQUIRE(tempTrams[j]->properlyInitialized(), "A tram of the metroNet is not properly initialized");
-//            if (tempStations[i]->getSporen() == tempTrams[j]->getLijnNr()) {
-//                spoorHeeftTram = true;
-//                break;
-//            }
-//        }
-//
-//        if (!spoorHeeftTram) {
-//            return false;
-//        }
-//
-//    }
-//
-//    for (long unsigned int i = 0; i < tempTrams.size(); i++) {
-//        REQUIRE(tempTrams[i]->properlyInitialized(), "A tram of the metroNet is not properly initialized");
-//        if (!this->stationRegistered(tempTrams[i]->getBeginStation())) {
-//            return false;
-//        }
-//        Station *beginStation = this->getStation(tempTrams[i]->getBeginStation());
-//
-//        if (beginStation->getSporen() != tempTrams[i]->getLijnNr()) {
-//            return false;
-//        }
-//
-//    }
-//
-//    return true;
-//}
-
 void MetroNet::simulateMetroNet(int seconds) {
 
     struct timespec finish;
@@ -223,12 +132,7 @@ void MetroNet::simulateMetroNet(int seconds) {
         elapsed += (finish.tv_nsec - start.tv_nsec) / 1000000000.0;
 
     }
-//
-//    for(int i = 0; i < seconds; i++){
-//
-//        moveAllTramsOnce();
-//
-//    }
+
 }
 
 bool MetroNet::controlStation(Station *station) {
@@ -236,7 +140,7 @@ bool MetroNet::controlStation(Station *station) {
     std::vector<Spoor *> tempSporen = station->getSporen();
 
     if (!station->hasUniqueSporen()) {
-        std::cerr << "Sporen in de station " << station->getName() << " is niet uniek\n";
+        getExporter().writeToError("Sporen in de station " + station->getName() + " is niet uniek\n");
         return false;
     }
 
@@ -245,12 +149,12 @@ bool MetroNet::controlStation(Station *station) {
         Spoor *current = tempSporen[i];
 
         if (!validSpoor(current)) {
-//            std::cerr << "Spoor is niet correct\n";
+            getExporter().writeToError("Spoor is niet correct\n");
             return false;
         }
 
         if (!spoorLineHasTram(current)) {
-            std::cerr << "Spoor " << tempSporen[i]->getSpoorNr() << " heeft geen tram\n";
+            getExporter().writeToError("Spoor " + SSTR(tempSporen[i]->getSpoorNr()) + " heeft geen tram\n");
             return false;
         }
     }
@@ -337,18 +241,20 @@ bool MetroNet::validSpoor(Spoor *s) {
     Station *huidigStation = getStation(s->getHuiding());
 
     if (!stationRegistered(s->getVorige())) {
-        std::cerr << "De vorige station " << s->getVorige() << " van spoor " << s->getSpoorNr() << " op station "
-                  << s->getHuiding()
-                  << " is niet geregistreerd!\n";
+        getExporter().writeToError(
+                "De vorige station " + s->getVorige() + " van spoor " + SSTR(s->getSpoorNr()) + " op station "
+                + s->getHuiding()
+                + " is niet geregistreerd!\n");
         return false;
     }
 
     Station *vorigeStation = getStation(s->getVorige());
 
     if (!stationRegistered(s->getVolgende())) {
-        std::cerr << "De volgende station " << s->getVolgende() << " van spoor " << s->getSpoorNr() << " op station "
-                  << s->getHuiding()
-                  << " is niet geregistreerd!\n";
+        getExporter().writeToError(
+                "De volgende station " + s->getVolgende() + " van spoor " + SSTR(s->getSpoorNr()) + " op station "
+                + s->getHuiding()
+                + " is niet geregistreerd!\n");
         return false;
     }
 
@@ -361,34 +267,38 @@ bool MetroNet::validSpoor(Spoor *s) {
 //    for(unsigned int i = 0; i < sporenVanHuidige.size(); i++){
 
     if (!vorigeStation->hasSpoor(s->getSpoorNr())) {
-        std::cerr << "De vorige station " << s->getVolgende() << " van spoor " << s->getSpoorNr() << " op station "
-                  << s->getHuiding()
-                  << " heeft geen dezelfde spoorNr!\n";
+        getExporter().writeToError(
+                "De vorige station " + s->getVolgende() + " van spoor " + SSTR(s->getSpoorNr()) + " op station "
+                + s->getHuiding()
+                + " heeft geen dezelfde spoorNr!\n");
         return false;
     }
 
     if (!volgendeStation->hasSpoor(s->getSpoorNr())) {
-        std::cerr << "De volgende station " << s->getVolgende() << " van spoor " << s->getSpoorNr() << " op station "
-                  << s->getHuiding()
-                  << " heeft geen dezelfde spoorNr!\n";
+        getExporter().writeToError(
+                "De volgende station " + s->getVolgende() + " van spoor " + SSTR(s->getSpoorNr()) + " op station "
+                + s->getHuiding()
+                + " heeft geen dezelfde spoorNr!\n");
         return false;
     }
 
     Spoor *spoorVorige = vorigeStation->getSpoor(s->getSpoorNr());
 
     if (spoorVorige->getVolgende() != s->getHuiding()) {
-        std::cerr << "De vorige station " << s->getVolgende() << " van spoor " << s->getSpoorNr() << " op station "
-                  << s->getHuiding()
-                  << ", de volgende ervan is niet de huidige!\n";
+        getExporter().writeToError(
+                "De vorige station " + s->getVolgende() + " van spoor " + SSTR(s->getSpoorNr()) + " op station "
+                + s->getHuiding()
+                + ", de volgende ervan is niet de huidige!\n");
         return false;
     }
 
     Spoor *spoorVolgende = volgendeStation->getSpoor(s->getSpoorNr());
 
     if (spoorVolgende->getVorige() != s->getHuiding()) {
-        std::cerr << "De volgende station " << s->getVolgende() << " van spoor " << s->getSpoorNr() << " op station "
-                  << s->getHuiding()
-                  << ", de vorige ervan is niet de huidige!\n";
+        getExporter().writeToError(
+                "De volgende station " + s->getVolgende() + " van spoor " + SSTR(s->getSpoorNr()) + " op station "
+                + s->getHuiding()
+                + ", de vorige ervan is niet de huidige!\n");
         return false;
     }
 
@@ -468,10 +378,12 @@ void MetroNet::moveAllTramsOnce() {
         REQUIRE(!targetStationName.empty(), "TargetStationName cannot be empty to move Tram");
 
         if (aTramAtStationSpoor(targetStationName, tempTrams[i]->getLijnNr())) {
-            std::cout << "There is a tram  "
-                      << getTramAtStationSpoor(targetStationName, tempTrams[i]->getLijnNr())->getVoertuigNummer()
-                      << " at station " << targetStationName << " so we must wait till we can move the current "
-                      << "tram " << tempTrams[i]->getVoertuigNummer() << "\n";
+            getExporter().writeToOperation("There is a tram  "
+                                                   + SSTR(getTramAtStationSpoor(targetStationName,
+                                                                                tempTrams[i]->getLijnNr())->getVoertuigNummer())
+                                                   + " at station " + targetStationName +
+                                                   " so we must wait till we can move the current "
+                                                   + "tram " + SSTR(tempTrams[i]->getVoertuigNummer()) + "\n");
             continue;
         }
 
@@ -563,28 +475,60 @@ void MetroNet::getStatReport() {
 
     std::vector<Tram *> tempTrams = getTrams();
 
-    std::cout << "\n\n ====BEGIN STAT REPORT====\n";
+    getExporter().writeToOperation("\n\n ====BEGIN STAT REPORT====\n");
 
     for (unsigned int i = 0; i < tempTrams.size(); i++) {
 
-        std::cout << "De reparatie kost van tram " << tempTrams[i]->getVoertuigNummer() << " is "
-                  << tempTrams[i]->getTotalReparatieKost()
-                  << "\n";
+        getExporter().writeToOperation(
+                "De reparatie kost van tram " + SSTR(tempTrams[i]->getVoertuigNummer()) + " is "
+                + SSTR(tempTrams[i]->getTotalReparatieKost())
+                + "\n");
         totReperatieKost += tempTrams[i]->getTotalReparatieKost();
 
     }
-    std::cout << "De totale reparatie kost van de metronet is gelijk aan " << totReperatieKost << "\n";
+    getExporter().writeToOperation(
+            "De totale reparatie kost van de metronet is gelijk aan " + SSTR(totReperatieKost) + "\n");
 
     std::vector<Station *> tempStations = getStations();
 
     for (unsigned int i = 0; i < tempStations.size(); i++) {
 
-        std::cout << "De station " << tempStations[i]->getName() << " werd bezocht door "
-                  << tempStations[i]->getVisitedByTrams()
-                  << " trams\n";
+        getExporter().writeToOperation("De station " + SSTR(tempStations[i]->getName()) + " werd bezocht door "
+                                               + SSTR(tempStations[i]->getVisitedByTrams())
+                                               + " trams\n");
 
     }
 
-    std::cout << "\n\n====END STAT REPORT====\n\n";
+    getExporter().writeToOperation("\n\n====END STAT REPORT====\n\n");
+}
+
+Tram *MetroNet::getTram(int voertuigNr) {
+
+    REQUIRE(tramExists(voertuigNr), "The tram with this nummer must exist");
+
+    std::vector<Tram* > tempTrams = getTrams();
+
+    for(unsigned int i = 0; i < tempTrams.size(); i++){
+
+        if(tempTrams[i]->getVoertuigNummer() == voertuigNr)
+            return tempTrams[i];
+    }
+    return NULL;
+}
+
+bool MetroNet::tramExists(int voertuigNr) {
+
+    std::vector<Tram* > tempTrams = getTrams();
+
+    for(unsigned int i = 0; i < tempTrams.size(); i++){
+
+        if(tempTrams[i]->getVoertuigNummer() == voertuigNr)
+            return true;
+    }
+    return false;
+}
+
+Exporter &MetroNet::getExporter() {
+    return exporter;
 }
 

@@ -10,6 +10,7 @@
 #include <string>
 #include "AdvancedExport.h"
 #include "SimpleExport.h"
+#include <fstream>
 
 class MetroNet;
 
@@ -26,14 +27,14 @@ public:
      * @param pathToSimple
      * @param pathToAdvanced
      * **/
-    explicit Exporter(std::string &pathToSimple, std::string &pathToAdvanced);
+    explicit Exporter(std::string pathToSimple, std::string pathToAdvanced, std::ostream& op, std::ostream& err);
 
     /**
      * Default constructor van de klasse Exporter.
      * @post ENSURE(this->properlyInitialized(), "exporter is not properly initialized")
      * @return Exporter object.
      * **/
-    Exporter();
+//    explicit Exporter(std::ostream & s);
 
     /**
      * Creërt een file dat oveereenkomt met metroNet en exporteerd deze.
@@ -51,6 +52,11 @@ public:
      * @return true or false
      * **/
     bool properlyInitialized() const;
+
+    void writeToOperation(const std::string& load);
+
+    void writeToError(const std::string& load);
+
 
     /**
      * Getter dat de pathToAdvanded teruggeeft.
@@ -77,10 +83,24 @@ public:
      * **/
     void setPathToSimple(const std::string &pathToSimple);
 
+//    const std::ofstream& getStream() const;
+
+//    void setStream(std::ofstream& s);
+
+//    ~Exporter();
+
+    std::ostream &getOperationStream();
+
+    std::ostream &getErrorStream();
+
+//    void setWriteStream(std::ostream& s);
+
 private:
 
-    std::string pathToSimple;
+    std::string pathToSimple; //TODO change to streams
     std::string pathToAdvanced;
+    std::ostream& operationStream;
+    std::ostream& errorLog;
     Exporter *_fInitCheck;
 
 };

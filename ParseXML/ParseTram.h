@@ -47,7 +47,7 @@ public:
      * @post ENSURE(getElement() != NULL, "TixmlElement is NULL")
      * @return true or false
      * **/
-    bool parseAll();
+    bool parseAll(Exporter& e);
 
     /**
      * Methode dat gecalled wordt door parseAll of te checken ofdat lijnNr geparsed kan worden.
@@ -59,7 +59,7 @@ public:
      * @param tram waarvan men de lijnNr gaan parsen.
      * @return true or false
      * **/
-    bool parseLijnNr(Tram* tram) const;
+    bool parseLijnNr(Tram* tram, Exporter& e) const;
 
     /**
      * Methode dat gecalled wordt door parseAll of te checken ofdat beginStation geparsed kan worden.
@@ -72,14 +72,14 @@ public:
      * @param tram  waarvan men beginStation gaan parsen.
      * @return true or false
      * **/
-    bool parseBeginStation(Tram* tram) const;
+    bool parseBeginStation(Tram* tram, Exporter& e) const;
 
     /**
      * Functie controleerd ofdat het Tram object valid is.
      * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
      * @return true or false
      * **/
-    bool checkValidTram() const;
+    bool checkValidTram(Exporter& e) const;
 
     /**
      * Functie controleerd ofdat de lijnNr attribuut van het Tram object valid is.
@@ -87,7 +87,7 @@ public:
      * @post ENSURE(getElement() != NULL, "TixmlElement has become NULL")
      * @return true of false
      * **/
-    bool checkValidLijnNr() const;
+    bool checkValidLijnNr(Exporter& e) const;
 
     /**
      * Functie controleerd ofdat de beginStation attribuut van het Tram object valid is.
@@ -95,7 +95,7 @@ public:
      * @post ENSURE(getElement() != NULL, "TixmlElement has become NULL")
      * @return true of false
      * **/
-    bool checkValidBeginStation() const;
+    bool checkValidBeginStation(Exporter& e) const;
 
 
     /**
@@ -104,7 +104,7 @@ public:
      * @post ENSURE(getElement() != NULL, "TixmlElement has become NULL")
      * @return true of false
      * **/
-    bool checkNonValidAttributes() const;
+    bool checkNonValidAttributes(Exporter& e) const;
 
     /**
      * Functie controleerd ofdat de Type attribuut van het Tram object valid is.
@@ -112,7 +112,7 @@ public:
      * @post ENSURE(getElement() != NULL, "TixmlElement has become NULL")
      * @return true or false
      * **/
-    bool checkValidTypeTram() const;
+    bool checkValidTypeTram(Exporter& e) const;
 
     /**
      * Methode dat gecalled wordt door parseAll om de Type attribuut te parsen.
@@ -124,7 +124,7 @@ public:
      * @param tram waarvan men het Type attribuut gaan parsen.
      * @return true or false
      * **/
-    bool parseTypeTram(Tram* tram) const;
+    bool parseTypeTram(Tram* tram, Exporter& e) const;
 
     /**
      * Functie contro ofdat de voertuigNr attribuut valid is.
@@ -132,7 +132,7 @@ public:
      * @post ENSURE(getElement() != NULL, "TixmlElement has become NULL")
      * @return true or false
      * **/
-    bool checkValidVoertuigNummer() const;
+    bool checkValidVoertuigNummer(Exporter& e) const;
 
     /**
      * Methode dat gecalled wordt door parseAll om de voertuigNr te parsen.
@@ -144,7 +144,7 @@ public:
      * @param tram waarvan men het voertuigNr attribuut gaan parsen
      * @return true or false
      * **/
-    bool parserVoertuigNummer(Tram* tram) const;
+    bool parserVoertuigNummer(Tram* tram, Exporter& e) const;
 
     /**
      * Getter functie die een element teruggeeft van type TiXmlElement.
@@ -157,7 +157,7 @@ public:
      * @return true or false
      * @see parseAll
      * **/
-    bool parseSuccessful();
+    bool parseSuccessful(Exporter& e);
 
     /**
      * Setter functie dat een Tram object plaatst in een MetroNet object.
@@ -177,7 +177,7 @@ public:
      * @pre REQUIRE(checkValidTypeTram() == true, "The type tag is not correct in this Station tag")
      * @return Type van een Tram object.
      * **/
-    TramType::TypeTram getTramType() const;
+    TramType::TypeTram getTramType(Exporter& e) const;
 
     /**
      * Functie controleerd ofdat het aantalDefecten attribuut valid is.
@@ -185,7 +185,7 @@ public:
      * @post ENSURE(getElement() != NULL, "TixmlElement has become NULL")
      * @return true or false
      * **/
-    bool checkValidAantalDefecten() const;
+    bool checkValidAantalDefecten(Exporter& e) const;
 
     /**
      * Functie controleerd ofdat het reparatieTijd attribuut valid is.
@@ -193,7 +193,7 @@ public:
      * @post ENSURE(getElement() != NULL, "TixmlElement has become NULL")
      * @return true or false
      * **/
-    bool checkValidReparatieTijd() const;
+    bool checkValidReparatieTijd(Exporter& e) const;
 
     /**
      * Functie controleerd ofdat het reparatieKost attribuut valid is.
@@ -201,7 +201,7 @@ public:
      * @post ENSURE(getElement() != NULL, "TixmlElement has become NULL")
      * @return true or false
      * **/
-    bool checkValidReparatieKosten() const;
+    bool checkValidReparatieKosten(Exporter& e) const;
 
     /**
      * Methode dat gecalled wordt door parseAll om het aantalDefecten attribuut te parsen.
@@ -214,7 +214,7 @@ public:
      * @param tram waarvan men het aantalDefecten attribuut gaan parsen.
      * @return true or false
      * **/
-    bool parseAantalDefecten(Tram* tram);
+    bool parseAantalDefecten(Tram* tram, Exporter& e);
 
     /**
      * Methode dat gecalled wordt door parseAll om het aantalDefecten attribuut te parsen.
@@ -227,7 +227,7 @@ public:
      * @param tram waarvan men het reparatieTijd attribuut gaan parsen.
      * @return true or false
      * **/
-    bool parseReparatieTijd(Tram* tram);
+    bool parseReparatieTijd(Tram* tram, Exporter& e);
 
     /**
      * Methode dat gecalled wordt door parseAll om het reparatieKost attribuut te parsen.
@@ -240,7 +240,7 @@ public:
      * @param tram waarvan men het reparatieKost attribuut gaan parsen.
      * @return true or false
      * **/
-    bool parseReparatieKosten(Tram* tram);
+    bool parseReparatieKosten(Tram* tram, Exporter& e);
 
     /**
      * Methode controleert ofdat er een type is tijdens het parsen.
@@ -248,7 +248,7 @@ public:
      * @attention Deze methode is niet hetzelfde als checkValidTramType. Deze functie checkt namelijk ofdat er uberhaubt
      * een type is. checkValidTramType checked dat er niet meer dan één zijn.
      * **/
-    bool checkTramTypeExists() const;
+    bool checkTramTypeExists(Exporter& e) const;
 private:
     TiXmlElement * fElement;
     Tram* parsedTram;

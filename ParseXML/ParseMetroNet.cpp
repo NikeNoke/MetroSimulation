@@ -9,14 +9,15 @@
 #include <cstdio>
 #include "../ParseXML/ParseStation.h"
 #include "../ParseXML/ParseTram.h"
+#include "../Exporter/Exporter.h"
 
-bool ParseMetroNet::parseMetroNet(MetroNet &metroNet) {
+bool ParseMetroNet::parseMetroNet(MetroNet &metroNet, Exporter& e) {
 
     REQUIRE(loadFile(), "The file could not be loaded");
 
     TiXmlElement *root = getDoc().FirstChildElement();
     if (root == NULL) {
-        std::cerr << "Failed to load file: No root element." << std::endl;
+        e.writeToError("Failed to load file: No root element.\n");
         getDoc().Clear();
         return false;
     }
@@ -27,23 +28,25 @@ bool ParseMetroNet::parseMetroNet(MetroNet &metroNet) {
         if (current == "STATION") {
 
             ParseStation parseStation(element);
-            if (parseStation.parseSuccessful())
+            if (parseStation.parseSuccessful(e))
                 metroNet.addStation(parseStation.getParsedStation());
             else {
-                std::cerr << "STATION WAS WRONG\n";
-                return false;
+                e.writeToError("STATION TAG COULD NOT BE PARSED\n");
+                continue;
             }
 
         } else if (current == "TRAM") {
 
             ParseTram parseTram(element);
-            if (parseTram.parseSuccessful())
+            if (parseTram.parseSuccessful(e))
                 metroNet.addTram(parseTram.getParsedTram());
-            else
+            else{
+                e.writeToError("TRAM TAG COULD NOT BE PARSED\n");
                 continue;
+            }
 
         } else {
-            std::cerr << "Deze element is ongekend!\n";
+            e.writeToError("Deze element is ongekend!\n");
         }
     }
 
@@ -90,14 +93,3 @@ bool ParseMetroNet::setPathToInput(FILE *f) {
     ENSURE(getPathToInput() == f, "setting was not successful");
     return true;
 }
-
-//FILE *ParseMetroNet::getPathToLog() const {
-//    return pathToLog;
-//}
-//
-//bool ParseMetroNet::setPathToLog(FILE *f) {
-//    REQUIRE(f != NULL, "The File prt is NULL");
-//    pathToLog = f;
-//    ENSURE(getPathToLog() == f, "setting was not successful");
-//    return true;
-//}

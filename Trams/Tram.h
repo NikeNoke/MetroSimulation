@@ -15,7 +15,7 @@ namespace TramType {
     };
 
 }
-
+class Exporter;
 /**
 * Klasse Tram. Een basis klasse waarvan meerdere sub-klasses (types van trammen) overerven.
 * **/
@@ -109,7 +109,7 @@ public:
      * naar een volgende Station. De tweede ENSURE wordt opgeroepen in geval dat een Tram wel naar een volgende Station
      * verplaatst kan worden. In de tweede ENSURE zal die dan ook een ERROR throwen als er tog iets mis gaat.
      * **/
-    bool move(Station *station);
+    virtual bool move(Station *station, Exporter& e); //TODO make virtual and override!
 
     /**
      * Setter functie die het Type attribuut zet voor een Tram object.

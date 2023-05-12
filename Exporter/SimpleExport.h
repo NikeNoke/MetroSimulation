@@ -5,8 +5,10 @@
 #ifndef METROSIMULATION_SIMPLEEXPORT_H
 #define METROSIMULATION_SIMPLEEXPORT_H
 
-#include "../MetroNet/MetroNet.h"
+//#include "../MetroNet/MetroNet.h"
 #include "InterfaceExport.h"
+
+class MetroNet;
 
 /**
  * Klasse SimpleExport dat van InterfaceExport overerft.
@@ -24,7 +26,7 @@ public:
      * @param path van de file.
      * @return true or false
      * **/
-    bool exportFile(MetroNet &metroNet, std::string path) const;
+    bool exportFile(MetroNet &metroNet, const std::string& path) const;
 
 private:
 

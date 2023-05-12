@@ -46,3 +46,7 @@ int AlbatrosTram::getReparatieKost() const {
 void AlbatrosTram::setReparatieKost(int aantal) {
     reparatieKost = 0;
 }
+
+bool AlbatrosTram::move(Station *station, Exporter &e) {
+    return Tram::move(station, e);
+}

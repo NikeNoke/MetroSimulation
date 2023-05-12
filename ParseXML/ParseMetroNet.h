@@ -8,6 +8,7 @@
 
 #include <string>
 #include "../TinyXML/tinyxml.h"
+class Exporter;
 
 class MetroNet;
 
@@ -32,7 +33,7 @@ public:
      * @pre REQUIRE(loadFile(), "The file could not be loaded")
      * @param metroNet die geparsed wordt.
      * **/
-    bool parseMetroNet(MetroNet &metroNet);
+    bool parseMetroNet(MetroNet &metroNet, Exporter& e);
 
     /**
      * Functie die controleert ofdat de file waarnaar we weg willen schrijven ingelezen kan worden.
