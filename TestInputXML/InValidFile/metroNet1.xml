@@ -2,8 +2,8 @@
 <METRONET>
     <STATION>
         <naam>A</naam>
-        <typeetrostation</type>
-        <SPOO
+        <type>Metrostation</type>
+        <SPOR>
             <spoorNr>12</spoorNr>
             <volgende>B</volgende>
             <vorige>C</vorige>
@@ -69,7 +69,7 @@
             <vorige>E</vorige>
         </SPOOR>
     </STATION>
-    <TRA
+    <TRAM>
         <lijnNr>12</lijnNr>
         <type>PCC</type>
         <voertuigNr>1</voertuigNr>
@@ -82,7 +82,10 @@
         <lijnNr>12</lijnNr>
         <type>Albatros</type>
         <voertuigNr>2</voertuigNr>
-        r>21</lijnNr>
+        <beginStation>B</beginStation>
+    </TRAM>
+    <TRAM>
+        <lijnNr>21</lijnNr>
         <type>Albatros</type>
         <voertuigNr>3</voertuigNr>
         <beginStation>B</beginStation>
@@ -90,4 +93,10 @@
     <TRAM>
         <lijnNr>17</lijnNr>
         <type>PCC</type>
-        <voertui
+        <voertuigNr>4</voertuigNr>
+        <beginStation>D</beginStation>
+        <aantalDefecten>3</aantalDefecten>
+        <reparatieTijd>2</reparatieTijd>
+        <reparatieKost>1</reparatieKost>
+    </TRAM>
+</METRONET>

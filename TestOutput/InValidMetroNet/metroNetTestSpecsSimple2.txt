@@ -42,23 +42,13 @@
 	<- Station  E
 
 --== TRAMS ==--
-Tram 12 nr 1
+Tram 12 nr 2
 	type: 0
 	snelheid: 40
 	huidig station: A
 	reparatiekosten: 3
 
-Tram 12 nr 2
-	type: 2
-	snelheid: 70
-	huidig station: B
-
-Tram 21 nr 3
-	type: 2
-	snelheid: 70
-	huidig station: B
-
-Tram 17 nr 4
+Tram 100 nr 4
 	type: 0
 	snelheid: 40
 	huidig station: D

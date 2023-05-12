@@ -1,0 +1,37 @@
+This TRAM has an invalid attrubute tag
+TRAM TAG COULD NOT BE PARSED
+The type of this tram is invalid
+The voertuigNr of this TRAM is not an int
+TRAM TAG COULD NOT BE PARSED
+	Spoor 21 heeft geen tram
+The station: A is not valid
+	Spoor 21 heeft geen tram
+The station: B is not valid
+	Spoor 21 heeft geen tram
+The station: C is not valid
+	Spoor 17 heeft geen tram
+The station: D is not valid
+	Spoor 17 heeft geen tram
+The station: E is not valid
+	Spoor 17 heeft geen tram
+The station: F is not valid
+	The begin station of tram: 4 does not have a spoor of the same lijnNr
+	This tram: 4 is not correct
+The tram: 4 is not valid
+THIS METRONET IS INVALID
+	Spoor 21 heeft geen tram
+The station: A is not valid
+	Spoor 21 heeft geen tram
+The station: B is not valid
+	Spoor 21 heeft geen tram
+The station: C is not valid
+	Spoor 17 heeft geen tram
+The station: D is not valid
+	Spoor 17 heeft geen tram
+The station: E is not valid
+	Spoor 17 heeft geen tram
+The station: F is not valid
+	The begin station of tram: 4 does not have a spoor of the same lijnNr
+	This tram: 4 is not correct
+The tram: 4 is not valid
+THIS METRONET IS INVALID

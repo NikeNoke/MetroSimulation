@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<METRONET
-    <STATIO>
-        <naam>A</naam>
-        <type></type>
+<METRONET>
+    <STATION>
+        <naam>2</naam>
+        <type>Metrostation</type>
         <SPOOR>
             <spoorNr>12</spoorNr>
             <volgende>B</volgende>
             <vorige>C</vorige>
+            <problem>FFF</problem>
         </SPOOR>
         <SPOOR>
             <spoorNr>21</spoorNr>
             <volgende>C</volgende>
             <vorige>B</vorige>
         </SPOOR>
-    </STAT
+    </STATION>
+    <PROBLEM>
+
+    </PROBLEM>
     <STATION>
         <naam>B</naam>
         <type>Metrostation</type>
@@ -23,7 +27,12 @@
             <vorige>A</vorige>
         </SPOOR>
         <SPOOR>
-            <spoorNr>21</spoorNr>
+            <spoorNr>12</spoorNr>
+            <volgende>C</volgende>
+            <vorige>A</vorige>
+        </SPOOR>
+        <SPOOR>
+            <spoorNr>200</spoorNr>
             <volgende>A</volgende>
             <vorige>C</vorige>
         </SPOOR>
@@ -38,13 +47,18 @@
         </SPOOR>
         <SPOOR>
             <spoorNr>21</spoorNr>
-            <volgende>B</volgende>
+            <volgende>T</volgende>
             <vorige>A</vorige>
         </SPOOR>
     </STATION>
     <STATION>
         <naam>D</naam>
         <type>Halte</type>
+        <SPOOR>
+            <spoorNr>17</spoorNr>
+            <volgende>E</volgende>
+            <vorige>F</vorige>
+        </SPOOR>
         <SPOOR>
             <spoorNr>17</spoorNr>
             <volgende>E</volgende>
@@ -95,7 +109,6 @@
         <type>PCC</type>
         <voertuigNr>4</voertuigNr>
         <beginStation>D</beginStation>
-        <aantalDefecten>3</aantalDefecten>
         <reparatieTijd>2</reparatieTijd>
         <reparatieKost>1</reparatieKost>
     </TRAM>

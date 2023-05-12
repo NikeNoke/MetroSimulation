@@ -88,6 +88,8 @@ namespace Utils{
 
     bool FileCompare(const std::string& leftFileName, const std::string& rightFileName);
 
+    bool compareFiles(const std::string& p1, const std::string& p2);
+
 }
 
 #endif //METROSIMULATION_UTILS_H

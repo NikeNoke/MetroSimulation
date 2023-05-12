@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<METRONET
-    <STATION
-        <naam>A</naam>
+<METRONET>
+    <STATION>
+        <naam>Z</naam>
         <type>Metrostation</type>
         <SPOOR>
             <spoorNr>12</spoorNr>
@@ -13,7 +13,6 @@
             <volgende>C</volgende>
             <vorige>B</vorige>
         </SPOOR>
-        <invalidField>Invalid information</invalidField>
     </STATION>
     <STATION>
         <naam>B</naam>
@@ -93,7 +92,7 @@
     </TRAM>
     <TRAM>
         <lijnNr>17</lijnNr>
-
+        <type>PCC</type>
         <voertuigNr>4</voertuigNr>
         <beginStation>D</beginStation>
         <aantalDefecten>3</aantalDefecten>

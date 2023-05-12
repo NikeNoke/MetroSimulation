@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <METRONET>
     <STATION>
-        <naam>A</naa>
+        <naam>A</naam>
         <type>Metrostation</type>
         <SPOOR>
             <spoorNr>12</spoorNr>
@@ -69,4 +69,4 @@
             <vorige>E</vorige>
         </SPOOR>
     </STATION>
-</METRONET>
+

@@ -34,6 +34,17 @@ protected:
 
     }
 
+    std::ostream &getOperationStream(){
+        return operation;
+    }
+
+    std::ostream &getErrorStream(){
+        return error;
+    }
+
+    std::ofstream operation;
+    std::ofstream error;
+
 
 };
 
@@ -43,11 +54,17 @@ TEST_F(DomainTests, DefaultConstructors) {
     ASSERT_TRUE(Utils::directoryExists("TestInputXML")) << "Directory to test does not exist\n";
 
     std::string fileName = "TestInputXML/ValidMetroNet/metroNet" + SSTR(0) + ".xml";
-    std::string output = "TestOutput/metroNetTestSpecs" +  SSTR(0) + ".txt";
-    std::string output2 = "TestOutput/metroNetTestSpecsAdvanced" +  SSTR(0) + ".txt";
+    std::string output = "TestOutput/DomainTest/metroNet" +  SSTR(0) + "Simple.txt";
+    std::string output2 = "TestOutput/metroNetTest" +  SSTR(0) + "Advanced.txt";
+    std::string op = "TestOutput/operation" +  SSTR(0) + ".txt";
+    std::string err = "TestOutput/error" +  SSTR(0) + ".txt";
 
-    MetroNetGenerator generator(fileName, output, output2);
+    operation.open(op.c_str());
+    error.open(err.c_str());
 
+    MetroNetGenerator generator(fileName, output, output2, getOperationStream(), getErrorStream());
+
+    EXPECT_TRUE(generator.getExporter().properlyInitialized());
     EXPECT_NO_FATAL_FAILURE(generator.generateMetroNet(true)) << "The metroNet was not Valid!\n";
 
 
@@ -64,18 +81,24 @@ TEST_F(DomainTests, DefaultConstructors) {
     for(long unsigned int i = 0; i < tempTrams.size(); i++){
         EXPECT_TRUE(tempTrams[i]->properlyInitialized());
     }
+    operation.close();
+    error.close();
 }
 
 TEST_F(DomainTests, MoveTrams) {
 
-
     ASSERT_TRUE(Utils::directoryExists("TestInputXML")) << "Directory to test does not exist\n";
 
     std::string fileName = "TestInputXML/ValidMetroNet/metroNet" + SSTR(0) + ".xml";
-    std::string output = "TestOutput/metroNetTestSpecs" +  SSTR(0) + ".txt";
-    std::string output2 = "TestOutput/metroNetTestSpecsAdvanced" +  SSTR(0) + ".txt";
+    std::string output = "TestOutput/DomainTest/metroNet" +  SSTR(0) + "Simple.txt";
+    std::string output2 = "TestOutput/metroNetTest" +  SSTR(0) + "Advanced.txt";
+    std::string op = "TestOutput/operation" +  SSTR(0) + ".txt";
+    std::string err = "TestOutput/error" +  SSTR(0) + ".txt";
 
-    MetroNetGenerator generator(fileName, output, output2);
+    operation.open(op.c_str());
+    error.open(err.c_str());
+
+    MetroNetGenerator generator(fileName, output, output2, getOperationStream(), getErrorStream());
 
     EXPECT_NO_FATAL_FAILURE(generator.generateMetroNet(true)) << "The metroNet was not Valid!\n";
 
@@ -98,18 +121,21 @@ TEST_F(DomainTests, MoveTrams) {
         if (currentStation->aSpoorConnectedToStation(targetStationName, tempTrams[i]->getLijnNr())) {
             if (tempTrams[i]->stationCanBeServiced(targetStation)) {
                 if(tempTrams[i]->tramCanMove()){
-                    EXPECT_TRUE(generator.getMetroNet()._moveTest(tempTrams[i], targetStationName));
+                    EXPECT_TRUE(generator.getMetroNet().moveTram(tempTrams[i], targetStationName));
                 }else{
-                    EXPECT_FALSE(generator.getMetroNet()._moveTest(tempTrams[i], targetStationName));
+                    EXPECT_FALSE(generator.getMetroNet().moveTram(tempTrams[i], targetStationName));
                 }
             }else{
-                EXPECT_FALSE(generator.getMetroNet()._moveTest(tempTrams[i], targetStationName));
+                EXPECT_FALSE(generator.getMetroNet().moveTram(tempTrams[i], targetStationName));
             }
         }else{
-            EXPECT_FALSE(generator.getMetroNet()._moveTest(tempTrams[i], targetStationName));
+            EXPECT_FALSE(generator.getMetroNet().moveTram(tempTrams[i], targetStationName));
         }
     }
     EXPECT_TRUE(generator.getMetroNet().isValidMetroNet()) << "The metroNet has become invalid\n";
+
+    operation.close();
+    error.close();
 }
 
 
@@ -118,10 +144,15 @@ TEST_F(DomainTests, ContractViolations) {
     ASSERT_TRUE(Utils::directoryExists("TestInputXML")) << "Directory to test does not exist\n";
 
     std::string fileName = "TestInputXML/ValidMetroNet/metroNet" + SSTR(0) + ".xml";
-    std::string output = "TestOutput/metroNetTestSpecs" +  SSTR(0) + ".txt";
-    std::string output2 = "TestOutput/metroNetTestSpecsAdvanced" +  SSTR(0) + ".txt";
+    std::string output = "TestOutput/DomainTest/metroNet" +  SSTR(0) + "Simple.txt";
+    std::string output2 = "TestOutput/metroNetTest" +  SSTR(0) + "Advanced.txt";
+    std::string op = "TestOutput/operation" +  SSTR(0) + ".txt";
+    std::string err = "TestOutput/error" +  SSTR(0) + ".txt";
 
-    MetroNetGenerator generator(fileName, output, output2);
+    operation.open(op.c_str());
+    error.open(err.c_str());
+
+    MetroNetGenerator generator(fileName, output, output2, getOperationStream(), getErrorStream());
 
     EXPECT_NO_FATAL_FAILURE(generator.generateMetroNet(true)) << "The metroNet was not Valid!\n";
 
@@ -147,4 +178,6 @@ TEST_F(DomainTests, ContractViolations) {
         }
     }
     EXPECT_TRUE(generator.getMetroNet().isValidMetroNet()) << "The metroNet has become invalid\n";
+    operation.close();
+    error.close();
 }

@@ -51,7 +51,6 @@ TEST_F(TagChecker, InValidFile){
         TiXmlDocument doc;
         TiXmlElement *root = NULL;
         EXPECT_FALSE(checkFile(doc, root, fileName)) << "The file should not be opened\n";
-        MetroNet metroNet;
         doc.Clear();
         fileCounter = fileCounter + 1;
         fileName = "TestInputXML/InValidFile/metroNet" + SSTR(fileCounter) + ".xml";

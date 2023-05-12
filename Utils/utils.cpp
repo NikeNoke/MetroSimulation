@@ -4,6 +4,9 @@
 #include "../DesignByContract.h"
 #include <sys/stat.h>
 #include <fstream>
+#include <iterator>
+#include <string>
+#include <algorithm>
 
 
 //Source stackoverflow
@@ -59,7 +62,7 @@ bool Utils::isNegative(int n) {
 }
 
 
-bool FileCompare(const std::string& leftFileName, const std::string& rightFileName) {
+bool Utils::FileCompare(const std::string& leftFileName, const std::string& rightFileName) {
     std::ifstream leftFile, rightFile;
     char leftRead, rightRead;
     bool result;
@@ -76,11 +79,17 @@ bool FileCompare(const std::string& leftFileName, const std::string& rightFileNa
     };
 
     result = true; // files exist and are open; assume equality unless a counterexamples shows up.
+    bool left = leftFile.good();
+    bool right = rightFile.good();
     while (result && leftFile.good() && rightFile.good()) {
         leftFile.get(leftRead);
         rightFile.get(rightRead);
         result = (leftRead == rightRead);
+        left = leftFile.good();
+        right = rightFile.good();
     };
+    if(left || right)
+        std::cout << "";
     if (result) {
         // last read was still equal; are we at the end of both files ?
         result = (!leftFile.good()) && (!rightFile.good());
@@ -89,4 +98,24 @@ bool FileCompare(const std::string& leftFileName, const std::string& rightFileNa
     leftFile.close();
     rightFile.close();
     return result;
+}
+//https://stackoverflow.com/questions/6163611/compare-two-files
+bool Utils::compareFiles(const std::string& p1, const std::string& p2) {
+    std::ifstream f1(p1.c_str(), std::ifstream::binary|std::ifstream::ate);
+    std::ifstream f2(p2.c_str(), std::ifstream::binary|std::ifstream::ate);
+
+    if (f1.fail() || f2.fail()) {
+        return false; //file problem
+    }
+
+    if (f1.tellg() != f2.tellg()) {
+        return false; //size mismatch
+    }
+
+    //seek back to beginning and use std::equal to compare contents
+    f1.seekg(0, std::ifstream::beg);
+    f2.seekg(0, std::ifstream::beg);
+    return std::equal(std::istreambuf_iterator<char>(f1.rdbuf()),
+                      std::istreambuf_iterator<char>(),
+                      std::istreambuf_iterator<char>(f2.rdbuf()));
 }

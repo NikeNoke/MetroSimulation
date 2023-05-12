@@ -27,7 +27,9 @@ bool ParseStation::parseAll(Exporter& e) {
 
 //    REQUIRE(station->properlyInitialized(), "Station is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
-    REQUIRE(checkValidStation(e) == true, "The Station tag is not correct");
+//    REQUIRE(checkValidStation(e) == true, "The Station tag is not correct");
+    if(!checkValidStation(e))
+        return false;
 
     Station *station;
 

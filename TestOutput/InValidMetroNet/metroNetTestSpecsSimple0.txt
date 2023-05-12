@@ -1,5 +1,5 @@
 --== STATIONS ==--
-= Station A =
+= Station Z =
 * Spoor 12:
 	-> Station B
 	<- Station  C

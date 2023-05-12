@@ -92,17 +92,16 @@ bool MetroNet::isValidMetroNet() {
 
     for (long unsigned int i = 0; i < tempStations.size(); i++) {
         REQUIRE(tempStations[i]->properlyInitialized(), "A station of the metroNet is not properly initialized");
-
         if (!controlStation(tempStations[i])) {
             result = false;
-            getExporter().writeToError("The station: " + tempStations[i]->getName() + " is not valid");
+            getExporter().writeToError("The station: " + tempStations[i]->getName() + " is not valid\n");
         }
 
     }
 
     if(!uniqueTram()){
         result = false;
-        getExporter().writeToError("The trams in this metronet are not unique");
+        getExporter().writeToError("The trams in this metronet are not unique\n");
     }
 
     for (long unsigned int i = 0; i < tempTrams.size(); i++) {
@@ -110,10 +109,11 @@ bool MetroNet::isValidMetroNet() {
 
         if (!controlTram(tempTrams[i])) {
             result = false;
-            getExporter().writeToError("The tram: " + SSTR(tempTrams[i]->getVoertuigNummer()) + " is not valid");
+            getExporter().writeToError("The tram: " + SSTR(tempTrams[i]->getVoertuigNummer()) + " is not valid\n");
         }
     }
-
+    if(!result)
+        getExporter().writeToError("THIS METRONET IS INVALID\n");
     return result;
 }
 
@@ -148,7 +148,7 @@ bool MetroNet::controlStation(Station *station) {
     std::vector<Spoor *> tempSporen = station->getSporen();
     bool result = true;
     if (!station->hasUniqueSporen()) {
-        getExporter().writeToError("Sporen in de station " + station->getName() + " is niet uniek\n");
+        getExporter().writeToError("\tSporen in de station " + station->getName() + " is niet uniek\n");
         result = false;
     }
 
@@ -157,12 +157,12 @@ bool MetroNet::controlStation(Station *station) {
         Spoor *current = tempSporen[i];
 
         if (!validSpoor(current)) {
-            getExporter().writeToError("Spoor is niet correct\n");
+            getExporter().writeToError("\tSpoor is niet correct\n");
             result = false;
         }
 
         if (!spoorLineHasTram(current)) {
-            getExporter().writeToError("Spoor " + SSTR(tempSporen[i]->getSpoorNr()) + " heeft geen tram\n");
+            getExporter().writeToError("\tSpoor " + SSTR(tempSporen[i]->getSpoorNr()) + " heeft geen tram\n");
             result = false;
         }
     }
@@ -214,14 +214,14 @@ bool MetroNet::beginStationTramCorrect(Tram *t) {
     std::string beginStation = t->getBeginStation();
 
     if (!stationRegistered(beginStation)) {
-        getExporter().writeToError("The begin station of tram: " + SSTR(t->getVoertuigNummer()) + " is not registered");
+        getExporter().writeToError("\tThe begin station of tram: " + SSTR(t->getVoertuigNummer()) + " is not registered\n");
         return false;
     }
 
     Station *bS = this->getStation(beginStation);
 
     if (!bS->hasSpoor(t->getLijnNr())) {
-        getExporter().writeToError("The begin station of tram: " + SSTR(t->getVoertuigNummer()) + " does not have a spoor of the same lijnNr");
+        getExporter().writeToError("\tThe begin station of tram: " + SSTR(t->getVoertuigNummer()) + " does not have a spoor of the same lijnNr\n");
         return false;
     }
 
@@ -251,7 +251,7 @@ bool MetroNet::validSpoor(Spoor *s) {
     bool result = true;
     if (!stationRegistered(s->getVorige())) {
         getExporter().writeToError(
-                "De vorige station " + s->getVorige() + " van spoor " + SSTR(s->getSpoorNr()) + " op station "
+                "\t\tDe vorige station " + s->getVorige() + " van spoor " + SSTR(s->getSpoorNr()) + " op station "
                 + s->getHuiding()
                 + " is niet geregistreerd!\n");
         result = false;
@@ -261,7 +261,7 @@ bool MetroNet::validSpoor(Spoor *s) {
 
     if (!stationRegistered(s->getVolgende())) {
         getExporter().writeToError(
-                "De volgende station " + s->getVolgende() + " van spoor " + SSTR(s->getSpoorNr()) + " op station "
+                "\t\tDe volgende station " + s->getVolgende() + " van spoor " + SSTR(s->getSpoorNr()) + " op station "
                 + s->getHuiding()
                 + " is niet geregistreerd!\n");
         result = false;
@@ -280,7 +280,7 @@ bool MetroNet::validSpoor(Spoor *s) {
 
     if (!vorigeStation->hasSpoor(s->getSpoorNr())) {
         getExporter().writeToError(
-                "De vorige station " + s->getVolgende() + " van spoor " + SSTR(s->getSpoorNr()) + " op station "
+                "\t\tDe vorige station " + s->getVorige() + " van spoor " + SSTR(s->getSpoorNr()) + " op station "
                 + s->getHuiding()
                 + " heeft geen dezelfde spoorNr!\n");
         result = false;
@@ -288,7 +288,7 @@ bool MetroNet::validSpoor(Spoor *s) {
 
     if (!volgendeStation->hasSpoor(s->getSpoorNr())) {
         getExporter().writeToError(
-                "De volgende station " + s->getVolgende() + " van spoor " + SSTR(s->getSpoorNr()) + " op station "
+                "\t\tDe volgende station " + s->getVolgende() + " van spoor " + SSTR(s->getSpoorNr()) + " op station "
                 + s->getHuiding()
                 + " heeft geen dezelfde spoorNr!\n");
         result = false;
@@ -301,7 +301,7 @@ bool MetroNet::validSpoor(Spoor *s) {
 
     if (spoorVorige->getVolgende() != s->getHuiding()) {
         getExporter().writeToError(
-                "De vorige station " + s->getVolgende() + " van spoor " + SSTR(s->getSpoorNr()) + " op station "
+                "\t\tDe vorige station " + s->getVorige() + " van spoor " + SSTR(s->getSpoorNr()) + " op station "
                 + s->getHuiding()
                 + ", de volgende ervan is niet de huidige!\n");
         result = false;
@@ -311,7 +311,7 @@ bool MetroNet::validSpoor(Spoor *s) {
 
     if (spoorVolgende->getVorige() != s->getHuiding()) {
         getExporter().writeToError(
-                "De volgende station " + s->getVolgende() + " van spoor " + SSTR(s->getSpoorNr()) + " op station "
+                "\t\tDe volgende station " + s->getVolgende() + " van spoor " + SSTR(s->getSpoorNr()) + " op station "
                 + s->getHuiding()
                 + ", de vorige ervan is niet de huidige!\n");
         result = false;
@@ -324,13 +324,13 @@ bool MetroNet::validSpoor(Spoor *s) {
 bool MetroNet::controlTram(Tram *t) {
 
     if (!beginStationTramCorrect(t)) {
-        getExporter().writeToError("The beginStation of this tram: " + SSTR(t->getVoertuigNummer()) + " is not correct");
+        getExporter().writeToError("\tThis tram: " + SSTR(t->getVoertuigNummer()) + " is not correct\n");
         return false;
     }
 
     if (!tramLineHasSpoor(t)) {
-        getExporter().writeToError("There is not a single station with the station number of " + SSTR(t->getLijnNr()) + ", so this tram: "
-        + SSTR(t->getVoertuigNummer()) + " is not valid");
+        getExporter().writeToError("\tThere is not a single station with the station number of " + SSTR(t->getLijnNr()) + ", so this tram: "
+        + SSTR(t->getVoertuigNummer()) + " is not valid\n");
         return false;
     }
     return true;

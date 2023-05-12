@@ -262,9 +262,9 @@ bool ParseSpoor::parseAll(Spoor *spoor, Exporter& e) const {
 
     REQUIRE(spoor->properlyInitialized(), "Spoor is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
-    REQUIRE(checkValidSpoor(e) == true, "The Spoor tag is not correct");
-//    if(!checkValidSpoor(e))
-//        return false;
+//    REQUIRE(checkValidSpoor(e) == true, "The Spoor tag is not correct");
+    if(!checkValidSpoor(e))
+        return false;
 
     if (!parseSpoorNr(spoor, e) || !parseVolgende(spoor, e) || !parseVorige(spoor, e))
         return false;

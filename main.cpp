@@ -10,13 +10,16 @@ int main() {
     std::ofstream error;
     operation.open("OperationLog.txt");
     error.open("ErrorLog.txt");
-
+    std::string outputAd = "metroNetSpecs2.txt";
+//    std::string outputAd = "TestInputXML/ValidMetroNet/metroNet2Advanced.txt";
+//    std::string outputS = "metroNetSpecs.txt";
+    std::string outputS = "metroNetSpecs.txt";
     try {
-        MetroNetGenerator generator("metronet.xml", "metroNetSpecs.txt", "metroNetSpecs2.txt", operation, error);
+        MetroNetGenerator generator("metronet.xml", outputS, outputAd, operation, error);
 
         generator.generateMetroNet();
 
-        generator.simulate(1);
+//        generator.simulate(1);
 
     } catch (...) {
         std::cerr << "Error from main!\n";

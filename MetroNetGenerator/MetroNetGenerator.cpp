@@ -19,6 +19,10 @@ MetroNetGenerator::MetroNetGenerator(std::string pathToXml, std::string pathToWr
     ENSURE(getPathToSimple() == pathToWrite, "Simple path was not set properly");
     ENSURE(getPathToAdvanced() == pathToWrite2, "Advanced path was not set properly");
     ENSURE(getPathToOpenXml() == pathToXml, "XML path was not set properly");
+//    ENSURE(getExporter().getPathToAdvanced() == getMetroNet().getExporter().getPathToAdvanced(), "LOL");
+//    getExporter().writeToError("HELLO\n");
+//    getExporter().writeToOperation("HELLO\n");
+//    std::cout << "sjdfasdkl;";
 }
 
 MetroNet &MetroNetGenerator::getMetroNet() {

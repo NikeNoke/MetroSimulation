@@ -176,8 +176,9 @@ bool ParseTram::parseLijnNr(Tram *tram, Exporter& e) const {
 
 bool ParseTram::parseAll(Exporter& e) {
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
-    REQUIRE(checkValidTram(e) == true, "The Tram tag is not correct");
-
+//    REQUIRE(checkValidTram(e) == true, "The Tram tag is not correct");
+    if(!checkValidTram(e))
+        return false;
     Tram *tram;
 
     if (getTramType(e) == TramType::PCC)
@@ -384,6 +385,7 @@ TramType::TypeTram ParseTram::getTramType(Exporter& e) const {
                 return TramType::StadsLijner;
             if (innerText == "Albatros")
                 return TramType::Albatros;
+            e.writeToError("The type of this tram is invalid\n");
             return TramType::InvalidTram;
         }
     }

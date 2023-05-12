@@ -1,0 +1,42 @@
+		De vorige station C van spoor 12 op station Z, de volgende ervan is niet de huidige!
+		De volgende station B van spoor 12 op station Z, de vorige ervan is niet de huidige!
+	Spoor is niet correct
+		De vorige station B van spoor 21 op station Z, de volgende ervan is niet de huidige!
+		De volgende station C van spoor 21 op station Z, de vorige ervan is niet de huidige!
+	Spoor is niet correct
+The station: Z is not valid
+		De vorige station A van spoor 12 op station B is niet geregistreerd!
+	Spoor is niet correct
+		De volgende station A van spoor 21 op station B is niet geregistreerd!
+	Spoor is niet correct
+The station: B is not valid
+		De volgende station A van spoor 12 op station C is niet geregistreerd!
+	Spoor is niet correct
+		De vorige station A van spoor 21 op station C is niet geregistreerd!
+	Spoor is niet correct
+The station: C is not valid
+	The begin station of tram: 1 is not registered
+	This tram: 1 is not correct
+The tram: 1 is not valid
+THIS METRONET IS INVALID
+		De vorige station C van spoor 12 op station Z, de volgende ervan is niet de huidige!
+		De volgende station B van spoor 12 op station Z, de vorige ervan is niet de huidige!
+	Spoor is niet correct
+		De vorige station B van spoor 21 op station Z, de volgende ervan is niet de huidige!
+		De volgende station C van spoor 21 op station Z, de vorige ervan is niet de huidige!
+	Spoor is niet correct
+The station: Z is not valid
+		De vorige station A van spoor 12 op station B is niet geregistreerd!
+	Spoor is niet correct
+		De volgende station A van spoor 21 op station B is niet geregistreerd!
+	Spoor is niet correct
+The station: B is not valid
+		De volgende station A van spoor 12 op station C is niet geregistreerd!
+	Spoor is niet correct
+		De vorige station A van spoor 21 op station C is niet geregistreerd!
+	Spoor is niet correct
+The station: C is not valid
+	The begin station of tram: 1 is not registered
+	This tram: 1 is not correct
+The tram: 1 is not valid
+THIS METRONET IS INVALID

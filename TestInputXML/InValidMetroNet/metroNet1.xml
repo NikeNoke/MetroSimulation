@@ -2,21 +2,21 @@
 <METRONET>
     <STATION>
         <naam>A</naam>
-        <typeMetrostation</type>
+        <type>Metrostation</type>
         <SPOOR>
-            <spoorNr>12</spoorNr>
-            <volgende>B</volgende>
+            <spoorNr>B</spoorNr>
+            <volgende>4</volgende>
             <vorige>C</vorige>
         </SPOOR>
         <SPOOR>
             <spoorNr>21</spoorNr>
             <volgende>C</volgende>
-            <vorige>B</vorige>
+            <vorige>L</vorige>
         </SPOOR>
     </STATION>
     <STATION>
         <naam>B</naam>
-        <type>Metrostation</type>
+        <type>OnBestaandeType</type>
         <SPOOR>
             <spoorNr>12</spoorNr>
             <volgende>C</volgende>

@@ -1,0 +1,39 @@
+The SpoorNr of SPOOR is not an int
+The volgende of SPOOR is an int
+STATION TAG COULD NOT BE PARSED
+The type of STATION TAG is not known
+STATION TAG COULD NOT BE PARSED
+		De vorige station B van spoor 12 op station C is niet geregistreerd!
+		De volgende station A van spoor 12 op station C is niet geregistreerd!
+	Spoor is niet correct
+		De vorige station A van spoor 21 op station C is niet geregistreerd!
+		De volgende station B van spoor 21 op station C is niet geregistreerd!
+	Spoor is niet correct
+The station: C is not valid
+	The begin station of tram: 1 is not registered
+	This tram: 1 is not correct
+The tram: 1 is not valid
+	The begin station of tram: 2 is not registered
+	This tram: 2 is not correct
+The tram: 2 is not valid
+	The begin station of tram: 3 is not registered
+	This tram: 3 is not correct
+The tram: 3 is not valid
+THIS METRONET IS INVALID
+		De vorige station B van spoor 12 op station C is niet geregistreerd!
+		De volgende station A van spoor 12 op station C is niet geregistreerd!
+	Spoor is niet correct
+		De vorige station A van spoor 21 op station C is niet geregistreerd!
+		De volgende station B van spoor 21 op station C is niet geregistreerd!
+	Spoor is niet correct
+The station: C is not valid
+	The begin station of tram: 1 is not registered
+	This tram: 1 is not correct
+The tram: 1 is not valid
+	The begin station of tram: 2 is not registered
+	This tram: 2 is not correct
+The tram: 2 is not valid
+	The begin station of tram: 3 is not registered
+	This tram: 3 is not correct
+The tram: 3 is not valid
+THIS METRONET IS INVALID

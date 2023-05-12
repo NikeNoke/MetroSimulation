@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<TTTT>
 <METRONET>
     <STATION>
         <naam>A</naam>
         <type>Metrostation</type>
-        <SPO
+        <SPOOR>
             <spoorNr>12</spoorNr>
             <volgende>B</volgende>
             <vorige>C</vorige>
@@ -22,11 +23,11 @@
             <volgende>C</volgende>
             <vorige>A</vorige>
         </SPOOR>
-        <SPO>
+        <SPOOR>
             <spoorNr>21</spoorNr>
             <volgende>A</volgende>
             <vorige>C</vorige>
-        </SPO
+        </SPOOR>
     </STATION>
     <STATION>
         <naam>C</naam>
@@ -52,7 +53,7 @@
         </SPOOR>
     </STATION>
     <STATION>
-        aam>E</aam>
+        <naam>E</naam>
         <type>Halte</type>
         <SPOOR>
             <spoorNr>17</spoorNr>
@@ -60,7 +61,7 @@
             <vorige>D</vorige>
         </SPOOR>
     </STATION>
-    <SION>
+    <STATION>
         <naam>F</naam>
         <type>Halte</type>
         <SPOOR>
@@ -68,7 +69,7 @@
             <volgende>D</volgende>
             <vorige>E</vorige>
         </SPOOR>
-    </SION>
+    </STATION>
     <TRAM>
         <lijnNr>12</lijnNr>
         <type>PCC</type>
@@ -82,7 +83,7 @@
         <lijnNr>12</lijnNr>
         <type>Albatros</type>
         <voertuigNr>2</voertuigNr>
-        eginStation>B</eginStation>
+        <beginStation>B</beginStation>
     </TRAM>
     <TRAM>
         <lijnNr>21</lijnNr>
@@ -95,5 +96,8 @@
         <type>PCC</type>
         <voertuigNr>4</voertuigNr>
         <beginStation>D</beginStation>
-        <aantal
+        <aantalDefecten>3</aantalDefecten>
+        <reparatieTijd>2</reparatieTijd>
+        <reparatieKost>1</reparatieKost>
+    </TRAM>
 </METRONET>

@@ -23,20 +23,21 @@ bool Exporter::properlyInitialized() const {
 }
 
 void Exporter::writeToOperation(const std::string &load) {
-    getOperationStream() << load;
+    getOperationStream() << load << std::flush;
 }
 
 Exporter::Exporter(std::string pathToSimple, std::string pathToAdvanced, std::ostream &op, std::ostream &err)
-    : pathToSimple(pathToSimple), pathToAdvanced(pathToAdvanced), operationStream(op), errorLog(err)
+    : pathToSimple(pathToSimple), pathToAdvanced(pathToAdvanced), operationStream(op), errorLog(err), _fInitCheck(this)
 {
     ENSURE(getPathToSimple() == pathToSimple, "This exporter's path to simple was not set properly");
     ENSURE(getPathToAdvanced() == pathToAdvanced, "This exporter's path to advanced was not set properly");
     ENSURE(getOperationStream() == op, "This exporter's operation stream was not set properly");
     ENSURE(getErrorStream() == err, "This exporter's error stream was not set properly");
+    ENSURE(properlyInitialized(), "The exporter is not properly initialized");
 }
 
 void Exporter::writeToError(const std::string &load) {
-    getErrorStream() << load;
+    getErrorStream() << load << std::flush;
 }
 
 std::ostream &Exporter::getOperationStream() {
