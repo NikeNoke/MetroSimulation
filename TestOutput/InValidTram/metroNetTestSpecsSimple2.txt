@@ -1,4 +1,13 @@
 --== STATIONS ==--
+= Station A =
+* Spoor 12:
+	-> Station B
+	<- Station  C
+
+* Spoor 21:
+	-> Station C
+	<- Station  B
+
 = Station B =
 * Spoor 12:
 	-> Station C
@@ -40,11 +49,6 @@ Tram 12 nr 1
 	reparatiekosten: 3
 
 Tram 12 nr 2
-	type: 2
-	snelheid: 70
-	huidig station: B
-
-Tram 21 nr 3
 	type: 2
 	snelheid: 70
 	huidig station: B

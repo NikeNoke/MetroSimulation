@@ -71,6 +71,9 @@ public:
      * **/
     Tram *getTram(int voertuigNr);
 
+    /**
+     * Does tram with nr exist?
+     */
     bool tramExists(int voertuigNr);
 
     /**
@@ -215,6 +218,11 @@ private:
        REQUIRE(t->properlyInitialized(), "The tram must be properly initialized");
      */
     bool controlTram(Tram *t);
+
+    /**
+     * Does the metroNet have unique stations?
+     */
+    bool uniqueStation();
 
 private:
     std::vector<Station *> fStations;

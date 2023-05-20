@@ -1,0 +1,22 @@
+The lijnNr of this TRAM is not an int
+TRAM TAG COULD NOT BE PARSED
+	Spoor 17 heeft geen tram
+The station: D is not valid
+	Spoor 17 heeft geen tram
+The station: E is not valid
+	Spoor 17 heeft geen tram
+The station: F is not valid
+	The begin station of tram: 3 is not registered
+	This tram: 3 is not correct
+The tram: 3 is not valid
+THIS METRONET IS INVALID
+	Spoor 17 heeft geen tram
+The station: D is not valid
+	Spoor 17 heeft geen tram
+The station: E is not valid
+	Spoor 17 heeft geen tram
+The station: F is not valid
+	The begin station of tram: 3 is not registered
+	This tram: 3 is not correct
+The tram: 3 is not valid
+THIS METRONET IS INVALID

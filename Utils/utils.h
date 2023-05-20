@@ -86,9 +86,23 @@ namespace Utils{
      * **/
     bool isNegative(int n);
 
+    /**
+     * Compares two files, no Precondition, or postCondition
+     * @param leftFileName
+     * @param rightFileName
+     * @return
+     */
     bool FileCompare(const std::string& leftFileName, const std::string& rightFileName);
 
+    /**
+     * Compares two files, no Precondition, or postCondition
+     * @param p1
+     * @param p2
+     * @return
+     */
     bool compareFiles(const std::string& p1, const std::string& p2);
+
+    void makeReadyForTesting();
 
 }
 

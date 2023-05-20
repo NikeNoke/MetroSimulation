@@ -6,6 +6,7 @@
 #include <set>
 #include <ctime>
 #include <sstream>
+#include <map>
 
 #define SSTR(x) static_cast< std::ostringstream & >( \
         ( std::ostringstream() << std::dec << x ) ).str()
@@ -21,7 +22,7 @@ bool MetroNet::stationRegistered(const std::string &name) const {
 
 void MetroNet::addStation(Station *const station) {
     REQUIRE(station->properlyInitialized(), "The parameter station is not properly initialized");
-    REQUIRE(!stationRegistered(station->getName()), "The station is already in the metroNet");
+//    REQUIRE(!stationRegistered(station->getName()), "The station is already in the metroNet");
     REQUIRE(station->getName() != "", "The station needs have a name.");
     REQUIRE(!station->getSporen().empty(), "Station must have sporen.");
     fStations.push_back(station);
@@ -91,6 +92,11 @@ bool MetroNet::isValidMetroNet() {
     std::vector<Tram *> tempTrams = this->getTrams();
 
     bool result = true;
+
+    if(!uniqueStation()){
+        result = false;
+        getExporter().writeToError("The stations in this metronet are not unique\n");
+    }
 
     for (long unsigned int i = 0; i < tempStations.size(); i++) {
         REQUIRE(tempStations[i]->properlyInitialized(), "A station of the metroNet is not properly initialized");
@@ -540,5 +546,46 @@ bool MetroNet::tramExists(int voertuigNr) {
 
 Exporter &MetroNet::getExporter() {
     return exporter;
+}
+
+bool MetroNet::uniqueStation() {
+
+    std::vector<std::string> stationNames;
+
+    std::vector<Station *> stations = this->getStations();
+
+    for (unsigned int i = 0; i < stations.size(); i++) {
+
+        stationNames.push_back(stations[i]->getName());
+
+    }
+
+    std::set<std::string> stationNames2(stationNames.begin(), stationNames.end());
+
+    bool result = stationNames.size() == stationNames2.size();
+
+    std::map<std::string, int> counter;
+
+    if(!result){
+
+        for (unsigned int i = 0; i < stations.size(); i++) {
+
+            if(counter.find(stations[i]->getName()) == counter.end()){
+                counter[stations[i]->getName()] = 1;
+            }else{
+                counter[stations[i]->getName()] += 1;
+            }
+        }
+    }
+
+    std::map<std::string, int>::iterator it;
+
+    for(it = counter.begin(); it != counter.end(); it++){
+        if(it->second > 1){
+            getExporter().writeToError("The station: " + it->first + " is not unique and is registered " + SSTR(it->second) + "times\n");
+        }
+    }
+
+    return result;
 }
 

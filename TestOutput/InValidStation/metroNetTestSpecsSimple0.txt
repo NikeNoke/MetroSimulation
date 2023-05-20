@@ -17,7 +17,7 @@
 	-> Station B
 	<- Station  A
 
-= Station D =
+= Station F =
 * Spoor 17:
 	-> Station E
 	<- Station  F

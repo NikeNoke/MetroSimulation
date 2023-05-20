@@ -29,6 +29,38 @@ protected:
         return error;
     }
 
+    void inValid(const std::string& directory){
+        ASSERT_TRUE(Utils::directoryExists("TestInputXML")) << "Directory to test does not exist\n";
+        ASSERT_TRUE(Utils::directoryExists("TestInputXML/" + directory)) << "Directory to test does not exist\n";
+        ASSERT_TRUE(Utils::directoryExists("TestOutput")) << "Directory for test output does not exist\n";
+        ASSERT_TRUE(Utils::directoryExists("TestOutput/" + directory)) << "Directory for test output does not exist\n";
+
+        int fileCounter = 0;
+        std::string fileName = "TestInputXML/" + directory + "/metroNet" + SSTR(fileCounter) + ".xml";
+        while (Utils::fileExists(fileName)) {
+
+            std::string outputSimple = "TestOutput/" + directory +"/metroNetTestSpecsSimple" + SSTR(fileCounter) + ".txt";
+            std::string outputAdvanced = "TestOutput/" + directory + "/metroNetTestSpecsAdvanced" + SSTR(fileCounter) + ".txt";
+            std::string expectedErr = "TestInputXML/" + directory + "/metroNetErr" + SSTR(fileCounter) + ".txt";
+
+            std::string opPath = "TestOutput/" + directory + "/operation" + SSTR(fileCounter) + ".txt";
+            std::string errPath = "TestOutput/" + directory + "/error" + SSTR(fileCounter) + ".txt";
+            operation.open(opPath.c_str());
+            error.open(errPath.c_str());
+
+            MetroNetGenerator generator(fileName, outputSimple, outputAdvanced
+                    , getOperationStream(), getErrorStream());
+
+//        generator.generateMetroNet();
+            EXPECT_DEATH(generator.generateMetroNet(), "The metroNet is not valid");
+            EXPECT_TRUE(Utils::FileCompare(errPath, expectedErr));
+            fileCounter = fileCounter + 1;
+            fileName = "TestInputXML/" + directory + "/metroNet" + SSTR(fileCounter) + ".xml";
+            operation.close();
+            error.close();
+        }
+    }
+
     std::ofstream operation;
     std::ofstream error;
 };
@@ -55,33 +87,17 @@ TEST_F(ValidMetroNet, ValidMetroNet) {
 }
 
 TEST_F(ValidMetroNet, InValidMetroNet) {
-    ASSERT_TRUE(Utils::directoryExists("TestInputXML")) << "Directory to test does not exist\n";
-    ASSERT_TRUE(Utils::directoryExists("TestInputXML/InValidMetroNet")) << "Directory to test does not exist\n";
-    ASSERT_TRUE(Utils::directoryExists("TestOutput")) << "Directory for test output does not exist\n";
-    ASSERT_TRUE(Utils::directoryExists("TestOutput/InValidMetroNet")) << "Directory for test output does not exist\n";
+    inValid("InValidMetroNet");
+}
 
-    int fileCounter = 0;
-    std::string fileName = "TestInputXML/InValidMetroNet/metroNet" + SSTR(fileCounter) + ".xml";
-    while (Utils::fileExists(fileName)) {
+TEST_F(ValidMetroNet, InValidTrams) {
+    inValid("InValidTram");
+}
 
-        std::string outputSimple = "TestOutput/InValidMetroNet/metroNetTestSpecsSimple" + SSTR(fileCounter) + ".txt";
-        std::string outputAdvanced = "TestOutput/InValidMetroNet/metroNetTestSpecsAdvanced" + SSTR(fileCounter) + ".txt";
-        std::string expectedErr = "TestInputXML/InValidMetroNet/metroNetErr" + SSTR(fileCounter) + ".txt";
+TEST_F(ValidMetroNet, InValidStations){
+    inValid("InValidStation");
+}
 
-        std::string opPath = "TestOutput/InValidMetroNet/operation" + SSTR(fileCounter) + ".txt";
-        std::string errPath = "TestOutput/InValidMetroNet/error" + SSTR(fileCounter) + ".txt";
-        operation.open(opPath.c_str());
-        error.open(errPath.c_str());
-
-        MetroNetGenerator generator(fileName, outputSimple, outputAdvanced
-                                    , getOperationStream(), getErrorStream());
-
-//        generator.generateMetroNet();
-        EXPECT_DEATH(generator.generateMetroNet(), "The metroNet is not valid");
-        EXPECT_TRUE(Utils::FileCompare(errPath, expectedErr));
-        fileCounter = fileCounter + 1;
-        fileName = "TestInputXML/InValidMetroNet/metroNet" + SSTR(fileCounter) + ".xml";
-        operation.close();
-        error.close();
-    }
+TEST_F(ValidMetroNet, InValidSpoor){
+    inValid("InValidSpoor");
 }
