@@ -8,24 +8,24 @@ Dit project werd gemaakt door groep 13
 
 In versie 2.0 implementeren we de volgende usecases:
 
-| Use case | Description van usecase                         | status            | promised? |
-|:---------|:------------------------------------------------|:------------------|:----------|
-| 1.1      | Trams en stations inlezen                       | complete          | &check;   |
-| 1.2      | Trams en stations met type inlezen              | complete          | &check;   |
-| 1.3      | Trams met voertuignummers                       | complete          | &check;   |
-| 1.4      | Stations met meerdere sporen inlezen            | complete          | &cross;   |
-| 2.2      | Simpele uitvoer (herzien)                       | complete          | &check;   |
-| 2.3      | Geavanceerde uitvoer                            | complete          | &check;   |
-| 3.1      | Rijden van trams                                | complete          | &check;   |
-| 3.3      | Automatische simulatie (herzien)                | complete          | &check;   |
-| 3.4      | Rijden van trams met type                       | complete          | &check;   |
-| 3.5      | Rijden van meerdere trams                       | complete          | &check;   |
-| 3.6      | Botspreventie                                   | complete          | &check;   |
-| 3.7      | Defecten en reparaties                          | complete          | &check;   |
-| 3.8      | Reparatiekosten                                 | complete          | &check;   |
-| 3.9      | Statistische verwerking simulatie               | complete          | &cross;   |
-| /        | Doxygen documentation voor heel het project     | complete          | n.v.t.    | 
-| /        | Tests cases voor input, output en domain logica | 2/3 (Output niet) | n.v.t.    |
+| Use case | Description van usecase                         | status   | promised? |
+|:---------|:------------------------------------------------|:---------|:----------|
+| 1.1      | Trams en stations inlezen                       | complete | &check;   |
+| 1.2      | Trams en stations met type inlezen              | complete | &check;   |
+| 1.3      | Trams met voertuignummers                       | complete | &check;   |
+| 1.4      | Stations met meerdere sporen inlezen            | complete | &cross;   |
+| 2.2      | Simpele uitvoer (herzien)                       | complete | &check;   |
+| 2.3      | Geavanceerde uitvoer                            | complete | &check;   |
+| 3.1      | Rijden van trams                                | complete | &check;   |
+| 3.3      | Automatische simulatie (herzien)                | complete | &check;   |
+| 3.4      | Rijden van trams met type                       | complete | &check;   |
+| 3.5      | Rijden van meerdere trams                       | complete | &check;   |
+| 3.6      | Botspreventie                                   | complete | &check;   |
+| 3.7      | Defecten en reparaties                          | complete | &check;   |
+| 3.8      | Reparatiekosten                                 | complete | &check;   |
+| 3.9      | Statistische verwerking simulatie               | complete | &check;   |
+| /        | Doxygen documentation voor heel het project     | complete | &check;   | 
+| /        | Tests cases voor input, output en domain logica | complete | &check;   |
 ### Gebruikte werktuigen in dit project
 Dit project werd geprogrammeerd in [C++98](https://en.wikipedia.org/wiki/C%2B%2B).
 
