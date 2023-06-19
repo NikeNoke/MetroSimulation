@@ -7,7 +7,6 @@
 #include "../DesignByContract.h"
 #include "../Spoor/Spoor.h"
 #include "../Utils/utils.h"
-#include "Metronet/MetronetFileLogger.h"
 
 bool Exporter::exportFile(MetroNet &metroNet) const {
     REQUIRE(properlyInitialized(), "The exporter is not properly initialized");
@@ -32,7 +31,6 @@ void Exporter::writeToOperation(const std::string &load) {
 
 Exporter::Exporter(std::string pathToSimple, std::string pathToAdvanced, std::ostream &op, std::ostream &err)
     : pathToSimple(pathToSimple), pathToAdvanced(pathToAdvanced), operationStream(op), errorLog(err), _fInitCheck(this)
-    , metronetFileLogger(op, err)
     {
     REQUIRE(!pathToSimple.empty(), "The path to simple may not be empty");
     REQUIRE(!pathToAdvanced.empty(), "The path t0 advanced may not be empty");
@@ -41,7 +39,6 @@ Exporter::Exporter(std::string pathToSimple, std::string pathToAdvanced, std::os
     ENSURE(getOperationStream() == op, "This exporter's operation stream was not set properly");
     ENSURE(getErrorStream() == err, "This exporter's error stream was not set properly");
     ENSURE(properlyInitialized(), "The exporter is not properly initialized");
-    ENSURE(getMetroNetLogger().properlyInitialized(), "MetronetLogger is not properly initialized");
 }
 
 void Exporter::writeToError(const std::string &load) {
@@ -78,10 +75,10 @@ void Exporter::setPathToSimple(const std::string &p) {
     ENSURE(getPathToAdvanced() == p, "Setting of path to simple was not done properly");
 }
 
-MetronetFileLogger& Exporter::getMetroNetLogger() {
+//MetronetFileLogger& Exporter::getMetroNetLogger() {
 //    REQUIRE(metronetFileLogger.properlyInitialized(), "MetronetLogger is not properly initialized");
-    return metronetFileLogger;
-}
+//    return metronetFileLogger;
+//}
 //
 //Exporter::~Exporter() {
 //    delete metronetFileLogger;

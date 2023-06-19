@@ -11,7 +11,6 @@
 #include "AdvancedExport.h"
 #include "SimpleExport.h"
 #include <fstream>
-#include "Metronet/MetronetFileLogger.h"
 
 class Station;
 class Spoor;
@@ -33,7 +32,6 @@ public:
         ENSURE(getOperationStream() == op, "This exporter's operation stream was not set properly");
         ENSURE(getErrorStream() == err, "This exporter's error stream was not set properly");
         ENSURE(properlyInitialized(), "The exporter is not properly initialized");
-        ENSURE(getMetroNetLogger().properlyInitialized(), "MetronetLogger is not properly initialized");
      * **/
     explicit Exporter(std::string pathToSimple, std::string pathToAdvanced, std::ostream& op, std::ostream& err);
 
@@ -57,11 +55,11 @@ public:
      * Write to operation
      * @param load
      */
-    void writeToOperation(const std::string& load);
+    virtual void writeToOperation(const std::string& load);
 
     /**
      */
-    void writeToError(const std::string& load);
+    virtual void writeToError(const std::string& load);
 
 
     /**
@@ -105,52 +103,6 @@ public:
      */
     std::ostream &getErrorStream();
 
-    /**
-     * REQUIRE(metronetFileLogger.properlyInitialized(), "MetronetLogger is not properly initialized");
-     */
-    MetronetFileLogger& getMetroNetLogger();
-
-//    ~Exporter();
-
-    //TODO all kinds of message display!
-//    virtual void nonUniqueStations();
-//
-//    virtual void stationNotValid(Station* );
-//
-//    virtual void tramsNotUnique();
-//
-//    virtual void tramNotValid();
-//
-//    virtual void metronetInvalid();
-//
-//    virtual void nonUniqueSporenInStation(Station* );
-//
-//    virtual void nonValidSpoor();
-//
-//    virtual void spoorHasNoTram(Spoor*);
-//
-//    virtual void beginStationOfTramNotRegistered(Tram* );
-//
-//    virtual void beginStationOfTramLijnNrWrong(Tram* );
-//
-//    virtual void previousStationOfSpoorNotRegistered(Spoor* );
-//
-//    virtual void nextStationOfSpoorNotRegistered(Spoor* );
-//
-//    virtual void nextStationOfSpoorNotSameNr(Spoor* );
-//
-//    virtual void previousStationOfSpoorNotSameNr(Spoor* );
-//
-//    virtual void tramNotCorrect(Tram* );
-//
-//    virtual void tramHasNoStation(Tram* );
-//
-//    virtual void tramMoveNotCTram(int tramSpoorAtStation, const std::string& stationName, int currentTram);
-//
-//    virtual void statReport(const std::vector<Tram*>& trams, const std::vector<Station* >& stations);
-//
-//    virtual void stationNotUnique(const std::string& name, int amount);
-
 private:
 
     std::string pathToSimple; //TODO change to streams
@@ -158,8 +110,6 @@ private:
     std::ostream& operationStream;
     std::ostream& errorLog;
     Exporter *_fInitCheck;
-public:
-    MetronetFileLogger metronetFileLogger;
 
 };
 
