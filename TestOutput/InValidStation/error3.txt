@@ -2,3 +2,60 @@ The name tag is not correct in this Station tag
 The type of STATION TAG is not known
 STATION TAG COULD NOT BE PARSED
 The station: F is not unique and is registered 2times
+The stations in this metronet are not unique
+		De vorige station A van spoor 12 op station B is niet geregistreerd!
+	Spoor is niet correct
+		De volgende station A van spoor 21 op station B is niet geregistreerd!
+	Spoor is niet correct
+The station: B is not valid
+		De volgende station A van spoor 12 op station C is niet geregistreerd!
+	Spoor is niet correct
+		De vorige station A van spoor 21 op station C is niet geregistreerd!
+	Spoor is niet correct
+The station: C is not valid
+		De vorige station F van spoor 17 op station F, de volgende ervan is niet de huidige!
+		De volgende station E van spoor 17 op station F, de vorige ervan is niet de huidige!
+	Spoor is niet correct
+The station: F is not valid
+		De vorige station D van spoor 17 op station E is niet geregistreerd!
+	Spoor is niet correct
+The station: E is not valid
+		De volgende station D van spoor 17 op station F is niet geregistreerd!
+	Spoor is niet correct
+The station: F is not valid
+	The begin station of tram: 1 is not registered
+	This tram: 1 is not correct
+The tram: 1 is not valid
+	The begin station of tram: 4 is not registered
+	This tram: 4 is not correct
+The tram: 4 is not valid
+THIS METRONET IS INVALID
+The station: F is not unique and is registered 2times
+The stations in this metronet are not unique
+		De vorige station A van spoor 12 op station B is niet geregistreerd!
+	Spoor is niet correct
+		De volgende station A van spoor 21 op station B is niet geregistreerd!
+	Spoor is niet correct
+The station: B is not valid
+		De volgende station A van spoor 12 op station C is niet geregistreerd!
+	Spoor is niet correct
+		De vorige station A van spoor 21 op station C is niet geregistreerd!
+	Spoor is niet correct
+The station: C is not valid
+		De vorige station F van spoor 17 op station F, de volgende ervan is niet de huidige!
+		De volgende station E van spoor 17 op station F, de vorige ervan is niet de huidige!
+	Spoor is niet correct
+The station: F is not valid
+		De vorige station D van spoor 17 op station E is niet geregistreerd!
+	Spoor is niet correct
+The station: E is not valid
+		De volgende station D van spoor 17 op station F is niet geregistreerd!
+	Spoor is niet correct
+The station: F is not valid
+	The begin station of tram: 1 is not registered
+	This tram: 1 is not correct
+The tram: 1 is not valid
+	The begin station of tram: 4 is not registered
+	This tram: 4 is not correct
+The tram: 4 is not valid
+THIS METRONET IS INVALID

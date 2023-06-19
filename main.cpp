@@ -12,33 +12,39 @@ int main() {
 //    freopen("OperationLog.txt", "w", stdout);
 //    freopen("ErrorLog.txt", "w", stderr);
 
-    std::vector<std::string> directories;
-    directories.push_back("TestInputXML/InValidMetroNet/");
-    directories.push_back("TestInputXML/InValidTram/");
-    directories.push_back("TestInputXML/InValidStation/");
-    directories.push_back("TestInputXML/InValidSpoor/");
-
-    int dHolder = 3;
-    int holder = 3;
+//    std::vector<std::string> directories;
+//    directories.push_back("TestInputXML/InValidMetroNet/");
+//    directories.push_back("TestInputXML/InValidTram/");
+//    directories.push_back("TestInputXML/InValidStation/");
+//    directories.push_back("TestInputXML/InValidSpoor/");
+//
+//    int dHolder = 3;
+//    int holder = 3;
     std::ofstream operation;
     std::ofstream error;
-    operation.open("OperationLog.txt");
-    std::string temp = directories[dHolder] + "metroNetErr" + SSTR(holder) + ".txt";
-    error.open(temp.c_str());
+//    operation.open("OperationLog.txt");
+//    std::string temp = directories[dHolder] + "metroNetErr" + SSTR(holder) + ".txt";
+//    error.open(temp.c_str());
     std::string outputAd = "metroNetSpecs2.txt";
-//    std::string outputAd = "TestInputXML/ValidMetroNet/metroNet2Advanced.txt";
-//    std::string outputS = "metroNetSpecs.txt";
+////    std::string outputAd = "TestInputXML/ValidMetroNet/metroNet2Advanced.txt";
+////    std::string outputS = "metroNetSpecs.txt";
     std::string outputS = "metroNetSpecs.txt";
-    std::string input = directories[dHolder] + "metroNet" + SSTR(holder) + ".xml";
-    try {
-        MetroNetGenerator generator(input, outputS, outputAd, operation, error);
+//    std::string input = directories[dHolder] + "metroNet" + SSTR(holder) + ".xml";
+//    try {
+//        MetroNetGenerator generator(input, outputS, outputAd, operation, error);
+//
+//        generator.generateMetroNet();
+//
+////        generator.simulate(1);
+//
+//    } catch (...) {
+//        std::cerr << "Error from main!\n";
+//    }
 
-        generator.generateMetroNet();
+    MetroNetGenerator generator("metronet.xml", outputS, outputAd, operation, error);
 
-//        generator.simulate(1);
+    generator.generateMetroNet();
 
-    } catch (...) {
-        std::cerr << "Error from main!\n";
-    }
+    generator.simulate(1);
 
 }

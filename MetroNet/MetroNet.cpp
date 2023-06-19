@@ -99,8 +99,8 @@ bool MetroNet::isValidMetroNet() {
 
     if(!uniqueStation()){
         result = false;
-//        getExporter().writeToError("The stations in this metronet are not unique\n");
-        getExporter().metronetFileLogger.eNonUniqueStations();
+        getExporter().writeToError("The stations in this metronet are not unique\n");
+//        getExporter().getMetroNetLogger().eNonUniqueStations();
     }
 
     for (long unsigned int i = 0; i < tempStations.size(); i++) {
@@ -108,6 +108,7 @@ bool MetroNet::isValidMetroNet() {
         if (!controlStation(tempStations[i])) {
             result = false;
             getExporter().writeToError("The station: " + tempStations[i]->getName() + " is not valid\n");
+//            getExporter().getMetroNetLogger().eStationNotValid(tempStations[i]->getName());
         }
 
     }
@@ -115,6 +116,7 @@ bool MetroNet::isValidMetroNet() {
     if(!uniqueTram()){
         result = false;
         getExporter().writeToError("The trams in this metronet are not unique\n");
+//        getExporter().getMetroNetLogger().eNonUniqueTrams();
     }
 
     for (long unsigned int i = 0; i < tempTrams.size(); i++) {
@@ -123,6 +125,7 @@ bool MetroNet::isValidMetroNet() {
         if (!controlTram(tempTrams[i])) {
             result = false;
             getExporter().writeToError("The tram: " + SSTR(tempTrams[i]->getVoertuigNummer()) + " is not valid\n");
+//            getExporter().getMetroNetLogger().eTramNotValid(tempTrams[i]->getVoertuigNummer());
         }
     }
     if(!result)

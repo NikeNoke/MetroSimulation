@@ -1,0 +1,17 @@
+
+
+ ====BEGIN STAT REPORT====
+De reparatie kost van tram 1 is 3
+De reparatie kost van tram 2 is 0
+De reparatie kost van tram 3 is 0
+De reparatie kost van tram 4 is 3
+De totale reparatie kost van de metronet is gelijk aan 6
+De station B werd bezocht door 0 trams
+De station C werd bezocht door 0 trams
+De station F werd bezocht door 0 trams
+De station E werd bezocht door 0 trams
+De station F werd bezocht door 0 trams
+
+
+====END STAT REPORT====
+
