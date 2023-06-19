@@ -1,0 +1,14 @@
+//
+// Created by byamba on 19/06/23.
+//
+
+#ifndef METROSIMULATION_TRAMFILELOGGER_H
+#define METROSIMULATION_TRAMFILELOGGER_H
+
+
+class TramFileLogger {
+
+};
+
+
+#endif //METROSIMULATION_TRAMFILELOGGER_H

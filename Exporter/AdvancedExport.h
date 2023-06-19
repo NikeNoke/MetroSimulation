@@ -29,12 +29,16 @@ public:
 
     /**
      * Helperfunctie om een index van het volgende spoor.
+     * REQUIRE(properlyInitialized(), "Advanced Export is not properly initialized");
      * @param container De vector waarin alle sporen zijn gelegen.
      * @param naam Naam van het spoor.
      * @return Index van het spoor of default -1 als er iets mis gaat.
      * **/
     int indexVolgende(std::vector<Spoor *> &container, const std::string &naam) const;
 
+    /**
+     * Properly initialized?
+     */
     bool properlyInitialized() const;
 
     /**

@@ -12,7 +12,7 @@
 #include "../Exporter/Exporter.h"
 
 bool ParseMetroNet::parseMetroNet(MetroNet &metroNet, Exporter& e) {
-
+    REQUIRE(properlyInitialized(), "ParseMetroNet is not properly initialized");
     REQUIRE(loadFile(), "The file could not be loaded");
 
     TiXmlElement *root = getDoc().FirstChildElement();
@@ -61,28 +61,35 @@ bool ParseMetroNet::parseMetroNet(MetroNet &metroNet, Exporter& e) {
 }
 
 bool ParseMetroNet::loadFile() {
+    REQUIRE(properlyInitialized(), "ParseMetroNet is not properly initialized");
     REQUIRE(getPathToInput() != NULL, "pathToFile is NULL");
     bool success = getDoc().LoadFile(getPathToInput());
     ENSURE(success, "File could not be loaded");
     return success;
 }
 
-ParseMetroNet::ParseMetroNet(const std::string &pathToInput) {
+ParseMetroNet::ParseMetroNet(const std::string &pathToInput)
+    : _fInitcheck(this)
+{
     REQUIRE(!pathToInput.empty(), "Path to xml is empty");
     REQUIRE(Utils::fileExists(pathToInput), "The file does not exist!");
     setPathToInput(std::fopen(pathToInput.c_str(), "r"));
     ENSURE(getPathToInput() != NULL, "pathToFile could not be opened");
+    ENSURE(properlyInitialized(), "ParseMetronet is not properly initialized");
 }
 
 TiXmlDocument &ParseMetroNet::getDoc() {
+    REQUIRE(properlyInitialized(), "ParseMetroNet is not properly initialized");
     return doc;
 }
 
 FILE *ParseMetroNet::getPathToInput() const {
+    REQUIRE(properlyInitialized(), "ParseMetroNet is not properly initialized");
     return pathToInput;
 }
 
 bool ParseMetroNet::setPathToInput(FILE *f) {
+    REQUIRE(properlyInitialized(), "ParseMetroNet is not properly initialized");
     REQUIRE(f != NULL, "The File prt is NULL");
     pathToInput = f;
     ENSURE(getPathToInput() == f, "setting was not successful");
@@ -91,4 +98,8 @@ bool ParseMetroNet::setPathToInput(FILE *f) {
 
 ParseMetroNet::~ParseMetroNet() {
     fclose(getPathToInput());
+}
+
+bool ParseMetroNet::properlyInitialized() const {
+    return _fInitcheck == this;
 }

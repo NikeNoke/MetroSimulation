@@ -10,19 +10,21 @@
 #include "../Trams/StadslijnerTram.h"
 
 ParseTram::ParseTram(TiXmlElement *element)
-        : fElement(element) {
+        : fElement(element), _fInitCheck(this) {
     REQUIRE(element != NULL, "TixmlElement is NULL");
     ENSURE(getElement() == element, "TixmlElement is not the element of the parser");
+    ENSURE(properlyInitialized(), "Not properly initialized");
 }
 
 void ParseTram::setElement(TiXmlElement *el) {
+    REQUIRE(properlyInitialized(), "This is not properly initialzed");
     REQUIRE(el != NULL, "TixmlElement is NULL");
     fElement = el;
     ENSURE(getElement() == fElement, "TixmlElement is not the element of the parser");
 }
 
 bool ParseTram::checkValidBeginStation(Exporter& e) const {
-
+    REQUIRE(properlyInitialized(), "This is not properly initialzed");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 
     int amountOfBeginStation = 0;
@@ -54,7 +56,7 @@ bool ParseTram::checkValidBeginStation(Exporter& e) const {
 
 
 bool ParseTram::checkValidLijnNr(Exporter& e) const {
-
+    REQUIRE(properlyInitialized(), "This is not properly initialzed");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 
     int amountOfLijnNr = 0;
@@ -85,7 +87,7 @@ bool ParseTram::checkValidLijnNr(Exporter& e) const {
 }
 
 bool ParseTram::checkValidTram(Exporter& e) const {
-
+    REQUIRE(properlyInitialized(), "This is not properly initialzed");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 
     if (getTramType(e) != TramType::PCC){
@@ -110,6 +112,7 @@ bool ParseTram::checkValidTram(Exporter& e) const {
 }
 
 bool ParseTram::checkTramTypeExists(Exporter& e) const {
+    REQUIRE(properlyInitialized(), "This is not properly initialzed");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
     bool exists = false;
     for (TiXmlElement *innerElement = getElement()->FirstChildElement();
@@ -126,7 +129,7 @@ bool ParseTram::checkTramTypeExists(Exporter& e) const {
 }
 
 bool ParseTram::parseBeginStation(Tram *tram, Exporter& e) const {
-
+    REQUIRE(properlyInitialized(), "This is not properly initialzed");
     REQUIRE(tram->properlyInitialized(), "Tram is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
     REQUIRE(checkValidBeginStation(e) == true, "The beginStation tag is not correct in this Tram tag");
@@ -150,7 +153,7 @@ bool ParseTram::parseBeginStation(Tram *tram, Exporter& e) const {
 }
 
 bool ParseTram::parseLijnNr(Tram *tram, Exporter& e) const {
-
+    REQUIRE(properlyInitialized(), "This is not properly initialzed");
     REQUIRE(tram->properlyInitialized(), "Tram is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
     REQUIRE(checkValidLijnNr(e) == true, "The lijnNr tag is not correct in this Tram tag");
@@ -175,6 +178,7 @@ bool ParseTram::parseLijnNr(Tram *tram, Exporter& e) const {
 }
 
 bool ParseTram::parseAll(Exporter& e) {
+    REQUIRE(properlyInitialized(), "This is not properly initialzed");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 //    REQUIRE(checkValidTram(e) == true, "The Tram tag is not correct");
     if(!checkValidTram(e))
@@ -217,7 +221,7 @@ bool ParseTram::parseAll(Exporter& e) {
 }
 
 bool ParseTram::checkNonValidAttributes(Exporter& e) const {
-
+    REQUIRE(properlyInitialized(), "This is not properly initialzed");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 
 
@@ -255,11 +259,12 @@ bool ParseTram::checkNonValidAttributes(Exporter& e) const {
 }
 
 TiXmlElement *ParseTram::getElement() const {
+    REQUIRE(properlyInitialized(), "This is not properly initialzed");
     return fElement;
 }
 
 bool ParseTram::checkValidTypeTram(Exporter& e) const {
-
+    REQUIRE(properlyInitialized(), "This is not properly initialzed");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 
     int amountOfType = 0;
@@ -290,7 +295,7 @@ bool ParseTram::checkValidTypeTram(Exporter& e) const {
 }
 
 bool ParseTram::parseTypeTram(Tram *tram, Exporter& e) const {
-
+    REQUIRE(properlyInitialized(), "This is not properly initialzed");
     REQUIRE(tram->properlyInitialized(), "Tram is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
     REQUIRE(checkValidTypeTram(e) == true, "The type tag is not correct in this Tram tag");
@@ -313,7 +318,7 @@ bool ParseTram::parseTypeTram(Tram *tram, Exporter& e) const {
 }
 
 bool ParseTram::checkValidVoertuigNummer(Exporter& e) const {
-
+    REQUIRE(properlyInitialized(), "This is not properly initialzed");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 
     int amountOfVoertuigNr = 0;
@@ -344,7 +349,7 @@ bool ParseTram::checkValidVoertuigNummer(Exporter& e) const {
 }
 
 bool ParseTram::parserVoertuigNummer(Tram *tram, Exporter& e) const {
-
+    REQUIRE(properlyInitialized(), "This is not properly initialzed");
     REQUIRE(tram->properlyInitialized(), "Tram is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
     REQUIRE(checkValidVoertuigNummer(e) == true, "The lijnNr tag is not correct in this Tram tag");
@@ -369,6 +374,7 @@ bool ParseTram::parserVoertuigNummer(Tram *tram, Exporter& e) const {
 }
 
 TramType::TypeTram ParseTram::getTramType(Exporter& e) const {
+    REQUIRE(properlyInitialized(), "This is not properly initialzed");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
     REQUIRE(checkValidTypeTram(e) == true, "The type tag is not correct in this Tram tag");
 
@@ -393,20 +399,23 @@ TramType::TypeTram ParseTram::getTramType(Exporter& e) const {
 }
 
 void ParseTram::setParsedTram(Tram *t) {
+    REQUIRE(properlyInitialized(), "This is not properly initialzed");
     parsedTram = t;
     ENSURE(getParsedTram() == t, "The setting has gone wrong");
 }
 
 Tram *ParseTram::getParsedTram() const {
+    REQUIRE(properlyInitialized(), "This is not properly initialzed");
     return parsedTram;
 }
 
 bool ParseTram::parseSuccessful(Exporter& e) {
+    REQUIRE(properlyInitialized(), "This is not properly initialzed");
     return parseAll(e);
 }
 
 bool ParseTram::checkValidAantalDefecten(Exporter& e) const {
-
+    REQUIRE(properlyInitialized(), "This is not properly initialzed");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 
     int aantalDefecten = 0;
@@ -437,7 +446,7 @@ bool ParseTram::checkValidAantalDefecten(Exporter& e) const {
 }
 
 bool ParseTram::checkValidReparatieTijd(Exporter& e) const {
-
+    REQUIRE(properlyInitialized(), "This is not properly initialzed");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 
     int aantalReparatieTijd = 0;
@@ -468,7 +477,7 @@ bool ParseTram::checkValidReparatieTijd(Exporter& e) const {
 }
 
 bool ParseTram::checkValidReparatieKosten(Exporter& e) const {
-
+    REQUIRE(properlyInitialized(), "This is not properly initialzed");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 
     int aantalReparatieKost = 0;
@@ -499,7 +508,7 @@ bool ParseTram::checkValidReparatieKosten(Exporter& e) const {
 }
 
 bool ParseTram::parseAantalDefecten(Tram *tram, Exporter& e) {
-
+    REQUIRE(properlyInitialized(), "This is not properly initialzed");
     REQUIRE(getTramType(e) == TramType::PCC, "Will not work on other types");
     REQUIRE(tram->properlyInitialized(), "Tram is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
@@ -525,7 +534,7 @@ bool ParseTram::parseAantalDefecten(Tram *tram, Exporter& e) {
 }
 
 bool ParseTram::parseReparatieTijd(Tram *tram, Exporter& e) {
-
+    REQUIRE(properlyInitialized(), "This is not properly initialzed");
     REQUIRE(getTramType(e) == TramType::PCC, "Will not work on other types");
     REQUIRE(tram->properlyInitialized(), "Tram is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
@@ -551,7 +560,7 @@ bool ParseTram::parseReparatieTijd(Tram *tram, Exporter& e) {
 }
 
 bool ParseTram::parseReparatieKosten(Tram *tram, Exporter& e) {
-
+    REQUIRE(properlyInitialized(), "This is not properly initialzed");
     REQUIRE(getTramType(e) == TramType::PCC, "Will not work on other types");
     REQUIRE(tram->properlyInitialized(), "Tram is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
@@ -574,5 +583,9 @@ bool ParseTram::parseReparatieKosten(Tram *tram, Exporter& e) {
     ENSURE(tram->getReparatieTijd() != -1, "The reparatieKost of tram has not been correctly initialized");
     ENSURE(getElement() != NULL, "TixmlElement is NULL");
     return false;
+}
+
+bool ParseTram::properlyInitialized() const {
+    return _fInitCheck == this;
 }
 

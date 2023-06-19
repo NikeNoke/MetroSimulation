@@ -24,43 +24,51 @@ Tram::Tram(const std::string &beginStation, int snelheid, int lijnNr) : snelheid
 }
 
 std::string Tram::getBeginStation() const {
+    REQUIRE(properlyInitialized(), "The tram is not properly initialized");
     return beginStation;
 }
 
 int Tram::getSnelheid() {
+    REQUIRE(properlyInitialized(), "The tram is not properly initialized");
     return -1;
 }
 
 int Tram::getLijnNr() const {
+    REQUIRE(properlyInitialized(), "The tram is not properly initialized");
     return lijnNr;
 }
 
 std::string Tram::getHuidigStation() const {
+    REQUIRE(properlyInitialized(), "The tram is not properly initialized");
     return huidigStation;
 }
 
 void Tram::setBeginStation(std::string bs) {
+    REQUIRE(properlyInitialized(), "The tram is not properly initialized");
     REQUIRE(!(Utils::is_int(bs)), "The parameter beginStation is a number");
     beginStation = bs;
     ENSURE(getBeginStation() == bs, "The member beginStation type has not been set properly");
 }
 
 void Tram::setSnelheid(int s) {
+    REQUIRE(properlyInitialized(), "The tram is not properly initialized");
     snelheid = s;
 }
 
 void Tram::setLijnNr(int l) {
+    REQUIRE(properlyInitialized(), "The tram is not properly initialized");
     lijnNr = l;
     ENSURE(getLijnNr() == l, "The member lijnNr type has not been set properly");
 }
 
 void Tram::setHuidigStation(std::string h) {
+    REQUIRE(properlyInitialized(), "The tram is not properly initialized");
     REQUIRE(!(Utils::is_int(h)), "The parameter huidigStation is a number");
     huidigStation = h;
     ENSURE(getHuidigStation() == h, "The member huidigStation type has not been set properly");
 }
 
-bool Tram::properlyInitialized() {
+bool Tram::properlyInitialized() const{
     return _initCheck == this;
 }
 
@@ -94,6 +102,7 @@ bool Tram::move(Station *targetStation, Exporter& e) { //TODO refactor and virtu
 }
 
 void Tram::setType(std::string t) {
+    REQUIRE(properlyInitialized(), "The tram is not properly initialized");
     REQUIRE(!(Utils::is_int(t)), "The parameter type is a number");
     REQUIRE(t == "Albatros" || t == "PCC" || t == "Stadslijner", "Type given for tram is an invalid type");
     if (t == "PCC")
@@ -108,49 +117,59 @@ void Tram::setType(std::string t) {
 }
 
 TramType::TypeTram Tram::getType() const {
+    REQUIRE(properlyInitialized(), "The tram is not properly initialized");
     return type;
 }
 
 void Tram::setVoertuigNummer(int n) {
+    REQUIRE(properlyInitialized(), "The tram is not properly initialized");
     voertuigNummer = n;
     ENSURE(getVoertuigNummer() == n, "The member variable voertuigNummer has not been set properly");
 }
 
 int Tram::getVoertuigNummer() const {
+    REQUIRE(properlyInitialized(), "The tram is not properly initialized");
     return voertuigNummer;
 }
 
 int Tram::getDefectWatcher() const {
+    REQUIRE(properlyInitialized(), "The tram is not properly initialized");
     return defectWatcher;
 }
 
 void Tram::setDefectWatcher(int d) {
+    REQUIRE(properlyInitialized(), "The tram is not properly initialized");
     Tram::defectWatcher = d;
     ENSURE(getDefectWatcher() == d, "The setting was not successful");
 }
 
 int Tram::getReparatieTijdWatcher() const {
+    REQUIRE(properlyInitialized(), "The tram is not properly initialized");
     return reparatieTijdWatcher;
 }
 
 void Tram::setReparatieTijdWatcher(int r) {
+    REQUIRE(properlyInitialized(), "The tram is not properly initialized");
     Tram::reparatieTijdWatcher = r;
     ENSURE(getReparatieTijdWatcher() == r, "The setting was not succesful");
 }
 
 bool Tram::tramDefect() const {
+    REQUIRE(properlyInitialized(), "The tram is not properly initialized");
     if (getAantalDefecten() == 0)
         return false;
     return getDefectWatcher() == getAantalDefecten();
 }
 
 int Tram::getTotalReparatieKost() const {
+    REQUIRE(properlyInitialized(), "The tram is not properly initialized");
     if (getReparatieTijd() == 0)
         return 0;
     return getReparatieTijd() + getReparatieKost();
 }
 
 bool Tram::tramCanMove() {
+    REQUIRE(properlyInitialized(), "The tram is not properly initialized");
     if (tramDefect()) {
         if (getReparatieTijdWatcher() == getTotalReparatieKost()) {
             setDefectWatcher(0);

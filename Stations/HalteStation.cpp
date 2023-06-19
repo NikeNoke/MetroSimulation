@@ -4,8 +4,10 @@
 
 #include "HalteStation.h"
 #include "../Spoor/Spoor.h"
+#include "../DesignByContract.h"
 
 TypeStation::StationType HalteStation::getTypeEnum() {
+    REQUIRE(properlyInitialized(), "The station is not properly initialized");
     return TypeStation::Halte;
 }
 

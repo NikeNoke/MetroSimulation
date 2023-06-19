@@ -1,0 +1,14 @@
+//
+// Created by byamba on 19/06/23.
+//
+
+#ifndef METROSIMULATION_SPOORFILELOGGER_H
+#define METROSIMULATION_SPOORFILELOGGER_H
+
+
+class SpoorFileLogger {
+
+};
+
+
+#endif //METROSIMULATION_SPOORFILELOGGER_H

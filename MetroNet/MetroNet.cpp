@@ -12,6 +12,7 @@
         ( std::ostringstream() << std::dec << x ) ).str()
 
 bool MetroNet::stationRegistered(const std::string &name) const {
+    REQUIRE(properlyInitialized(), "The metroNet is not properly initialized");
     REQUIRE(!(Utils::is_int(name)), "The parameter name is a number");
     for (long unsigned int i = 0; i < fStations.size(); i++) {
         if (fStations[i]->getName() == name)
@@ -21,6 +22,7 @@ bool MetroNet::stationRegistered(const std::string &name) const {
 }
 
 void MetroNet::addStation(Station *const station) {
+    REQUIRE(properlyInitialized(), "The metroNet is not properly initialized");
     REQUIRE(station->properlyInitialized(), "The parameter station is not properly initialized");
 //    REQUIRE(!stationRegistered(station->getName()), "The station is already in the metroNet");
     REQUIRE(station->getName() != "", "The station needs have a name.");
@@ -30,16 +32,16 @@ void MetroNet::addStation(Station *const station) {
 }
 
 void MetroNet::addTram(Tram *const tram) {
+    REQUIRE(properlyInitialized(), "The metroNet is not properly initialized");
     REQUIRE(tram->properlyInitialized(), "The parameter tram is not properly initialized");
-//    Require not registered
     fTrams.push_back(tram);
-    //Ensure registered
     ENSURE(getTram(tram->getVoertuigNummer()) == tram, "The tram has not been added");
 }
 
 Station *MetroNet::getStation(const std::string &name) {
+    REQUIRE(properlyInitialized(), "The metroNet is not properly initialized");
     REQUIRE(!(Utils::is_int(name)), "The parameter name is a number");
-//    REQUIRE(stationRegistered(name), "The station is not Registered!");
+
     for (long unsigned int i = 0; i < fStations.size(); i++) {
         if (fStations[i]->getName() == name)
             return fStations[i];
@@ -56,10 +58,12 @@ Station *MetroNet::getStation(const std::string &name) {
 //}
 
 std::vector<Station *> MetroNet::getStations() {
+    REQUIRE(properlyInitialized(), "The metroNet is not properly initialized");
     return fStations;
 }
 
 std::vector<Tram *> MetroNet::getTrams() {
+    REQUIRE(properlyInitialized(), "The metroNet is not properly initialized");
     return fTrams;
 }
 
@@ -95,7 +99,8 @@ bool MetroNet::isValidMetroNet() {
 
     if(!uniqueStation()){
         result = false;
-        getExporter().writeToError("The stations in this metronet are not unique\n");
+//        getExporter().writeToError("The stations in this metronet are not unique\n");
+        getExporter().metronetFileLogger.eNonUniqueStations();
     }
 
     for (long unsigned int i = 0; i < tempStations.size(); i++) {
@@ -155,7 +160,7 @@ void MetroNet::simulateMetroNet(int seconds) {
 }
 
 bool MetroNet::controlStation(Station *station) {
-
+    REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
     REQUIRE(station->properlyInitialized(), "The station must be properly initialized");
     std::vector<Spoor *> tempSporen = station->getSporen();
     bool result = true;
@@ -183,7 +188,7 @@ bool MetroNet::controlStation(Station *station) {
 }
 
 bool MetroNet::aTramAtStation(const std::string stationName) {
-
+    REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
     std::vector<Tram *> trams = getTrams();
 
     for (unsigned int i = 0; i < trams.size(); i++) {
@@ -196,7 +201,7 @@ bool MetroNet::aTramAtStation(const std::string stationName) {
 }
 
 bool MetroNet::spoorLineHasTram(Spoor *s) {
-
+    REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
     REQUIRE(s->properlyInitialized(), "The spoor must be properly initialized");
 
     std::vector<Tram *> trams = this->getTrams();
@@ -211,7 +216,7 @@ bool MetroNet::spoorLineHasTram(Spoor *s) {
 }
 
 bool MetroNet::tramLineHasSpoor(Tram *t) {
-
+    REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
     REQUIRE(t->properlyInitialized(), "The tram must be properly initialized");
 
     std::vector<Station *> stations = this->getStations();
@@ -226,7 +231,7 @@ bool MetroNet::tramLineHasSpoor(Tram *t) {
 }
 
 bool MetroNet::beginStationTramCorrect(Tram *t) {
-
+    REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
     REQUIRE(t->properlyInitialized(), "The tram must be properly initialized");
 
     std::string beginStation = t->getBeginStation();
@@ -247,7 +252,7 @@ bool MetroNet::beginStationTramCorrect(Tram *t) {
 }
 
 bool MetroNet::uniqueTram() {
-
+    REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
     std::vector<int> tramVoertuigNrs;
 
     std::vector<Tram *> trams = this->getTrams();
@@ -264,7 +269,7 @@ bool MetroNet::uniqueTram() {
 }
 
 bool MetroNet::validSpoor(Spoor *s) {
-
+    REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
     REQUIRE(s->properlyInitialized(), "The spoor must be properly initialized");
 
     Station *huidigStation = getStation(s->getHuiding());
@@ -342,7 +347,7 @@ bool MetroNet::validSpoor(Spoor *s) {
 
 
 bool MetroNet::controlTram(Tram *t) {
-
+    REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
     REQUIRE(t->properlyInitialized(), "The tram must be properly initialized");
 
     if (!beginStationTramCorrect(t)) {
@@ -359,7 +364,7 @@ bool MetroNet::controlTram(Tram *t) {
 }
 
 bool MetroNet::moveTram(Tram *tram, std::string targetStationName) {
-
+    REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
     REQUIRE(!aTramAtStationSpoor(targetStationName, tram->getLijnNr()), \
     "There cannot be a tram at targetStation SpoorNr to move Tram!");
 
@@ -379,6 +384,7 @@ bool MetroNet::moveTram(Tram *tram, std::string targetStationName) {
 }
 
 void MetroNet::moveAllTramsOnce() {
+    REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
     REQUIRE(isValidMetroNet(), "Cannot move trams in a invalid metronet");
     std::vector<Tram *> tempTrams = getTrams();
 
@@ -401,12 +407,12 @@ void MetroNet::moveAllTramsOnce() {
         }
 
         moveTram(tempTrams[i], targetStationName);
-//        ENSURE(tempTrams[i]->getHuidigStation() == targetStationName, "The tram has not moved successfully");
     }
     ENSURE(isValidMetroNet(), "The metronet must still be valid");
 }
 
 Tram *MetroNet::getTramAtStationSpoor(const std::string &stationName, int lijnNr) {
+    REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
     REQUIRE(aTramAtStationSpoor(stationName, lijnNr), "There must be a tram at station SpoorNr");
 
     std::vector<Tram *> tempTrams = getTrams();
@@ -425,7 +431,7 @@ Tram *MetroNet::getTramAtStationSpoor(const std::string &stationName, int lijnNr
 }
 
 bool MetroNet::aTramAtStationSpoor(const std::string &stationName, int lijnNr) {
-
+    REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
     REQUIRE(stationRegistered(stationName), "stationName must be valid");
     REQUIRE(getStation(stationName)->hasSpoor(lijnNr), "Station must have lijnNr");
 
@@ -444,7 +450,7 @@ bool MetroNet::aTramAtStationSpoor(const std::string &stationName, int lijnNr) {
 }
 
 int MetroNet::getTotaalMetroNetReparatieKost() {
-
+    REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
     std::vector<Tram *> tempTrams = getTrams();
 
     int ans = 0;
@@ -458,6 +464,7 @@ int MetroNet::getTotaalMetroNetReparatieKost() {
 }
 
 void MetroNet::initializeStat() {
+    REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
     REQUIRE(isValidMetroNet(), "The metronet must be valid");
     REQUIRE(getInitializeStatCalled() == false, "This function must only be called once");
     if (getInitializeStatCalled())
@@ -477,16 +484,18 @@ void MetroNet::initializeStat() {
 }
 
 bool MetroNet::getInitializeStatCalled() const {
+    REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
     return initializeStatCalled;
 }
 
 void MetroNet::setInitializeStatCalled(bool b) {
+    REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
     initializeStatCalled = b;
     ENSURE(getInitializeStatCalled() == b, "The setting was not successful");
 }
 
 void MetroNet::getStatReport() {
-
+    REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
     int totReperatieKost = 0;
 
     std::vector<Tram *> tempTrams = getTrams();
@@ -519,7 +528,7 @@ void MetroNet::getStatReport() {
 }
 
 Tram *MetroNet::getTram(int voertuigNr) {
-
+    REQUIRE(properlyInitialized(), "The metroNet is not properly initialized");
     REQUIRE(tramExists(voertuigNr), "The tram with this nummer must exist");
 
     std::vector<Tram* > tempTrams = getTrams();
@@ -533,7 +542,7 @@ Tram *MetroNet::getTram(int voertuigNr) {
 }
 
 bool MetroNet::tramExists(int voertuigNr) {
-
+    REQUIRE(properlyInitialized(), "The metroNet is not properly initialized");
     std::vector<Tram* > tempTrams = getTrams();
 
     for(unsigned int i = 0; i < tempTrams.size(); i++){
@@ -545,11 +554,12 @@ bool MetroNet::tramExists(int voertuigNr) {
 }
 
 Exporter &MetroNet::getExporter() {
+    REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
     return exporter;
 }
 
 bool MetroNet::uniqueStation() {
-
+    REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
     std::vector<std::string> stationNames;
 
     std::vector<Station *> stations = this->getStations();

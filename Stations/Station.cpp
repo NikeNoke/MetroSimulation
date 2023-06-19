@@ -25,6 +25,7 @@ Station::Station() {
 //}
 
 std::string Station::getName() const {
+    REQUIRE(properlyInitialized(), "The station is not properly initialized");
     return fNaam;
 }
 
@@ -37,20 +38,23 @@ std::string Station::getName() const {
 //}
 
 std::vector<Spoor *> Station::getSporen() const {
+    REQUIRE(properlyInitialized(), "The station is not properly initialized");
     return sporen;
 }
 
 void Station::setName(std::string n) {
+    REQUIRE(properlyInitialized(), "The station is not properly initialized");
     REQUIRE(!(Utils::is_int(n)), "The parameter naam is a number");
     fNaam = n;
     ENSURE(getName() == n, "The member variable naam has not been properly initialized");
 }
 
-bool Station::properlyInitialized() {
+bool Station::properlyInitialized() const{
     return _fInitCheck == this;
 }
 
 void Station::setType(std::string s) {
+    REQUIRE(properlyInitialized(), "The station is not properly initialized");
     REQUIRE(!(Utils::is_int(s)), "The parameter type is a number");
     REQUIRE(s == "Metrostation" || s == "Halte", "Type of Station is an invalid type.");
     fType = s;
@@ -58,10 +62,12 @@ void Station::setType(std::string s) {
 }
 
 std::string Station::getType() const {
+    REQUIRE(properlyInitialized(), "The station is not properly initialized");
     return fType;
 }
 
 bool Station::addSpoor(Spoor *s) {
+    REQUIRE(properlyInitialized(), "The station is not properly initialized");
     if (getType() == "Metrostation")
         sporen.push_back(s);
     else if (getType() == "Halte") {
@@ -74,7 +80,7 @@ bool Station::addSpoor(Spoor *s) {
 }
 
 Spoor *Station::getSpoor(int nr) const {
-
+    REQUIRE(properlyInitialized(), "The station is not properly initialized");
     for (unsigned int i = 0; i < sporen.size(); i++) {
 
         if (sporen[i]->getSpoorNr() == nr)
@@ -85,6 +91,7 @@ Spoor *Station::getSpoor(int nr) const {
 }
 
 bool Station::hasUniqueSporen() const {
+    REQUIRE(properlyInitialized(), "The station is not properly initialized");
     std::vector<int> spoorNrs;
 
 
@@ -100,7 +107,7 @@ bool Station::hasUniqueSporen() const {
 }
 
 bool Station::hasSpoor(int nr) const {
-
+    REQUIRE(properlyInitialized(), "The station is not properly initialized");
     for (unsigned int i = 0; i < sporen.size(); i++) {
 
         if (sporen[i]->getSpoorNr() == nr)
@@ -111,7 +118,7 @@ bool Station::hasSpoor(int nr) const {
 }
 
 bool Station::aSpoorConnectedToStation(const std::string &stationName, int lijnNr) const {
-
+    REQUIRE(properlyInitialized(), "The station is not properly initialized");
     std::vector<Spoor *> tempSporen = this->getSporen();
 
     for (unsigned int i = 0; i < tempSporen.size(); i++) {
@@ -127,7 +134,7 @@ bool Station::aSpoorConnectedToStation(const std::string &stationName, int lijnN
 }
 
 std::string Station::nextOfSpoor(int lijnNr) const {
-
+    REQUIRE(properlyInitialized(), "The station is not properly initialized");
     std::vector<Spoor *> tempSporen = this->getSporen();
 
     for (unsigned int i = 0; i < tempSporen.size(); i++) {
@@ -143,7 +150,7 @@ std::string Station::nextOfSpoor(int lijnNr) const {
 }
 
 std::string Station::previousOfSpoor(int lijnNr) const {
-
+    REQUIRE(properlyInitialized(), "The station is not properly initialized");
     std::vector<Spoor *> tempSporen = this->getSporen();
 
     for (unsigned int i = 0; i < tempSporen.size(); i++) {
@@ -159,10 +166,12 @@ std::string Station::previousOfSpoor(int lijnNr) const {
 }
 
 int Station::getVisitedByTrams() const {
+    REQUIRE(properlyInitialized(), "The station is not properly initialized");
     return visitedByTrams;
 }
 
 void Station::setVisitedByTrams(int amount) {
+    REQUIRE(properlyInitialized(), "The station is not properly initialized");
     visitedByTrams = amount;
     ENSURE(getVisitedByTrams() == amount, "The setting was not successful");
 }

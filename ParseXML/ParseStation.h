@@ -30,6 +30,7 @@ public:
 
     /**
      * Setter functie dat een element van type TiXmlElement set.
+     * REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
      * @pre REQUIRE(el != NULL, "TixmlElement is NULL")
      * @post ENSURE(getElement() == element, "TixmlElement is not the element of the parser")
      * @param el element van type TiXmlElement
@@ -38,6 +39,7 @@ public:
 
     /**
      * Functie dat het Station object parsed van een MetroNet object.
+     * REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
     REQUIRE(e.properlyInitialized(), "The exporter must be properly initialized");
     ENSURE(!station->getName().empty(), "The naam of station has not been correctly initialized");
@@ -51,6 +53,7 @@ public:
 
     /**
      * Functie dat gecalled wordt door parseAll om ervoor te zorgen dat de naam van een spoor geparsed kan worden.
+     * REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
      * @pre REQUIRE(station->properlyInitialized(), "Station is not properlyInitialized")
      * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
      * @pre REQUIRE(checkValidNaam() == true, "The name tag is not correct in this Station tag")
@@ -63,6 +66,7 @@ public:
 
     /**
      * Functie dat nakijkt ofdat het Station object valid is.
+     * REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
      * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
      * @return true or false
      * **/
@@ -70,6 +74,7 @@ public:
 
     /**
      * Functie dat controleerd ofdat naam valid is.
+     * REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
      * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
      * @post ENSURE(getElement() != NULL, "TixmlElement has become NULL")
      * @return true or false
@@ -78,6 +83,7 @@ public:
 
     /**
      * Functie dat controleerd ofdat er attriebuten zijn die niet deel zijn van een Station object.
+     * REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
      * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
      * @post ENSURE(getElement() != NULL, "TixmlElement has become NULL")
      * @return true or false
@@ -86,6 +92,7 @@ public:
 
     /**
      * Functie dat controleerd ofdat het type van het Station object valid is.
+     * REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
      * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
      * @post ENSURE(getElement() != NULL, "TixmlElement has become NULL")
      * @return true or false
@@ -94,6 +101,7 @@ public:
 
     /**
      * Functie dat het type van een station parsed.
+     * REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
      * @pre REQUIRE(station->properlyInitialized(), "Station is not properlyInitialized")
      * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
      * @pre REQUIRE(checkValidTypeStation() == true, "The type tag is not correct in this Station tag")
@@ -106,6 +114,7 @@ public:
 
     /**
      * Getter functie dat een element teruggeeft van type TiXmlElement.
+     * REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
      * @return element van type TiXmlElement.
      * **/
     TiXmlElement *getElement() const;
@@ -114,10 +123,11 @@ public:
      * Functie dat controleerd ofdat het ParseStation object correct werd geïnitialiseerd.
      * @return true or false
      * **/
-    bool properlyInitialized();
+    bool properlyInitialized() const;
 
     /**
      * Functie dat het Spoor object zal parsen.
+     * REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
      * @pre REQUIRE(station->properlyInitialized(), "Station is not properlyInitialized")
      * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
      * @post ENSURE(getElement() != NULL, "TixmlElement is NULL")
@@ -129,6 +139,7 @@ public:
 
     /**
      * Getter functie het Station type gaat teruggeven.
+     * REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
      * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
      * @pre REQUIRE(checkValidTypeStation() == true, "The type tag is not correct in this Station tag")
      * @return StationType
@@ -137,24 +148,28 @@ public:
 
     /**
      * Functie dat controleert ofdat en parse succesvol was of niet.
+     * REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
      * @return true or false
      * **/
     bool parseSuccessful(Exporter& e);
 
     /**
      * Setter functie dat Station set.
+     * REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
      * ENSURE(getParsedStation() == s, "The setting was not successful");
      * **/
     void setParsedStation(Station *s);
 
     /**
      * Getter functie dat het parsed Station zal teruggeven.
+     * REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
      * @return parsedStation
      * **/
     Station *getParsedStation() const;
 
     /**
      * Functie dat controleert ofdat er sporen aanwezig zijn en die valid zijn.
+     * REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
      * REQUIRE(getElement() != NULL, "TixmlElement is NULL");
      * ENSURE(getElement() != NULL, "TixmlElement has become NULL");
      * @return true or false

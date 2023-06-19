@@ -17,6 +17,7 @@ public:
 
     /**
      * Getter functie die het type _HalteStation_ teruggeeft van het Station.
+     * REQUIRE(properlyInitialized(), "The station is not properly initialized");
      * @return Type van het Station.
      * **/
     TypeStation::StationType getTypeEnum();

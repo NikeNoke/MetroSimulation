@@ -1,0 +1,14 @@
+//
+// Created by byamba on 19/06/23.
+//
+
+#ifndef METROSIMULATION_STATIONFILELOGGER_H
+#define METROSIMULATION_STATIONFILELOGGER_H
+
+
+class StationFileLogger {
+
+};
+
+
+#endif //METROSIMULATION_STATIONFILELOGGER_H

@@ -27,6 +27,9 @@ public:
      * **/
     bool exportFile(MetroNet &metroNet, const std::string& path) const;
 
+    /**
+     * Properly initialized?
+     */
     bool properlyInitialized() const;
 
 

@@ -33,12 +33,14 @@ public:
         ENSURE(getPathToAdvanced() == pathToWrite2, "Advanced path was not set properly");
         ENSURE(getPathToOpenXml() == pathToXml, "XML path was not set properly");
         ENSURE(getExporter().properlyInitialized(), "The exporter is not properly initialized");
+        ENSURE(properlyInitialized(), "MetroNetGenerator is not properly initialized");
     * **/
     explicit MetroNetGenerator(std::string pathToXml, std::string pathToSimple, std::string pathToAdvanced
                                 , std::ostream& op, std::ostream& err);
 
     /**
      * Functie dat de MetroNet zal genereren en die dan wegschrijven.
+     * REQUIRE(properlyInitialized(), "MetroNetGenerator is not properly initialized");
      * @pre REQUIRE(Utils::fileExists(getPathToOpenXml()), "The file to open does not exist")
             REQUIRE(getExporter().properlyInitialized(), "The exporter is not properly initialized");
      * @post ENSURE(getMetroNet().isValidMetroNet(), "The metroNet is not valid")
@@ -50,12 +52,14 @@ public:
 
     /**
      * Getter functie om MetroNet te returnen.
+     * REQUIRE(properlyInitialized(), "MetroNetGenerator is not properly initialized");
      * @return metroNet
      * **/
     MetroNet& getMetroNet();
 
     /**
      * Getter functie om de path naar the XML file te verkrijgen.
+     * REQUIRE(properlyInitialized(), "MetroNetGenerator is not properly initialized");
      * @return pathToOpenXml
      * **/
     std::string getPathToOpenXml() const;
@@ -63,6 +67,7 @@ public:
 
     /**
      * Zet de path van de XML file dat we gaan openen om daaruit de MetroNet te parsen.
+     * REQUIRE(properlyInitialized(), "MetroNetGenerator is not properly initialized");
      * @pre REQUIRE(Utils::fileExists(p), "Path to xml is wrong or file does not exist")
      * @post ENSURE(getPathToOpenXml() ==  p, "The set was a failure")
      * @param p Path van de XML file dat geparsed zal worden.
@@ -71,6 +76,7 @@ public:
 
     /**
      * Functie dat onze MetroNet zal simuleren.
+     * REQUIRE(properlyInitialized(), "MetroNetGenerator is not properly initialized");
      * @pre REQUIRE(getMetroNet().isValidMetroNet(), "The metroNet is not Valid")
             REQUIRE(getExporter().properlyInitialized(), "The exporter is not properly initialized");
      * @post ENSURE(getMetroNet().isValidMetroNet(), "The metroNet is not Valid")
@@ -80,6 +86,7 @@ public:
 
     /**
      * Getter functie dat de exporter terug gaat geven.
+     * REQUIRE(properlyInitialized(), "MetroNetGenerator is not properly initialized");
      * @pre REQUIRE(exporter.properlyInitialized(), "exporter is not properlyInitialized")
      * @return exporter
      * **/
@@ -87,24 +94,33 @@ public:
 
     /**
      * get Path to Advanced
+     * REQUIRE(properlyInitialized(), "MetroNetGenerator is not properly initialized");
      */
     std::string getPathToAdvanced() const;
     /**
      * set Path to Advanced
+     * REQUIRE(properlyInitialized(), "MetroNetGenerator is not properly initialized");
        ENSURE(getPathToAdvanced() == s, "Not correctly set");
      */
     void setPathToAdvanced(const std::string& s);
 
     /**
      * get Path to Simple
+     * REQUIRE(properlyInitialized(), "MetroNetGenerator is not properly initialized");
      */
     std::string getPathToSimple() const;
 
     /**
      * set Path to Simple
+     * REQUIRE(properlyInitialized(), "MetroNetGenerator is not properly initialized");
        ENSURE(getPathToSimple() == s, "Not correctly set");
      */
     void setPathToSimple(const std::string& s);
+
+    /**
+     * @return Properly initialized?
+     */
+    bool properlyInitialized() const;
 
 private:
     std::string pathToOpenXml;
@@ -112,6 +128,7 @@ private:
     std::string pathToWriteAdvanced;
     Exporter exporter;
     MetroNet metroNet;
+    MetroNetGenerator* _fInitcheck;
 };
 
 

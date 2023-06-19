@@ -37,10 +37,11 @@ public:
      * Controleert ofdat het spoor correct is geïnitialiseerd.
      * @return true of false
      * **/
-    bool properlyInitialized();
+    bool properlyInitialized() const;
 
     /**
      * Setter functie dat de naam van het volgende station set.
+     * REQUIRE(properlyInitialized(), "The spoor is not properly initialized");
      * @pre REQUIRE(!(Utils::is_int(v)), "The parameter volgende is a number")
      * @post ENSURE(getVolgende() == v, "The member variable volgende has not been properly initialized")
      * @param v Naam van het volgende station.
@@ -49,6 +50,7 @@ public:
 
     /**
      * Setter functie dat de naam van het vorige station set.
+     * REQUIRE(properlyInitialized(), "The spoor is not properly initialized");
      * @pre REQUIRE(!(Utils::is_int(v)), "The parameter vorige is a number")
      * @post ENSURE(getVorige() == v, "The member variable vorige has not been properly initialized")
      * @param v Naam van het vorige station.
@@ -57,6 +59,7 @@ public:
 
     /**
      * Set het spoornummer van het station.
+     * REQUIRE(properlyInitialized(), "The spoor is not properly initialized");
      * @post ENSURE(getSpoorNr() == s, "The member variable spoorNr has not been properly initialized")
      * @param s Spoornummer waar het station deel van is.
      * **/
@@ -64,36 +67,43 @@ public:
 
     /**
      * Getter functie dat de naam van het volgende station teruggeeft.
+     * REQUIRE(properlyInitialized(), "The spoor is not properly initialized");
      * @return De naam van het volgende station.
      * **/
     std::string getVolgende() const;
 
     /**
      * Getter functie dat de naam van het vorige station teruggeeft.
+     * REQUIRE(properlyInitialized(), "The spoor is not properly initialized");
      * @return De naam van het vorige station.
      * **/
     std::string getVorige() const;
 
     /**
      * Getter functie dat het spoorNr van de spoor teruggeeft.
+     * REQUIRE(properlyInitialized(), "The spoor is not properly initialized");
      * @return spoorNr
      * **/
     int getSpoorNr() const;
 
     /**
      * Getter functie dat de huidige station teruggeeft.
+     * REQUIRE(properlyInitialized(), "The spoor is not properly initialized");
      * @return huidig station
      * **/
     std::string getHuiding() const;
 
     /**
      * Setter functie dat de naam van het huidige station set.
+     * REQUIRE(properlyInitialized(), "The spoor is not properly initialized");
+     * ENSURE(getHuiding() == h, "Not set properly");
      * @param h naam van het huidig station
      * **/
     void setHuidig(const std::string &h);
 
     /**
      * Functie dat controleerd ofdat een bepaald station verbonden is met een andere station op het MetroNet.
+     * REQUIRE(properlyInitialized(), "The spoor is not properly initialized");
      * @param stationName
      * @return true or false
      * **/

@@ -13,12 +13,12 @@ ParseSpoor::ParseSpoor(TiXmlElement *element)
     ENSURE(properlyInitialized(), "ParseSpoor has been properly initialized");
 }
 
-bool ParseSpoor::properlyInitialized() {
+bool ParseSpoor::properlyInitialized() const{
     return _fInitcheck == this;
 }
 
 bool ParseSpoor::checkValidVorige(Exporter& e) const {
-
+    REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 
     int amountOfVorige = 0;
@@ -50,7 +50,7 @@ bool ParseSpoor::checkValidVorige(Exporter& e) const {
 
 
 bool ParseSpoor::checkValidVolgende(Exporter& e) const {
-
+    REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 
     int amountOfVolgende = 0;
@@ -81,12 +81,13 @@ bool ParseSpoor::checkValidVolgende(Exporter& e) const {
 }
 
 void ParseSpoor::setElement(TiXmlElement *el) {
+    REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
     element = el;
     ENSURE(getElement() == el, "The member variable element has not been properly set");
 }
 
 bool ParseSpoor::checkValidSpoor(Exporter& e) const {
-
+    REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
     bool one = checkValidVorige(e);
     bool two = checkValidSpoorNr(e);
@@ -96,7 +97,7 @@ bool ParseSpoor::checkValidSpoor(Exporter& e) const {
 }
 
 bool ParseSpoor::checkValidSpoorNr(Exporter& e) const {
-
+    REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 
     int amountOfSpoorNr = 0;
@@ -127,7 +128,7 @@ bool ParseSpoor::checkValidSpoorNr(Exporter& e) const {
 }
 
 bool ParseSpoor::parseVorige(Spoor *spoor, Exporter& e) const {
-
+    REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
     REQUIRE(spoor->properlyInitialized(), "Station is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
     REQUIRE(checkValidVorige(e) == true, "The vorige tag is not correct in this Station tag");
@@ -151,12 +152,10 @@ bool ParseSpoor::parseVorige(Spoor *spoor, Exporter& e) const {
 }
 
 bool ParseSpoor::parseVolgende(Spoor *spoor, Exporter& e) const {
-
+    REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
     REQUIRE(spoor->properlyInitialized(), "Station is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
     REQUIRE(checkValidVolgende(e) == true, "The volgende tag is not correct in this Station tag");
-//    if(!checkValidVolgende(e))
-//        return false;
 
     for (TiXmlElement *InnerElement = getElement()->FirstChildElement();
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
@@ -175,7 +174,7 @@ bool ParseSpoor::parseVolgende(Spoor *spoor, Exporter& e) const {
 }
 
 bool ParseSpoor::parseSpoorNr(Spoor *spoor, Exporter& e) const {
-
+    REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
     REQUIRE(spoor->properlyInitialized(), "Station is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
     REQUIRE(checkValidSpoorNr(e) == true, "The spoorNr tag is not correct in this Station tag");
@@ -201,7 +200,7 @@ bool ParseSpoor::parseSpoorNr(Spoor *spoor, Exporter& e) const {
 }
 
 bool ParseSpoor::checkNonValidAttributesAmount(Exporter& e) const {
-
+    REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
     int amountSpoorNr = 0;
     int amountVolgende = 0;
@@ -231,7 +230,7 @@ bool ParseSpoor::checkNonValidAttributesAmount(Exporter& e) const {
 }
 
 bool ParseSpoor::checkNonValidAttributes(Exporter& e) const {
-
+    REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
     for (TiXmlElement *InnerElement = getElement()->FirstChildElement();
          InnerElement != NULL; InnerElement = InnerElement->NextSiblingElement()) {
@@ -255,11 +254,12 @@ bool ParseSpoor::checkNonValidAttributes(Exporter& e) const {
 }
 
 TiXmlElement *ParseSpoor::getElement() const {
+    REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
     return element;
 }
 
 bool ParseSpoor::parseAll(Spoor *spoor, Exporter& e) const {
-
+    REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
     REQUIRE(spoor->properlyInitialized(), "Spoor is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
 //    REQUIRE(checkValidSpoor(e) == true, "The Spoor tag is not correct");

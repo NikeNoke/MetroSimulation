@@ -32,6 +32,7 @@ public:
 
     /**
      * Setter functie dat een element van type TiXmlElement zal setten.
+     * REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
      * @post ENSURE(getElement() == el, "The member variable element has not been properly set")
      * @param el Element dat gezet zal worden in de Spoor.
      * **/
@@ -39,6 +40,7 @@ public:
 
     /**
      * Functie parsed een Spoor object van een MetroNet object.
+     * REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
      * @pre REQUIRE(spoor->properlyInitialized(), "Station is not properlyInitialized")
      * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
      * @post ENSURE(!spoor->getVorige().empty(), "The vorige of spoor has not been correctly initialized")
@@ -51,6 +53,7 @@ public:
 
     /**
      * Functie dat gecalled wordt door parseAll om te checken ofdat Vorige geparsed kan worden.
+     * REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
      * @pre REQUIRE(spoor->properlyInitialized(), "Station is not properlyInitialized")
      * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL");
      * @pre REQUIRE(checkValidVorige() == true, "The vorige tag is not correct in this Station tag")
@@ -63,6 +66,7 @@ public:
 
     /**
      * Functie dat gecalled wordt door parseAll om te checken ofdat Volgende geparsed kan worden.
+     * REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
     REQUIRE(spoor->properlyInitialized(), "Station is not properlyInitialized");
     REQUIRE(getElement() != NULL, "TixmlElement is NULL");
     REQUIRE(checkValidVolgende(e) == true, "The volgende tag is not correct in this Station tag");
@@ -75,6 +79,7 @@ public:
 
     /**
      * Functie dat gecalled wordt door parseAll om te checken ofdat spoorNr geparsed kan worden.
+     * REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
      * @pre REQUIRE(spoor->properlyInitialized(), "Station is not properlyInitialized")
      * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
      * @pre REQUIRE(checkValidSpoorNr() == true, "The spoorNr tag is not correct in this Station tag")
@@ -87,6 +92,7 @@ public:
 
     /**
      * Functie dat controleerd ofdat een spoor valid is of niet.
+     * REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
      * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
      * @return true or false
      * **/
@@ -95,6 +101,7 @@ public:
     /**
      * Checked ofdat elke spoor de valid aantal attributen heeft en dat elk attribuut exact 1 keer geparsed wordt.
      * REQUIRE(getElement() != NULL, "TixmlElement is NULL");
+     * REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
      * @return true or false
      * **/
     bool checkNonValidAttributesAmount(Exporter& e) const;
@@ -102,6 +109,7 @@ public:
 
     /**
      * Functie dat controleerd ofdat de vorige station valid is of niet.
+     * REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
      * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
      * @post ENSURE(getElement() != NULL, "TixmlElement has become NULL")
      * @return true or false
@@ -110,6 +118,7 @@ public:
 
     /**
      * Functie dat controleerd ofdat de volgende station valid is of niet.
+     * REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
      * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
      * @post ENSURE(getElement() != NULL, "TixmlElement has become NULL")
      * @return true or false
@@ -118,6 +127,7 @@ public:
 
     /**
      * Functie dat controleerd ofdat de spoorNr valid is of niet.
+     * REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
      * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
      * @post ENSURE(getElement() != NULL, "TixmlElement has become NULL")
      * @return true or false
@@ -126,6 +136,7 @@ public:
 
     /**
      * Functie dat controleerd ofdatr er attriebuten zijn die niet behoren tot het Spoor object.
+     * REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
      * @pre REQUIRE(getElement() != NULL, "TixmlElement is NULL")
      * @post ENSURE(getElement() != NULL, "TixmlElement has become NULL")
      * @return true or false
@@ -134,6 +145,7 @@ public:
 
     /**
      * Getter functie dat een element geeft van het type TiXmlElement.
+     * REQUIRE(properlyInitialized(), "ParseSpoor has been properly initialized");
      * @return element
      * **/
     TiXmlElement *getElement() const;
@@ -142,7 +154,7 @@ public:
      * Functie controleerd ofdat ParseSpoor correct werd geïnitialiseerd.
      * @return true or false
      * **/
-    bool properlyInitialized();
+    bool properlyInitialized() const;
 
 private:
     TiXmlElement *element;

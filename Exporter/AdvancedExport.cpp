@@ -82,7 +82,7 @@ bool AdvancedExport::exportFile(MetroNet &metroNet, const std::string& path) con
 }
 
 int AdvancedExport::indexVolgende(std::vector<Spoor *> &container, const std::string &naam) const {
-
+    REQUIRE(properlyInitialized(), "Advanced Export is not properly initialized");
     for (unsigned int i = 0; i < container.size(); i++) {
         if (container[i]->getHuiding() == naam)
             return i;

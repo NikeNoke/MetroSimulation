@@ -14,6 +14,7 @@ public:
 
     /**
      * Getter functie dat het type _MetronetStation_ van de Station teruggeeft.
+     * REQUIRE(properlyInitialized(), "The station is not properly initialized");
      * @return Type van het Station.
      * **/
     TypeStation::StationType getTypeEnum();

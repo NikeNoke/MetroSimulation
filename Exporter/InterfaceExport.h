@@ -19,8 +19,12 @@ class InterfaceExport {
 public:
     /**
      * Pure virtual methode.
-     * @param metroNet Het metroNet dat men zal exporten.
-     * @param path van de file.
+     * Methode om een metroNet te exporteren naar een file.
+        REQUIRE(metroNet.properlyInitialized(), "The metroNet is not properly initialized");
+        REQUIRE(properlyInitialized(), "This simple exporter isn ot properly initialized");
+        REQUIRE(!path.empty(), "Path to write is empty");
+        ENSURE(Utils::fileExists(path), "The file was not even created!");
+     * @return true or false
      * **/
     virtual bool exportFile(MetroNet &metroNet, const std::string& path) const = 0;
 

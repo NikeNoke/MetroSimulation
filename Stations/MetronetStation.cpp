@@ -4,8 +4,10 @@
 
 #include "MetronetStation.h"
 #include "../Spoor/Spoor.h"
+#include "../DesignByContract.h"
 
 TypeStation::StationType MetronetStation::getTypeEnum() {
+    REQUIRE(properlyInitialized(), "The station is not properly initialized");
     return TypeStation::MetroStation;
 }
 

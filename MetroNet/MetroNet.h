@@ -29,6 +29,7 @@ public:
 
     /**
      * Method stationRegistered die controleert dat station attribute "naam" correct ingelezen wordt.
+     * REQUIRE(properlyInitialized(), "The metroNet is not properly initialized");
      * @pre REQUIRE(!(Utils::is_int(name)), "The parameter name is a number")
      * @param name wordt gecontroleert.
      * @return true of false afhankelijk ofdat het station correct werd ingelezen.
@@ -37,8 +38,8 @@ public:
 
     /**
      * Voegt station toe bij MetroNet.
+     * REQUIRE(properlyInitialized(), "The metroNet is not properly initialized");
      * @pre REQUIRE(station->properlyInitialized(), "The parameter station is not properly initialized")
-     * @pre REQUIRE(!stationRegistered(station->getName()), "The station is already in the metroNet")
      * @pre REQUIRE(station->getName() != "", "The station needs have a name.")
      * @pre REQUIRE(!station->getSporen().empty(), "Station must have sporen.")
      * @post ENSURE(stationRegistered(station->getName()), "The station was not successfully added")
@@ -48,6 +49,7 @@ public:
 
     /**
      * Voegt tram toe bij MetroNet.
+     * REQUIRE(properlyInitialized(), "The metroNet is not properly initialized");
      * @pre REQUIRE(tram->properlyInitialized(), "The parameter tram is not properly initialized")
      * ENSURE(getTram(tram->getVoertuigNummer()) == tram, "The tram has not been added");
      * @param tram tram dat toegevoegd wordt.
@@ -56,8 +58,8 @@ public:
 
     /**
      * Getter dat het station returned met parameter name.
+     * REQUIRE(properlyInitialized(), "The metroNet is not properly initialized");
      * @pre REQUIRE(!(Utils::is_int(name)), "The parameter name is a number")
-     * @pre REQUIRE(stationRegistered(name), "The station is not Registered!")
      * @param name Naam van het station dat gezocht wordt.
      * @return Geeft station terug dat als naam "name" heeft of als die niet bestaat geeft het NULL terug.
      * **/
@@ -65,6 +67,7 @@ public:
 
     /**
      * Getter dat de tram returned met parameter voertuigNr.
+     * REQUIRE(properlyInitialized(), "The metroNet is not properly initialized");
      * REQUIRE(tramExists(voertuigNr), "The tram with this nummer must exist");
      * @return Geeft tram terug dat als naam "name" heeft of als die niet bestaat geeft het NULL terug.
      * @note Functie is nog niet geïmplementeerd.
@@ -73,15 +76,18 @@ public:
 
     /**
      * Does tram with nr exist?
+     * REQUIRE(properlyInitialized(), "The metroNet is not properly initialized");
      */
     bool tramExists(int voertuigNr);
 
     /**
+     * REQUIRE(properlyInitialized(), "The metroNet is not properly initialized");
      * @return een vector met daarin alle stations.
      * **/
     std::vector<Station *> getStations();
 
     /**
+     * REQUIRE(properlyInitialized(), "The metroNet is not properly initialized");
      * @return een vector met daarin alle trammen.
      * **/
     std::vector<Tram *> getTrams();
@@ -95,6 +101,8 @@ public:
     /**
      * Functie dat test ofdat de MetroNet dat we maken wel degelijk een valid MetroNet is.
      * REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
+     * REQUIRE(tempStations[i]->properlyInitialized(), "A station of the metroNet is not properly initialized");
+     * REQUIRE(tempTrams[i]->properlyInitialized(), "A tram of the metroNet is not properly initialized");
      * @return true of false
      * **/
     bool isValidMetroNet();
@@ -112,6 +120,7 @@ public:
 
     /**
      * Functie dat kijkt in ofdat er op een gegeven station er een tram zich bevindt.
+     * REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
      * @param stationName naam van het station dat we gaan controleren.
      * @return true or false.
      * **/
@@ -119,6 +128,7 @@ public:
 
     /**
      * Functie dat kijkt ofdar er op een gegeven station er een tram zich bevindt (advanced).
+     * REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
      * @pre REQUIRE(stationRegistered(stationName), "stationName must be valid")
      * @pre REQUIRE(getStation(stationName)->hasSpoor(lijnNr), "Station must have lijnNr")
      * @param stationName naam van het station dat we gaan controleren.
@@ -129,6 +139,7 @@ public:
 
     /**
      * Functie dat een tram van zijn huidige station gaat moven naar zijn volgende station.
+     * REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
      * @pre REQUIRE(!aTramAtStationSpoor(targetStationName, tram->getLijnNr()),"There cannot be a tram at targetStation SpoorNr to move Tram!")
      * @param t Tram dat we gaan moven
      * @param TargetStationName Station waar we de tram naar willen verplaatsen.
@@ -138,6 +149,7 @@ public:
 
     /**
      * Functie dat alle trammen zal verplaatsen naar hun volgende station als dat mogelijk is.
+     * REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
      * @pre REQUIRE(isValidMetroNet(), "Cannot move trams in a invalid metronet")
      * @pre REQUIRE(!targetStationName.empty(), "TargetStationName cannot be empty to move Tram")
        ENSURE(isValidMetroNet(), "The metronet must still be valid");
@@ -146,6 +158,7 @@ public:
 
     /**
      * Getter functie dat de Tram zal teruggeven dat op zich bevindt op de gegeven station.
+     * REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
      * @pre REQUIRE(aTramAtStationSpoor(stationName, lijnNr), "There must be a tram at station SpoorNr")
      * @param stationName naam van het station dat we gaan controleren.
      * @param lijnNr lijnNr dat we gaan controleren ofdat die overeenkomt met die van een tram.
@@ -154,12 +167,14 @@ public:
 
     /**
      * Getter functie dat de totale reparatie kost zal teruggeven.
+     * REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
      * @return Totale reparatie kost.
      * **/
     int getTotaalMetroNetReparatieKost();
 
     /**
      * Functie wordt gebruikt om te checken hoeveel keer een bepaald station bezoekt werd door trammen.
+     * REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
      * @pre REQUIRE(isValidMetroNet(), "The metronet must be valid")
        REQUIRE(getInitializeStatCalled() == false, "This function must only be called once");
        ENSURE(isValidMetroNet(), "The metronet must still be valid");
@@ -169,58 +184,68 @@ public:
     /**
      * Geeft een status report van een gesimuleerde MetroNet. Wordt gebruikt om in een file belangrijke informatie
      * weg te schrijven zoals: totale reparatiekosten, welke station door welke tram bezocht werd etc.
+     * REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
      * **/
     void getStatReport();
 
     /**
      * get Exporter
+     * REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
      */
     Exporter& getExporter();
 
 private:
     /**
      * Check validity of Station
+     * REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
      * REQUIRE(station->properlyInitialized(), "The station must be properly initialized");
      */
     bool controlStation(Station *s);
 
     /**
      * Does spoor have a tram with the same tramLine nummer?
+     * REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
      * REQUIRE(s->properlyInitialized(), "The spoor must be properly initialized");
      */
     bool spoorLineHasTram(Spoor *s);
 
     /**
      * Does tram have spoor with the same tramLine nummer?
+     * REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
      * REQUIRE(t->properlyInitialized(), "The tram must be properly initialized");
      */
     bool tramLineHasSpoor(Tram *t);
 
     /**
      * Is the start Station of the Tram correct?
+     * REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
      * REQUIRE(t->properlyInitialized(), "The tram must be properly initialized");
      */
     bool beginStationTramCorrect(Tram *t);
 
     /**
      * Does the metroNet have unique trams?
+     * REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
      */
     bool uniqueTram();
 
     /**
      * Is the spoor Valid?
+     * REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
        REQUIRE(s->properlyInitialized(), "The spoor must be properly initialized");
      */
     bool validSpoor(Spoor *s);
 
     /**
      * Check the validity of Tram
+     * REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
        REQUIRE(t->properlyInitialized(), "The tram must be properly initialized");
      */
     bool controlTram(Tram *t);
 
     /**
      * Does the metroNet have unique stations?
+     * REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
      */
     bool uniqueStation();
 
@@ -233,11 +258,13 @@ private:
 
     /**
      * get the member variable initializeStatCalled
+     * REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
      */
     bool getInitializeStatCalled() const;
 
     /**
      * get the member variable initializeStatCalled to param b
+     * REQUIRE(this->properlyInitialized(), "The metroNet is not properly initialized");
        ENSURE(getInitializeStatCalled() == b, "The setting was not successful");
      */
     void setInitializeStatCalled(bool b);
