@@ -17,68 +17,29 @@ Type\+Station\+::\+Station\+Type \mbox{\hyperlink{classHalteStation_a73ef926da9b
 \item 
 \mbox{\hyperlink{classHalteStation_aeab4efd98907951bd9069840e2b0d02f}{$\sim$\+Halte\+Station}} ()
 \end{DoxyCompactItemize}
-\doxysubsubsection*{Public Member Functions inherited from \mbox{\hyperlink{classStation}{Station}}}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\hyperlink{classStation_a73d335726aad1d844d81cda6d9fd74e6}{Station}} ()
-\item 
-std\+::string \mbox{\hyperlink{classStation_a6dbbf88c819bc9fbb9354ff5a1c5d592}{get\+Name}} () const
-\item 
-std\+::vector$<$ \mbox{\hyperlink{classSpoor}{Spoor}} $\ast$ $>$ \mbox{\hyperlink{classStation_a867edcd7997c13a419320fa754ade310}{get\+Sporen}} () const
-\item 
-void \mbox{\hyperlink{classStation_af5dc39fa743b079d64a2aaa0239fe092}{set\+Name}} (std\+::string \&n)
-\item 
-bool \mbox{\hyperlink{classStation_aab182a50a2992afe0df4412f7de4b73d}{properly\+Initialized}} ()
-\item 
-void \mbox{\hyperlink{classStation_a0179029a0cbef0f2edc23ea4c8510afd}{set\+Type}} (std\+::string \&s)
-\item 
-std\+::string \mbox{\hyperlink{classStation_a230fd67de82b464b0c9c41ce53954c0f}{get\+Type}} () const
-\item 
-virtual \mbox{\hyperlink{classStation_a3745ed280d33ffa36bc8b0083bf98089}{$\sim$\+Station}} ()
-\item 
-bool \mbox{\hyperlink{classStation_a58da19ce0a9173b267c68fc228e4ae67}{add\+Spoor}} (\mbox{\hyperlink{classSpoor}{Spoor}} $\ast$s)
-\item 
-virtual Type\+Station\+::\+Station\+Type \mbox{\hyperlink{classStation_a7922329bc6d7902d9a9997d27060c7e3}{get\+Type\+Enum}} ()=0
-\item 
-\mbox{\hyperlink{classSpoor}{Spoor}} $\ast$ \mbox{\hyperlink{classStation_adea6fd139b170627861949c1d25716d3}{get\+Spoor}} (int nr) const
-\item 
-bool \mbox{\hyperlink{classStation_a595bb7ba4bc11c8da79f5084f5a243b4}{has\+Unique\+Sporen}} () const
-\item 
-bool \mbox{\hyperlink{classStation_a525cefaec66a508fe26fa1bf74a15d6a}{has\+Spoor}} (int nr) const
-\item 
-bool \mbox{\hyperlink{classStation_a78005915b6e83508df8c937fe7070f87}{a\+Spoor\+Connected\+To\+Station}} (const std\+::string \&station\+Name, int lijn\+Nr) const
-\item 
-std\+::string \mbox{\hyperlink{classStation_a53cad25cb6565107b8f8317c7378ea21}{next\+Of\+Spoor}} (int lijn\+Nr) const
-\item 
-std\+::string \mbox{\hyperlink{classStation_a8e077940b14480a085af89da8345d415}{previous\+Of\+Spoor}} (int lijn\+Nr) const
-\item 
-int \mbox{\hyperlink{classStation_a8977998bc8395c4e09b6a6706a12282f}{get\+Visited\+By\+Trams}} () const
-\item 
-void \mbox{\hyperlink{classStation_a5e418c0d4db8717856d3e209323b239d}{set\+Visited\+By\+Trams}} (int amount)
-\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Klasse \doxylink{classHalteStation}{Halte\+Station}, erft over van \doxylink{classStation}{Station}. 
+Klasse \mbox{\hyperlink{classHalteStation}{Halte\+Station}}, erft over van \mbox{\hyperlink{classStation}{Station}}. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classHalteStation_aeab4efd98907951bd9069840e2b0d02f}\label{classHalteStation_aeab4efd98907951bd9069840e2b0d02f} 
+\mbox{\Hypertarget{classHalteStation_aeab4efd98907951bd9069840e2b0d02f}\label{classHalteStation_aeab4efd98907951bd9069840e2b0d02f}} 
 \index{HalteStation@{HalteStation}!````~HalteStation@{$\sim$HalteStation}}
 \index{````~HalteStation@{$\sim$HalteStation}!HalteStation@{HalteStation}}
 \doxysubsubsection{\texorpdfstring{$\sim$HalteStation()}{~HalteStation()}}
 {\footnotesize\ttfamily Halte\+Station\+::$\sim$\+Halte\+Station (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Destructor van \doxylink{classHalteStation}{Halte\+Station}. 
+Destructor van \mbox{\hyperlink{classHalteStation}{Halte\+Station}}. 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classHalteStation_a73ef926da9b7a3092b73b53d317b1f73}\label{classHalteStation_a73ef926da9b7a3092b73b53d317b1f73} 
+\mbox{\Hypertarget{classHalteStation_a73ef926da9b7a3092b73b53d317b1f73}\label{classHalteStation_a73ef926da9b7a3092b73b53d317b1f73}} 
 \index{HalteStation@{HalteStation}!getTypeEnum@{getTypeEnum}}
 \index{getTypeEnum@{getTypeEnum}!HalteStation@{HalteStation}}
 \doxysubsubsection{\texorpdfstring{getTypeEnum()}{getTypeEnum()}}
 {\footnotesize\ttfamily Type\+Station\+::\+Station\+Type Halte\+Station\+::get\+Type\+Enum (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
-Getter functie die het type {\itshape \doxylink{classHalteStation}{Halte\+Station}} teruggeeft van het \doxylink{classStation}{Station}. \begin{DoxyReturn}{Returns}
-Type van het \doxylink{classStation}{Station}. 
+Getter functie die het type {\itshape \mbox{\hyperlink{classHalteStation}{Halte\+Station}}} teruggeeft van het \mbox{\hyperlink{classStation}{Station}}. REQUIRE(\mbox{\hyperlink{classStation_a18e2c82e7b318cd7d0fb49a579a24618}{properly\+Initialized()}}, \char`\"{}\+The station is not properly initialized\char`\"{}); \begin{DoxyReturn}{Returns}
+Type van het \mbox{\hyperlink{classStation}{Station}}. 
 \end{DoxyReturn}
 
 

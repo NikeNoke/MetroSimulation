@@ -11,196 +11,191 @@
 \item 
 void \mbox{\hyperlink{classParseStation_af3d3fdac6b0891c57399eeaa95623dcc}{set\+Element}} (\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$el)
 \item 
-bool \mbox{\hyperlink{classParseStation_a9d4e5fe4a23b3e8603068740242d6b40}{parse\+All}} ()
+bool \mbox{\hyperlink{classParseStation_a48199f0623ce2e89ef4b18d85e679e88}{parse\+All}} (\mbox{\hyperlink{classExporter}{Exporter}} \&e)
 \item 
-bool \mbox{\hyperlink{classParseStation_aa2f46c060f2fa627655353560b8d16c7}{parse\+Naam}} (\mbox{\hyperlink{classStation}{Station}} $\ast$station) const
+bool \mbox{\hyperlink{classParseStation_aec08fe347d23a52ff9ba1dd641c2f9b4}{parse\+Naam}} (\mbox{\hyperlink{classStation}{Station}} $\ast$station, \mbox{\hyperlink{classExporter}{Exporter}} \&e) const
 \item 
-bool \mbox{\hyperlink{classParseStation_a1f2654c28b7b61245a17d6deb09ff35e}{check\+Valid\+Station}} () const
+bool \mbox{\hyperlink{classParseStation_aa24872d6d664088fe014bfc5b4fe9102}{check\+Valid\+Station}} (\mbox{\hyperlink{classExporter}{Exporter}} \&e) const
 \item 
-bool \mbox{\hyperlink{classParseStation_afbb60f05c99b31b0e561a4f16906ed84}{check\+Valid\+Naam}} () const
+bool \mbox{\hyperlink{classParseStation_a8d6d267fe3d0af0445abe9fc91d88153}{check\+Valid\+Naam}} (\mbox{\hyperlink{classExporter}{Exporter}} \&e) const
 \item 
-bool \mbox{\hyperlink{classParseStation_a128d45041af61f9ce898284c6a2d0387}{check\+Non\+Valid\+Attributes}} () const
+bool \mbox{\hyperlink{classParseStation_a3b6fab8cf2ce43d207a3472164f4a85e}{check\+Non\+Valid\+Attributes}} (\mbox{\hyperlink{classExporter}{Exporter}} \&e) const
 \item 
-bool \mbox{\hyperlink{classParseStation_ab4b3e4f7469c5215300a2bdb59d12df7}{check\+Valid\+Type\+Station}} () const
+bool \mbox{\hyperlink{classParseStation_a956577b8924eabebc2dc4b2d65e0344a}{check\+Valid\+Type\+Station}} (\mbox{\hyperlink{classExporter}{Exporter}} \&e) const
 \item 
-bool \mbox{\hyperlink{classParseStation_a50de3e504cc779ff77ee814876312c2c}{parse\+Type\+Station}} (\mbox{\hyperlink{classStation}{Station}} $\ast$station) const
+bool \mbox{\hyperlink{classParseStation_a14403af9fb1cffc4bf75e3c989582670}{parse\+Type\+Station}} (\mbox{\hyperlink{classStation}{Station}} $\ast$station, \mbox{\hyperlink{classExporter}{Exporter}} \&e) const
 \item 
 \mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$ \mbox{\hyperlink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element}} () const
 \item 
-bool \mbox{\hyperlink{classParseStation_a95a39a10e1e89c6ccae2737e32fd1f35}{properly\+Initialized}} ()
+bool \mbox{\hyperlink{classParseStation_ae6b9f16aca8e6fdd87a66ba4640557c4}{properly\+Initialized}} () const
 \item 
-bool \mbox{\hyperlink{classParseStation_af63e613f83f6987fa5e7fe6832b9f6a0}{parse\+Spoor}} (\mbox{\hyperlink{classStation}{Station}} $\ast$station) const
+bool \mbox{\hyperlink{classParseStation_a52e5cd0b52e2e5b34a77f94ad73ccf76}{parse\+Spoor}} (\mbox{\hyperlink{classStation}{Station}} $\ast$station, \mbox{\hyperlink{classExporter}{Exporter}} \&e) const
 \item 
-Type\+Station\+::\+Station\+Type \mbox{\hyperlink{classParseStation_ac531c56b5e88a01627756bd58c6cb0b2}{get\+Station\+Type}} () const
+Type\+Station\+::\+Station\+Type \mbox{\hyperlink{classParseStation_aafd57acf5dd4f9604b5a48dd25ed4b74}{get\+Station\+Type}} (\mbox{\hyperlink{classExporter}{Exporter}} \&e) const
 \item 
-bool \mbox{\hyperlink{classParseStation_a96d2f681df38225431d37a5f59bd9355}{parse\+Successful}} ()
+bool \mbox{\hyperlink{classParseStation_a9e6efeba7d06945d6026f6bb4e0a0cbf}{parse\+Successful}} (\mbox{\hyperlink{classExporter}{Exporter}} \&e)
 \item 
 void \mbox{\hyperlink{classParseStation_a8ad2f5e408410da5fef10ce624ae7545}{set\+Parsed\+Station}} (\mbox{\hyperlink{classStation}{Station}} $\ast$s)
 \item 
 \mbox{\hyperlink{classStation}{Station}} $\ast$ \mbox{\hyperlink{classParseStation_a790a4e7cbfef9fe7507ad86621bc1b82}{get\+Parsed\+Station}} () const
+\item 
+bool \mbox{\hyperlink{classParseStation_a23026bcc22b2d1ba226a80c49acc67af}{check\+Sporen}} (\mbox{\hyperlink{classExporter}{Exporter}} \&e) const
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Klasse om een \doxylink{classStation}{Station} object te parsen. 
+Klasse om een \mbox{\hyperlink{classStation}{Station}} object te parsen. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classParseStation_ad2d5761a1d4f7c7648930999b030b8ec}\label{classParseStation_ad2d5761a1d4f7c7648930999b030b8ec} 
+\mbox{\Hypertarget{classParseStation_ad2d5761a1d4f7c7648930999b030b8ec}\label{classParseStation_ad2d5761a1d4f7c7648930999b030b8ec}} 
 \index{ParseStation@{ParseStation}!ParseStation@{ParseStation}}
 \index{ParseStation@{ParseStation}!ParseStation@{ParseStation}}
 \doxysubsubsection{\texorpdfstring{ParseStation()}{ParseStation()}}
 {\footnotesize\ttfamily Parse\+Station\+::\+Parse\+Station (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$}]{element }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
-Explicit constructor voor een \doxylink{classParseStation}{Parse\+Station} object. \begin{DoxyPrecond}{Precondition}
+Explicit constructor voor een \mbox{\hyperlink{classParseStation}{Parse\+Station}} object. \begin{DoxyPrecond}{Precondition}
 REQUIRE(element != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-ENSURE(\doxylink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()} == element, \char`\"{}\+Tixml\+Element is not the element of the parser\char`\"{}) 
+ENSURE(\mbox{\hyperlink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()}} == element, \char`\"{}\+Tixml\+Element is not the element of the parser\char`\"{}) 
 
-ENSURE(\doxylink{classParseStation_a95a39a10e1e89c6ccae2737e32fd1f35}{properly\+Initialized()}, \char`\"{}\+Parse\+Spoor has been properly initialized\char`\"{}) 
+ENSURE(\mbox{\hyperlink{classParseStation_ae6b9f16aca8e6fdd87a66ba4640557c4}{properly\+Initialized()}}, \char`\"{}\+Parse\+Spoor has been properly initialized\char`\"{}) 
 \end{DoxyPostcond}
 
 \begin{DoxyParams}{Parameters}
-{\em element} & van het type \doxylink{classTiXmlElement}{Ti\+Xml\+Element} \\
+{\em element} & van het type \mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-\doxylink{classParseStation}{Parse\+Station} object. 
+\mbox{\hyperlink{classParseStation}{Parse\+Station}} object. 
 \end{DoxyReturn}
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classParseStation_a128d45041af61f9ce898284c6a2d0387}\label{classParseStation_a128d45041af61f9ce898284c6a2d0387} 
+\mbox{\Hypertarget{classParseStation_a3b6fab8cf2ce43d207a3472164f4a85e}\label{classParseStation_a3b6fab8cf2ce43d207a3472164f4a85e}} 
 \index{ParseStation@{ParseStation}!checkNonValidAttributes@{checkNonValidAttributes}}
 \index{checkNonValidAttributes@{checkNonValidAttributes}!ParseStation@{ParseStation}}
 \doxysubsubsection{\texorpdfstring{checkNonValidAttributes()}{checkNonValidAttributes()}}
-{\footnotesize\ttfamily bool Parse\+Station\+::check\+Non\+Valid\+Attributes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily bool Parse\+Station\+::check\+Non\+Valid\+Attributes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classExporter}{Exporter}} \&}]{e }\end{DoxyParamCaption}) const}
 
-Functie dat controleerd ofdat er attriebuten zijn die niet deel zijn van een \doxylink{classStation}{Station} object. \begin{DoxyPrecond}{Precondition}
-REQUIRE(\doxylink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+Functie dat controleerd ofdat er attriebuten zijn die niet deel zijn van een \mbox{\hyperlink{classStation}{Station}} object. REQUIRE(\mbox{\hyperlink{classParseStation_ae6b9f16aca8e6fdd87a66ba4640557c4}{properly\+Initialized()}}, \char`\"{}\+Parse\+Spoor has been properly initialized\char`\"{}); \begin{DoxyPrecond}{Precondition}
+REQUIRE(\mbox{\hyperlink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()}} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-ENSURE(\doxylink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element has become NULL\char`\"{}) 
+ENSURE(\mbox{\hyperlink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()}} != NULL, \char`\"{}\+Tixml\+Element has become NULL\char`\"{}) 
 \end{DoxyPostcond}
 \begin{DoxyReturn}{Returns}
 true or false 
 \end{DoxyReturn}
-\Hypertarget{classParseStation_afbb60f05c99b31b0e561a4f16906ed84}\label{classParseStation_afbb60f05c99b31b0e561a4f16906ed84} 
+\mbox{\Hypertarget{classParseStation_a23026bcc22b2d1ba226a80c49acc67af}\label{classParseStation_a23026bcc22b2d1ba226a80c49acc67af}} 
+\index{ParseStation@{ParseStation}!checkSporen@{checkSporen}}
+\index{checkSporen@{checkSporen}!ParseStation@{ParseStation}}
+\doxysubsubsection{\texorpdfstring{checkSporen()}{checkSporen()}}
+{\footnotesize\ttfamily bool Parse\+Station\+::check\+Sporen (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classExporter}{Exporter}} \&}]{e }\end{DoxyParamCaption}) const}
+
+Functie dat controleert ofdat er sporen aanwezig zijn en die valid zijn. REQUIRE(\mbox{\hyperlink{classParseStation_ae6b9f16aca8e6fdd87a66ba4640557c4}{properly\+Initialized()}}, \char`\"{}\+Parse\+Spoor has been properly initialized\char`\"{}); REQUIRE(\mbox{\hyperlink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()}} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}); ENSURE(\mbox{\hyperlink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()}} != NULL, \char`\"{}\+Tixml\+Element has become NULL\char`\"{}); \begin{DoxyReturn}{Returns}
+true or false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classParseStation_a8d6d267fe3d0af0445abe9fc91d88153}\label{classParseStation_a8d6d267fe3d0af0445abe9fc91d88153}} 
 \index{ParseStation@{ParseStation}!checkValidNaam@{checkValidNaam}}
 \index{checkValidNaam@{checkValidNaam}!ParseStation@{ParseStation}}
 \doxysubsubsection{\texorpdfstring{checkValidNaam()}{checkValidNaam()}}
-{\footnotesize\ttfamily bool Parse\+Station\+::check\+Valid\+Naam (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily bool Parse\+Station\+::check\+Valid\+Naam (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classExporter}{Exporter}} \&}]{e }\end{DoxyParamCaption}) const}
 
-Functie dat controleerd ofdat naam valid is. \begin{DoxyPrecond}{Precondition}
-REQUIRE(\doxylink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+Functie dat controleerd ofdat naam valid is. REQUIRE(\mbox{\hyperlink{classParseStation_ae6b9f16aca8e6fdd87a66ba4640557c4}{properly\+Initialized()}}, \char`\"{}\+Parse\+Spoor has been properly initialized\char`\"{}); \begin{DoxyPrecond}{Precondition}
+REQUIRE(\mbox{\hyperlink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()}} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-ENSURE(\doxylink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element has become NULL\char`\"{}) 
+ENSURE(\mbox{\hyperlink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()}} != NULL, \char`\"{}\+Tixml\+Element has become NULL\char`\"{}) 
 \end{DoxyPostcond}
 \begin{DoxyReturn}{Returns}
 true or false 
 \end{DoxyReturn}
-\Hypertarget{classParseStation_a1f2654c28b7b61245a17d6deb09ff35e}\label{classParseStation_a1f2654c28b7b61245a17d6deb09ff35e} 
+\mbox{\Hypertarget{classParseStation_aa24872d6d664088fe014bfc5b4fe9102}\label{classParseStation_aa24872d6d664088fe014bfc5b4fe9102}} 
 \index{ParseStation@{ParseStation}!checkValidStation@{checkValidStation}}
 \index{checkValidStation@{checkValidStation}!ParseStation@{ParseStation}}
 \doxysubsubsection{\texorpdfstring{checkValidStation()}{checkValidStation()}}
-{\footnotesize\ttfamily bool Parse\+Station\+::check\+Valid\+Station (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily bool Parse\+Station\+::check\+Valid\+Station (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classExporter}{Exporter}} \&}]{e }\end{DoxyParamCaption}) const}
 
-Functie dat nakijkt ofdat het \doxylink{classStation}{Station} object valid is. \begin{DoxyPrecond}{Precondition}
-REQUIRE(\doxylink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+Functie dat nakijkt ofdat het \mbox{\hyperlink{classStation}{Station}} object valid is. REQUIRE(\mbox{\hyperlink{classParseStation_ae6b9f16aca8e6fdd87a66ba4640557c4}{properly\+Initialized()}}, \char`\"{}\+Parse\+Spoor has been properly initialized\char`\"{}); \begin{DoxyPrecond}{Precondition}
+REQUIRE(\mbox{\hyperlink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()}} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
 \end{DoxyPrecond}
 \begin{DoxyReturn}{Returns}
 true or false 
 \end{DoxyReturn}
-\Hypertarget{classParseStation_ab4b3e4f7469c5215300a2bdb59d12df7}\label{classParseStation_ab4b3e4f7469c5215300a2bdb59d12df7} 
+\mbox{\Hypertarget{classParseStation_a956577b8924eabebc2dc4b2d65e0344a}\label{classParseStation_a956577b8924eabebc2dc4b2d65e0344a}} 
 \index{ParseStation@{ParseStation}!checkValidTypeStation@{checkValidTypeStation}}
 \index{checkValidTypeStation@{checkValidTypeStation}!ParseStation@{ParseStation}}
 \doxysubsubsection{\texorpdfstring{checkValidTypeStation()}{checkValidTypeStation()}}
-{\footnotesize\ttfamily bool Parse\+Station\+::check\+Valid\+Type\+Station (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily bool Parse\+Station\+::check\+Valid\+Type\+Station (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classExporter}{Exporter}} \&}]{e }\end{DoxyParamCaption}) const}
 
-Functie dat controleerd ofdat het type van het \doxylink{classStation}{Station} object valid is. \begin{DoxyPrecond}{Precondition}
-REQUIRE(\doxylink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+Functie dat controleerd ofdat het type van het \mbox{\hyperlink{classStation}{Station}} object valid is. REQUIRE(\mbox{\hyperlink{classParseStation_ae6b9f16aca8e6fdd87a66ba4640557c4}{properly\+Initialized()}}, \char`\"{}\+Parse\+Spoor has been properly initialized\char`\"{}); \begin{DoxyPrecond}{Precondition}
+REQUIRE(\mbox{\hyperlink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()}} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-ENSURE(\doxylink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element has become NULL\char`\"{}) 
+ENSURE(\mbox{\hyperlink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()}} != NULL, \char`\"{}\+Tixml\+Element has become NULL\char`\"{}) 
 \end{DoxyPostcond}
 \begin{DoxyReturn}{Returns}
 true or false 
 \end{DoxyReturn}
-\Hypertarget{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}\label{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d} 
+\mbox{\Hypertarget{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}\label{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}} 
 \index{ParseStation@{ParseStation}!getElement@{getElement}}
 \index{getElement@{getElement}!ParseStation@{ParseStation}}
 \doxysubsubsection{\texorpdfstring{getElement()}{getElement()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$ Parse\+Station\+::get\+Element (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Getter functie dat een element teruggeeft van type \doxylink{classTiXmlElement}{Ti\+Xml\+Element}. \begin{DoxyReturn}{Returns}
-element van type \doxylink{classTiXmlElement}{Ti\+Xml\+Element}. 
+Getter functie dat een element teruggeeft van type \mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}}. REQUIRE(\mbox{\hyperlink{classParseStation_ae6b9f16aca8e6fdd87a66ba4640557c4}{properly\+Initialized()}}, \char`\"{}\+Parse\+Spoor has been properly initialized\char`\"{}); \begin{DoxyReturn}{Returns}
+element van type \mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}}. 
 \end{DoxyReturn}
-\Hypertarget{classParseStation_a790a4e7cbfef9fe7507ad86621bc1b82}\label{classParseStation_a790a4e7cbfef9fe7507ad86621bc1b82} 
+\mbox{\Hypertarget{classParseStation_a790a4e7cbfef9fe7507ad86621bc1b82}\label{classParseStation_a790a4e7cbfef9fe7507ad86621bc1b82}} 
 \index{ParseStation@{ParseStation}!getParsedStation@{getParsedStation}}
 \index{getParsedStation@{getParsedStation}!ParseStation@{ParseStation}}
 \doxysubsubsection{\texorpdfstring{getParsedStation()}{getParsedStation()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classStation}{Station}} $\ast$ Parse\+Station\+::get\+Parsed\+Station (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Getter functie dat het parsed \doxylink{classStation}{Station} zal teruggeven. \begin{DoxyReturn}{Returns}
+Getter functie dat het parsed \mbox{\hyperlink{classStation}{Station}} zal teruggeven. REQUIRE(\mbox{\hyperlink{classParseStation_ae6b9f16aca8e6fdd87a66ba4640557c4}{properly\+Initialized()}}, \char`\"{}\+Parse\+Spoor has been properly initialized\char`\"{}); \begin{DoxyReturn}{Returns}
 parsed\+Station 
 \end{DoxyReturn}
-\Hypertarget{classParseStation_ac531c56b5e88a01627756bd58c6cb0b2}\label{classParseStation_ac531c56b5e88a01627756bd58c6cb0b2} 
+\mbox{\Hypertarget{classParseStation_aafd57acf5dd4f9604b5a48dd25ed4b74}\label{classParseStation_aafd57acf5dd4f9604b5a48dd25ed4b74}} 
 \index{ParseStation@{ParseStation}!getStationType@{getStationType}}
 \index{getStationType@{getStationType}!ParseStation@{ParseStation}}
 \doxysubsubsection{\texorpdfstring{getStationType()}{getStationType()}}
-{\footnotesize\ttfamily Type\+Station\+::\+Station\+Type Parse\+Station\+::get\+Station\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily Type\+Station\+::\+Station\+Type Parse\+Station\+::get\+Station\+Type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classExporter}{Exporter}} \&}]{e }\end{DoxyParamCaption}) const}
 
-Getter functie het \doxylink{classStation}{Station} type gaat teruggeven. \begin{DoxyPrecond}{Precondition}
-REQUIRE(\doxylink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+Getter functie het \mbox{\hyperlink{classStation}{Station}} type gaat teruggeven. REQUIRE(\mbox{\hyperlink{classParseStation_ae6b9f16aca8e6fdd87a66ba4640557c4}{properly\+Initialized()}}, \char`\"{}\+Parse\+Spoor has been properly initialized\char`\"{}); \begin{DoxyPrecond}{Precondition}
+REQUIRE(\mbox{\hyperlink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()}} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
 
-REQUIRE(\doxylink{classParseStation_ab4b3e4f7469c5215300a2bdb59d12df7}{check\+Valid\+Type\+Station()} == true, \char`\"{}\+The type tag is not correct in this Station tag\char`\"{}) 
+REQUIRE(\mbox{\hyperlink{classParseStation_a956577b8924eabebc2dc4b2d65e0344a}{check\+Valid\+Type\+Station()}} == true, \char`\"{}\+The type tag is not correct in this Station tag\char`\"{}) 
 \end{DoxyPrecond}
 \begin{DoxyReturn}{Returns}
 Station\+Type 
 \end{DoxyReturn}
-\Hypertarget{classParseStation_a9d4e5fe4a23b3e8603068740242d6b40}\label{classParseStation_a9d4e5fe4a23b3e8603068740242d6b40} 
+\mbox{\Hypertarget{classParseStation_a48199f0623ce2e89ef4b18d85e679e88}\label{classParseStation_a48199f0623ce2e89ef4b18d85e679e88}} 
 \index{ParseStation@{ParseStation}!parseAll@{parseAll}}
 \index{parseAll@{parseAll}!ParseStation@{ParseStation}}
 \doxysubsubsection{\texorpdfstring{parseAll()}{parseAll()}}
-{\footnotesize\ttfamily bool Parse\+Station\+::parse\+All (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Parse\+Station\+::parse\+All (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classExporter}{Exporter}} \&}]{e }\end{DoxyParamCaption})}
 
-Functie dat het \doxylink{classStation}{Station} object parsed van een \doxylink{classMetroNet}{Metro\+Net} object. \begin{DoxyPrecond}{Precondition}
-REQUIRE(\doxylink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
-
-REQUIRE(\doxylink{classParseStation_a1f2654c28b7b61245a17d6deb09ff35e}{check\+Valid\+Station()} == true, \char`\"{}\+The Station tag is not correct\char`\"{}) 
-\end{DoxyPrecond}
-\begin{DoxyPostcond}{Postcondition}
-ENSURE(!station-\/\texorpdfstring{$>$}{>}get\+Name().empty(), \char`\"{}\+The naam of station has not been correctly initialized\char`\"{}) 
-
-ENSURE(!station-\/\texorpdfstring{$>$}{>}get\+Sporen().empty(), \char`\"{}\+The SPOOR\textquotesingle{}s of station has not been correctly initialized\char`\"{}) 
-
-ENSURE(!station-\/\texorpdfstring{$>$}{>}get\+Type().empty(), \char`\"{}\+The type of station has not been correctly initialized\char`\"{}) 
-
-ENSURE(\doxylink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
-
-ENSURE(\doxylink{classParseStation_a790a4e7cbfef9fe7507ad86621bc1b82}{get\+Parsed\+Station()} != NULL, \char`\"{}akfjdajkfl\char`\"{}); 
-\end{DoxyPostcond}
-\begin{DoxyReturn}{Returns}
+Functie dat het \mbox{\hyperlink{classStation}{Station}} object parsed van een \mbox{\hyperlink{classMetroNet}{Metro\+Net}} object. REQUIRE(\mbox{\hyperlink{classParseStation_ae6b9f16aca8e6fdd87a66ba4640557c4}{properly\+Initialized()}}, \char`\"{}\+Parse\+Spoor has been properly initialized\char`\"{}); REQUIRE(\mbox{\hyperlink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()}} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}); REQUIRE(e.\+properly\+Initialized(), \char`\"{}\+The exporter must be properly initialized\char`\"{}); ENSURE(!station-\/$>$get\+Name().empty(), \char`\"{}\+The naam of station has not been correctly initialized\char`\"{}); ENSURE(!station-\/$>$get\+Sporen().empty(), \char`\"{}\+The SPOOR\textquotesingle{}s of station has not been correctly initialized\char`\"{}); ENSURE(!station-\/$>$get\+Type().empty(), \char`\"{}\+The type of station has not been correctly initialized\char`\"{}); ENSURE(\mbox{\hyperlink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()}} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}); ENSURE(\mbox{\hyperlink{classParseStation_a790a4e7cbfef9fe7507ad86621bc1b82}{get\+Parsed\+Station()}} != NULL, \char`\"{}parsed\+Station is Null\char`\"{}); \begin{DoxyReturn}{Returns}
 true or false 
 \end{DoxyReturn}
-\Hypertarget{classParseStation_aa2f46c060f2fa627655353560b8d16c7}\label{classParseStation_aa2f46c060f2fa627655353560b8d16c7} 
+\mbox{\Hypertarget{classParseStation_aec08fe347d23a52ff9ba1dd641c2f9b4}\label{classParseStation_aec08fe347d23a52ff9ba1dd641c2f9b4}} 
 \index{ParseStation@{ParseStation}!parseNaam@{parseNaam}}
 \index{parseNaam@{parseNaam}!ParseStation@{ParseStation}}
 \doxysubsubsection{\texorpdfstring{parseNaam()}{parseNaam()}}
-{\footnotesize\ttfamily bool Parse\+Station\+::parse\+Naam (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{station }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily bool Parse\+Station\+::parse\+Naam (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{station,  }\item[{\mbox{\hyperlink{classExporter}{Exporter}} \&}]{e }\end{DoxyParamCaption}) const}
 
-Functie dat gecalled wordt door parse\+All om ervoor te zorgen dat de naam van een spoor geparsed kan worden. \begin{DoxyPrecond}{Precondition}
-REQUIRE(station-\/\texorpdfstring{$>$}{>}\doxylink{classParseStation_a95a39a10e1e89c6ccae2737e32fd1f35}{properly\+Initialized()}, \char`\"{}\+Station is not properly\+Initialized\char`\"{}) 
+Functie dat gecalled wordt door parse\+All om ervoor te zorgen dat de naam van een spoor geparsed kan worden. REQUIRE(\mbox{\hyperlink{classParseStation_ae6b9f16aca8e6fdd87a66ba4640557c4}{properly\+Initialized()}}, \char`\"{}\+Parse\+Spoor has been properly initialized\char`\"{}); \begin{DoxyPrecond}{Precondition}
+REQUIRE(station-\/$>$\mbox{\hyperlink{classParseStation_ae6b9f16aca8e6fdd87a66ba4640557c4}{properly\+Initialized()}}, \char`\"{}\+Station is not properly\+Initialized\char`\"{}) 
 
-REQUIRE(\doxylink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+REQUIRE(\mbox{\hyperlink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()}} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
 
-REQUIRE(\doxylink{classParseStation_afbb60f05c99b31b0e561a4f16906ed84}{check\+Valid\+Naam()} == true, \char`\"{}\+The name tag is not correct in this Station tag\char`\"{}) 
+REQUIRE(\mbox{\hyperlink{classParseStation_a8d6d267fe3d0af0445abe9fc91d88153}{check\+Valid\+Naam()}} == true, \char`\"{}\+The name tag is not correct in this Station tag\char`\"{}) 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-ENSURE(!station-\/\texorpdfstring{$>$}{>}get\+Name().empty(), \char`\"{}\+The naam of station has not been correctly initialized\char`\"{}) 
+ENSURE(!station-\/$>$get\+Name().empty(), \char`\"{}\+The naam of station has not been correctly initialized\char`\"{}) 
 
-ENSURE(\doxylink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+ENSURE(\mbox{\hyperlink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()}} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
 \end{DoxyPostcond}
 
 \begin{DoxyParams}{Parameters}
@@ -210,21 +205,21 @@ ENSURE(\doxylink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Eleme
 \begin{DoxyReturn}{Returns}
 true or false 
 \end{DoxyReturn}
-\Hypertarget{classParseStation_af63e613f83f6987fa5e7fe6832b9f6a0}\label{classParseStation_af63e613f83f6987fa5e7fe6832b9f6a0} 
+\mbox{\Hypertarget{classParseStation_a52e5cd0b52e2e5b34a77f94ad73ccf76}\label{classParseStation_a52e5cd0b52e2e5b34a77f94ad73ccf76}} 
 \index{ParseStation@{ParseStation}!parseSpoor@{parseSpoor}}
 \index{parseSpoor@{parseSpoor}!ParseStation@{ParseStation}}
 \doxysubsubsection{\texorpdfstring{parseSpoor()}{parseSpoor()}}
-{\footnotesize\ttfamily bool Parse\+Station\+::parse\+Spoor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{station }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily bool Parse\+Station\+::parse\+Spoor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{station,  }\item[{\mbox{\hyperlink{classExporter}{Exporter}} \&}]{e }\end{DoxyParamCaption}) const}
 
-Functie dat het \doxylink{classSpoor}{Spoor} object zal parsen. \begin{DoxyPrecond}{Precondition}
-REQUIRE(station-\/\texorpdfstring{$>$}{>}\doxylink{classParseStation_a95a39a10e1e89c6ccae2737e32fd1f35}{properly\+Initialized()}, \char`\"{}\+Station is not properly\+Initialized\char`\"{}) 
+Functie dat het \mbox{\hyperlink{classSpoor}{Spoor}} object zal parsen. REQUIRE(\mbox{\hyperlink{classParseStation_ae6b9f16aca8e6fdd87a66ba4640557c4}{properly\+Initialized()}}, \char`\"{}\+Parse\+Spoor has been properly initialized\char`\"{}); \begin{DoxyPrecond}{Precondition}
+REQUIRE(station-\/$>$\mbox{\hyperlink{classParseStation_ae6b9f16aca8e6fdd87a66ba4640557c4}{properly\+Initialized()}}, \char`\"{}\+Station is not properly\+Initialized\char`\"{}) 
 
-REQUIRE(\doxylink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+REQUIRE(\mbox{\hyperlink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()}} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-ENSURE(\doxylink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+ENSURE(\mbox{\hyperlink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()}} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
 
-ENSURE(!station-\/\texorpdfstring{$>$}{>}get\+Sporen().empty(), \char`\"{}\+The sporen cannot be empty\char`\"{}) 
+ENSURE(!station-\/$>$get\+Sporen().empty(), \char`\"{}\+The sporen cannot be empty\char`\"{}) 
 \end{DoxyPostcond}
 
 \begin{DoxyParams}{Parameters}
@@ -234,32 +229,32 @@ ENSURE(!station-\/\texorpdfstring{$>$}{>}get\+Sporen().empty(), \char`\"{}\+The 
 \begin{DoxyReturn}{Returns}
 true or false 
 \end{DoxyReturn}
-\Hypertarget{classParseStation_a96d2f681df38225431d37a5f59bd9355}\label{classParseStation_a96d2f681df38225431d37a5f59bd9355} 
+\mbox{\Hypertarget{classParseStation_a9e6efeba7d06945d6026f6bb4e0a0cbf}\label{classParseStation_a9e6efeba7d06945d6026f6bb4e0a0cbf}} 
 \index{ParseStation@{ParseStation}!parseSuccessful@{parseSuccessful}}
 \index{parseSuccessful@{parseSuccessful}!ParseStation@{ParseStation}}
 \doxysubsubsection{\texorpdfstring{parseSuccessful()}{parseSuccessful()}}
-{\footnotesize\ttfamily bool Parse\+Station\+::parse\+Successful (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Parse\+Station\+::parse\+Successful (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classExporter}{Exporter}} \&}]{e }\end{DoxyParamCaption})}
 
-Functie dat controleert ofdat en parse succesvol was of niet. \begin{DoxyReturn}{Returns}
+Functie dat controleert ofdat en parse succesvol was of niet. REQUIRE(\mbox{\hyperlink{classParseStation_ae6b9f16aca8e6fdd87a66ba4640557c4}{properly\+Initialized()}}, \char`\"{}\+Parse\+Spoor has been properly initialized\char`\"{}); \begin{DoxyReturn}{Returns}
 true or false 
 \end{DoxyReturn}
-\Hypertarget{classParseStation_a50de3e504cc779ff77ee814876312c2c}\label{classParseStation_a50de3e504cc779ff77ee814876312c2c} 
+\mbox{\Hypertarget{classParseStation_a14403af9fb1cffc4bf75e3c989582670}\label{classParseStation_a14403af9fb1cffc4bf75e3c989582670}} 
 \index{ParseStation@{ParseStation}!parseTypeStation@{parseTypeStation}}
 \index{parseTypeStation@{parseTypeStation}!ParseStation@{ParseStation}}
 \doxysubsubsection{\texorpdfstring{parseTypeStation()}{parseTypeStation()}}
-{\footnotesize\ttfamily bool Parse\+Station\+::parse\+Type\+Station (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{station }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily bool Parse\+Station\+::parse\+Type\+Station (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{station,  }\item[{\mbox{\hyperlink{classExporter}{Exporter}} \&}]{e }\end{DoxyParamCaption}) const}
 
-Functie dat het type van een station parsed. \begin{DoxyPrecond}{Precondition}
-REQUIRE(station-\/\texorpdfstring{$>$}{>}\doxylink{classParseStation_a95a39a10e1e89c6ccae2737e32fd1f35}{properly\+Initialized()}, \char`\"{}\+Station is not properly\+Initialized\char`\"{}) 
+Functie dat het type van een station parsed. REQUIRE(\mbox{\hyperlink{classParseStation_ae6b9f16aca8e6fdd87a66ba4640557c4}{properly\+Initialized()}}, \char`\"{}\+Parse\+Spoor has been properly initialized\char`\"{}); \begin{DoxyPrecond}{Precondition}
+REQUIRE(station-\/$>$\mbox{\hyperlink{classParseStation_ae6b9f16aca8e6fdd87a66ba4640557c4}{properly\+Initialized()}}, \char`\"{}\+Station is not properly\+Initialized\char`\"{}) 
 
-REQUIRE(\doxylink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+REQUIRE(\mbox{\hyperlink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()}} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
 
-REQUIRE(\doxylink{classParseStation_ab4b3e4f7469c5215300a2bdb59d12df7}{check\+Valid\+Type\+Station()} == true, \char`\"{}\+The type tag is not correct in this Station tag\char`\"{}) 
+REQUIRE(\mbox{\hyperlink{classParseStation_a956577b8924eabebc2dc4b2d65e0344a}{check\+Valid\+Type\+Station()}} == true, \char`\"{}\+The type tag is not correct in this Station tag\char`\"{}) 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-ENSURE(!station-\/\texorpdfstring{$>$}{>}get\+Type().empty(), \char`\"{}\+The type of station has not been correctly initialized\char`\"{}) 
+ENSURE(!station-\/$>$get\+Type().empty(), \char`\"{}\+The type of station has not been correctly initialized\char`\"{}) 
 
-ENSURE(\doxylink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
+ENSURE(\mbox{\hyperlink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()}} != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
 \end{DoxyPostcond}
 
 \begin{DoxyParams}{Parameters}
@@ -269,44 +264,39 @@ ENSURE(\doxylink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Eleme
 \begin{DoxyReturn}{Returns}
 true or false 
 \end{DoxyReturn}
-\Hypertarget{classParseStation_a95a39a10e1e89c6ccae2737e32fd1f35}\label{classParseStation_a95a39a10e1e89c6ccae2737e32fd1f35} 
+\mbox{\Hypertarget{classParseStation_ae6b9f16aca8e6fdd87a66ba4640557c4}\label{classParseStation_ae6b9f16aca8e6fdd87a66ba4640557c4}} 
 \index{ParseStation@{ParseStation}!properlyInitialized@{properlyInitialized}}
 \index{properlyInitialized@{properlyInitialized}!ParseStation@{ParseStation}}
 \doxysubsubsection{\texorpdfstring{properlyInitialized()}{properlyInitialized()}}
-{\footnotesize\ttfamily bool Parse\+Station\+::properly\+Initialized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Parse\+Station\+::properly\+Initialized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Functie dat controleerd ofdat het \doxylink{classParseStation}{Parse\+Station} object correct werd geïnitialiseerd. \begin{DoxyReturn}{Returns}
+Functie dat controleerd ofdat het \mbox{\hyperlink{classParseStation}{Parse\+Station}} object correct werd geïnitialiseerd. \begin{DoxyReturn}{Returns}
 true or false 
 \end{DoxyReturn}
-\Hypertarget{classParseStation_af3d3fdac6b0891c57399eeaa95623dcc}\label{classParseStation_af3d3fdac6b0891c57399eeaa95623dcc} 
+\mbox{\Hypertarget{classParseStation_af3d3fdac6b0891c57399eeaa95623dcc}\label{classParseStation_af3d3fdac6b0891c57399eeaa95623dcc}} 
 \index{ParseStation@{ParseStation}!setElement@{setElement}}
 \index{setElement@{setElement}!ParseStation@{ParseStation}}
 \doxysubsubsection{\texorpdfstring{setElement()}{setElement()}}
 {\footnotesize\ttfamily void Parse\+Station\+::set\+Element (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} $\ast$}]{el }\end{DoxyParamCaption})}
 
-Setter functie dat een element van type \doxylink{classTiXmlElement}{Ti\+Xml\+Element} set. \begin{DoxyPrecond}{Precondition}
+Setter functie dat een element van type \mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} set. REQUIRE(\mbox{\hyperlink{classParseStation_ae6b9f16aca8e6fdd87a66ba4640557c4}{properly\+Initialized()}}, \char`\"{}\+Parse\+Spoor has been properly initialized\char`\"{}); \begin{DoxyPrecond}{Precondition}
 REQUIRE(el != NULL, \char`\"{}\+Tixml\+Element is NULL\char`\"{}) 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-ENSURE(\doxylink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()} == element, \char`\"{}\+Tixml\+Element is not the element of the parser\char`\"{}) 
+ENSURE(\mbox{\hyperlink{classParseStation_af02e06d57fbef4fb2427b2e44d72de2d}{get\+Element()}} == element, \char`\"{}\+Tixml\+Element is not the element of the parser\char`\"{}) 
 \end{DoxyPostcond}
 
 \begin{DoxyParams}{Parameters}
-{\em el} & element van type \doxylink{classTiXmlElement}{Ti\+Xml\+Element} \\
+{\em el} & element van type \mbox{\hyperlink{classTiXmlElement}{Ti\+Xml\+Element}} \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classParseStation_a8ad2f5e408410da5fef10ce624ae7545}\label{classParseStation_a8ad2f5e408410da5fef10ce624ae7545} 
+\mbox{\Hypertarget{classParseStation_a8ad2f5e408410da5fef10ce624ae7545}\label{classParseStation_a8ad2f5e408410da5fef10ce624ae7545}} 
 \index{ParseStation@{ParseStation}!setParsedStation@{setParsedStation}}
 \index{setParsedStation@{setParsedStation}!ParseStation@{ParseStation}}
 \doxysubsubsection{\texorpdfstring{setParsedStation()}{setParsedStation()}}
 {\footnotesize\ttfamily void Parse\+Station\+::set\+Parsed\+Station (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{s }\end{DoxyParamCaption})}
 
-Setter functie dat \doxylink{classStation}{Station} set. 
-\begin{DoxyParams}{Parameters}
-{\em s} & \doxylink{classStation}{Station} dat geset wordt. \\
-\hline
-\end{DoxyParams}
-
+Setter functie dat \mbox{\hyperlink{classStation}{Station}} set. REQUIRE(\mbox{\hyperlink{classParseStation_ae6b9f16aca8e6fdd87a66ba4640557c4}{properly\+Initialized()}}, \char`\"{}\+Parse\+Spoor has been properly initialized\char`\"{}); ENSURE(\mbox{\hyperlink{classParseStation_a790a4e7cbfef9fe7507ad86621bc1b82}{get\+Parsed\+Station()}} == s, \char`\"{}\+The setting was not successful\char`\"{}); 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

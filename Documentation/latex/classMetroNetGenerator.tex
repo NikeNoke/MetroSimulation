@@ -7,149 +7,156 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classMetroNetGenerator_affe206d4b9a8df94647d89f28dbcb729}{Metro\+Net\+Generator}} (std\+::string path\+To\+Xml, std\+::string path\+To\+Write, std\+::string path\+To\+Write2)
+\mbox{\hyperlink{classMetroNetGenerator_a63c42ea6710d785cf8a04485799d0d8e}{Metro\+Net\+Generator}} (std\+::string path\+To\+Xml, std\+::string path\+To\+Simple, std\+::string path\+To\+Advanced, std\+::ostream \&op, std\+::ostream \&err)
 \item 
-void \mbox{\hyperlink{classMetroNetGenerator_a6ee2b08a23d2f39f6b6a0565868712be}{generate\+Metro\+Net}} ()
+void \mbox{\hyperlink{classMetroNetGenerator_ae7036add974c9b7ea7099e0f85f581ac}{generate\+Metro\+Net}} (bool no\+Stat=false)
 \item 
 \mbox{\hyperlink{classMetroNet}{Metro\+Net}} \& \mbox{\hyperlink{classMetroNetGenerator_a278e11ef638742a088eedb905088582d}{get\+Metro\+Net}} ()
 \item 
 std\+::string \mbox{\hyperlink{classMetroNetGenerator_af01ad74cbb61629fa70ca5eecd81273f}{get\+Path\+To\+Open\+Xml}} () const
 \item 
-std\+::string \mbox{\hyperlink{classMetroNetGenerator_aa572a38e0857c0f4ea06a05c22f06fba}{get\+Path\+To\+Write}} () const
-\item 
 void \mbox{\hyperlink{classMetroNetGenerator_a9f2da1831bd31803f6bf83336a4810ba}{set\+Path\+To\+Open\+Xml}} (std\+::string \&p)
-\item 
-void \mbox{\hyperlink{classMetroNetGenerator_a47a95a552fb3322489c58afdbea9d302}{set\+Path\+To\+Write}} (std\+::string \&p)
 \item 
 void \mbox{\hyperlink{classMetroNetGenerator_acf096c3286ed4751f78c720ad19d3029}{simulate}} (int seconds)
 \item 
 \mbox{\hyperlink{classExporter}{Exporter}} \& \mbox{\hyperlink{classMetroNetGenerator_ad46353b3c397895dca03ec21f94acd18}{get\+Exporter}} ()
+\item 
+std\+::string \mbox{\hyperlink{classMetroNetGenerator_a8ce96f19ee1825e800580812fd4990c7}{get\+Path\+To\+Advanced}} () const
+\item 
+void \mbox{\hyperlink{classMetroNetGenerator_a157509aa75d3a74bb34c8a83ac0dbfb6}{set\+Path\+To\+Advanced}} (const std\+::string \&s)
+\item 
+std\+::string \mbox{\hyperlink{classMetroNetGenerator_aa6edb4dd691568fa03f51ed6961d6c3b}{get\+Path\+To\+Simple}} () const
+\item 
+void \mbox{\hyperlink{classMetroNetGenerator_ab266ec83670e2d584b498b0dbb8d6dca}{set\+Path\+To\+Simple}} (const std\+::string \&s)
+\item 
+bool \mbox{\hyperlink{classMetroNetGenerator_a4d106b2afb2fa4bf965c71faa3309f50}{properly\+Initialized}} () const
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Klasse \doxylink{classMetroNetGenerator}{Metro\+Net\+Generator} dat gebruikt wordt om een \doxylink{classMetroNet}{Metro\+Net} simulatie te genereren en die dan weg te schrijven naar een file van keuze. 
+Klasse \mbox{\hyperlink{classMetroNetGenerator}{Metro\+Net\+Generator}} dat gebruikt wordt om een \mbox{\hyperlink{classMetroNet}{Metro\+Net}} simulatie te genereren en die dan weg te schrijven naar een file van keuze. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classMetroNetGenerator_affe206d4b9a8df94647d89f28dbcb729}\label{classMetroNetGenerator_affe206d4b9a8df94647d89f28dbcb729} 
+\mbox{\Hypertarget{classMetroNetGenerator_a63c42ea6710d785cf8a04485799d0d8e}\label{classMetroNetGenerator_a63c42ea6710d785cf8a04485799d0d8e}} 
 \index{MetroNetGenerator@{MetroNetGenerator}!MetroNetGenerator@{MetroNetGenerator}}
 \index{MetroNetGenerator@{MetroNetGenerator}!MetroNetGenerator@{MetroNetGenerator}}
 \doxysubsubsection{\texorpdfstring{MetroNetGenerator()}{MetroNetGenerator()}}
-{\footnotesize\ttfamily Metro\+Net\+Generator\+::\+Metro\+Net\+Generator (\begin{DoxyParamCaption}\item[{std\+::string}]{path\+To\+Xml,  }\item[{std\+::string}]{path\+To\+Write,  }\item[{std\+::string}]{path\+To\+Write2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+{\footnotesize\ttfamily Metro\+Net\+Generator\+::\+Metro\+Net\+Generator (\begin{DoxyParamCaption}\item[{std\+::string}]{path\+To\+Xml,  }\item[{std\+::string}]{path\+To\+Simple,  }\item[{std\+::string}]{path\+To\+Advanced,  }\item[{std\+::ostream \&}]{op,  }\item[{std\+::ostream \&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
-Explicit \doxylink{classMetroNetGenerator}{Metro\+Net\+Generator} constructor. \begin{DoxyPrecond}{Precondition}
-REQUIRE(Utils\+::file\+Exists(path\+To\+Xml), \char`\"{}\+Path to xml is wrong or file does not exist\char`\"{}) 
-\end{DoxyPrecond}
-
-\begin{DoxyParams}{Parameters}
-{\em path\+To\+Write} & Gebruikt om weg te schrijven met gebruik van de \doxylink{classSimpleExport}{Simple\+Export}. \\
-\hline
-{\em path\+To\+Write2} & Gebruikt om weg te schrijven met gebruik van de \doxylink{classAdvancedExport}{Advanced\+Export}. \\
-\hline
-{\em path\+To\+Xml} & XML file dat gebruikt zou worden om daarven een \doxylink{classMetroNet}{Metro\+Net} uit te halen. \\
-\hline
-\end{DoxyParams}
-
+Explicit \mbox{\hyperlink{classMetroNetGenerator}{Metro\+Net\+Generator}} constructor. REQUIRE(!path\+To\+Xml.empty(), \char`\"{}\+Path to xml is empty\char`\"{}); REQUIRE(!path\+To\+Write.empty(), \char`\"{}\+Path to simple is empty\char`\"{}); REQUIRE(!path\+To\+Write2.empty(), \char`\"{}\+Path to advanced is empty\char`\"{}); REQUIRE(Utils\+::file\+Exists(path\+To\+Xml), \char`\"{}\+Path to xml is wrong or file does not exist\char`\"{}); ENSURE(\mbox{\hyperlink{classMetroNetGenerator_aa6edb4dd691568fa03f51ed6961d6c3b}{get\+Path\+To\+Simple()}} == path\+To\+Write, \char`\"{}\+Simple path was not set properly\char`\"{}); ENSURE(\mbox{\hyperlink{classMetroNetGenerator_a8ce96f19ee1825e800580812fd4990c7}{get\+Path\+To\+Advanced()}} == path\+To\+Write2, \char`\"{}\+Advanced path was not set properly\char`\"{}); ENSURE(\mbox{\hyperlink{classMetroNetGenerator_af01ad74cbb61629fa70ca5eecd81273f}{get\+Path\+To\+Open\+Xml()}} == path\+To\+Xml, \char`\"{}\+XML path was not set properly\char`\"{}); ENSURE(\mbox{\hyperlink{classMetroNetGenerator_ad46353b3c397895dca03ec21f94acd18}{get\+Exporter()}}.\mbox{\hyperlink{classMetroNetGenerator_a4d106b2afb2fa4bf965c71faa3309f50}{properly\+Initialized()}}, \char`\"{}\+The exporter is not properly initialized\char`\"{}); ENSURE(\mbox{\hyperlink{classMetroNetGenerator_a4d106b2afb2fa4bf965c71faa3309f50}{properly\+Initialized()}}, \char`\"{}\+Metro\+Net\+Generator is not properly initialized\char`\"{}); 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classMetroNetGenerator_a6ee2b08a23d2f39f6b6a0565868712be}\label{classMetroNetGenerator_a6ee2b08a23d2f39f6b6a0565868712be} 
+\mbox{\Hypertarget{classMetroNetGenerator_ae7036add974c9b7ea7099e0f85f581ac}\label{classMetroNetGenerator_ae7036add974c9b7ea7099e0f85f581ac}} 
 \index{MetroNetGenerator@{MetroNetGenerator}!generateMetroNet@{generateMetroNet}}
 \index{generateMetroNet@{generateMetroNet}!MetroNetGenerator@{MetroNetGenerator}}
 \doxysubsubsection{\texorpdfstring{generateMetroNet()}{generateMetroNet()}}
-{\footnotesize\ttfamily void Metro\+Net\+Generator\+::generate\+Metro\+Net (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Metro\+Net\+Generator\+::generate\+Metro\+Net (\begin{DoxyParamCaption}\item[{bool}]{no\+Stat = {\ttfamily false} }\end{DoxyParamCaption})}
 
-Functie dat de \doxylink{classMetroNet}{Metro\+Net} zal genereren en die dan wegschrijven. \begin{DoxyPrecond}{Precondition}
-REQUIRE(Utils\+::file\+Exists(get\+Path\+To\+Open\+Xml()), \char`\"{}\+The file to open does not exist\char`\"{}) 
+Functie dat de \mbox{\hyperlink{classMetroNet}{Metro\+Net}} zal genereren en die dan wegschrijven. REQUIRE(\mbox{\hyperlink{classMetroNetGenerator_a4d106b2afb2fa4bf965c71faa3309f50}{properly\+Initialized()}}, \char`\"{}\+Metro\+Net\+Generator is not properly initialized\char`\"{}); \begin{DoxyPrecond}{Precondition}
+REQUIRE(Utils\+::file\+Exists(get\+Path\+To\+Open\+Xml()), \char`\"{}\+The file to open does not exist\char`\"{}) REQUIRE(\mbox{\hyperlink{classMetroNetGenerator_ad46353b3c397895dca03ec21f94acd18}{get\+Exporter()}}.\mbox{\hyperlink{classMetroNetGenerator_a4d106b2afb2fa4bf965c71faa3309f50}{properly\+Initialized()}}, \char`\"{}\+The exporter is not properly initialized\char`\"{}); 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-ENSURE(\doxylink{classMetroNetGenerator_a278e11ef638742a088eedb905088582d}{get\+Metro\+Net()}.is\+Valid\+Metro\+Net(), \char`\"{}\+The metro\+Net is not valid\char`\"{}) 
-
-ENSURE(Utils\+::file\+Exists(get\+Path\+To\+Write()), \char`\"{}\+The file was not even created\char`\"{}) 
+ENSURE(\mbox{\hyperlink{classMetroNetGenerator_a278e11ef638742a088eedb905088582d}{get\+Metro\+Net()}}.is\+Valid\+Metro\+Net(), \char`\"{}\+The metro\+Net is not valid\char`\"{}) 
 \end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em no\+Stat} & boolean dat op default op false staat. Als ze op true wordt gezet dan zal er geen stat report afgedrukt worden. (Handig voor testsen waar we geen bloat willen). \\
+\hline
+\end{DoxyParams}
 \begin{DoxyNote}{Note}
-Roept de methode metro\+Net\+Parser van \doxylink{classParseMetroNet}{Parse\+Metro\+Net} om de \doxylink{classMetroNet}{Metro\+Net} van de XML file te parsen. 
+Roept de methode metro\+Net\+Parser van \mbox{\hyperlink{classParseMetroNet}{Parse\+Metro\+Net}} om de \mbox{\hyperlink{classMetroNet}{Metro\+Net}} van de XML file te parsen. 
 \end{DoxyNote}
-\Hypertarget{classMetroNetGenerator_ad46353b3c397895dca03ec21f94acd18}\label{classMetroNetGenerator_ad46353b3c397895dca03ec21f94acd18} 
+\mbox{\Hypertarget{classMetroNetGenerator_ad46353b3c397895dca03ec21f94acd18}\label{classMetroNetGenerator_ad46353b3c397895dca03ec21f94acd18}} 
 \index{MetroNetGenerator@{MetroNetGenerator}!getExporter@{getExporter}}
 \index{getExporter@{getExporter}!MetroNetGenerator@{MetroNetGenerator}}
 \doxysubsubsection{\texorpdfstring{getExporter()}{getExporter()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classExporter}{Exporter}} \& Metro\+Net\+Generator\+::get\+Exporter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Getter functie dat de exporter terug gaat geven. \begin{DoxyPrecond}{Precondition}
+Getter functie dat de exporter terug gaat geven. REQUIRE(\mbox{\hyperlink{classMetroNetGenerator_a4d106b2afb2fa4bf965c71faa3309f50}{properly\+Initialized()}}, \char`\"{}\+Metro\+Net\+Generator is not properly initialized\char`\"{}); \begin{DoxyPrecond}{Precondition}
 REQUIRE(exporter.\+properly\+Initialized(), \char`\"{}exporter is not properly\+Initialized\char`\"{}) 
 \end{DoxyPrecond}
 \begin{DoxyReturn}{Returns}
 exporter 
 \end{DoxyReturn}
-\Hypertarget{classMetroNetGenerator_a278e11ef638742a088eedb905088582d}\label{classMetroNetGenerator_a278e11ef638742a088eedb905088582d} 
+\mbox{\Hypertarget{classMetroNetGenerator_a278e11ef638742a088eedb905088582d}\label{classMetroNetGenerator_a278e11ef638742a088eedb905088582d}} 
 \index{MetroNetGenerator@{MetroNetGenerator}!getMetroNet@{getMetroNet}}
 \index{getMetroNet@{getMetroNet}!MetroNetGenerator@{MetroNetGenerator}}
 \doxysubsubsection{\texorpdfstring{getMetroNet()}{getMetroNet()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classMetroNet}{Metro\+Net}} \& Metro\+Net\+Generator\+::get\+Metro\+Net (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Getter functie om \doxylink{classMetroNet}{Metro\+Net} te returnen. \begin{DoxyReturn}{Returns}
+Getter functie om \mbox{\hyperlink{classMetroNet}{Metro\+Net}} te returnen. REQUIRE(\mbox{\hyperlink{classMetroNetGenerator_a4d106b2afb2fa4bf965c71faa3309f50}{properly\+Initialized()}}, \char`\"{}\+Metro\+Net\+Generator is not properly initialized\char`\"{}); \begin{DoxyReturn}{Returns}
 metro\+Net 
 \end{DoxyReturn}
-\Hypertarget{classMetroNetGenerator_af01ad74cbb61629fa70ca5eecd81273f}\label{classMetroNetGenerator_af01ad74cbb61629fa70ca5eecd81273f} 
+\mbox{\Hypertarget{classMetroNetGenerator_a8ce96f19ee1825e800580812fd4990c7}\label{classMetroNetGenerator_a8ce96f19ee1825e800580812fd4990c7}} 
+\index{MetroNetGenerator@{MetroNetGenerator}!getPathToAdvanced@{getPathToAdvanced}}
+\index{getPathToAdvanced@{getPathToAdvanced}!MetroNetGenerator@{MetroNetGenerator}}
+\doxysubsubsection{\texorpdfstring{getPathToAdvanced()}{getPathToAdvanced()}}
+{\footnotesize\ttfamily std\+::string Metro\+Net\+Generator\+::get\+Path\+To\+Advanced (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+get Path to Advanced REQUIRE(\mbox{\hyperlink{classMetroNetGenerator_a4d106b2afb2fa4bf965c71faa3309f50}{properly\+Initialized()}}, \char`\"{}\+Metro\+Net\+Generator is not properly initialized\char`\"{}); \mbox{\Hypertarget{classMetroNetGenerator_af01ad74cbb61629fa70ca5eecd81273f}\label{classMetroNetGenerator_af01ad74cbb61629fa70ca5eecd81273f}} 
 \index{MetroNetGenerator@{MetroNetGenerator}!getPathToOpenXml@{getPathToOpenXml}}
 \index{getPathToOpenXml@{getPathToOpenXml}!MetroNetGenerator@{MetroNetGenerator}}
 \doxysubsubsection{\texorpdfstring{getPathToOpenXml()}{getPathToOpenXml()}}
 {\footnotesize\ttfamily std\+::string Metro\+Net\+Generator\+::get\+Path\+To\+Open\+Xml (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Getter functie om de path naar the XML file te verkrijgen. \begin{DoxyReturn}{Returns}
+Getter functie om de path naar the XML file te verkrijgen. REQUIRE(\mbox{\hyperlink{classMetroNetGenerator_a4d106b2afb2fa4bf965c71faa3309f50}{properly\+Initialized()}}, \char`\"{}\+Metro\+Net\+Generator is not properly initialized\char`\"{}); \begin{DoxyReturn}{Returns}
 path\+To\+Open\+Xml 
 \end{DoxyReturn}
-\Hypertarget{classMetroNetGenerator_aa572a38e0857c0f4ea06a05c22f06fba}\label{classMetroNetGenerator_aa572a38e0857c0f4ea06a05c22f06fba} 
-\index{MetroNetGenerator@{MetroNetGenerator}!getPathToWrite@{getPathToWrite}}
-\index{getPathToWrite@{getPathToWrite}!MetroNetGenerator@{MetroNetGenerator}}
-\doxysubsubsection{\texorpdfstring{getPathToWrite()}{getPathToWrite()}}
-{\footnotesize\ttfamily std\+::string Metro\+Net\+Generator\+::get\+Path\+To\+Write (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+\mbox{\Hypertarget{classMetroNetGenerator_aa6edb4dd691568fa03f51ed6961d6c3b}\label{classMetroNetGenerator_aa6edb4dd691568fa03f51ed6961d6c3b}} 
+\index{MetroNetGenerator@{MetroNetGenerator}!getPathToSimple@{getPathToSimple}}
+\index{getPathToSimple@{getPathToSimple}!MetroNetGenerator@{MetroNetGenerator}}
+\doxysubsubsection{\texorpdfstring{getPathToSimple()}{getPathToSimple()}}
+{\footnotesize\ttfamily std\+::string Metro\+Net\+Generator\+::get\+Path\+To\+Simple (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Getter functie om de path naar de file waar we gaan wegschrijven te verkrijgen. \begin{DoxyReturn}{Returns}
-path\+To\+Write 
+get Path to Simple REQUIRE(\mbox{\hyperlink{classMetroNetGenerator_a4d106b2afb2fa4bf965c71faa3309f50}{properly\+Initialized()}}, \char`\"{}\+Metro\+Net\+Generator is not properly initialized\char`\"{}); \mbox{\Hypertarget{classMetroNetGenerator_a4d106b2afb2fa4bf965c71faa3309f50}\label{classMetroNetGenerator_a4d106b2afb2fa4bf965c71faa3309f50}} 
+\index{MetroNetGenerator@{MetroNetGenerator}!properlyInitialized@{properlyInitialized}}
+\index{properlyInitialized@{properlyInitialized}!MetroNetGenerator@{MetroNetGenerator}}
+\doxysubsubsection{\texorpdfstring{properlyInitialized()}{properlyInitialized()}}
+{\footnotesize\ttfamily bool Metro\+Net\+Generator\+::properly\+Initialized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\begin{DoxyReturn}{Returns}
+Properly initialized? 
 \end{DoxyReturn}
-\Hypertarget{classMetroNetGenerator_a9f2da1831bd31803f6bf83336a4810ba}\label{classMetroNetGenerator_a9f2da1831bd31803f6bf83336a4810ba} 
+\mbox{\Hypertarget{classMetroNetGenerator_a157509aa75d3a74bb34c8a83ac0dbfb6}\label{classMetroNetGenerator_a157509aa75d3a74bb34c8a83ac0dbfb6}} 
+\index{MetroNetGenerator@{MetroNetGenerator}!setPathToAdvanced@{setPathToAdvanced}}
+\index{setPathToAdvanced@{setPathToAdvanced}!MetroNetGenerator@{MetroNetGenerator}}
+\doxysubsubsection{\texorpdfstring{setPathToAdvanced()}{setPathToAdvanced()}}
+{\footnotesize\ttfamily void Metro\+Net\+Generator\+::set\+Path\+To\+Advanced (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s }\end{DoxyParamCaption})}
+
+set Path to Advanced REQUIRE(\mbox{\hyperlink{classMetroNetGenerator_a4d106b2afb2fa4bf965c71faa3309f50}{properly\+Initialized()}}, \char`\"{}\+Metro\+Net\+Generator is not properly initialized\char`\"{}); ENSURE(\mbox{\hyperlink{classMetroNetGenerator_a8ce96f19ee1825e800580812fd4990c7}{get\+Path\+To\+Advanced()}} == s, \char`\"{}\+Not correctly set\char`\"{}); \mbox{\Hypertarget{classMetroNetGenerator_a9f2da1831bd31803f6bf83336a4810ba}\label{classMetroNetGenerator_a9f2da1831bd31803f6bf83336a4810ba}} 
 \index{MetroNetGenerator@{MetroNetGenerator}!setPathToOpenXml@{setPathToOpenXml}}
 \index{setPathToOpenXml@{setPathToOpenXml}!MetroNetGenerator@{MetroNetGenerator}}
 \doxysubsubsection{\texorpdfstring{setPathToOpenXml()}{setPathToOpenXml()}}
 {\footnotesize\ttfamily void Metro\+Net\+Generator\+::set\+Path\+To\+Open\+Xml (\begin{DoxyParamCaption}\item[{std\+::string \&}]{p }\end{DoxyParamCaption})}
 
-Zet de path van de XML file dat we gaan openen om daaruit de \doxylink{classMetroNet}{Metro\+Net} te parsen. \begin{DoxyPrecond}{Precondition}
+Zet de path van de XML file dat we gaan openen om daaruit de \mbox{\hyperlink{classMetroNet}{Metro\+Net}} te parsen. REQUIRE(\mbox{\hyperlink{classMetroNetGenerator_a4d106b2afb2fa4bf965c71faa3309f50}{properly\+Initialized()}}, \char`\"{}\+Metro\+Net\+Generator is not properly initialized\char`\"{}); \begin{DoxyPrecond}{Precondition}
 REQUIRE(Utils\+::file\+Exists(p), \char`\"{}\+Path to xml is wrong or file does not exist\char`\"{}) 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-ENSURE(\doxylink{classMetroNetGenerator_af01ad74cbb61629fa70ca5eecd81273f}{get\+Path\+To\+Open\+Xml()} == p, \char`\"{}\+The set was a failure\char`\"{}) 
+ENSURE(\mbox{\hyperlink{classMetroNetGenerator_af01ad74cbb61629fa70ca5eecd81273f}{get\+Path\+To\+Open\+Xml()}} == p, \char`\"{}\+The set was a failure\char`\"{}) 
 \end{DoxyPostcond}
 
 \begin{DoxyParams}{Parameters}
 {\em p} & Path van de XML file dat geparsed zal worden. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classMetroNetGenerator_a47a95a552fb3322489c58afdbea9d302}\label{classMetroNetGenerator_a47a95a552fb3322489c58afdbea9d302} 
-\index{MetroNetGenerator@{MetroNetGenerator}!setPathToWrite@{setPathToWrite}}
-\index{setPathToWrite@{setPathToWrite}!MetroNetGenerator@{MetroNetGenerator}}
-\doxysubsubsection{\texorpdfstring{setPathToWrite()}{setPathToWrite()}}
-{\footnotesize\ttfamily void Metro\+Net\+Generator\+::set\+Path\+To\+Write (\begin{DoxyParamCaption}\item[{std\+::string \&}]{p }\end{DoxyParamCaption})}
+\mbox{\Hypertarget{classMetroNetGenerator_ab266ec83670e2d584b498b0dbb8d6dca}\label{classMetroNetGenerator_ab266ec83670e2d584b498b0dbb8d6dca}} 
+\index{MetroNetGenerator@{MetroNetGenerator}!setPathToSimple@{setPathToSimple}}
+\index{setPathToSimple@{setPathToSimple}!MetroNetGenerator@{MetroNetGenerator}}
+\doxysubsubsection{\texorpdfstring{setPathToSimple()}{setPathToSimple()}}
+{\footnotesize\ttfamily void Metro\+Net\+Generator\+::set\+Path\+To\+Simple (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{s }\end{DoxyParamCaption})}
 
-Zet de path naar de file waar we gaan wegschrijven. \begin{DoxyPostcond}{Postcondition}
-ENSURE(\doxylink{classMetroNetGenerator_aa572a38e0857c0f4ea06a05c22f06fba}{get\+Path\+To\+Write()} == p, \char`\"{}\+The setting was failure\char`\"{}) 
-\end{DoxyPostcond}
-
-\begin{DoxyParams}{Parameters}
-{\em p} & Path van de file waar we gaan wegschrijven. \\
-\hline
-\end{DoxyParams}
-\Hypertarget{classMetroNetGenerator_acf096c3286ed4751f78c720ad19d3029}\label{classMetroNetGenerator_acf096c3286ed4751f78c720ad19d3029} 
+set Path to Simple REQUIRE(\mbox{\hyperlink{classMetroNetGenerator_a4d106b2afb2fa4bf965c71faa3309f50}{properly\+Initialized()}}, \char`\"{}\+Metro\+Net\+Generator is not properly initialized\char`\"{}); ENSURE(\mbox{\hyperlink{classMetroNetGenerator_aa6edb4dd691568fa03f51ed6961d6c3b}{get\+Path\+To\+Simple()}} == s, \char`\"{}\+Not correctly set\char`\"{}); \mbox{\Hypertarget{classMetroNetGenerator_acf096c3286ed4751f78c720ad19d3029}\label{classMetroNetGenerator_acf096c3286ed4751f78c720ad19d3029}} 
 \index{MetroNetGenerator@{MetroNetGenerator}!simulate@{simulate}}
 \index{simulate@{simulate}!MetroNetGenerator@{MetroNetGenerator}}
 \doxysubsubsection{\texorpdfstring{simulate()}{simulate()}}
 {\footnotesize\ttfamily void Metro\+Net\+Generator\+::simulate (\begin{DoxyParamCaption}\item[{int}]{seconds }\end{DoxyParamCaption})}
 
-Functie dat onze \doxylink{classMetroNet}{Metro\+Net} zal simuleren. \begin{DoxyPrecond}{Precondition}
-REQUIRE(\doxylink{classMetroNetGenerator_a278e11ef638742a088eedb905088582d}{get\+Metro\+Net()}.is\+Valid\+Metro\+Net(), \char`\"{}\+The metro\+Net is not Valid\char`\"{}) 
+Functie dat onze \mbox{\hyperlink{classMetroNet}{Metro\+Net}} zal simuleren. REQUIRE(\mbox{\hyperlink{classMetroNetGenerator_a4d106b2afb2fa4bf965c71faa3309f50}{properly\+Initialized()}}, \char`\"{}\+Metro\+Net\+Generator is not properly initialized\char`\"{}); \begin{DoxyPrecond}{Precondition}
+REQUIRE(\mbox{\hyperlink{classMetroNetGenerator_a278e11ef638742a088eedb905088582d}{get\+Metro\+Net()}}.is\+Valid\+Metro\+Net(), \char`\"{}\+The metro\+Net is not Valid\char`\"{}) REQUIRE(\mbox{\hyperlink{classMetroNetGenerator_ad46353b3c397895dca03ec21f94acd18}{get\+Exporter()}}.\mbox{\hyperlink{classMetroNetGenerator_a4d106b2afb2fa4bf965c71faa3309f50}{properly\+Initialized()}}, \char`\"{}\+The exporter is not properly initialized\char`\"{}); 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-ENSURE(\doxylink{classMetroNetGenerator_a278e11ef638742a088eedb905088582d}{get\+Metro\+Net()}.is\+Valid\+Metro\+Net(), \char`\"{}\+The metro\+Net is not Valid\char`\"{}) 
+ENSURE(\mbox{\hyperlink{classMetroNetGenerator_a278e11ef638742a088eedb905088582d}{get\+Metro\+Net()}}.is\+Valid\+Metro\+Net(), \char`\"{}\+The metro\+Net is not Valid\char`\"{}) 
 \end{DoxyPostcond}
 
 \begin{DoxyParams}{Parameters}

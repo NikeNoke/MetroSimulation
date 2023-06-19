@@ -7,13 +7,16 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classExporter_ab41ccb2f8da7afbc09281bd6d1cefdf8}{Exporter}} (std\+::string \&path\+To\+Simple, std\+::string \&path\+To\+Advanced)
-\item 
-\mbox{\hyperlink{classExporter_a2a977cb5ac8f637fcb570e73f650eca0}{Exporter}} ()
+\mbox{\hyperlink{classExporter_a0be991e9c5d1e573ef3dcca3bb90cd90}{Exporter}} (std\+::string path\+To\+Simple, std\+::string path\+To\+Advanced, std\+::ostream \&op, std\+::ostream \&err)
 \item 
 bool \mbox{\hyperlink{classExporter_a5664ffb6b0c8dac1c407aea13513b26d}{export\+File}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net) const
 \item 
 bool \mbox{\hyperlink{classExporter_a401dab8be8ef2b98060dcd3ca5f6aed0}{properly\+Initialized}} () const
+\item 
+virtual void \mbox{\hyperlink{classExporter_a5bb9a6139099aba2246880cfc3b4801f}{write\+To\+Operation}} (const std\+::string \&load)
+\item 
+\mbox{\Hypertarget{classExporter_a091e10110d09f070f28e964759200ddb}\label{classExporter_a091e10110d09f070f28e964759200ddb}} 
+virtual void {\bfseries write\+To\+Error} (const std\+::string \&load)
 \item 
 std\+::string \mbox{\hyperlink{classExporter_aaee337ea9b40dc123afe9814a4a5db46}{get\+Path\+To\+Advanced}} () const
 \item 
@@ -22,79 +25,69 @@ void \mbox{\hyperlink{classExporter_a2660e0ac6f397d1a8b7f70b36ead2cbb}{set\+Path
 std\+::string \mbox{\hyperlink{classExporter_a08641deb14a7aec7511533757c749437}{get\+Path\+To\+Simple}} () const
 \item 
 void \mbox{\hyperlink{classExporter_a73ab53cafe85c4e0be3fccedd5892061}{set\+Path\+To\+Simple}} (const std\+::string \&path\+To\+Simple)
+\item 
+std\+::ostream \& \mbox{\hyperlink{classExporter_a08e32bd349fedd480315356c3be507bc}{get\+Operation\+Stream}} ()
+\item 
+std\+::ostream \& \mbox{\hyperlink{classExporter_a07d0f6468f78cf861b9b587eb0846184}{get\+Error\+Stream}} ()
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-\doxylink{classExporter}{Exporter} klasse voor files te creëren en exporten. 
+\mbox{\hyperlink{classExporter}{Exporter}} klasse voor files te creëren en exporten. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classExporter_ab41ccb2f8da7afbc09281bd6d1cefdf8}\label{classExporter_ab41ccb2f8da7afbc09281bd6d1cefdf8} 
+\mbox{\Hypertarget{classExporter_a0be991e9c5d1e573ef3dcca3bb90cd90}\label{classExporter_a0be991e9c5d1e573ef3dcca3bb90cd90}} 
 \index{Exporter@{Exporter}!Exporter@{Exporter}}
 \index{Exporter@{Exporter}!Exporter@{Exporter}}
-\doxysubsubsection{\texorpdfstring{Exporter()}{Exporter()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily Exporter\+::\+Exporter (\begin{DoxyParamCaption}\item[{std\+::string \&}]{path\+To\+Simple,  }\item[{std\+::string \&}]{path\+To\+Advanced }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+\doxysubsubsection{\texorpdfstring{Exporter()}{Exporter()}}
+{\footnotesize\ttfamily Exporter\+::\+Exporter (\begin{DoxyParamCaption}\item[{std\+::string}]{path\+To\+Simple,  }\item[{std\+::string}]{path\+To\+Advanced,  }\item[{std\+::ostream \&}]{op,  }\item[{std\+::ostream \&}]{err }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
 
-Explicit constructor van ons met variabelen. \begin{DoxyPostcond}{Postcondition}
-ENSURE(\doxylink{classExporter_aaee337ea9b40dc123afe9814a4a5db46}{get\+Path\+To\+Advanced()} == pathA, \char`\"{}path\+To\+File could not be opened\char`\"{}); 
-
-ENSURE(this-\/\texorpdfstring{$>$}{>}\doxylink{classExporter_a401dab8be8ef2b98060dcd3ca5f6aed0}{properly\+Initialized()}, \char`\"{}exporter is not properly initialized\char`\"{}); 
-\end{DoxyPostcond}
-
-\begin{DoxyParams}{Parameters}
-{\em path\+To\+Simple} & \\
-\hline
-{\em path\+To\+Advanced} & \\
-\hline
-\end{DoxyParams}
-\Hypertarget{classExporter_a2a977cb5ac8f637fcb570e73f650eca0}\label{classExporter_a2a977cb5ac8f637fcb570e73f650eca0} 
-\index{Exporter@{Exporter}!Exporter@{Exporter}}
-\index{Exporter@{Exporter}!Exporter@{Exporter}}
-\doxysubsubsection{\texorpdfstring{Exporter()}{Exporter()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily Exporter\+::\+Exporter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-Default constructor van de klasse \doxylink{classExporter}{Exporter}. \begin{DoxyPostcond}{Postcondition}
-ENSURE(this-\/\texorpdfstring{$>$}{>}\doxylink{classExporter_a401dab8be8ef2b98060dcd3ca5f6aed0}{properly\+Initialized()}, \char`\"{}exporter is not properly initialized\char`\"{}) 
-\end{DoxyPostcond}
-\begin{DoxyReturn}{Returns}
-\doxylink{classExporter}{Exporter} object. 
-\end{DoxyReturn}
-
+REQUIRE(!path\+To\+Simple.empty(), \char`\"{}\+The path to simple may not be empty\char`\"{}); REQUIRE(!path\+To\+Advanced.empty(), \char`\"{}\+The path t0 advanced may not be empty\char`\"{}); ENSURE(\mbox{\hyperlink{classExporter_a08641deb14a7aec7511533757c749437}{get\+Path\+To\+Simple()}} == path\+To\+Simple, \char`\"{}\+This exporter\textquotesingle{}s path to simple was not set properly\char`\"{}); ENSURE(\mbox{\hyperlink{classExporter_aaee337ea9b40dc123afe9814a4a5db46}{get\+Path\+To\+Advanced()}} == path\+To\+Advanced, \char`\"{}\+This exporter\textquotesingle{}s path to advanced was not set properly\char`\"{}); ENSURE(\mbox{\hyperlink{classExporter_a08e32bd349fedd480315356c3be507bc}{get\+Operation\+Stream()}} == op, \char`\"{}\+This exporter\textquotesingle{}s operation stream was not set properly\char`\"{}); ENSURE(\mbox{\hyperlink{classExporter_a07d0f6468f78cf861b9b587eb0846184}{get\+Error\+Stream()}} == err, \char`\"{}\+This exporter\textquotesingle{}s error stream was not set properly\char`\"{}); ENSURE(\mbox{\hyperlink{classExporter_a401dab8be8ef2b98060dcd3ca5f6aed0}{properly\+Initialized()}}, \char`\"{}\+The exporter is not properly initialized\char`\"{}); 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classExporter_a5664ffb6b0c8dac1c407aea13513b26d}\label{classExporter_a5664ffb6b0c8dac1c407aea13513b26d} 
+\mbox{\Hypertarget{classExporter_a5664ffb6b0c8dac1c407aea13513b26d}\label{classExporter_a5664ffb6b0c8dac1c407aea13513b26d}} 
 \index{Exporter@{Exporter}!exportFile@{exportFile}}
 \index{exportFile@{exportFile}!Exporter@{Exporter}}
 \doxysubsubsection{\texorpdfstring{exportFile()}{exportFile()}}
 {\footnotesize\ttfamily bool Exporter\+::export\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net }\end{DoxyParamCaption}) const}
 
-Creërt een file dat oveereenkomt met metro\+Net en exporteerd deze. 
-\begin{DoxyParams}{Parameters}
-{\em metro\+Net} & Het metro\+Net dat geëxporteerd zal worden. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-true or false 
+REQUIRE(\mbox{\hyperlink{classExporter_a401dab8be8ef2b98060dcd3ca5f6aed0}{properly\+Initialized()}}, \char`\"{}\+The exporter is not properly initialized\char`\"{}); REQUIRE(simple\+Exporter.\+properly\+Initialized(), \char`\"{}\+Simple exporter is not properly initialized\char`\"{}); REQUIRE(simple\+Exporter.\+properly\+Initialized(), \char`\"{}\+Advanced exporter is not properly initialized\char`\"{}); ENSURE(Utils\+::file\+Exists(get\+Path\+To\+Simple()), \char`\"{}\+File for simple was not created\char`\"{}); ENSURE(Utils\+::file\+Exists(get\+Path\+To\+Advanced()), \char`\"{}\+File for advanced was not created\char`\"{}); \mbox{\Hypertarget{classExporter_a07d0f6468f78cf861b9b587eb0846184}\label{classExporter_a07d0f6468f78cf861b9b587eb0846184}} 
+\index{Exporter@{Exporter}!getErrorStream@{getErrorStream}}
+\index{getErrorStream@{getErrorStream}!Exporter@{Exporter}}
+\doxysubsubsection{\texorpdfstring{getErrorStream()}{getErrorStream()}}
+{\footnotesize\ttfamily std\+::ostream \& Exporter\+::get\+Error\+Stream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+get error stream \begin{DoxyReturn}{Returns}
+
 \end{DoxyReturn}
-\Hypertarget{classExporter_aaee337ea9b40dc123afe9814a4a5db46}\label{classExporter_aaee337ea9b40dc123afe9814a4a5db46} 
+\mbox{\Hypertarget{classExporter_a08e32bd349fedd480315356c3be507bc}\label{classExporter_a08e32bd349fedd480315356c3be507bc}} 
+\index{Exporter@{Exporter}!getOperationStream@{getOperationStream}}
+\index{getOperationStream@{getOperationStream}!Exporter@{Exporter}}
+\doxysubsubsection{\texorpdfstring{getOperationStream()}{getOperationStream()}}
+{\footnotesize\ttfamily std\+::ostream \& Exporter\+::get\+Operation\+Stream (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+get operation stream \begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classExporter_aaee337ea9b40dc123afe9814a4a5db46}\label{classExporter_aaee337ea9b40dc123afe9814a4a5db46}} 
 \index{Exporter@{Exporter}!getPathToAdvanced@{getPathToAdvanced}}
 \index{getPathToAdvanced@{getPathToAdvanced}!Exporter@{Exporter}}
 \doxysubsubsection{\texorpdfstring{getPathToAdvanced()}{getPathToAdvanced()}}
 {\footnotesize\ttfamily std\+::string Exporter\+::get\+Path\+To\+Advanced (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Getter dat de path\+To\+Advanded teruggeeft. \begin{DoxyReturn}{Returns}
+Getter dat de path\+To\+Advanded teruggeeft. REQUIRE(\mbox{\hyperlink{classExporter_a401dab8be8ef2b98060dcd3ca5f6aed0}{properly\+Initialized()}}, \char`\"{}\+The exporter is not properly initialized\char`\"{}); \begin{DoxyReturn}{Returns}
 path\+To\+Advanced 
 \end{DoxyReturn}
-\Hypertarget{classExporter_a08641deb14a7aec7511533757c749437}\label{classExporter_a08641deb14a7aec7511533757c749437} 
+\mbox{\Hypertarget{classExporter_a08641deb14a7aec7511533757c749437}\label{classExporter_a08641deb14a7aec7511533757c749437}} 
 \index{Exporter@{Exporter}!getPathToSimple@{getPathToSimple}}
 \index{getPathToSimple@{getPathToSimple}!Exporter@{Exporter}}
 \doxysubsubsection{\texorpdfstring{getPathToSimple()}{getPathToSimple()}}
 {\footnotesize\ttfamily std\+::string Exporter\+::get\+Path\+To\+Simple (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Getter dat de path\+To\+Simple teruggeeft. \begin{DoxyReturn}{Returns}
+Getter dat de path\+To\+Simple teruggeeft. REQUIRE(\mbox{\hyperlink{classExporter_a401dab8be8ef2b98060dcd3ca5f6aed0}{properly\+Initialized()}}, \char`\"{}\+The exporter is not properly initialized\char`\"{}); \begin{DoxyReturn}{Returns}
 path\+To\+Advanced 
 \end{DoxyReturn}
-\Hypertarget{classExporter_a401dab8be8ef2b98060dcd3ca5f6aed0}\label{classExporter_a401dab8be8ef2b98060dcd3ca5f6aed0} 
+\mbox{\Hypertarget{classExporter_a401dab8be8ef2b98060dcd3ca5f6aed0}\label{classExporter_a401dab8be8ef2b98060dcd3ca5f6aed0}} 
 \index{Exporter@{Exporter}!properlyInitialized@{properlyInitialized}}
 \index{properlyInitialized@{properlyInitialized}!Exporter@{Exporter}}
 \doxysubsubsection{\texorpdfstring{properlyInitialized()}{properlyInitialized()}}
@@ -103,26 +96,27 @@ path\+To\+Advanced
 Controleerd ofdat de exporter correct geïnitialiseerd werd. \begin{DoxyReturn}{Returns}
 true or false 
 \end{DoxyReturn}
-\Hypertarget{classExporter_a2660e0ac6f397d1a8b7f70b36ead2cbb}\label{classExporter_a2660e0ac6f397d1a8b7f70b36ead2cbb} 
+\mbox{\Hypertarget{classExporter_a2660e0ac6f397d1a8b7f70b36ead2cbb}\label{classExporter_a2660e0ac6f397d1a8b7f70b36ead2cbb}} 
 \index{Exporter@{Exporter}!setPathToAdvanced@{setPathToAdvanced}}
 \index{setPathToAdvanced@{setPathToAdvanced}!Exporter@{Exporter}}
 \doxysubsubsection{\texorpdfstring{setPathToAdvanced()}{setPathToAdvanced()}}
 {\footnotesize\ttfamily void Exporter\+::set\+Path\+To\+Advanced (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path\+To\+Advanced }\end{DoxyParamCaption})}
 
-Setter dat de path\+To\+Advanced set. 
-\begin{DoxyParams}{Parameters}
-{\em path\+To\+Advanced} & \\
-\hline
-\end{DoxyParams}
-\Hypertarget{classExporter_a73ab53cafe85c4e0be3fccedd5892061}\label{classExporter_a73ab53cafe85c4e0be3fccedd5892061} 
+Setter dat de path\+To\+Advanced set. REQUIRE(\mbox{\hyperlink{classExporter_a401dab8be8ef2b98060dcd3ca5f6aed0}{properly\+Initialized()}}, \char`\"{}\+The exporter is not properly initialized\char`\"{}); ENSURE(\mbox{\hyperlink{classExporter_aaee337ea9b40dc123afe9814a4a5db46}{get\+Path\+To\+Advanced()}} == p, \char`\"{}\+Setting of path to advanced was not done properly\char`\"{}); \mbox{\Hypertarget{classExporter_a73ab53cafe85c4e0be3fccedd5892061}\label{classExporter_a73ab53cafe85c4e0be3fccedd5892061}} 
 \index{Exporter@{Exporter}!setPathToSimple@{setPathToSimple}}
 \index{setPathToSimple@{setPathToSimple}!Exporter@{Exporter}}
 \doxysubsubsection{\texorpdfstring{setPathToSimple()}{setPathToSimple()}}
 {\footnotesize\ttfamily void Exporter\+::set\+Path\+To\+Simple (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path\+To\+Simple }\end{DoxyParamCaption})}
 
-Setter dat de path\+To\+Simple set. 
+Setter dat de path\+To\+Simple set. REQUIRE(\mbox{\hyperlink{classExporter_a401dab8be8ef2b98060dcd3ca5f6aed0}{properly\+Initialized()}}, \char`\"{}\+The exporter is not properly initialized\char`\"{}); ENSURE(\mbox{\hyperlink{classExporter_a08641deb14a7aec7511533757c749437}{get\+Path\+To\+Simple()}} == p, \char`\"{}\+Setting of path to simple was not done properly\char`\"{}); \mbox{\Hypertarget{classExporter_a5bb9a6139099aba2246880cfc3b4801f}\label{classExporter_a5bb9a6139099aba2246880cfc3b4801f}} 
+\index{Exporter@{Exporter}!writeToOperation@{writeToOperation}}
+\index{writeToOperation@{writeToOperation}!Exporter@{Exporter}}
+\doxysubsubsection{\texorpdfstring{writeToOperation()}{writeToOperation()}}
+{\footnotesize\ttfamily void Exporter\+::write\+To\+Operation (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{load }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Write to operation 
 \begin{DoxyParams}{Parameters}
-{\em path\+To\+Simple} & \\
+{\em load} & \\
 \hline
 \end{DoxyParams}
 

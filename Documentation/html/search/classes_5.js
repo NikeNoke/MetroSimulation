@@ -1,16 +1,7 @@
 var searchData=
 [
-  ['get_0',['Get',['../classstd_1_1tr1_1_1gtest__internal_1_1Get.html',1,'std::tr1::gtest_internal']]],
-  ['get_3c_200_20_3e_1',['Get&lt; 0 &gt;',['../classstd_1_1tr1_1_1gtest__internal_1_1Get_3_010_01_4.html',1,'std::tr1::gtest_internal']]],
-  ['get_3c_201_20_3e_2',['Get&lt; 1 &gt;',['../classstd_1_1tr1_1_1gtest__internal_1_1Get_3_011_01_4.html',1,'std::tr1::gtest_internal']]],
-  ['get_3c_202_20_3e_3',['Get&lt; 2 &gt;',['../classstd_1_1tr1_1_1gtest__internal_1_1Get_3_012_01_4.html',1,'std::tr1::gtest_internal']]],
-  ['get_3c_203_20_3e_4',['Get&lt; 3 &gt;',['../classstd_1_1tr1_1_1gtest__internal_1_1Get_3_013_01_4.html',1,'std::tr1::gtest_internal']]],
-  ['get_3c_204_20_3e_5',['Get&lt; 4 &gt;',['../classstd_1_1tr1_1_1gtest__internal_1_1Get_3_014_01_4.html',1,'std::tr1::gtest_internal']]],
-  ['get_3c_205_20_3e_6',['Get&lt; 5 &gt;',['../classstd_1_1tr1_1_1gtest__internal_1_1Get_3_015_01_4.html',1,'std::tr1::gtest_internal']]],
-  ['get_3c_206_20_3e_7',['Get&lt; 6 &gt;',['../classstd_1_1tr1_1_1gtest__internal_1_1Get_3_016_01_4.html',1,'std::tr1::gtest_internal']]],
-  ['get_3c_207_20_3e_8',['Get&lt; 7 &gt;',['../classstd_1_1tr1_1_1gtest__internal_1_1Get_3_017_01_4.html',1,'std::tr1::gtest_internal']]],
-  ['get_3c_208_20_3e_9',['Get&lt; 8 &gt;',['../classstd_1_1tr1_1_1gtest__internal_1_1Get_3_018_01_4.html',1,'std::tr1::gtest_internal']]],
-  ['get_3c_209_20_3e_10',['Get&lt; 9 &gt;',['../classstd_1_1tr1_1_1gtest__internal_1_1Get_3_019_01_4.html',1,'std::tr1::gtest_internal']]],
-  ['gtestlog_11',['GTestLog',['../classtesting_1_1internal_1_1GTestLog.html',1,'testing::internal']]],
-  ['gtestmutexlock_12',['GTestMutexLock',['../classtesting_1_1internal_1_1GTestMutexLock.html',1,'testing::internal']]]
+  ['filepath_437',['FilePath',['../classtesting_1_1internal_1_1FilePath.html',1,'testing::internal']]],
+  ['floatingpoint_438',['FloatingPoint',['../classtesting_1_1internal_1_1FloatingPoint.html',1,'testing::internal']]],
+  ['formatforcomparison_439',['FormatForComparison',['../classtesting_1_1internal_1_1FormatForComparison.html',1,'testing::internal']]],
+  ['formatforcomparison_3c_20toprint_5bn_5d_2c_20otheroperand_20_3e_440',['FormatForComparison&lt; ToPrint[N], OtherOperand &gt;',['../classtesting_1_1internal_1_1FormatForComparison_3_01ToPrint_0fN_0e_00_01OtherOperand_01_4.html',1,'testing::internal']]]
 ];

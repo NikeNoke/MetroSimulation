@@ -7,7 +7,7 @@
 Inheritance diagram for Tram\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[height=2.000000cm]{classTram}
+\includegraphics[height=3.000000cm]{classTram}
 \end{center}
 \end{figure}
 \doxysubsection*{Public Member Functions}
@@ -25,21 +25,21 @@ int \mbox{\hyperlink{classTram_ad2404fa7837b41287feab05f6a1b52bf}{get\+Lijn\+Nr}
 \item 
 std\+::string \mbox{\hyperlink{classTram_ae1d03c1fb6e0f5f97c57d35fe10fa8dd}{get\+Huidig\+Station}} () const
 \item 
-void \mbox{\hyperlink{classTram_a84f6ad02d1160bb6365dde706f50a116}{set\+Begin\+Station}} (std\+::string \&bs)
+void \mbox{\hyperlink{classTram_a794aa9864d38b82f57726d3e5a0cfe2d}{set\+Begin\+Station}} (std\+::string bs)
 \item 
 void \mbox{\hyperlink{classTram_a2cabc354af57462ae361ead62a20aca6}{set\+Snelheid}} (int s)
 \item 
 void \mbox{\hyperlink{classTram_acfa9bb360bc614e2b591191f8c525ad8}{set\+Lijn\+Nr}} (int l)
 \item 
-void \mbox{\hyperlink{classTram_a46c31a4814722962c688b7eebd1beaf0}{set\+Huidig\+Station}} (std\+::string \&h)
+void \mbox{\hyperlink{classTram_a808a9cd6ba36bcefb788d059544968c8}{set\+Huidig\+Station}} (std\+::string h)
 \item 
-bool \mbox{\hyperlink{classTram_ac69cbbacaed7e1b9e60e608d766d02ee}{properly\+Initialized}} ()
+bool \mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized}} () const
 \item 
-bool \mbox{\hyperlink{classTram_ae1f7d32d9c29b09fb437b86fe3170725}{move}} (\mbox{\hyperlink{classStation}{Station}} $\ast$station)
+virtual bool \mbox{\hyperlink{classTram_a721fdd8a1127928b32c97c8158de5ebc}{move}} (\mbox{\hyperlink{classStation}{Station}} $\ast$station, \mbox{\hyperlink{classExporter}{Exporter}} \&e)=0
 \item 
-void \mbox{\hyperlink{classTram_a790af7fffaea8dd84c3c43fadb02aaaa}{set\+Type}} (std\+::string \&type)
+void \mbox{\hyperlink{classTram_ad55c2da8e2899b2818d4867c25963cfe}{set\+Type}} (std\+::string type)
 \item 
-std\+::string \mbox{\hyperlink{classTram_a2e75ee5e2cbc43da2862334e6ff148e1}{get\+Type}} () const
+virtual Tram\+Type\+::\+Type\+Tram \mbox{\hyperlink{classTram_a0e437b0632696cb460c0cf6cd696e18f}{get\+Type}} () const
 \item 
 void \mbox{\hyperlink{classTram_ac0155ac5ceee1462fd2d22e5184aa240}{set\+Voertuig\+Nummer}} (int n)
 \item 
@@ -66,41 +66,60 @@ virtual void \mbox{\hyperlink{classTram_a6952bd8d9be4b1ab1175c98944600197}{set\+
 bool \mbox{\hyperlink{classTram_a68f00d883a6e06ab06a817fef2e58bde}{tram\+Defect}} () const
 \item 
 int \mbox{\hyperlink{classTram_aeada784548f7e7b7131cd5297ee83c9c}{get\+Total\+Reparatie\+Kost}} () const
+\item 
+virtual bool \mbox{\hyperlink{classTram_a77940da7e7063c07ab64c33570fb6d0e}{tram\+Can\+Move}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classTram_ae53ef86f96238388e9718e7217ff2eb9}{get\+Defect\+Watcher}} () const
+\item 
+void \mbox{\hyperlink{classTram_a3bdf399d4d4bd22fb770b0ba9e0ea8ec}{set\+Defect\+Watcher}} (int defect\+Watcher)
+\item 
+int \mbox{\hyperlink{classTram_a4c733521d43a0eed4a5819e23e2bd73c}{get\+Reparatie\+Tijd\+Watcher}} () const
+\item 
+void \mbox{\hyperlink{classTram_a28abb547cc8747f30e410a46ec96233a}{set\+Reparatie\+Tijd\+Watcher}} (int reparatie\+Tijd\+Watcher)
 \end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{classTram_abcdf7f3ab0e67b537067f06092c5019e}\label{classTram_abcdf7f3ab0e67b537067f06092c5019e} 
+\mbox{\Hypertarget{classTram_abcdf7f3ab0e67b537067f06092c5019e}\label{classTram_abcdf7f3ab0e67b537067f06092c5019e}} 
 int {\bfseries snelheid}
 \item 
-\Hypertarget{classTram_ada71a19c4db3d611561025db4184b9f4}\label{classTram_ada71a19c4db3d611561025db4184b9f4} 
+\mbox{\Hypertarget{classTram_ada71a19c4db3d611561025db4184b9f4}\label{classTram_ada71a19c4db3d611561025db4184b9f4}} 
 int {\bfseries aantal\+Defecten}
 \item 
-\Hypertarget{classTram_a4946625100d123ac3118bb913d5143a9}\label{classTram_a4946625100d123ac3118bb913d5143a9} 
+\mbox{\Hypertarget{classTram_a4946625100d123ac3118bb913d5143a9}\label{classTram_a4946625100d123ac3118bb913d5143a9}} 
 int {\bfseries reparatie\+Tijd}
 \item 
-\Hypertarget{classTram_adc9f1e972524ac43a3507bc94612cac7}\label{classTram_adc9f1e972524ac43a3507bc94612cac7} 
+\mbox{\Hypertarget{classTram_adc9f1e972524ac43a3507bc94612cac7}\label{classTram_adc9f1e972524ac43a3507bc94612cac7}} 
 int {\bfseries reparatie\+Kost}
+\item 
+\mbox{\Hypertarget{classTram_a1206aed09b4d500faf7a84889d07a635}\label{classTram_a1206aed09b4d500faf7a84889d07a635}} 
+int {\bfseries defect\+Watcher}
+\item 
+\mbox{\Hypertarget{classTram_a215e091eab92c6b7448b4fa8f4a231c4}\label{classTram_a215e091eab92c6b7448b4fa8f4a231c4}} 
+int {\bfseries reparatie\+Tijd\+Watcher}
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Klasse \doxylink{classTram}{Tram}. Een basis klasse waarvan meerdere sub-\/klasses (types van trammen) overerven. 
+Klasse \mbox{\hyperlink{classTram}{Tram}}. Een basis klasse waarvan meerdere sub-\/klasses (types van trammen) overerven. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classTram_aad83b2e7e79d57528691bf317ab0e1ef}\label{classTram_aad83b2e7e79d57528691bf317ab0e1ef} 
+\mbox{\Hypertarget{classTram_aad83b2e7e79d57528691bf317ab0e1ef}\label{classTram_aad83b2e7e79d57528691bf317ab0e1ef}} 
 \index{Tram@{Tram}!Tram@{Tram}}
 \index{Tram@{Tram}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{Tram()}{Tram()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily Tram\+::\+Tram (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 Default constructor van een tram object. \begin{DoxyPostcond}{Postcondition}
-ENSURE(\doxylink{classTram_ac69cbbacaed7e1b9e60e608d766d02ee}{properly\+Initialized()}, \char`\"{}\+Tram has not been properly initialized\char`\"{}) 
+ENSURE(\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+Tram has not been properly initialized\char`\"{}) 
 \end{DoxyPostcond}
 \begin{DoxyReturn}{Returns}
 Een tram object zonder attributen. 
 \end{DoxyReturn}
-\Hypertarget{classTram_a76a05f638985edefb9d9b885737c02b8}\label{classTram_a76a05f638985edefb9d9b885737c02b8} 
+\mbox{\Hypertarget{classTram_a76a05f638985edefb9d9b885737c02b8}\label{classTram_a76a05f638985edefb9d9b885737c02b8}} 
 \index{Tram@{Tram}!Tram@{Tram}}
 \index{Tram@{Tram}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{Tram()}{Tram()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
@@ -110,7 +129,7 @@ Constructor van een tram object. \begin{DoxyPrecond}{Precondition}
 REQUIRE(!(Utils\+::is\+\_\+int(begin\+Station)), \char`\"{}\+The parameter begin\+Station is a number\char`\"{}) 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-ENSURE(\doxylink{classTram_ac69cbbacaed7e1b9e60e608d766d02ee}{properly\+Initialized()}, \char`\"{}\+Tram has not been properly initialized\char`\"{}) 
+ENSURE(\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+Tram has not been properly initialized\char`\"{}) 
 \end{DoxyPostcond}
 
 \begin{DoxyParams}{Parameters}
@@ -125,9 +144,9 @@ ENSURE(\doxylink{classTram_ac69cbbacaed7e1b9e60e608d766d02ee}{properly\+Initiali
 Een tram object met attributen 
 \end{DoxyReturn}
 \begin{DoxyNote}{Note}
-Type van trammen is geïmplementeerd. \doxylink{classTram}{Tram} wordt nu een virtual klasse waarvan de types gaan overerven. 
+Type van trammen is geïmplementeerd. \mbox{\hyperlink{classTram}{Tram}} wordt nu een virtual klasse waarvan de types gaan overerven. 
 \end{DoxyNote}
-\Hypertarget{classTram_a79137376610a01d0d11a302c82e147d8}\label{classTram_a79137376610a01d0d11a302c82e147d8} 
+\mbox{\Hypertarget{classTram_a79137376610a01d0d11a302c82e147d8}\label{classTram_a79137376610a01d0d11a302c82e147d8}} 
 \index{Tram@{Tram}!````~Tram@{$\sim$Tram}}
 \index{````~Tram@{$\sim$Tram}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{$\sim$Tram()}{~Tram()}}
@@ -136,150 +155,170 @@ Type van trammen is geïmplementeerd. \doxylink{classTram}{Tram} wordt nu een vi
 Virtual destructor. 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classTram_af4e2bdac52d769d39fb9157a680729a4}\label{classTram_af4e2bdac52d769d39fb9157a680729a4} 
+\mbox{\Hypertarget{classTram_af4e2bdac52d769d39fb9157a680729a4}\label{classTram_af4e2bdac52d769d39fb9157a680729a4}} 
 \index{Tram@{Tram}!calculateSnelheid@{calculateSnelheid}}
 \index{calculateSnelheid@{calculateSnelheid}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{calculateSnelheid()}{calculateSnelheid()}}
 {\footnotesize\ttfamily virtual void Tram\+::calculate\+Snelheid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-Virtual calculate\+Snelheid 
+Virtual calculate\+Snelheid REQUIRE(\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+The tram is not properly initialized\char`\"{}); 
 
-Implemented in \mbox{\hyperlink{classAlbatrosTram_a96fa9073dbcc64de268335014494f7b4}{Albatros\+Tram}}, \mbox{\hyperlink{classPCCTram_a1f7971753ce9134323bbd5f12ebe216a}{PCCTram}}, and \mbox{\hyperlink{classStadslijnerTram_aeeba8f3b21839129a4a8332351699471}{Stadslijner\+Tram}}.
+Implemented in \mbox{\hyperlink{classPCCTram_a1f7971753ce9134323bbd5f12ebe216a}{PCCTram}}.
 
-\Hypertarget{classTram_ac54384fcc146ea7a759823e724cc3509}\label{classTram_ac54384fcc146ea7a759823e724cc3509} 
+\mbox{\Hypertarget{classTram_ac54384fcc146ea7a759823e724cc3509}\label{classTram_ac54384fcc146ea7a759823e724cc3509}} 
 \index{Tram@{Tram}!getAantalDefecten@{getAantalDefecten}}
 \index{getAantalDefecten@{getAantalDefecten}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{getAantalDefecten()}{getAantalDefecten()}}
 {\footnotesize\ttfamily virtual int Tram\+::get\+Aantal\+Defecten (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-Virtual get\+Aantal\+Defecten 
+Virtual get\+Aantal\+Defecten REQUIRE(\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+The tram is not properly initialized\char`\"{}); 
 
-Implemented in \mbox{\hyperlink{classAlbatrosTram_ab845bfbb1b6ac1e86f9cc561e9042d87}{Albatros\+Tram}}, \mbox{\hyperlink{classPCCTram_a43bedfccf44a7f8cbe7ab5c1376588cc}{PCCTram}}, and \mbox{\hyperlink{classStadslijnerTram_a9e2dbf36c8f958a0dd7a5727af039b75}{Stadslijner\+Tram}}.
+Implemented in \mbox{\hyperlink{classPCCTram_a43bedfccf44a7f8cbe7ab5c1376588cc}{PCCTram}}.
 
-\Hypertarget{classTram_ae4a7cf6313452140ed54d219d1f6afba}\label{classTram_ae4a7cf6313452140ed54d219d1f6afba} 
+\mbox{\Hypertarget{classTram_ae4a7cf6313452140ed54d219d1f6afba}\label{classTram_ae4a7cf6313452140ed54d219d1f6afba}} 
 \index{Tram@{Tram}!getBeginStation@{getBeginStation}}
 \index{getBeginStation@{getBeginStation}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{getBeginStation()}{getBeginStation()}}
 {\footnotesize\ttfamily std\+::string Tram\+::get\+Begin\+Station (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 \begin{DoxyReturn}{Returns}
-De beginstation van een tram. 
+De beginstation van een tram. REQUIRE(\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+The tram is not properly initialized\char`\"{}); 
 \end{DoxyReturn}
-\Hypertarget{classTram_ae1d03c1fb6e0f5f97c57d35fe10fa8dd}\label{classTram_ae1d03c1fb6e0f5f97c57d35fe10fa8dd} 
+\mbox{\Hypertarget{classTram_ae53ef86f96238388e9718e7217ff2eb9}\label{classTram_ae53ef86f96238388e9718e7217ff2eb9}} 
+\index{Tram@{Tram}!getDefectWatcher@{getDefectWatcher}}
+\index{getDefectWatcher@{getDefectWatcher}!Tram@{Tram}}
+\doxysubsubsection{\texorpdfstring{getDefectWatcher()}{getDefectWatcher()}}
+{\footnotesize\ttfamily int Tram\+::get\+Defect\+Watcher (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+get Defect\+Watcher REQUIRE(\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+The tram is not properly initialized\char`\"{}); \mbox{\Hypertarget{classTram_ae1d03c1fb6e0f5f97c57d35fe10fa8dd}\label{classTram_ae1d03c1fb6e0f5f97c57d35fe10fa8dd}} 
 \index{Tram@{Tram}!getHuidigStation@{getHuidigStation}}
 \index{getHuidigStation@{getHuidigStation}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{getHuidigStation()}{getHuidigStation()}}
 {\footnotesize\ttfamily std\+::string Tram\+::get\+Huidig\+Station (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-\begin{DoxyReturn}{Returns}
+REQUIRE(\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+The tram is not properly initialized\char`\"{}); \begin{DoxyReturn}{Returns}
 Huidig station waarin de tram zich bevindt. 
 \end{DoxyReturn}
-\Hypertarget{classTram_ad2404fa7837b41287feab05f6a1b52bf}\label{classTram_ad2404fa7837b41287feab05f6a1b52bf} 
+\mbox{\Hypertarget{classTram_ad2404fa7837b41287feab05f6a1b52bf}\label{classTram_ad2404fa7837b41287feab05f6a1b52bf}} 
 \index{Tram@{Tram}!getLijnNr@{getLijnNr}}
 \index{getLijnNr@{getLijnNr}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{getLijnNr()}{getLijnNr()}}
 {\footnotesize\ttfamily int Tram\+::get\+Lijn\+Nr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-\begin{DoxyReturn}{Returns}
+REQUIRE(\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+The tram is not properly initialized\char`\"{}); \begin{DoxyReturn}{Returns}
 Het lijnnummer van een tram. 
 \end{DoxyReturn}
-\Hypertarget{classTram_ab205a017f42df554987b89091ab3270c}\label{classTram_ab205a017f42df554987b89091ab3270c} 
+\mbox{\Hypertarget{classTram_ab205a017f42df554987b89091ab3270c}\label{classTram_ab205a017f42df554987b89091ab3270c}} 
 \index{Tram@{Tram}!getReparatieKost@{getReparatieKost}}
 \index{getReparatieKost@{getReparatieKost}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{getReparatieKost()}{getReparatieKost()}}
 {\footnotesize\ttfamily virtual int Tram\+::get\+Reparatie\+Kost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-Virtual get\+Reparatie\+Kost 
+Virtual get\+Reparatie\+Kost REQUIRE(\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+The tram is not properly initialized\char`\"{}); 
 
-Implemented in \mbox{\hyperlink{classAlbatrosTram_ae01000b96b4606738d67342189938adf}{Albatros\+Tram}}, \mbox{\hyperlink{classPCCTram_af38f9584a5a80222cc396c738bbcd1e9}{PCCTram}}, and \mbox{\hyperlink{classStadslijnerTram_af3d180e2b8b22d5ee247edbbd2e65597}{Stadslijner\+Tram}}.
+Implemented in \mbox{\hyperlink{classPCCTram_af38f9584a5a80222cc396c738bbcd1e9}{PCCTram}}.
 
-\Hypertarget{classTram_a07acce09d3df5deece3b8758011b0143}\label{classTram_a07acce09d3df5deece3b8758011b0143} 
+\mbox{\Hypertarget{classTram_a07acce09d3df5deece3b8758011b0143}\label{classTram_a07acce09d3df5deece3b8758011b0143}} 
 \index{Tram@{Tram}!getReparatieTijd@{getReparatieTijd}}
 \index{getReparatieTijd@{getReparatieTijd}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{getReparatieTijd()}{getReparatieTijd()}}
 {\footnotesize\ttfamily virtual int Tram\+::get\+Reparatie\+Tijd (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-Virtual get\+Reparatie\+Tijd 
+Virtual get\+Reparatie\+Tijd REQUIRE(\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+The tram is not properly initialized\char`\"{}); 
 
-Implemented in \mbox{\hyperlink{classAlbatrosTram_a643cb9d3d6188f9d996081b081d85b31}{Albatros\+Tram}}, \mbox{\hyperlink{classPCCTram_a67db5d4463f78f05bfa8577be0736b29}{PCCTram}}, and \mbox{\hyperlink{classStadslijnerTram_a631b7306e673afc8562d7e669b4a7e2f}{Stadslijner\+Tram}}.
+Implemented in \mbox{\hyperlink{classPCCTram_a67db5d4463f78f05bfa8577be0736b29}{PCCTram}}.
 
-\Hypertarget{classTram_afcd79d44b9bc18fb1e7302daa40f56f5}\label{classTram_afcd79d44b9bc18fb1e7302daa40f56f5} 
+\mbox{\Hypertarget{classTram_a4c733521d43a0eed4a5819e23e2bd73c}\label{classTram_a4c733521d43a0eed4a5819e23e2bd73c}} 
+\index{Tram@{Tram}!getReparatieTijdWatcher@{getReparatieTijdWatcher}}
+\index{getReparatieTijdWatcher@{getReparatieTijdWatcher}!Tram@{Tram}}
+\doxysubsubsection{\texorpdfstring{getReparatieTijdWatcher()}{getReparatieTijdWatcher()}}
+{\footnotesize\ttfamily int Tram\+::get\+Reparatie\+Tijd\+Watcher (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+get Reparte\+Tijd\+Watcher REQUIRE(\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+The tram is not properly initialized\char`\"{}); \mbox{\Hypertarget{classTram_afcd79d44b9bc18fb1e7302daa40f56f5}\label{classTram_afcd79d44b9bc18fb1e7302daa40f56f5}} 
 \index{Tram@{Tram}!getSnelheid@{getSnelheid}}
 \index{getSnelheid@{getSnelheid}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{getSnelheid()}{getSnelheid()}}
 {\footnotesize\ttfamily int Tram\+::get\+Snelheid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
 
 \begin{DoxyReturn}{Returns}
-De snelheid van een tram. 
+De snelheid van een tram. REQUIRE(\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+The tram is not properly initialized\char`\"{}); 
 \end{DoxyReturn}
 
 
-Reimplemented in \mbox{\hyperlink{classAlbatrosTram_aa23bbe122b1bb2d397426887e42d78e6}{Albatros\+Tram}}, \mbox{\hyperlink{classPCCTram_a4c74ccbb110b0af7e7ee78ef3ea6a84d}{PCCTram}}, and \mbox{\hyperlink{classStadslijnerTram_a018a60edcf59bd5367650f64bb3ea4f0}{Stadslijner\+Tram}}.
+Reimplemented in \mbox{\hyperlink{classPCCTram_a4c74ccbb110b0af7e7ee78ef3ea6a84d}{PCCTram}}.
 
-\Hypertarget{classTram_aeada784548f7e7b7131cd5297ee83c9c}\label{classTram_aeada784548f7e7b7131cd5297ee83c9c} 
+\mbox{\Hypertarget{classTram_aeada784548f7e7b7131cd5297ee83c9c}\label{classTram_aeada784548f7e7b7131cd5297ee83c9c}} 
 \index{Tram@{Tram}!getTotalReparatieKost@{getTotalReparatieKost}}
 \index{getTotalReparatieKost@{getTotalReparatieKost}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{getTotalReparatieKost()}{getTotalReparatieKost()}}
 {\footnotesize\ttfamily int Tram\+::get\+Total\+Reparatie\+Kost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Functie controleerd wat de totale reparatiekost is van een \doxylink{classTram}{Tram} object. \begin{DoxyReturn}{Returns}
+Functie controleerd wat de totale reparatiekost is van een \mbox{\hyperlink{classTram}{Tram}} object. REQUIRE(\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+The tram is not properly initialized\char`\"{}); \begin{DoxyReturn}{Returns}
 Totale reparatiekost van type int. 
 \end{DoxyReturn}
-\Hypertarget{classTram_a2e75ee5e2cbc43da2862334e6ff148e1}\label{classTram_a2e75ee5e2cbc43da2862334e6ff148e1} 
+\mbox{\Hypertarget{classTram_a0e437b0632696cb460c0cf6cd696e18f}\label{classTram_a0e437b0632696cb460c0cf6cd696e18f}} 
 \index{Tram@{Tram}!getType@{getType}}
 \index{getType@{getType}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{getType()}{getType()}}
-{\footnotesize\ttfamily std\+::string Tram\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+{\footnotesize\ttfamily Tram\+Type\+::\+Type\+Tram Tram\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
 
-Getter functie die het Type van een \doxylink{classTram}{Tram} object zal teruggeven. \begin{DoxyReturn}{Returns}
-Type van het \doxylink{classTram}{Tram} object. 
+Getter functie die het Type van een \mbox{\hyperlink{classTram}{Tram}} object zal teruggeven. REQUIRE(\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+The tram is not properly initialized\char`\"{}); \begin{DoxyReturn}{Returns}
+Type van het \mbox{\hyperlink{classTram}{Tram}} object. 
 \end{DoxyReturn}
-\Hypertarget{classTram_a6e9f78befa2850add25925559ed98bc1}\label{classTram_a6e9f78befa2850add25925559ed98bc1} 
+
+
+Reimplemented in \mbox{\hyperlink{classPCCTram_ad252ebbbd7729e6039bf645a0feee76f}{PCCTram}}.
+
+\mbox{\Hypertarget{classTram_a6e9f78befa2850add25925559ed98bc1}\label{classTram_a6e9f78befa2850add25925559ed98bc1}} 
 \index{Tram@{Tram}!getVoertuigNummer@{getVoertuigNummer}}
 \index{getVoertuigNummer@{getVoertuigNummer}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{getVoertuigNummer()}{getVoertuigNummer()}}
 {\footnotesize\ttfamily int Tram\+::get\+Voertuig\+Nummer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Getter functie die het voertuignummer van een \doxylink{classTram}{Tram} object zal teruggeven. \begin{DoxyReturn}{Returns}
-Voertuignummer van het \doxylink{classTram}{Tram} object. 
+Getter functie die het voertuignummer van een \mbox{\hyperlink{classTram}{Tram}} object zal teruggeven. REQUIRE(\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+The tram is not properly initialized\char`\"{}); \begin{DoxyReturn}{Returns}
+Voertuignummer van het \mbox{\hyperlink{classTram}{Tram}} object. 
 \end{DoxyReturn}
-\Hypertarget{classTram_ae1f7d32d9c29b09fb437b86fe3170725}\label{classTram_ae1f7d32d9c29b09fb437b86fe3170725} 
+\mbox{\Hypertarget{classTram_a721fdd8a1127928b32c97c8158de5ebc}\label{classTram_a721fdd8a1127928b32c97c8158de5ebc}} 
 \index{Tram@{Tram}!move@{move}}
 \index{move@{move}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{move()}{move()}}
-{\footnotesize\ttfamily bool Tram\+::move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{station }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Tram\+::move (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{station,  }\item[{\mbox{\hyperlink{classExporter}{Exporter}} \&}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-Functie die een \doxylink{classTram}{Tram} object van de ene \doxylink{classStation}{Station} object naar de volgende \doxylink{classStation}{Station} object verplaatst. \begin{DoxyPrecond}{Precondition}
-REQUIRE(target\+Station-\/\texorpdfstring{$>$}{>}a\+Spoor\+Connected\+To\+Station(\doxylink{classTram_ae1d03c1fb6e0f5f97c57d35fe10fa8dd}{get\+Huidig\+Station()}, \doxylink{classTram_ad2404fa7837b41287feab05f6a1b52bf}{get\+Lijn\+Nr()}), \char`\"{}\+Station to move to has no Spoor connected to the current Station of the tram!\char`\"{}) 
+Functie die een \mbox{\hyperlink{classTram}{Tram}} object van de ene \mbox{\hyperlink{classStation}{Station}} object naar de volgende \mbox{\hyperlink{classStation}{Station}} object verplaatst. REQUIRE(\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+The tram must be properly initialized\char`\"{}); \begin{DoxyPrecond}{Precondition}
+REQUIRE(target\+Station-\/$>$a\+Spoor\+Connected\+To\+Station(\mbox{\hyperlink{classTram_ae1d03c1fb6e0f5f97c57d35fe10fa8dd}{get\+Huidig\+Station()}}, \mbox{\hyperlink{classTram_ad2404fa7837b41287feab05f6a1b52bf}{get\+Lijn\+Nr()}}), \char`\"{}\+Station to move to has no Spoor connected to the current Station of the tram!\char`\"{}) 
 
-REQUIRE(target\+Station-\/\texorpdfstring{$>$}{>}has\+Spoor(get\+Lijn\+Nr()), \char`\"{}\+The target station does not have the same lijn\+Nr as this tram\char`\"{}) 
+REQUIRE(target\+Station-\/$>$has\+Spoor(get\+Lijn\+Nr()), \char`\"{}\+The target station does not have the same lijn\+Nr as this tram\char`\"{}) 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-ENSURE(\doxylink{classTram_ae1d03c1fb6e0f5f97c57d35fe10fa8dd}{get\+Huidig\+Station()} == temp, \char`\"{}\+The member huidig\+Station has changed\char`\"{}) 
+ENSURE(\mbox{\hyperlink{classTram_ae1d03c1fb6e0f5f97c57d35fe10fa8dd}{get\+Huidig\+Station()}} == temp, \char`\"{}\+The member huidig\+Station has changed\char`\"{}) 
 
-ENSURE(\doxylink{classTram_ae1d03c1fb6e0f5f97c57d35fe10fa8dd}{get\+Huidig\+Station()} == target, \char`\"{}\+The member huidig\+Station has not been changed properly\char`\"{}) 
+ENSURE(\mbox{\hyperlink{classTram_ae1d03c1fb6e0f5f97c57d35fe10fa8dd}{get\+Huidig\+Station()}} == target, \char`\"{}\+The member huidig\+Station has not been changed properly\char`\"{}) 
 \end{DoxyPostcond}
 
 \begin{DoxyParams}{Parameters}
-{\em station} & naar waar de \doxylink{classTram}{Tram} object verplaatst zal worden. \\
+{\em station} & naar waar de \mbox{\hyperlink{classTram}{Tram}} object verplaatst zal worden. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 true or false 
 \end{DoxyReturn}
 \begin{DoxyAttention}{Attention}
-De eerste ENSURE wordt opgeroepen in geval dat een \doxylink{classTram}{Tram} object {\bfseries{NIET}} verplaatst kan worden naar een volgende \doxylink{classStation}{Station}. De tweede ENSURE wordt opgeroepen in geval dat een \doxylink{classTram}{Tram} wel naar een volgende \doxylink{classStation}{Station} verplaatst kan worden. In de tweede ENSURE zal die dan ook een ERROR throwen als er tog iets mis gaat. 
+De eerste ENSURE wordt opgeroepen in geval dat een \mbox{\hyperlink{classTram}{Tram}} object {\bfseries{NIET}} verplaatst kan worden naar een volgende \mbox{\hyperlink{classStation}{Station}}. De tweede ENSURE wordt opgeroepen in geval dat een \mbox{\hyperlink{classTram}{Tram}} wel naar een volgende \mbox{\hyperlink{classStation}{Station}} verplaatst kan worden. In de tweede ENSURE zal die dan ook een ERROR throwen als er tog iets mis gaat. 
 \end{DoxyAttention}
-\Hypertarget{classTram_ac69cbbacaed7e1b9e60e608d766d02ee}\label{classTram_ac69cbbacaed7e1b9e60e608d766d02ee} 
+
+
+Implemented in \mbox{\hyperlink{classPCCTram_a732acb84fc04948beea073c55cfd887b}{PCCTram}}.
+
+\mbox{\Hypertarget{classTram_a54135dd1028b6362213abdd10150266a}\label{classTram_a54135dd1028b6362213abdd10150266a}} 
 \index{Tram@{Tram}!properlyInitialized@{properlyInitialized}}
 \index{properlyInitialized@{properlyInitialized}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{properlyInitialized()}{properlyInitialized()}}
-{\footnotesize\ttfamily bool Tram\+::properly\+Initialized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Tram\+::properly\+Initialized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 Controleerd ofdat de tram object correct geïnitialiseerd is. \begin{DoxyReturn}{Returns}
 true or false 
 \end{DoxyReturn}
-\Hypertarget{classTram_ad073bc58fcac0d974476059d53d5ba67}\label{classTram_ad073bc58fcac0d974476059d53d5ba67} 
+\mbox{\Hypertarget{classTram_ad073bc58fcac0d974476059d53d5ba67}\label{classTram_ad073bc58fcac0d974476059d53d5ba67}} 
 \index{Tram@{Tram}!setAantalDefecten@{setAantalDefecten}}
 \index{setAantalDefecten@{setAantalDefecten}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{setAantalDefecten()}{setAantalDefecten()}}
@@ -287,62 +326,68 @@ true or false
 
 Virtual set\+Aantal\+Defecten 
 \begin{DoxyParams}{Parameters}
-{\em aantal} & defecten \\
+{\em aantal} & defecten REQUIRE(\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+The tram is not properly initialized\char`\"{}); ENSURE(\mbox{\hyperlink{classTram_ac54384fcc146ea7a759823e724cc3509}{get\+Aantal\+Defecten()}} == 0, \char`\"{}\+Set not correct\char`\"{}); \\
 \hline
 \end{DoxyParams}
 
 
-Implemented in \mbox{\hyperlink{classAlbatrosTram_adcae5949cf67a4162f0d7194f7cf9b2b}{Albatros\+Tram}}, \mbox{\hyperlink{classPCCTram_ac0d50651cef95d2efaba5e7fcbc5214b}{PCCTram}}, and \mbox{\hyperlink{classStadslijnerTram_a1d976c9f21987c12376747ef87c0338c}{Stadslijner\+Tram}}.
+Implemented in \mbox{\hyperlink{classPCCTram_ac0d50651cef95d2efaba5e7fcbc5214b}{PCCTram}}.
 
-\Hypertarget{classTram_a84f6ad02d1160bb6365dde706f50a116}\label{classTram_a84f6ad02d1160bb6365dde706f50a116} 
+\mbox{\Hypertarget{classTram_a794aa9864d38b82f57726d3e5a0cfe2d}\label{classTram_a794aa9864d38b82f57726d3e5a0cfe2d}} 
 \index{Tram@{Tram}!setBeginStation@{setBeginStation}}
 \index{setBeginStation@{setBeginStation}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{setBeginStation()}{setBeginStation()}}
-{\footnotesize\ttfamily void Tram\+::set\+Begin\+Station (\begin{DoxyParamCaption}\item[{std\+::string \&}]{bs }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Tram\+::set\+Begin\+Station (\begin{DoxyParamCaption}\item[{std\+::string}]{bs }\end{DoxyParamCaption})}
 
-Setter functie voor een tram object zijn beginstation te zetten. \begin{DoxyPrecond}{Precondition}
+Setter functie voor een tram object zijn beginstation te zetten. REQUIRE(\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+The tram is not properly initialized\char`\"{}); \begin{DoxyPrecond}{Precondition}
 REQUIRE(!(Utils\+::is\+\_\+int(bs)), \char`\"{}\+The parameter begin\+Station is a number\char`\"{}) 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-ENSURE(\doxylink{classTram_ae4a7cf6313452140ed54d219d1f6afba}{get\+Begin\+Station()} == bs, \char`\"{}\+The member begin\+Station type has not been set properly\char`\"{}) 
+ENSURE(\mbox{\hyperlink{classTram_ae4a7cf6313452140ed54d219d1f6afba}{get\+Begin\+Station()}} == bs, \char`\"{}\+The member begin\+Station type has not been set properly\char`\"{}) 
 \end{DoxyPostcond}
 
 \begin{DoxyParams}{Parameters}
 {\em bs} & De naam van het beginstation van een tram. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classTram_a46c31a4814722962c688b7eebd1beaf0}\label{classTram_a46c31a4814722962c688b7eebd1beaf0} 
+\mbox{\Hypertarget{classTram_a3bdf399d4d4bd22fb770b0ba9e0ea8ec}\label{classTram_a3bdf399d4d4bd22fb770b0ba9e0ea8ec}} 
+\index{Tram@{Tram}!setDefectWatcher@{setDefectWatcher}}
+\index{setDefectWatcher@{setDefectWatcher}!Tram@{Tram}}
+\doxysubsubsection{\texorpdfstring{setDefectWatcher()}{setDefectWatcher()}}
+{\footnotesize\ttfamily void Tram\+::set\+Defect\+Watcher (\begin{DoxyParamCaption}\item[{int}]{defect\+Watcher }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+set Defect\+Watcher REQUIRE(\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+The tram is not properly initialized\char`\"{}); ENSURE(\mbox{\hyperlink{classTram_ae53ef86f96238388e9718e7217ff2eb9}{get\+Defect\+Watcher()}} == d, \char`\"{}\+The setting was not successful\char`\"{}); \mbox{\Hypertarget{classTram_a808a9cd6ba36bcefb788d059544968c8}\label{classTram_a808a9cd6ba36bcefb788d059544968c8}} 
 \index{Tram@{Tram}!setHuidigStation@{setHuidigStation}}
 \index{setHuidigStation@{setHuidigStation}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{setHuidigStation()}{setHuidigStation()}}
-{\footnotesize\ttfamily void Tram\+::set\+Huidig\+Station (\begin{DoxyParamCaption}\item[{std\+::string \&}]{h }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Tram\+::set\+Huidig\+Station (\begin{DoxyParamCaption}\item[{std\+::string}]{h }\end{DoxyParamCaption})}
 
-Setter functie voor een tram het huidige station te zetten. \begin{DoxyPrecond}{Precondition}
+Setter functie voor een tram het huidige station te zetten. REQUIRE(\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+The tram is not properly initialized\char`\"{}); \begin{DoxyPrecond}{Precondition}
 REQUIRE(!(Utils\+::is\+\_\+int(h)), \char`\"{}\+The parameter huidig\+Station is a number\char`\"{}) 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-ENSURE(\doxylink{classTram_ae1d03c1fb6e0f5f97c57d35fe10fa8dd}{get\+Huidig\+Station()} == h, \char`\"{}\+The member huidig\+Station type has not been set properly\char`\"{}) 
+ENSURE(\mbox{\hyperlink{classTram_ae1d03c1fb6e0f5f97c57d35fe10fa8dd}{get\+Huidig\+Station()}} == h, \char`\"{}\+The member huidig\+Station type has not been set properly\char`\"{}) 
 \end{DoxyPostcond}
 
 \begin{DoxyParams}{Parameters}
 {\em h} & Het huidig station van een tram. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classTram_acfa9bb360bc614e2b591191f8c525ad8}\label{classTram_acfa9bb360bc614e2b591191f8c525ad8} 
+\mbox{\Hypertarget{classTram_acfa9bb360bc614e2b591191f8c525ad8}\label{classTram_acfa9bb360bc614e2b591191f8c525ad8}} 
 \index{Tram@{Tram}!setLijnNr@{setLijnNr}}
 \index{setLijnNr@{setLijnNr}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{setLijnNr()}{setLijnNr()}}
 {\footnotesize\ttfamily void Tram\+::set\+Lijn\+Nr (\begin{DoxyParamCaption}\item[{int}]{l }\end{DoxyParamCaption})}
 
-Setter functie voor een tram object zijn lijnnummer te zetten. \begin{DoxyPostcond}{Postcondition}
-ENSURE(\doxylink{classTram_ad2404fa7837b41287feab05f6a1b52bf}{get\+Lijn\+Nr()} == l, \char`\"{}\+The member lijn\+Nr type has not been set properly\char`\"{}) 
+Setter functie voor een tram object zijn lijnnummer te zetten. REQUIRE(\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+The tram is not properly initialized\char`\"{}); \begin{DoxyPostcond}{Postcondition}
+ENSURE(\mbox{\hyperlink{classTram_ad2404fa7837b41287feab05f6a1b52bf}{get\+Lijn\+Nr()}} == l, \char`\"{}\+The member lijn\+Nr type has not been set properly\char`\"{}) 
 \end{DoxyPostcond}
 
 \begin{DoxyParams}{Parameters}
 {\em l} & Lijnnummer van een tram. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classTram_a6952bd8d9be4b1ab1175c98944600197}\label{classTram_a6952bd8d9be4b1ab1175c98944600197} 
+\mbox{\Hypertarget{classTram_a6952bd8d9be4b1ab1175c98944600197}\label{classTram_a6952bd8d9be4b1ab1175c98944600197}} 
 \index{Tram@{Tram}!setReparatieKost@{setReparatieKost}}
 \index{setReparatieKost@{setReparatieKost}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{setReparatieKost()}{setReparatieKost()}}
@@ -350,14 +395,14 @@ ENSURE(\doxylink{classTram_ad2404fa7837b41287feab05f6a1b52bf}{get\+Lijn\+Nr()} =
 
 Virtual set\+Reparatie\+Kost 
 \begin{DoxyParams}{Parameters}
-{\em aantal} & Kost van reparatie. \\
+{\em aantal} & Kost van reparatie. REQUIRE(\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+The tram is not properly initialized\char`\"{}); ENSURE(\mbox{\hyperlink{classTram_ab205a017f42df554987b89091ab3270c}{get\+Reparatie\+Kost()}} == 0, \char`\"{}\+Set not correct\char`\"{}); \\
 \hline
 \end{DoxyParams}
 
 
-Implemented in \mbox{\hyperlink{classAlbatrosTram_a355a298267ccf14d650a66c02045856e}{Albatros\+Tram}}, \mbox{\hyperlink{classPCCTram_a25b2ab34cf7ec4051c88a33a6475c62a}{PCCTram}}, and \mbox{\hyperlink{classStadslijnerTram_a0a883d564403d9a500b2108621f5ac34}{Stadslijner\+Tram}}.
+Implemented in \mbox{\hyperlink{classPCCTram_a25b2ab34cf7ec4051c88a33a6475c62a}{PCCTram}}.
 
-\Hypertarget{classTram_a92437d1d1b39c4ec53d30a9fbdf7ba67}\label{classTram_a92437d1d1b39c4ec53d30a9fbdf7ba67} 
+\mbox{\Hypertarget{classTram_a92437d1d1b39c4ec53d30a9fbdf7ba67}\label{classTram_a92437d1d1b39c4ec53d30a9fbdf7ba67}} 
 \index{Tram@{Tram}!setReparatieTijd@{setReparatieTijd}}
 \index{setReparatieTijd@{setReparatieTijd}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{setReparatieTijd()}{setReparatieTijd()}}
@@ -365,77 +410,91 @@ Implemented in \mbox{\hyperlink{classAlbatrosTram_a355a298267ccf14d650a66c020458
 
 Virtual set\+Reparatie\+Tijd 
 \begin{DoxyParams}{Parameters}
-{\em aantal} & Duur van reparatie \\
+{\em aantal} & Duur van reparatie REQUIRE(\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+The tram is not properly initialized\char`\"{}); ENSURE(\mbox{\hyperlink{classTram_a07acce09d3df5deece3b8758011b0143}{get\+Reparatie\+Tijd()}} == 0, \char`\"{}\+Set not correct\char`\"{}); \\
 \hline
 \end{DoxyParams}
 
 
-Implemented in \mbox{\hyperlink{classAlbatrosTram_a8bfe0dc78ca7a8f7f87da783529e8e57}{Albatros\+Tram}}, \mbox{\hyperlink{classPCCTram_addebb009a4a7ebc55206a414c67e3779}{PCCTram}}, and \mbox{\hyperlink{classStadslijnerTram_a0ac9533cd6b80ce83e0f7eca45b3ac1c}{Stadslijner\+Tram}}.
+Implemented in \mbox{\hyperlink{classPCCTram_addebb009a4a7ebc55206a414c67e3779}{PCCTram}}.
 
-\Hypertarget{classTram_a2cabc354af57462ae361ead62a20aca6}\label{classTram_a2cabc354af57462ae361ead62a20aca6} 
+\mbox{\Hypertarget{classTram_a28abb547cc8747f30e410a46ec96233a}\label{classTram_a28abb547cc8747f30e410a46ec96233a}} 
+\index{Tram@{Tram}!setReparatieTijdWatcher@{setReparatieTijdWatcher}}
+\index{setReparatieTijdWatcher@{setReparatieTijdWatcher}!Tram@{Tram}}
+\doxysubsubsection{\texorpdfstring{setReparatieTijdWatcher()}{setReparatieTijdWatcher()}}
+{\footnotesize\ttfamily void Tram\+::set\+Reparatie\+Tijd\+Watcher (\begin{DoxyParamCaption}\item[{int}]{reparatie\+Tijd\+Watcher }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+set Reparte\+Tijd\+Watcher REQUIRE(\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+The tram is not properly initialized\char`\"{}); ENSURE(\mbox{\hyperlink{classTram_a4c733521d43a0eed4a5819e23e2bd73c}{get\+Reparatie\+Tijd\+Watcher()}} == r, \char`\"{}\+The setting was not succesful\char`\"{}); \mbox{\Hypertarget{classTram_a2cabc354af57462ae361ead62a20aca6}\label{classTram_a2cabc354af57462ae361ead62a20aca6}} 
 \index{Tram@{Tram}!setSnelheid@{setSnelheid}}
 \index{setSnelheid@{setSnelheid}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{setSnelheid()}{setSnelheid()}}
 {\footnotesize\ttfamily void Tram\+::set\+Snelheid (\begin{DoxyParamCaption}\item[{int}]{s }\end{DoxyParamCaption})}
 
-Setter functie voor een tram object zijn snelheid te zetten. 
+Setter functie voor een tram object zijn snelheid te zetten. REQUIRE(\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+The tram is not properly initialized\char`\"{}); 
 \begin{DoxyParams}{Parameters}
 {\em s} & Snelheid van een tram. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classTram_a790af7fffaea8dd84c3c43fadb02aaaa}\label{classTram_a790af7fffaea8dd84c3c43fadb02aaaa} 
+\mbox{\Hypertarget{classTram_ad55c2da8e2899b2818d4867c25963cfe}\label{classTram_ad55c2da8e2899b2818d4867c25963cfe}} 
 \index{Tram@{Tram}!setType@{setType}}
 \index{setType@{setType}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{setType()}{setType()}}
-{\footnotesize\ttfamily void Tram\+::set\+Type (\begin{DoxyParamCaption}\item[{std\+::string \&}]{type }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Tram\+::set\+Type (\begin{DoxyParamCaption}\item[{std\+::string}]{type }\end{DoxyParamCaption})}
 
-Setter functie die het Type attribuut zet voor een \doxylink{classTram}{Tram} object. \begin{DoxyPrecond}{Precondition}
+Setter functie die het Type attribuut zet voor een \mbox{\hyperlink{classTram}{Tram}} object. REQUIRE(\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+The tram is not properly initialized\char`\"{}); \begin{DoxyPrecond}{Precondition}
 REQUIRE(!(Utils\+::is\+\_\+int(t)), \char`\"{}\+The parameter type is a number\char`\"{}) 
+
+REQUIRE(t == \char`\"{}\+Albatros\char`\"{} $\vert$$\vert$ t== \char`\"{}\+PCC\char`\"{} $\vert$$\vert$ t== \char`\"{}\+Stadslijner\char`\"{}, \char`\"{}\+Type given for tram is an invalid type\char`\"{}) 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-ENSURE(\doxylink{classTram_a2e75ee5e2cbc43da2862334e6ff148e1}{get\+Type()} == t, \char`\"{}\+The member variable type has not been set properly\char`\"{}) 
+ENSURE(\mbox{\hyperlink{classTram_a0e437b0632696cb460c0cf6cd696e18f}{get\+Type()}} == t, \char`\"{}\+The member variable type has not been set properly\char`\"{}) 
 \end{DoxyPostcond}
 
 \begin{DoxyParams}{Parameters}
-{\em type} & van het \doxylink{classTram}{Tram} object. \\
+{\em type} & van het \mbox{\hyperlink{classTram}{Tram}} object. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classTram_ac0155ac5ceee1462fd2d22e5184aa240}\label{classTram_ac0155ac5ceee1462fd2d22e5184aa240} 
+\mbox{\Hypertarget{classTram_ac0155ac5ceee1462fd2d22e5184aa240}\label{classTram_ac0155ac5ceee1462fd2d22e5184aa240}} 
 \index{Tram@{Tram}!setVoertuigNummer@{setVoertuigNummer}}
 \index{setVoertuigNummer@{setVoertuigNummer}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{setVoertuigNummer()}{setVoertuigNummer()}}
 {\footnotesize\ttfamily void Tram\+::set\+Voertuig\+Nummer (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})}
 
-Setter functie die het voertuig\+Nr attribuut zet voor een \doxylink{classTram}{Tram} object. \begin{DoxyPostcond}{Postcondition}
-ENSURE(\doxylink{classTram_a6e9f78befa2850add25925559ed98bc1}{get\+Voertuig\+Nummer()} == n, \char`\"{}\+The member variable voertuig\+Nummer has not been set properly\char`\"{}) 
+Setter functie die het voertuig\+Nr attribuut zet voor een \mbox{\hyperlink{classTram}{Tram}} object. REQUIRE(\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+The tram is not properly initialized\char`\"{}); \begin{DoxyPostcond}{Postcondition}
+ENSURE(\mbox{\hyperlink{classTram_a6e9f78befa2850add25925559ed98bc1}{get\+Voertuig\+Nummer()}} == n, \char`\"{}\+The member variable voertuig\+Nummer has not been set properly\char`\"{}) 
 \end{DoxyPostcond}
 
 \begin{DoxyParams}{Parameters}
-{\em n} & voertuignummer van het \doxylink{classTram}{Tram} object. \\
+{\em n} & voertuignummer van het \mbox{\hyperlink{classTram}{Tram}} object. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classTram_ae5a174ef5bbef8db21c5446c50c42737}\label{classTram_ae5a174ef5bbef8db21c5446c50c42737} 
+\mbox{\Hypertarget{classTram_ae5a174ef5bbef8db21c5446c50c42737}\label{classTram_ae5a174ef5bbef8db21c5446c50c42737}} 
 \index{Tram@{Tram}!stationCanBeServiced@{stationCanBeServiced}}
 \index{stationCanBeServiced@{stationCanBeServiced}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{stationCanBeServiced()}{stationCanBeServiced()}}
 {\footnotesize\ttfamily virtual bool Tram\+::station\+Can\+Be\+Serviced (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
 
-Virtual station\+Can\+Be\+Serviced 
+Virtual station\+Can\+Be\+Serviced REQUIRE(\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+The tram is not properly initialized\char`\"{}); REQUIRE(s-\/$>$\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+The station must be prperly initialized\char`\"{}); 
 \begin{DoxyParams}{Parameters}
-{\em s} & \doxylink{classStation}{Station} \\
+{\em s} & \mbox{\hyperlink{classStation}{Station}} \\
 \hline
 \end{DoxyParams}
 
 
-Implemented in \mbox{\hyperlink{classAlbatrosTram_a30661d687090b565f3e5b7fc7a03f5c6}{Albatros\+Tram}}, \mbox{\hyperlink{classPCCTram_a2307d29ccf727dd89442f5092f7b7137}{PCCTram}}, and \mbox{\hyperlink{classStadslijnerTram_ab77704005414a8b268ec155367333fd2}{Stadslijner\+Tram}}.
+Implemented in \mbox{\hyperlink{classPCCTram_a2307d29ccf727dd89442f5092f7b7137}{PCCTram}}.
 
-\Hypertarget{classTram_a68f00d883a6e06ab06a817fef2e58bde}\label{classTram_a68f00d883a6e06ab06a817fef2e58bde} 
+\mbox{\Hypertarget{classTram_a77940da7e7063c07ab64c33570fb6d0e}\label{classTram_a77940da7e7063c07ab64c33570fb6d0e}} 
+\index{Tram@{Tram}!tramCanMove@{tramCanMove}}
+\index{tramCanMove@{tramCanMove}!Tram@{Tram}}
+\doxysubsubsection{\texorpdfstring{tramCanMove()}{tramCanMove()}}
+{\footnotesize\ttfamily bool Tram\+::tram\+Can\+Move (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Can the tram move? REQUIRE(\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+The tram is not properly initialized\char`\"{}); ENSURE(!tram\+Defect(), \char`\"{}\+Tram must now be able to move\char`\"{}); \mbox{\Hypertarget{classTram_a68f00d883a6e06ab06a817fef2e58bde}\label{classTram_a68f00d883a6e06ab06a817fef2e58bde}} 
 \index{Tram@{Tram}!tramDefect@{tramDefect}}
 \index{tramDefect@{tramDefect}!Tram@{Tram}}
 \doxysubsubsection{\texorpdfstring{tramDefect()}{tramDefect()}}
 {\footnotesize\ttfamily bool Tram\+::tram\+Defect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Functie controleerd ofdat een \doxylink{classTram}{Tram} object een defect heeft of niet. \begin{DoxyReturn}{Returns}
+Functie controleerd ofdat een \mbox{\hyperlink{classTram}{Tram}} object een defect heeft of niet. REQUIRE(\mbox{\hyperlink{classTram_a54135dd1028b6362213abdd10150266a}{properly\+Initialized()}}, \char`\"{}\+The tram is not properly initialized\char`\"{}); \begin{DoxyReturn}{Returns}
 true or false 
 \end{DoxyReturn}
 

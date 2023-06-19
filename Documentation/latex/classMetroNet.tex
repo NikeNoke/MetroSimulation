@@ -7,7 +7,7 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classMetroNet_ac412bda72e2e95d64ddce9f860acdf92}{Metro\+Net}} ()
+\mbox{\hyperlink{classMetroNet_a844bdae85c6438b0ed9a91b17a898398}{Metro\+Net}} (\mbox{\hyperlink{classExporter}{Exporter}} \&e)
 \item 
 \mbox{\hyperlink{classMetroNet_a8d775a6bd435b468b7da134b32184c65}{$\sim$\+Metro\+Net}} ()
 \item 
@@ -19,7 +19,9 @@ void \mbox{\hyperlink{classMetroNet_a1b5e6fada29587bb810cbebe20116f5c}{add\+Tram
 \item 
 \mbox{\hyperlink{classStation}{Station}} $\ast$ \mbox{\hyperlink{classMetroNet_ae08d94fa2c11c33976f98cb3da870eae}{get\+Station}} (const std\+::string \&name)
 \item 
-\mbox{\hyperlink{classTram}{Tram}} $\ast$ \mbox{\hyperlink{classMetroNet_a88a3d8b5533b86a0c4165f8b3bf48b10}{get\+Tram}} (const std\+::string \&name)
+\mbox{\hyperlink{classTram}{Tram}} $\ast$ \mbox{\hyperlink{classMetroNet_ad0ba9a3bc5867a334d5e8d6e4e6060d8}{get\+Tram}} (int voertuig\+Nr)
+\item 
+bool \mbox{\hyperlink{classMetroNet_adc20467d7001dcb0ad7c58614ba44dcc}{tram\+Exists}} (int voertuig\+Nr)
 \item 
 std\+::vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ \mbox{\hyperlink{classMetroNet_a46edb061e63b058c22593a1b9353a47d}{get\+Stations}} ()
 \item 
@@ -29,16 +31,13 @@ bool \mbox{\hyperlink{classMetroNet_ad7b306379f1788b660df08b9c6a0882f}{properly\
 \item 
 bool \mbox{\hyperlink{classMetroNet_a30184ddce5ce01a1c365a54c9475d272}{is\+Valid\+Metro\+Net}} ()
 \item 
-\Hypertarget{classMetroNet_a600f56c0ff2fa0b756be686b09aff189}\label{classMetroNet_a600f56c0ff2fa0b756be686b09aff189} 
-bool {\bfseries is\+Valid\+Metro\+Net\+Silent} ()
-\item 
 void \mbox{\hyperlink{classMetroNet_a671d06118b65d02e829d0748acbe184e}{simulate\+Metro\+Net}} (int seconds)
 \item 
-bool \mbox{\hyperlink{classMetroNet_a05099a1d547e56022aec6334411154ba}{a\+Tram\+At\+Station}} (const std\+::string \&station\+Name)
+bool \mbox{\hyperlink{classMetroNet_a02113c2d6ca41448490cfbdfeecbb56c}{a\+Tram\+At\+Station}} (const std\+::string station\+Name)
 \item 
 bool \mbox{\hyperlink{classMetroNet_acfea3e712371ae78953afebffd426e70}{a\+Tram\+At\+Station\+Spoor}} (const std\+::string \&station\+Name, int lijn\+Nr)
 \item 
-bool \mbox{\hyperlink{classMetroNet_a7de603d7605925e78d33bc17811c637c}{move\+Tram}} (\mbox{\hyperlink{classTram}{Tram}} $\ast$t, std\+::string \&Target\+Station\+Name)
+bool \mbox{\hyperlink{classMetroNet_addb119f0fd26bc2cdd976c228ede63d1}{move\+Tram}} (\mbox{\hyperlink{classTram}{Tram}} $\ast$t, std\+::string Target\+Station\+Name)
 \item 
 void \mbox{\hyperlink{classMetroNet_a27b4fb44cdc49a61cbfa4c9090ad7fee}{move\+All\+Trams\+Once}} ()
 \item 
@@ -49,71 +48,75 @@ int \mbox{\hyperlink{classMetroNet_a217b086b8ca4ec61baef33ce52e1e3ba}{get\+Totaa
 void \mbox{\hyperlink{classMetroNet_aa188abfa6ab307b29d4346007c39bc3f}{initialize\+Stat}} ()
 \item 
 void \mbox{\hyperlink{classMetroNet_afa2765dbc70c7ffb6e0385063721c7bc}{get\+Stat\+Report}} ()
+\item 
+\mbox{\hyperlink{classExporter}{Exporter}} \& \mbox{\hyperlink{classMetroNet_a7822ab2a6410d971e3609aa22d3935b9}{get\+Exporter}} ()
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Klasse \doxylink{classMetroNet}{Metro\+Net}, een \doxylink{classMetroNet}{Metro\+Net} object waarin alle \doxylink{classTram}{Tram} en \doxylink{classStation}{Station} objecten zouden geplaatst worden en waarover gesimuleert zal worden. 
+Klasse \mbox{\hyperlink{classMetroNet}{Metro\+Net}}, een \mbox{\hyperlink{classMetroNet}{Metro\+Net}} object waarin alle \mbox{\hyperlink{classTram}{Tram}} en \mbox{\hyperlink{classStation}{Station}} objecten zouden geplaatst worden en waarover gesimuleert zal worden. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classMetroNet_ac412bda72e2e95d64ddce9f860acdf92}\label{classMetroNet_ac412bda72e2e95d64ddce9f860acdf92} 
+\mbox{\Hypertarget{classMetroNet_a844bdae85c6438b0ed9a91b17a898398}\label{classMetroNet_a844bdae85c6438b0ed9a91b17a898398}} 
 \index{MetroNet@{MetroNet}!MetroNet@{MetroNet}}
 \index{MetroNet@{MetroNet}!MetroNet@{MetroNet}}
 \doxysubsubsection{\texorpdfstring{MetroNet()}{MetroNet()}}
-{\footnotesize\ttfamily Metro\+Net\+::\+Metro\+Net (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily Metro\+Net\+::\+Metro\+Net (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classExporter}{Exporter}} \&}]{e }\end{DoxyParamCaption})}
 
-Constructor voor \doxylink{classMetroNet}{Metro\+Net}. \begin{DoxyReturn}{Returns}
-Een \doxylink{classMetroNet}{Metro\+Net} object. 
+Constructor voor \mbox{\hyperlink{classMetroNet}{Metro\+Net}}. ENSURE(\mbox{\hyperlink{classMetroNet_ad7b306379f1788b660df08b9c6a0882f}{properly\+Initialized()}}, \char`\"{}\+The metro\+Net is not properly initialized\char`\"{}); \begin{DoxyReturn}{Returns}
+Een \mbox{\hyperlink{classMetroNet}{Metro\+Net}} object. 
 \end{DoxyReturn}
-\Hypertarget{classMetroNet_a8d775a6bd435b468b7da134b32184c65}\label{classMetroNet_a8d775a6bd435b468b7da134b32184c65} 
+\mbox{\Hypertarget{classMetroNet_a8d775a6bd435b468b7da134b32184c65}\label{classMetroNet_a8d775a6bd435b468b7da134b32184c65}} 
 \index{MetroNet@{MetroNet}!````~MetroNet@{$\sim$MetroNet}}
 \index{````~MetroNet@{$\sim$MetroNet}!MetroNet@{MetroNet}}
 \doxysubsubsection{\texorpdfstring{$\sim$MetroNet()}{~MetroNet()}}
 {\footnotesize\ttfamily Metro\+Net\+::$\sim$\+Metro\+Net (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Destructor voor \doxylink{classMetroNet}{Metro\+Net}. 
+Destructor voor \mbox{\hyperlink{classMetroNet}{Metro\+Net}}. 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classMetroNet_a3e18ff076868c8bbf770c1550733f987}\label{classMetroNet_a3e18ff076868c8bbf770c1550733f987} 
+\mbox{\Hypertarget{classMetroNet_a3e18ff076868c8bbf770c1550733f987}\label{classMetroNet_a3e18ff076868c8bbf770c1550733f987}} 
 \index{MetroNet@{MetroNet}!addStation@{addStation}}
 \index{addStation@{addStation}!MetroNet@{MetroNet}}
 \doxysubsubsection{\texorpdfstring{addStation()}{addStation()}}
 {\footnotesize\ttfamily void Metro\+Net\+::add\+Station (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$const}]{station }\end{DoxyParamCaption})}
 
-Voegt station toe bij \doxylink{classMetroNet}{Metro\+Net}. \begin{DoxyPrecond}{Precondition}
-REQUIRE(station-\/\texorpdfstring{$>$}{>}\doxylink{classMetroNet_ad7b306379f1788b660df08b9c6a0882f}{properly\+Initialized()}, \char`\"{}\+The parameter station is not properly initialized\char`\"{}) 
+Voegt station toe bij \mbox{\hyperlink{classMetroNet}{Metro\+Net}}. REQUIRE(\mbox{\hyperlink{classMetroNet_ad7b306379f1788b660df08b9c6a0882f}{properly\+Initialized()}}, \char`\"{}\+The metro\+Net is not properly initialized\char`\"{}); \begin{DoxyPrecond}{Precondition}
+REQUIRE(station-\/$>$\mbox{\hyperlink{classMetroNet_ad7b306379f1788b660df08b9c6a0882f}{properly\+Initialized()}}, \char`\"{}\+The parameter station is not properly initialized\char`\"{}) 
 
-REQUIRE(!station\+Registered(station-\/\texorpdfstring{$>$}{>}get\+Name()), \char`\"{}\+The station is already in the metro\+Net\char`\"{}) 
+REQUIRE(station-\/$>$get\+Name() != \char`\"{}\char`\"{}, \char`\"{}\+The station needs have a name.\char`\"{}) 
+
+REQUIRE(!station-\/$>$get\+Sporen().empty(), \char`\"{}\+Station must have sporen.\char`\"{}) 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-ENSURE(station\+Registered(station-\/\texorpdfstring{$>$}{>}get\+Name()), \char`\"{}\+The station was not successfully added\char`\"{}) 
+ENSURE(station\+Registered(station-\/$>$get\+Name()), \char`\"{}\+The station was not successfully added\char`\"{}) 
 \end{DoxyPostcond}
 
 \begin{DoxyParams}{Parameters}
 {\em station} & station dat toegevoegd wordt. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classMetroNet_a1b5e6fada29587bb810cbebe20116f5c}\label{classMetroNet_a1b5e6fada29587bb810cbebe20116f5c} 
+\mbox{\Hypertarget{classMetroNet_a1b5e6fada29587bb810cbebe20116f5c}\label{classMetroNet_a1b5e6fada29587bb810cbebe20116f5c}} 
 \index{MetroNet@{MetroNet}!addTram@{addTram}}
 \index{addTram@{addTram}!MetroNet@{MetroNet}}
 \doxysubsubsection{\texorpdfstring{addTram()}{addTram()}}
 {\footnotesize\ttfamily void Metro\+Net\+::add\+Tram (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTram}{Tram}} $\ast$const}]{tram }\end{DoxyParamCaption})}
 
-Voegt tram toe bij \doxylink{classMetroNet}{Metro\+Net}. \begin{DoxyPrecond}{Precondition}
-REQUIRE(tram-\/\texorpdfstring{$>$}{>}\doxylink{classMetroNet_ad7b306379f1788b660df08b9c6a0882f}{properly\+Initialized()}, \char`\"{}\+The parameter tram is not properly initialized\char`\"{}) 
+Voegt tram toe bij \mbox{\hyperlink{classMetroNet}{Metro\+Net}}. REQUIRE(\mbox{\hyperlink{classMetroNet_ad7b306379f1788b660df08b9c6a0882f}{properly\+Initialized()}}, \char`\"{}\+The metro\+Net is not properly initialized\char`\"{}); \begin{DoxyPrecond}{Precondition}
+REQUIRE(tram-\/$>$\mbox{\hyperlink{classMetroNet_ad7b306379f1788b660df08b9c6a0882f}{properly\+Initialized()}}, \char`\"{}\+The parameter tram is not properly initialized\char`\"{}) ENSURE(get\+Tram(tram-\/$>$get\+Voertuig\+Nummer()) == tram, \char`\"{}\+The tram has not been added\char`\"{}); 
 \end{DoxyPrecond}
 
 \begin{DoxyParams}{Parameters}
 {\em tram} & tram dat toegevoegd wordt. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classMetroNet_a05099a1d547e56022aec6334411154ba}\label{classMetroNet_a05099a1d547e56022aec6334411154ba} 
+\mbox{\Hypertarget{classMetroNet_a02113c2d6ca41448490cfbdfeecbb56c}\label{classMetroNet_a02113c2d6ca41448490cfbdfeecbb56c}} 
 \index{MetroNet@{MetroNet}!aTramAtStation@{aTramAtStation}}
 \index{aTramAtStation@{aTramAtStation}!MetroNet@{MetroNet}}
 \doxysubsubsection{\texorpdfstring{aTramAtStation()}{aTramAtStation()}}
-{\footnotesize\ttfamily bool Metro\+Net\+::a\+Tram\+At\+Station (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{station\+Name }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Metro\+Net\+::a\+Tram\+At\+Station (\begin{DoxyParamCaption}\item[{const std\+::string}]{station\+Name }\end{DoxyParamCaption})}
 
-Functie dat kijkt in ofdat er op een gegeven station er een tram zich bevindt. 
+Functie dat kijkt in ofdat er op een gegeven station er een tram zich bevindt. REQUIRE(this-\/$>$\mbox{\hyperlink{classMetroNet_ad7b306379f1788b660df08b9c6a0882f}{properly\+Initialized()}}, \char`\"{}\+The metro\+Net is not properly initialized\char`\"{}); 
 \begin{DoxyParams}{Parameters}
 {\em station\+Name} & naam van het station dat we gaan controleren. \\
 \hline
@@ -121,16 +124,16 @@ Functie dat kijkt in ofdat er op een gegeven station er een tram zich bevindt.
 \begin{DoxyReturn}{Returns}
 true or false. 
 \end{DoxyReturn}
-\Hypertarget{classMetroNet_acfea3e712371ae78953afebffd426e70}\label{classMetroNet_acfea3e712371ae78953afebffd426e70} 
+\mbox{\Hypertarget{classMetroNet_acfea3e712371ae78953afebffd426e70}\label{classMetroNet_acfea3e712371ae78953afebffd426e70}} 
 \index{MetroNet@{MetroNet}!aTramAtStationSpoor@{aTramAtStationSpoor}}
 \index{aTramAtStationSpoor@{aTramAtStationSpoor}!MetroNet@{MetroNet}}
 \doxysubsubsection{\texorpdfstring{aTramAtStationSpoor()}{aTramAtStationSpoor()}}
 {\footnotesize\ttfamily bool Metro\+Net\+::a\+Tram\+At\+Station\+Spoor (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{station\+Name,  }\item[{int}]{lijn\+Nr }\end{DoxyParamCaption})}
 
-Functie dat kijkt ofdar er op een gegeven station er een tram zich bevindt (advanced). \begin{DoxyPrecond}{Precondition}
+Functie dat kijkt ofdar er op een gegeven station er een tram zich bevindt (advanced). REQUIRE(this-\/$>$\mbox{\hyperlink{classMetroNet_ad7b306379f1788b660df08b9c6a0882f}{properly\+Initialized()}}, \char`\"{}\+The metro\+Net is not properly initialized\char`\"{}); \begin{DoxyPrecond}{Precondition}
 REQUIRE(station\+Registered(station\+Name), \char`\"{}station\+Name must be valid\char`\"{}) 
 
-REQUIRE(get\+Station(station\+Name)-\/\texorpdfstring{$>$}{>}has\+Spoor(lijn\+Nr), \char`\"{}\+Station must have lijn\+Nr\char`\"{}) 
+REQUIRE(get\+Station(station\+Name)-\/$>$has\+Spoor(lijn\+Nr), \char`\"{}\+Station must have lijn\+Nr\char`\"{}) 
 \end{DoxyPrecond}
 
 \begin{DoxyParams}{Parameters}
@@ -142,16 +145,20 @@ REQUIRE(get\+Station(station\+Name)-\/\texorpdfstring{$>$}{>}has\+Spoor(lijn\+Nr
 \begin{DoxyReturn}{Returns}
 true or false 
 \end{DoxyReturn}
-\Hypertarget{classMetroNet_ae08d94fa2c11c33976f98cb3da870eae}\label{classMetroNet_ae08d94fa2c11c33976f98cb3da870eae} 
+\mbox{\Hypertarget{classMetroNet_a7822ab2a6410d971e3609aa22d3935b9}\label{classMetroNet_a7822ab2a6410d971e3609aa22d3935b9}} 
+\index{MetroNet@{MetroNet}!getExporter@{getExporter}}
+\index{getExporter@{getExporter}!MetroNet@{MetroNet}}
+\doxysubsubsection{\texorpdfstring{getExporter()}{getExporter()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classExporter}{Exporter}} \& Metro\+Net\+::get\+Exporter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+get \mbox{\hyperlink{classExporter}{Exporter}} REQUIRE(this-\/$>$\mbox{\hyperlink{classMetroNet_ad7b306379f1788b660df08b9c6a0882f}{properly\+Initialized()}}, \char`\"{}\+The metro\+Net is not properly initialized\char`\"{}); \mbox{\Hypertarget{classMetroNet_ae08d94fa2c11c33976f98cb3da870eae}\label{classMetroNet_ae08d94fa2c11c33976f98cb3da870eae}} 
 \index{MetroNet@{MetroNet}!getStation@{getStation}}
 \index{getStation@{getStation}!MetroNet@{MetroNet}}
 \doxysubsubsection{\texorpdfstring{getStation()}{getStation()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classStation}{Station}} $\ast$ Metro\+Net\+::get\+Station (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
 
-Getter dat het station returned met parameter name. \begin{DoxyPrecond}{Precondition}
+Getter dat het station returned met parameter name. REQUIRE(\mbox{\hyperlink{classMetroNet_ad7b306379f1788b660df08b9c6a0882f}{properly\+Initialized()}}, \char`\"{}\+The metro\+Net is not properly initialized\char`\"{}); \begin{DoxyPrecond}{Precondition}
 REQUIRE(!(Utils\+::is\+\_\+int(name)), \char`\"{}\+The parameter name is a number\char`\"{}) 
-
-REQUIRE(station\+Registered(name), \char`\"{}\+The station is not Registered!\char`\"{}) 
 \end{DoxyPrecond}
 
 \begin{DoxyParams}{Parameters}
@@ -161,54 +168,49 @@ REQUIRE(station\+Registered(name), \char`\"{}\+The station is not Registered!\ch
 \begin{DoxyReturn}{Returns}
 Geeft station terug dat als naam \char`\"{}name\char`\"{} heeft of als die niet bestaat geeft het NULL terug. 
 \end{DoxyReturn}
-\Hypertarget{classMetroNet_a46edb061e63b058c22593a1b9353a47d}\label{classMetroNet_a46edb061e63b058c22593a1b9353a47d} 
+\mbox{\Hypertarget{classMetroNet_a46edb061e63b058c22593a1b9353a47d}\label{classMetroNet_a46edb061e63b058c22593a1b9353a47d}} 
 \index{MetroNet@{MetroNet}!getStations@{getStations}}
 \index{getStations@{getStations}!MetroNet@{MetroNet}}
 \doxysubsubsection{\texorpdfstring{getStations()}{getStations()}}
 {\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classStation}{Station}} $\ast$ $>$ Metro\+Net\+::get\+Stations (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\begin{DoxyReturn}{Returns}
+REQUIRE(\mbox{\hyperlink{classMetroNet_ad7b306379f1788b660df08b9c6a0882f}{properly\+Initialized()}}, \char`\"{}\+The metro\+Net is not properly initialized\char`\"{}); \begin{DoxyReturn}{Returns}
 een vector met daarin alle stations. 
 \end{DoxyReturn}
-\Hypertarget{classMetroNet_afa2765dbc70c7ffb6e0385063721c7bc}\label{classMetroNet_afa2765dbc70c7ffb6e0385063721c7bc} 
+\mbox{\Hypertarget{classMetroNet_afa2765dbc70c7ffb6e0385063721c7bc}\label{classMetroNet_afa2765dbc70c7ffb6e0385063721c7bc}} 
 \index{MetroNet@{MetroNet}!getStatReport@{getStatReport}}
 \index{getStatReport@{getStatReport}!MetroNet@{MetroNet}}
 \doxysubsubsection{\texorpdfstring{getStatReport()}{getStatReport()}}
 {\footnotesize\ttfamily void Metro\+Net\+::get\+Stat\+Report (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Geeft een status report van een gesimuleerde \doxylink{classMetroNet}{Metro\+Net}. Wordt gebruikt om in een file belangrijke informatie weg te schrijven zoals\+: totale reparatiekosten, welke station door welke tram bezocht werd etc. \Hypertarget{classMetroNet_a217b086b8ca4ec61baef33ce52e1e3ba}\label{classMetroNet_a217b086b8ca4ec61baef33ce52e1e3ba} 
+Geeft een status report van een gesimuleerde \mbox{\hyperlink{classMetroNet}{Metro\+Net}}. Wordt gebruikt om in een file belangrijke informatie weg te schrijven zoals\+: totale reparatiekosten, welke station door welke tram bezocht werd etc. REQUIRE(this-\/$>$\mbox{\hyperlink{classMetroNet_ad7b306379f1788b660df08b9c6a0882f}{properly\+Initialized()}}, \char`\"{}\+The metro\+Net is not properly initialized\char`\"{}); \mbox{\Hypertarget{classMetroNet_a217b086b8ca4ec61baef33ce52e1e3ba}\label{classMetroNet_a217b086b8ca4ec61baef33ce52e1e3ba}} 
 \index{MetroNet@{MetroNet}!getTotaalMetroNetReparatieKost@{getTotaalMetroNetReparatieKost}}
 \index{getTotaalMetroNetReparatieKost@{getTotaalMetroNetReparatieKost}!MetroNet@{MetroNet}}
 \doxysubsubsection{\texorpdfstring{getTotaalMetroNetReparatieKost()}{getTotaalMetroNetReparatieKost()}}
 {\footnotesize\ttfamily int Metro\+Net\+::get\+Totaal\+Metro\+Net\+Reparatie\+Kost (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Getter functie dat de totale reparatie kost zal teruggeven. \begin{DoxyReturn}{Returns}
+Getter functie dat de totale reparatie kost zal teruggeven. REQUIRE(this-\/$>$\mbox{\hyperlink{classMetroNet_ad7b306379f1788b660df08b9c6a0882f}{properly\+Initialized()}}, \char`\"{}\+The metro\+Net is not properly initialized\char`\"{}); \begin{DoxyReturn}{Returns}
 Totale reparatie kost. 
 \end{DoxyReturn}
-\Hypertarget{classMetroNet_a88a3d8b5533b86a0c4165f8b3bf48b10}\label{classMetroNet_a88a3d8b5533b86a0c4165f8b3bf48b10} 
+\mbox{\Hypertarget{classMetroNet_ad0ba9a3bc5867a334d5e8d6e4e6060d8}\label{classMetroNet_ad0ba9a3bc5867a334d5e8d6e4e6060d8}} 
 \index{MetroNet@{MetroNet}!getTram@{getTram}}
 \index{getTram@{getTram}!MetroNet@{MetroNet}}
 \doxysubsubsection{\texorpdfstring{getTram()}{getTram()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classTram}{Tram}} $\ast$ Metro\+Net\+::get\+Tram (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTram}{Tram}} $\ast$ Metro\+Net\+::get\+Tram (\begin{DoxyParamCaption}\item[{int}]{voertuig\+Nr }\end{DoxyParamCaption})}
 
-Getter dat de tram returned met parameter name. 
-\begin{DoxyParams}{Parameters}
-{\em name} & \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+Getter dat de tram returned met parameter voertuig\+Nr. REQUIRE(\mbox{\hyperlink{classMetroNet_ad7b306379f1788b660df08b9c6a0882f}{properly\+Initialized()}}, \char`\"{}\+The metro\+Net is not properly initialized\char`\"{}); REQUIRE(tram\+Exists(voertuig\+Nr), \char`\"{}\+The tram with this nummer must exist\char`\"{}); \begin{DoxyReturn}{Returns}
 Geeft tram terug dat als naam \char`\"{}name\char`\"{} heeft of als die niet bestaat geeft het NULL terug. 
 \end{DoxyReturn}
 \begin{DoxyNote}{Note}
 Functie is nog niet geïmplementeerd. 
 \end{DoxyNote}
-\Hypertarget{classMetroNet_a72cadd71b4830c9e4e8d416cc46c7799}\label{classMetroNet_a72cadd71b4830c9e4e8d416cc46c7799} 
+\mbox{\Hypertarget{classMetroNet_a72cadd71b4830c9e4e8d416cc46c7799}\label{classMetroNet_a72cadd71b4830c9e4e8d416cc46c7799}} 
 \index{MetroNet@{MetroNet}!getTramAtStationSpoor@{getTramAtStationSpoor}}
 \index{getTramAtStationSpoor@{getTramAtStationSpoor}!MetroNet@{MetroNet}}
 \doxysubsubsection{\texorpdfstring{getTramAtStationSpoor()}{getTramAtStationSpoor()}}
 {\footnotesize\ttfamily \mbox{\hyperlink{classTram}{Tram}} $\ast$ Metro\+Net\+::get\+Tram\+At\+Station\+Spoor (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{station\+Name,  }\item[{int}]{lijn\+Nr }\end{DoxyParamCaption})}
 
-Getter functie dat de \doxylink{classTram}{Tram} zal teruggeven dat op zich bevindt op de gegeven station. \begin{DoxyPrecond}{Precondition}
+Getter functie dat de \mbox{\hyperlink{classTram}{Tram}} zal teruggeven dat op zich bevindt op de gegeven station. REQUIRE(this-\/$>$\mbox{\hyperlink{classMetroNet_ad7b306379f1788b660df08b9c6a0882f}{properly\+Initialized()}}, \char`\"{}\+The metro\+Net is not properly initialized\char`\"{}); \begin{DoxyPrecond}{Precondition}
 REQUIRE(a\+Tram\+At\+Station\+Spoor(station\+Name, lijn\+Nr), \char`\"{}\+There must be a tram at station Spoor\+Nr\char`\"{}) 
 \end{DoxyPrecond}
 
@@ -218,93 +220,88 @@ REQUIRE(a\+Tram\+At\+Station\+Spoor(station\+Name, lijn\+Nr), \char`\"{}\+There 
 {\em lijn\+Nr} & lijn\+Nr dat we gaan controleren ofdat die overeenkomt met die van een tram. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classMetroNet_a6da862e9539dc2ce0232aa4a52e592e0}\label{classMetroNet_a6da862e9539dc2ce0232aa4a52e592e0} 
+\mbox{\Hypertarget{classMetroNet_a6da862e9539dc2ce0232aa4a52e592e0}\label{classMetroNet_a6da862e9539dc2ce0232aa4a52e592e0}} 
 \index{MetroNet@{MetroNet}!getTrams@{getTrams}}
 \index{getTrams@{getTrams}!MetroNet@{MetroNet}}
 \doxysubsubsection{\texorpdfstring{getTrams()}{getTrams()}}
 {\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classTram}{Tram}} $\ast$ $>$ Metro\+Net\+::get\+Trams (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-\begin{DoxyReturn}{Returns}
+REQUIRE(\mbox{\hyperlink{classMetroNet_ad7b306379f1788b660df08b9c6a0882f}{properly\+Initialized()}}, \char`\"{}\+The metro\+Net is not properly initialized\char`\"{}); \begin{DoxyReturn}{Returns}
 een vector met daarin alle trammen. 
 \end{DoxyReturn}
-\Hypertarget{classMetroNet_aa188abfa6ab307b29d4346007c39bc3f}\label{classMetroNet_aa188abfa6ab307b29d4346007c39bc3f} 
+\mbox{\Hypertarget{classMetroNet_aa188abfa6ab307b29d4346007c39bc3f}\label{classMetroNet_aa188abfa6ab307b29d4346007c39bc3f}} 
 \index{MetroNet@{MetroNet}!initializeStat@{initializeStat}}
 \index{initializeStat@{initializeStat}!MetroNet@{MetroNet}}
 \doxysubsubsection{\texorpdfstring{initializeStat()}{initializeStat()}}
 {\footnotesize\ttfamily void Metro\+Net\+::initialize\+Stat (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Functie wordt gebruikt om te checken hoeveel keer een bepaald station bezoekt werd door trammen. \begin{DoxyPrecond}{Precondition}
-REQUIRE(\doxylink{classMetroNet_a30184ddce5ce01a1c365a54c9475d272}{is\+Valid\+Metro\+Net()}, \char`\"{}\+The metronet must be valid\char`\"{}) 
+Functie wordt gebruikt om te checken hoeveel keer een bepaald station bezoekt werd door trammen. REQUIRE(this-\/$>$\mbox{\hyperlink{classMetroNet_ad7b306379f1788b660df08b9c6a0882f}{properly\+Initialized()}}, \char`\"{}\+The metro\+Net is not properly initialized\char`\"{}); \begin{DoxyPrecond}{Precondition}
+REQUIRE(\mbox{\hyperlink{classMetroNet_a30184ddce5ce01a1c365a54c9475d272}{is\+Valid\+Metro\+Net()}}, \char`\"{}\+The metronet must be valid\char`\"{}) REQUIRE(get\+Initialize\+Stat\+Called() == false, \char`\"{}\+This function must only be called once\char`\"{}); ENSURE(\mbox{\hyperlink{classMetroNet_a30184ddce5ce01a1c365a54c9475d272}{is\+Valid\+Metro\+Net()}}, \char`\"{}\+The metronet must still be valid\char`\"{}); 
 \end{DoxyPrecond}
-\Hypertarget{classMetroNet_a30184ddce5ce01a1c365a54c9475d272}\label{classMetroNet_a30184ddce5ce01a1c365a54c9475d272} 
+\mbox{\Hypertarget{classMetroNet_a30184ddce5ce01a1c365a54c9475d272}\label{classMetroNet_a30184ddce5ce01a1c365a54c9475d272}} 
 \index{MetroNet@{MetroNet}!isValidMetroNet@{isValidMetroNet}}
 \index{isValidMetroNet@{isValidMetroNet}!MetroNet@{MetroNet}}
 \doxysubsubsection{\texorpdfstring{isValidMetroNet()}{isValidMetroNet()}}
 {\footnotesize\ttfamily bool Metro\+Net\+::is\+Valid\+Metro\+Net (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Functie dat test ofdat de \doxylink{classMetroNet}{Metro\+Net} dat we maken wel degelijk een valid \doxylink{classMetroNet}{Metro\+Net} is. \begin{DoxyReturn}{Returns}
+Functie dat test ofdat de \mbox{\hyperlink{classMetroNet}{Metro\+Net}} dat we maken wel degelijk een valid \mbox{\hyperlink{classMetroNet}{Metro\+Net}} is. REQUIRE(this-\/$>$\mbox{\hyperlink{classMetroNet_ad7b306379f1788b660df08b9c6a0882f}{properly\+Initialized()}}, \char`\"{}\+The metro\+Net is not properly initialized\char`\"{}); REQUIRE(temp\+Stations\mbox{[}i\mbox{]}-\/$>$\mbox{\hyperlink{classMetroNet_ad7b306379f1788b660df08b9c6a0882f}{properly\+Initialized()}}, \char`\"{}\+A station of the metro\+Net is not properly initialized\char`\"{}); REQUIRE(temp\+Trams\mbox{[}i\mbox{]}-\/$>$\mbox{\hyperlink{classMetroNet_ad7b306379f1788b660df08b9c6a0882f}{properly\+Initialized()}}, \char`\"{}\+A tram of the metro\+Net is not properly initialized\char`\"{}); \begin{DoxyReturn}{Returns}
 true of false 
 \end{DoxyReturn}
-\Hypertarget{classMetroNet_a27b4fb44cdc49a61cbfa4c9090ad7fee}\label{classMetroNet_a27b4fb44cdc49a61cbfa4c9090ad7fee} 
+\mbox{\Hypertarget{classMetroNet_a27b4fb44cdc49a61cbfa4c9090ad7fee}\label{classMetroNet_a27b4fb44cdc49a61cbfa4c9090ad7fee}} 
 \index{MetroNet@{MetroNet}!moveAllTramsOnce@{moveAllTramsOnce}}
 \index{moveAllTramsOnce@{moveAllTramsOnce}!MetroNet@{MetroNet}}
 \doxysubsubsection{\texorpdfstring{moveAllTramsOnce()}{moveAllTramsOnce()}}
 {\footnotesize\ttfamily void Metro\+Net\+::move\+All\+Trams\+Once (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Functie dat alle trammen zal verplaatsen naar hun volgende station als dat mogelijk is. \begin{DoxyPrecond}{Precondition}
-REQUIRE(\doxylink{classMetroNet_a30184ddce5ce01a1c365a54c9475d272}{is\+Valid\+Metro\+Net()}, \char`\"{}\+Cannot move trams in a invalid metronet\char`\"{}) 
+Functie dat alle trammen zal verplaatsen naar hun volgende station als dat mogelijk is. REQUIRE(this-\/$>$\mbox{\hyperlink{classMetroNet_ad7b306379f1788b660df08b9c6a0882f}{properly\+Initialized()}}, \char`\"{}\+The metro\+Net is not properly initialized\char`\"{}); \begin{DoxyPrecond}{Precondition}
+REQUIRE(\mbox{\hyperlink{classMetroNet_a30184ddce5ce01a1c365a54c9475d272}{is\+Valid\+Metro\+Net()}}, \char`\"{}\+Cannot move trams in a invalid metronet\char`\"{}) 
 
-REQUIRE(!target\+Station\+Name.empty(), \char`\"{}\+Target\+Station\+Name cannot be empty to move Tram\char`\"{}) 
+REQUIRE(!target\+Station\+Name.empty(), \char`\"{}\+Target\+Station\+Name cannot be empty to move Tram\char`\"{}) ENSURE(\mbox{\hyperlink{classMetroNet_a30184ddce5ce01a1c365a54c9475d272}{is\+Valid\+Metro\+Net()}}, \char`\"{}\+The metronet must still be valid\char`\"{}); 
 \end{DoxyPrecond}
-\Hypertarget{classMetroNet_a7de603d7605925e78d33bc17811c637c}\label{classMetroNet_a7de603d7605925e78d33bc17811c637c} 
+\mbox{\Hypertarget{classMetroNet_addb119f0fd26bc2cdd976c228ede63d1}\label{classMetroNet_addb119f0fd26bc2cdd976c228ede63d1}} 
 \index{MetroNet@{MetroNet}!moveTram@{moveTram}}
 \index{moveTram@{moveTram}!MetroNet@{MetroNet}}
 \doxysubsubsection{\texorpdfstring{moveTram()}{moveTram()}}
-{\footnotesize\ttfamily bool Metro\+Net\+::move\+Tram (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTram}{Tram}} $\ast$}]{t,  }\item[{std\+::string \&}]{Target\+Station\+Name }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Metro\+Net\+::move\+Tram (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classTram}{Tram}} $\ast$}]{t,  }\item[{std\+::string}]{Target\+Station\+Name }\end{DoxyParamCaption})}
 
-Functie dat een tram van zijn huidige station gaat moven naar zijn volgende station. \begin{DoxyPrecond}{Precondition}
-REQUIRE(!a\+Tram\+At\+Station\+Spoor(target\+Station\+Name, tram-\/\texorpdfstring{$>$}{>}get\+Lijn\+Nr()),\char`\"{}\+There cannot be a tram at target\+Station Spoor\+Nr to move Tram!\char`\"{}) 
+Functie dat een tram van zijn huidige station gaat moven naar zijn volgende station. REQUIRE(this-\/$>$\mbox{\hyperlink{classMetroNet_ad7b306379f1788b660df08b9c6a0882f}{properly\+Initialized()}}, \char`\"{}\+The metro\+Net is not properly initialized\char`\"{}); \begin{DoxyPrecond}{Precondition}
+REQUIRE(!a\+Tram\+At\+Station\+Spoor(target\+Station\+Name, tram-\/$>$get\+Lijn\+Nr()),\char`\"{}\+There cannot be a tram at target\+Station Spoor\+Nr to move Tram!\char`\"{}) 
 \end{DoxyPrecond}
 
 \begin{DoxyParams}{Parameters}
-{\em t} & \doxylink{classTram}{Tram} dat we gaan moven \\
+{\em t} & \mbox{\hyperlink{classTram}{Tram}} dat we gaan moven \\
 \hline
-{\em Target\+Station\+Name} & \doxylink{classStation}{Station} waar we de tram naar willen verplaatsen. \\
+{\em Target\+Station\+Name} & \mbox{\hyperlink{classStation}{Station}} waar we de tram naar willen verplaatsen. \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
 true or false 
 \end{DoxyReturn}
-\Hypertarget{classMetroNet_ad7b306379f1788b660df08b9c6a0882f}\label{classMetroNet_ad7b306379f1788b660df08b9c6a0882f} 
+\mbox{\Hypertarget{classMetroNet_ad7b306379f1788b660df08b9c6a0882f}\label{classMetroNet_ad7b306379f1788b660df08b9c6a0882f}} 
 \index{MetroNet@{MetroNet}!properlyInitialized@{properlyInitialized}}
 \index{properlyInitialized@{properlyInitialized}!MetroNet@{MetroNet}}
 \doxysubsubsection{\texorpdfstring{properlyInitialized()}{properlyInitialized()}}
 {\footnotesize\ttfamily bool Metro\+Net\+::properly\+Initialized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Functie dat test ofdat \doxylink{classMetroNet}{Metro\+Net} correct geïnitialiseerd is. \begin{DoxyReturn}{Returns}
+Functie dat test ofdat \mbox{\hyperlink{classMetroNet}{Metro\+Net}} correct geïnitialiseerd is. \begin{DoxyReturn}{Returns}
 true of false als het correct geïnitialiseerd is of als het niet correct geïnitialiseerd is. 
 \end{DoxyReturn}
-\Hypertarget{classMetroNet_a671d06118b65d02e829d0748acbe184e}\label{classMetroNet_a671d06118b65d02e829d0748acbe184e} 
+\mbox{\Hypertarget{classMetroNet_a671d06118b65d02e829d0748acbe184e}\label{classMetroNet_a671d06118b65d02e829d0748acbe184e}} 
 \index{MetroNet@{MetroNet}!simulateMetroNet@{simulateMetroNet}}
 \index{simulateMetroNet@{simulateMetroNet}!MetroNet@{MetroNet}}
 \doxysubsubsection{\texorpdfstring{simulateMetroNet()}{simulateMetroNet()}}
 {\footnotesize\ttfamily void Metro\+Net\+::simulate\+Metro\+Net (\begin{DoxyParamCaption}\item[{int}]{seconds }\end{DoxyParamCaption})}
 
-Functie dat een \doxylink{classMetroNet}{Metro\+Net} zal simuleren. 
-\begin{DoxyParams}{Parameters}
-{\em seconds} & Hoe lang de simulatie zal runnen. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyAttention}{Attention}
+Functie dat een \mbox{\hyperlink{classMetroNet}{Metro\+Net}} zal simuleren. REQUIRE(\mbox{\hyperlink{classMetroNet_ad7b306379f1788b660df08b9c6a0882f}{properly\+Initialized()}}, \char`\"{}\+Metronet must be properly initialized\char`\"{}); REQUIRE(\mbox{\hyperlink{classMetroNet_a30184ddce5ce01a1c365a54c9475d272}{is\+Valid\+Metro\+Net()}}, \char`\"{}\+The metronet must be valid\char`\"{}); ENSURE(\mbox{\hyperlink{classMetroNet_a30184ddce5ce01a1c365a54c9475d272}{is\+Valid\+Metro\+Net()}}, \char`\"{}\+The metronet must still be valid\char`\"{}); \begin{DoxyAttention}{Attention}
 De simulatie maakt gebruik van ctime.\+h en diens ingebouwde functies om het verloop van een simulatie in computer tijd te kunnen runnen ipv in real time de simulatie te runnen. Deze functie roept de move\+All\+Trams\+Once methode op om elke tram te bewegen naar zijn volgende station. 
 \end{DoxyAttention}
-\Hypertarget{classMetroNet_a08e11b88658e8972c6121c5eb8c03671}\label{classMetroNet_a08e11b88658e8972c6121c5eb8c03671} 
+\mbox{\Hypertarget{classMetroNet_a08e11b88658e8972c6121c5eb8c03671}\label{classMetroNet_a08e11b88658e8972c6121c5eb8c03671}} 
 \index{MetroNet@{MetroNet}!stationRegistered@{stationRegistered}}
 \index{stationRegistered@{stationRegistered}!MetroNet@{MetroNet}}
 \doxysubsubsection{\texorpdfstring{stationRegistered()}{stationRegistered()}}
 {\footnotesize\ttfamily bool Metro\+Net\+::station\+Registered (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption}) const}
 
-Method station\+Registered die controleert dat station attribute \char`\"{}naam\char`\"{} correct ingelezen wordt. \begin{DoxyPrecond}{Precondition}
+Method station\+Registered die controleert dat station attribute \char`\"{}naam\char`\"{} correct ingelezen wordt. REQUIRE(\mbox{\hyperlink{classMetroNet_ad7b306379f1788b660df08b9c6a0882f}{properly\+Initialized()}}, \char`\"{}\+The metro\+Net is not properly initialized\char`\"{}); \begin{DoxyPrecond}{Precondition}
 REQUIRE(!(Utils\+::is\+\_\+int(name)), \char`\"{}\+The parameter name is a number\char`\"{}) 
 \end{DoxyPrecond}
 
@@ -315,7 +312,13 @@ REQUIRE(!(Utils\+::is\+\_\+int(name)), \char`\"{}\+The parameter name is a numbe
 \begin{DoxyReturn}{Returns}
 true of false afhankelijk ofdat het station correct werd ingelezen. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classMetroNet_adc20467d7001dcb0ad7c58614ba44dcc}\label{classMetroNet_adc20467d7001dcb0ad7c58614ba44dcc}} 
+\index{MetroNet@{MetroNet}!tramExists@{tramExists}}
+\index{tramExists@{tramExists}!MetroNet@{MetroNet}}
+\doxysubsubsection{\texorpdfstring{tramExists()}{tramExists()}}
+{\footnotesize\ttfamily bool Metro\+Net\+::tram\+Exists (\begin{DoxyParamCaption}\item[{int}]{voertuig\+Nr }\end{DoxyParamCaption})}
 
+Does tram with nr exist? REQUIRE(\mbox{\hyperlink{classMetroNet_ad7b306379f1788b660df08b9c6a0882f}{properly\+Initialized()}}, \char`\"{}\+The metro\+Net is not properly initialized\char`\"{}); 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

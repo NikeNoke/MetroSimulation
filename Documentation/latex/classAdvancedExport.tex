@@ -13,55 +13,46 @@ Inheritance diagram for Advanced\+Export\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-bool \mbox{\hyperlink{classAdvancedExport_a66e6afecc78afdb5e51f1bffb532f20a}{export\+File}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net, std\+::string path) const
+bool \mbox{\hyperlink{classAdvancedExport_aa30e74b9ca5d85c3a5d38b74dd8c4850}{export\+File}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net, const std\+::string \&path) const
 \item 
 int \mbox{\hyperlink{classAdvancedExport_accc4790320b9793cadc7861caab106d0}{index\+Volgende}} (std\+::vector$<$ \mbox{\hyperlink{classSpoor}{Spoor}} $\ast$ $>$ \&container, const std\+::string \&naam) const
-\end{DoxyCompactItemize}
-\begin{DoxyCompactItemize}
 \item 
-virtual bool \mbox{\hyperlink{classInterfaceExport_aa1e6e11fccfa82910fe69f85cb25cf57}{export\+File}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net, std\+::string path) const =0
+bool \mbox{\hyperlink{classAdvancedExport_a1893d9aebbc756cb3ca61321ac9917b4}{properly\+Initialized}} () const
+\item 
+\mbox{\hyperlink{classAdvancedExport_a755b37ec87c184b0a83d083edb1dcf0f}{Advanced\+Export}} ()
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Klasse \doxylink{classAdvancedExport}{Advanced\+Export} dat overerft van \doxylink{classInterfaceExport}{Interface\+Export}. Zorgt ervoor dat we files kunnen creëren met een advanced path. 
+Klasse \mbox{\hyperlink{classAdvancedExport}{Advanced\+Export}} dat overerft van \mbox{\hyperlink{classInterfaceExport}{Interface\+Export}}. Zorgt ervoor dat we files kunnen creëren met een advanced path. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAdvancedExport_a755b37ec87c184b0a83d083edb1dcf0f}\label{classAdvancedExport_a755b37ec87c184b0a83d083edb1dcf0f}} 
+\index{AdvancedExport@{AdvancedExport}!AdvancedExport@{AdvancedExport}}
+\index{AdvancedExport@{AdvancedExport}!AdvancedExport@{AdvancedExport}}
+\doxysubsubsection{\texorpdfstring{AdvancedExport()}{AdvancedExport()}}
+{\footnotesize\ttfamily Advanced\+Export\+::\+Advanced\+Export (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+ENSURE(\mbox{\hyperlink{classAdvancedExport_a1893d9aebbc756cb3ca61321ac9917b4}{properly\+Initialized()}} == true, \char`\"{}\+Advanced exporter was not initialized properly\char`\"{}); 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classAdvancedExport_a66e6afecc78afdb5e51f1bffb532f20a}\label{classAdvancedExport_a66e6afecc78afdb5e51f1bffb532f20a} 
+\mbox{\Hypertarget{classAdvancedExport_aa30e74b9ca5d85c3a5d38b74dd8c4850}\label{classAdvancedExport_aa30e74b9ca5d85c3a5d38b74dd8c4850}} 
 \index{AdvancedExport@{AdvancedExport}!exportFile@{exportFile}}
 \index{exportFile@{exportFile}!AdvancedExport@{AdvancedExport}}
 \doxysubsubsection{\texorpdfstring{exportFile()}{exportFile()}}
-{\footnotesize\ttfamily bool Advanced\+Export\+::export\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net,  }\item[{std\+::string}]{path }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily bool Advanced\+Export\+::export\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net,  }\item[{const std\+::string \&}]{path }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
 
-Methode om een metro\+Net te exporteren naar een file. \begin{DoxyPrecond}{Precondition}
-REQUIRE(metro\+Net.\+properly\+Initialized(), \char`\"{}\+The metro\+Net is not properly initialized\char`\"{}) 
+Methode om een metro\+Net te exporteren naar een file. REQUIRE(metro\+Net.\+properly\+Initialized(), \char`\"{}\+The metro\+Net is not properly initialized\char`\"{}); REQUIRE(!path.empty(), \char`\"{}\+Path to write is empty\char`\"{}); REQUIRE(\mbox{\hyperlink{classAdvancedExport_a1893d9aebbc756cb3ca61321ac9917b4}{properly\+Initialized()}}, \char`\"{}\+Advanced exporter is not properly initialized\char`\"{}); ENSURE(Utils\+::file\+Exists(path), \char`\"{}\+The file was not even created!\char`\"{}); 
 
-REQUIRE(!path.empty(), \char`\"{}\+Path to write is empty\char`\"{}) 
-\end{DoxyPrecond}
-\begin{DoxyPostcond}{Postcondition}
-ENSURE(Utils\+::file\+Exists(path), \char`\"{}\+The file was not even created!\char`\"{}) 
-\end{DoxyPostcond}
+Implements \mbox{\hyperlink{classInterfaceExport_a8f57b768d22377effe64fffd90aa4bab}{Interface\+Export}}.
 
-\begin{DoxyParams}{Parameters}
-{\em metro\+Net} & Het metro\+Net dat geëxporteerd zal zijn. \\
-\hline
-{\em path} & van de file. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-true or false 
-\end{DoxyReturn}
-
-
-Implements \mbox{\hyperlink{classInterfaceExport_aa1e6e11fccfa82910fe69f85cb25cf57}{Interface\+Export}}.
-
-\Hypertarget{classAdvancedExport_accc4790320b9793cadc7861caab106d0}\label{classAdvancedExport_accc4790320b9793cadc7861caab106d0} 
+\mbox{\Hypertarget{classAdvancedExport_accc4790320b9793cadc7861caab106d0}\label{classAdvancedExport_accc4790320b9793cadc7861caab106d0}} 
 \index{AdvancedExport@{AdvancedExport}!indexVolgende@{indexVolgende}}
 \index{indexVolgende@{indexVolgende}!AdvancedExport@{AdvancedExport}}
 \doxysubsubsection{\texorpdfstring{indexVolgende()}{indexVolgende()}}
 {\footnotesize\ttfamily int Advanced\+Export\+::index\+Volgende (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{classSpoor}{Spoor}} $\ast$ $>$ \&}]{container,  }\item[{const std\+::string \&}]{naam }\end{DoxyParamCaption}) const}
 
-Helperfunctie om een index van het volgende spoor. 
+Helperfunctie om een index van het volgende spoor. REQUIRE(\mbox{\hyperlink{classAdvancedExport_a1893d9aebbc756cb3ca61321ac9917b4}{properly\+Initialized()}}, \char`\"{}\+Advanced Export is not properly initialized\char`\"{}); 
 \begin{DoxyParams}{Parameters}
 {\em container} & De vector waarin alle sporen zijn gelegen. \\
 \hline
@@ -71,7 +62,13 @@ Helperfunctie om een index van het volgende spoor.
 \begin{DoxyReturn}{Returns}
 Index van het spoor of default -\/1 als er iets mis gaat. 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classAdvancedExport_a1893d9aebbc756cb3ca61321ac9917b4}\label{classAdvancedExport_a1893d9aebbc756cb3ca61321ac9917b4}} 
+\index{AdvancedExport@{AdvancedExport}!properlyInitialized@{properlyInitialized}}
+\index{properlyInitialized@{properlyInitialized}!AdvancedExport@{AdvancedExport}}
+\doxysubsubsection{\texorpdfstring{properlyInitialized()}{properlyInitialized()}}
+{\footnotesize\ttfamily bool Advanced\+Export\+::properly\+Initialized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
+Properly initialized? 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

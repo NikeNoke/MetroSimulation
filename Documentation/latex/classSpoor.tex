@@ -9,7 +9,9 @@
 \item 
 \mbox{\hyperlink{classSpoor_a64778a4094d2d9cd3a08cbbef5a11787}{Spoor}} ()
 \item 
-bool \mbox{\hyperlink{classSpoor_a31982084b33e5946f1e15844b084f62f}{properly\+Initialized}} ()
+\mbox{\hyperlink{classSpoor_aaf3f431db4f7c737a17aa19c5e29993a}{Spoor}} (const std\+::string vorige, const std\+::string volgende, int spoor\+Nr)
+\item 
+bool \mbox{\hyperlink{classSpoor_a786099b5309335a47e1010e61d62a500}{properly\+Initialized}} () const
 \item 
 void \mbox{\hyperlink{classSpoor_a476ce74960eafa843c36648f28bbca19}{set\+Volgende}} (std\+::string v)
 \item 
@@ -32,31 +34,55 @@ bool \mbox{\hyperlink{classSpoor_a8f69c594eebdc5104804d4f348ed3943}{connected\+T
 
 
 \doxysubsection{Detailed Description}
-Klasse \doxylink{classSpoor}{Spoor}. Een spoor maakt deel uit van een station. Een station kan meerdere sporen hebben waarmee we meerdere lijnen kunnen hebben die door één station komen. Dit zijn de sporen. 
+Klasse \mbox{\hyperlink{classSpoor}{Spoor}}. Een spoor maakt deel uit van een station. Een station kan meerdere sporen hebben waarmee we meerdere lijnen kunnen hebben die door één station komen. Dit zijn de sporen. 
 
 \doxysubsection{Constructor \& Destructor Documentation}
-\Hypertarget{classSpoor_a64778a4094d2d9cd3a08cbbef5a11787}\label{classSpoor_a64778a4094d2d9cd3a08cbbef5a11787} 
+\mbox{\Hypertarget{classSpoor_a64778a4094d2d9cd3a08cbbef5a11787}\label{classSpoor_a64778a4094d2d9cd3a08cbbef5a11787}} 
 \index{Spoor@{Spoor}!Spoor@{Spoor}}
 \index{Spoor@{Spoor}!Spoor@{Spoor}}
-\doxysubsubsection{\texorpdfstring{Spoor()}{Spoor()}}
+\doxysubsubsection{\texorpdfstring{Spoor()}{Spoor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily Spoor\+::\+Spoor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Default constructor van een \doxylink{classSpoor}{Spoor} object. \begin{DoxyPostcond}{Postcondition}
-ENSURE(\doxylink{classSpoor_a31982084b33e5946f1e15844b084f62f}{properly\+Initialized()}, \char`\"{}\+The Spoor has not been properly initialized\char`\"{}) 
+Default constructor van een \mbox{\hyperlink{classSpoor}{Spoor}} object. \begin{DoxyPostcond}{Postcondition}
+ENSURE(\mbox{\hyperlink{classSpoor_a786099b5309335a47e1010e61d62a500}{properly\+Initialized()}}, \char`\"{}\+The Spoor has not been properly initialized\char`\"{}) 
 \end{DoxyPostcond}
 \begin{DoxyReturn}{Returns}
-\doxylink{classSpoor}{Spoor} object 
+\mbox{\hyperlink{classSpoor}{Spoor}} object 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classSpoor_aaf3f431db4f7c737a17aa19c5e29993a}\label{classSpoor_aaf3f431db4f7c737a17aa19c5e29993a}} 
+\index{Spoor@{Spoor}!Spoor@{Spoor}}
+\index{Spoor@{Spoor}!Spoor@{Spoor}}
+\doxysubsubsection{\texorpdfstring{Spoor()}{Spoor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Spoor\+::\+Spoor (\begin{DoxyParamCaption}\item[{const std\+::string}]{vorige,  }\item[{const std\+::string}]{volgende,  }\item[{int}]{spoor\+Nr }\end{DoxyParamCaption})}
+
+Constructor met gegeven attributes. \begin{DoxyPostcond}{Postcondition}
+ENSURE(\mbox{\hyperlink{classSpoor_a786099b5309335a47e1010e61d62a500}{properly\+Initialized()}}, \char`\"{}\+The Spoor has not been properly initialized\char`\"{}) 
+\end{DoxyPostcond}
+
+\begin{DoxyParams}{Parameters}
+{\em vorige} & station op deze spoor \\
+\hline
+{\em volgende} & station op deze spoor \\
+\hline
+{\em spoor\+Nr} & nummer van de spoor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{classSpoor}{Spoor}} object 
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Deze constructor wordt vooral gebruikt bij het testen ipv bij het runnen. Dit is omdat we al een vaste parser hebben die werkt met een default constructor. 
+\end{DoxyNote}
 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classSpoor_a8f69c594eebdc5104804d4f348ed3943}\label{classSpoor_a8f69c594eebdc5104804d4f348ed3943} 
+\mbox{\Hypertarget{classSpoor_a8f69c594eebdc5104804d4f348ed3943}\label{classSpoor_a8f69c594eebdc5104804d4f348ed3943}} 
 \index{Spoor@{Spoor}!connectedToStation@{connectedToStation}}
 \index{connectedToStation@{connectedToStation}!Spoor@{Spoor}}
 \doxysubsubsection{\texorpdfstring{connectedToStation()}{connectedToStation()}}
 {\footnotesize\ttfamily bool Spoor\+::connected\+To\+Station (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{station\+Name }\end{DoxyParamCaption}) const}
 
-Functie dat controleerd ofdat een bepaald station verbonden is met een andere station op het \doxylink{classMetroNet}{Metro\+Net}. 
+Functie dat controleerd ofdat een bepaald station verbonden is met een andere station op het \mbox{\hyperlink{classMetroNet}{Metro\+Net}}. REQUIRE(\mbox{\hyperlink{classSpoor_a786099b5309335a47e1010e61d62a500}{properly\+Initialized()}}, \char`\"{}\+The spoor is not properly initialized\char`\"{}); 
 \begin{DoxyParams}{Parameters}
 {\em station\+Name} & \\
 \hline
@@ -64,104 +90,104 @@ Functie dat controleerd ofdat een bepaald station verbonden is met een andere st
 \begin{DoxyReturn}{Returns}
 true or false 
 \end{DoxyReturn}
-\Hypertarget{classSpoor_a9559bb1ddbf24caed665a49c2ea658c1}\label{classSpoor_a9559bb1ddbf24caed665a49c2ea658c1} 
+\mbox{\Hypertarget{classSpoor_a9559bb1ddbf24caed665a49c2ea658c1}\label{classSpoor_a9559bb1ddbf24caed665a49c2ea658c1}} 
 \index{Spoor@{Spoor}!getHuiding@{getHuiding}}
 \index{getHuiding@{getHuiding}!Spoor@{Spoor}}
 \doxysubsubsection{\texorpdfstring{getHuiding()}{getHuiding()}}
 {\footnotesize\ttfamily std\+::string Spoor\+::get\+Huiding (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Getter functie dat de huidige station teruggeeft. \begin{DoxyReturn}{Returns}
+Getter functie dat de huidige station teruggeeft. REQUIRE(\mbox{\hyperlink{classSpoor_a786099b5309335a47e1010e61d62a500}{properly\+Initialized()}}, \char`\"{}\+The spoor is not properly initialized\char`\"{}); \begin{DoxyReturn}{Returns}
 huidig station 
 \end{DoxyReturn}
-\Hypertarget{classSpoor_af9f96177f03686e49ff18bda3758f0b1}\label{classSpoor_af9f96177f03686e49ff18bda3758f0b1} 
+\mbox{\Hypertarget{classSpoor_af9f96177f03686e49ff18bda3758f0b1}\label{classSpoor_af9f96177f03686e49ff18bda3758f0b1}} 
 \index{Spoor@{Spoor}!getSpoorNr@{getSpoorNr}}
 \index{getSpoorNr@{getSpoorNr}!Spoor@{Spoor}}
 \doxysubsubsection{\texorpdfstring{getSpoorNr()}{getSpoorNr()}}
 {\footnotesize\ttfamily int Spoor\+::get\+Spoor\+Nr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Getter functie dat het spoor\+Nr van de spoor teruggeeft. \begin{DoxyReturn}{Returns}
+Getter functie dat het spoor\+Nr van de spoor teruggeeft. REQUIRE(\mbox{\hyperlink{classSpoor_a786099b5309335a47e1010e61d62a500}{properly\+Initialized()}}, \char`\"{}\+The spoor is not properly initialized\char`\"{}); \begin{DoxyReturn}{Returns}
 spoor\+Nr 
 \end{DoxyReturn}
-\Hypertarget{classSpoor_a36fd88cce3079d8dac441be67a1bee45}\label{classSpoor_a36fd88cce3079d8dac441be67a1bee45} 
+\mbox{\Hypertarget{classSpoor_a36fd88cce3079d8dac441be67a1bee45}\label{classSpoor_a36fd88cce3079d8dac441be67a1bee45}} 
 \index{Spoor@{Spoor}!getVolgende@{getVolgende}}
 \index{getVolgende@{getVolgende}!Spoor@{Spoor}}
 \doxysubsubsection{\texorpdfstring{getVolgende()}{getVolgende()}}
 {\footnotesize\ttfamily std\+::string Spoor\+::get\+Volgende (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Getter functie dat de naam van het volgende station teruggeeft. \begin{DoxyReturn}{Returns}
+Getter functie dat de naam van het volgende station teruggeeft. REQUIRE(\mbox{\hyperlink{classSpoor_a786099b5309335a47e1010e61d62a500}{properly\+Initialized()}}, \char`\"{}\+The spoor is not properly initialized\char`\"{}); \begin{DoxyReturn}{Returns}
 De naam van het volgende station. 
 \end{DoxyReturn}
-\Hypertarget{classSpoor_a8dca8a071a3b5abf60d3f8ce86693a2f}\label{classSpoor_a8dca8a071a3b5abf60d3f8ce86693a2f} 
+\mbox{\Hypertarget{classSpoor_a8dca8a071a3b5abf60d3f8ce86693a2f}\label{classSpoor_a8dca8a071a3b5abf60d3f8ce86693a2f}} 
 \index{Spoor@{Spoor}!getVorige@{getVorige}}
 \index{getVorige@{getVorige}!Spoor@{Spoor}}
 \doxysubsubsection{\texorpdfstring{getVorige()}{getVorige()}}
 {\footnotesize\ttfamily std\+::string Spoor\+::get\+Vorige (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
-Getter functie dat de naam van het vorige station teruggeeft. \begin{DoxyReturn}{Returns}
+Getter functie dat de naam van het vorige station teruggeeft. REQUIRE(\mbox{\hyperlink{classSpoor_a786099b5309335a47e1010e61d62a500}{properly\+Initialized()}}, \char`\"{}\+The spoor is not properly initialized\char`\"{}); \begin{DoxyReturn}{Returns}
 De naam van het vorige station. 
 \end{DoxyReturn}
-\Hypertarget{classSpoor_a31982084b33e5946f1e15844b084f62f}\label{classSpoor_a31982084b33e5946f1e15844b084f62f} 
+\mbox{\Hypertarget{classSpoor_a786099b5309335a47e1010e61d62a500}\label{classSpoor_a786099b5309335a47e1010e61d62a500}} 
 \index{Spoor@{Spoor}!properlyInitialized@{properlyInitialized}}
 \index{properlyInitialized@{properlyInitialized}!Spoor@{Spoor}}
 \doxysubsubsection{\texorpdfstring{properlyInitialized()}{properlyInitialized()}}
-{\footnotesize\ttfamily bool Spoor\+::properly\+Initialized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Spoor\+::properly\+Initialized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
 Controleert ofdat het spoor correct is geïnitialiseerd. \begin{DoxyReturn}{Returns}
 true of false 
 \end{DoxyReturn}
-\Hypertarget{classSpoor_a7ef9bb19df9b325163e8744983646e8c}\label{classSpoor_a7ef9bb19df9b325163e8744983646e8c} 
+\mbox{\Hypertarget{classSpoor_a7ef9bb19df9b325163e8744983646e8c}\label{classSpoor_a7ef9bb19df9b325163e8744983646e8c}} 
 \index{Spoor@{Spoor}!setHuidig@{setHuidig}}
 \index{setHuidig@{setHuidig}!Spoor@{Spoor}}
 \doxysubsubsection{\texorpdfstring{setHuidig()}{setHuidig()}}
 {\footnotesize\ttfamily void Spoor\+::set\+Huidig (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{h }\end{DoxyParamCaption})}
 
-Setter functie dat de naam van het huidige station set. 
+Setter functie dat de naam van het huidige station set. REQUIRE(\mbox{\hyperlink{classSpoor_a786099b5309335a47e1010e61d62a500}{properly\+Initialized()}}, \char`\"{}\+The spoor is not properly initialized\char`\"{}); ENSURE(\mbox{\hyperlink{classSpoor_a9559bb1ddbf24caed665a49c2ea658c1}{get\+Huiding()}} == h, \char`\"{}\+Not set properly\char`\"{}); 
 \begin{DoxyParams}{Parameters}
 {\em h} & naam van het huidig station \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classSpoor_a64aab85964cb95637425812d32906ee4}\label{classSpoor_a64aab85964cb95637425812d32906ee4} 
+\mbox{\Hypertarget{classSpoor_a64aab85964cb95637425812d32906ee4}\label{classSpoor_a64aab85964cb95637425812d32906ee4}} 
 \index{Spoor@{Spoor}!setSpoorNr@{setSpoorNr}}
 \index{setSpoorNr@{setSpoorNr}!Spoor@{Spoor}}
 \doxysubsubsection{\texorpdfstring{setSpoorNr()}{setSpoorNr()}}
 {\footnotesize\ttfamily void Spoor\+::set\+Spoor\+Nr (\begin{DoxyParamCaption}\item[{int}]{s }\end{DoxyParamCaption})}
 
-Set het spoornummer van het station. \begin{DoxyPostcond}{Postcondition}
-ENSURE(\doxylink{classSpoor_af9f96177f03686e49ff18bda3758f0b1}{get\+Spoor\+Nr()} == s, \char`\"{}\+The member variable spoor\+Nr has not been properly initialized\char`\"{}) 
+Set het spoornummer van het station. REQUIRE(\mbox{\hyperlink{classSpoor_a786099b5309335a47e1010e61d62a500}{properly\+Initialized()}}, \char`\"{}\+The spoor is not properly initialized\char`\"{}); \begin{DoxyPostcond}{Postcondition}
+ENSURE(\mbox{\hyperlink{classSpoor_af9f96177f03686e49ff18bda3758f0b1}{get\+Spoor\+Nr()}} == s, \char`\"{}\+The member variable spoor\+Nr has not been properly initialized\char`\"{}) 
 \end{DoxyPostcond}
 
 \begin{DoxyParams}{Parameters}
 {\em s} & Spoornummer waar het station deel van is. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classSpoor_a476ce74960eafa843c36648f28bbca19}\label{classSpoor_a476ce74960eafa843c36648f28bbca19} 
+\mbox{\Hypertarget{classSpoor_a476ce74960eafa843c36648f28bbca19}\label{classSpoor_a476ce74960eafa843c36648f28bbca19}} 
 \index{Spoor@{Spoor}!setVolgende@{setVolgende}}
 \index{setVolgende@{setVolgende}!Spoor@{Spoor}}
 \doxysubsubsection{\texorpdfstring{setVolgende()}{setVolgende()}}
 {\footnotesize\ttfamily void Spoor\+::set\+Volgende (\begin{DoxyParamCaption}\item[{std\+::string}]{v }\end{DoxyParamCaption})}
 
-Setter functie dat de naam van het volgende station set. \begin{DoxyPrecond}{Precondition}
+Setter functie dat de naam van het volgende station set. REQUIRE(\mbox{\hyperlink{classSpoor_a786099b5309335a47e1010e61d62a500}{properly\+Initialized()}}, \char`\"{}\+The spoor is not properly initialized\char`\"{}); \begin{DoxyPrecond}{Precondition}
 REQUIRE(!(Utils\+::is\+\_\+int(v)), \char`\"{}\+The parameter volgende is a number\char`\"{}) 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-ENSURE(\doxylink{classSpoor_a36fd88cce3079d8dac441be67a1bee45}{get\+Volgende()} == v, \char`\"{}\+The member variable volgende has not been properly initialized\char`\"{}) 
+ENSURE(\mbox{\hyperlink{classSpoor_a36fd88cce3079d8dac441be67a1bee45}{get\+Volgende()}} == v, \char`\"{}\+The member variable volgende has not been properly initialized\char`\"{}) 
 \end{DoxyPostcond}
 
 \begin{DoxyParams}{Parameters}
 {\em v} & Naam van het volgende station. \\
 \hline
 \end{DoxyParams}
-\Hypertarget{classSpoor_a0c93bf01e0b5624cb589fedd69f1217d}\label{classSpoor_a0c93bf01e0b5624cb589fedd69f1217d} 
+\mbox{\Hypertarget{classSpoor_a0c93bf01e0b5624cb589fedd69f1217d}\label{classSpoor_a0c93bf01e0b5624cb589fedd69f1217d}} 
 \index{Spoor@{Spoor}!setVorige@{setVorige}}
 \index{setVorige@{setVorige}!Spoor@{Spoor}}
 \doxysubsubsection{\texorpdfstring{setVorige()}{setVorige()}}
 {\footnotesize\ttfamily void Spoor\+::set\+Vorige (\begin{DoxyParamCaption}\item[{std\+::string}]{v }\end{DoxyParamCaption})}
 
-Setter functie dat de naam van het vorige station set. \begin{DoxyPrecond}{Precondition}
+Setter functie dat de naam van het vorige station set. REQUIRE(\mbox{\hyperlink{classSpoor_a786099b5309335a47e1010e61d62a500}{properly\+Initialized()}}, \char`\"{}\+The spoor is not properly initialized\char`\"{}); \begin{DoxyPrecond}{Precondition}
 REQUIRE(!(Utils\+::is\+\_\+int(v)), \char`\"{}\+The parameter vorige is a number\char`\"{}) 
 \end{DoxyPrecond}
 \begin{DoxyPostcond}{Postcondition}
-ENSURE(\doxylink{classSpoor_a8dca8a071a3b5abf60d3f8ce86693a2f}{get\+Vorige()} == v, \char`\"{}\+The member variable vorige has not been properly initialized\char`\"{}) 
+ENSURE(\mbox{\hyperlink{classSpoor_a8dca8a071a3b5abf60d3f8ce86693a2f}{get\+Vorige()}} == v, \char`\"{}\+The member variable vorige has not been properly initialized\char`\"{}) 
 \end{DoxyPostcond}
 
 \begin{DoxyParams}{Parameters}

@@ -13,47 +13,47 @@ Inheritance diagram for Simple\+Export\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-bool \mbox{\hyperlink{classSimpleExport_afdf7f4fd60b6473f5e3f146b7fcad1cb}{export\+File}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net, std\+::string path) const
-\end{DoxyCompactItemize}
-\begin{DoxyCompactItemize}
+bool \mbox{\hyperlink{classSimpleExport_ab2b17cdd34583fd587ed39627979a697}{export\+File}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net, const std\+::string \&path) const
 \item 
-virtual bool \mbox{\hyperlink{classInterfaceExport_aa1e6e11fccfa82910fe69f85cb25cf57}{export\+File}} (\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&metro\+Net, std\+::string path) const =0
+bool \mbox{\hyperlink{classSimpleExport_a612c2b7889fd18cb47ff1ddc1b577f78}{properly\+Initialized}} () const
+\item 
+\mbox{\hyperlink{classSimpleExport_a5a1982c2935db34f48f8d0ccb13c9e4e}{Simple\+Export}} ()
 \end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
-Klasse \doxylink{classSimpleExport}{Simple\+Export} dat van \doxylink{classInterfaceExport}{Interface\+Export} overerft. 
+Klasse \mbox{\hyperlink{classSimpleExport}{Simple\+Export}} dat van \mbox{\hyperlink{classInterfaceExport}{Interface\+Export}} overerft. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSimpleExport_a5a1982c2935db34f48f8d0ccb13c9e4e}\label{classSimpleExport_a5a1982c2935db34f48f8d0ccb13c9e4e}} 
+\index{SimpleExport@{SimpleExport}!SimpleExport@{SimpleExport}}
+\index{SimpleExport@{SimpleExport}!SimpleExport@{SimpleExport}}
+\doxysubsubsection{\texorpdfstring{SimpleExport()}{SimpleExport()}}
+{\footnotesize\ttfamily Simple\+Export\+::\+Simple\+Export (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+ENSURE(\mbox{\hyperlink{classSimpleExport_a612c2b7889fd18cb47ff1ddc1b577f78}{properly\+Initialized()}} == true, \char`\"{}\+Simple exporter was not initialized properly\char`\"{}); 
 
 \doxysubsection{Member Function Documentation}
-\Hypertarget{classSimpleExport_afdf7f4fd60b6473f5e3f146b7fcad1cb}\label{classSimpleExport_afdf7f4fd60b6473f5e3f146b7fcad1cb} 
+\mbox{\Hypertarget{classSimpleExport_ab2b17cdd34583fd587ed39627979a697}\label{classSimpleExport_ab2b17cdd34583fd587ed39627979a697}} 
 \index{SimpleExport@{SimpleExport}!exportFile@{exportFile}}
 \index{exportFile@{exportFile}!SimpleExport@{SimpleExport}}
 \doxysubsubsection{\texorpdfstring{exportFile()}{exportFile()}}
-{\footnotesize\ttfamily bool Simple\+Export\+::export\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net,  }\item[{std\+::string}]{path }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+{\footnotesize\ttfamily bool Simple\+Export\+::export\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMetroNet}{Metro\+Net}} \&}]{metro\+Net,  }\item[{const std\+::string \&}]{path }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
 
-Methode om een metro\+Net te exporteren naar een file. \begin{DoxyPrecond}{Precondition}
-REQUIRE(metro\+Net.\+properly\+Initialized(), \char`\"{}\+The metro\+Net is not properly initialized\char`\"{}) 
-
-REQUIRE(!path.empty(), \char`\"{}\+Path to write is empty\char`\"{}) 
-\end{DoxyPrecond}
-\begin{DoxyPostcond}{Postcondition}
-ENSURE(Utils\+::file\+Exists(path), \char`\"{}\+The file was not even created!\char`\"{}) 
-\end{DoxyPostcond}
-
-\begin{DoxyParams}{Parameters}
-{\em metro\+Net} & Het metro\+Net dat geëxporteerd zal zijn. \\
-\hline
-{\em path} & van de file. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
+Methode om een metro\+Net te exporteren naar een file. REQUIRE(metro\+Net.\+properly\+Initialized(), \char`\"{}\+The metro\+Net is not properly initialized\char`\"{}); REQUIRE(\mbox{\hyperlink{classSimpleExport_a612c2b7889fd18cb47ff1ddc1b577f78}{properly\+Initialized()}}, \char`\"{}\+This simple exporter isn ot properly initialized\char`\"{}); REQUIRE(!path.empty(), \char`\"{}\+Path to write is empty\char`\"{}); ENSURE(Utils\+::file\+Exists(path), \char`\"{}\+The file was not even created!\char`\"{}); \begin{DoxyReturn}{Returns}
 true or false 
 \end{DoxyReturn}
 
 
-Implements \mbox{\hyperlink{classInterfaceExport_aa1e6e11fccfa82910fe69f85cb25cf57}{Interface\+Export}}.
+Implements \mbox{\hyperlink{classInterfaceExport_a8f57b768d22377effe64fffd90aa4bab}{Interface\+Export}}.
 
+\mbox{\Hypertarget{classSimpleExport_a612c2b7889fd18cb47ff1ddc1b577f78}\label{classSimpleExport_a612c2b7889fd18cb47ff1ddc1b577f78}} 
+\index{SimpleExport@{SimpleExport}!properlyInitialized@{properlyInitialized}}
+\index{properlyInitialized@{properlyInitialized}!SimpleExport@{SimpleExport}}
+\doxysubsubsection{\texorpdfstring{properlyInitialized()}{properlyInitialized()}}
+{\footnotesize\ttfamily bool Simple\+Export\+::properly\+Initialized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
 
+Properly initialized? 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
